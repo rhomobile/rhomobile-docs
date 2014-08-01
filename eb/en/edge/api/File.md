@@ -13,7 +13,7 @@ If you wish to minimize the amount of JavaScript being included, you can choose 
 ex:
 
 * ebapi.js - core APIs needed 
-* eb.rhofile.js - just the Fle API
+* eb.rhofile.js - just the File API
 * other individual JavaScript files included with the Enterprise Browser installation
 
         
@@ -24,18 +24,23 @@ ex:
 
 
 ### basename(<span class="text-info">STRING</span> path)
-Return basename part for the specified path. Will remove any prefix up to the last path separator ('/' or '\' depending on platform). Example: for path '/full/path/to/file.ext' basename will return 'file.ext'. 
+<p>Return basename part for the specified path. Will remove any prefix up to the last path separator (&lsquo;/&rsquo; or &lsquo;\&rsquo; depending on platform). Example: for path &lsquo;/full/path/to/file.ext&rsquo; basename will return &lsquo;file.ext&rsquo;.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path for which basename is given. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path for which basename is given.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-Basename part for the given path.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>Basename part for the given path.</p>
+
 
 ####Platforms
 
@@ -43,16 +48,22 @@ Basename part for the given path.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.basename(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.basename(<span class="text-info">STRING</span> path)</code> 
+
 
 ### <span class="label label-inverse"> Destructor</span> close()
-Closes file.
+<p>Closes file.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -60,22 +71,31 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
+
+* Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. 
+	* <code>myObj.close()</code>
+
 
 ### copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)
-Copies file from "from" (source) to "to" (destination).
+<p>Copies file from &ldquo;from&rdquo; (source) to &ldquo;to&rdquo; (destination).</p>
+
 
 ####Parameters
 <ul><li>from : <span class='text-info'>STRING</span><p>
-File name to be copied. </p></li><li>to : <span class='text-info'>STRING</span><p>
-Destination path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>File name to be copied.</p>
+ </p></li><li>to : <span class='text-info'>STRING</span><p>
+<p>Destination path.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-Error code raised during copy operation. 0 if no error.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>Error code raised during copy operation. 0 if no error.</p>
+
 
 ####Platforms
 
@@ -83,21 +103,29 @@ Error code raised during copy operation. 0 if no error.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> 
+
 
 ### deleteDir(<span class="text-info">STRING</span> path)
-Deletes specified directory. The specified directory must be empty to be deleted.
+<p>Deletes specified directory. The specified directory must be empty to be deleted.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the directory to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to the directory to be deleted.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-Error code raised on directory deletion. 0 on success, -1 otherwise.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>Error code raised on directory deletion. 0 on success, -1 otherwise.</p>
+
 
 ####Platforms
 
@@ -105,21 +133,29 @@ Error code raised on directory deletion. 0 on success, -1 otherwise.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.deleteDir(<span class="text-info">STRING</span> path)</code> 
+
 
 ### deleteFile(<span class="text-info">STRING</span> path)
-Deletes file.
+<p>Deletes file.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the file to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to the file to be deleted.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-Error code raised on file deletion. 0 on success, -1 otherwise.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>Error code raised on file deletion. 0 on success, -1 otherwise.</p>
+
 
 ####Platforms
 
@@ -127,18 +163,26 @@ Error code raised on file deletion. 0 on success, -1 otherwise.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.deleteFile(<span class="text-info">STRING</span> path)</code> 
+
 
 ### deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)
-Deletes all directory contents.
+<p>Deletes all directory contents.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the directory. </p></li><li>leaveRoot : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>
-Set to true if you only want to delete directory contents, but no the directory itself. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to the directory.</p>
+ </p></li><li>leaveRoot : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>
+<p>Set to true if you only want to delete directory contents, but no the directory itself.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -146,21 +190,29 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</code> 
+
 
 ### dirname(<span class="text-info">STRING</span> path)
-Returns directory name part of the specified path.
+<p>Returns directory name part of the specified path.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to directory.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-Directory name.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>Directory name.</p>
+
 
 ####Platforms
 
@@ -168,21 +220,29 @@ Directory name.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.dirname(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.dirname(<span class="text-info">STRING</span> path)</code> 
+
 
 ### exists(<span class="text-info">STRING</span> path)
-Checks if specified path exists.
+<p>Checks if specified path exists.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to file or directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to file or directory.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>BOOLEAN : 
-True if path exists, otherwise false.</li></ul>
+Synchronous Return:
+
+* BOOLEAN : 
+<p>True if path exists, otherwise false.</p>
+
 
 ####Platforms
 
@@ -190,16 +250,22 @@ True if path exists, otherwise false.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.exists(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.exists(<span class="text-info">STRING</span> path)</code> 
+
 
 ### flush()
-Flushes all buffered data to the storage media.
+<p>Flushes all buffered data to the storage media.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -207,21 +273,28 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.flush()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.flush()</code>
 
 ### getFileSize(<span class="text-info">STRING</span> path)
-Returns size of the file.
+<p>Returns size of the file.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to the file.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-File size in bytes.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>File size in bytes.</p>
+
 
 ####Platforms
 
@@ -229,21 +302,29 @@ File size in bytes.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.getFileSize(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.getFileSize(<span class="text-info">STRING</span> path)</code> 
+
 
 ### isDir(<span class="text-info">STRING</span> path)
-Checks if specified path is a directory.
+<p>Checks if specified path is a directory.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path of the directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path of the directory.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>BOOLEAN : 
-True if path is a directory. False otherwise.</li></ul>
+Synchronous Return:
+
+* BOOLEAN : 
+<p>True if path is a directory. False otherwise.</p>
+
 
 ####Platforms
 
@@ -251,21 +332,29 @@ True if path is a directory. False otherwise.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.isDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.isDir(<span class="text-info">STRING</span> path)</code> 
+
 
 ### isFile(<span class="text-info">STRING</span> path)
-Checks if specified path is a file.
+<p>Checks if specified path is a file.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path of the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path of the file.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>BOOLEAN : 
-True if path is a file, false otherwise.</li></ul>
+Synchronous Return:
+
+* BOOLEAN : 
+<p>True if path is a file, false otherwise.</p>
+
 
 ####Platforms
 
@@ -273,10 +362,14 @@ True if path is a file, false otherwise.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.isFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.isFile(<span class="text-info">STRING</span> path)</code> 
+
 
 ### isOpened()
-Checks if file is opened.
+<p>Checks if file is opened.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -285,8 +378,11 @@ Checks if file is opened.
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>BOOLEAN : 
-True if file is opened, false otherwise.</li></ul>
+Synchronous Return:
+
+* BOOLEAN : 
+<p>True if file is opened, false otherwise.</p>
+
 
 ####Platforms
 
@@ -294,22 +390,30 @@ True if file is opened, false otherwise.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.isOpened()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.isOpened()</code>
 
 ### join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)
-Joins two parts of the path considering all necessary path delimiters. I.e.: join('/path/to','file') will return '/path/to/file' 
+<p>Joins two parts of the path considering all necessary path delimiters. I.e.: join(&lsquo;/path/to&rsquo;,&lsquo;file&rsquo;) will return &lsquo;/path/to/file&rsquo;</p>
+
 
 ####Parameters
 <ul><li>p1 : <span class='text-info'>STRING</span><p>
-First part of the path. </p></li><li>p2 : <span class='text-info'>STRING</span><p>
-Second part of the path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>First part of the path.</p>
+ </p></li><li>p2 : <span class='text-info'>STRING</span><p>
+<p>Second part of the path.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-Joined path.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>Joined path.</p>
+
 
 ####Platforms
 
@@ -317,21 +421,29 @@ Joined path.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</code> 
+
 
 ### listDir(<span class="text-info">STRING</span> path)
-Lists all entries of specified directory.
+<p>Lists all entries of specified directory.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to directory.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>ARRAY : 
-Array of directory entry names. If directory is empty array of size 0 will be returned.</li></ul>
+Synchronous Return:
+
+* ARRAY : 
+<p>Array of directory entry names. If directory is empty array of size 0 will be returned.</p>
+
 
 ####Platforms
 
@@ -339,21 +451,29 @@ Array of directory entry names. If directory is empty array of size 0 will be re
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.listDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.listDir(<span class="text-info">STRING</span> path)</code> 
+
 
 ### makeDir(<span class="text-info">STRING</span> path)
-Creates directory with the provided path. If all top-level nodes of the path doesn't exists, directory will not be created.
+<p>Creates directory with the provided path. If all top-level nodes of the path doesn&rsquo;t exists, directory will not be created.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Path to the new directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Path to the new directory.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-Error code raised on directory creation. 0 on success, -1 otherwise.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>Error code raised on directory creation. 0 on success, -1 otherwise.</p>
+
 
 ####Platforms
 
@@ -361,17 +481,24 @@ Error code raised on directory creation. 0 on success, -1 otherwise.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.makeDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.makeDir(<span class="text-info">STRING</span> path)</code> 
+
 
 ### makeDirs(<span class="text-info">STRING</span> path)
-Creates directory and all top-level directories if necessary. Subsequent isDir call is necessary to check if path was successfully created.
+<p>Creates directory and all top-level directories if necessary. Subsequent isDir call is necessary to check if path was successfully created.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the directory to be created. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to the directory to be created.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -379,22 +506,34 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.makeDirs(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.makeDirs(<span class="text-info">STRING</span> path)</code> 
+
 
 ### <span class="label label-inverse"> Constructor</span>  new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)
-Opens file in a mode specified by the "mode" parameter.
+<p>Opens file in a mode specified by the &ldquo;mode&rdquo; parameter.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the file. </p></li><li>mode : <span class='text-info'>INTEGER</span><p>
-Mode in which to open the file. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>
-Open file for output at the end of a file. The file is created if it does not exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>
-Open file for read-only operations. The file must exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>
-Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>
-Open a file for update (both for read and write). The file must exist.</dd></dl></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to the file.</p>
+ </p></li><li>mode : <span class='text-info'>INTEGER</span><p>
+<p>Mode in which to open the file.</p>
+ </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>
+<p>Open file for output at the end of a file. The file is created if it does not exist.</p>
+</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>
+<p>Open file for read-only operations. The file must exist.</p>
+</dd><dt>Constant: EB.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>
+<p>Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</p>
+</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>
+<p>Open a file for update (both for read and write). The file must exist.</p>
+</dd></dl></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -402,21 +541,29 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</code> </li></ul></li></ul>
+
+* Class Method: This method is a constructor and can only be accessed via the `new` construct. 
+	* <code>var myObj = new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</code>
+
 
 ### read(<span class="text-info">STRING</span> path)
-Reads specified file to a string object.
+<p>Reads specified file to a string object.</p>
+
 
 ####Parameters
 <ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Absolute path to file.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-File contents.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>File contents.</p>
+
 
 ####Platforms
 
@@ -424,21 +571,29 @@ File contents.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.read(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.read(<span class="text-info">STRING</span> path)</code> 
+
 
 ### read(<span class="text-info">INTEGER</span> size)
-Reads specified number of characters from current position of the file.
+<p>Reads specified number of characters from current position of the file.</p>
+
 
 ####Parameters
 <ul><li>size : <span class='text-info'>INTEGER</span><p>
-Number of characters to be read. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Number of characters to be read.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-String from current position of file containing specified number of characters.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>String from current position of file containing specified number of characters.</p>
+
 
 ####Platforms
 
@@ -446,10 +601,13 @@ String from current position of file containing specified number of characters.<
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.read(<span class="text-info">INTEGER</span> size)</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.read(<span class="text-info">INTEGER</span> size)</code>
 
 ### readAll()
-Reads all file contents to the string object.
+<p>Reads all file contents to the string object.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -458,8 +616,11 @@ Reads all file contents to the string object.
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-Contents of the file.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>Contents of the file.</p>
+
 
 ####Platforms
 
@@ -467,22 +628,30 @@ Contents of the file.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.readAll()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.readAll()</code>
 
 ### rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)
-Renames / moves file.
+<p>Renames / moves file.</p>
+
 
 ####Parameters
 <ul><li>from : <span class='text-info'>STRING</span><p>
-Original path / name. </p></li><li>to : <span class='text-info'>STRING</span><p>
-New path / name. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Original path / name.</p>
+ </p></li><li>to : <span class='text-info'>STRING</span><p>
+<p>New path / name.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-Error code raised on move / rename. 0 on success, -1 otherwise.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>Error code raised on move / rename. 0 on success, -1 otherwise.</p>
+
 
 ####Platforms
 
@@ -490,17 +659,24 @@ Error code raised on move / rename. 0 on success, -1 otherwise.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.RhoFile.rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.RhoFile.rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> 
+
 
 ### seek(<span class="text-info">INTEGER</span> pos)
-Sets file position to specified value from the beginning of the file.
+<p>Sets file position to specified value from the beginning of the file.</p>
+
 
 ####Parameters
 <ul><li>pos : <span class='text-info'>INTEGER</span><p>
-Position within the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Position within the file.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -508,10 +684,13 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.seek(<span class="text-info">INTEGER</span> pos)</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.seek(<span class="text-info">INTEGER</span> pos)</code>
 
 ### size()
-Returns file size.
+<p>Returns file size.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -520,8 +699,11 @@ Returns file size.
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-File size in bytes.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>File size in bytes.</p>
+
 
 ####Platforms
 
@@ -529,21 +711,28 @@ File size in bytes.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.size()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.size()</code>
 
 ### write(<span class="text-info">STRING</span> val)
-Writes the provided string at current position in the file.
+<p>Writes the provided string at current position in the file.</p>
+
 
 ####Parameters
 <ul><li>val : <span class='text-info'>STRING</span><p>
-String to be written to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>String to be written to the file.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>INTEGER : 
-Number of bytes written.</li></ul>
+Synchronous Return:
+
+* INTEGER : 
+<p>Number of bytes written.</p>
+
 
 ####Platforms
 
@@ -551,4 +740,6 @@ Number of bytes written.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.write(<span class="text-info">STRING</span> val)</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.write(<span class="text-info">STRING</span> val)</code>

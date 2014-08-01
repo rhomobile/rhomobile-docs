@@ -14,35 +14,49 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### barcode_recognize(<span class="text-info">STRING</span> imageFilePath)
-Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.
+<p>Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.</p>
+
 
 ####Parameters
 <ul><li>imageFilePath : <span class='text-info'>STRING</span><p>
-Path to the image that contains the barcode to be recognized. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Path to the image that contains the barcode to be recognized.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-String with recognized code, or empty string if the barcode is not recognized.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>String with recognized code, or empty string if the barcode is not recognized.</p>
+
 
 ####Platforms
 
 * Android
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.barcode_recognize(<span class="text-info">STRING</span> imageFilePath)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.barcode_recognize(<span class="text-info">STRING</span> imageFilePath)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.barcode_recognize(<span class="text-info">STRING</span> imageFilePath)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.barcode_recognize(<span class="text-info">STRING</span> imageFilePath)</code> 
+
 
 ### commandRemoteScanner(<span class="text-info">STRING</span> command)
-Instruct the connected RS507 scanner to perform some action.
+<p>Instruct the connected RS507 scanner to perform some action.</p>
+
 
 ####Parameters
 <ul><li>command : <span class='text-info'>STRING</span><p>
-The action the RS507 scanner should perform, can be 'Disconnect' which disconnects the bluetooth RS507; 'unpair' which unpairs the RS507 from the device for association with another device; 'StartPaging' or 'StopPaging' which will cause the RS507 scanner to start or stop emitting a beep, to allow it to be located. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>The action the RS507 scanner should perform, can be &lsquo;Disconnect&rsquo; which disconnects the bluetooth RS507; &lsquo;unpair&rsquo; which unpairs the RS507 from the device for association with another device; &lsquo;StartPaging&rsquo; or &lsquo;StopPaging&rsquo; which will cause the RS507 scanner to start or stop emitting a beep, to allow it to be located.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -50,16 +64,24 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.commandRemoteScanner(<span class="text-info">STRING</span> command)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.commandRemoteScanner(<span class="text-info">STRING</span> command)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.commandRemoteScanner(<span class="text-info">STRING</span> command)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.commandRemoteScanner(<span class="text-info">STRING</span> command)</code> 
+
 
 ### disable()
-Disables the barcode scanner. This reverts the scanner to its default state and flushes any current decoder settings.
+<p>Disables the barcode scanner. This reverts the scanner to its default state and flushes any current decoder settings.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -68,27 +90,43 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.disable()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.disable()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.disable()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.disable()</code> 
+
 
 ### enable(<span class="text-info">HASH</span> propertyMap)
-Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method). Scanned barcodes will be available to the application through the callback provided to this method. Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner. If you do not specify a callback to this method you will received the scanned data as keystrokes. Note that it is necessary to enable the scanner on WM/CE devices prior to being able to retrieve the state of properties.
+<p>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method). Scanned barcodes will be available to the application through the callback provided to this method. Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner. If you do not specify a callback to this method you will received the scanned data as keystrokes. Note that it is necessary to enable the scanner on WM/CE devices prior to being able to retrieve the state of properties.</p>
+
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
-Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
-Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</p>
+ Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
+<p>Not providing properties to this function will use the scanner&rsquo;s default properties, or those previously set on the Scanner instance.</p>
+</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>data : <span class='text-info'>STRING</span><p>
-The data decoded by the scanner or imaging device. </p></li><li>source : <span class='text-info'>STRING</span><p>
-The source device and human readable decoder type of the decoded barcode or symbol. </p></li><li>type : <span class='text-info'>STRING</span><p>
-Hex value representing the decoder type. </p></li><li>time : <span class='text-info'>STRING</span><p>
-The time at which the decode occurred (hh:mm:ss) </p></li><li>length : <span class='text-info'>STRING</span><p>
-The length of the decoded barcode or symbol. </p></li><li>direction : <span class='text-info'>STRING</span><p>
-The direction the barcode was scanned, either forward, reverse or unavailable. </p></li></ul></ul>
+<p>The data decoded by the scanner or imaging device.</p>
+ </p></li><li>source : <span class='text-info'>STRING</span><p>
+<p>The source device and human readable decoder type of the decoded barcode or symbol.</p>
+ </p></li><li>type : <span class='text-info'>STRING</span><p>
+<p>Hex value representing the decoder type.</p>
+ </p></li><li>time : <span class='text-info'>STRING</span><p>
+<p>The time at which the decode occurred (hh:mm:ss)</p>
+ </p></li><li>length : <span class='text-info'>STRING</span><p>
+<p>The length of the decoded barcode or symbol.</p>
+ </p></li><li>direction : <span class='text-info'>STRING</span><p>
+<p>The direction the barcode was scanned, either forward, reverse or unavailable.</p>
+ </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -97,10 +135,16 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.enable(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.enable(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.enable(<span class="text-info">HASH</span> propertyMap)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.enable(<span class="text-info">HASH</span> propertyMap)</code> 
+
 
 ### enumerate()
-Used to gain access to all scanner objects present on the device. For consumer devices you will most likely only have a single scanner, your device's camera but Enterprise grade hardware may have two or more scanners attached.
+<p>Used to gain access to all scanner objects present on the device. For consumer devices you will most likely only have a single scanner, your device&rsquo;s camera but Enterprise grade hardware may have two or more scanners attached.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -109,7 +153,9 @@ Used to gain access to all scanner objects present on the device. For consumer d
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.Barcode</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -117,10 +163,14 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Barcode.enumerate()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Barcode.enumerate()</code> 
+
 
 ### getAllProperties()
-This method will return all of object/value pairs for the propertyNames of the API class.
+<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -129,8 +179,11 @@ This method will return all of object/value pairs for the propertyNames of the A
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>HASH : 
-Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* HASH : 
+<p>Map of all available properties</p>
+<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -138,10 +191,16 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getAllProperties()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getAllProperties()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.getAllProperties()</code> 
+
 
 ### getDefault()
-This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
+<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -150,8 +209,11 @@ This method will return an object that represents the default instance of the AP
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>SELF_INSTANCE : 
-Default object of Module.</li></ul>
+Synchronous Return:
+
+* SELF_INSTANCE : 
+<p>Default object of Module.</p>
+
 
 ####Platforms
 
@@ -159,21 +221,29 @@ Default object of Module.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Barcode.getDefault()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Barcode.getDefault()</code> 
+
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
-This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
+<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
+
 
 ####Parameters
 <ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>List of properties I want to know about</p>
+ </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>HASH : 
-Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* HASH : 
+<p>Map of properties I want to know about</p>
+<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -181,21 +251,31 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> 
+
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
-This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
+<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
+
 
 ####Parameters
 <ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>The property to return info about.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-The property to return info about.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>The property to return info about.</p>
+
 
 ####Platforms
 
@@ -203,10 +283,16 @@ The property to return info about.</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.getProperty(<span class="text-info">STRING</span> propertyName)</code> 
+
 
 ### getSupportedProperties()
-Return array of properties supported by this scanner.
+<p>Return array of properties supported by this scanner.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -215,8 +301,11 @@ Return array of properties supported by this scanner.
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>ARRAY : 
-Array of property names supported by this scanner.<ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* ARRAY : 
+<p>Array of property names supported by this scanner.</p>
+<ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -224,20 +313,29 @@ Array of property names supported by this scanner.<ul><li><i>Object</i> : <span 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getSupportedProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.getSupportedProperties()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getSupportedProperties()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.getSupportedProperties()</code> 
+
 
 ### registerBluetoothStatus()
-If you are using an RS507 barcode scanner you can register to receive connected or disconnected events through this method.
+<p>If you are using an RS507 barcode scanner you can register to receive connected or disconnected events through this method.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>
-The message describing the bluetooth connection: BluetoothConnected, BluetoothDisconnected or BTScanAssociationBarcode. See below for further descriptions. </p></li></ul></ul>
+<p>The message describing the bluetooth connection: BluetoothConnected, BluetoothDisconnected or BTScanAssociationBarcode. See below for further descriptions.</p>
+ </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -245,17 +343,26 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.registerBluetoothStatus()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.registerBluetoothStatus()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.registerBluetoothStatus()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.registerBluetoothStatus()</code> 
+
 
 ### setDefault(<span class="text-info">SELF_INSTANCE: EB.Barcode</span> defaultInstance)
-This method allows you to set the attributes of the default object instance by passing in an object of the same class.
+<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
+
 
 ####Parameters
 <ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Barcode</span><p>
-An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>An instance object that is of the same class.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -263,17 +370,24 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Barcode.setDefault(<span class="text-info">SELF_INSTANCE: EB.Barcode</span> defaultInstance)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Barcode.setDefault(<span class="text-info">SELF_INSTANCE: EB.Barcode</span> defaultInstance)</code> 
+
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
-This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
+<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Map of properties I want to set</p>
+ </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -281,18 +395,28 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.setProperties(<span class="text-info">HASH</span> propertyMap)</code> 
+
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
-This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
+<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
+
 
 ####Parameters
 <ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>The one property name that I want to set</p>
+ </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
+<p>The one property value that I want to set</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -300,16 +424,24 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> 
+
 
 ### start()
-Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.
+<p>Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -318,16 +450,24 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.start()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.start()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.start()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.start()</code> 
+
 
 ### stop()
-Performs a soft trigger stop.
+<p>Performs a soft trigger stop.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -336,23 +476,35 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Motorola Solutions Devices Only
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stop()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.stop()</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.stop()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.stop()</code> 
+
 
 ### take(<span class="text-info">HASH</span> propertyMap)
-Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.
+<p>Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</p>
+
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
-Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
-Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</p>
+ Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
+<p>Not providing properties to this function will use the scanner&rsquo;s default properties, or those previously set on the Scanner instance.</p>
+</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>barcode : <span class='text-info'>STRING</span><p>
-The data decoded by the scanner or imaging device. </p></li><li>status : <span class='text-info'>STRING</span><p>
-Whether or not the barcode was successfully scanned, status will be 'ok' or 'cancel' </p></li></ul></ul>
+<p>The data decoded by the scanner or imaging device.</p>
+ </p></li><li>status : <span class='text-info'>STRING</span><p>
+<p>Whether or not the barcode was successfully scanned, status will be &lsquo;ok&rsquo; or &lsquo;cancel&rsquo;</p>
+ </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
@@ -360,22 +512,38 @@ Synchronous Return:<ul><li>Void</li></ul>
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.take(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.take(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.take(<span class="text-info">HASH</span> propertyMap)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.take(<span class="text-info">HASH</span> propertyMap)</code> 
+
 
 ### take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)
-deprecated old method for taking barcode.
+<p>deprecated old method for taking barcode.</p>
+
 
 ####Parameters
 <ul><li>rubyCallbackURL : <span class='text-info'>STRING</span><p>
-Ruby callback URL. </p></li><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
-Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
-Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Ruby callback URL.</p>
+ </p></li><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
+<p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</p>
+ Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
+<p>Not providing properties to this function will use the scanner&rsquo;s default properties, or those previously set on the Scanner instance.</p>
+</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)</code> 
+
 
 ##Properties
 
@@ -387,9 +555,15 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables adaptive scanning. When set to true, the scan engine will automatically toggle between 2 scan angles, wide and narrow, allowing the scan engine to decode barcodes both in close proximity and far away (~100 inches). Adaptive scanning is only supported in high performance, long working range scan engines such as SE960.
+<p>Enables or disables adaptive scanning. When set to true, the scan engine will automatically toggle between 2 scan angles, wide and narrow, allowing the scan engine to decode barcodes both in close proximity and far away (~100 inches). Adaptive scanning is only supported in high performance, long working range scan engines such as SE960.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.adaptiveScanning</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.adaptiveScanning</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.adaptiveScanning</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.adaptiveScanning</code> 
+
 
 
 ####Platforms
@@ -403,29 +577,31 @@ Enables or disables adaptive scanning. When set to true, the scan engine will au
 <span class='text-info'>STRING</span> 
 ####Description
 
-Defines the aiming mode to use.
+<p>Defines the aiming mode to use.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.AIMMODE_NONE 
-	* String: none
-	* 
-No Aiming (Can be overridden by picklistMode).
-* Constant: EB.Barcode.AIMMODE_DOT 
-	* String: dot
-	* 
-Laser barcode readers will show a dot for aiming.
-* Constant: EB.Barcode.AIMMODE_SLAB 
-	* String: slab
-	* 
-Laser barcode readers will show a slab for aiming.
-* Constant: EB.Barcode.AIMMODE_RETICLE 
-	* String: reticle
-	* 
-Imager barcode readers will show a reticle for aiming.
+* Constant: EB.Barcode.AIMMODE_NONE - String: none 
+<p>No Aiming (Can be overridden by picklistMode).</p>
+
+* Constant: EB.Barcode.AIMMODE_DOT - String: dot 
+<p>Laser barcode readers will show a dot for aiming.</p>
+
+* Constant: EB.Barcode.AIMMODE_SLAB - String: slab 
+<p>Laser barcode readers will show a slab for aiming.</p>
+
+* Constant: EB.Barcode.AIMMODE_RETICLE - String: reticle 
+<p>Imager barcode readers will show a reticle for aiming.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.aimMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.aimMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.aimMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.aimMode</code> 
+
 
 
 ####Platforms
@@ -439,37 +615,37 @@ Imager barcode readers will show a reticle for aiming.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Describes the type of aiming to use.
+<p>Describes the type of aiming to use.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.AIMTYPE_TRIGGER 
-	* String: trigger
-	* 
-Standard trigger mode. Holding the trigger will start a decoding session.
-* Constant: EB.Barcode.AIMTYPE_TIMED_HOLD 
-	* String: timedHold
-	* 
-Aiming lasts for the time specified by 'timedAimDuration' before decoding. The opportunity to scan will last until the barcode is decoded or scanTimeout occurs.
-* Constant: EB.Barcode.AIMTYPE_TIMED_RELEASE 
-	* String: timedRelease
-	* 
-Aiming lasts until trigger is released. If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.
-* Constant: EB.Barcode.AIMTYPE_PRESENTATION 
-	* String: presentation
-	* 
-Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation modes preenabled in scanner driver. Aimtype should not be set to presentation for MK31xx devices as it may produce undesirable results.
-* Constant: EB.Barcode.AIMTYPE_PRESS_AND_RELEASE 
-	* String: pressAndRelease
-	* 
-Scan will continue after the trigger is released until scanTimeout occurs.
-* Constant: EB.Barcode.AIMTYPE_CONTINUOUS_READ 
-	* String: continuousRead
-	* 
-Once the trigger is pulled barcodes will continue to be scanned as long as the trigger is held, enabling rapid scanning, to be used in conjunction with sameSymbolTimeout and differentSymbolTimeout. This value is ignored if viewfinderMode is set to 'dynamicReticle'
+* Constant: EB.Barcode.AIMTYPE_TRIGGER - String: trigger 
+<p>Standard trigger mode. Holding the trigger will start a decoding session.</p>
+
+* Constant: EB.Barcode.AIMTYPE_TIMED_HOLD - String: timedHold 
+<p>Aiming lasts for the time specified by &lsquo;timedAimDuration&rsquo; before decoding. The opportunity to scan will last until the barcode is decoded or scanTimeout occurs.</p>
+
+* Constant: EB.Barcode.AIMTYPE_TIMED_RELEASE - String: timedRelease 
+<p>Aiming lasts until trigger is released. If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.</p>
+
+* Constant: EB.Barcode.AIMTYPE_PRESENTATION - String: presentation 
+<p>Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation modes preenabled in scanner driver. Aimtype should not be set to presentation for MK31xx devices as it may produce undesirable results.</p>
+
+* Constant: EB.Barcode.AIMTYPE_PRESS_AND_RELEASE - String: pressAndRelease 
+<p>Scan will continue after the trigger is released until scanTimeout occurs.</p>
+
+* Constant: EB.Barcode.AIMTYPE_CONTINUOUS_READ - String: continuousRead 
+<p>Once the trigger is pulled barcodes will continue to be scanned as long as the trigger is held, enabling rapid scanning, to be used in conjunction with sameSymbolTimeout and differentSymbolTimeout. This value is ignored if viewfinderMode is set to &lsquo;dynamicReticle&rsquo;</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.aimType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.aimType</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.aimType</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.aimType</code> 
+
 
 
 ####Platforms
@@ -483,9 +659,15 @@ Once the trigger is pulled barcodes will continue to be scanned as long as the t
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When set to true, the barcode scanner will read all barcode types that the scanner is capable of reading. When set to false, the barcode scanner will not be able to decode any symbologies, this is most useful if you want to set the scanner to a default state before only enabling your required symbologies. The fewer symbologies that are enabled the faster the decoding performance of the scanning engine will be. This property will return true only if all supported symbologies by the scanner are enabled, if only a subset of supported symbologies are enabled then false will be returned. Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: "canpostal" and "auspostal" both use a 4-state system, so devices will only enable either "canpostal" OR "auspostal" when "alldecoders" is enabled. Note that other symbologies also share the 4-state system.
+<p>When set to true, the barcode scanner will read all barcode types that the scanner is capable of reading. When set to false, the barcode scanner will not be able to decode any symbologies, this is most useful if you want to set the scanner to a default state before only enabling your required symbologies. The fewer symbologies that are enabled the faster the decoding performance of the scanning engine will be. This property will return true only if all supported symbologies by the scanner are enabled, if only a subset of supported symbologies are enabled then false will be returned. Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: &ldquo;canpostal&rdquo; and &ldquo;auspostal&rdquo; both use a 4-state system, so devices will only enable either &ldquo;canpostal&rdquo; OR &ldquo;auspostal&rdquo; when &ldquo;alldecoders&rdquo; is enabled. Note that other symbologies also share the 4-state system.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.allDecoders</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.allDecoders</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.allDecoders</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.allDecoders</code> 
+
 
 
 ####Platforms
@@ -499,9 +681,15 @@ When set to true, the barcode scanner will read all barcode types that the scann
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Australian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Australian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ausPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ausPostal</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ausPostal</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.ausPostal</code> 
+
 
 
 ####Platforms
@@ -516,9 +704,15 @@ Enables or disables the symbology for Australian Postal barcodes. If your applic
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, automatically appends the character code for 'enter' to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.
+<p>When true, automatically appends the character code for &lsquo;enter&rsquo; to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoEnter</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.autoEnter</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.autoEnter</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.autoEnter</code> 
+
 
 
 ####Platforms
@@ -533,9 +727,15 @@ When true, automatically appends the character code for 'enter' to the end of an
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, automatically appends the tab character to the end of any barcodes scanned. This is useful if you are populating a form and want to jump to the next field in the form without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoTab and AutoEnter are mutually exclusive properties.
+<p>When true, automatically appends the tab character to the end of any barcodes scanned. This is useful if you are populating a form and want to jump to the next field in the form without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoTab and AutoEnter are mutually exclusive properties.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoTab</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.autoTab</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.autoTab</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.autoTab</code> 
+
 
 
 ####Platforms
@@ -550,9 +750,15 @@ When true, automatically appends the tab character to the end of any barcodes sc
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Aztec barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Aztec barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.aztec</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.aztec</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.aztec</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.aztec</code> 
+
 
 
 ####Platforms
@@ -567,21 +773,25 @@ Enables or disables the symbology for Aztec barcodes. If your application does n
 <span class='text-info'>STRING</span> 
 ####Description
 
-Specifies the format in which the barcode data is returned, binary data is returned in Data URI format with the appropriate mime type. This parameter is designed to be used primarily with image based symbologies (eg. Signature). Binary data will not be output as keystrokes, you must set a decode callback in order to receive scanned data.
+<p>Specifies the format in which the barcode data is returned, binary data is returned in Data URI format with the appropriate mime type. This parameter is designed to be used primarily with image based symbologies (eg. Signature). Binary data will not be output as keystrokes, you must set a decode callback in order to receive scanned data.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.FORMAT_BINARY 
-	* String: binary
-	* 
-Scanned data will be returned in Data URI format.
-* Constant: EB.Barcode.FORMAT_TEXT 
-	* String: text
-	* 
-Scanned data will be returned in Text format.
+* Constant: EB.Barcode.FORMAT_BINARY - String: binary 
+<p>Scanned data will be returned in Data URI format.</p>
+
+* Constant: EB.Barcode.FORMAT_TEXT - String: text 
+<p>Scanned data will be returned in Text format.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.barcodeDataFormat</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.barcodeDataFormat</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.barcodeDataFormat</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.barcodeDataFormat</code> 
+
 
 
 ####Platforms
@@ -595,25 +805,28 @@ Scanned data will be returned in Text format.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Specifies the width of the laser beam. All devices will support normal beam widths but other widths may not be supported on your device.
+<p>Specifies the width of the laser beam. All devices will support normal beam widths but other widths may not be supported on your device.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.BEAM_NORMAL 
-	* String: normal
-	* 
-Laser beam width is normal.
-* Constant: EB.Barcode.BEAM_WIDE 
-	* String: wide
-	* 
-Laser beam width is wide.
-* Constant: EB.Barcode.BEAM_NARROW 
-	* String: narrow
-	* 
-Laser beam width is narrow.
+* Constant: EB.Barcode.BEAM_NORMAL - String: normal 
+<p>Laser beam width is normal.</p>
+
+* Constant: EB.Barcode.BEAM_WIDE - String: wide 
+<p>Laser beam width is wide.</p>
+
+* Constant: EB.Barcode.BEAM_NARROW - String: narrow 
+<p>Laser beam width is narrow.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.beamWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.beamWidth</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.beamWidth</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.beamWidth</code> 
+
 
 
 ####Platforms
@@ -627,9 +840,15 @@ Laser beam width is narrow.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables bidirectional redundancy.
+<p>Enables or disables bidirectional redundancy.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.bidirectionalRedundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.bidirectionalRedundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.bidirectionalRedundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.bidirectionalRedundancy</code> 
+
 
 
 ####Platforms
@@ -643,9 +862,15 @@ Enables or disables bidirectional redundancy.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Canadian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Canadian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.canPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.canPostal</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.canPostal</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.canPostal</code> 
+
 
 
 ####Platforms
@@ -660,9 +885,15 @@ Enables or disables the symbology for Canadian Postal barcodes. If your applicat
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Chinese 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Chinese 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.chinese2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.chinese2of5</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.chinese2of5</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.chinese2of5</code> 
+
 
 
 ####Platforms
@@ -677,9 +908,15 @@ Enables or disables the symbology for Chinese 2of5 barcodes. If your application
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Codabar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Codabar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabar</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabar</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.codabar</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.codabar</code> 
+
 
 
 ####Platforms
@@ -694,9 +931,15 @@ Enables or disables the symbology for Codabar barcodes. If your application does
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables Codabar CLSi formatting when set to true.
+<p>Enables Codabar CLSi formatting when set to true.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarClsiEditing</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarClsiEditing</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.codabarClsiEditing</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.codabarClsiEditing</code> 
+
 
 
 ####Platforms
@@ -711,9 +954,15 @@ Enables Codabar CLSi formatting when set to true.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarMaxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarMaxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.codabarMaxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.codabarMaxLength</code> 
+
 
 
 ####Platforms
@@ -728,9 +977,15 @@ Specifies the maximum number of allowable characters in a Codabar barcode. If yo
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarMinLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarMinLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.codabarMinLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.codabarMinLength</code> 
+
 
 
 ####Platforms
@@ -745,9 +1000,15 @@ Specifies the minimum number of allowable characters in a Codabar barcode. If yo
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables Codabar NotisEditing formatting when set to true.
+<p>Enables Codabar NotisEditing formatting when set to true.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarNotisEditing</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarNotisEditing</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.codabarNotisEditing</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.codabarNotisEditing</code> 
+
 
 
 ####Platforms
@@ -762,9 +1023,15 @@ Enables Codabar NotisEditing formatting when set to true.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the Codabar Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the Codabar Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.codabarRedundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.codabarRedundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.codabarRedundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.codabarRedundancy</code> 
+
 
 
 ####Platforms
@@ -779,9 +1046,15 @@ Sets the Codabar Redundancy property, if set the barcode must be decoded twice b
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Code11 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Code11 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code11</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code11</code> 
+
 
 
 ####Platforms
@@ -796,25 +1069,28 @@ Enables or disables the symbology for Code11 barcodes. If your application does 
 <span class='text-info'>STRING</span> 
 ####Description
 
-Specifies whether to verify 0, 1 or 2 check digits.
+<p>Specifies whether to verify 0, 1 or 2 check digits.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.CODE11_CHECKDIGIT_NONE 
-	* String: none
-	* 
-Scanning engine will verify no Code 11 check digits.
-* Constant: EB.Barcode.CODE11_CHECKDIGIT_ONE 
-	* String: one
-	* 
-Scanning engine will verify one Code 11 check digit.
-* Constant: EB.Barcode.CODE11_CHECKDIGIT_TWO 
-	* String: two
-	* 
-Scanning engine will verify two Code 11 check digits.
+* Constant: EB.Barcode.CODE11_CHECKDIGIT_NONE - String: none 
+<p>Scanning engine will verify no Code 11 check digits.</p>
+
+* Constant: EB.Barcode.CODE11_CHECKDIGIT_ONE - String: one 
+<p>Scanning engine will verify one Code 11 check digit.</p>
+
+* Constant: EB.Barcode.CODE11_CHECKDIGIT_TWO - String: two 
+<p>Scanning engine will verify two Code 11 check digits.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11checkDigitCount</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11checkDigitCount</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code11checkDigitCount</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code11checkDigitCount</code> 
+
 
 
 ####Platforms
@@ -829,9 +1105,15 @@ Scanning engine will verify two Code 11 check digits.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code11maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code11maxLength</code> 
+
 
 
 ####Platforms
@@ -846,9 +1128,15 @@ Specifies the maximum number of allowable characters in a Code 11 barcode. If yo
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code11minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code11minLength</code> 
+
 
 
 ####Platforms
@@ -863,9 +1151,15 @@ Specifies the minimum number of allowable characters in a Code 11 barcode. If yo
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the Code 11 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the Code 11 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code11redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code11redundancy</code> 
+
 
 
 ####Platforms
@@ -880,9 +1174,15 @@ Sets the Code 11 Redundancy property, if set the barcode must be decoded twice b
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned Code 11 barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned Code 11 barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code11reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code11reportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code11reportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code11reportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -897,9 +1197,15 @@ When true, the barcode check digit(s) will be reported for scanned Code 11 barco
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Code128 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Code128 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128</code> 
+
 
 
 ####Platforms
@@ -914,9 +1220,15 @@ Enables or disables the symbology for Code128 barcodes. If your application does
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, decodes concatenated Code128 output only if the pair belongs to one of the commonly concatenated pairs as defined by the standard.
+<p>When true, decodes concatenated Code128 output only if the pair belongs to one of the commonly concatenated pairs as defined by the standard.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128checkIsBtTable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128checkIsBtTable</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128checkIsBtTable</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128checkIsBtTable</code> 
+
 
 
 ####Platforms
@@ -931,9 +1243,15 @@ When true, decodes concatenated Code128 output only if the pair belongs to one o
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, barcodes with the EAN128 subtype property set will be read.
+<p>When true, barcodes with the EAN128 subtype property set will be read.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128ean128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128ean128</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128ean128</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128ean128</code> 
+
 
 
 ####Platforms
@@ -948,9 +1266,15 @@ When true, barcodes with the EAN128 subtype property set will be read.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, barcodes with the isbt128 subtype property set will be read.
+<p>When true, barcodes with the isbt128 subtype property set will be read.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128isbt128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128isbt128</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128isbt128</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128isbt128</code> 
+
 
 
 ####Platforms
@@ -965,25 +1289,28 @@ When true, barcodes with the isbt128 subtype property set will be read.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Sets the Code128 ISBT concatenation mode property. This feature allows a pair of barcodes which meet certain criteria defined in the ISBT128 spec to be reported as a single barcode. This parameter describes the different concatenation modes available for ISBT128.
+<p>Sets the Code128 ISBT concatenation mode property. This feature allows a pair of barcodes which meet certain criteria defined in the ISBT128 spec to be reported as a single barcode. This parameter describes the different concatenation modes available for ISBT128.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.CODE128ISBT_NEVER 
-	* String: never
-	* 
-Will ignore the barcode pair and only output decode data for one of the barcodes.
-* Constant: EB.Barcode.CODE128ISBT_ALWAYS 
-	* String: always
-	* 
-Will not decode if both barcodes are not present or if one of them can not be decoded.
-* Constant: EB.Barcode.CODE128ISBT_AUTO 
-	* String: auto
-	* 
-Auto-Discriminate.
+* Constant: EB.Barcode.CODE128ISBT_NEVER - String: never 
+<p>Will ignore the barcode pair and only output decode data for one of the barcodes.</p>
+
+* Constant: EB.Barcode.CODE128ISBT_ALWAYS - String: always 
+<p>Will not decode if both barcodes are not present or if one of them can not be decoded.</p>
+
+* Constant: EB.Barcode.CODE128ISBT_AUTO - String: auto 
+<p>Auto-Discriminate.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128isbt128ConcatMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128isbt128ConcatMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128isbt128ConcatMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128isbt128ConcatMode</code> 
+
 
 
 ####Platforms
@@ -998,9 +1325,15 @@ Auto-Discriminate.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128maxLength</code> 
+
 
 
 ####Platforms
@@ -1015,9 +1348,15 @@ Specifies the maximum number of allowable characters in a Code 128 barcode. If y
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128minLength</code> 
+
 
 
 ####Platforms
@@ -1032,9 +1371,15 @@ Specifies the minimum number of allowable characters in a Code 128 barcode. If y
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.
+<p>Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128other128</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128other128</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128other128</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128other128</code> 
+
 
 
 ####Platforms
@@ -1049,9 +1394,15 @@ Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the Code 128 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the Code 128 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128redundancy</code> 
+
 
 
 ####Platforms
@@ -1066,9 +1417,15 @@ Sets the Code 128 Redundancy property, if set the barcode must be decoded twice 
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: Allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: Eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.
+<p>Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: Allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most &lsquo;in-spec&rsquo; barcodes. 1: Eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code128securityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code128securityLevel</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code128securityLevel</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code128securityLevel</code> 
+
 
 
 ####Platforms
@@ -1083,9 +1440,15 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Code 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Code 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39</code> 
+
 
 
 ####Platforms
@@ -1100,9 +1463,15 @@ Enables or disables the symbology for Code 39 barcodes. If your application does
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables reporting of the Code32 prefix when a Code39 barcode is converted.
+<p>Enables reporting of the Code32 prefix when a Code39 barcode is converted.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39code32Prefix</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39code32Prefix</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39code32Prefix</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39code32Prefix</code> 
+
 
 
 ####Platforms
@@ -1117,9 +1486,15 @@ Enables reporting of the Code32 prefix when a Code39 barcode is converted.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode is converted to Code 32.
+<p>Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode is converted to Code 32.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39convertToCode32</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39convertToCode32</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39convertToCode32</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39convertToCode32</code> 
+
 
 
 ####Platforms
@@ -1134,9 +1509,15 @@ Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables full ASCII conversion of Code 39 barcodes.
+<p>Enables full ASCII conversion of Code 39 barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39fullAscii</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39fullAscii</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39fullAscii</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39fullAscii</code> 
+
 
 
 ####Platforms
@@ -1151,9 +1532,15 @@ Enables full ASCII conversion of Code 39 barcodes.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39maxLength</code> 
+
 
 
 ####Platforms
@@ -1168,9 +1555,15 @@ Specifies the maximum number of allowable characters in a Code 39 barcode. If yo
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39minLength</code> 
+
 
 
 ####Platforms
@@ -1185,9 +1578,15 @@ Specifies the minimum number of allowable characters in a Code 39 barcode. If yo
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the Code 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the Code 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39redundancy</code> 
+
 
 
 ####Platforms
@@ -1202,9 +1601,15 @@ Sets the Code 39 Redundancy property, if set the barcode must be decoded twice b
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.
+<p>Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39reportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39reportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39reportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -1219,9 +1624,15 @@ Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.
+<p>Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most &lsquo;in-spec&rsquo; barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39securityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39securityLevel</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39securityLevel</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39securityLevel</code> 
+
 
 
 ####Platforms
@@ -1236,9 +1647,15 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Turns on verification of the Code 39 check digit.
+<p>Turns on verification of the Code 39 check digit.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code39verifyCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code39verifyCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code39verifyCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code39verifyCheckDigit</code> 
+
 
 
 ####Platforms
@@ -1253,9 +1670,15 @@ Turns on verification of the Code 39 check digit.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Code 93 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Code 93 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code93</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code93</code> 
+
 
 
 ####Platforms
@@ -1270,9 +1693,15 @@ Enables or disables the symbology for Code 93 barcodes. If your application does
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code93maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code93maxLength</code> 
+
 
 
 ####Platforms
@@ -1287,9 +1716,15 @@ Specifies the maximum number of allowable characters in a Code 93 barcode. If yo
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code93minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code93minLength</code> 
+
 
 
 ####Platforms
@@ -1304,9 +1739,15 @@ Specifies the minimum number of allowable characters in a Code 93 barcode. If yo
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the Code 93 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the Code 93 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.code93redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.code93redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.code93redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.code93redundancy</code> 
+
 
 
 ####Platforms
@@ -1321,9 +1762,15 @@ Sets the Code 93 Redundancy property, if set the barcode must be decoded twice b
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Composite AB barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Composite AB barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeAb</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeAb</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.compositeAb</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.compositeAb</code> 
+
 
 
 ####Platforms
@@ -1338,25 +1785,28 @@ Enables or disables the symbology for Composite AB barcodes. If your application
 <span class='text-info'>STRING</span> 
 ####Description
 
-Describes whether UCC link mode is enabled.
+<p>Describes whether UCC link mode is enabled.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UCC_NEVER 
-	* String: never
-	* 
-Link flag is ignored.
-* Constant: EB.Barcode.UCC_ALWAYS 
-	* String: always
-	* 
-Composite AB barcodes are always linked.
-* Constant: EB.Barcode.UCC_AUTO 
-	* String: auto
-	* 
-Auto-discriminate whether Composite AB barcodes are linked.
+* Constant: EB.Barcode.UCC_NEVER - String: never 
+<p>Link flag is ignored.</p>
+
+* Constant: EB.Barcode.UCC_ALWAYS - String: always 
+<p>Composite AB barcodes are always linked.</p>
+
+* Constant: EB.Barcode.UCC_AUTO - String: auto 
+<p>Auto-discriminate whether Composite AB barcodes are linked.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeAbUccLinkMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeAbUccLinkMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.compositeAbUccLinkMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.compositeAbUccLinkMode</code> 
+
 
 
 ####Platforms
@@ -1371,9 +1821,15 @@ Auto-discriminate whether Composite AB barcodes are linked.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-This setting causes the UPC rules specified in the UPC EAN parameters to be used when reporting composite decode data.
+<p>This setting causes the UPC rules specified in the UPC EAN parameters to be used when reporting composite decode data.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeAbUseUpcPreambleCheckDigitRules</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeAbUseUpcPreambleCheckDigitRules</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.compositeAbUseUpcPreambleCheckDigitRules</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.compositeAbUseUpcPreambleCheckDigitRules</code> 
+
 
 
 ####Platforms
@@ -1387,9 +1843,15 @@ This setting causes the UPC rules specified in the UPC EAN parameters to be used
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Composite C barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Composite C barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.compositeC</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.compositeC</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.compositeC</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.compositeC</code> 
+
 
 
 ####Platforms
@@ -1404,9 +1866,15 @@ Enables or disables the symbology for Composite C barcodes. If your application 
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the time, in seconds, that an external scanner will be allowed to remain idle before the connection is terminated to conserve power.
+<p>Specifies the time, in seconds, that an external scanner will be allowed to remain idle before the connection is terminated to conserve power.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.connectionIdleTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.connectionIdleTimeout</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.connectionIdleTimeout</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.connectionIdleTimeout</code> 
+
 
 
 ####Platforms
@@ -1420,9 +1888,15 @@ Specifies the time, in seconds, that an external scanner will be allowed to rema
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for D2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for D2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.d2of5</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.d2of5</code> 
+
 
 
 ####Platforms
@@ -1437,9 +1911,15 @@ Enables or disables the symbology for D2of5 barcodes. If your application does n
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.d2of5maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.d2of5maxLength</code> 
+
 
 
 ####Platforms
@@ -1454,9 +1934,15 @@ Specifies the maximum number of allowable characters in a D2of5 barcode. If your
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.d2of5minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.d2of5minLength</code> 
+
 
 
 ####Platforms
@@ -1471,9 +1957,15 @@ Specifies the minimum number of allowable characters in a D2of5 barcode. If your
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the D2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the D2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.d2of5redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.d2of5redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.d2of5redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.d2of5redundancy</code> 
+
 
 
 ####Platforms
@@ -1488,9 +1980,15 @@ Sets the D2of5 Redundancy property, if set the barcode must be decoded twice bef
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the number of bytes allocated to receive the scanned barcode. This parameter is designed to be used primarily with image based symbologies and should not be modified unless absolutely necessary (eg. Signature).
+<p>Specifies the number of bytes allocated to receive the scanned barcode. This parameter is designed to be used primarily with image based symbologies and should not be modified unless absolutely necessary (eg. Signature).</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dataBufferSize</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dataBufferSize</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.dataBufferSize</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.dataBufferSize</code> 
+
 
 
 ####Platforms
@@ -1504,9 +2002,15 @@ Specifies the number of bytes allocated to receive the scanned barcode. This par
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Datamatrix barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Datamatrix barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.datamatrix</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.datamatrix</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.datamatrix</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.datamatrix</code> 
+
 
 
 ####Platforms
@@ -1521,21 +2025,25 @@ Enables or disables the symbology for Datamatrix barcodes. If your application d
 <span class='text-info'>STRING</span> 
 ####Description
 
-Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.
+<p>Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.DBP_NORMAL 
-	* String: normal
-	* 
-Tells the scan engine to produce normal DBP.
-* Constant: EB.Barcode.DBP_COMPOSITE 
-	* String: composite
-	* 
-Tells the scan engine to produce composite DBP, which is 2 different sets of DBP data multiplexed together for better decode performance. In order to enable this mode it must be supported by the scanner.
+* Constant: EB.Barcode.DBP_NORMAL - String: normal 
+<p>Tells the scan engine to produce normal DBP.</p>
+
+* Constant: EB.Barcode.DBP_COMPOSITE - String: composite 
+<p>Tells the scan engine to produce composite DBP, which is 2 different sets of DBP data multiplexed together for better decode performance. In order to enable this mode it must be supported by the scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dbpMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dbpMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.dbpMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.dbpMode</code> 
+
 
 
 ####Platforms
@@ -1549,11 +2057,17 @@ Tells the scan engine to produce composite DBP, which is 2 different sets of DBP
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-The duration of the device beeper when a barcode is scanned, in milliseconds.
+<p>The duration of the device beeper when a barcode is scanned, in milliseconds.</p>
+
 ####Params
 <p><strong>Default:</strong> 250</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeDuration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeDuration</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.decodeDuration</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.decodeDuration</code> 
+
 
 
 ####Platforms
@@ -1568,11 +2082,17 @@ The duration of the device beeper when a barcode is scanned, in milliseconds.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-The frequency of the device beeper when a barcode is successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.
+<p>The frequency of the device beeper when a barcode is successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.</p>
+
 ####Params
 <p><strong>Default:</strong> 3000</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeFrequency</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeFrequency</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.decodeFrequency</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.decodeFrequency</code> 
+
 
 
 ####Platforms
@@ -1587,9 +2107,15 @@ The frequency of the device beeper when a barcode is successfully decoded. This 
 <span class='text-info'>STRING</span> 
 ####Description
 
-Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.
+<p>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeSound</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeSound</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.decodeSound</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.decodeSound</code> 
+
 
 
 ####Platforms
@@ -1604,11 +2130,17 @@ Path to a local wave file to be played when the scanner successfully decodes a b
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.  The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.
+<p>The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.  The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.</p>
+
 ####Params
 <p><strong>Default:</strong> 5</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.decodeVolume</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.decodeVolume</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.decodeVolume</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.decodeVolume</code> 
+
 
 
 ####Platforms
@@ -1623,9 +2155,15 @@ The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being t
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to reaim the device between successive scans.
+<p>When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to reaim the device between successive scans.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.differentSymbolTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.differentSymbolTimeout</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.differentSymbolTimeout</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.differentSymbolTimeout</code> 
+
 
 
 ####Platforms
@@ -1639,9 +2177,15 @@ When the aimType:continuousRead property is applied this value defines the inter
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Forces the scanner to disconnect from the terminal when it is 'disabled'. Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.
+<p>Forces the scanner to disconnect from the terminal when it is &lsquo;disabled&rsquo;. Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.disconnectBtOnDisable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.disconnectBtOnDisable</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.disconnectBtOnDisable</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.disconnectBtOnDisable</code> 
+
 
 
 ####Platforms
@@ -1655,9 +2199,15 @@ Forces the scanner to disconnect from the terminal when it is 'disabled'. Since 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling 'enable' on a bluetooth scanner. Not all devices support this functionality. Note you must specify this parameter before or within the call to 'enable'.
+<p>If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling &lsquo;enable&rsquo; on a bluetooth scanner. Not all devices support this functionality. Note you must specify this parameter before or within the call to &lsquo;enable&rsquo;.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.displayBtAddressBarcodeOnEnable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.displayBtAddressBarcodeOnEnable</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.displayBtAddressBarcodeOnEnable</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.displayBtAddressBarcodeOnEnable</code> 
+
 
 
 ####Platforms
@@ -1671,9 +2221,15 @@ If set to true the bluetooth address will be displayed as a barcode on the scree
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversely affect overall decoding performance. DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.
+<p>Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversely affect overall decoding performance. DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dpmMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dpmMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.dpmMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.dpmMode</code> 
+
 
 
 ####Platforms
@@ -1687,9 +2243,15 @@ Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversel
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Dutch Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Dutch Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.dutchPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.dutchPostal</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.dutchPostal</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.dutchPostal</code> 
+
 
 
 ####Platforms
@@ -1704,9 +2266,15 @@ Enables or disables the symbology for Dutch Postal barcodes. If your application
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for EAN 13 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for EAN 13 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ean13</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ean13</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ean13</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.ean13</code> 
+
 
 
 ####Platforms
@@ -1721,9 +2289,15 @@ Enables or disables the symbology for EAN 13 barcodes. If your application does 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for EAN 8 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for EAN 8 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ean8</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ean8</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ean8</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.ean8</code> 
+
 
 
 ####Platforms
@@ -1738,9 +2312,15 @@ Enables or disables the symbology for EAN 8 barcodes. If your application does n
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.
+<p>When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ean8convertToEan13</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ean8convertToEan13</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ean8convertToEan13</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.ean8convertToEan13</code> 
+
 
 
 ####Platforms
@@ -1755,9 +2335,15 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the 'enable()' method. You must specify this parameter before calling 'enable' to change the default.
+<p>Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the &lsquo;enable()&rsquo; method. You must specify this parameter before calling &lsquo;enable&rsquo; to change the default.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.enableTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.enableTimeout</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.enableTimeout</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.enableTimeout</code> 
+
 
 
 ####Platforms
@@ -1771,21 +2357,25 @@ Configures the time (in seconds) allowed to pair with the external bluetooth sca
 <span class='text-info'>STRING</span> 
 ####Description
 
-Sets the focus mode in use.
+<p>Sets the focus mode in use.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.FOCUS_FIXED 
-	* String: fixed
-	* 
-Use fixed focus.
-* Constant: EB.Barcode.FOCUS_AUTO 
-	* String: auto
-	* 
-Use auto focus.
+* Constant: EB.Barcode.FOCUS_FIXED - String: fixed 
+<p>Use fixed focus.</p>
+
+* Constant: EB.Barcode.FOCUS_AUTO - String: auto 
+<p>Use auto focus.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.focusMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.focusMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.focusMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.focusMode</code> 
+
 
 
 ####Platforms
@@ -1799,9 +2389,15 @@ Use auto focus.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Returns the friendly name associated with the scanner.
+<p>Returns the friendly name associated with the scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.friendlyName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.friendlyName</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.friendlyName</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.friendlyName</code> 
+
 
 
 ####Platforms
@@ -1816,9 +2412,15 @@ Returns the friendly name associated with the scanner.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for GS1 DataBar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rss.
+<p>Enables or disables the symbology for GS1 DataBar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rss.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.gs1dataBar</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.gs1dataBar</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.gs1dataBar</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.gs1dataBar</code> 
+
 
 
 ####Platforms
@@ -1833,9 +2435,15 @@ Enables or disables the symbology for GS1 DataBar barcodes. If your application 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for GS1 Databar Expanded barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssExp.
+<p>Enables or disables the symbology for GS1 Databar Expanded barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssExp.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.gs1dataBarExpanded</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.gs1dataBarExpanded</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.gs1dataBarExpanded</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.gs1dataBarExpanded</code> 
+
 
 
 ####Platforms
@@ -1850,9 +2458,15 @@ Enables or disables the symbology for GS1 Databar Expanded barcodes. If your app
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for GS1 Databar Limited barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssLim.
+<p>Enables or disables the symbology for GS1 Databar Limited barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssLim.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.gs1dataBarLimited</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.gs1dataBarLimited</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.gs1dataBarLimited</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.gs1dataBarLimited</code> 
+
 
 
 ####Platforms
@@ -1867,11 +2481,17 @@ Enables or disables the symbology for GS1 Databar Limited barcodes. If your appl
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Controls the haptic feedback on decode. This means that if this is set to true, then the device will vibrate when a decode occurs.
+<p>Controls the haptic feedback on decode. This means that if this is set to true, then the device will vibrate when a decode occurs.</p>
+
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.hapticFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.hapticFeedback</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.hapticFeedback</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.hapticFeedback</code> 
+
 
 
 ####Platforms
@@ -1885,9 +2505,15 @@ Controls the haptic feedback on decode. This means that if this is set to true, 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for I2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for I2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.i2of5</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.i2of5</code> 
+
 
 
 ####Platforms
@@ -1902,9 +2528,15 @@ Enables or disables the symbology for I2of5 barcodes. If your application does n
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.
+<p>When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5convertToEan13</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5convertToEan13</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.i2of5convertToEan13</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.i2of5convertToEan13</code> 
+
 
 
 ####Platforms
@@ -1919,9 +2551,15 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.i2of5maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.i2of5maxLength</code> 
+
 
 
 ####Platforms
@@ -1936,9 +2574,15 @@ Specifies the maximum number of allowable characters in a I2of5 barcode. If your
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.i2of5minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.i2of5minLength</code> 
+
 
 
 ####Platforms
@@ -1953,9 +2597,15 @@ Specifies the minimum number of allowable characters in a I2of5 barcode. If your
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the I2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the I2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.i2of5redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.i2of5redundancy</code> 
+
 
 
 ####Platforms
@@ -1970,9 +2620,15 @@ Sets the I2of5 Redundancy property, if set the barcode must be decoded twice bef
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned I2of5 barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned I2of5 barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5reportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.i2of5reportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.i2of5reportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -1987,25 +2643,28 @@ When true, the barcode check digit(s) will be reported for scanned I2of5 barcode
 <span class='text-info'>STRING</span> 
 ####Description
 
-Enables the verification of the I2of5 check digit.
+<p>Enables the verification of the I2of5 check digit.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.I2OF5_VERIFY_NONE 
-	* String: none
-	* 
-Disables verification of the check digit.
-* Constant: EB.Barcode.I2OF5_VERIFY_USS 
-	* String: uss
-	* 
-Enables the USS format for the check digit.
-* Constant: EB.Barcode.I2OF5_VERIFY_OPCC 
-	* String: opcc
-	* 
-Enables the OPCC format for the check digit.
+* Constant: EB.Barcode.I2OF5_VERIFY_NONE - String: none 
+<p>Disables verification of the check digit.</p>
+
+* Constant: EB.Barcode.I2OF5_VERIFY_USS - String: uss 
+<p>Enables the USS format for the check digit.</p>
+
+* Constant: EB.Barcode.I2OF5_VERIFY_OPCC - String: opcc 
+<p>Enables the OPCC format for the check digit.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.i2of5verifyCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.i2of5verifyCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.i2of5verifyCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.i2of5verifyCheckDigit</code> 
+
 
 
 ####Platforms
@@ -2020,25 +2679,28 @@ Enables the OPCC format for the check digit.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Selects the illumination mode to use.
+<p>Selects the illumination mode to use.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.ILLUMINATION_AUTO 
-	* String: auto
-	* 
-Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.
-* Constant: EB.Barcode.ILLUMINATION_ALWAYS_ON 
-	* String: alwaysOn
-	* 
-External illumination is always on.
-* Constant: EB.Barcode.ILLUMINATION_ALWAYS_OFF 
-	* String: alwaysOff
-	* 
-External illumination is always off.
+* Constant: EB.Barcode.ILLUMINATION_AUTO - String: auto 
+<p>Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.</p>
+
+* Constant: EB.Barcode.ILLUMINATION_ALWAYS_ON - String: alwaysOn 
+<p>External illumination is always on.</p>
+
+* Constant: EB.Barcode.ILLUMINATION_ALWAYS_OFF - String: alwaysOff 
+<p>External illumination is always off.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.illuminationMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.illuminationMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.illuminationMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.illuminationMode</code> 
+
 
 
 ####Platforms
@@ -2053,11 +2715,17 @@ External illumination is always off.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.
+<p>The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.</p>
+
 ####Params
 <p><strong>Default:</strong> 2500</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.invalidDecodeFrequency</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.invalidDecodeFrequency</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.invalidDecodeFrequency</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.invalidDecodeFrequency</code> 
+
 
 
 ####Platforms
@@ -2071,9 +2739,15 @@ The frequency of the device beeper when a barcode is scanned but not successfull
 <span class='text-info'>STRING</span> 
 ####Description
 
-Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.
+<p>Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.invalidDecodeSound</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.invalidDecodeSound</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.invalidDecodeSound</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.invalidDecodeSound</code> 
+
 
 
 ####Platforms
@@ -2087,25 +2761,28 @@ Path to a local wave file to be played when a barcode is scanned but not success
 <span class='text-info'>STRING</span> 
 ####Description
 
-Allows the user to select inverse 1D barcodes for decoding.
+<p>Allows the user to select inverse 1D barcodes for decoding.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.INVERSE_ENABLED 
-	* String: enabled
-	* 
-Inverse 1D symbology decoding is enabled.
-* Constant: EB.Barcode.INVERSE_DISABLED 
-	* String: disabled
-	* 
-Inverse 1D symbology decoding is disabled.
-* Constant: EB.Barcode.INVERSE_AUTO 
-	* String: auto
-	* 
-Allows decoding of both positive and inverse 1D symbologies.
+* Constant: EB.Barcode.INVERSE_ENABLED - String: enabled 
+<p>Inverse 1D symbology decoding is enabled.</p>
+
+* Constant: EB.Barcode.INVERSE_DISABLED - String: disabled 
+<p>Inverse 1D symbology decoding is disabled.</p>
+
+* Constant: EB.Barcode.INVERSE_AUTO - String: auto 
+<p>Allows decoding of both positive and inverse 1D symbologies.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.inverse1dMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.inverse1dMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.inverse1dMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.inverse1dMode</code> 
+
 
 
 ####Platforms
@@ -2120,9 +2797,15 @@ Allows decoding of both positive and inverse 1D symbologies.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Japanese Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Japanese Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.japPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.japPostal</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.japPostal</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.japPostal</code> 
+
 
 
 ####Platforms
@@ -2137,9 +2820,15 @@ Enables or disables the symbology for Japanese Postal barcodes. If your applicat
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the Klasse Eins laser on time function.
+<p>Enables or disables the Klasse Eins laser on time function.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.klasseEins</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.klasseEins</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.klasseEins</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.klasseEins</code> 
+
 
 
 ####Platforms
@@ -2153,9 +2842,15 @@ Enables or disables the Klasse Eins laser on time function.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Korean 3of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Korean 3of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.korean3of5</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.korean3of5</code> 
+
 
 
 ####Platforms
@@ -2170,9 +2865,15 @@ Enables or disables the symbology for Korean 3of5 barcodes. If your application 
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.korean3of5maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.korean3of5maxLength</code> 
+
 
 
 ####Platforms
@@ -2186,9 +2887,15 @@ Specifies the maximum number of allowable characters in a Korean 3of5 barcode. I
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.korean3of5minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.korean3of5minLength</code> 
+
 
 
 ####Platforms
@@ -2202,9 +2909,15 @@ Specifies the minimum number of allowable characters in a Korean 3of5 barcode. I
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets Korean 3of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets Korean 3of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.korean3of5redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.korean3of5redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.korean3of5redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.korean3of5redundancy</code> 
+
 
 
 ####Platforms
@@ -2218,11 +2931,17 @@ Sets Korean 3of5 Redundancy property, if set the barcode must be decoded twice b
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to scan barcodes off of LCD screens (like mobile device screens)
+<p>Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to scan barcodes off of LCD screens (like mobile device screens)</p>
+
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.lcdMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.lcdMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.lcdMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.lcdMode</code> 
+
 
 
 ####Platforms
@@ -2236,33 +2955,34 @@ Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to
 <span class='text-info'>STRING</span> 
 ####Description
 
-Describes the linear security level used during decoding. This determines the number of times a barcode must be read before it is decoded. If the successive reads of the barcode do not match, it will not be decoded.
+<p>Describes the linear security level used during decoding. This determines the number of times a barcode must be read before it is decoded. If the successive reads of the barcode do not match, it will not be decoded.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH 
-	* String: redundancyAndLength
-	* 
-Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.
-* Constant: EB.Barcode.SHORT_OR_CODABAR 
-	* String: shortOrCodabar
-	* 
-Double redundancy if short barcode or Codabar.
-* Constant: EB.Barcode.LONG_AND_SHORT 
-	* String: longAndShort
-	* 
-Double redundancy for long barcodes, triple for short barcodes.
-* Constant: EB.Barcode.ALL_TWICE 
-	* String: allTwice
-	* 
-Double redundancy for all barcodes.
-* Constant: EB.Barcode.ALL_THRICE 
-	* String: allThrice
-	* 
-Triple redundancy for all barcodes.
+* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH - String: redundancyAndLength 
+<p>Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.</p>
+
+* Constant: EB.Barcode.SHORT_OR_CODABAR - String: shortOrCodabar 
+<p>Double redundancy if short barcode or Codabar.</p>
+
+* Constant: EB.Barcode.LONG_AND_SHORT - String: longAndShort 
+<p>Double redundancy for long barcodes, triple for short barcodes.</p>
+
+* Constant: EB.Barcode.ALL_TWICE - String: allTwice 
+<p>Double redundancy for all barcodes.</p>
+
+* Constant: EB.Barcode.ALL_THRICE - String: allThrice 
+<p>Triple redundancy for all barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.linearSecurityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.linearSecurityLevel</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.linearSecurityLevel</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.linearSecurityLevel</code> 
+
 
 
 ####Platforms
@@ -2277,11 +2997,17 @@ Triple redundancy for all barcodes.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Set to false to disable scanning when the battery is low/critical or set to true to enable it.
+<p>Set to false to disable scanning when the battery is low/critical or set to true to enable it.</p>
+
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.lowBatteryScan</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.lowBatteryScan</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.lowBatteryScan</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.lowBatteryScan</code> 
+
 
 
 ####Platforms
@@ -2295,9 +3021,15 @@ Set to false to disable scanning when the battery is low/critical or set to true
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for MacroMicroPDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for MacroMicroPDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdf</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroMicroPdf</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroMicroPdf</code> 
+
 
 
 ####Platforms
@@ -2311,9 +3043,15 @@ Enables or disables the symbology for MacroMicroPDF barcodes. If your applicatio
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, the scanner driver will return the barcode data only after the complete macroMicroPdf sequence has been read. If false, the scanner driver will return each barcode in the macroMicroPdf sequence as it is read.
+<p>If true, the scanner driver will return the barcode data only after the complete macroMicroPdf sequence has been read. If false, the scanner driver will return each barcode in the macroMicroPdf sequence as it is read.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfBufferLabels</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfBufferLabels</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroMicroPdfBufferLabels</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroMicroPdfBufferLabels</code> 
+
 
 
 ####Platforms
@@ -2327,9 +3065,15 @@ If true, the scanner driver will return the barcode data only after the complete
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.
+<p>If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfConvertToMicroPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfConvertToMicroPdf</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroMicroPdfConvertToMicroPdf</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroMicroPdfConvertToMicroPdf</code> 
+
 
 
 ####Platforms
@@ -2343,9 +3087,15 @@ If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, the scanner driver will not complete read requests while in the middle of a macroMicroPdf sequence. Once a macroMicroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.
+<p>If true, the scanner driver will not complete read requests while in the middle of a macroMicroPdf sequence. Once a macroMicroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfExclusive</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfExclusive</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroMicroPdfExclusive</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroMicroPdfExclusive</code> 
+
 
 
 ####Platforms
@@ -2359,9 +3109,15 @@ If true, the scanner driver will not complete read requests while in the middle 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, the appended info is concatenated to the decoded data before being returned.
+<p>If true, the appended info is concatenated to the decoded data before being returned.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroMicroPdfReportAppendInfo</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroMicroPdfReportAppendInfo</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroMicroPdfReportAppendInfo</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroMicroPdfReportAppendInfo</code> 
+
 
 
 ####Platforms
@@ -2375,9 +3131,15 @@ If true, the appended info is concatenated to the decoded data before being retu
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Macro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Macro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdf</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroPdf</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroPdf</code> 
+
 
 
 ####Platforms
@@ -2391,9 +3153,15 @@ Enables or disables the symbology for Macro PDF barcodes. If your application do
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the scanner driver will return  he barcode data only after the complete macroPdf sequence has been read. If false, the scan driver will return each barcode in the macroPdf sequence as it is read.
+<p>When true, the scanner driver will return  he barcode data only after the complete macroPdf sequence has been read. If false, the scan driver will return each barcode in the macroPdf sequence as it is read.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdfBufferLabels</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdfBufferLabels</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroPdfBufferLabels</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroPdfBufferLabels</code> 
+
 
 
 ####Platforms
@@ -2407,9 +3175,15 @@ When true, the scanner driver will return  he barcode data only after the comple
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, MacroPDF barcodes will be converted to PDF417 codes.
+<p>If true, MacroPDF barcodes will be converted to PDF417 codes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdfConvertToPdf417</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdfConvertToPdf417</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroPdfConvertToPdf417</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroPdfConvertToPdf417</code> 
+
 
 
 ####Platforms
@@ -2423,9 +3197,15 @@ If true, MacroPDF barcodes will be converted to PDF417 codes.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, the scanner driver will not complete read requests while in the middle of a macroPdf sequence. Once a macroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.
+<p>If true, the scanner driver will not complete read requests while in the middle of a macroPdf sequence. Once a macroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.macroPdfExclusive</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.macroPdfExclusive</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.macroPdfExclusive</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.macroPdfExclusive</code> 
+
 
 
 ####Platforms
@@ -2439,9 +3219,15 @@ If true, the scanner driver will not complete read requests while in the middle 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Matrix 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Matrix 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.matrix2of5</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.matrix2of5</code> 
+
 
 
 ####Platforms
@@ -2456,9 +3242,15 @@ Enables or disables the symbology for Matrix 2of5 barcodes. If your application 
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5maxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5maxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.matrix2of5maxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.matrix2of5maxLength</code> 
+
 
 
 ####Platforms
@@ -2473,9 +3265,15 @@ Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. I
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5minLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5minLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.matrix2of5minLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.matrix2of5minLength</code> 
+
 
 
 ####Platforms
@@ -2490,9 +3288,15 @@ Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. I
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5reportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.matrix2of5reportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.matrix2of5reportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -2507,9 +3311,15 @@ When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 b
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables verification of the Matrix 2of5 symbology check digit.
+<p>Enables verification of the Matrix 2of5 symbology check digit.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.matrix2of5verifyCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.matrix2of5verifyCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.matrix2of5verifyCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.matrix2of5verifyCheckDigit</code> 
+
 
 
 ####Platforms
@@ -2524,9 +3334,15 @@ Enables verification of the Matrix 2of5 symbology check digit.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Maxicode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Maxicode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.maxiCode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.maxiCode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.maxiCode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.maxiCode</code> 
+
 
 
 ####Platforms
@@ -2541,9 +3357,15 @@ Enables or disables the symbology for Maxicode barcodes. If your application doe
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Micro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Micro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.microPdf</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.microPdf</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.microPdf</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.microPdf</code> 
+
 
 
 ####Platforms
@@ -2558,9 +3380,15 @@ Enables or disables the symbology for Micro PDF barcodes. If your application do
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Micro QR barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Micro QR barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.microQr</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.microQr</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.microQr</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.microQr</code> 
+
 
 
 ####Platforms
@@ -2575,9 +3403,15 @@ Enables or disables the symbology for Micro QR barcodes. If your application doe
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for MSI barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for MSI barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msi</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msi</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.msi</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.msi</code> 
+
 
 
 ####Platforms
@@ -2592,21 +3426,25 @@ Enables or disables the symbology for MSI barcodes. If your application does not
 <span class='text-info'>STRING</span> 
 ####Description
 
-Specifies the check digit scheme used to verify MSI barcodes.
+<p>Specifies the check digit scheme used to verify MSI barcodes.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD11 
-	* String: mod11
-	* 
-The first check digit is MOD 11, the second is MOD 10.
-* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD10 
-	* String: mod10
-	* 
-Both check digits are MOD 10.
+* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD11 - String: mod11 
+<p>The first check digit is MOD 11, the second is MOD 10.</p>
+
+* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD10 - String: mod10 
+<p>Both check digits are MOD 10.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiCheckDigitScheme</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiCheckDigitScheme</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.msiCheckDigitScheme</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.msiCheckDigitScheme</code> 
+
 
 
 ####Platforms
@@ -2621,21 +3459,25 @@ Both check digits are MOD 10.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Sets the number of MSI check digits to use.
+<p>Sets the number of MSI check digits to use.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.MSI_CHECKDIGITS_ONE 
-	* String: one
-	* 
-Use one check digit for MSI barcodes.
-* Constant: EB.Barcode.MSI_CHECKDIGITS_TWO 
-	* String: two
-	* 
-Use two check digits for MSI barcodes.
+* Constant: EB.Barcode.MSI_CHECKDIGITS_ONE - String: one 
+<p>Use one check digit for MSI barcodes.</p>
+
+* Constant: EB.Barcode.MSI_CHECKDIGITS_TWO - String: two 
+<p>Use two check digits for MSI barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiCheckDigits</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiCheckDigits</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.msiCheckDigits</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.msiCheckDigits</code> 
+
 
 
 ####Platforms
@@ -2650,9 +3492,15 @@ Use two check digits for MSI barcodes.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the maximum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the maximum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiMaxLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiMaxLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.msiMaxLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.msiMaxLength</code> 
+
 
 
 ####Platforms
@@ -2667,9 +3515,15 @@ Specifies the maximum number of allowable characters in a MSI barcode. If your a
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the minimum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
+<p>Specifies the minimum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiMinLength</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiMinLength</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.msiMinLength</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.msiMinLength</code> 
+
 
 
 ####Platforms
@@ -2684,9 +3538,15 @@ Specifies the minimum number of allowable characters in a MSI barcode. If your a
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the MSI Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the MSI Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiRedundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiRedundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.msiRedundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.msiRedundancy</code> 
+
 
 
 ####Platforms
@@ -2701,9 +3561,15 @@ Sets the MSI Redundancy property, if set the barcode must be decoded twice befor
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned MSI barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned MSI barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.msiReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.msiReportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.msiReportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.msiReportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -2718,9 +3584,15 @@ When true, the barcode check digit(s) will be reported for scanned MSI barcodes.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for PDF 417 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for PDF 417 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pdf417</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.pdf417</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.pdf417</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.pdf417</code> 
+
 
 
 ####Platforms
@@ -2735,25 +3607,28 @@ Enables or disables the symbology for PDF 417 barcodes. If your application does
 <span class='text-info'>STRING</span> 
 ####Description
 
-Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode or, if no aiming is chosen, and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.
+<p>Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode or, if no aiming is chosen, and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.PICKLIST_DISABLED 
-	* String: disabled
-	* 
-Disables picklist mode so any barcode within the field of view can be decoded.
-* Constant: EB.Barcode.PICKLIST_HARDWARE_RETICLE 
-	* String: hardwareReticle
-	* 
-Enables picklist mode so that only the barcode under the projected reticle can be decoded. On Windows, if the imager does not support a projected reticle then the behavior is the same as softwareReticle. On Android, this is only supported for Imager (non-viewfinder) based scanners.
-* Constant: EB.Barcode.PICKLIST_SOFTWARE_RETICLE 
-	* String: softwareReticle
-	* 
-Enables picklist mode so that only the barcode in the center of the image is decoded. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. On Android, this is only supported for Camera (viewfinder) based scanners.
+* Constant: EB.Barcode.PICKLIST_DISABLED - String: disabled 
+<p>Disables picklist mode so any barcode within the field of view can be decoded.</p>
+
+* Constant: EB.Barcode.PICKLIST_HARDWARE_RETICLE - String: hardwareReticle 
+<p>Enables picklist mode so that only the barcode under the projected reticle can be decoded. On Windows, if the imager does not support a projected reticle then the behavior is the same as softwareReticle. On Android, this is only supported for Imager (non-viewfinder) based scanners.</p>
+
+* Constant: EB.Barcode.PICKLIST_SOFTWARE_RETICLE - String: softwareReticle 
+<p>Enables picklist mode so that only the barcode in the center of the image is decoded. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. On Android, this is only supported for Camera (viewfinder) based scanners.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.picklistMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.picklistMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.picklistMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.picklistMode</code> 
+
 
 
 ####Platforms
@@ -2768,9 +3643,15 @@ Enables picklist mode so that only the barcode in the center of the image is dec
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Allows poor quality 1D barcodes to be read When true, but this will adversely affect the overall decoding performance.
+<p>Allows poor quality 1D barcodes to be read When true, but this will adversely affect the overall decoding performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.poorQuality1dMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.poorQuality1dMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.poorQuality1dMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.poorQuality1dMode</code> 
+
 
 
 ####Platforms
@@ -2784,9 +3665,15 @@ Allows poor quality 1D barcodes to be read When true, but this will adversely af
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for QR Code barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for QR Code barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.qrCode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.qrCode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.qrCode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.qrCode</code> 
+
 
 
 ####Platforms
@@ -2801,9 +3688,15 @@ Enables or disables the symbology for QR Code barcodes. If your application does
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Vertical rastering height to use, as a percentage, when rasterMode:openAlways is applied. This value must be between 0 and 100.
+<p>Vertical rastering height to use, as a percentage, when rasterMode:openAlways is applied. This value must be between 0 and 100.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rasterHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rasterHeight</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rasterHeight</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rasterHeight</code> 
+
 
 
 ####Platforms
@@ -2817,29 +3710,31 @@ Vertical rastering height to use, as a percentage, when rasterMode:openAlways is
 <span class='text-info'>STRING</span> 
 ####Description
 
-Describes the type of vertical rastering to use.
+<p>Describes the type of vertical rastering to use.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.RASTER_NONE 
-	* String: none
-	* 
-No vertical rastering.
-* Constant: EB.Barcode.RASTER_OPEN_ALWAYS 
-	* String: openAlways
-	* 
-Vertical rastering is always full open. To adjust the rastering height use the rasterHeight property.
-* Constant: EB.Barcode.RASTER_SMART 
-	* String: smart
-	* 
-Vertical rastering mode is 'Smart'.
-* Constant: EB.Barcode.RASTER_CYCLONE 
-	* String: cyclone
-	* 
-Vertical rastering mode is 'Cyclone'.
+* Constant: EB.Barcode.RASTER_NONE - String: none 
+<p>No vertical rastering.</p>
+
+* Constant: EB.Barcode.RASTER_OPEN_ALWAYS - String: openAlways 
+<p>Vertical rastering is always full open. To adjust the rastering height use the rasterHeight property.</p>
+
+* Constant: EB.Barcode.RASTER_SMART - String: smart 
+<p>Vertical rastering mode is &lsquo;Smart&rsquo;.</p>
+
+* Constant: EB.Barcode.RASTER_CYCLONE - String: cyclone 
+<p>Vertical rastering mode is &lsquo;Cyclone&rsquo;.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rasterMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rasterMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rasterMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rasterMode</code> 
+
 
 
 ####Platforms
@@ -2853,9 +3748,15 @@ Vertical rastering mode is 'Cyclone'.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.
+<p>The remaining capacity of the battery, in the range 0 to 100. &lsquo;unknown&rsquo; will be returned if the capacity could not be determined, for example if the scanner had no battery.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBatteryCapacity</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBatteryCapacity</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBatteryCapacity</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBatteryCapacity</code> 
+
 
 
 ####Platforms
@@ -2869,9 +3770,15 @@ The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be 
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-One of 'simple', 'double', 'disabled' or 'unknown'
+<p>One of &lsquo;simple&rsquo;, &lsquo;double&rsquo;, &lsquo;disabled&rsquo; or &lsquo;unknown&rsquo;</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBatteryId</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBatteryId</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBatteryId</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBatteryId</code> 
+
 
 
 ####Platforms
@@ -2885,9 +3792,15 @@ One of 'simple', 'double', 'disabled' or 'unknown'
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Indicates the status of the remote scanner's battery, will be one of 'unknown', 'full', 'medium', 'empty', 'chargingFullRate', 'chargingHalfRate', 'chargingTrickle' or 'discharging'
+<p>Indicates the status of the remote scanner&rsquo;s battery, will be one of &lsquo;unknown&rsquo;, &lsquo;full&rsquo;, &lsquo;medium&rsquo;, &lsquo;empty&rsquo;, &lsquo;chargingFullRate&rsquo;, &lsquo;chargingHalfRate&rsquo;, &lsquo;chargingTrickle&rsquo; or &lsquo;discharging&rsquo;</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBatteryStatus</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBatteryStatus</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBatteryStatus</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBatteryStatus</code> 
+
 
 
 ####Platforms
@@ -2901,9 +3814,15 @@ Indicates the status of the remote scanner's battery, will be one of 'unknown', 
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
+<p>Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothAddress</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothAddress</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothAddress</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothAddress</code> 
+
 
 
 ####Platforms
@@ -2917,9 +3836,15 @@ Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-True if authentication is required.
+<p>True if authentication is required.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothAuthentication</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothAuthentication</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothAuthentication</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothAuthentication</code> 
+
 
 
 ####Platforms
@@ -2933,29 +3858,31 @@ True if authentication is required.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Bluetooth reconnection scheme.
+<p>Bluetooth reconnection scheme.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.RSM_AUTORECONNECT_NONE 
-	* String: none
-	* 
-No scheme.
-* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER 
-	* String: onPower
-	* 
-When powered on.
-* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_OUT_OF_RANGE 
-	* String: onOutOfRange
-	* 
-When device goes out of range.
-* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER_OUT_OF_RANGE 
-	* String: onPowerOutOfRange
-	* 
-When powered on or when the device goes out of range.
+* Constant: EB.Barcode.RSM_AUTORECONNECT_NONE - String: none 
+<p>No scheme.</p>
+
+* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER - String: onPower 
+<p>When powered on.</p>
+
+* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_OUT_OF_RANGE - String: onOutOfRange 
+<p>When device goes out of range.</p>
+
+* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER_OUT_OF_RANGE - String: onPowerOutOfRange 
+<p>When powered on or when the device goes out of range.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothAutoReconnect</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothAutoReconnect</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothAutoReconnect</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothAutoReconnect</code> 
+
 
 
 ####Platforms
@@ -2969,9 +3896,15 @@ When powered on or when the device goes out of range.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in progress.
+<p>When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in progress.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothBeepOnReconnectAttempt</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothBeepOnReconnectAttempt</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothBeepOnReconnectAttempt</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothBeepOnReconnectAttempt</code> 
+
 
 
 ####Platforms
@@ -2985,9 +3918,15 @@ When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in pro
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-True if encryption is required.
+<p>True if encryption is required.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothEncryption</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothEncryption</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothEncryption</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothEncryption</code> 
+
 
 
 ####Platforms
@@ -3001,9 +3940,15 @@ True if encryption is required.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Friendly Bluetooth name, e.g. 'MyBTScanner'
+<p>Friendly Bluetooth name, e.g. &lsquo;MyBTScanner&rsquo;</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothFriendlyName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothFriendlyName</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothFriendlyName</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothFriendlyName</code> 
+
 
 
 ####Platforms
@@ -3017,9 +3962,15 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 <span class='text-info'>STRING</span> 
 ####Description
 
-'neverReconnect', 'reconnectOnData' or 'reconnectImmediately'
+<p>&lsquo;neverReconnect&rsquo;, &lsquo;reconnectOnData&rsquo; or &lsquo;reconnectImmediately&rsquo;</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothHidAutoReconnect</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothHidAutoReconnect</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothHidAutoReconnect</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothHidAutoReconnect</code> 
+
 
 
 ####Platforms
@@ -3033,9 +3984,15 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 <span class='text-info'>STRING</span> 
 ####Description
 
-To use a general inquiry mode, 'general' else, 'limited'
+<p>To use a general inquiry mode, &lsquo;general&rsquo; else, &lsquo;limited&rsquo;</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothInquiryMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothInquiryMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothInquiryMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothInquiryMode</code> 
+
 
 
 ####Platforms
@@ -3049,9 +4006,15 @@ To use a general inquiry mode, 'general' else, 'limited'
 <span class='text-info'>STRING</span> 
 ####Description
 
-Up to 5 character PIN code used for Bluetooth authentication.
+<p>Up to 5 character PIN code used for Bluetooth authentication.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothPinCode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothPinCode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothPinCode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothPinCode</code> 
+
 
 
 ####Platforms
@@ -3065,9 +4028,15 @@ Up to 5 character PIN code used for Bluetooth authentication.
 <span class='text-info'>STRING</span> 
 ####Description
 
-'UseStored' will use the PIN code stored in the memory of the ring scanner, by default '12345'. 'PromptUser' indicates that the ring scanner should be used to scan 5 alpha numeric barcodes to define the PIN, eg. "1", "2", "3", "4", "5" (for PIN 12345). This parameter is not saved permanently on the ring scanner.
+<p>&lsquo;UseStored&rsquo; will use the PIN code stored in the memory of the ring scanner, by default &lsquo;12345&rsquo;. &lsquo;PromptUser&rsquo; indicates that the ring scanner should be used to scan 5 alpha numeric barcodes to define the PIN, eg. &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;3&rdquo;, &ldquo;4&rdquo;, &ldquo;5&rdquo; (for PIN 12345). This parameter is not saved permanently on the ring scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothPinCodeType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothPinCodeType</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothPinCodeType</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothPinCodeType</code> 
+
 
 
 ####Platforms
@@ -3081,9 +4050,15 @@ Up to 5 character PIN code used for Bluetooth authentication.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-How long the scanner tries to re-establish connection if it goes out of range, in seconds. This value must be a multiple of 5 and in the range 30 to 60 seconds.
+<p>How long the scanner tries to re-establish connection if it goes out of range, in seconds. This value must be a multiple of 5 and in the range 30 to 60 seconds.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmBluetoothReconnectionAttempts</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmBluetoothReconnectionAttempts</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmBluetoothReconnectionAttempts</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmBluetoothReconnectionAttempts</code> 
+
 
 
 ####Platforms
@@ -3097,9 +4072,15 @@ How long the scanner tries to re-establish connection if it goes out of range, i
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Ring scanner date of manufacture as DDMMYY.
+<p>Ring scanner date of manufacture as DDMMYY.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDateOfManufacture</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDateOfManufacture</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmDateOfManufacture</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmDateOfManufacture</code> 
+
 
 
 ####Platforms
@@ -3113,9 +4094,15 @@ Ring scanner date of manufacture as DDMMYY.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Ring scanner date of service as DDMMYY.
+<p>Ring scanner date of service as DDMMYY.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDateOfService</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDateOfService</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmDateOfService</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmDateOfService</code> 
+
 
 
 ####Platforms
@@ -3129,9 +4116,15 @@ Ring scanner date of service as DDMMYY.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, the remote scanner beeps and illuminates its green LED on a successful decode.
+<p>If true, the remote scanner beeps and illuminates its green LED on a successful decode.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDecodeFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDecodeFeedback</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmDecodeFeedback</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmDecodeFeedback</code> 
+
 
 
 ####Platforms
@@ -3145,9 +4138,15 @@ If true, the remote scanner beeps and illuminates its green LED on a successful 
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-The device class of the ring scanner.
+<p>The device class of the ring scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmDeviceClass</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmDeviceClass</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmDeviceClass</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmDeviceClass</code> 
+
 
 
 ####Platforms
@@ -3161,9 +4160,15 @@ The device class of the ring scanner.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Scanner's operating system version.
+<p>Scanner&rsquo;s operating system version.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmFirmwareVersion</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmFirmwareVersion</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmFirmwareVersion</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmFirmwareVersion</code> 
+
 
 
 ####Platforms
@@ -3177,9 +4182,15 @@ Scanner's operating system version.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Force saving the barcode assigned to the device to which the scanner has been paired.
+<p>Force saving the barcode assigned to the device to which the scanner has been paired.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmForceSavePairingBarcode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmForceSavePairingBarcode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmForceSavePairingBarcode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmForceSavePairingBarcode</code> 
+
 
 
 ####Platforms
@@ -3193,9 +4204,15 @@ Force saving the barcode assigned to the device to which the scanner has been pa
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Delay between good scans in proximity continuous mode, measured in milliseconds. Range 0 to 15000. This value must be a multiple of 100.
+<p>Delay between good scans in proximity continuous mode, measured in milliseconds. Range 0 to 15000. This value must be a multiple of 100.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmGoodScansDelay</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmGoodScansDelay</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmGoodScansDelay</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmGoodScansDelay</code> 
+
 
 
 ####Platforms
@@ -3209,9 +4226,15 @@ Delay between good scans in proximity continuous mode, measured in milliseconds.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Feature for ignoring Code 128 barcodes beginning with 420 and 421.
+<p>Feature for ignoring Code 128 barcodes beginning with 420 and 421.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmIgnoreCode128Usps</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmIgnoreCode128Usps</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmIgnoreCode128Usps</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmIgnoreCode128Usps</code> 
+
 
 
 ####Platforms
@@ -3225,9 +4248,15 @@ Feature for ignoring Code 128 barcodes beginning with 420 and 421.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Whether or not the ring scanner should give a low battery indication.
+<p>Whether or not the ring scanner should give a low battery indication.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmLowBatteryIndication</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmLowBatteryIndication</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmLowBatteryIndication</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmLowBatteryIndication</code> 
+
 
 
 ####Platforms
@@ -3241,9 +4270,15 @@ Whether or not the ring scanner should give a low battery indication.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 120.
+<p>Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 120.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmLowBatteryIndicationCycle</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmLowBatteryIndicationCycle</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmLowBatteryIndicationCycle</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmLowBatteryIndicationCycle</code> 
+
 
 
 ####Platforms
@@ -3257,9 +4292,15 @@ Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.
+<p>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmMems</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmMems</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmMems</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmMems</code> 
+
 
 
 ####Platforms
@@ -3273,9 +4314,15 @@ If you press the trigger on an RSM scanner, proximity enabled will be turned off
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Ring scanner model number.
+<p>Ring scanner model number.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmModelNumber</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmModelNumber</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmModelNumber</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmModelNumber</code> 
+
 
 
 ####Platforms
@@ -3289,9 +4336,15 @@ Ring scanner model number.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Range 0 to 15 to specify the pattern for the paging beep sequence.
+<p>Range 0 to 15 to specify the pattern for the paging beep sequence.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmPagingBeepSequence</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmPagingBeepSequence</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmPagingBeepSequence</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmPagingBeepSequence</code> 
+
 
 
 ####Platforms
@@ -3305,9 +4358,15 @@ Range 0 to 15 to specify the pattern for the paging beep sequence.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Specify whether paging the device is enabled.
+<p>Specify whether paging the device is enabled.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmPagingEnable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmPagingEnable</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmPagingEnable</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmPagingEnable</code> 
+
 
 
 ####Platforms
@@ -3321,9 +4380,15 @@ Specify whether paging the device is enabled.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Proximity continuous mode.
+<p>Proximity continuous mode.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmProximityContinuous</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmProximityContinuous</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmProximityContinuous</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmProximityContinuous</code> 
+
 
 
 ####Platforms
@@ -3337,9 +4402,15 @@ Proximity continuous mode.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Specify the distance for the proximity feature as 'short', 'medium' or 'long' 
+<p>Specify the distance for the proximity feature as &lsquo;short&rsquo;, &lsquo;medium&rsquo; or &lsquo;long&rsquo;</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmProximityDistance</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmProximityDistance</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmProximityDistance</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmProximityDistance</code> 
+
 
 
 ####Platforms
@@ -3353,9 +4424,15 @@ Specify the distance for the proximity feature as 'short', 'medium' or 'long'
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.
+<p>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmProximityEnable</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmProximityEnable</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmProximityEnable</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmProximityEnable</code> 
+
 
 
 ####Platforms
@@ -3369,9 +4446,15 @@ If you press the trigger on an RSM scanner, proximity enabled will be turned off
 <span class='text-info'>STRING</span> 
 ####Description
 
-The laser scan line width, 'wide' or 'narrow'.
+<p>The laser scan line width, &lsquo;wide&rsquo; or &lsquo;narrow&rsquo;.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmScanLineWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmScanLineWidth</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmScanLineWidth</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmScanLineWidth</code> 
+
 
 
 ####Platforms
@@ -3385,9 +4468,15 @@ The laser scan line width, 'wide' or 'narrow'.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Scanner trigger will wakeup the device from a low power state.
+<p>Scanner trigger will wakeup the device from a low power state.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmScanTriggerWakeup</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmScanTriggerWakeup</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmScanTriggerWakeup</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmScanTriggerWakeup</code> 
+
 
 
 ####Platforms
@@ -3401,9 +4490,15 @@ Scanner trigger will wakeup the device from a low power state.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Ring scanner serial number.
+<p>Ring scanner serial number.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.rsmSerialNumber</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.rsmSerialNumber</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.rsmSerialNumber</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.rsmSerialNumber</code> 
+
 
 
 ####Platforms
@@ -3417,9 +4512,15 @@ Ring scanner serial number.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this value to prevent accidental duplicate scans.
+<p>When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this value to prevent accidental duplicate scans.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.sameSymbolTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.sameSymbolTimeout</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.sameSymbolTimeout</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.sameSymbolTimeout</code> 
+
 
 
 ####Platforms
@@ -3433,9 +4534,15 @@ When the aimType:continuousRead property is applied this value defines the inter
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.
+<p>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.scanTimeout</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.scanTimeout</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.scanTimeout</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.scanTimeout</code> 
+
 
 
 ####Platforms
@@ -3450,9 +4557,15 @@ Maximum time in milliseconds that laser scanners will emit a beam or imager scan
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.
+<p>The type of scanner in use, will be one of &lsquo;Camera&rsquo;, &lsquo;Imager&rsquo; or &lsquo;Laser&rsquo;. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.scannerType</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.scannerType</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.scannerType</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.scannerType</code> 
+
 
 
 ####Platforms
@@ -3466,9 +4579,15 @@ The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Signature barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.
+<p>Enables or disables the symbology for Signature barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signature</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signature</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.signature</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.signature</code> 
+
 
 
 ####Platforms
@@ -3483,9 +4602,15 @@ Enables or disables the symbology for Signature barcodes. If your application do
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the output height of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.
+<p>Specifies the output height of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signatureImageHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signatureImageHeight</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.signatureImageHeight</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.signatureImageHeight</code> 
+
 
 
 ####Platforms
@@ -3499,9 +4624,15 @@ Specifies the output height of the captured signature barcode. Signature barcode
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the output quality of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a value between 10 and 100 inclusive.
+<p>Specifies the output quality of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a value between 10 and 100 inclusive.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signatureImageQuality</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signatureImageQuality</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.signatureImageQuality</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.signatureImageQuality</code> 
+
 
 
 ####Platforms
@@ -3515,9 +4646,15 @@ Specifies the output quality of the captured signature barcode. Signature barcod
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Specifies the output width of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.
+<p>Specifies the output width of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.signatureImageWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.signatureImageWidth</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.signatureImageWidth</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.signatureImageWidth</code> 
+
 
 
 ####Platforms
@@ -3531,9 +4668,15 @@ Specifies the output width of the captured signature barcode. Signature barcodes
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Duration in milliseconds for aimType:timedHold and aimType:timedRelease.
+<p>Duration in milliseconds for aimType:timedHold and aimType:timedRelease.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.timedAimDuration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.timedAimDuration</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.timedAimDuration</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.timedAimDuration</code> 
+
 
 
 ####Platforms
@@ -3547,9 +4690,15 @@ Duration in milliseconds for aimType:timedHold and aimType:timedRelease.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for TLC 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for TLC 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.tlc39</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.tlc39</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.tlc39</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.tlc39</code> 
+
 
 
 ####Platforms
@@ -3564,11 +4713,17 @@ Enables or disables the symbology for TLC 39 barcodes. If your application does 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Only applies to an enabled laser or imaging scanner. Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer. By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately. Please note that disconnecting the trigger will also prevent the start method from emitting a laser. This property will only affect the scanner and will have no effect on the 'captureTrigger' API.
+<p>Only applies to an enabled laser or imaging scanner. Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer. By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately. Please note that disconnecting the trigger will also prevent the start method from emitting a laser. This property will only affect the scanner and will have no effect on the &lsquo;captureTrigger&rsquo; API.</p>
+
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.triggerConnected</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.triggerConnected</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.triggerConnected</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.triggerConnected</code> 
+
 
 
 ####Platforms
@@ -3582,9 +4737,15 @@ Only applies to an enabled laser or imaging scanner. Disconnecting the trigger w
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Trioptic 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for Trioptic 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.trioptic39</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.trioptic39</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.trioptic39</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.trioptic39</code> 
+
 
 
 ####Platforms
@@ -3599,9 +4760,15 @@ Enables or disables the symbology for Trioptic 39 barcodes. If your application 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
+<p>Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.trioptic39Redundancy</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.trioptic39Redundancy</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.trioptic39Redundancy</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.trioptic39Redundancy</code> 
+
 
 
 ####Platforms
@@ -3616,9 +4783,15 @@ Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twi
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for UK Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for UK Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ukPostal</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ukPostal</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ukPostal</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.ukPostal</code> 
+
 
 
 ####Platforms
@@ -3633,9 +4806,15 @@ Enables or disables the symbology for UK Postal barcodes. If your application do
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned UK Postal barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned UK Postal barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ukPostalReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.ukPostalReportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ukPostalReportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.ukPostalReportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -3649,9 +4828,15 @@ When true, the barcode check digit(s) will be reported for scanned UK Postal bar
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables decoding of UPC EAN Bookland barcodes.
+<p>Enables or disables decoding of UPC EAN Bookland barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanBookland</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanBookland</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanBookland</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanBookland</code> 
+
 
 
 ####Platforms
@@ -3666,21 +4851,25 @@ Enables or disables decoding of UPC EAN Bookland barcodes.
 <span class='text-info'>STRING</span> 
 ####Description
 
-Specifies the bookland format to use when decoding UPC EAN Bookland barcodes.
+<p>Specifies the bookland format to use when decoding UPC EAN Bookland barcodes.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.BOOKLAND_ISBN10 
-	* String: isbn10
-	* 
-Causes 978 bookland barcodes to be reported in 10 digit mode.
-* Constant: EB.Barcode.BOOKLAND_ISBN13 
-	* String: isbn13
-	* 
-Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 protocol.
+* Constant: EB.Barcode.BOOKLAND_ISBN10 - String: isbn10 
+<p>Causes 978 bookland barcodes to be reported in 10 digit mode.</p>
+
+* Constant: EB.Barcode.BOOKLAND_ISBN13 - String: isbn13 
+<p>Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 protocol.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanBooklandFormat</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanBooklandFormat</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanBooklandFormat</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanBooklandFormat</code> 
+
 
 
 ####Platforms
@@ -3695,9 +4884,15 @@ Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, RSS barcodes will be converted to UPC/EAN format. For this setting to work UPC/EAN symbologies must be enabled.
+<p>If true, RSS barcodes will be converted to UPC/EAN format. For this setting to work UPC/EAN symbologies must be enabled.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanConvertGs1dataBarToUpcEan</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanConvertGs1dataBarToUpcEan</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanConvertGs1dataBarToUpcEan</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanConvertGs1dataBarToUpcEan</code> 
+
 
 
 ####Platforms
@@ -3712,9 +4907,15 @@ If true, RSS barcodes will be converted to UPC/EAN format. For this setting to w
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables decoding of UPC EAN Coupon barcodes.
+<p>Enables or disables decoding of UPC EAN Coupon barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanCoupon</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanCoupon</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanCoupon</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanCoupon</code> 
+
 
 
 ####Platforms
@@ -3729,9 +4930,15 @@ Enables or disables decoding of UPC EAN Coupon barcodes.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Sets the linear decode property.
+<p>Sets the linear decode property.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanLinearDecode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanLinearDecode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanLinearDecode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanLinearDecode</code> 
+
 
 
 ####Platforms
@@ -3746,9 +4953,15 @@ Sets the linear decode property.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, enables random weight check digit verification.
+<p>When true, enables random weight check digit verification.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanRandomWeightCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanRandomWeightCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanRandomWeightCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanRandomWeightCheckDigit</code> 
+
 
 
 ####Platforms
@@ -3763,9 +4976,15 @@ When true, enables random weight check digit verification.
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Sets the retry count for auto-discriminating for supplementals. The value must be between 2 - 20 inclusive.
+<p>Sets the retry count for auto-discriminating for supplementals. The value must be between 2 &ndash; 20 inclusive.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanRetryCount</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanRetryCount</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanRetryCount</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanRetryCount</code> 
+
 
 
 ####Platforms
@@ -3780,9 +4999,15 @@ Sets the retry count for auto-discriminating for supplementals. The value must b
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-Sets the Security level for decoding UPC EAN barcodes and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.
+<p>Sets the Security level for decoding UPC EAN barcodes and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most &lsquo;in-spec&rsquo; barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSecurityLevel</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSecurityLevel</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanSecurityLevel</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanSecurityLevel</code> 
+
 
 
 ####Platforms
@@ -3797,9 +5022,15 @@ Sets the Security level for decoding UPC EAN barcodes and accepts a value betwee
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.
+<p>When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSupplemental2</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSupplemental2</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanSupplemental2</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanSupplemental2</code> 
+
 
 
 ####Platforms
@@ -3814,9 +5045,15 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.
+<p>When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSupplemental5</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSupplemental5</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanSupplemental5</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanSupplemental5</code> 
+
 
 
 ####Platforms
@@ -3831,41 +5068,40 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 <span class='text-info'>STRING</span> 
 ####Description
 
-Describes the UPC EAN Supplemental mode.
+<p>Describes the UPC EAN Supplemental mode.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCEAN_NONE 
-	* String: none
-	* 
-Supplementals are ignored.
-* Constant: EB.Barcode.UPCEAN_AUTO 
-	* String: auto
-	* 
-Auto-discriminates supplementals.
-* Constant: EB.Barcode.UPCEAN_ALWAYS 
-	* String: always
-	* 
-Will not decode upc/ean without supplementals.
-* Constant: EB.Barcode.UPCEAN_SMART 
-	* String: smart
-	* 
-The decoder will return the decoded value of the main block right away if it does not belong to any of the supplemental types. If the barcode starts with one of the prefixes it will search the image more aggressively for a supplemental. The scanner will try to scan the supplemental if it is present but if that fails, the main barcode will be returned.
-* Constant: EB.Barcode.UPCEAN_379 
-	* String: 378or379
-	* 
-Auto-discriminates supplemental for upc/ean codes starting with 378 or 379. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.
-* Constant: EB.Barcode.UPCEAN_979 
-	* String: 978or979
-	* 
-Auto-discriminates supplemental for upc/ean codes starting with 978 or 979. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.
-* Constant: EB.Barcode.UPCEAN_439 
-	* String: 414or419or434or439
-	* 
-Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 434 or 439. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.
+* Constant: EB.Barcode.UPCEAN_NONE - String: none 
+<p>Supplementals are ignored.</p>
+
+* Constant: EB.Barcode.UPCEAN_AUTO - String: auto 
+<p>Auto-discriminates supplementals.</p>
+
+* Constant: EB.Barcode.UPCEAN_ALWAYS - String: always 
+<p>Will not decode upc/ean without supplementals.</p>
+
+* Constant: EB.Barcode.UPCEAN_SMART - String: smart 
+<p>The decoder will return the decoded value of the main block right away if it does not belong to any of the supplemental types. If the barcode starts with one of the prefixes it will search the image more aggressively for a supplemental. The scanner will try to scan the supplemental if it is present but if that fails, the main barcode will be returned.</p>
+
+* Constant: EB.Barcode.UPCEAN_379 - String: 378or379 
+<p>Auto-discriminates supplemental for upc/ean codes starting with 378 or 379. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</p>
+
+* Constant: EB.Barcode.UPCEAN_979 - String: 978or979 
+<p>Auto-discriminates supplemental for upc/ean codes starting with 978 or 979. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</p>
+
+* Constant: EB.Barcode.UPCEAN_439 - String: 414or419or434or439 
+<p>Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 434 or 439. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcEanSupplementalMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcEanSupplementalMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcEanSupplementalMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcEanSupplementalMode</code> 
+
 
 
 ####Platforms
@@ -3880,9 +5116,15 @@ Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 43
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for UPCA barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for UPCA barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upca</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upca</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upca</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upca</code> 
+
 
 
 ####Platforms
@@ -3897,25 +5139,28 @@ Enables or disables the symbology for UPCA barcodes. If your application does no
 <span class='text-info'>STRING</span> 
 ####Description
 
-Controls the preamble applied to the UPCA barcode.
+<p>Controls the preamble applied to the UPCA barcode.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCA_PREAMBLE_NONE 
-	* String: none
-	* 
-Applies no preamble to the bar code.
-* Constant: EB.Barcode.UPCA_PREAMBLE_SYSTEMCHAR 
-	* String: systemChar
-	* 
-Applies system character preamble to the bar code.
-* Constant: EB.Barcode.UPCA_PREAMBLE_COUNTRY 
-	* String: countryAndSystemChars
-	* 
-Applies both system and country code preamble to the bar code.
+* Constant: EB.Barcode.UPCA_PREAMBLE_NONE - String: none 
+<p>Applies no preamble to the bar code.</p>
+
+* Constant: EB.Barcode.UPCA_PREAMBLE_SYSTEMCHAR - String: systemChar 
+<p>Applies system character preamble to the bar code.</p>
+
+* Constant: EB.Barcode.UPCA_PREAMBLE_COUNTRY - String: countryAndSystemChars 
+<p>Applies both system and country code preamble to the bar code.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcaPreamble</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcaPreamble</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcaPreamble</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcaPreamble</code> 
+
 
 
 ####Platforms
@@ -3930,9 +5175,15 @@ Applies both system and country code preamble to the bar code.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned UPCA barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned UPCA barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upcaReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upcaReportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upcaReportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upcaReportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -3947,9 +5198,15 @@ When true, the barcode check digit(s) will be reported for scanned UPCA barcodes
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for UPCE0 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for UPCE0 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce0</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce0</code> 
+
 
 
 ####Platforms
@@ -3964,9 +5221,15 @@ Enables or disables the symbology for UPCE0 barcodes. If your application does n
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters used.
+<p>When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters used.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0convertToUpca</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0convertToUpca</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce0convertToUpca</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce0convertToUpca</code> 
+
 
 
 ####Platforms
@@ -3981,25 +5244,28 @@ When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters 
 <span class='text-info'>STRING</span> 
 ####Description
 
-Controls the preamble applied to the UPCE0 barcode.
+<p>Controls the preamble applied to the UPCE0 barcode.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCE0_PREAMBLE_NONE 
-	* String: none
-	* 
-Applies no preamble to the bar code.
-* Constant: EB.Barcode.UPCE0_PREAMBLE_SYSTEMCHAR 
-	* String: systemChar
-	* 
-Applies system character preamble to the bar code.
-* Constant: EB.Barcode.UPCE0_PREAMBLE_COUNTRY 
-	* String: countryAndSystemChars
-	* 
-Applies both system and country code preamble to the bar code.
+* Constant: EB.Barcode.UPCE0_PREAMBLE_NONE - String: none 
+<p>Applies no preamble to the bar code.</p>
+
+* Constant: EB.Barcode.UPCE0_PREAMBLE_SYSTEMCHAR - String: systemChar 
+<p>Applies system character preamble to the bar code.</p>
+
+* Constant: EB.Barcode.UPCE0_PREAMBLE_COUNTRY - String: countryAndSystemChars 
+<p>Applies both system and country code preamble to the bar code.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0preamble</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0preamble</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce0preamble</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce0preamble</code> 
+
 
 
 ####Platforms
@@ -4014,9 +5280,15 @@ Applies both system and country code preamble to the bar code.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned UPCE0 barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned UPCE0 barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce0reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce0reportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce0reportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce0reportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -4031,9 +5303,15 @@ When true, the barcode check digit(s) will be reported for scanned UPCE0 barcode
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for UPCE1 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for UPCE1 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce1</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce1</code> 
+
 
 
 ####Platforms
@@ -4048,9 +5326,15 @@ Enables or disables the symbology for UPCE1 barcodes. If your application does n
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters used.
+<p>When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters used.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1convertToUpca</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1convertToUpca</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce1convertToUpca</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce1convertToUpca</code> 
+
 
 
 ####Platforms
@@ -4065,25 +5349,28 @@ When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters 
 <span class='text-info'>STRING</span> 
 ####Description
 
-Controls the preamble applied to the UPCE1 barcode.
+<p>Controls the preamble applied to the UPCE1 barcode.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCE1_PREAMBLE_NONE 
-	* String: none
-	* 
-Applies no preamble to the bar code.
-* Constant: EB.Barcode.UPCE1_PREAMBLE_SYSTEMCHAR 
-	* String: systemChar
-	* 
-Applies system character preamble to the bar code.
-* Constant: EB.Barcode.UPCE1_PREAMBLE_COUNTRY 
-	* String: countryAndSystemChars
-	* 
-Applies both system and country code preamble to the bar code.
+* Constant: EB.Barcode.UPCE1_PREAMBLE_NONE - String: none 
+<p>Applies no preamble to the bar code.</p>
+
+* Constant: EB.Barcode.UPCE1_PREAMBLE_SYSTEMCHAR - String: systemChar 
+<p>Applies system character preamble to the bar code.</p>
+
+* Constant: EB.Barcode.UPCE1_PREAMBLE_COUNTRY - String: countryAndSystemChars 
+<p>Applies both system and country code preamble to the bar code.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1preamble</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1preamble</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce1preamble</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce1preamble</code> 
+
 
 
 ####Platforms
@@ -4098,9 +5385,15 @@ Applies both system and country code preamble to the bar code.
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned UPCE1 barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned UPCE1 barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.upce1reportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.upce1reportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.upce1reportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.upce1reportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -4115,9 +5408,15 @@ When true, the barcode check digit(s) will be reported for scanned UPCE1 barcode
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for US 4-State barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for US 4-State barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.us4state</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.us4state</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.us4state</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.us4state</code> 
+
 
 
 ####Platforms
@@ -4132,9 +5431,15 @@ Enables or disables the symbology for US 4-State barcodes. If your application d
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for US 4-State FICS barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for US 4-State FICS barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.us4stateFics</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.us4stateFics</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.us4stateFics</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.us4stateFics</code> 
+
 
 
 ####Platforms
@@ -4149,9 +5454,15 @@ Enables or disables the symbology for US 4-State FICS barcodes. If your applicat
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for US Planet barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for US Planet barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPlanet</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPlanet</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.usPlanet</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.usPlanet</code> 
+
 
 
 ####Platforms
@@ -4166,9 +5477,15 @@ Enables or disables the symbology for US Planet barcodes. If your application do
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned US Planet barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned US Planet barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPlanetReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPlanetReportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.usPlanetReportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.usPlanetReportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -4182,9 +5499,15 @@ When true, the barcode check digit(s) will be reported for scanned US Planet bar
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for US Post Net barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
+<p>Enables or disables the symbology for US Post Net barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPostNet</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPostNet</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.usPostNet</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.usPostNet</code> 
+
 
 
 ####Platforms
@@ -4199,9 +5522,15 @@ Enables or disables the symbology for US Post Net barcodes. If your application 
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-When true, the barcode check digit(s) will be reported for scanned US Post Net barcodes.
+<p>When true, the barcode check digit(s) will be reported for scanned US Post Net barcodes.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.usPostNetReportCheckDigit</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.usPostNetReportCheckDigit</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.usPostNetReportCheckDigit</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.usPostNetReportCheckDigit</code> 
+
 
 
 ####Platforms
@@ -4215,25 +5544,28 @@ When true, the barcode check digit(s) will be reported for scanned US Post Net b
 <span class='text-info'>STRING</span> 
 ####Description
 
-Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.
+<p>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.VF_FEEDBACK_ENABLED 
-	* String: enabled
-	* 
-The last image that was successfully decoded is displayed. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.
-* Constant: EB.Barcode.VF_FEEDBACK_DISABLED 
-	* String: disabled
-	* 
-No feedback is given in the viewfinder after a successful decode.
-* Constant: EB.Barcode.VF_FEEDBACK_RETICLE 
-	* String: reticle
-	* 
-The last image that was successfully decoded is displayed along with a red reticle in the center of the image. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.
+* Constant: EB.Barcode.VF_FEEDBACK_ENABLED - String: enabled 
+<p>The last image that was successfully decoded is displayed. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</p>
+
+* Constant: EB.Barcode.VF_FEEDBACK_DISABLED - String: disabled 
+<p>No feedback is given in the viewfinder after a successful decode.</p>
+
+* Constant: EB.Barcode.VF_FEEDBACK_RETICLE - String: reticle 
+<p>The last image that was successfully decoded is displayed along with a red reticle in the center of the image. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderFeedback</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderFeedback</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.viewfinderFeedback</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.viewfinderFeedback</code> 
+
 
 
 ####Platforms
@@ -4248,9 +5580,15 @@ The last image that was successfully decoded is displayed along with a red retic
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration. Specified in milliseconds.
+<p>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration. Specified in milliseconds.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderFeedbackTime</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderFeedbackTime</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.viewfinderFeedbackTime</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.viewfinderFeedbackTime</code> 
+
 
 
 ####Platforms
@@ -4265,9 +5603,15 @@ If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels in height. The images displayed in the viewfinder will be scaled as appropriate.
+<p>When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels in height. The images displayed in the viewfinder will be scaled as appropriate.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderHeight</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderHeight</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.viewfinderHeight</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.viewfinderHeight</code> 
+
 
 
 ####Platforms
@@ -4281,29 +5625,31 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 <span class='text-info'>STRING</span> 
 ####Description
 
-Configures the mode of the scanner viewfinder window. This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.
+<p>Configures the mode of the scanner viewfinder window. This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.</p>
+
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.VIEWFINDER_ENABLED 
-	* String: enabled
-	* 
-Only the viewfinder is enabled (not the reticle). Displays a viewfinder on the screen showing the image being captured by the camera.
-* Constant: EB.Barcode.VIEWFINDER_DISABLED 
-	* String: disabled
-	* 
-The viewfinder will not be displayed during aiming or scanning.
-* Constant: EB.Barcode.VIEWFINDER_STATIC_RETICLE 
-	* String: staticReticle
-	* 
-Displays the viewfinder as well as draws a red reticle in the center of the image which helps with tracking the barcode.
-* Constant: EB.Barcode.VIEWFINDER_DYNAMIC_RETICLE 
-	* String: dynamicReticle
-	* 
-Displays the viewfinder as well as draws a red reticle in the center of the image. If the barcode in the image is 'decodable' the reticle turns green to indicate this. This mode requires a second trigger press to decode the barcode after the reticle turns green. Not supported on Android.
+* Constant: EB.Barcode.VIEWFINDER_ENABLED - String: enabled 
+<p>Only the viewfinder is enabled (not the reticle). Displays a viewfinder on the screen showing the image being captured by the camera.</p>
+
+* Constant: EB.Barcode.VIEWFINDER_DISABLED - String: disabled 
+<p>The viewfinder will not be displayed during aiming or scanning.</p>
+
+* Constant: EB.Barcode.VIEWFINDER_STATIC_RETICLE - String: staticReticle 
+<p>Displays the viewfinder as well as draws a red reticle in the center of the image which helps with tracking the barcode.</p>
+
+* Constant: EB.Barcode.VIEWFINDER_DYNAMIC_RETICLE - String: dynamicReticle 
+<p>Displays the viewfinder as well as draws a red reticle in the center of the image. If the barcode in the image is &lsquo;decodable&rsquo; the reticle turns green to indicate this. This mode requires a second trigger press to decode the barcode after the reticle turns green. Not supported on Android.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderMode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.viewfinderMode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.viewfinderMode</code> 
+
 
 
 ####Platforms
@@ -4318,9 +5664,15 @@ Displays the viewfinder as well as draws a red reticle in the center of the imag
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels wide. The images displayed in the viewfinder will be scaled as appropriate.
+<p>When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels wide. The images displayed in the viewfinder will be scaled as appropriate.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderWidth</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderWidth</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.viewfinderWidth</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.viewfinderWidth</code> 
+
 
 
 ####Platforms
@@ -4334,9 +5686,15 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the left hand side of the screen. The images displayed in the viewfinder will be scaled as appropriate.
+<p>When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the left hand side of the screen. The images displayed in the viewfinder will be scaled as appropriate.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderX</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderX</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.viewfinderX</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.viewfinderX</code> 
+
 
 
 ####Platforms
@@ -4350,9 +5708,15 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 <span class='text-info'>INTEGER</span> 
 ####Description
 
-When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the top of the screen. The images displayed in the viewfinder will be scaled as appropriate.
+<p>When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the top of the screen. The images displayed in the viewfinder will be scaled as appropriate.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.viewfinderY</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.viewfinderY</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.viewfinderY</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.viewfinderY</code> 
+
 
 
 ####Platforms
@@ -4366,9 +5730,15 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-Enables or disables the symbology for Webcode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Deprecated in Android 4.1 (Jelly Bean).
+<p>Enables or disables the symbology for Webcode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Deprecated in Android 4.1 (Jelly Bean).</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.webcode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.webcode</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.webcode</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.webcode</code> 
+
 
 
 ####Platforms
@@ -4383,9 +5753,15 @@ Enables or disables the symbology for Webcode barcodes. If your application does
 <span class='text-info'>BOOLEAN</span> 
 ####Description
 
-If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jelly Bean).
+<p>If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jelly Bean).</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.webcodeDecodeGtSubtype</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>EB.Barcode.webcodeDecodeGtSubtype</code> </li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.webcodeDecodeGtSubtype</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.webcodeDecodeGtSubtype</code> 
+
 
 
 ####Platforms
@@ -4399,74 +5775,64 @@ If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jell
 
 
 ###Bluetooth Scanner Overview
+<p>Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the &lsquo;unpairing&rsquo; barcode and then invoke the &lsquo;disabled&rsquo; method followed by the &lsquo;enabled&rsquo; method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behavior using the disconnectBtOnDisable property.</p>
 
-                    
-Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behavior using the disconnectBtOnDisable property.
+<p>The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:</p>
 
-The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:
-
-**'BTScanAssociationBarcode'** 
-Means the device is ready to be associated with a BT scanner. You must scan the 
-association barcode. It is only necessary to scan the association 
+<p><strong>&lsquo;BTScanAssociationBarcode&rsquo;</strong>
+Means the device is ready to be associated with a BT scanner. You must scan the
+association barcode. It is only necessary to scan the association
 barcode when you first associate a scanner with the device, this pairing will be remembered until
-you scan the unpairing barcode.
+you scan the unpairing barcode.</p>
 
-** 'BluetoothConnected'**
-The remote scanner has successfully connected to the device.
-    
-** 'BluetoothDisconnected'**
+<p><strong> &lsquo;BluetoothConnected&rsquo;</strong>
+The remote scanner has successfully connected to the device.</p>
+
+<p><strong> &lsquo;BluetoothDisconnected&rsquo;</strong>
 The remote scanner has become disconnected from the device, this may be due to loss of battery, being out
-of range or scanning the 'unpairing' barcode. The scanner will attempt to reconnect automatically for
+of range or scanning the &lsquo;unpairing&rsquo; barcode. The scanner will attempt to reconnect automatically for
 a period of time once it regains power or goes out of range, if it fails to reconnect after the specified
 timeout the reconnect button on the device should be pushed. Once the unpairing barcode is scanned
-it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
-                
-                
+it is necessary to disable the scanner and then re-enable it before another scanner can be associated.</p>
+
 
 ###Viewfinder Position Parameters
+<p>On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.</p>
 
-                    
-On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
-                    
-                
 
 ###Scanning and Camera Interaction
+<p>In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa.</p>
 
-                    
-In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
-                    
-                
 
 ###Get Scanner Properties
+<p>On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In WM/CE, some of the scanner properties are not exposed to set but can be retrieved. In Android, only supported scanner properties can be retrieved in &ldquo;getAllProperties&rdquo; method.</p>
 
-                    
-On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In WM/CE, some of the scanner properties are not exposed to set but can be retrieved. In Android, only supported scanner properties can be retrieved in "getAllProperties" method.
-                    
-                
 
 ###DataWedge Interaction With Native Apps
+<p>In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.</p>
 
-                    
-In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
+<p><strong>Disabling Datawedge</strong></p>
 
-**Disabling Datawedge**
+<ol>
+<li>Start the DataWedge app</li>
+<li>Click the menu button > &ldquo;Settings&rdquo; and untick &ldquo;DataWedge enabled&rdquo;.</li>
+</ol>
 
-1. Start the DataWedge app
-2. Click the menu button > "Settings" and untick "DataWedge enabled". 
 
-**RhoElements Datawedge Profile**
+<p><strong>RhoElements Datawedge Profile</strong></p>
 
-1. Install your RhoElements native app,
-2. Start the DataWedge app
-3. Click the menu button > "New Profile" and enter a name,
-4. Click on the link to the new profile in the profile list,
-5. Click on "Associated apps" in the "Applications" section,
-6. Click the menu button > "New app/activity",
-7. Select the package name for your app,
-8. Select "*",
-9. Click the "Back" capacitive button,
-10. Make sure the "Profile enabled" checkbox is ticked.
-11. Uncheck all three "Enabled" checkboxes under the sections of:
-    "Barcode input", "Keystroke output" and "Intent output".
-                    
-                
+<ol>
+<li>Install your RhoElements native app,</li>
+<li>Start the DataWedge app</li>
+<li>Click the menu button > &ldquo;New Profile&rdquo; and enter a name,</li>
+<li>Click on the link to the new profile in the profile list,</li>
+<li>Click on &ldquo;Associated apps&rdquo; in the &ldquo;Applications&rdquo; section,</li>
+<li>Click the menu button > &ldquo;New app/activity&rdquo;,</li>
+<li>Select the package name for your app,</li>
+<li>Select &ldquo;*&rdquo;,</li>
+<li>Click the &ldquo;Back&rdquo; capacitive button,</li>
+<li>Make sure the &ldquo;Profile enabled&rdquo; checkbox is ticked.</li>
+<li>Uncheck all three &ldquo;Enabled&rdquo; checkboxes under the sections of:
+&ldquo;Barcode input&rdquo;, &ldquo;Keystroke output&rdquo; and &ldquo;Intent output&rdquo;.</li>
+</ol>
+

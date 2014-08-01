@@ -13,16 +13,21 @@ Example extension apiThis is example of API. Implementation contain in extension
 
 ####Parameters
 <ul><li>event : <span class='text-info'>STRING</span><p>
-{} </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>{}</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addEventListener(<span class="text-info">STRING</span> event)</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.addEventListener(<span class="text-info">STRING</span> event)</code>
 
 ### <span class="label label-inverse"> Destructor</span> close()
 
@@ -30,10 +35,15 @@ Synchronous Return:<ul><li>Void</li></ul>
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Method Access:
-<ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
+
+* Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. 
+	* <code>myObj.close()</code>
+
 
 ##Properties
 
@@ -45,9 +55,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>CALLBACK</span> 
 ####Description
 
-{}
+<p>{}</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onerror</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.onerror</code>
 
 ###onmessage
 
@@ -55,9 +68,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>CALLBACK</span> 
 ####Description
 
-{}
+<p>{}</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onmessage</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.onmessage</code>
 
 ###onopen
 
@@ -65,9 +81,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>CALLBACK</span> 
 ####Description
 
-{}
+<p>{}</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.onopen</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.onopen</code>
 
 ###readyState
 
@@ -75,9 +94,12 @@ Synchronous Return:<ul><li>Void</li></ul>
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
 
-Represents the state of the connection.
+<p>Represents the state of the connection.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.readyState</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.readyState</code>
 
 ###url
 
@@ -85,9 +107,12 @@ Represents the state of the connection.
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-URL passed to EventSource constructor.
+<p>URL passed to EventSource constructor.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.url</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.url</code>
 
 ###withCredentials
 
@@ -95,16 +120,21 @@ URL passed to EventSource constructor.
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
 
-Currently will return empty string.
+<p>Currently will return empty string.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.withCredentials</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.withCredentials</code>
 
 ##Constants
 
 
 * CONNECTING
-The connection has not yet been established.
+<p>The connection has not yet been established.</p>
+
 * OPEN
-The WebSocket connection is established and communication is possible.
+<p>The WebSocket connection is established and communication is possible.</p>
+
 * CLOSED
-The connection has been closed or could not be opened.
+<p>The connection has been closed or could not be opened.</p>

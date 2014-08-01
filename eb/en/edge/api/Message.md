@@ -14,57 +14,75 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### addMessage(<span class="text-info">STRING</span> messageID)
-Add new Smart Poster message to the message.
+<p>Add new Smart Poster message to the message.</p>
+
 
 ####Parameters
 <ul><li>messageID : <span class='text-info'>STRING</span><p>
-Added Message object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Added Message object ID.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addMessage(<span class="text-info">STRING</span> messageID)</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.addMessage(<span class="text-info">STRING</span> messageID)</code>
 
 ### addRecord(<span class="text-info">STRING</span> recordID)
-Add new Record to Message.
+<p>Add new Record to Message.</p>
+
 
 ####Parameters
 <ul><li>recordID : <span class='text-info'>STRING</span><p>
-Added Record object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Added Record object ID.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.addRecord(<span class="text-info">STRING</span> recordID)</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.addRecord(<span class="text-info">STRING</span> recordID)</code>
 
 ### close()
-Release NFC resources.
+<p>Release NFC resources.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Void</li></ul>
+Synchronous Return:
+
+* Void
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.close()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.close()</code>
 
 ### create()
-Creates message object.
+<p>Creates message object.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -73,18 +91,25 @@ Creates message object.
 Async Callback Returning Parameters: <span class='text-info'>Rho.NFC.Message</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>Rho.NFC.Message : 
-Created Message object.</li></ul>
+Synchronous Return:
+
+* Rho.NFC.Message : 
+<p>Created Message object.</p>
+
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.create()</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Message.create()</code> 
+
 
 ### getContent()
-Returns Message as byte array.
+<p>Returns Message as byte array.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -93,39 +118,53 @@ Returns Message as byte array.
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>STRING : 
-Message to get.</li></ul>
+Synchronous Return:
+
+* STRING : 
+<p>Message to get.</p>
+
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getContent()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getContent()</code>
 
 ### getMessageById(<span class="text-info">STRING</span> id)
-This function returns Message object.
+<p>This function returns Message object.</p>
+
 
 ####Parameters
 <ul><li>id : <span class='text-info'>STRING</span><p>
-Message object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<p>Message object ID.</p>
+ </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>SELF_INSTANCE : 
-"self" instance of the Message object.</li></ul>
+Synchronous Return:
+
+* SELF_INSTANCE : 
+<p>&ldquo;self&rdquo; instance of the Message object.</p>
+
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>EB.Message.getMessageById(<span class="text-info">STRING</span> id)</code> </li></ul></li></ul>
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Message.getMessageById(<span class="text-info">STRING</span> id)</code> 
+
 
 ### getMessages()
-Return array of Smart Poster Message objects.
+<p>Return array of Smart Poster Message objects.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -134,18 +173,24 @@ Return array of Smart Poster Message objects.
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Message</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>ARRAY : 
-Array of Rho.NFC.Message objects.<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Message</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* ARRAY : 
+<p>Array of Rho.NFC.Message objects.</p>
+<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Message</span><p> </p></li></ul>
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getMessages()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getMessages()</code>
 
 ### getRecords()
-Return array of Record objects.
+<p>Return array of Record objects.</p>
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -154,15 +199,20 @@ Return array of Record objects.
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Record</span><p> </p></li></ul></ul>
 
 ####Returns
-Synchronous Return:<ul><li>ARRAY : 
-Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Record</span><p> </p></li></ul></li></ul>
+Synchronous Return:
+
+* ARRAY : 
+<p>Array of Rho.NFC.Record objects.</p>
+<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Record</span><p> </p></li></ul>
 
 ####Platforms
 
 * Windows Mobile/CE
 
 ####Method Access:
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getRecords()</code></li></ul></li></ul>
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getRecords()</code>
 
 ##Properties
 
@@ -174,9 +224,12 @@ Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
 
-Object ID.
+<p>Object ID.</p>
+
 ####Access
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.ID</code></li></ul></li></ul>
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.ID</code>
 
 
 ####Platforms
