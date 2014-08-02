@@ -121,7 +121,7 @@ You may have noticed one of the lines in the above code is loading a JavaScript 
 	:::html
 	<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-This file is necessary for using the EB JavaScript APIs and is found in the JavaScript Files folder in the Enterprise Browser directory that was installed along with the Enterprise Browser MSI file installation. This file in particular is located in `&lt;path to EB installation&gt;\Enterprise Browser\JavaScript Files\Enterprise Browser`
+This file is necessary for using the EB JavaScript APIs and is found in the JavaScript Files folder in the Enterprise Browser directory that was installed along with the Enterprise Browser MSI file installation. This file in particular is located in `<path-to-eb-installation>\Enterprise Browser\JavaScript Files\Enterprise Browser`
 
 Simply add the line above to add the libraries into your app and copy the file from the aforementioned location to your device.
 
