@@ -79,4 +79,70 @@ Now change the startPage in your config.xml to:
 But we don't want to just link to some other page, we want to use some of the APIs at our disposal! Let's make an app that uses the Barcode API to scan an barcode and displays the barcode we scanned on the screen.
 
 ## A More Useful App
-Create a new file called helloeb.html
+Create a new file called helloeb.html and use these contents:
+
+	:::html
+	<head>
+		<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+		<script type="text/javascript">
+			function scanUsingDefaultScanner(){
+				// Scan with default options
+				EB.Barcode.take({}, scanReceived);
+			}
+
+			function scanReceived(params){
+				// Did we actually find a barcode ?
+				// If status is not 'ok', the scan was canceled
+				if (params["status"]=="ok") {
+					alert('Barcode scanning complete. Scanned barcode: '+ params["barcode"]);
+				} else {
+					alert('Barcode scanning aborted');
+				}
+			}
+
+			function stopBarcode(){
+				EB.Barcode.stop();
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Barcode Example</h1>
+		<button onclick="scanUsingDefaultScanner()">Enable Scanner</button>
+		<button onclick='stopBarcode()'>Disable Scanner</button>
+		<p id="demo"></p>
+	</body>
+
+This code will enable the default device scanner and print out the scanned barcode data once a barcode is scanned. Here is what we see when the app is started.
+
+### JS Libraries
+You may have noticed one of the lines in the above code is loading a JavaScript file that we have not talked about yet.
+
+	:::html
+	<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+This file is necessary for using the EB JavaScript APIs and is found in the JavaScript Files folder in the Enterprise Browser directory that was installed along with the Enterprise Browser MSI file installation. This file in particular is located in `&lt;path to EB installation&gt;\Enterprise Browser\JavaScript Files\Enterprise Browser`
+
+Simply add the line above to add the libraries into your app and copy the file from the aforementioned location to your device.
+
+> Note: If you copy the file somewhere besides the root folder, you'll need to change the location it points to in the code.
+
+### Set the StartPage
+To make your MEB start on this page, change your config.xml to point to this helloeb.html as the start page. I am going to put my helloeb.html file in ny device's root directory, so my config.xml will show:
+
+	:::xml
+	<General>
+		<Name value="Menu"/>
+		<StartPage value="file:///helloeb.html" name="Menu"/>
+		<UseRegularExpressions value="1"/>
+	</General>
+
+### Start the App
+Here is what we will see after starting the app and going through the initial splash screen(s).
+> TBD Add Screenshot of app started
+
+And here is the app after scanning a barcode.
+
+> TDB Add screenshot of app after barcode scan.
+
+You can also opt to add only the APIs that you plan on using if you want to minimize the amount of device storage you use. We discuss strategies like this in the [Optimization]() guide.
