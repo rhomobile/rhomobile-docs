@@ -23,8 +23,8 @@ class Apieb
   			desc = element["DESC"][0]
   		end
   	end
-  	return "\n" + RDiscount.new(desc.to_s, :smart).to_html
-  	# return "\n#{desc.to_s}"
+  	#return "\n" + RDiscount.new(desc.to_s, :smart).to_html
+  	 return "#{desc.to_s}"
   end
 
   def self.elementHasPlatform(element)
@@ -239,7 +239,7 @@ class Apieb
 
 			    md += "\n\n###" + element["title"]
 			    html = getMDDesc(element)
-			  	md += html
+			  	md += "\n"+html
 		  	end
 	  	}
 
@@ -256,9 +256,7 @@ class Apieb
 	  		if noproductException(element)
 		  		element["name"] = getElementName(element) 
 				md +=  "\n* " + element["name"]
-				if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
-	 		        md +=  getMDDesc(element)
-	       		end
+				md +=  getMDDesc(element)
        		end
 	  	}
 	end
@@ -571,7 +569,7 @@ end
 	s.each() { |element|
 		element["name"] = getElementName(element) 
 		if (element["generateDoc"].nil? || element["generateDoc"] == "true") && noproductException(element)
-			methname = element["name"]
+			methname = element["name"] 
 
 			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
 				@methdesc = getMDDesc(element)
@@ -776,7 +774,7 @@ end
 				    md += "\n\n### #{destructorLabel}" + methname + "(#{@methparams})"
 			  	end
 
-			    md += @methdesc 
+			    md += "\n" + @methdesc 
 			    if @methsectionparams != ''
 	    			md += @methsectionparams
 	    		end

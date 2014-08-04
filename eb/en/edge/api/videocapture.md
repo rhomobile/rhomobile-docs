@@ -14,8 +14,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### cancel()
-<p>Stops capturing video and discards any captured video data. No file transfer takes place if the video capture is canceled. NOTE: This is not applicable for Android and iOS as the video capture window is full screen and provides a button to cancel the video capture.</p>
-
+Stops capturing video and discards any captured video data. No file transfer takes place if the video capture is canceled. NOTE: This is not applicable for Android and iOS as the video capture window is full screen and provides a button to cancel the video capture.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -38,8 +37,7 @@ Synchronous Return:
 
 
 ### enumerate()
-<p>Enumerates all the available cameras for capturing video.</p>
-
+Enumerates all the available cameras for capturing video.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -50,9 +48,7 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:
 
-* ARRAY : 
-<p>Array of video capture objects.</p>
-<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p> </p></li></ul>
+* ARRAY : Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -66,8 +62,7 @@ Synchronous Return:
 
 
 ### getAllProperties()
-<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
-
+This method will return all of object/value pairs for the propertyNames of the API class.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -78,9 +73,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of all available properties</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -96,8 +89,7 @@ Synchronous Return:
 
 
 ### getDefault()
-<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
-
+This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -108,9 +100,7 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 ####Returns
 Synchronous Return:
 
-* SELF_INSTANCE : 
-<p>Default object of Module.</p>
-
+* SELF_INSTANCE : Default object of Module.
 
 ####Platforms
 
@@ -124,13 +114,10 @@ Synchronous Return:
 
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
-<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
-
+This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
 
 ####Parameters
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-<p>List of properties I want to know about</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
@@ -138,9 +125,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of properties I want to know about</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -156,13 +141,10 @@ Synchronous Return:
 
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
-<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
-
+This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The property to return info about.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -170,9 +152,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>The property to return info about.</p>
-
+* STRING : The property to return info about.
 
 ####Platforms
 
@@ -188,13 +168,10 @@ Synchronous Return:
 
 
 ### setDefault(<span class="text-info">SELF_INSTANCE: EB.Videocapture</span> defaultInstance)
-<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
-
+This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p>
-<p>An instance object that is of the same class.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -213,13 +190,10 @@ Synchronous Return:
 
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
-<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-<p>Map of properties I want to set</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -240,15 +214,10 @@ Synchronous Return:
 
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
-<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The one property name that I want to set</p>
- </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-<p>The one property value that I want to set</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -269,27 +238,18 @@ Synchronous Return:
 
 
 ### start()
-<p>Starts capturing video until either &lsquo;stop&rsquo; is received, or &lsquo;duration&rsquo; is reached. NOTE: On Android this meta tag wouldn&rsquo;t immediately start recording and presents a preview window with controls (start, stop and cancel) for recording.</p>
-
+Starts capturing video until either 'stop' is received, or 'duration' is reached. NOTE: On Android this meta tag wouldn't immediately start recording and presents a preview window with controls (start, stop and cancel) for recording.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>transferResult : <span class='text-info'>STRING</span><p>
-<p>Reports success or failure of transfer.</p>
- </p></li><li>fileName : <span class='text-info'>STRING</span><p>
-<p>Name of the saved file (absolute path).</p>
- </p></li><li>fileSize : <span class='text-info'>STRING</span><p>
-<p>Size of the saved file in kilobytes (KB).</p>
- </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>transferResult : <span class='text-info'>STRING</span><p>Reports success or failure of transfer. </p></li><li>fileName : <span class='text-info'>STRING</span><p>Name of the saved file (absolute path). </p></li><li>fileSize : <span class='text-info'>STRING</span><p>Size of the saved file in kilobytes (KB). </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
 
-* Void : 
-<p>Not providing a callback to be invoked will result in that file is saved only locally and file is not transfered.</p>
-
+* Void : Not providing a callback to be invoked will result in that file is saved only locally and file is not transfered.
 
 ####Platforms
 
@@ -305,8 +265,7 @@ Synchronous Return:
 
 
 ### stop()
-<p>Stops capturing video and either saves the file locally, or transfers it to a remote server. NOTE: This is not applicable for Android and iOS as the video capture window is full screen and provides a button to stop the video capture. Please note that the file transfer happens as specified even if we don&rsquo;t call the stop method.</p>
-
+Stops capturing video and either saves the file locally, or transfers it to a remote server. NOTE: This is not applicable for Android and iOS as the video capture window is full screen and provides a button to stop the video capture. Please note that the file transfer happens as specified even if we don't call the stop method.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -337,9 +296,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the number of milliseconds of video to capture. This is the maximum number of milliseconds of video to capture when the &lsquo;start&rsquo; method is called if not interrupted with the &lsquo;stop&rsquo; method. The duration cannot be set to less than 1000 milliseconds, if a value of less than 1000 milliseconds is specified, the interval will be defaulted to 5000 milliseconds.</p>
-
+Specifies the number of milliseconds of video to capture. This is the maximum number of milliseconds of video to capture when the 'start' method is called if not interrupted with the 'stop' method. The duration cannot be set to less than 1000 milliseconds, if a value of less than 1000 milliseconds is specified, the interval will be defaulted to 5000 milliseconds.
 ####Params
 <p><strong>Default:</strong> 5000</p>
 ####Access
@@ -361,9 +318,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>The path and name of the file that the video is saved to locally on the device. When the video capture completes the file is saved in the root directory of the device (In case of Android this is the external storage directory). For example, if the user specifies &lsquo;/video/file1&rsquo; then the file gets saved as &lsquo;/mnt/sdcard/video/file1.mp4&rsquo; in Android, and as &lsquo;\video\file1.mov&rsquo; on Windows. The file extension should not be provided as this is determined by the platform (.mp4 in Android and .mov in Windows). On iOS you&rsquo;ll need to provide the entire path, including the extension, which should be .MOV.</p>
-
+The path and name of the file that the video is saved to locally on the device. When the video capture completes the file is saved in the root directory of the device (In case of Android this is the external storage directory). For example, if the user specifies '/video/file1' then the file gets saved as '/mnt/sdcard/video/file1.mp4' in Android, and as '\video\file1.mov' on Windows. The file extension should not be provided as this is determined by the platform (.mp4 in Android and .mov in Windows). On iOS you'll need to provide the entire path, including the extension, which should be .MOV.
 ####Access
 
 
@@ -383,21 +338,15 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>The resolution of the video file to be captured.</p>
-
+The resolution of the video file to be captured.
 ####Params
 <p><strong>Default:</strong> HIGH</p>
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Videocapture.LOW - String: low 
-<p>Low resolution.</p>
-
-* Constant: EB.Videocapture.HIGH - String: high 
-<p>High resolution.</p>
-
+* Constant: EB.Videocapture.LOW - String: low Low resolution.
+* Constant: EB.Videocapture.HIGH - String: high High resolution.
 ####Access
 
 
@@ -417,9 +366,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Specifies whether or not to save the recorded video file into the device gallery.</p>
-
+Specifies whether or not to save the recorded video file into the device gallery.
 ####Access
 
 
@@ -439,8 +386,13 @@ Synchronous Return:
 
 
 ###Memory requirements
-<p>Once duration has been reached the video file will be saved or transferred. Calling &lsquo;stop&rsquo; once this has occurred will have no effect. A Video Capture will fail if there is not sufficient space on the device&rsquo;s filesystem to store it.</p>
 
+Once duration has been reached the video file will be saved or transferred. Calling 'stop' once this has occurred will have no effect. A Video Capture will fail if there is not sufficient space on the device's filesystem to store it.
+
+                
 
 ###File Formats
-<p>The output file format on Android is MP4 and on Windows is WMV.</p>
+
+The output file format on Android is MP4 and on Windows is WMV.
+
+                

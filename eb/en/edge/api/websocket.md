@@ -10,8 +10,7 @@ This API provides access to the WebSocket protocol for two-way communication wit
 
 
 ### <span class="label label-inverse"> Destructor</span> close()
-<p>Closes the connection.</p>
-
+Closes the connection.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -32,13 +31,10 @@ Synchronous Return:
 
 
 ### send(<span class="text-info">STRING</span> message)
-<p>Transmits data using the connection.</p>
-
+Transmits data using the connection.
 
 ####Parameters
-<ul><li>message : <span class='text-info'>STRING</span><p>
-<p>Data to transmit.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>message : <span class='text-info'>STRING</span><p>Data to transmit. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -63,9 +59,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
-
-<p>This callback is fired when connection is closed. It&rsquo;s argument provides two members &ndash; &lsquo;code&rsquo; and &lsquo;reason&rsquo;.'</p>
-
+This callback is fired when connection is closed. It's argument provides two members - 'code' and 'reason'.'
 ####Access
 
 
@@ -76,9 +70,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
-
-<p>This callback is fired if error occurs. Use callback argument&rsquo;s &lsquo;message&rsquo; attribute to access error message.</p>
-
+This callback is fired if error occurs. Use callback argument's 'message' attribute to access error message.
 ####Access
 
 
@@ -89,9 +81,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
-
-<p>This callback is fired when message is received. Use callback argument&rsquo;s &lsquo;data&rsquo; attribute to access received message.</p>
-
+This callback is fired when message is received. Use callback argument's 'data' attribute to access received message.
 ####Access
 
 
@@ -102,9 +92,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
-
-<p>This callback is fired when connection is established.</p>
-
+This callback is fired when connection is established.
 ####Access
 
 
@@ -115,9 +103,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Represents the state of the connection.</p>
-
+Represents the state of the connection.
 ####Access
 
 
@@ -128,9 +114,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>URL passed to Websocket constructor.</p>
-
+URL passed to Websocket constructor.
 ####Access
 
 
@@ -139,14 +123,7 @@ Synchronous Return:
 ##Constants
 
 
-* CONNECTING
-<p>The connection has not yet been established.</p>
-
-* OPEN
-<p>The WebSocket connection is established and communication is possible.</p>
-
-* CLOSING
-<p>The connection is going through the closing handshake, or the close() method has been invoked.</p>
-
-* CLOSED
-<p>The connection has been closed or could not be opened.</p>
+* CONNECTINGThe connection has not yet been established.
+* OPENThe WebSocket connection is established and communication is possible.
+* CLOSINGThe connection is going through the closing handshake, or the close() method has been invoked.
+* CLOSEDThe connection has been closed or could not be opened.

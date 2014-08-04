@@ -47,8 +47,7 @@ ex:
 
 
 ### cleanLogFile()
-<p>Clean log file, all logged messages will be removed.</p>
-
+Clean log file, all logged messages will be removed. 
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -70,15 +69,10 @@ Synchronous Return:
 
 
 ### error(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
-<p>Log message at the Error level.</p>
-
+Log message at the Error level.
 
 ####Parameters
-<ul><li>message : <span class='text-info'>STRING</span><p>
-<p>Log message.</p>
- </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>
-<p>Log category.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>message : <span class='text-info'>STRING</span><p>Log message. </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>Log category. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -97,15 +91,10 @@ Synchronous Return:
 
 
 ### fatalError(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
-<p>Log message at the FatalError level. Application will be terminated.</p>
-
+Log message at the FatalError level. Application will be terminated.
 
 ####Parameters
-<ul><li>message : <span class='text-info'>STRING</span><p>
-<p>Log message.</p>
- </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>
-<p>Log category.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>message : <span class='text-info'>STRING</span><p>Log message. </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>Log category. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -124,15 +113,10 @@ Synchronous Return:
 
 
 ### info(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
-<p>Log message at the Info level.</p>
-
+Log message at the Info level.
 
 ####Parameters
-<ul><li>message : <span class='text-info'>STRING</span><p>
-<p>Log message.</p>
- </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>
-<p>Log category.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>message : <span class='text-info'>STRING</span><p>Log message. </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>Log category. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -151,13 +135,10 @@ Synchronous Return:
 
 
 ### readLogFile(<span class="text-info">INTEGER</span> limit)
-<p>Read log file. Returns string from the log file containing specified number of symbols.</p>
-
+Read log file. Returns string from the log file containing specified number of symbols.
 
 ####Parameters
-<ul><li>limit : <span class='text-info'>INTEGER</span><p>
-<p>Maximum size of the resulting string in symbols.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>limit : <span class='text-info'>INTEGER</span><p>Maximum size of the resulting string in symbols. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -179,8 +160,7 @@ Synchronous Return:
 
 
 ### sendLogFile()
-<p>Send log file to destinationURI property. Please note that this procedure is blocking and will stop any logging while log file is being send.</p>
-
+Send log file to destinationURI property. Please note that this procedure is blocking and will stop any logging while log file is being send.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -202,8 +182,7 @@ Synchronous Return:
 
 
 ### showLog()
-<p>Display Log view window.</p>
-
+Display Log view window.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -225,15 +204,10 @@ Synchronous Return:
 
 
 ### trace(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
-<p>Log message at the Trace level. By default trace messages are not shown in log (if level equals to 1).</p>
-
+Log message at the Trace level. By default trace messages are not shown in log (if level equals to 1).
 
 ####Parameters
-<ul><li>message : <span class='text-info'>STRING</span><p>
-<p>Log message.</p>
- </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>
-<p>Log category.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>message : <span class='text-info'>STRING</span><p>Log message. </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>Log category. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -252,15 +226,10 @@ Synchronous Return:
 
 
 ### warning(<span class="text-info">STRING</span> message, <span class="text-info">STRING</span> category)
-<p>Log message at the Warning level.</p>
-
+Log message at the Warning level.
 
 ####Parameters
-<ul><li>message : <span class='text-info'>STRING</span><p>
-<p>Log message.</p>
- </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>
-<p>Log category.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>message : <span class='text-info'>STRING</span><p>Log message. </p></li><li>category : <span class='text-info'>STRING</span><span class='label '> Default: APP</span><p>Log category. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -287,22 +256,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>ARRAY</span> 
 ####Description
-
-<p>List of log destinations that are being used. Destination could be set to empty (disable all logging), Logging to several destinations could be set by setting destination to comma separated list in any order (for example &ldquo;stdio,file&rdquo;). By default logging to console can be enabled from Config.xml).</p>
-
+List of log destinations that are being used. Destination could be set to empty (disable all logging), Logging to several destinations could be set by setting destination to comma separated list in any order (for example "stdio,file"). By default logging to console can be enabled from Config.xml). 
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Log.DEST_FILE - String: file 
-<p>Log is written to a local file on the device (typically rholog.txt)</p>
-
-* Constant: EB.Log.DEST_OUTPUT - String: stdio 
-<p>Log is written to the standard output (ex: Android ADB)</p>
-
-* Constant: EB.Log.DEST_URI - String: uri 
-<p>Log is written to a remote logger.</p>
-
+* Constant: EB.Log.DEST_FILE - String: file Log is written to a local file on the device (typically rholog.txt)
+* Constant: EB.Log.DEST_OUTPUT - String: stdio Log is written to the standard output (ex: Android ADB)
+* Constant: EB.Log.DEST_URI - String: uri Log is written to a remote logger.
 ####Access
 
 
@@ -321,9 +282,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Log server URI where log will be posted by using EB.Log.sendLogFile or from the log view. Log server source code is open and available at http://github.com/rhomobile/rhologs, so you can deploy your own logserver. URI format: &lsquo;http://host:port[/path][?log_name=appName]&rsquo;. Default value is set in Config.xml</p>
-
+Log server URI where log will be posted by using EB.Log.sendLogFile or from the log view. Log server source code is open and available at http://github.com/rhomobile/rhologs, so you can deploy your own logserver. URI format: 'http://host:port[/path][?log_name=appName]'. Default value is set in Config.xml
 ####Access
 
 
@@ -342,9 +301,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Comma-separated list of excluded log categories. Set to &lsquo;&rsquo; (empty) to allow all messages to be logged. Set to concrete value to filter out log from those categories. Default value is &lsquo;&rsquo; (empty), it is set in Config.xml</p>
-
+Comma-separated list of excluded log categories. Set to '' (empty) to allow all messages to be logged. Set to concrete value to filter out log from those categories. Default value is '' (empty), it is set in Config.xml
 ####Access
 
 
@@ -363,9 +320,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Define exclude parameters log filter(for security reasons) &ndash; parameter names separated by comma. It works when user tries to put in log string containing json / urls. Default value is &ldquo;&rdquo; (empty). For example, if user set excludeFilter=&ldquo;password&rdquo;, then tries to put in log this string: &ldquo;{"user&rdquo;:&ldquo;alex&rdquo;,&ldquo;password&rdquo;:&ldquo;abcdef&rdquo;,&ldquo;sessionid&rdquo;:123456}&ldquo;, "abcdef&rdquo; will not appear in log.</p>
-
+Define exclude parameters log filter(for security reasons) - parameter names separated by comma. It works when user tries to put in log string containing json / urls. Default value is "" (empty). For example, if user set excludeFilter="password", then tries to put in log this string: "{"user":"alex","password":"abcdef","sessionid":123456}", "abcdef" will not appear in log.
 ####Access
 
 
@@ -384,9 +339,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Path to the log file including file name. The path is relative to the platform specific application root or start if from &lsquo;/&rsquo; if you wish to store elsewhere (&lsquo;/mnt/sdcard/myapp.log&rsquo;).  Default file path is Config.xml</p>
-
+Path to the log file including file name. The path is relative to the platform specific application root or start if from '/' if you wish to store elsewhere ('/mnt/sdcard/myapp.log').  Default file path is Config.xml
 ####Params
 <p><strong>Default:</strong> rholog.txt</p>
 ####Access
@@ -407,9 +360,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Maximum log file size in bytes, set 0 to unlimited size; when limit is reached, log wraps to beginning of file. Default value is 50000, it is set in Config.xml</p>
-
+Maximum log file size in bytes, set 0 to unlimited size; when limit is reached, log wraps to beginning of file. Default value is 50000, it is set in Config.xml
 ####Params
 <p><strong>Default:</strong> 50000</p>
 ####Access
@@ -430,9 +381,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Comma-separated list of included log categories. Set to &lsquo;<em>&rsquo; to log all categories. Set to &lsquo;&rsquo; (empty) to filter out all messages. Default value is &lsquo;</em>&rsquo;, it is set in Config.xml.</p>
-
+Comma-separated list of included log categories. Set to '*' to log all categories. Set to '' (empty) to filter out all messages. Default value is '*', it is set in Config.xml.
 ####Params
 <p><strong>Default:</strong> *</p>
 ####Access
@@ -453,28 +402,16 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>The current logging level. Minimal severity level of messages that will appear in log. When level is set to 0 any messages will be logged. When level is set to 4 only fatal error messages will be logged. Default value is defined in Config.xml</p>
-
+The current logging level. Minimal severity level of messages that will appear in log. When level is set to 0 any messages will be logged. When level is set to 4 only fatal error messages will be logged. Default value is defined in Config.xml 
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Log.LEVEL_TRACE - String: 0 
-<p>Everything will be logged. Also see settings for controlling log size.</p>
-
-* Constant: EB.Log.LEVEL_INFO - String: 1 
-<p>Information level logs and above will be shown.</p>
-
-* Constant: EB.Log.LEVEL_WARNING - String: 2 
-<p>Warnings and above will only be shown.</p>
-
-* Constant: EB.Log.LEVEL_ERROR - String: 3 
-<p>Error level log messages and above will be shown.</p>
-
-* Constant: EB.Log.LEVEL_FATAL - String: 4 
-<p>Fatal level log messages and above will be shown.</p>
-
+* Constant: EB.Log.LEVEL_TRACE - String: 0 Everything will be logged. Also see settings for controlling log size.
+* Constant: EB.Log.LEVEL_INFO - String: 1 Information level logs and above will be shown.
+* Constant: EB.Log.LEVEL_WARNING - String: 2 Warnings and above will only be shown.
+* Constant: EB.Log.LEVEL_ERROR - String: 3 Error level log messages and above will be shown.
+* Constant: EB.Log.LEVEL_FATAL - String: 4 Fatal level log messages and above will be shown.
 ####Access
 
 
@@ -493,9 +430,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Enables the logging of memory usage in the system; specifies the time interval in milliseconds at which memory logs will be generated periodically. Setting it to 0 will disable logging memory information.</p>
-
+Enables the logging of memory usage in the system; specifies the time interval in milliseconds at which memory logs will be generated periodically. Setting it to 0 will disable logging memory information.
 ####Params
 <p><strong>Default:</strong> 0</p>
 ####Access
@@ -516,9 +451,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Turn on local http server traces. Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of remote server app (and / or shared runtime). Default value can be overridden by the setting in Config.xml</p>
-
+Turn on local http server traces. Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of remote server app (and / or shared runtime). Default value can be overridden by the setting in Config.xml
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
@@ -538,9 +471,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Skip http package body from log(for security reasons). Please note that this parameter will not take an effect in case of remote server app (and / or shared runtime), no log will appear in this case.</p>
-
+Skip http package body from log(for security reasons). Please note that this parameter will not take an effect in case of remote server app (and / or shared runtime), no log will appear in this case. 
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access

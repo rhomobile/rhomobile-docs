@@ -15,8 +15,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### clear()
-<p>Clear captured events.</p>
-
+Clear captured events.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -38,8 +37,7 @@ Synchronous Return:
 
 
 ### numLines()
-<p>Return number of captured lines.</p>
-
+Return number of captured lines.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -64,8 +62,7 @@ Synchronous Return:
 
 
 ### read()
-<p>Read captured items.</p>
-
+Read captured items.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -90,8 +87,7 @@ Synchronous Return:
 
 
 ### start()
-<p>Start capture log events.</p>
-
+Start capture log events.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -113,8 +109,7 @@ Synchronous Return:
 
 
 ### stop()
-<p>Stop capture log events.</p>
-
+Stop capture log events.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -144,9 +139,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Comma-separated list of excluded log categories.</p>
-
+Comma-separated list of excluded log categories.
 ####Access
 
 
@@ -165,9 +158,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Maximum number of captured lines.</p>
-
+Maximum number of captured lines.
 ####Params
 <p><strong>Default:</strong> 1024</p>
 ####Access

@@ -14,8 +14,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### close()
-<p>Release resources.</p>
-
+Release resources.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -35,8 +34,7 @@ Synchronous Return:
 	* <code>myObject.close()</code>
 
 ### create()
-<p>Creates record.</p>
-
+Creates record.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -47,9 +45,7 @@ Async Callback Returning Parameters: <span class='text-info'>Rho.NFC.Record</spa
 ####Returns
 Synchronous Return:
 
-* Rho.NFC.Record : 
-<p>Record object.</p>
-
+* Rho.NFC.Record : Record object.
 
 ####Platforms
 
@@ -70,9 +66,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Object ID.</p>
-
+Object ID.
 ####Access
 
 
@@ -88,9 +82,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Record payload(data buffer).</p>
-
+Record payload(data buffer).
 ####Access
 
 
@@ -106,9 +98,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Optional field for NFC_NDEF_RTD_GENERAL record type.</p>
-
+Optional field for NFC_NDEF_RTD_GENERAL record type.
 ####Access
 
 
@@ -124,9 +114,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8 is 2 and it will be set by default. This property will be ignored in read tag mode, you should find it in a payload.</p>
-
+Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8 is 2 and it will be set by default. This property will be ignored in read tag mode, you should find it in a payload.
 ####Access
 
 
@@ -142,9 +130,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.</p>
-
+Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.
 ####Access
 
 
@@ -160,9 +146,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically.</p>
-
+When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):
@@ -190,22 +174,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.</p>
-
+Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):
  
-* Constant: EB.Record.NDEF_RTD_TEXT - String: 1 
-<p>A text type record.</p>
-
-* Constant: EB.Record.NDEF_RTD_URI - String: 2 
-<p>A URI type record.</p>
-
-* Constant: EB.Record.NDEF_RTD_GENERAL - String: 3 
-<p>A generic type record.</p>
-
+* Constant: EB.Record.NDEF_RTD_TEXT - String: 1 A text type record.
+* Constant: EB.Record.NDEF_RTD_URI - String: 2 A URI type record.
+* Constant: EB.Record.NDEF_RTD_GENERAL - String: 3 A generic type record.
 ####Access
 
 
@@ -221,9 +197,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically. For values see NFC Forum.</p>
-
+When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically. For values see NFC Forum.
 ####Access
 
 
@@ -239,9 +213,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.</p>
-
+Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.
 ####Access
 
 

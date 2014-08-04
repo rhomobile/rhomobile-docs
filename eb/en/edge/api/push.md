@@ -24,8 +24,7 @@ ex:
 
 
 ### enumerate()
-<p>Returns the push API objects configured within the application.</p>
-
+Returns the push API objects configured within the application.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -36,9 +35,7 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:
 
-* ARRAY : 
-<p>Array of available push engines.</p>
-<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul>
+* ARRAY : Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -52,8 +49,7 @@ Synchronous Return:
 
 
 ### getAllProperties()
-<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
-
+This method will return all of object/value pairs for the propertyNames of the API class.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -64,9 +60,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of all available properties</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -82,8 +76,7 @@ Synchronous Return:
 
 
 ### getDefault()
-<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
-
+This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -94,9 +87,7 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 ####Returns
 Synchronous Return:
 
-* SELF_INSTANCE : 
-<p>Default object of Module.</p>
-
+* SELF_INSTANCE : Default object of Module.
 
 ####Platforms
 
@@ -110,8 +101,7 @@ Synchronous Return:
 
 
 ### getDeviceId()
-<p>Returns push token used to identify particular device.</p>
-
+Returns push token used to identify particular device.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -138,13 +128,10 @@ Synchronous Return:
 
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
-<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
-
+This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
 
 ####Parameters
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-<p>List of properties I want to know about</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
@@ -152,9 +139,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of properties I want to know about</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -170,13 +155,10 @@ Synchronous Return:
 
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
-<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
-
+This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The property to return info about.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -184,9 +166,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>The property to return info about.</p>
-
+* STRING : The property to return info about.
 
 ####Platforms
 
@@ -202,13 +182,10 @@ Synchronous Return:
 
 
 ### setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)
-<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
-
+This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Push</span><p>
-<p>An instance object that is of the same class.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Push</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -227,13 +204,10 @@ Synchronous Return:
 
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
-<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-<p>Map of properties I want to set</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -254,15 +228,10 @@ Synchronous Return:
 
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
-<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The one property name that I want to set</p>
- </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-<p>The one property value that I want to set</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -283,22 +252,13 @@ Synchronous Return:
 
 
 ### startNotifications()
-<p>Start listening for push messages, errors or other push related events.</p>
-
+Start listening for push messages, errors or other push related events.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>doSync : <span class='text-info'>STRING</span><p>
-<p>List of sources to sync separated by comma or &lsquo;all&rsquo;.</p>
- </p></li><li>alertText : <span class='text-info'>STRING</span><p>
-<p>Alert message to show to user.</p>
- </p></li><li>vibrateDuration : <span class='text-info'>INTEGER</span><p>
-<p>Vibrate duration in milliseconds.</p>
- </p></li><li>alertSound : <span class='text-info'>STRING</span><p>
-<p>Path to sound file to play when push message is received.</p>
- </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>doSync : <span class='text-info'>STRING</span><p>List of sources to sync separated by comma or 'all'. </p></li><li>alertText : <span class='text-info'>STRING</span><p>Alert message to show to user. </p></li><li>vibrateDuration : <span class='text-info'>INTEGER</span><p>Vibrate duration in milliseconds. </p></li><li>alertSound : <span class='text-info'>STRING</span><p>Path to sound file to play when push message is received. </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
@@ -319,8 +279,7 @@ Synchronous Return:
 
 
 ### stopNotifications()
-<p>Stop listening push events.</p>
-
+Stop listening push events.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -352,9 +311,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Application name used by RhoConnect Push server to identify application.</p>
-
+Application name used by RhoConnect Push server to identify application.
 ####Access
 
 
@@ -374,9 +331,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>URL of RhoConnect Push server.</p>
-
+URL of RhoConnect Push server.
 ####Access
 
 
@@ -396,19 +351,13 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Push engine type.</p>
-
+Push engine type.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Push.PUSH_TYPE_RHOCONNECT - String: rhoconnect-push 
-<p>RhoConnect push engine.</p>
-
-* Constant: EB.Push.PUSH_TYPE_NATIVE - String: native-push 
-<p>Native push engine (like GCM on Android).</p>
-
+* Constant: EB.Push.PUSH_TYPE_RHOCONNECT - String: rhoconnect-push RhoConnect push engine.
+* Constant: EB.Push.PUSH_TYPE_NATIVE - String: native-push Native push engine (like GCM on Android).
 ####Access
 
 

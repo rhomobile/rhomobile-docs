@@ -24,13 +24,10 @@ ex:
 
 
 ### basename(<span class="text-info">STRING</span> path)
-<p>Return basename part for the specified path. Will remove any prefix up to the last path separator (&lsquo;/&rsquo; or &lsquo;\&rsquo; depending on platform). Example: for path &lsquo;/full/path/to/file.ext&rsquo; basename will return &lsquo;file.ext&rsquo;.</p>
-
+Return basename part for the specified path. Will remove any prefix up to the last path separator ('/' or '\' depending on platform). Example: for path '/full/path/to/file.ext' basename will return 'file.ext'. 
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path for which basename is given.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path for which basename is given. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -38,9 +35,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>Basename part for the given path.</p>
-
+* STRING : Basename part for the given path.
 
 ####Platforms
 
@@ -54,8 +49,7 @@ Synchronous Return:
 
 
 ### <span class="label label-inverse"> Destructor</span> close()
-<p>Closes file.</p>
-
+Closes file.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -77,15 +71,10 @@ Synchronous Return:
 
 
 ### copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)
-<p>Copies file from &ldquo;from&rdquo; (source) to &ldquo;to&rdquo; (destination).</p>
-
+Copies file from "from" (source) to "to" (destination).
 
 ####Parameters
-<ul><li>from : <span class='text-info'>STRING</span><p>
-<p>File name to be copied.</p>
- </p></li><li>to : <span class='text-info'>STRING</span><p>
-<p>Destination path.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>from : <span class='text-info'>STRING</span><p>File name to be copied. </p></li><li>to : <span class='text-info'>STRING</span><p>Destination path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
@@ -93,9 +82,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>Error code raised during copy operation. 0 if no error.</p>
-
+* INTEGER : Error code raised during copy operation. 0 if no error.
 
 ####Platforms
 
@@ -109,13 +96,10 @@ Synchronous Return:
 
 
 ### deleteDir(<span class="text-info">STRING</span> path)
-<p>Deletes specified directory. The specified directory must be empty to be deleted.</p>
-
+Deletes specified directory. The specified directory must be empty to be deleted.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to the directory to be deleted.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the directory to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
@@ -123,9 +107,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>Error code raised on directory deletion. 0 on success, -1 otherwise.</p>
-
+* INTEGER : Error code raised on directory deletion. 0 on success, -1 otherwise.
 
 ####Platforms
 
@@ -139,13 +121,10 @@ Synchronous Return:
 
 
 ### deleteFile(<span class="text-info">STRING</span> path)
-<p>Deletes file.</p>
-
+Deletes file.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to the file to be deleted.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the file to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
@@ -153,9 +132,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>Error code raised on file deletion. 0 on success, -1 otherwise.</p>
-
+* INTEGER : Error code raised on file deletion. 0 on success, -1 otherwise.
 
 ####Platforms
 
@@ -169,15 +146,10 @@ Synchronous Return:
 
 
 ### deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)
-<p>Deletes all directory contents.</p>
-
+Deletes all directory contents.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to the directory.</p>
- </p></li><li>leaveRoot : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>
-<p>Set to true if you only want to delete directory contents, but no the directory itself.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the directory. </p></li><li>leaveRoot : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>Set to true if you only want to delete directory contents, but no the directory itself. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -196,13 +168,10 @@ Synchronous Return:
 
 
 ### dirname(<span class="text-info">STRING</span> path)
-<p>Returns directory name part of the specified path.</p>
-
+Returns directory name part of the specified path.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to directory.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -210,9 +179,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>Directory name.</p>
-
+* STRING : Directory name.
 
 ####Platforms
 
@@ -226,13 +193,10 @@ Synchronous Return:
 
 
 ### exists(<span class="text-info">STRING</span> path)
-<p>Checks if specified path exists.</p>
-
+Checks if specified path exists.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to file or directory.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to file or directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
@@ -240,9 +204,7 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:
 
-* BOOLEAN : 
-<p>True if path exists, otherwise false.</p>
-
+* BOOLEAN : True if path exists, otherwise false.
 
 ####Platforms
 
@@ -256,8 +218,7 @@ Synchronous Return:
 
 
 ### flush()
-<p>Flushes all buffered data to the storage media.</p>
-
+Flushes all buffered data to the storage media.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -278,13 +239,10 @@ Synchronous Return:
 	* <code>myObject.flush()</code>
 
 ### getFileSize(<span class="text-info">STRING</span> path)
-<p>Returns size of the file.</p>
-
+Returns size of the file.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to the file.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
@@ -292,9 +250,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>File size in bytes.</p>
-
+* INTEGER : File size in bytes.
 
 ####Platforms
 
@@ -308,13 +264,10 @@ Synchronous Return:
 
 
 ### isDir(<span class="text-info">STRING</span> path)
-<p>Checks if specified path is a directory.</p>
-
+Checks if specified path is a directory.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path of the directory.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path of the directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
@@ -322,9 +275,7 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:
 
-* BOOLEAN : 
-<p>True if path is a directory. False otherwise.</p>
-
+* BOOLEAN : True if path is a directory. False otherwise.
 
 ####Platforms
 
@@ -338,13 +289,10 @@ Synchronous Return:
 
 
 ### isFile(<span class="text-info">STRING</span> path)
-<p>Checks if specified path is a file.</p>
-
+Checks if specified path is a file.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path of the file.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path of the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
@@ -352,9 +300,7 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:
 
-* BOOLEAN : 
-<p>True if path is a file, false otherwise.</p>
-
+* BOOLEAN : True if path is a file, false otherwise.
 
 ####Platforms
 
@@ -368,8 +314,7 @@ Synchronous Return:
 
 
 ### isOpened()
-<p>Checks if file is opened.</p>
-
+Checks if file is opened.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -380,9 +325,7 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:
 
-* BOOLEAN : 
-<p>True if file is opened, false otherwise.</p>
-
+* BOOLEAN : True if file is opened, false otherwise.
 
 ####Platforms
 
@@ -395,15 +338,10 @@ Synchronous Return:
 	* <code>myObject.isOpened()</code>
 
 ### join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)
-<p>Joins two parts of the path considering all necessary path delimiters. I.e.: join(&lsquo;/path/to&rsquo;,&lsquo;file&rsquo;) will return &lsquo;/path/to/file&rsquo;</p>
-
+Joins two parts of the path considering all necessary path delimiters. I.e.: join('/path/to','file') will return '/path/to/file' 
 
 ####Parameters
-<ul><li>p1 : <span class='text-info'>STRING</span><p>
-<p>First part of the path.</p>
- </p></li><li>p2 : <span class='text-info'>STRING</span><p>
-<p>Second part of the path.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>p1 : <span class='text-info'>STRING</span><p>First part of the path. </p></li><li>p2 : <span class='text-info'>STRING</span><p>Second part of the path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -411,9 +349,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>Joined path.</p>
-
+* STRING : Joined path.
 
 ####Platforms
 
@@ -427,13 +363,10 @@ Synchronous Return:
 
 
 ### listDir(<span class="text-info">STRING</span> path)
-<p>Lists all entries of specified directory.</p>
-
+Lists all entries of specified directory.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to directory.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul></ul>
@@ -441,9 +374,7 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:
 
-* ARRAY : 
-<p>Array of directory entry names. If directory is empty array of size 0 will be returned.</p>
-
+* ARRAY : Array of directory entry names. If directory is empty array of size 0 will be returned.
 
 ####Platforms
 
@@ -457,13 +388,10 @@ Synchronous Return:
 
 
 ### makeDir(<span class="text-info">STRING</span> path)
-<p>Creates directory with the provided path. If all top-level nodes of the path doesn&rsquo;t exists, directory will not be created.</p>
-
+Creates directory with the provided path. If all top-level nodes of the path doesn't exists, directory will not be created.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Path to the new directory.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Path to the new directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
@@ -471,9 +399,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>Error code raised on directory creation. 0 on success, -1 otherwise.</p>
-
+* INTEGER : Error code raised on directory creation. 0 on success, -1 otherwise.
 
 ####Platforms
 
@@ -487,13 +413,10 @@ Synchronous Return:
 
 
 ### makeDirs(<span class="text-info">STRING</span> path)
-<p>Creates directory and all top-level directories if necessary. Subsequent isDir call is necessary to check if path was successfully created.</p>
-
+Creates directory and all top-level directories if necessary. Subsequent isDir call is necessary to check if path was successfully created.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to the directory to be created.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the directory to be created. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -512,23 +435,10 @@ Synchronous Return:
 
 
 ### <span class="label label-inverse"> Constructor</span>  new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)
-<p>Opens file in a mode specified by the &ldquo;mode&rdquo; parameter.</p>
-
+Opens file in a mode specified by the "mode" parameter.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to the file.</p>
- </p></li><li>mode : <span class='text-info'>INTEGER</span><p>
-<p>Mode in which to open the file.</p>
- </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>
-<p>Open file for output at the end of a file. The file is created if it does not exist.</p>
-</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>
-<p>Open file for read-only operations. The file must exist.</p>
-</dd><dt>Constant: EB.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>
-<p>Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</p>
-</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>
-<p>Open a file for update (both for read and write). The file must exist.</p>
-</dd></dl></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the file. </p></li><li>mode : <span class='text-info'>INTEGER</span><p>Mode in which to open the file. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>Open file for output at the end of a file. The file is created if it does not exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>Open file for read-only operations. The file must exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>Open a file for update (both for read and write). The file must exist.</dd></dl></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -547,13 +457,10 @@ Synchronous Return:
 
 
 ### read(<span class="text-info">STRING</span> path)
-<p>Reads specified file to a string object.</p>
-
+Reads specified file to a string object.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>
-<p>Absolute path to file.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -561,9 +468,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>File contents.</p>
-
+* STRING : File contents.
 
 ####Platforms
 
@@ -577,13 +482,10 @@ Synchronous Return:
 
 
 ### read(<span class="text-info">INTEGER</span> size)
-<p>Reads specified number of characters from current position of the file.</p>
-
+Reads specified number of characters from current position of the file.
 
 ####Parameters
-<ul><li>size : <span class='text-info'>INTEGER</span><p>
-<p>Number of characters to be read.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>size : <span class='text-info'>INTEGER</span><p>Number of characters to be read. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -591,9 +493,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>String from current position of file containing specified number of characters.</p>
-
+* STRING : String from current position of file containing specified number of characters.
 
 ####Platforms
 
@@ -606,8 +506,7 @@ Synchronous Return:
 	* <code>myObject.read(<span class="text-info">INTEGER</span> size)</code>
 
 ### readAll()
-<p>Reads all file contents to the string object.</p>
-
+Reads all file contents to the string object.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -618,9 +517,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>Contents of the file.</p>
-
+* STRING : Contents of the file.
 
 ####Platforms
 
@@ -633,15 +530,10 @@ Synchronous Return:
 	* <code>myObject.readAll()</code>
 
 ### rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)
-<p>Renames / moves file.</p>
-
+Renames / moves file.
 
 ####Parameters
-<ul><li>from : <span class='text-info'>STRING</span><p>
-<p>Original path / name.</p>
- </p></li><li>to : <span class='text-info'>STRING</span><p>
-<p>New path / name.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>from : <span class='text-info'>STRING</span><p>Original path / name. </p></li><li>to : <span class='text-info'>STRING</span><p>New path / name. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
@@ -649,9 +541,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>Error code raised on move / rename. 0 on success, -1 otherwise.</p>
-
+* INTEGER : Error code raised on move / rename. 0 on success, -1 otherwise.
 
 ####Platforms
 
@@ -665,13 +555,10 @@ Synchronous Return:
 
 
 ### seek(<span class="text-info">INTEGER</span> pos)
-<p>Sets file position to specified value from the beginning of the file.</p>
-
+Sets file position to specified value from the beginning of the file.
 
 ####Parameters
-<ul><li>pos : <span class='text-info'>INTEGER</span><p>
-<p>Position within the file.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>pos : <span class='text-info'>INTEGER</span><p>Position within the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -689,8 +576,7 @@ Synchronous Return:
 	* <code>myObject.seek(<span class="text-info">INTEGER</span> pos)</code>
 
 ### size()
-<p>Returns file size.</p>
-
+Returns file size.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -701,9 +587,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>File size in bytes.</p>
-
+* INTEGER : File size in bytes.
 
 ####Platforms
 
@@ -716,13 +600,10 @@ Synchronous Return:
 	* <code>myObject.size()</code>
 
 ### write(<span class="text-info">STRING</span> val)
-<p>Writes the provided string at current position in the file.</p>
-
+Writes the provided string at current position in the file.
 
 ####Parameters
-<ul><li>val : <span class='text-info'>STRING</span><p>
-<p>String to be written to the file.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>val : <span class='text-info'>STRING</span><p>String to be written to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
@@ -730,9 +611,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>Number of bytes written.</p>
-
+* INTEGER : Number of bytes written.
 
 ####Platforms
 

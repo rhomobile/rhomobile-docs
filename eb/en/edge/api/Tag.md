@@ -14,8 +14,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### close()
-<p>release resources, close connection</p>
-
+release resources, close connection
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -35,25 +34,18 @@ Synchronous Return:
 	* <code>myObject.close()</code>
 
 ### exchangeData(<span class="text-info">STRING</span> sendData)
-<p>This function exchanges raw data with Tag</p>
-
+This function exchanges raw data with Tag
 
 ####Parameters
-<ul><li>sendData : <span class='text-info'>STRING</span><p>
-<p>{}</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>sendData : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>receiveData : <span class='text-info'>STRING</span><p>
-<p>NFC_SUCCESS if OK</p>
- </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>receiveData : <span class='text-info'>STRING</span><p>NFC_SUCCESS if OK </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
 
-* HASH<ul><li>receiveData : <span class='text-info'>STRING</span><p>
-<p>NFC_SUCCESS if OK</p>
- </p></li></ul>
+* HASH<ul><li>receiveData : <span class='text-info'>STRING</span><p>NFC_SUCCESS if OK </p></li></ul>
 
 ####Platforms
 
@@ -65,8 +57,7 @@ Synchronous Return:
 	* <code>myObject.exchangeData(<span class="text-info">STRING</span> sendData)</code>
 
 ### formatNDEF()
-<p>format Tag to NDEF type</p>
-
+format Tag to NDEF type
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -86,13 +77,10 @@ Synchronous Return:
 	* <code>myObject.formatNDEF()</code>
 
 ### getTagById(<span class="text-info">STRING</span> id)
-<p>This function returns Tag object</p>
-
+This function returns Tag object
 
 ####Parameters
-<ul><li>id : <span class='text-info'>STRING</span><p>
-<p>{}</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>id : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
@@ -113,8 +101,7 @@ Synchronous Return:
 
 
 ### makeReadOnly()
-<p>make Tag read only</p>
-
+make Tag read only
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -134,15 +121,10 @@ Synchronous Return:
 	* <code>myObject.makeReadOnly()</code>
 
 ### writeMessage(<span class="text-info">ARRAY</span> messages)
-<p>write messages on Tag. On the current moment only 1 message is supported.</p>
-
+write messages on Tag. On the current moment only 1 message is supported.
 
 ####Parameters
-<ul><li>messages : <span class='text-info'>ARRAY</span><p>
-<p>{}</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>
-<p>id of Rho.NFC.Message object</p>
- </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>messages : <span class='text-info'>ARRAY</span><p> </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>id of Rho.NFC.Message object </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -167,9 +149,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>object ID</p>
-
+object ID
 ####Access
 
 
@@ -185,9 +165,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>free size in bytes</p>
-
+free size in bytes
 ####Access
 
 
@@ -203,9 +181,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>connected or not(if connections between tag and nfc device exists)</p>
-
+connected or not(if connections between tag and nfc device exists)
 ####Access
 
 
@@ -221,9 +197,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>ndef or not</p>
-
+ndef or not
 ####Access
 
 
@@ -239,9 +213,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Indicating if the tag is locked for write operation.</p>
-
+Indicating if the tag is locked for write operation.
 ####Access
 
 
@@ -257,9 +229,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>The serial number of a tag.</p>
-
+The serial number of a tag.
 ####Access
 
 
@@ -275,9 +245,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>size in bytes</p>
-
+size in bytes
 ####Access
 
 
@@ -293,9 +261,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Tag type</p>
-
+Tag type
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>false</span>):

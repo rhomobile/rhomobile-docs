@@ -14,13 +14,10 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### barcode_recognize(<span class="text-info">STRING</span> imageFilePath)
-<p>Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.</p>
-
+Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.
 
 ####Parameters
-<ul><li>imageFilePath : <span class='text-info'>STRING</span><p>
-<p>Path to the image that contains the barcode to be recognized.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>imageFilePath : <span class='text-info'>STRING</span><p>Path to the image that contains the barcode to be recognized. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -28,9 +25,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>String with recognized code, or empty string if the barcode is not recognized.</p>
-
+* STRING : String with recognized code, or empty string if the barcode is not recognized.
 
 ####Platforms
 
@@ -45,13 +40,10 @@ Synchronous Return:
 
 
 ### commandRemoteScanner(<span class="text-info">STRING</span> command)
-<p>Instruct the connected RS507 scanner to perform some action.</p>
-
+Instruct the connected RS507 scanner to perform some action.
 
 ####Parameters
-<ul><li>command : <span class='text-info'>STRING</span><p>
-<p>The action the RS507 scanner should perform, can be &lsquo;Disconnect&rsquo; which disconnects the bluetooth RS507; &lsquo;unpair&rsquo; which unpairs the RS507 from the device for association with another device; &lsquo;StartPaging&rsquo; or &lsquo;StopPaging&rsquo; which will cause the RS507 scanner to start or stop emitting a beep, to allow it to be located.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>command : <span class='text-info'>STRING</span><p>The action the RS507 scanner should perform, can be 'Disconnect' which disconnects the bluetooth RS507; 'unpair' which unpairs the RS507 from the device for association with another device; 'StartPaging' or 'StopPaging' which will cause the RS507 scanner to start or stop emitting a beep, to allow it to be located. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -72,8 +64,7 @@ Synchronous Return:
 
 
 ### disable()
-<p>Disables the barcode scanner. This reverts the scanner to its default state and flushes any current decoder settings.</p>
-
+Disables the barcode scanner. This reverts the scanner to its default state and flushes any current decoder settings.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -98,30 +89,13 @@ Synchronous Return:
 
 
 ### enable(<span class="text-info">HASH</span> propertyMap)
-<p>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method). Scanned barcodes will be available to the application through the callback provided to this method. Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner. If you do not specify a callback to this method you will received the scanned data as keystrokes. Note that it is necessary to enable the scanner on WM/CE devices prior to being able to retrieve the state of properties.</p>
-
+Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method). Scanned barcodes will be available to the application through the callback provided to this method. Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner. If you do not specify a callback to this method you will received the scanned data as keystrokes. Note that it is necessary to enable the scanner on WM/CE devices prior to being able to retrieve the state of properties.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
-<p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</p>
- Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
-<p>Not providing properties to this function will use the scanner&rsquo;s default properties, or those previously set on the Scanner instance.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>data : <span class='text-info'>STRING</span><p>
-<p>The data decoded by the scanner or imaging device.</p>
- </p></li><li>source : <span class='text-info'>STRING</span><p>
-<p>The source device and human readable decoder type of the decoded barcode or symbol.</p>
- </p></li><li>type : <span class='text-info'>STRING</span><p>
-<p>Hex value representing the decoder type.</p>
- </p></li><li>time : <span class='text-info'>STRING</span><p>
-<p>The time at which the decode occurred (hh:mm:ss)</p>
- </p></li><li>length : <span class='text-info'>STRING</span><p>
-<p>The length of the decoded barcode or symbol.</p>
- </p></li><li>direction : <span class='text-info'>STRING</span><p>
-<p>The direction the barcode was scanned, either forward, reverse or unavailable.</p>
- </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>data : <span class='text-info'>STRING</span><p>The data decoded by the scanner or imaging device. </p></li><li>source : <span class='text-info'>STRING</span><p>The source device and human readable decoder type of the decoded barcode or symbol. </p></li><li>type : <span class='text-info'>STRING</span><p>Hex value representing the decoder type. </p></li><li>time : <span class='text-info'>STRING</span><p>The time at which the decode occurred (hh:mm:ss) </p></li><li>length : <span class='text-info'>STRING</span><p>The length of the decoded barcode or symbol. </p></li><li>direction : <span class='text-info'>STRING</span><p>The direction the barcode was scanned, either forward, reverse or unavailable. </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
@@ -143,8 +117,7 @@ Synchronous Return:
 
 
 ### enumerate()
-<p>Used to gain access to all scanner objects present on the device. For consumer devices you will most likely only have a single scanner, your device&rsquo;s camera but Enterprise grade hardware may have two or more scanners attached.</p>
-
+Used to gain access to all scanner objects present on the device. For consumer devices you will most likely only have a single scanner, your device's camera but Enterprise grade hardware may have two or more scanners attached.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -169,8 +142,7 @@ Synchronous Return:
 
 
 ### getAllProperties()
-<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
-
+This method will return all of object/value pairs for the propertyNames of the API class.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -181,9 +153,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of all available properties</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -199,8 +169,7 @@ Synchronous Return:
 
 
 ### getDefault()
-<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
-
+This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -211,9 +180,7 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 ####Returns
 Synchronous Return:
 
-* SELF_INSTANCE : 
-<p>Default object of Module.</p>
-
+* SELF_INSTANCE : Default object of Module.
 
 ####Platforms
 
@@ -227,13 +194,10 @@ Synchronous Return:
 
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
-<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
-
+This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
 
 ####Parameters
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-<p>List of properties I want to know about</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
@@ -241,9 +205,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of properties I want to know about</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -259,13 +221,10 @@ Synchronous Return:
 
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
-<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
-
+This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The property to return info about.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -273,9 +232,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>The property to return info about.</p>
-
+* STRING : The property to return info about.
 
 ####Platforms
 
@@ -291,8 +248,7 @@ Synchronous Return:
 
 
 ### getSupportedProperties()
-<p>Return array of properties supported by this scanner.</p>
-
+Return array of properties supported by this scanner.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -303,9 +259,7 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:
 
-* ARRAY : 
-<p>Array of property names supported by this scanner.</p>
-<ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* ARRAY : Array of property names supported by this scanner.<ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -321,16 +275,13 @@ Synchronous Return:
 
 
 ### registerBluetoothStatus()
-<p>If you are using an RS507 barcode scanner you can register to receive connected or disconnected events through this method.</p>
-
+If you are using an RS507 barcode scanner you can register to receive connected or disconnected events through this method.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>
-<p>The message describing the bluetooth connection: BluetoothConnected, BluetoothDisconnected or BTScanAssociationBarcode. See below for further descriptions.</p>
- </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>The message describing the bluetooth connection: BluetoothConnected, BluetoothDisconnected or BTScanAssociationBarcode. See below for further descriptions. </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
@@ -351,13 +302,10 @@ Synchronous Return:
 
 
 ### setDefault(<span class="text-info">SELF_INSTANCE: EB.Barcode</span> defaultInstance)
-<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
-
+This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Barcode</span><p>
-<p>An instance object that is of the same class.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Barcode</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -376,13 +324,10 @@ Synchronous Return:
 
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
-<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-<p>Map of properties I want to set</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -403,15 +348,10 @@ Synchronous Return:
 
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
-<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The one property name that I want to set</p>
- </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-<p>The one property value that I want to set</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -432,8 +372,7 @@ Synchronous Return:
 
 
 ### start()
-<p>Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.</p>
-
+Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -458,8 +397,7 @@ Synchronous Return:
 
 
 ### stop()
-<p>Performs a soft trigger stop.</p>
-
+Performs a soft trigger stop.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -484,22 +422,13 @@ Synchronous Return:
 
 
 ### take(<span class="text-info">HASH</span> propertyMap)
-<p>Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</p>
-
+Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
-<p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</p>
- Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
-<p>Not providing properties to this function will use the scanner&rsquo;s default properties, or those previously set on the Scanner instance.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>barcode : <span class='text-info'>STRING</span><p>
-<p>The data decoded by the scanner or imaging device.</p>
- </p></li><li>status : <span class='text-info'>STRING</span><p>
-<p>Whether or not the barcode was successfully scanned, status will be &lsquo;ok&rsquo; or &lsquo;cancel&rsquo;</p>
- </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>barcode : <span class='text-info'>STRING</span><p>The data decoded by the scanner or imaging device. </p></li><li>status : <span class='text-info'>STRING</span><p>Whether or not the barcode was successfully scanned, status will be 'ok' or 'cancel' </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
@@ -520,17 +449,10 @@ Synchronous Return:
 
 
 ### take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)
-<p>deprecated old method for taking barcode.</p>
-
+deprecated old method for taking barcode.
 
 ####Parameters
-<ul><li>rubyCallbackURL : <span class='text-info'>STRING</span><p>
-<p>Ruby callback URL.</p>
- </p></li><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>
-<p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</p>
- Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> 
-<p>Not providing properties to this function will use the scanner&rsquo;s default properties, or those previously set on the Scanner instance.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>rubyCallbackURL : <span class='text-info'>STRING</span><p>Ruby callback URL. </p></li><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -554,9 +476,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables adaptive scanning. When set to true, the scan engine will automatically toggle between 2 scan angles, wide and narrow, allowing the scan engine to decode barcodes both in close proximity and far away (~100 inches). Adaptive scanning is only supported in high performance, long working range scan engines such as SE960.</p>
-
+Enables or disables adaptive scanning. When set to true, the scan engine will automatically toggle between 2 scan angles, wide and narrow, allowing the scan engine to decode barcodes both in close proximity and far away (~100 inches). Adaptive scanning is only supported in high performance, long working range scan engines such as SE960.
 ####Access
 
 
@@ -576,25 +496,15 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Defines the aiming mode to use.</p>
-
+Defines the aiming mode to use.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.AIMMODE_NONE - String: none 
-<p>No Aiming (Can be overridden by picklistMode).</p>
-
-* Constant: EB.Barcode.AIMMODE_DOT - String: dot 
-<p>Laser barcode readers will show a dot for aiming.</p>
-
-* Constant: EB.Barcode.AIMMODE_SLAB - String: slab 
-<p>Laser barcode readers will show a slab for aiming.</p>
-
-* Constant: EB.Barcode.AIMMODE_RETICLE - String: reticle 
-<p>Imager barcode readers will show a reticle for aiming.</p>
-
+* Constant: EB.Barcode.AIMMODE_NONE - String: none No Aiming (Can be overridden by picklistMode).
+* Constant: EB.Barcode.AIMMODE_DOT - String: dot Laser barcode readers will show a dot for aiming.
+* Constant: EB.Barcode.AIMMODE_SLAB - String: slab Laser barcode readers will show a slab for aiming.
+* Constant: EB.Barcode.AIMMODE_RETICLE - String: reticle Imager barcode readers will show a reticle for aiming.
 ####Access
 
 
@@ -614,31 +524,17 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Describes the type of aiming to use.</p>
-
+Describes the type of aiming to use.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.AIMTYPE_TRIGGER - String: trigger 
-<p>Standard trigger mode. Holding the trigger will start a decoding session.</p>
-
-* Constant: EB.Barcode.AIMTYPE_TIMED_HOLD - String: timedHold 
-<p>Aiming lasts for the time specified by &lsquo;timedAimDuration&rsquo; before decoding. The opportunity to scan will last until the barcode is decoded or scanTimeout occurs.</p>
-
-* Constant: EB.Barcode.AIMTYPE_TIMED_RELEASE - String: timedRelease 
-<p>Aiming lasts until trigger is released. If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.</p>
-
-* Constant: EB.Barcode.AIMTYPE_PRESENTATION - String: presentation 
-<p>Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation modes preenabled in scanner driver. Aimtype should not be set to presentation for MK31xx devices as it may produce undesirable results.</p>
-
-* Constant: EB.Barcode.AIMTYPE_PRESS_AND_RELEASE - String: pressAndRelease 
-<p>Scan will continue after the trigger is released until scanTimeout occurs.</p>
-
-* Constant: EB.Barcode.AIMTYPE_CONTINUOUS_READ - String: continuousRead 
-<p>Once the trigger is pulled barcodes will continue to be scanned as long as the trigger is held, enabling rapid scanning, to be used in conjunction with sameSymbolTimeout and differentSymbolTimeout. This value is ignored if viewfinderMode is set to &lsquo;dynamicReticle&rsquo;</p>
-
+* Constant: EB.Barcode.AIMTYPE_TRIGGER - String: trigger Standard trigger mode. Holding the trigger will start a decoding session.
+* Constant: EB.Barcode.AIMTYPE_TIMED_HOLD - String: timedHold Aiming lasts for the time specified by 'timedAimDuration' before decoding. The opportunity to scan will last until the barcode is decoded or scanTimeout occurs.
+* Constant: EB.Barcode.AIMTYPE_TIMED_RELEASE - String: timedRelease Aiming lasts until trigger is released. If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.
+* Constant: EB.Barcode.AIMTYPE_PRESENTATION - String: presentation Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation modes preenabled in scanner driver. Aimtype should not be set to presentation for MK31xx devices as it may produce undesirable results.
+* Constant: EB.Barcode.AIMTYPE_PRESS_AND_RELEASE - String: pressAndRelease Scan will continue after the trigger is released until scanTimeout occurs.
+* Constant: EB.Barcode.AIMTYPE_CONTINUOUS_READ - String: continuousRead Once the trigger is pulled barcodes will continue to be scanned as long as the trigger is held, enabling rapid scanning, to be used in conjunction with sameSymbolTimeout and differentSymbolTimeout. This value is ignored if viewfinderMode is set to 'dynamicReticle'
 ####Access
 
 
@@ -658,9 +554,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When set to true, the barcode scanner will read all barcode types that the scanner is capable of reading. When set to false, the barcode scanner will not be able to decode any symbologies, this is most useful if you want to set the scanner to a default state before only enabling your required symbologies. The fewer symbologies that are enabled the faster the decoding performance of the scanning engine will be. This property will return true only if all supported symbologies by the scanner are enabled, if only a subset of supported symbologies are enabled then false will be returned. Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: &ldquo;canpostal&rdquo; and &ldquo;auspostal&rdquo; both use a 4-state system, so devices will only enable either &ldquo;canpostal&rdquo; OR &ldquo;auspostal&rdquo; when &ldquo;alldecoders&rdquo; is enabled. Note that other symbologies also share the 4-state system.</p>
-
+When set to true, the barcode scanner will read all barcode types that the scanner is capable of reading. When set to false, the barcode scanner will not be able to decode any symbologies, this is most useful if you want to set the scanner to a default state before only enabling your required symbologies. The fewer symbologies that are enabled the faster the decoding performance of the scanning engine will be. This property will return true only if all supported symbologies by the scanner are enabled, if only a subset of supported symbologies are enabled then false will be returned. Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: "canpostal" and "auspostal" both use a 4-state system, so devices will only enable either "canpostal" OR "auspostal" when "alldecoders" is enabled. Note that other symbologies also share the 4-state system.
 ####Access
 
 
@@ -680,9 +574,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Australian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Australian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -703,9 +595,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, automatically appends the character code for &lsquo;enter&rsquo; to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.</p>
-
+When true, automatically appends the character code for 'enter' to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.
 ####Access
 
 
@@ -726,9 +616,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, automatically appends the tab character to the end of any barcodes scanned. This is useful if you are populating a form and want to jump to the next field in the form without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoTab and AutoEnter are mutually exclusive properties.</p>
-
+When true, automatically appends the tab character to the end of any barcodes scanned. This is useful if you are populating a form and want to jump to the next field in the form without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoTab and AutoEnter are mutually exclusive properties.
 ####Access
 
 
@@ -749,9 +637,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Aztec barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Aztec barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -772,19 +658,13 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Specifies the format in which the barcode data is returned, binary data is returned in Data URI format with the appropriate mime type. This parameter is designed to be used primarily with image based symbologies (eg. Signature). Binary data will not be output as keystrokes, you must set a decode callback in order to receive scanned data.</p>
-
+Specifies the format in which the barcode data is returned, binary data is returned in Data URI format with the appropriate mime type. This parameter is designed to be used primarily with image based symbologies (eg. Signature). Binary data will not be output as keystrokes, you must set a decode callback in order to receive scanned data.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.FORMAT_BINARY - String: binary 
-<p>Scanned data will be returned in Data URI format.</p>
-
-* Constant: EB.Barcode.FORMAT_TEXT - String: text 
-<p>Scanned data will be returned in Text format.</p>
-
+* Constant: EB.Barcode.FORMAT_BINARY - String: binary Scanned data will be returned in Data URI format.
+* Constant: EB.Barcode.FORMAT_TEXT - String: text Scanned data will be returned in Text format.
 ####Access
 
 
@@ -804,22 +684,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Specifies the width of the laser beam. All devices will support normal beam widths but other widths may not be supported on your device.</p>
-
+Specifies the width of the laser beam. All devices will support normal beam widths but other widths may not be supported on your device.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.BEAM_NORMAL - String: normal 
-<p>Laser beam width is normal.</p>
-
-* Constant: EB.Barcode.BEAM_WIDE - String: wide 
-<p>Laser beam width is wide.</p>
-
-* Constant: EB.Barcode.BEAM_NARROW - String: narrow 
-<p>Laser beam width is narrow.</p>
-
+* Constant: EB.Barcode.BEAM_NORMAL - String: normal Laser beam width is normal.
+* Constant: EB.Barcode.BEAM_WIDE - String: wide Laser beam width is wide.
+* Constant: EB.Barcode.BEAM_NARROW - String: narrow Laser beam width is narrow.
 ####Access
 
 
@@ -839,9 +711,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables bidirectional redundancy.</p>
-
+Enables or disables bidirectional redundancy.
 ####Access
 
 
@@ -861,9 +731,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Canadian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Canadian Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -884,9 +752,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Chinese 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Chinese 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -907,9 +773,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Codabar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Codabar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -930,9 +794,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables Codabar CLSi formatting when set to true.</p>
-
+Enables Codabar CLSi formatting when set to true.
 ####Access
 
 
@@ -953,9 +815,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -976,9 +836,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a Codabar barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -999,9 +857,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables Codabar NotisEditing formatting when set to true.</p>
-
+Enables Codabar NotisEditing formatting when set to true.
 ####Access
 
 
@@ -1022,9 +878,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the Codabar Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the Codabar Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -1045,9 +899,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Code11 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Code11 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -1068,22 +920,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Specifies whether to verify 0, 1 or 2 check digits.</p>
-
+Specifies whether to verify 0, 1 or 2 check digits.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.CODE11_CHECKDIGIT_NONE - String: none 
-<p>Scanning engine will verify no Code 11 check digits.</p>
-
-* Constant: EB.Barcode.CODE11_CHECKDIGIT_ONE - String: one 
-<p>Scanning engine will verify one Code 11 check digit.</p>
-
-* Constant: EB.Barcode.CODE11_CHECKDIGIT_TWO - String: two 
-<p>Scanning engine will verify two Code 11 check digits.</p>
-
+* Constant: EB.Barcode.CODE11_CHECKDIGIT_NONE - String: none Scanning engine will verify no Code 11 check digits.
+* Constant: EB.Barcode.CODE11_CHECKDIGIT_ONE - String: one Scanning engine will verify one Code 11 check digit.
+* Constant: EB.Barcode.CODE11_CHECKDIGIT_TWO - String: two Scanning engine will verify two Code 11 check digits.
 ####Access
 
 
@@ -1104,9 +948,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1127,9 +969,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a Code 11 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1150,9 +990,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the Code 11 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the Code 11 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -1173,9 +1011,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned Code 11 barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned Code 11 barcodes.
 ####Access
 
 
@@ -1196,9 +1032,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Code128 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Code128 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -1219,9 +1053,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, decodes concatenated Code128 output only if the pair belongs to one of the commonly concatenated pairs as defined by the standard.</p>
-
+When true, decodes concatenated Code128 output only if the pair belongs to one of the commonly concatenated pairs as defined by the standard.
 ####Access
 
 
@@ -1242,9 +1074,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, barcodes with the EAN128 subtype property set will be read.</p>
-
+When true, barcodes with the EAN128 subtype property set will be read.
 ####Access
 
 
@@ -1265,9 +1095,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, barcodes with the isbt128 subtype property set will be read.</p>
-
+When true, barcodes with the isbt128 subtype property set will be read.
 ####Access
 
 
@@ -1288,22 +1116,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Sets the Code128 ISBT concatenation mode property. This feature allows a pair of barcodes which meet certain criteria defined in the ISBT128 spec to be reported as a single barcode. This parameter describes the different concatenation modes available for ISBT128.</p>
-
+Sets the Code128 ISBT concatenation mode property. This feature allows a pair of barcodes which meet certain criteria defined in the ISBT128 spec to be reported as a single barcode. This parameter describes the different concatenation modes available for ISBT128.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.CODE128ISBT_NEVER - String: never 
-<p>Will ignore the barcode pair and only output decode data for one of the barcodes.</p>
-
-* Constant: EB.Barcode.CODE128ISBT_ALWAYS - String: always 
-<p>Will not decode if both barcodes are not present or if one of them can not be decoded.</p>
-
-* Constant: EB.Barcode.CODE128ISBT_AUTO - String: auto 
-<p>Auto-Discriminate.</p>
-
+* Constant: EB.Barcode.CODE128ISBT_NEVER - String: never Will ignore the barcode pair and only output decode data for one of the barcodes.
+* Constant: EB.Barcode.CODE128ISBT_ALWAYS - String: always Will not decode if both barcodes are not present or if one of them can not be decoded.
+* Constant: EB.Barcode.CODE128ISBT_AUTO - String: auto Auto-Discriminate.
 ####Access
 
 
@@ -1324,9 +1144,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1347,9 +1165,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a Code 128 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1370,9 +1186,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.</p>
-
+Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.
 ####Access
 
 
@@ -1393,9 +1207,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the Code 128 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the Code 128 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -1416,9 +1228,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: Allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most &lsquo;in-spec&rsquo; barcodes. 1: Eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.</p>
-
+Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: Allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: Eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.
 ####Access
 
 
@@ -1439,9 +1249,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Code 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Code 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -1462,9 +1270,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables reporting of the Code32 prefix when a Code39 barcode is converted.</p>
-
+Enables reporting of the Code32 prefix when a Code39 barcode is converted.
 ####Access
 
 
@@ -1485,9 +1291,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode is converted to Code 32.</p>
-
+Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode is converted to Code 32.
 ####Access
 
 
@@ -1508,9 +1312,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables full ASCII conversion of Code 39 barcodes.</p>
-
+Enables full ASCII conversion of Code 39 barcodes.
 ####Access
 
 
@@ -1531,9 +1333,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1554,9 +1354,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a Code 39 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1577,9 +1375,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the Code 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the Code 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -1600,9 +1396,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.</p>
-
+Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.
 ####Access
 
 
@@ -1623,9 +1417,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most &lsquo;in-spec&rsquo; barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.</p>
-
+Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.
 ####Access
 
 
@@ -1646,9 +1438,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Turns on verification of the Code 39 check digit.</p>
-
+Turns on verification of the Code 39 check digit.
 ####Access
 
 
@@ -1669,9 +1459,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Code 93 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Code 93 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -1692,9 +1480,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1715,9 +1501,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a Code 93 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1738,9 +1522,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the Code 93 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the Code 93 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -1761,9 +1543,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Composite AB barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Composite AB barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -1784,22 +1564,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Describes whether UCC link mode is enabled.</p>
-
+Describes whether UCC link mode is enabled.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UCC_NEVER - String: never 
-<p>Link flag is ignored.</p>
-
-* Constant: EB.Barcode.UCC_ALWAYS - String: always 
-<p>Composite AB barcodes are always linked.</p>
-
-* Constant: EB.Barcode.UCC_AUTO - String: auto 
-<p>Auto-discriminate whether Composite AB barcodes are linked.</p>
-
+* Constant: EB.Barcode.UCC_NEVER - String: never Link flag is ignored.
+* Constant: EB.Barcode.UCC_ALWAYS - String: always Composite AB barcodes are always linked.
+* Constant: EB.Barcode.UCC_AUTO - String: auto Auto-discriminate whether Composite AB barcodes are linked.
 ####Access
 
 
@@ -1820,9 +1592,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>This setting causes the UPC rules specified in the UPC EAN parameters to be used when reporting composite decode data.</p>
-
+This setting causes the UPC rules specified in the UPC EAN parameters to be used when reporting composite decode data.
 ####Access
 
 
@@ -1842,9 +1612,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Composite C barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Composite C barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -1865,9 +1633,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the time, in seconds, that an external scanner will be allowed to remain idle before the connection is terminated to conserve power.</p>
-
+Specifies the time, in seconds, that an external scanner will be allowed to remain idle before the connection is terminated to conserve power.
 ####Access
 
 
@@ -1887,9 +1653,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for D2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for D2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -1910,9 +1674,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1933,9 +1695,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a D2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -1956,9 +1716,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the D2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the D2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -1979,9 +1737,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the number of bytes allocated to receive the scanned barcode. This parameter is designed to be used primarily with image based symbologies and should not be modified unless absolutely necessary (eg. Signature).</p>
-
+Specifies the number of bytes allocated to receive the scanned barcode. This parameter is designed to be used primarily with image based symbologies and should not be modified unless absolutely necessary (eg. Signature).
 ####Access
 
 
@@ -2001,9 +1757,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Datamatrix barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Datamatrix barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -2024,19 +1778,13 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.</p>
-
+Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.DBP_NORMAL - String: normal 
-<p>Tells the scan engine to produce normal DBP.</p>
-
-* Constant: EB.Barcode.DBP_COMPOSITE - String: composite 
-<p>Tells the scan engine to produce composite DBP, which is 2 different sets of DBP data multiplexed together for better decode performance. In order to enable this mode it must be supported by the scanner.</p>
-
+* Constant: EB.Barcode.DBP_NORMAL - String: normal Tells the scan engine to produce normal DBP.
+* Constant: EB.Barcode.DBP_COMPOSITE - String: composite Tells the scan engine to produce composite DBP, which is 2 different sets of DBP data multiplexed together for better decode performance. In order to enable this mode it must be supported by the scanner.
 ####Access
 
 
@@ -2056,9 +1804,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>The duration of the device beeper when a barcode is scanned, in milliseconds.</p>
-
+The duration of the device beeper when a barcode is scanned, in milliseconds.
 ####Params
 <p><strong>Default:</strong> 250</p>
 ####Access
@@ -2081,9 +1827,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>The frequency of the device beeper when a barcode is successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.</p>
-
+The frequency of the device beeper when a barcode is successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.
 ####Params
 <p><strong>Default:</strong> 3000</p>
 ####Access
@@ -2106,9 +1850,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</p>
-
+Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.
 ####Access
 
 
@@ -2129,9 +1871,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.  The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.</p>
-
+The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.  The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.
 ####Params
 <p><strong>Default:</strong> 5</p>
 ####Access
@@ -2154,9 +1894,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to reaim the device between successive scans.</p>
-
+When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to reaim the device between successive scans.
 ####Access
 
 
@@ -2176,9 +1914,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Forces the scanner to disconnect from the terminal when it is &lsquo;disabled&rsquo;. Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.</p>
-
+Forces the scanner to disconnect from the terminal when it is 'disabled'. Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.
 ####Access
 
 
@@ -2198,9 +1934,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling &lsquo;enable&rsquo; on a bluetooth scanner. Not all devices support this functionality. Note you must specify this parameter before or within the call to &lsquo;enable&rsquo;.</p>
-
+If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling 'enable' on a bluetooth scanner. Not all devices support this functionality. Note you must specify this parameter before or within the call to 'enable'.
 ####Access
 
 
@@ -2220,9 +1954,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversely affect overall decoding performance. DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.</p>
-
+Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversely affect overall decoding performance. DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.
 ####Access
 
 
@@ -2242,9 +1974,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Dutch Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Dutch Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -2265,9 +1995,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for EAN 13 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for EAN 13 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -2288,9 +2016,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for EAN 8 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for EAN 8 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -2311,9 +2037,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.</p>
-
+When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.
 ####Access
 
 
@@ -2334,9 +2058,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the &lsquo;enable()&rsquo; method. You must specify this parameter before calling &lsquo;enable&rsquo; to change the default.</p>
-
+Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the 'enable()' method. You must specify this parameter before calling 'enable' to change the default.
 ####Access
 
 
@@ -2356,19 +2078,13 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Sets the focus mode in use.</p>
-
+Sets the focus mode in use.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.FOCUS_FIXED - String: fixed 
-<p>Use fixed focus.</p>
-
-* Constant: EB.Barcode.FOCUS_AUTO - String: auto 
-<p>Use auto focus.</p>
-
+* Constant: EB.Barcode.FOCUS_FIXED - String: fixed Use fixed focus.
+* Constant: EB.Barcode.FOCUS_AUTO - String: auto Use auto focus.
 ####Access
 
 
@@ -2388,9 +2104,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Returns the friendly name associated with the scanner.</p>
-
+Returns the friendly name associated with the scanner.
 ####Access
 
 
@@ -2411,9 +2125,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for GS1 DataBar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rss.</p>
-
+Enables or disables the symbology for GS1 DataBar barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rss.
 ####Access
 
 
@@ -2434,9 +2146,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for GS1 Databar Expanded barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssExp.</p>
-
+Enables or disables the symbology for GS1 Databar Expanded barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssExp.
 ####Access
 
 
@@ -2457,9 +2167,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for GS1 Databar Limited barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssLim.</p>
-
+Enables or disables the symbology for GS1 Databar Limited barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. This symbology was previously known as rssLim.
 ####Access
 
 
@@ -2480,9 +2188,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Controls the haptic feedback on decode. This means that if this is set to true, then the device will vibrate when a decode occurs.</p>
-
+Controls the haptic feedback on decode. This means that if this is set to true, then the device will vibrate when a decode occurs.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -2504,9 +2210,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for I2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for I2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -2527,9 +2231,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.</p>
-
+When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used.
 ####Access
 
 
@@ -2550,9 +2252,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -2573,9 +2273,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a I2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -2596,9 +2294,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the I2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the I2of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -2619,9 +2315,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned I2of5 barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned I2of5 barcodes.
 ####Access
 
 
@@ -2642,22 +2336,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Enables the verification of the I2of5 check digit.</p>
-
+Enables the verification of the I2of5 check digit.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.I2OF5_VERIFY_NONE - String: none 
-<p>Disables verification of the check digit.</p>
-
-* Constant: EB.Barcode.I2OF5_VERIFY_USS - String: uss 
-<p>Enables the USS format for the check digit.</p>
-
-* Constant: EB.Barcode.I2OF5_VERIFY_OPCC - String: opcc 
-<p>Enables the OPCC format for the check digit.</p>
-
+* Constant: EB.Barcode.I2OF5_VERIFY_NONE - String: none Disables verification of the check digit.
+* Constant: EB.Barcode.I2OF5_VERIFY_USS - String: uss Enables the USS format for the check digit.
+* Constant: EB.Barcode.I2OF5_VERIFY_OPCC - String: opcc Enables the OPCC format for the check digit.
 ####Access
 
 
@@ -2678,22 +2364,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Selects the illumination mode to use.</p>
-
+Selects the illumination mode to use.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.ILLUMINATION_AUTO - String: auto 
-<p>Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.</p>
-
-* Constant: EB.Barcode.ILLUMINATION_ALWAYS_ON - String: alwaysOn 
-<p>External illumination is always on.</p>
-
-* Constant: EB.Barcode.ILLUMINATION_ALWAYS_OFF - String: alwaysOff 
-<p>External illumination is always off.</p>
-
+* Constant: EB.Barcode.ILLUMINATION_AUTO - String: auto Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.
+* Constant: EB.Barcode.ILLUMINATION_ALWAYS_ON - String: alwaysOn External illumination is always on.
+* Constant: EB.Barcode.ILLUMINATION_ALWAYS_OFF - String: alwaysOff External illumination is always off.
 ####Access
 
 
@@ -2714,9 +2392,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.</p>
-
+The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.
 ####Params
 <p><strong>Default:</strong> 2500</p>
 ####Access
@@ -2738,9 +2414,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.</p>
-
+Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.
 ####Access
 
 
@@ -2760,22 +2434,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Allows the user to select inverse 1D barcodes for decoding.</p>
-
+Allows the user to select inverse 1D barcodes for decoding.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.INVERSE_ENABLED - String: enabled 
-<p>Inverse 1D symbology decoding is enabled.</p>
-
-* Constant: EB.Barcode.INVERSE_DISABLED - String: disabled 
-<p>Inverse 1D symbology decoding is disabled.</p>
-
-* Constant: EB.Barcode.INVERSE_AUTO - String: auto 
-<p>Allows decoding of both positive and inverse 1D symbologies.</p>
-
+* Constant: EB.Barcode.INVERSE_ENABLED - String: enabled Inverse 1D symbology decoding is enabled.
+* Constant: EB.Barcode.INVERSE_DISABLED - String: disabled Inverse 1D symbology decoding is disabled.
+* Constant: EB.Barcode.INVERSE_AUTO - String: auto Allows decoding of both positive and inverse 1D symbologies.
 ####Access
 
 
@@ -2796,9 +2462,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Japanese Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Japanese Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -2819,9 +2483,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the Klasse Eins laser on time function.</p>
-
+Enables or disables the Klasse Eins laser on time function.
 ####Access
 
 
@@ -2841,9 +2503,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Korean 3of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Korean 3of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -2864,9 +2524,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -2886,9 +2544,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a Korean 3of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -2908,9 +2564,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets Korean 3of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets Korean 3of5 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -2930,9 +2584,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to scan barcodes off of LCD screens (like mobile device screens)</p>
-
+Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to scan barcodes off of LCD screens (like mobile device screens)
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
@@ -2954,28 +2606,16 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Describes the linear security level used during decoding. This determines the number of times a barcode must be read before it is decoded. If the successive reads of the barcode do not match, it will not be decoded.</p>
-
+Describes the linear security level used during decoding. This determines the number of times a barcode must be read before it is decoded. If the successive reads of the barcode do not match, it will not be decoded.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH - String: redundancyAndLength 
-<p>Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.</p>
-
-* Constant: EB.Barcode.SHORT_OR_CODABAR - String: shortOrCodabar 
-<p>Double redundancy if short barcode or Codabar.</p>
-
-* Constant: EB.Barcode.LONG_AND_SHORT - String: longAndShort 
-<p>Double redundancy for long barcodes, triple for short barcodes.</p>
-
-* Constant: EB.Barcode.ALL_TWICE - String: allTwice 
-<p>Double redundancy for all barcodes.</p>
-
-* Constant: EB.Barcode.ALL_THRICE - String: allThrice 
-<p>Triple redundancy for all barcodes.</p>
-
+* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH - String: redundancyAndLength Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.
+* Constant: EB.Barcode.SHORT_OR_CODABAR - String: shortOrCodabar Double redundancy if short barcode or Codabar.
+* Constant: EB.Barcode.LONG_AND_SHORT - String: longAndShort Double redundancy for long barcodes, triple for short barcodes.
+* Constant: EB.Barcode.ALL_TWICE - String: allTwice Double redundancy for all barcodes.
+* Constant: EB.Barcode.ALL_THRICE - String: allThrice Triple redundancy for all barcodes.
 ####Access
 
 
@@ -2996,9 +2636,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Set to false to disable scanning when the battery is low/critical or set to true to enable it.</p>
-
+Set to false to disable scanning when the battery is low/critical or set to true to enable it.
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
@@ -3020,9 +2658,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for MacroMicroPDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for MacroMicroPDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3042,9 +2678,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, the scanner driver will return the barcode data only after the complete macroMicroPdf sequence has been read. If false, the scanner driver will return each barcode in the macroMicroPdf sequence as it is read.</p>
-
+If true, the scanner driver will return the barcode data only after the complete macroMicroPdf sequence has been read. If false, the scanner driver will return each barcode in the macroMicroPdf sequence as it is read.
 ####Access
 
 
@@ -3064,9 +2698,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.</p>
-
+If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.
 ####Access
 
 
@@ -3086,9 +2718,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, the scanner driver will not complete read requests while in the middle of a macroMicroPdf sequence. Once a macroMicroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.</p>
-
+If true, the scanner driver will not complete read requests while in the middle of a macroMicroPdf sequence. Once a macroMicroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.
 ####Access
 
 
@@ -3108,9 +2738,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, the appended info is concatenated to the decoded data before being returned.</p>
-
+If true, the appended info is concatenated to the decoded data before being returned.
 ####Access
 
 
@@ -3130,9 +2758,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Macro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Macro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3152,9 +2778,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the scanner driver will return  he barcode data only after the complete macroPdf sequence has been read. If false, the scan driver will return each barcode in the macroPdf sequence as it is read.</p>
-
+When true, the scanner driver will return  he barcode data only after the complete macroPdf sequence has been read. If false, the scan driver will return each barcode in the macroPdf sequence as it is read.
 ####Access
 
 
@@ -3174,9 +2798,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, MacroPDF barcodes will be converted to PDF417 codes.</p>
-
+If true, MacroPDF barcodes will be converted to PDF417 codes.
 ####Access
 
 
@@ -3196,9 +2818,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, the scanner driver will not complete read requests while in the middle of a macroPdf sequence. Once a macroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.</p>
-
+If true, the scanner driver will not complete read requests while in the middle of a macroPdf sequence. Once a macroPdf sequence has been started it must be completed or canceled before the scan driver will complete other read requests.
 ####Access
 
 
@@ -3218,9 +2838,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Matrix 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Matrix 2of5 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3241,9 +2859,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -3264,9 +2880,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -3287,9 +2901,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 barcodes.
 ####Access
 
 
@@ -3310,9 +2922,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables verification of the Matrix 2of5 symbology check digit.</p>
-
+Enables verification of the Matrix 2of5 symbology check digit.
 ####Access
 
 
@@ -3333,9 +2943,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Maxicode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Maxicode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3356,9 +2964,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Micro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Micro PDF barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3379,9 +2985,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Micro QR barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Micro QR barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3402,9 +3006,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for MSI barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for MSI barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3425,19 +3027,13 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Specifies the check digit scheme used to verify MSI barcodes.</p>
-
+Specifies the check digit scheme used to verify MSI barcodes.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD11 - String: mod11 
-<p>The first check digit is MOD 11, the second is MOD 10.</p>
-
-* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD10 - String: mod10 
-<p>Both check digits are MOD 10.</p>
-
+* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD11 - String: mod11 The first check digit is MOD 11, the second is MOD 10.
+* Constant: EB.Barcode.MSI_CHECKDIGITS_MOD10 - String: mod10 Both check digits are MOD 10.
 ####Access
 
 
@@ -3458,19 +3054,13 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Sets the number of MSI check digits to use.</p>
-
+Sets the number of MSI check digits to use.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.MSI_CHECKDIGITS_ONE - String: one 
-<p>Use one check digit for MSI barcodes.</p>
-
-* Constant: EB.Barcode.MSI_CHECKDIGITS_TWO - String: two 
-<p>Use two check digits for MSI barcodes.</p>
-
+* Constant: EB.Barcode.MSI_CHECKDIGITS_ONE - String: one Use one check digit for MSI barcodes.
+* Constant: EB.Barcode.MSI_CHECKDIGITS_TWO - String: two Use two check digits for MSI barcodes.
 ####Access
 
 
@@ -3491,9 +3081,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the maximum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the maximum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -3514,9 +3102,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the minimum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.</p>
-
+Specifies the minimum number of allowable characters in a MSI barcode. If your application only expects barcode lengths in a certain range, reducing the allowed range can improve scanning performance. Allowed values are 0 to 55.
 ####Access
 
 
@@ -3537,9 +3123,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the MSI Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the MSI Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -3560,9 +3144,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned MSI barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned MSI barcodes.
 ####Access
 
 
@@ -3583,9 +3165,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for PDF 417 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for PDF 417 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3606,22 +3186,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode or, if no aiming is chosen, and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.</p>
-
+Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode or, if no aiming is chosen, and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.PICKLIST_DISABLED - String: disabled 
-<p>Disables picklist mode so any barcode within the field of view can be decoded.</p>
-
-* Constant: EB.Barcode.PICKLIST_HARDWARE_RETICLE - String: hardwareReticle 
-<p>Enables picklist mode so that only the barcode under the projected reticle can be decoded. On Windows, if the imager does not support a projected reticle then the behavior is the same as softwareReticle. On Android, this is only supported for Imager (non-viewfinder) based scanners.</p>
-
-* Constant: EB.Barcode.PICKLIST_SOFTWARE_RETICLE - String: softwareReticle 
-<p>Enables picklist mode so that only the barcode in the center of the image is decoded. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. On Android, this is only supported for Camera (viewfinder) based scanners.</p>
-
+* Constant: EB.Barcode.PICKLIST_DISABLED - String: disabled Disables picklist mode so any barcode within the field of view can be decoded.
+* Constant: EB.Barcode.PICKLIST_HARDWARE_RETICLE - String: hardwareReticle Enables picklist mode so that only the barcode under the projected reticle can be decoded. On Windows, if the imager does not support a projected reticle then the behavior is the same as softwareReticle. On Android, this is only supported for Imager (non-viewfinder) based scanners.
+* Constant: EB.Barcode.PICKLIST_SOFTWARE_RETICLE - String: softwareReticle Enables picklist mode so that only the barcode in the center of the image is decoded. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. On Android, this is only supported for Camera (viewfinder) based scanners.
 ####Access
 
 
@@ -3642,9 +3214,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Allows poor quality 1D barcodes to be read When true, but this will adversely affect the overall decoding performance.</p>
-
+Allows poor quality 1D barcodes to be read When true, but this will adversely affect the overall decoding performance.
 ####Access
 
 
@@ -3664,9 +3234,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for QR Code barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for QR Code barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -3687,9 +3255,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Vertical rastering height to use, as a percentage, when rasterMode:openAlways is applied. This value must be between 0 and 100.</p>
-
+Vertical rastering height to use, as a percentage, when rasterMode:openAlways is applied. This value must be between 0 and 100.
 ####Access
 
 
@@ -3709,25 +3275,15 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Describes the type of vertical rastering to use.</p>
-
+Describes the type of vertical rastering to use.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.RASTER_NONE - String: none 
-<p>No vertical rastering.</p>
-
-* Constant: EB.Barcode.RASTER_OPEN_ALWAYS - String: openAlways 
-<p>Vertical rastering is always full open. To adjust the rastering height use the rasterHeight property.</p>
-
-* Constant: EB.Barcode.RASTER_SMART - String: smart 
-<p>Vertical rastering mode is &lsquo;Smart&rsquo;.</p>
-
-* Constant: EB.Barcode.RASTER_CYCLONE - String: cyclone 
-<p>Vertical rastering mode is &lsquo;Cyclone&rsquo;.</p>
-
+* Constant: EB.Barcode.RASTER_NONE - String: none No vertical rastering.
+* Constant: EB.Barcode.RASTER_OPEN_ALWAYS - String: openAlways Vertical rastering is always full open. To adjust the rastering height use the rasterHeight property.
+* Constant: EB.Barcode.RASTER_SMART - String: smart Vertical rastering mode is 'Smart'.
+* Constant: EB.Barcode.RASTER_CYCLONE - String: cyclone Vertical rastering mode is 'Cyclone'.
 ####Access
 
 
@@ -3747,9 +3303,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>The remaining capacity of the battery, in the range 0 to 100. &lsquo;unknown&rsquo; will be returned if the capacity could not be determined, for example if the scanner had no battery.</p>
-
+The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.
 ####Access
 
 
@@ -3769,9 +3323,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>One of &lsquo;simple&rsquo;, &lsquo;double&rsquo;, &lsquo;disabled&rsquo; or &lsquo;unknown&rsquo;</p>
-
+One of 'simple', 'double', 'disabled' or 'unknown'
 ####Access
 
 
@@ -3791,9 +3343,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Indicates the status of the remote scanner&rsquo;s battery, will be one of &lsquo;unknown&rsquo;, &lsquo;full&rsquo;, &lsquo;medium&rsquo;, &lsquo;empty&rsquo;, &lsquo;chargingFullRate&rsquo;, &lsquo;chargingHalfRate&rsquo;, &lsquo;chargingTrickle&rsquo; or &lsquo;discharging&rsquo;</p>
-
+Indicates the status of the remote scanner's battery, will be one of 'unknown', 'full', 'medium', 'empty', 'chargingFullRate', 'chargingHalfRate', 'chargingTrickle' or 'discharging'
 ####Access
 
 
@@ -3813,9 +3363,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.</p>
-
+Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
 ####Access
 
 
@@ -3835,9 +3383,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>True if authentication is required.</p>
-
+True if authentication is required.
 ####Access
 
 
@@ -3857,25 +3403,15 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Bluetooth reconnection scheme.</p>
-
+Bluetooth reconnection scheme.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.RSM_AUTORECONNECT_NONE - String: none 
-<p>No scheme.</p>
-
-* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER - String: onPower 
-<p>When powered on.</p>
-
-* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_OUT_OF_RANGE - String: onOutOfRange 
-<p>When device goes out of range.</p>
-
-* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER_OUT_OF_RANGE - String: onPowerOutOfRange 
-<p>When powered on or when the device goes out of range.</p>
-
+* Constant: EB.Barcode.RSM_AUTORECONNECT_NONE - String: none No scheme.
+* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER - String: onPower When powered on.
+* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_OUT_OF_RANGE - String: onOutOfRange When device goes out of range.
+* Constant: EB.Barcode.RSM_AUTORECONNECT_ON_POWER_OUT_OF_RANGE - String: onPowerOutOfRange When powered on or when the device goes out of range.
 ####Access
 
 
@@ -3895,9 +3431,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in progress.</p>
-
+When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in progress.
 ####Access
 
 
@@ -3917,9 +3451,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>True if encryption is required.</p>
-
+True if encryption is required.
 ####Access
 
 
@@ -3939,9 +3471,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Friendly Bluetooth name, e.g. &lsquo;MyBTScanner&rsquo;</p>
-
+Friendly Bluetooth name, e.g. 'MyBTScanner'
 ####Access
 
 
@@ -3961,9 +3491,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>&lsquo;neverReconnect&rsquo;, &lsquo;reconnectOnData&rsquo; or &lsquo;reconnectImmediately&rsquo;</p>
-
+'neverReconnect', 'reconnectOnData' or 'reconnectImmediately'
 ####Access
 
 
@@ -3983,9 +3511,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>To use a general inquiry mode, &lsquo;general&rsquo; else, &lsquo;limited&rsquo;</p>
-
+To use a general inquiry mode, 'general' else, 'limited'
 ####Access
 
 
@@ -4005,9 +3531,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Up to 5 character PIN code used for Bluetooth authentication.</p>
-
+Up to 5 character PIN code used for Bluetooth authentication.
 ####Access
 
 
@@ -4027,9 +3551,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>&lsquo;UseStored&rsquo; will use the PIN code stored in the memory of the ring scanner, by default &lsquo;12345&rsquo;. &lsquo;PromptUser&rsquo; indicates that the ring scanner should be used to scan 5 alpha numeric barcodes to define the PIN, eg. &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;3&rdquo;, &ldquo;4&rdquo;, &ldquo;5&rdquo; (for PIN 12345). This parameter is not saved permanently on the ring scanner.</p>
-
+'UseStored' will use the PIN code stored in the memory of the ring scanner, by default '12345'. 'PromptUser' indicates that the ring scanner should be used to scan 5 alpha numeric barcodes to define the PIN, eg. "1", "2", "3", "4", "5" (for PIN 12345). This parameter is not saved permanently on the ring scanner.
 ####Access
 
 
@@ -4049,9 +3571,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>How long the scanner tries to re-establish connection if it goes out of range, in seconds. This value must be a multiple of 5 and in the range 30 to 60 seconds.</p>
-
+How long the scanner tries to re-establish connection if it goes out of range, in seconds. This value must be a multiple of 5 and in the range 30 to 60 seconds.
 ####Access
 
 
@@ -4071,9 +3591,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Ring scanner date of manufacture as DDMMYY.</p>
-
+Ring scanner date of manufacture as DDMMYY.
 ####Access
 
 
@@ -4093,9 +3611,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Ring scanner date of service as DDMMYY.</p>
-
+Ring scanner date of service as DDMMYY.
 ####Access
 
 
@@ -4115,9 +3631,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, the remote scanner beeps and illuminates its green LED on a successful decode.</p>
-
+If true, the remote scanner beeps and illuminates its green LED on a successful decode.
 ####Access
 
 
@@ -4137,9 +3651,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>The device class of the ring scanner.</p>
-
+The device class of the ring scanner.
 ####Access
 
 
@@ -4159,9 +3671,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Scanner&rsquo;s operating system version.</p>
-
+Scanner's operating system version.
 ####Access
 
 
@@ -4181,9 +3691,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Force saving the barcode assigned to the device to which the scanner has been paired.</p>
-
+Force saving the barcode assigned to the device to which the scanner has been paired.
 ####Access
 
 
@@ -4203,9 +3711,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Delay between good scans in proximity continuous mode, measured in milliseconds. Range 0 to 15000. This value must be a multiple of 100.</p>
-
+Delay between good scans in proximity continuous mode, measured in milliseconds. Range 0 to 15000. This value must be a multiple of 100.
 ####Access
 
 
@@ -4225,9 +3731,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Feature for ignoring Code 128 barcodes beginning with 420 and 421.</p>
-
+Feature for ignoring Code 128 barcodes beginning with 420 and 421.
 ####Access
 
 
@@ -4247,9 +3751,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Whether or not the ring scanner should give a low battery indication.</p>
-
+Whether or not the ring scanner should give a low battery indication.
 ####Access
 
 
@@ -4269,9 +3771,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 120.</p>
-
+Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 120.
 ####Access
 
 
@@ -4291,9 +3791,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</p>
-
+If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.
 ####Access
 
 
@@ -4313,9 +3811,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Ring scanner model number.</p>
-
+Ring scanner model number.
 ####Access
 
 
@@ -4335,9 +3831,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Range 0 to 15 to specify the pattern for the paging beep sequence.</p>
-
+Range 0 to 15 to specify the pattern for the paging beep sequence.
 ####Access
 
 
@@ -4357,9 +3851,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Specify whether paging the device is enabled.</p>
-
+Specify whether paging the device is enabled.
 ####Access
 
 
@@ -4379,9 +3871,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Proximity continuous mode.</p>
-
+Proximity continuous mode.
 ####Access
 
 
@@ -4401,9 +3891,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Specify the distance for the proximity feature as &lsquo;short&rsquo;, &lsquo;medium&rsquo; or &lsquo;long&rsquo;</p>
-
+Specify the distance for the proximity feature as 'short', 'medium' or 'long' 
 ####Access
 
 
@@ -4423,9 +3911,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</p>
-
+If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.
 ####Access
 
 
@@ -4445,9 +3931,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>The laser scan line width, &lsquo;wide&rsquo; or &lsquo;narrow&rsquo;.</p>
-
+The laser scan line width, 'wide' or 'narrow'.
 ####Access
 
 
@@ -4467,9 +3951,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Scanner trigger will wakeup the device from a low power state.</p>
-
+Scanner trigger will wakeup the device from a low power state.
 ####Access
 
 
@@ -4489,9 +3971,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Ring scanner serial number.</p>
-
+Ring scanner serial number.
 ####Access
 
 
@@ -4511,9 +3991,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this value to prevent accidental duplicate scans.</p>
-
+When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this value to prevent accidental duplicate scans.
 ####Access
 
 
@@ -4533,9 +4011,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.</p>
-
+Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.
 ####Access
 
 
@@ -4556,9 +4032,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>The type of scanner in use, will be one of &lsquo;Camera&rsquo;, &lsquo;Imager&rsquo; or &lsquo;Laser&rsquo;. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.</p>
-
+The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.
 ####Access
 
 
@@ -4578,9 +4052,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Signature barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.</p>
-
+Enables or disables the symbology for Signature barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes.
 ####Access
 
 
@@ -4601,9 +4073,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the output height of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.</p>
-
+Specifies the output height of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.
 ####Access
 
 
@@ -4623,9 +4093,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the output quality of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a value between 10 and 100 inclusive.</p>
-
+Specifies the output quality of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a value between 10 and 100 inclusive.
 ####Access
 
 
@@ -4645,9 +4113,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Specifies the output width of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.</p>
-
+Specifies the output width of the captured signature barcode. Signature barcodes return their data in Data URI format, it is recommended you adjust the dataBufferSize and barcodeDataFormat properties when scanning Signature barcodes. Provide a number greater than or equal to 20.
 ####Access
 
 
@@ -4667,9 +4133,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Duration in milliseconds for aimType:timedHold and aimType:timedRelease.</p>
-
+Duration in milliseconds for aimType:timedHold and aimType:timedRelease.
 ####Access
 
 
@@ -4689,9 +4153,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for TLC 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for TLC 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -4712,9 +4174,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Only applies to an enabled laser or imaging scanner. Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer. By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately. Please note that disconnecting the trigger will also prevent the start method from emitting a laser. This property will only affect the scanner and will have no effect on the &lsquo;captureTrigger&rsquo; API.</p>
-
+Only applies to an enabled laser or imaging scanner. Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer. By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately. Please note that disconnecting the trigger will also prevent the start method from emitting a laser. This property will only affect the scanner and will have no effect on the 'captureTrigger' API.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -4736,9 +4196,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Trioptic 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for Trioptic 39 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -4759,9 +4217,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.</p>
-
+Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twice before being accepted. This will slow scanning but improve reliability.
 ####Access
 
 
@@ -4782,9 +4238,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for UK Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for UK Postal barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -4805,9 +4259,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned UK Postal barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned UK Postal barcodes.
 ####Access
 
 
@@ -4827,9 +4279,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables decoding of UPC EAN Bookland barcodes.</p>
-
+Enables or disables decoding of UPC EAN Bookland barcodes.
 ####Access
 
 
@@ -4850,19 +4300,13 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Specifies the bookland format to use when decoding UPC EAN Bookland barcodes.</p>
-
+Specifies the bookland format to use when decoding UPC EAN Bookland barcodes.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.BOOKLAND_ISBN10 - String: isbn10 
-<p>Causes 978 bookland barcodes to be reported in 10 digit mode.</p>
-
-* Constant: EB.Barcode.BOOKLAND_ISBN13 - String: isbn13 
-<p>Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 protocol.</p>
-
+* Constant: EB.Barcode.BOOKLAND_ISBN10 - String: isbn10 Causes 978 bookland barcodes to be reported in 10 digit mode.
+* Constant: EB.Barcode.BOOKLAND_ISBN13 - String: isbn13 Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 protocol.
 ####Access
 
 
@@ -4883,9 +4327,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, RSS barcodes will be converted to UPC/EAN format. For this setting to work UPC/EAN symbologies must be enabled.</p>
-
+If true, RSS barcodes will be converted to UPC/EAN format. For this setting to work UPC/EAN symbologies must be enabled.
 ####Access
 
 
@@ -4906,9 +4348,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables decoding of UPC EAN Coupon barcodes.</p>
-
+Enables or disables decoding of UPC EAN Coupon barcodes.
 ####Access
 
 
@@ -4929,9 +4369,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Sets the linear decode property.</p>
-
+Sets the linear decode property.
 ####Access
 
 
@@ -4952,9 +4390,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, enables random weight check digit verification.</p>
-
+When true, enables random weight check digit verification.
 ####Access
 
 
@@ -4975,9 +4411,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Sets the retry count for auto-discriminating for supplementals. The value must be between 2 &ndash; 20 inclusive.</p>
-
+Sets the retry count for auto-discriminating for supplementals. The value must be between 2 - 20 inclusive.
 ####Access
 
 
@@ -4998,9 +4432,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Sets the Security level for decoding UPC EAN barcodes and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most &lsquo;in-spec&rsquo; barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.</p>
-
+Sets the Security level for decoding UPC EAN barcodes and accepts a value between 0 and 3 inclusive. 0: This setting allows the scanner to operate in its most aggressive state, while providing sufficient security in decoding most 'in-spec' barcodes. 1: This setting eliminates most mis-decodes. 2: Select this option if security level 1 fails to eliminate mis-decodes. 3: Select this option if security level 1 and 2 fail to eliminate mis-decodes. Be advised that selecting level 3 is an extreme measure against mis-decoding and will significantly impair the decoding ability of the scanner.
 ####Access
 
 
@@ -5021,9 +4453,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.</p>
-
+When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.
 ####Access
 
 
@@ -5044,9 +4474,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.</p>
-
+When true, enables the supplemental barcode decoding. Note you must have upcEanSupplementalMode:always set for this parameter to take effect.
 ####Access
 
 
@@ -5067,34 +4495,18 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Describes the UPC EAN Supplemental mode.</p>
-
+Describes the UPC EAN Supplemental mode.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCEAN_NONE - String: none 
-<p>Supplementals are ignored.</p>
-
-* Constant: EB.Barcode.UPCEAN_AUTO - String: auto 
-<p>Auto-discriminates supplementals.</p>
-
-* Constant: EB.Barcode.UPCEAN_ALWAYS - String: always 
-<p>Will not decode upc/ean without supplementals.</p>
-
-* Constant: EB.Barcode.UPCEAN_SMART - String: smart 
-<p>The decoder will return the decoded value of the main block right away if it does not belong to any of the supplemental types. If the barcode starts with one of the prefixes it will search the image more aggressively for a supplemental. The scanner will try to scan the supplemental if it is present but if that fails, the main barcode will be returned.</p>
-
-* Constant: EB.Barcode.UPCEAN_379 - String: 378or379 
-<p>Auto-discriminates supplemental for upc/ean codes starting with 378 or 379. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</p>
-
-* Constant: EB.Barcode.UPCEAN_979 - String: 978or979 
-<p>Auto-discriminates supplemental for upc/ean codes starting with 978 or 979. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</p>
-
-* Constant: EB.Barcode.UPCEAN_439 - String: 414or419or434or439 
-<p>Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 434 or 439. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</p>
-
+* Constant: EB.Barcode.UPCEAN_NONE - String: none Supplementals are ignored.
+* Constant: EB.Barcode.UPCEAN_AUTO - String: auto Auto-discriminates supplementals.
+* Constant: EB.Barcode.UPCEAN_ALWAYS - String: always Will not decode upc/ean without supplementals.
+* Constant: EB.Barcode.UPCEAN_SMART - String: smart The decoder will return the decoded value of the main block right away if it does not belong to any of the supplemental types. If the barcode starts with one of the prefixes it will search the image more aggressively for a supplemental. The scanner will try to scan the supplemental if it is present but if that fails, the main barcode will be returned.
+* Constant: EB.Barcode.UPCEAN_379 - String: 378or379 Auto-discriminates supplemental for upc/ean codes starting with 378 or 379. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.
+* Constant: EB.Barcode.UPCEAN_979 - String: 978or979 Auto-discriminates supplemental for upc/ean codes starting with 978 or 979. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.
+* Constant: EB.Barcode.UPCEAN_439 - String: 414or419or434or439 Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 434 or 439. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.
 ####Access
 
 
@@ -5115,9 +4527,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for UPCA barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for UPCA barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -5138,22 +4548,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Controls the preamble applied to the UPCA barcode.</p>
-
+Controls the preamble applied to the UPCA barcode.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCA_PREAMBLE_NONE - String: none 
-<p>Applies no preamble to the bar code.</p>
-
-* Constant: EB.Barcode.UPCA_PREAMBLE_SYSTEMCHAR - String: systemChar 
-<p>Applies system character preamble to the bar code.</p>
-
-* Constant: EB.Barcode.UPCA_PREAMBLE_COUNTRY - String: countryAndSystemChars 
-<p>Applies both system and country code preamble to the bar code.</p>
-
+* Constant: EB.Barcode.UPCA_PREAMBLE_NONE - String: none Applies no preamble to the bar code.
+* Constant: EB.Barcode.UPCA_PREAMBLE_SYSTEMCHAR - String: systemChar Applies system character preamble to the bar code.
+* Constant: EB.Barcode.UPCA_PREAMBLE_COUNTRY - String: countryAndSystemChars Applies both system and country code preamble to the bar code.
 ####Access
 
 
@@ -5174,9 +4576,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned UPCA barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned UPCA barcodes.
 ####Access
 
 
@@ -5197,9 +4597,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for UPCE0 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for UPCE0 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -5220,9 +4618,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters used.</p>
-
+When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters used.
 ####Access
 
 
@@ -5243,22 +4639,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Controls the preamble applied to the UPCE0 barcode.</p>
-
+Controls the preamble applied to the UPCE0 barcode.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCE0_PREAMBLE_NONE - String: none 
-<p>Applies no preamble to the bar code.</p>
-
-* Constant: EB.Barcode.UPCE0_PREAMBLE_SYSTEMCHAR - String: systemChar 
-<p>Applies system character preamble to the bar code.</p>
-
-* Constant: EB.Barcode.UPCE0_PREAMBLE_COUNTRY - String: countryAndSystemChars 
-<p>Applies both system and country code preamble to the bar code.</p>
-
+* Constant: EB.Barcode.UPCE0_PREAMBLE_NONE - String: none Applies no preamble to the bar code.
+* Constant: EB.Barcode.UPCE0_PREAMBLE_SYSTEMCHAR - String: systemChar Applies system character preamble to the bar code.
+* Constant: EB.Barcode.UPCE0_PREAMBLE_COUNTRY - String: countryAndSystemChars Applies both system and country code preamble to the bar code.
 ####Access
 
 
@@ -5279,9 +4667,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned UPCE0 barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned UPCE0 barcodes.
 ####Access
 
 
@@ -5302,9 +4688,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for UPCE1 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for UPCE1 barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -5325,9 +4709,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters used.</p>
-
+When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters used.
 ####Access
 
 
@@ -5348,22 +4730,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Controls the preamble applied to the UPCE1 barcode.</p>
-
+Controls the preamble applied to the UPCE1 barcode.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.UPCE1_PREAMBLE_NONE - String: none 
-<p>Applies no preamble to the bar code.</p>
-
-* Constant: EB.Barcode.UPCE1_PREAMBLE_SYSTEMCHAR - String: systemChar 
-<p>Applies system character preamble to the bar code.</p>
-
-* Constant: EB.Barcode.UPCE1_PREAMBLE_COUNTRY - String: countryAndSystemChars 
-<p>Applies both system and country code preamble to the bar code.</p>
-
+* Constant: EB.Barcode.UPCE1_PREAMBLE_NONE - String: none Applies no preamble to the bar code.
+* Constant: EB.Barcode.UPCE1_PREAMBLE_SYSTEMCHAR - String: systemChar Applies system character preamble to the bar code.
+* Constant: EB.Barcode.UPCE1_PREAMBLE_COUNTRY - String: countryAndSystemChars Applies both system and country code preamble to the bar code.
 ####Access
 
 
@@ -5384,9 +4758,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned UPCE1 barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned UPCE1 barcodes.
 ####Access
 
 
@@ -5407,9 +4779,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for US 4-State barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for US 4-State barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -5430,9 +4800,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for US 4-State FICS barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for US 4-State FICS barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -5453,9 +4821,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for US Planet barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for US Planet barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -5476,9 +4842,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned US Planet barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned US Planet barcodes.
 ####Access
 
 
@@ -5498,9 +4862,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for US Post Net barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.</p>
-
+Enables or disables the symbology for US Post Net barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance.
 ####Access
 
 
@@ -5521,9 +4883,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>When true, the barcode check digit(s) will be reported for scanned US Post Net barcodes.</p>
-
+When true, the barcode check digit(s) will be reported for scanned US Post Net barcodes.
 ####Access
 
 
@@ -5543,22 +4903,14 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.</p>
-
+Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.VF_FEEDBACK_ENABLED - String: enabled 
-<p>The last image that was successfully decoded is displayed. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</p>
-
-* Constant: EB.Barcode.VF_FEEDBACK_DISABLED - String: disabled 
-<p>No feedback is given in the viewfinder after a successful decode.</p>
-
-* Constant: EB.Barcode.VF_FEEDBACK_RETICLE - String: reticle 
-<p>The last image that was successfully decoded is displayed along with a red reticle in the center of the image. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</p>
-
+* Constant: EB.Barcode.VF_FEEDBACK_ENABLED - String: enabled The last image that was successfully decoded is displayed. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.
+* Constant: EB.Barcode.VF_FEEDBACK_DISABLED - String: disabled No feedback is given in the viewfinder after a successful decode.
+* Constant: EB.Barcode.VF_FEEDBACK_RETICLE - String: reticle The last image that was successfully decoded is displayed along with a red reticle in the center of the image. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.
 ####Access
 
 
@@ -5579,9 +4931,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration. Specified in milliseconds.</p>
-
+If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration. Specified in milliseconds.
 ####Access
 
 
@@ -5602,9 +4952,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels in height. The images displayed in the viewfinder will be scaled as appropriate.</p>
-
+When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels in height. The images displayed in the viewfinder will be scaled as appropriate.
 ####Access
 
 
@@ -5624,25 +4972,15 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Configures the mode of the scanner viewfinder window. This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.</p>
-
+Configures the mode of the scanner viewfinder window. This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.VIEWFINDER_ENABLED - String: enabled 
-<p>Only the viewfinder is enabled (not the reticle). Displays a viewfinder on the screen showing the image being captured by the camera.</p>
-
-* Constant: EB.Barcode.VIEWFINDER_DISABLED - String: disabled 
-<p>The viewfinder will not be displayed during aiming or scanning.</p>
-
-* Constant: EB.Barcode.VIEWFINDER_STATIC_RETICLE - String: staticReticle 
-<p>Displays the viewfinder as well as draws a red reticle in the center of the image which helps with tracking the barcode.</p>
-
-* Constant: EB.Barcode.VIEWFINDER_DYNAMIC_RETICLE - String: dynamicReticle 
-<p>Displays the viewfinder as well as draws a red reticle in the center of the image. If the barcode in the image is &lsquo;decodable&rsquo; the reticle turns green to indicate this. This mode requires a second trigger press to decode the barcode after the reticle turns green. Not supported on Android.</p>
-
+* Constant: EB.Barcode.VIEWFINDER_ENABLED - String: enabled Only the viewfinder is enabled (not the reticle). Displays a viewfinder on the screen showing the image being captured by the camera.
+* Constant: EB.Barcode.VIEWFINDER_DISABLED - String: disabled The viewfinder will not be displayed during aiming or scanning.
+* Constant: EB.Barcode.VIEWFINDER_STATIC_RETICLE - String: staticReticle Displays the viewfinder as well as draws a red reticle in the center of the image which helps with tracking the barcode.
+* Constant: EB.Barcode.VIEWFINDER_DYNAMIC_RETICLE - String: dynamicReticle Displays the viewfinder as well as draws a red reticle in the center of the image. If the barcode in the image is 'decodable' the reticle turns green to indicate this. This mode requires a second trigger press to decode the barcode after the reticle turns green. Not supported on Android.
 ####Access
 
 
@@ -5663,9 +5001,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels wide. The images displayed in the viewfinder will be scaled as appropriate.</p>
-
+When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels wide. The images displayed in the viewfinder will be scaled as appropriate.
 ####Access
 
 
@@ -5685,9 +5021,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the left hand side of the screen. The images displayed in the viewfinder will be scaled as appropriate.</p>
-
+When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the left hand side of the screen. The images displayed in the viewfinder will be scaled as appropriate.
 ####Access
 
 
@@ -5707,9 +5041,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the top of the screen. The images displayed in the viewfinder will be scaled as appropriate.</p>
-
+When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the top of the screen. The images displayed in the viewfinder will be scaled as appropriate.
 ####Access
 
 
@@ -5729,9 +5061,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or disables the symbology for Webcode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Deprecated in Android 4.1 (Jelly Bean).</p>
-
+Enables or disables the symbology for Webcode barcodes. If your application does not expect to scan this symbology you should disable it to improve scanning performance. Deprecated in Android 4.1 (Jelly Bean).
 ####Access
 
 
@@ -5752,9 +5082,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jelly Bean).</p>
-
+If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jelly Bean).
 ####Access
 
 
@@ -5775,64 +5103,74 @@ Synchronous Return:
 
 
 ###Bluetooth Scanner Overview
-<p>Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the &lsquo;unpairing&rsquo; barcode and then invoke the &lsquo;disabled&rsquo; method followed by the &lsquo;enabled&rsquo; method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behavior using the disconnectBtOnDisable property.</p>
 
-<p>The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:</p>
+                    
+Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behavior using the disconnectBtOnDisable property.
 
-<p><strong>&lsquo;BTScanAssociationBarcode&rsquo;</strong>
-Means the device is ready to be associated with a BT scanner. You must scan the
-association barcode. It is only necessary to scan the association
+The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:
+
+**'BTScanAssociationBarcode'** 
+Means the device is ready to be associated with a BT scanner. You must scan the 
+association barcode. It is only necessary to scan the association 
 barcode when you first associate a scanner with the device, this pairing will be remembered until
-you scan the unpairing barcode.</p>
+you scan the unpairing barcode.
 
-<p><strong> &lsquo;BluetoothConnected&rsquo;</strong>
-The remote scanner has successfully connected to the device.</p>
-
-<p><strong> &lsquo;BluetoothDisconnected&rsquo;</strong>
+** 'BluetoothConnected'**
+The remote scanner has successfully connected to the device.
+    
+** 'BluetoothDisconnected'**
 The remote scanner has become disconnected from the device, this may be due to loss of battery, being out
-of range or scanning the &lsquo;unpairing&rsquo; barcode. The scanner will attempt to reconnect automatically for
+of range or scanning the 'unpairing' barcode. The scanner will attempt to reconnect automatically for
 a period of time once it regains power or goes out of range, if it fails to reconnect after the specified
 timeout the reconnect button on the device should be pushed. Once the unpairing barcode is scanned
-it is necessary to disable the scanner and then re-enable it before another scanner can be associated.</p>
-
+it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
+                
+                
 
 ###Viewfinder Position Parameters
-<p>On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.</p>
 
+                    
+On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
+                    
+                
 
 ###Scanning and Camera Interaction
-<p>In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa.</p>
 
+                    
+In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
+                    
+                
 
 ###Get Scanner Properties
-<p>On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In WM/CE, some of the scanner properties are not exposed to set but can be retrieved. In Android, only supported scanner properties can be retrieved in &ldquo;getAllProperties&rdquo; method.</p>
 
+                    
+On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In WM/CE, some of the scanner properties are not exposed to set but can be retrieved. In Android, only supported scanner properties can be retrieved in "getAllProperties" method.
+                    
+                
 
 ###DataWedge Interaction With Native Apps
-<p>In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.</p>
 
-<p><strong>Disabling Datawedge</strong></p>
+                    
+In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
 
-<ol>
-<li>Start the DataWedge app</li>
-<li>Click the menu button > &ldquo;Settings&rdquo; and untick &ldquo;DataWedge enabled&rdquo;.</li>
-</ol>
+**Disabling Datawedge**
 
+1. Start the DataWedge app
+2. Click the menu button > "Settings" and untick "DataWedge enabled". 
 
-<p><strong>RhoElements Datawedge Profile</strong></p>
+**RhoElements Datawedge Profile**
 
-<ol>
-<li>Install your RhoElements native app,</li>
-<li>Start the DataWedge app</li>
-<li>Click the menu button > &ldquo;New Profile&rdquo; and enter a name,</li>
-<li>Click on the link to the new profile in the profile list,</li>
-<li>Click on &ldquo;Associated apps&rdquo; in the &ldquo;Applications&rdquo; section,</li>
-<li>Click the menu button > &ldquo;New app/activity&rdquo;,</li>
-<li>Select the package name for your app,</li>
-<li>Select &ldquo;*&rdquo;,</li>
-<li>Click the &ldquo;Back&rdquo; capacitive button,</li>
-<li>Make sure the &ldquo;Profile enabled&rdquo; checkbox is ticked.</li>
-<li>Uncheck all three &ldquo;Enabled&rdquo; checkboxes under the sections of:
-&ldquo;Barcode input&rdquo;, &ldquo;Keystroke output&rdquo; and &ldquo;Intent output&rdquo;.</li>
-</ol>
-
+1. Install your RhoElements native app,
+2. Start the DataWedge app
+3. Click the menu button > "New Profile" and enter a name,
+4. Click on the link to the new profile in the profile list,
+5. Click on "Associated apps" in the "Applications" section,
+6. Click the menu button > "New app/activity",
+7. Select the package name for your app,
+8. Select "*",
+9. Click the "Back" capacitive button,
+10. Make sure the "Profile enabled" checkbox is ticked.
+11. Uncheck all three "Enabled" checkboxes under the sections of:
+    "Barcode input", "Keystroke output" and "Intent output".
+                    
+                

@@ -14,13 +14,10 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### addMessage(<span class="text-info">STRING</span> messageID)
-<p>Add new Smart Poster message to the message.</p>
-
+Add new Smart Poster message to the message.
 
 ####Parameters
-<ul><li>messageID : <span class='text-info'>STRING</span><p>
-<p>Added Message object ID.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>messageID : <span class='text-info'>STRING</span><p>Added Message object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -37,13 +34,10 @@ Synchronous Return:
 	* <code>myObject.addMessage(<span class="text-info">STRING</span> messageID)</code>
 
 ### addRecord(<span class="text-info">STRING</span> recordID)
-<p>Add new Record to Message.</p>
-
+Add new Record to Message.
 
 ####Parameters
-<ul><li>recordID : <span class='text-info'>STRING</span><p>
-<p>Added Record object ID.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>recordID : <span class='text-info'>STRING</span><p>Added Record object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -60,8 +54,7 @@ Synchronous Return:
 	* <code>myObject.addRecord(<span class="text-info">STRING</span> recordID)</code>
 
 ### close()
-<p>Release NFC resources.</p>
-
+Release NFC resources.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -81,8 +74,7 @@ Synchronous Return:
 	* <code>myObject.close()</code>
 
 ### create()
-<p>Creates message object.</p>
-
+Creates message object.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -93,9 +85,7 @@ Async Callback Returning Parameters: <span class='text-info'>Rho.NFC.Message</sp
 ####Returns
 Synchronous Return:
 
-* Rho.NFC.Message : 
-<p>Created Message object.</p>
-
+* Rho.NFC.Message : Created Message object.
 
 ####Platforms
 
@@ -108,8 +98,7 @@ Synchronous Return:
 
 
 ### getContent()
-<p>Returns Message as byte array.</p>
-
+Returns Message as byte array.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -120,9 +109,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>Message to get.</p>
-
+* STRING : Message to get.
 
 ####Platforms
 
@@ -134,13 +121,10 @@ Synchronous Return:
 	* <code>myObject.getContent()</code>
 
 ### getMessageById(<span class="text-info">STRING</span> id)
-<p>This function returns Message object.</p>
-
+This function returns Message object.
 
 ####Parameters
-<ul><li>id : <span class='text-info'>STRING</span><p>
-<p>Message object ID.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>id : <span class='text-info'>STRING</span><p>Message object ID. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
@@ -148,9 +132,7 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 ####Returns
 Synchronous Return:
 
-* SELF_INSTANCE : 
-<p>&ldquo;self&rdquo; instance of the Message object.</p>
-
+* SELF_INSTANCE : "self" instance of the Message object.
 
 ####Platforms
 
@@ -163,8 +145,7 @@ Synchronous Return:
 
 
 ### getMessages()
-<p>Return array of Smart Poster Message objects.</p>
-
+Return array of Smart Poster Message objects.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -175,9 +156,7 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:
 
-* ARRAY : 
-<p>Array of Rho.NFC.Message objects.</p>
-<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Message</span><p> </p></li></ul>
+* ARRAY : Array of Rho.NFC.Message objects.<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Message</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -189,8 +168,7 @@ Synchronous Return:
 	* <code>myObject.getMessages()</code>
 
 ### getRecords()
-<p>Return array of Record objects.</p>
-
+Return array of Record objects.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -201,9 +179,7 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:
 
-* ARRAY : 
-<p>Array of Rho.NFC.Record objects.</p>
-<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Record</span><p> </p></li></ul>
+* ARRAY : Array of Rho.NFC.Record objects.<ul><li><i>Object</i> : <span class='text-info'>Rho.NFC.Record</span><p> </p></li></ul>
 
 ####Platforms
 
@@ -223,9 +199,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Object ID.</p>
-
+Object ID.
 ####Access
 
 

@@ -21,8 +21,7 @@ NOTE: If you are building a Windows Mobile or Windows CE app with this API, you 
 
 
 ### calcSumm(<span class="text-info">INTEGER</span> a, <span class="text-info">INTEGER</span> b)
-<p>Return sum of two params: a+b.</p>
-
+Return sum of two params: a+b.
 
 ####Parameters
 <ul><li>a : <span class='text-info'>INTEGER</span><p> </p></li><li>b : <span class='text-info'>INTEGER</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -45,6 +44,7 @@ Synchronous Return:
 
 ### enumerate()
 
+
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
@@ -54,9 +54,7 @@ Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul
 ####Returns
 Synchronous Return:
 
-* ARRAY : 
-<p>Array of PrintingEpson objects.</p>
-<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.PrintingEpson</span><p> </p></li></ul>
+* ARRAY : Array of PrintingEpson objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.PrintingEpson</span><p> </p></li></ul>
 
 ####Method Access:
 
@@ -65,8 +63,7 @@ Synchronous Return:
 
 
 ### getAllProperties()
-<p>This method will return all of object/value pairs for the propertyNames of the API class.</p>
-
+This method will return all of object/value pairs for the propertyNames of the API class.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -77,9 +74,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of all available properties</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Method Access:
 
@@ -90,8 +85,7 @@ Synchronous Return:
 
 
 ### getDefault()
-<p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
-
+This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -102,9 +96,7 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 ####Returns
 Synchronous Return:
 
-* SELF_INSTANCE : 
-<p>Default object of Module.</p>
-
+* SELF_INSTANCE : Default object of Module.
 
 ####Method Access:
 
@@ -113,8 +105,7 @@ Synchronous Return:
 
 
 ### getPlatformName()
-<p>Return string with platform.</p>
-
+Return string with platform.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -136,13 +127,10 @@ Synchronous Return:
 
 
 ### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
-<p>This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.</p>
-
+This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
 
 ####Parameters
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-<p>List of properties I want to know about</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
@@ -150,9 +138,7 @@ Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul>
 ####Returns
 Synchronous Return:
 
-* HASH : 
-<p>Map of properties I want to know about</p>
-<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+* HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
 
 ####Method Access:
 
@@ -163,13 +149,10 @@ Synchronous Return:
 
 
 ### getProperty(<span class="text-info">STRING</span> propertyName)
-<p>This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.</p>
-
+This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The property to return info about.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -177,9 +160,7 @@ Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><u
 ####Returns
 Synchronous Return:
 
-* STRING : 
-<p>The property to return info about.</p>
-
+* STRING : The property to return info about.
 
 ####Method Access:
 
@@ -190,8 +171,7 @@ Synchronous Return:
 
 
 ### joinStrings(<span class="text-info">STRING</span> a, <span class="text-info">STRING</span> b)
-<p>Return join of two strings: a+b.</p>
-
+Return join of two strings: a+b.
 
 ####Parameters
 <ul><li>a : <span class='text-info'>STRING</span><p> </p></li><li>b : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -213,13 +193,10 @@ Synchronous Return:
 
 
 ### setDefault(<span class="text-info">SELF_INSTANCE: EB.PrintingEpson</span> defaultInstance)
-<p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
-
+This method allows you to set the attributes of the default object instance by passing in an object of the same class.
 
 ####Parameters
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.PrintingEpson</span><p>
-<p>An instance object that is of the same class.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.PrintingEpson</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -233,13 +210,10 @@ Synchronous Return:
 
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
-<p>This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-<p>Map of properties I want to set</p>
- </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -255,15 +229,10 @@ Synchronous Return:
 
 
 ### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
-<p>This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.</p>
-
+This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
 
 ####Parameters
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-<p>The one property name that I want to set</p>
- </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-<p>The one property value that I want to set</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -287,9 +256,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-
-<p>Simple string property.</p>
-
+Simple string property.
 ####Access
 
 

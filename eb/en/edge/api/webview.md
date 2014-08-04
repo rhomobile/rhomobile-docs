@@ -24,15 +24,13 @@ ex:
 
 
 ### active_tab()
-<p>Use NativeTabbar.currentTab property: returns the current tab index.</p>
-
+Use NativeTabbar.currentTab property: returns the current tab index.
 
 ####Parameters
-
-callback : <span class='text-info'>CallBackHandler</span>
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>INTEGER</span>
+Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
 ####Returns
 Synchronous Return:
@@ -51,8 +49,7 @@ Synchronous Return:
 
 
 ### full_screen_mode(<span class="text-info">BOOLEAN</span> enable)
-<p>Use WebView.fullScreen property: Switch to / from full screen mode.</p>
-
+Use WebView.fullScreen property: Switch to / from full screen mode.
 
 ####Parameters
 <ul><li>enable : <span class='text-info'>BOOLEAN</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -74,17 +71,10 @@ Synchronous Return:
 
 
 ### navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)
-<p>Force WebView to navigate to a URL. White page flickering during transition may happen if a controller action method doesn&rsquo;t return any rendered value, but instead performs a WebView.navigate(someUrl) call. It is important to avoid using WebView.navigate in Ruby action methods because WebView.navigate is intended to be used in callback methods asynchronously.</p>
-
+Force WebView to navigate to a URL. White page flickering during transition may happen if a controller action method doesn't return any rendered value, but instead performs a WebView.navigate(someUrl) call. It is important to avoid using WebView.navigate in Ruby action methods because WebView.navigate is intended to be used in callback methods asynchronously.
 
 ####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>
-<p>Navigate to this url.</p>
- </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-<p>TabBar tab index. If no tab bar present, index is ignored. Please avoid of navigate in not opened tab &ndash; this is unsupported on Android.</p>
- 
-<p>Refresh active WebView.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>Navigate to this url. </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>TabBar tab index. If no tab bar present, index is ignored. Please avoid of navigate in not opened tab - this is unsupported on Android. Refresh active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -103,15 +93,10 @@ Synchronous Return:
 
 
 ### navigateBack(<span class="text-info">INTEGER</span> tabIndex)
-<p>Force WebView to navigate to the previous page using Browser back.</p>
-
+Force WebView to navigate to the previous page using Browser back.
 
 ####Parameters
-<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-<p>TabBar tab index. If no tab bar present, index is ignored.</p>
- 
-<p>Navigate back in active WebView.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>TabBar tab index. If no tab bar present, index is ignored. Navigate back in active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -130,15 +115,10 @@ Synchronous Return:
 
 
 ### refresh(<span class="text-info">INTEGER</span> tabIndex)
-<p>Force WebView to refresh the current page.</p>
-
+Force WebView to refresh the current page.
 
 ####Parameters
-<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-<p>TabBar tab index. If no tab bar present, index is ignored.</p>
- 
-<p>Refresh active WebView.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>TabBar tab index. If no tab bar present, index is ignored. Refresh active WebView.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -157,21 +137,10 @@ Synchronous Return:
 
 
 ### save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)
-<p>Save current page to file system.</p>
-
+Save current page to file system.
 
 ####Parameters
-<ul><li>format : <span class='text-info'>STRING</span><p>
-<p>Format of the saved page.</p>
- </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.WebView.SAVE_FORMAT_JPEG <br/> String:jpeg</dt><dd>
-<p>Save as jpeg image.</p>
-</dd></dl></li><li>path : <span class='text-info'>STRING</span><p>
-<p>Path to the file / folder to save the page.</p>
- </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>
-<p>TabBar tab index. If no tab bar present, index is ignored.</p>
- 
-<p>If tabbar index omitted then active WebView will be saved.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>format : <span class='text-info'>STRING</span><p>Format of the saved page. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.WebView.SAVE_FORMAT_JPEG <br/> String:jpeg</dt><dd>Save as jpeg image.</dd></dl></li><li>path : <span class='text-info'>STRING</span><p>Path to the file / folder to save the page. </p></li><li>tabIndex : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: -1</span><p>TabBar tab index. If no tab bar present, index is ignored. If tabbar index omitted then active WebView will be saved.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -189,13 +158,10 @@ Synchronous Return:
 
 
 ### set_menu_items(<span class="text-info">HASH</span> menuItems)
-<p>Use Application.nativeMenu property: set native menu items.</p>
-
+Use Application.nativeMenu property: set native menu items.
 
 ####Parameters
-<ul><li>menuItems : <span class='text-info'>HASH</span><p>
-<p>Map of menu items: name to action.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>menuItems : <span class='text-info'>HASH</span><p>Map of menu items: name to action. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -222,9 +188,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Return an active tab index. For change active tab use Use Rho.NativeTabbar.currentTab property.</p>
-
+Return an active tab index. For change active tab use Use Rho.NativeTabbar.currentTab property.
 ####Access
 
 
@@ -243,9 +207,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>The browser cache size, in whole MBs. Defines in config.xml: Navigation\Cache.</p>
-
+The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 ####Access
 
 
@@ -263,9 +225,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Enable / disable Browser cache. Use &lsquo;WebView.enableCache&rsquo; parameter in rhoconfig.txt to configure this value.</p>
-
+Enable / disable Browser cache. Use 'WebView.enableCache' parameter in rhoconfig.txt to configure this value.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -285,9 +245,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Show page loading indication. On Windows Mobile/CE this property can be set only in config.xml: GUI\HourglassEnabled. At Android  use &lsquo;disable_loading_indication&rsquo; parameter in Config.xml to configure this value.</p>
-
+Show page loading indication. On Windows Mobile/CE this property can be set only in config.xml: GUI\\HourglassEnabled. At Android  use 'disable_loading_indication' parameter in Config.xml to configure this value.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -308,9 +266,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Enable / disable web plug-ins. Use &lsquo;enable_web_plugins&rsquo; parameter in Config.xml to configure this value. This option only has effect on Android versions before 4.0 (ICS). It mainly affects if Flash content is displayed.</p>
-
+Enable / disable web plug-ins. Use 'enable_web_plugins' parameter in Config.xml to configure this value. This option only has effect on Android versions before 4.0 (ICS). It mainly affects if Flash content is displayed.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -330,9 +286,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Enable WebView zoom. Use &lsquo;enable_screen_zoom&rsquo; parameter in Config.xml to configure this value.</p>
-
+Enable WebView zoom. Use 'enable_screen_zoom' parameter in Config.xml to configure this value.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -352,9 +306,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Specifies the default font to use when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows the default font has been set to &lsquo;Tahoma&rsquo; as this is present on all Motorola WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet. Defines in config.xml: HTMLStyles\FontFamily</p>
-
+Specifies the default font to use when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet. Defines in config.xml: HTMLStyles\\FontFamily 
 ####Access
 
 
@@ -372,9 +324,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Same as System.webViewFramework.</p>
-
+Same as System.webViewFramework.
 ####Access
 
 
@@ -393,9 +343,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Use full screen mode.</p>
-
+Use full screen mode.
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
@@ -416,9 +364,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Can be defined in config.xml: Navigation\NavTimeout. Number of milliseconds(maximum is 45000) before the browser times out and navigates to the page specified in the badlink setting. If it is determined that the destination is unreachable regardless of wait time, the badlink may be loaded before NAVTIMEOUT. This is the time taken to establish communication with the server, not the time taken to fully load the page.Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an online page if desired.</p>
-
+Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(maximum is 45000) before the browser times out and navigates to the page specified in the badlink setting. If it is determined that the destination is unreachable regardless of wait time, the badlink may be loaded before NAVTIMEOUT. This is the time taken to establish communication with the server, not the time taken to fully load the page.Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an online page if desired.
 ####Params
 <p><strong>Default:</strong> 45000</p>
 ####Access
@@ -438,24 +384,16 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Specifies the technique used to scroll about the page.Defines in config.xml: Scrolling\ScrollTechnique.</p>
-
+Specifies the technique used to scroll about the page.Defines in config.xml: Scrolling\\ScrollTechnique.
 ####Params
 <p><strong>Default:</strong> FingerScroll</p>
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.WebView.SCROLL_NONE - String: None 
-<p>No scrollbars will be displayed and the page will not respond to finger swipes.</p>
-
-* Constant: EB.WebView.SCROLL_SCROLLBARS - String: Scrollbars 
-<p>When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page.</p>
-
-* Constant: EB.WebView.SCROLL_FINGER - String: FingerScroll 
-<p>You can scroll around the page using finger swiping.</p>
-
+* Constant: EB.WebView.SCROLL_NONE - String: None No scrollbars will be displayed and the page will not respond to finger swipes.
+* Constant: EB.WebView.SCROLL_SCROLLBARS - String: Scrollbars When the size of the page is larger than the screen scrollbars will be presented which can be used to scroll the page.
+* Constant: EB.WebView.SCROLL_FINGER - String: FingerScroll You can scroll around the page using finger swiping.
 ####Access
 
 
@@ -473,9 +411,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-
-<p>Sets the font size to be displayed on the page, set to 0 for the smallest font and 4 for the largest font.</p>
-
+Sets the font size to be displayed on the page, set to 0 for the smallest font and 4 for the largest font.
 ####Access
 
 
@@ -493,19 +429,15 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
+Defines in config.xml: Navigation\\UserAgent. When visiting a web server the WebKit browser will report its self as the specified user agent. Use the following substitution variables:
 
-<p>Defines in config.xml: Navigation\UserAgent. When visiting a web server the WebKit browser will report its self as the specified user agent. Use the following substitution variables:</p>
+* %p - platform name ("Windows CE " + version number)
+* %w - WebKit version number
+* %e - MotorolaWebKit version number.
 
-<ul>
-<li>%p &ndash; platform name (&ldquo;Windows CE &rdquo; + version number)</li>
-<li>%w &ndash; WebKit version number</li>
-<li>%e &ndash; MotorolaWebKit version number.</li>
-</ul>
-
-
-<p>Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.
-From RhoElements 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to RhoElements 2.1 the default user agent was: &ldquo;Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w&rdquo;</p>
-
+Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.
+From RhoElements 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to RhoElements 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"
+                
 ####Access
 
 
@@ -523,9 +455,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Whether to enable or disable viewport meta tag processing.Defines in config.xml: Navigation\ViewportEnabled.</p>
-
+Whether to enable or disable viewport meta tag processing.Defines in config.xml: Navigation\\ViewportEnabled.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -545,9 +475,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified).Defines in config.xml: Navigation\ViewportWidth.</p>
-
+Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified).Defines in config.xml: Navigation\\ViewportWidth.
 ####Access
 
 
@@ -565,9 +493,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 ####Type
 <span class='text-info'>FLOAT</span> 
 ####Description
-
-<p>Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.</p>
-
+Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.
 ####Access
 
 

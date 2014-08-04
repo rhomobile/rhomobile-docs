@@ -24,8 +24,7 @@ ex:
 
 
 ### closeHandle()
-<p>Close process handle.</p>
-
+Close process handle.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -46,8 +45,7 @@ Synchronous Return:
 	* <code>myObject.closeHandle()</code>
 
 ### getProcessExitCode()
-<p>GetProcessExitCode.</p>
-
+GetProcessExitCode.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -58,9 +56,7 @@ Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><
 ####Returns
 Synchronous Return:
 
-* INTEGER : 
-<p>Process exit code.</p>
-
+* INTEGER : Process exit code.
 
 ####Platforms
 
@@ -73,19 +69,10 @@ Synchronous Return:
 	* <code>myObject.getProcessExitCode()</code>
 
 ### runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)
-<p>Run an application.</p>
-
+Run an application.
 
 ####Parameters
-<ul><li>appName : <span class='text-info'>STRING</span><p>
-<p>The name of the application on the device to run.</p>
- </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-<p>The name of the application on the device to run.</p>
- </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-<p>The name of the application on the device to run.</p>
- 
-<p>False by default.</p>
-</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>appName : <span class='text-info'>STRING</span><p>The name of the application on the device to run. </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
@@ -93,9 +80,7 @@ Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span
 ####Returns
 Synchronous Return:
 
-* SELF_INSTANCE : 
-<p>Process object.</p>
-
+* SELF_INSTANCE : Process object.
 
 ####Platforms
 
@@ -109,8 +94,7 @@ Synchronous Return:
 
 
 ### waitForApplication()
-<p>WaitForApplication.</p>
-
+WaitForApplication.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>

@@ -11,10 +11,9 @@ Example extension apiThis is example of API. Implementation contain in extension
 
 ### addEventListener(<span class="text-info">STRING</span> event)
 
+
 ####Parameters
-<ul><li>event : <span class='text-info'>STRING</span><p>
-<p>{}</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>event : <span class='text-info'>STRING</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul></ul>
@@ -30,6 +29,7 @@ Synchronous Return:
 	* <code>myObject.addEventListener(<span class="text-info">STRING</span> event)</code>
 
 ### <span class="label label-inverse"> Destructor</span> close()
+
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -54,9 +54,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
-
-<p>{}</p>
-
+{}
 ####Access
 
 
@@ -67,9 +65,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
-
-<p>{}</p>
-
+{}
 ####Access
 
 
@@ -80,9 +76,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>CALLBACK</span> 
 ####Description
-
-<p>{}</p>
-
+{}
 ####Access
 
 
@@ -93,9 +87,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Represents the state of the connection.</p>
-
+Represents the state of the connection.
 ####Access
 
 
@@ -106,9 +98,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>URL passed to EventSource constructor.</p>
-
+URL passed to EventSource constructor.
 ####Access
 
 
@@ -119,9 +109,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
 ####Description
-
-<p>Currently will return empty string.</p>
-
+Currently will return empty string.
 ####Access
 
 
@@ -130,11 +118,6 @@ Synchronous Return:
 ##Constants
 
 
-* CONNECTING
-<p>The connection has not yet been established.</p>
-
-* OPEN
-<p>The WebSocket connection is established and communication is possible.</p>
-
-* CLOSED
-<p>The connection has been closed or could not be opened.</p>
+* CONNECTINGThe connection has not yet been established.
+* OPENThe WebSocket connection is established and communication is possible.
+* CLOSEDThe connection has been closed or could not be opened.

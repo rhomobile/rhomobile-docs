@@ -14,8 +14,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
 
 ### leftHanded()
-<p>Sets the screen orientation to left-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.</p>
-
+Sets the screen orientation to left-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -37,8 +36,7 @@ Synchronous Return:
 
 
 ### normal()
-<p>Sets the screen orientation to default device orientation.</p>
-
+Sets the screen orientation to default device orientation.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -60,8 +58,7 @@ Synchronous Return:
 
 
 ### rightHanded()
-<p>Sets the screen orientation to right-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.</p>
-
+Sets the screen orientation to right-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -83,8 +80,7 @@ Synchronous Return:
 
 
 ### setScreenOrientationEvent()
-<p>Sets the callback to be called when a screen orientation event occurs.</p>
-
+Sets the callback to be called when a screen orientation event occurs.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -109,8 +105,7 @@ Synchronous Return:
 
 
 ### upsideDown()
-<p>Sets the screen orientation to upside down, useful if presenting the device to a customer to obtain a signature.</p>
-
+Sets the screen orientation to upside down, useful if presenting the device to a customer to obtain a signature.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -140,9 +135,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-
-<p>Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Motorola Solutions devices with IST Sensor support.</p>
-
+Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Motorola Solutions devices with IST Sensor support.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access

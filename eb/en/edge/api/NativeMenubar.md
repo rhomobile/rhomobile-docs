@@ -29,9 +29,7 @@ ex:
 ####Type
 <span class='text-info'>HASH</span> 
 ####Description
-
-<p>Defined behavior of the Left menu button for Windows Mobile applications. This takes the same HASH as a menu item {label: &lsquo;Left Button&rsquo;, action: &lsquo;alert(&ldquo;You pressed the left button&rdquo;)&rsquo;}. If your menu is using menu items via mainMenu, then be sure to not set an action for the extraButton. Setting an action for the extraButton will cause the mainMenu setting to be ignored.</p>
-
+Defined behavior of the Left menu button for Windows Mobile applications. This takes the same HASH as a menu item {label: 'Left Button', action: 'alert("You pressed the left button")'}. If your menu is using menu items via mainMenu, then be sure to not set an action for the extraButton. Setting an action for the extraButton will cause the mainMenu setting to be ignored. 
 ####Access
 
 
@@ -49,13 +47,9 @@ ex:
 ####Type
 <span class='text-info'>ARRAY</span> 
 ####Description
-
-<p>The Left menu items for Windows Mobile applications. This defines the list of menu choices when the extraButton is pressed.</p>
-
+The Left menu items for Windows Mobile applications. This defines the list of menu choices when the extraButton is pressed.
 ####Params
-<li><i>Object</i> : <span class='text-info'>HASH</span><p>
-<p>Same values as for mainMenu.</p>
- </p></li>
+<li><i>Object</i> : <span class='text-info'>HASH</span><p>Same values as for mainMenu. </p></li>
 ####Access
 
 
@@ -73,9 +67,7 @@ ex:
 ####Type
 <span class='text-info'>HASH</span> 
 ####Description
-
-<p>Defined behavior of the Right menu button for Windows Mobile applications. This takes the same HASH as a menu item {label: &lsquo;Right Button&rsquo;, action: &lsquo;javascript: alert(&ldquo;You pressed the right button&rdquo;);&rsquo;}. If your menu is using menu items via mainMenu, then be sure to not set an action for the mainButton. Setting an action for the mainButton will cause the mainMenu setting to be ignored.</p>
-
+Defined behavior of the Right menu button for Windows Mobile applications. This takes the same HASH as a menu item {label: 'Right Button', action: 'javascript: alert("You pressed the right button");'}. If your menu is using menu items via mainMenu, then be sure to not set an action for the mainButton. Setting an action for the mainButton will cause the mainMenu setting to be ignored.
 ####Access
 
 
@@ -93,17 +85,9 @@ ex:
 ####Type
 <span class='text-info'>ARRAY</span> 
 ####Description
-
-<p>The Right menu items in Windows Mobile applications. This defines the list of menu choices when the mainButton is pressed.</p>
-
+The Right menu items in Windows Mobile applications. This defines the list of menu choices when the mainButton is pressed.
 ####Params
-<li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>label : <span class='text-info'>STRING</span><p>
-<p>Visible label.</p>
- </p></li><li>action : <span class='text-info'>STRING</span><p>
-<p>URL to page which will be loaded into tab. It may be a JavaScript method to call: &lsquo;javascript: methodOnTab();&rsquo;. Or path to html page to load.</p>
- </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-<p>Menu item will be displayed as disabled.</p>
- Platforms:
+<li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>label : <span class='text-info'>STRING</span><p>Visible label. </p></li><li>action : <span class='text-info'>STRING</span><p>URL to page which will be loaded into tab. It may be a JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Menu item will be displayed as disabled. Platforms:
 WM </p></li></ul>
 ####Access
 

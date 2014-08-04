@@ -10,13 +10,10 @@ NewORM CoreAPI moduleNew implementation of the RHOM.
 
 
 ### databaseClientReset(<span class="text-info">BOOLEAN</span> resetLocalModels)
-<p>Resets client info and sync models (optionally, local models as well)</p>
-
+Resets client info and sync models (optionally, local models as well)
 
 ####Parameters
-<ul><li>resetLocalModels : <span class='text-info'>BOOLEAN</span><span class='label '> Default: true</span><p>
-<p>Whether or not to reset Local Models.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>resetLocalModels : <span class='text-info'>BOOLEAN</span><span class='label '> Default: true</span><p>Whether or not to reset Local Models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -30,15 +27,10 @@ Synchronous Return:
 
 
 ### databaseFullReset(<span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)
-<p>Resets selected models, client info and local models.</p>
-
+Resets selected models, client info and local models.
 
 ####Parameters
-<ul><li>resetClientInfo : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>
-<p>Whether or not to reset Client Info.</p>
- </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: true</span><p>
-<p>Whether or not to reset Local Models.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>resetClientInfo : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>Whether or not to reset Client Info. </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: true</span><p>Whether or not to reset Local Models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -52,8 +44,7 @@ Synchronous Return:
 
 
 ### databaseFullResetAndLogout()
-<p>Resets sync models, client info and local models and does the user logout.</p>
-
+Resets sync models, client info and local models and does the user logout.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -70,17 +61,10 @@ Synchronous Return:
 
 
 ### databaseFullResetEx(<span class="text-info">ARRAY</span> models, <span class="text-info">BOOLEAN</span> resetClientInfo, <span class="text-info">BOOLEAN</span> resetLocalModels)
-<p>Resets selected models, client info and local models.</p>
-
+Resets selected models, client info and local models.
 
 ####Parameters
-<ul><li>models : <span class='text-info'>ARRAY</span><p>
-<p>List of models to reset.</p>
- </p></li><li>resetClientInfo : <span class='text-info'>BOOLEAN</span><p>
-<p>Whether or not to reset Client Info.</p>
- </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span><p>
-<p>Whether or not to reset Local Models.</p>
- </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>models : <span class='text-info'>ARRAY</span><p>List of models to reset. </p></li><li>resetClientInfo : <span class='text-info'>BOOLEAN</span><p>Whether or not to reset Client Info. </p></li><li>resetLocalModels : <span class='text-info'>BOOLEAN</span><p>Whether or not to reset Local Models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -94,8 +78,7 @@ Synchronous Return:
 
 
 ### databaseFullclientResetAndLogout()
-<p>Resets sync models, client info and local models and does the user logout.</p>
-
+Resets sync models, client info and local models and does the user logout.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -112,8 +95,7 @@ Synchronous Return:
 
 
 ### databaseLocalReset()
-<p>Resets local database.</p>
-
+Resets local database.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -130,8 +112,7 @@ Synchronous Return:
 
 
 ### generateId()
-<p>Returns newly generated unique object Id.</p>
-
+Returns newly generated unique object Id.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -151,8 +132,7 @@ Synchronous Return:
 
 
 ### getClientId()
-<p>Returns current Client Id.</p>
-
+Returns current Client Id.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -172,8 +152,7 @@ Synchronous Return:
 
 
 ### haveLocalChanges()
-<p>Returns TRUE whenever there are any local (non-synced) changes.</p>
-
+Returns TRUE whenever there are any local (non-synced) changes.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -193,8 +172,7 @@ Synchronous Return:
 
 
 ### useNewOrm()
-<p>Returns TRUE if NewORM is enabled in rhoconfig.txt.</p>
-
+Returns TRUE if NewORM is enabled in rhoconfig.txt.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
