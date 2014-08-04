@@ -4,6 +4,16 @@
 ## Enabling the JavaScript API's
 Depending on whether your application is running from local html files on the device or if it is running from a remote web server will determine how to enable the Enterprise Browser APIs. Essentially, you need to ensure the proper JavaScript file is included in the proper location
 
+### JavaScript API Files
+After installing Enterprise Browser, there will be a folder `JavaScriptFiles` found in the installation folder. In that folder there will be two folders:
+
+* EnterpriseBrowser - JavaScript API files for Enterprise Browser
+	* ebapi-modules.js - includes all `EB.module` APIs. 
+	* individual modules JS files - optionally can include just the modules you need. See the [optimization guide](../guide/optimization) for more information.
+* BackwardsCompatibility - used for supporting PocketBrowser and RhoElements applications
+	* elements.js - used for supporting RhoElements and PocketBrowser applications. See the [RhoElements & Pocketbrpwser Migration guide](../guide/elements)
+	* rhoapi-modules.js - used for supporting RhoMobile applications. See the [RhoMobile Migration guide](../guide/rhomobile)
+
 ### Using JS APIs From Your Web App
 When you are running your web pages from a web server, the Enterprise Browser is essentially acting as a browser. In order to use the Enterprise Browser API’s you will need to copy the ebapi-modules.js to your web server in a location where you will be able to access it and link it appropriately in your web server’s web pages. Typically you will copy this file to your web application's js folder where you may be including other JavaScript libraries that are being used. 
 

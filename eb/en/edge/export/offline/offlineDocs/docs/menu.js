@@ -14,7 +14,7 @@ var menuStrcture = [
 				items: [
 					{
 						title: 'Getting Started',
-						icon: 'fa fa-book',
+						icon: 'fa fa-ticket',
 						items: [
 							{
 								name: 'Installation',
@@ -161,6 +161,27 @@ var menuStrcture = [
 							{
 								name: 'Logging',
 								link: '#guide-logging',
+							}
+						]
+					}
+				]
+			},
+			{
+				name: 'Migration Guides',
+				icon: 'fa fa-exchange',
+				link: '#',
+				items: [
+					{
+						title: 'Getting Started',
+						icon: 'fa fa-exchange',
+						items: [
+							{
+								name: 'RhoElements 2.x & PocketBrowser',
+								link: '#guide-elements',
+							},
+							{
+								name: 'RhoMobile 4.x+',
+								link: '#guide-rhomobile',
 							}
 						]
 					}
