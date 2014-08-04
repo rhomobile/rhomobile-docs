@@ -1,31 +1,30 @@
-#Licensing the Runtime
+# Licensing the Runtime
+To use the Motorola Enterprise Browser, you must have a License issued to you by Motorola. Below are steps that you should take in order to get a license from Motorola and apply that license to your device / App.
 
 ## Obtaining a License
-To license your device you will need to log in to the Motorola web based [licensing system](http://pocketbrowserlicense.motorola.com). Please ensure you use Microsoft Internet Explorer to access the licensing system.
+There are a number of licensing options available depending on the specific customer need or deployment. To obtain a license for RhoElements, you should contact us or your local Motorola Solutions reseller. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
 
-When you purchased your licenses, you will have been sent an email with a username and password to access the licensing system, log in using these details.
+When you've purchased your license(s), you will be sent an email with a username and password to access the licensing system, log in using these details and, once logged in, there are options to view your orders, where you can monitor how many licenses remain unassigned, and also to your licenses.
 
-Once logged in, there are options to view your orders, where you can monitor how many licenses remain unassigned, and also to your licenses.
-
-Click on the licensing tab followed by "Assign a License" section.  You will see a list of products for which you have available licenses.  
+Click on the licensing tab followed by "Assign a License" section and you will see a list of products for which you have available licenses.
 
 > TBD Insert Screen shot
 
-Ensuring you select the correct version for the EnterpriseBrowser runtime you have installed, click on the "Assign License" link to the right.
+Ensure you select the correct version for the Enterprise Browser runtime you have installed, then click on the "Assign License" link to the right.
 
 > TBD Insert Screen Shot
 
-You will now be presented with the licensing form; this corresponds with the licensing wizard which appears after you have started the EnterpriseBrowser runtime.  Key in the details from the device into the form provided.
+You will now be presented with the licensing form; this corresponds with the licensing wizard which appears after you have started the EnterpriseBrowser runtime. Enter these details from the device into the form provided.
 
 > Note: The Group By field is free text and can be used to sort licenses on the website.
 
 > TBD ScreenShot
- 		
+
 Once you have completed the form, hit submit and you will be presented with two barcodes which should be scanned into your device.  If you have a laser barcode scanner, you will need to print the license out and scan the license code in from that, alternatively, with an imager scanner you can scan the codes directly from the screen.
 
 Please refer to following sections to learn how to apply the Runtime license.
 
-##Device Licensing
+## Device Licensing
 A device license allows you to run multiple EnterpriseBrowser applications on the same device and places no limits on the number of applications allowed.
 
 A device license consists of:
@@ -75,4 +74,3 @@ You can also define your device license and company name in your config.xml file
 
 ## Deployment License
 If you have purchased more than 50 licenses, you can request a deployment license from the web based licensing system.  Once you have received a deployment license, you can use the same license on each of you devices; however it is important to note that you are bound by contract to install the software on devices up to the number specified in the contract.  If you wish to use the software on more devices, you will need to purchase more licenses and then update your deployment license through the same portal.
-
