@@ -21,6 +21,11 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
         </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
+
+        </MORE_HELP_EB>
 
         <TEMPLATES>
         </TEMPLATES>
@@ -264,16 +269,17 @@ end
             </EXAMPLE>
         </EXAMPLES>
         <REMARKS>
-            <REMARK title="Keys which can not be captured">
+            <REMARK title="Keys which cannot be captured">
                 <DESC>It is not possible to capture the following types of keys:
 
 1.  Keyboard modifiers such as SHIFT, ALT, ORANGE button, BLUE button etc.
 2.  Device Keys such as the screen backlight or keyboard backlight.
 3.  Hot keys such as phone keys or 'soft' buttons, those whose function changes based on the running application.
 4.  The Home key and the power key on Android and iOS devices.
-5.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
-6. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
-7. On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesn't do anything specific with this key (unlike the menu key which raises the menu).                  
+5.  Depending on the device keyboard driver, some keys may not be easily capturable as they are interpreted as a shifted character by the device.  One example of such a key is the '#' character on CE7 devices, whilst the character code for this key is 23 it is interpreted as 33.  This applies to both capturing keys and specifying the HomeKeyValue.
+6.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
+7. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
+8. On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesn't do anything specific with this key (unlike the menu key which raises the menu).                  
 Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.</DESC>
             </REMARK>
             <REMARK title="Precedence of APIs using the same keyValue">

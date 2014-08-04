@@ -21,6 +21,11 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+In order to use this API you must TBD INSERT Eb specific instructions here
+
+        </MORE_HELP_EB>
 
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
@@ -39,25 +44,25 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </CONSTANT>
 
             <CONSTANT name="PRINTER_LANGUAGE_EPS" value="PRINTER_LANGUAGE_EPS" type="STRING">
-                <DESC>Printer control language EPS. Not Supported in 5.0</DESC>
+                <DESC>Printer control language EPS. Not Supported in 4.1</DESC>
             </CONSTANT>
 
             <!-- Printer types -->
             <CONSTANT name="PRINTER_TYPE_ANY" value="PRINTER_TYPE_ANY" type="STRING"/>
             <CONSTANT name="PRINTER_TYPE_NATIVE" value="PRINTER_TYPE_NATIVE" type="STRING">
-                <DESC>Not supported in 5.0</DESC>
+                <DESC>Not supported in 4.1</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_TYPE_ZEBRA" value="PRINTER_TYPE_ZEBRA" type="STRING"/>
             <CONSTANT name="PRINTER_TYPE_EPSON" value="PRINTER_TYPE_EPSON" type="STRING">
-                <DESC>Not supported in 5.0</DESC>
+                <DESC>Not supported in 4.1</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_TYPE_APD" value="PRINTER_TYPE_APD" type="STRING">
-                <DESC>Not supported in 5.0</DESC>
+                <DESC>Not supported in 4.1</DESC>
             </CONSTANT>
             <!-- Connection types types -->
             <CONSTANT name="CONNECTION_TYPE_ANY" value="CONNECTION_TYPE_ANY" type="STRING"/>
             <CONSTANT name="CONNECTION_TYPE_ON_BOARD" value="CONNECTION_TYPE_ON_BOARD" type="STRING">
-                <DESC>Not supported in 5.0</DESC>
+                <DESC>Not supported in 4.1</DESC>
             </CONSTANT>
             <CONSTANT name="CONNECTION_TYPE_BLUETOOTH" value="CONNECTION_TYPE_BLUETOOTH" type="STRING"/>
             <CONSTANT name="CONNECTION_TYPE_TCP" value="CONNECTION_TYPE_TCP" type="STRING"/>

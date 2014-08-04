@@ -247,7 +247,7 @@ def index_variable_for(version)
     version =  Version::CURR_VERSION
   end
   if version == 'edge'
-    version =  0.0.0
+    version =  '0.0.0'
   end
   begin
     parts = version.split('.')
