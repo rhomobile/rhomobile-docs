@@ -77,7 +77,7 @@ The following example sets the device time to 9:57am on 25th December 2011 UTC, 
 	
 The following example sets the UTC device time from a network time server:
 
-	<META HTTP-Equiv="SystemTime" Content="sntpServerIp:132.163.4.102">
+	<META HTTP-Equiv="SystemTime" Content="SntpServerIP:132.163.4.102">
 	
 
 
