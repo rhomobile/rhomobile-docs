@@ -80,4 +80,3 @@ The following example sets the UTC device time from a network time server:
 	<META HTTP-Equiv="SystemTime" Content="SntpServerIP:132.163.4.102">
 	
 
-
