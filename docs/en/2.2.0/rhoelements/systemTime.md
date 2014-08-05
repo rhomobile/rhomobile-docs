@@ -35,7 +35,7 @@ To Set SystemTime parameters via Ruby use the following syntax: SystemTime.param
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>setLocal:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Local Time String i.e. "2011-12-25T09-57-00+01-00" or "2011-12-25T09-57-00"</td><td class="clsSyntaxCells clsOddRow">Local Time String in the format &lt;YYYY&gt;-&lt;MM&gt;-&lt;DD&gt;T&lt;HH&gt;-&lt;MM&gt;-&lt;SS&gt;&lt;+/-&gt;&lt;HH offset from UTC&gt;-&lt;MM offset from UTC&gt;. The offset from UTC is optional</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>setUtc:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">UTC Time String i.e. "2011-12-25T09-57-00+01-00" or "2011-12-25T09-57-00"</td><td class="clsSyntaxCells clsEvenRow">UTC Time String in the format &lt;YYYY&gt;-&lt;MM&gt;-&lt;DD&gt;T&lt;HH&gt;-&lt;MM&gt;-&lt;SS&gt;&lt;+/-&gt;&lt;HH offset from UTC&gt;-&lt;MM offset from UTC&gt;. The offset from UTC is optional</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>sntpServerIp:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">UTC Time String i.e. "2011-12-25T09-57-00+01-00" or "2011-12-25T09-57-00"</td><td class="clsSyntaxCells clsEvenRow">UTC Time String in the format &lt;YYYY&gt;-&lt;MM&gt;-&lt;DD&gt;T&lt;HH&gt;-&lt;MM&gt;-&lt;SS&gt;&lt;+/-&gt;&lt;HH offset from UTC&gt;-&lt;MM offset from UTC&gt;. The offset from UTC is optional</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>SntpServerIP:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Valid IP Address</td><td class="clsSyntaxCells clsOddRow">The IP address of the SNTP time server</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
@@ -46,11 +46,11 @@ Items listed in this section indicate parameters, or attributes which can be set
 
 
 ###Latency
-Once the sntpServerIp tag is parsed RhoElements will request the time from the SNTP server immediately, however the clock will not be updated until a response is received. Network latency and connectivity issues can all affect the speed and success with which this tag is actioned.
+Once the SntpServerIP tag is parsed RhoElements will request the time from the SNTP server immediately, however the clock will not be updated until a response is received. Network latency and connectivity issues can all affect the speed and success with which this tag is actioned.
 
 
 ###Proxy Settings
-Windows Mobile 5.0 will not allow you to obtain SNTP time when requesting via a proxy server, it is recommended the proxy is bypassed for this to work.
+Windows Mobile 5.0 or above will not allow you to obtain SNTP time when requesting via a proxy server, it is recommended the proxy is bypassed for this to work.
 
 
 ###Time Zone
