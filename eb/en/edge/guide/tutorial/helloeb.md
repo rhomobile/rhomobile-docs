@@ -82,36 +82,42 @@ But we don't want to just link to some other page, we want to use some of the AP
 Create a new file called helloeb.html and use these contents:
 
 	:::html
-	<head>
-		<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+	<html>
+		<head>
+			<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+			<script type="text/javascript">
+				function scanReceived(params){
+					if(params['data']== "" || params['time']==""){
+						document.getElementById('display').innerHTML = "Failed!";
+						return;
+					}
 
-		<script type="text/javascript">
-			function scanUsingDefaultScanner(){
-				// Scan with default options
-				EB.Barcode.take({}, scanReceived);
-			}
-
-			function scanReceived(params){
-				// Did we actually find a barcode ?
-				// If status is not 'ok', the scan was canceled
-				if (params["status"]=="ok") {
-					alert('Barcode scanning complete. Scanned barcode: '+ params["barcode"]);
-				} else {
-					alert('Barcode scanning aborted');
+					var displayStr = "Barcode Data: " +params['data']+"<br>Time: "+params['time'];
+					document.getElementById("display").innerHTML = displayStr;
 				}
-			}
 
-			function stopBarcode(){
-				EB.Barcode.stop();
-			}
-		</script>
-	</head>
-	<body>
-		<h1>Barcode Example</h1>
-		<button onclick="scanUsingDefaultScanner()">Enable Scanner</button>
-		<button onclick='stopBarcode()'>Disable Scanner</button>
-		<p id="demo"></p>
-	</body>
+				function loadEvent(){
+					EB.Barcode.enable({allDecoders:true}, scanReceived);
+				}
+
+				function unloadEvent(){
+					 EB.Barcode.disable();
+				}
+
+				window.addEventListener('DOMContentLoaded', loadEvent);
+				window.addEventListener('unload',unloadEvent);
+			</script>
+		</head>
+
+		<body onload="Javascript:loadEvent()" onunload="Javascript:unloadEvent()">
+			<h1>Scan Common API (EB)</h1>
+			Scan a barcode.<br><br><br>
+			<div id="display">
+			Barcode Data: <br>
+			Time: 
+			</div><br>
+		</body>
+	</html>
 
 This code will enable the default device scanner and print out the scanned barcode data once a barcode is scanned. Here is what we see when the app is started.
 
@@ -125,10 +131,10 @@ This file is necessary for using the EB JavaScript APIs and is found in the Java
 
 Simply add the line above to add the libraries into your app and copy the file from the aforementioned location to your device.
 
-> Note: If you copy the file somewhere besides the root folder, you'll need to change the location it points to in the code.
+> Note: If you copy the file somewhere besides the folder in which your html pages also reside, you'll need to modify the src path accordingly.
 
 ### Set the StartPage
-To make your MEB start on this page, change your config.xml to point to this helloeb.html as the start page. I am going to put my helloeb.html file in ny device's root directory, so my config.xml will show:
+To make your MEB start on this page, change your config.xml to point to this helloeb.html as the start page. I am going to put my helloeb.html file in my device's root directory, so my config.xml will show:
 
 	:::xml
 	<General>
@@ -138,11 +144,16 @@ To make your MEB start on this page, change your config.xml to point to this hel
 	</General>
 
 ### Start the App
+The barcode I am using to test this is this one:
+
+<a href="http://www.barcodesinc.com/generator/"><img src="http://www.barcodesinc.com/generator/image.php?code=EB.Barcode Test&style=197&type=C128B&width=200&height=50&xres=1&font=3" alt="the barcode printer: free barcode generator" border="0"></a>
+
 Here is what we will see after starting the app and going through the initial splash screen(s).
-> TBD Add Screenshot of app started
+
+<img style="width:500px;" src="images/getting-started/helloeb/helloeb-app-start-page.png">
 
 And here is the app after scanning a barcode.
 
-> TDB Add screenshot of app after barcode scan.
+<img style="width:500px;" src="images/getting-started/helloeb/helloeb-app-barcode-scanned.png">
 
-You can also opt to add only the APIs that you plan on using if you want to minimize the amount of device storage you use. We discuss strategies like this in the [Optimization]() guide.
+You can also opt to add only the APIs that you plan on using if you want to minimize the amount of device storage you use. We discuss strategies like this in the [Optimization](#guide-optimization) guide.
