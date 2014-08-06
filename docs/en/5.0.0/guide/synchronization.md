@@ -167,8 +167,8 @@ This status returns for bulk-sync models that use [`FixedSchema`](rhom#fixed-sch
 
 **NOTE: In this scenario the sync callback should notify the user with a wait screen and start the bulk sync process.**
 
-### Server error processing on client
-#### create-error
+## Server error processing on client
+### create-error
 has to be handled in sync callback. Otherwise sync will stop on this model. To fix create errors you should call Model.on_sync_create_error or RhoConnectClient.on_sync_create_error:
 
 	:::ruby
@@ -178,7 +178,7 @@ has to be handled in sync callback. Otherwise sync will stop on this model. To f
 		* objects - One or more error objects
 		* action - May be :delete or :recreate. :delete just remove object from client, :recreate will push this object to server again at next sync.
 
-#### update-error
+### update-error
 If not handled, local modifications, which were failing on server, will never sync to server again.
 So sync will work fine, but nobody will know about these changes.
 
@@ -190,7 +190,7 @@ So sync will work fine, but nobody will know about these changes.
 		* action - May be :retry or :rollback. :retry will push update object operation to server again at next sync, :rollback will write rollback_objects to client database.
 		* rollback_objects - contains objects attributes before failed update and sends by server. should be specified for :rollback action.
 
-#### delete-error
+### delete-error
 If not handled, local modifications, which were failing on server, will never sync to server again.
 So sync will work fine, but nobody will know about these changes.
 
@@ -214,7 +214,7 @@ For example:
 		RhoConnectClient.on_sync_delete_error( @params['source_name'], 
 				@params['server_errors']['delete-error'], :retry)
 
-#### unknown-client error
+### unknown-client error
 Unknown client error return by server after resetting server database, removing particular client id from database or any other cases when server cannot find client id(sync server unique id of device).
 Note that login session may still exist on server, so in this case client does not have to login again, just create new client id.
 Processing of this error contain 2 steps:
@@ -254,6 +254,9 @@ If login session also deleted or expired on the server, then customer has to log
 			)
 		)
 	end
+
+### push_changes Method
+If at any time you have records sitting on you server that have yet to be processed you'll need to use the [`push_changes`](../api/rhom-api#push_changes) Rhom API method to force the server to process those records. The reason for this is that the server will not process records that are in its queue unless there are new records to sync. To artificially send a POST to the server and force it to process those records, you must use the `push_changes` method. For example, if you had a model called `Product` and you needed the server to process all pending product models sitting the the queue, you would use `Product.push_changes()`.
 
 ### Notification Example
 Here is a simple example of a sync notification method that uses some of the parameters described above:
