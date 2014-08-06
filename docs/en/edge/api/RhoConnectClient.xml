@@ -211,7 +211,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </METHOD>
 
         <METHOD name="stopSync">
-            <DESC>Stops any sync operations currently in progress. NOTE: There is a high potential of database corruption if this method is used during a sync. Do not do this unless you are planning on resetting your DB afterward. This method should only be used in emergency cases.</DESC>
+            <DESC>Stops any sync operations currently in progress. NOTE: There is a high potential of database corruption if this method is used during a sync. Do not do this unless you are planning on resetting your DB afterward.</DESC>
         </METHOD>
 
         <METHOD name="setNotification" hasCallback="mandatory" runInThread="none">
