@@ -258,6 +258,7 @@ If login session also deleted or expired on the server, then customer has to log
 ### push_changes Method
 If at any time you have records sitting on you server that have yet to be processed you'll need to use the [`push_changes`](../api/rhom-api#push_changes) Rhom API method to force the server to process those records. The reason for this is that the server will not process records that are in its queue unless there are new records to sync. To artificially send a POST to the server and force it to process those records, you must use the `push_changes` method. For example, if you had a model called `Product` and you needed the server to process all pending product models sitting the the queue, you would use `Product.push_changes()`.
 
+## Examples
 ### Notification Example
 Here is a simple example of a sync notification method that uses some of the parameters described above:
 
