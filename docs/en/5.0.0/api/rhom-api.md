@@ -4,6 +4,7 @@ Allows Ruby access to the Rhodes mini database object mapper, performing databas
 
 **NOTE: For JavaScript access to the Rhom, see the [ORM JavaScript API](Orm).**
 
+<a name="client_id"></a>
 ## client_id
 
 Returns the current sync client id.
@@ -11,6 +12,7 @@ Returns the current sync client id.
 	:::ruby
 	modelname.client_id
 
+<a name="clear_notification"></a>
 ## clear_notification
 
 Clear notification for the object. 
@@ -18,6 +20,7 @@ Clear notification for the object.
 	:::ruby
 	modelname.clear_notification
 
+<a name="database_export"></a>
 ## database_export
 
 Creates a zip archive of a local database partition with all its blob objects, and returns a path to that zip archive.
@@ -32,6 +35,7 @@ Creates a zip archive of a local database partition with all its blob objects, a
 </tr>
 </table>
 
+<a name="database_import"></a>
 ## database_import
 
 Imports the database and blob objects from a zip archive created with `database_export`. If the imported archive is inconsistent, or other failure occurs during the import process, the original database will be restored.
@@ -50,6 +54,7 @@ Imports the database and blob objects from a zip archive created with `database_
 </tr>
 </table>
 
+<a name="delete_all"></a>
 ## delete_all
 
 Delete all Rhodes model objects for a source, filtering by conditions. 
@@ -69,6 +74,7 @@ Delete all Rhodes model objects for a source, filtering by conditions.
 </table>
 
 
+<a name="destroy"></a>
 ## destroy
 
 Destroy a Rhodes model object. 
@@ -93,6 +99,7 @@ Delete a rhom object.
 	@account.destroy
 
 
+<a name="find"></a>
 ## find
 Find Rhodes model objects.
 
@@ -206,10 +213,12 @@ The `:order` argument for `find` accepts several forms.
     @accts = Account.find_by_sql("SELECT * FROM Account")
 
 
+<a name="find_all"></a>
 ## find_all
 
 Alias for modelname.find(:all, argument list).
 
+<a name="find_by_sql"></a>
 ## find_by_sql
 
 Returns Rhodes model object(s) based on sql_query. This method works only for schema models. 
@@ -224,6 +233,7 @@ Returns Rhodes model object(s) based on sql_query. This method works only for sc
 </tr>
 </table>
 
+<a name="get_source_id"></a>
 ## get_source_id
 
 Returns the source id number for this Rhodes model object.
@@ -231,6 +241,7 @@ Returns the source id number for this Rhodes model object.
 	:::ruby
 	modelname.get_source_id
 
+<a name="get_source_name"></a>
 ## get_source_name
 
 Returns the source name for this Rhodes model object.
@@ -238,6 +249,7 @@ Returns the source name for this Rhodes model object.
 	:::ruby
 	modelname.get_source_name
 
+<a name="new"></a>
 ## new
 
 Create a new Rhodes model object. 
@@ -263,6 +275,7 @@ Create a new rhom object and assign given attributes.<a id="rhom-new-example" />
 	  #=> "ABC Inc."
 
 
+<a name="create"></a>
 ## create
 
 Create a new Rhodes model object and save it to the database.
@@ -289,6 +302,7 @@ Create a new rhom object and save to the database.<a id="rhom-create-example" />
 	)
 
 
+<a name="paginate"></a>
 ## paginate
 
 Call `find` with a limit on the number of records. Default page size is 10.
@@ -335,6 +349,7 @@ Paginate calls `find` with a limit on the # of records. This emulates rails' cla
 	  :order => 'name'
 	) #=> you can have :conditions and :order as well
 
+<a name="push_changes"></a>
 ## push_changes
 Force the sending of local changes to the RhoConnect server.
 
@@ -353,6 +368,7 @@ This method can be used even when there are no pending changes, to artificially 
 6. So, if you just trigger Sync now on the client, the 4th & 5th records won't be processed on server still because, in order to process the queue there should be a POST method and Sync will send POST method **only** if there are new changes and, as it stands, there are none.
 7. So, to force the server to process the remainder of the queue, you can use the `push_changes` method. This will force a POST method to be sent in the next sync (even if there are no changes) and will, in turn, force queue to be processed on the server.
 
+<a name="sync"></a>
 ## sync
 
 Start the sync process for a Rhodes model.
@@ -392,6 +408,7 @@ Set a notification to be called when the sync is complete for this model. This i
 	Account.set_notification( url_for(:action => :sync_notify), "")
 
 
+<a name="can_modify"></a>
 ## can_modify
 
 Returns true if the Rhodes model object is not currently being synced (if it is being synced, you should disable editing of the object).
@@ -415,6 +432,7 @@ Before displaying an edit page for an object, your application can check if the 
 	  end
 	end
 
+<a name="changed"></a>
 ## changed?
 
 Returns true if a Rhodes model object has local database changes that need to be synchronized, false otherwise. 
@@ -433,12 +451,14 @@ Determine if a rhom model has local database changes that need to be synchronize
     end
 
 
+<a name="save"></a>
 ## save
 
 Saves the current Rhodes model object to the database. 
 	:::ruby
 	modelname.save
 
+<a name="set_notification"></a>
 ## set_notification
 
 Set a notification to be called when the sync is complete for this model. 
@@ -457,6 +477,7 @@ Set a notification to be called when the sync is complete for this model.
 </tr>
 </table>
 
+<a name="update_attributes"></a>
 ## update_attributes
 
 Updates the current Rho model object attributes and saves it to the database. This is the fastest way to add or update model attributes. 
@@ -473,7 +494,7 @@ Updates the current Rho model object attributes and saves it to the database. Th
 
 ### Example
 
-Update the current rhom object's attributes and saves it to the database.<a id="rhom-update-example" />
+Update the current rhom object's attributes and saves it to the database.<a id="rhom-update-example"/>
 
 **NOTE: This is the fastest way to add or update item attributes.**
 
@@ -488,7 +509,7 @@ Update the current rhom object's attributes and saves it to the database.<a id="
 	@account.industry   
 	  #=> "Technology"
 
-Saves the current rhom object to the database.<a id="rhom-save-example" />
+Saves the current rhom object to the database.<a id="rhom-save-example"/>
 
 	:::ruby
 	@account = Account.new(
@@ -497,6 +518,7 @@ Saves the current rhom object to the database.<a id="rhom-save-example" />
 	@account.save
 
 
+<a name="database_fullclient_reset_and_logout"></a>
 ## database_fullclient_reset_and_logout
 
 Reset the Rhodes model database and logout. Equivalent to `Rhom::Rhom.database_full_reset(true)` followed by `SyncEngine.logout`.
@@ -510,6 +532,7 @@ Reset the Rhodes model database and logout. Equivalent to `Rhom::Rhom.database_f
 	end
 
 
+<a name="database_full_reset"></a>
 ## database_full_reset
 
 Deletes all records from the property bag and model tables. 
@@ -528,6 +551,7 @@ Deletes all records from the property bag and model tables.
 </tr>
 </table>
 
+<a name="database_full_reset_and_logout"></a>
 ## database_full_reset_and_logout
 
 Perform a full reset, then logout the RhoConnect client.
@@ -535,6 +559,7 @@ Perform a full reset, then logout the RhoConnect client.
 	:::ruby
 	Rhom::Rhom.database_full_reset_and_logout
 
+<a name="database_local_reset"></a>
 ## database_local_reset
 
 Reset only local (non-sync-enabled) models.
@@ -542,6 +567,7 @@ Reset only local (non-sync-enabled) models.
 	:::ruby
 	Rhom::Rhom.database_local_reset
 
+<a name="metadata"></a>
 ## metadata
 
 Returns the [metadata definition](../rhoconnect/metadata#metadata-definition) for a given model as a hash. 
@@ -563,6 +589,7 @@ Assigns the [metadata](../rhoconnect/metadata) for a given model.
 	:::ruby
 	Product.metadata = { 'foo' => 'bar' }.to_json
 	
+<a name="metadata_def"></a>
 ## metadata=(metadata_def)
 
 Assigns the JSON [metadata definition](../rhoconnect/metadata#metadata-definition) for a given model. 
@@ -577,6 +604,7 @@ Assigns the JSON [metadata definition](../rhoconnect/metadata#metadata-definitio
 </tr>
 </table>
 
+<a name="Advanced"></a>
 ## Advanced Queries
 
 ### `find(*args)` (advanced conditions)
@@ -675,6 +703,7 @@ You can also group `:conditions`:
 	  :select => ['name','industry','description']
 	)
 
+<a name="Find"></a>
 ## Find by numeric field
 To use number comparison conditions in find use CAST :
 
