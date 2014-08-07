@@ -1,6 +1,6 @@
 # AsyncHttp API
 
-Asynchronously make calls to http services. For a discussion of connecting to web services, and for examples of AsyncHttp API methods, refer to [Connecting Directly to Web Services with Rhodes](../rhodes/connect-to-web-services).
+Asynchronously make calls to http services. For a discussion of connecting to web services, and for examples of AsyncHttp API methods, refer to [Connecting Directly to Web Services with Rhodes](../../rhodes/connect-to-web-services).
 
 ## Using JavaScript API
 
