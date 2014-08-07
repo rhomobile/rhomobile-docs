@@ -497,9 +497,7 @@ Rho.RhoConnectClient.login('john','password',function(result){
                         </CODE>
                     </SECTION>
                     <SECTION>
-                        <DESC>
-                            When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-                        </DESC>
+                        <DESC>When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).</DESC>
                         <CODE>
                             <RUBY><![CDATA[
 # Error codes:

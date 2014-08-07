@@ -127,8 +127,7 @@ RhoConnectClient.login(
   url_for(:action =&gt; :login_callback)
 )
                           </code></pre></div></div>
-<pre><code>                        When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-</code></pre>
+<p>When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).</p>
 <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
 
 // Error codes:
