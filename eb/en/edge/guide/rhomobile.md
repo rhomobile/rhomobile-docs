@@ -1,3 +1,11 @@
 #RhoMobile Migration guide
 
-TBD - This document will discuss how to use the JS file and any other special usage for RhoMobile shared runtime applications. It is expected that they will not have to change anything in their application except to include the JS file. Behavior may be different on Android vs WinMo
+Enterprise Browser supports applications that were using RhoElements 4.x Shared Runtime on Windows Mobile/CE and Android. In RhoElements 4.x, access to the features were made available through JavaScript objects under the `Rho.` namespace:
+
+	:::javascript
+	// Scan with default options
+	Rho.Barcode.take({}, scan_received);
+
+To use the `Rho.` namespace, you must replace the `rhoapi-modules.js` file that came with RhoMobile Suite 4.x with the file `rhoapi-modules.js` that came with Enterprise Browser found in the Enterprise Browser installation folder
+
+TBD Insert Screen Shot	

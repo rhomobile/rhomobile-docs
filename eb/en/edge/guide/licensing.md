@@ -1,8 +1,8 @@
 # Licensing the Runtime
-To use the Motorola Enterprise Browser, you must have a License issued to you by Motorola. Below are steps that you should take in order to get a license from Motorola and apply that license to your device / App.
+To use the Motorola Enterprise Browser, you must have a License issued to you by Motorola Solutions for each device being used. Below are steps that you should take in order to get a license from Motorola and apply that license to your device.
 
 ## Obtaining a License
-There are a number of licensing options available depending on the specific customer need or deployment. To obtain a license for RhoElements, you should contact us or your local Motorola Solutions reseller. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
+To obtain a license for Enterprise Browser, you should contact us or your local Motorola Solutions reseller. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
 
 When you've purchased your license(s), you will be sent an email with a username and password to access the licensing system, log in using these details and, once logged in, there are options to view your orders, where you can monitor how many licenses remain unassigned, and also to your licenses.
 
@@ -72,5 +72,3 @@ You can also define your device license and company name in your config.xml file
 	</Application> 
 	</Applications>
 
-## Deployment License
-If you have purchased more than 50 licenses, you can request a deployment license from the web based licensing system.  Once you have received a deployment license, you can use the same license on each of you devices; however it is important to note that you are bound by contract to install the software on devices up to the number specified in the contract.  If you wish to use the software on more devices, you will need to purchase more licenses and then update your deployment license through the same portal.
