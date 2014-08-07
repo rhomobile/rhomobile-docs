@@ -122,7 +122,7 @@ section 'rhomob-data',                      'Data Handling','Mobile Guides' do
   topic 'en/4.0.0/guide/rhom_js',           'Using Rhom with JavaScript'
   topic 'en/4.0.0/guide/rhom_backbone',     'Using Rhom with Backbone.JS'
   topic 'en/4.0.0/guide/rhom_angular',      'Using Rhom with Angular JS'
-  topic 'en/4.0.0/guide/using_rhoconnect',  'Synchronization'
+  topic 'en/4.0.0/guide/Synchronization',   'Synchronization'
   topic 'en/4.0.0/guide/web_services',      'Web Services & AJAX'
 end
 
