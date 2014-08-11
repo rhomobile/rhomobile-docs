@@ -125,7 +125,6 @@ section 'rhomob-apps',                        'Developing Apps','Mobile Guides' 
   topic 'en/5.0.0/guide/app_icon_splash',      'Application Icon & Splash Screen'
   topic 'en/5.0.0/guide/css-framework',        'CSS Frameworks'
   topic 'en/5.0.0/guide/webapps',              'RhoMobile for Web Apps'
-  topic 'en/5.0.0/guide/rhoelements-runtime',  'RhoElements Shared Runtime'
   topic 'en/5.0.0/guide/webcontainer',         'Custom Web App Container'
   topic 'en/5.0.0/guide/app_upgrade',          'Upgrading Your App'
 end
