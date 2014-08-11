@@ -124,7 +124,7 @@ Synchronous Return:
 write messages on Tag. On the current moment only 1 message is supported.
 
 ####Parameters
-<ul><li>messages : <span class='text-info'>ARRAY</span><p> </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>id of Rho.NFC.Message object </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>messages : <span class='text-info'>ARRAY</span><p> </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>id of Message object </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:

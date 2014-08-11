@@ -8,8 +8,12 @@
         </ALIASES>
 
         <HELP_OVERVIEW>The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Motorola Solutions' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Motorola Solutions devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Motorola Windows Mobile / CE devices.Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode.</HELP_OVERVIEW>
+
+        <HELP_OVERVIEW_EB>The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
+        </HELP_OVERVIEW_EB>
+
         <MORE_HELP>
-## Enabling the API           
+## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
     extensions: ["barcode"]
@@ -130,7 +134,8 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                         <DESC>Aiming lasts until trigger is released. If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.</DESC>
                     </VALUE>
                     <VALUE constName="AIMTYPE_PRESENTATION" value="presentation">
-                        <DESC>Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation modes preenabled in scanner driver. Aimtype should not be set to presentation for MK31xx devices as it may produce undesirable results.</DESC>
+                        <DESC>Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation mode pre-enabled in the scanner driver and the aimType cannot be modified for these devices.</DESC>
+                        <DESC_EB>Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the EB.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation mode pre-enabled in the scanner driver and the aimType cannot be modified for these devices.</DESC_EB>
                     </VALUE>
                     <VALUE constName="AIMTYPE_PRESS_AND_RELEASE" value="pressAndRelease">
                         <DESC>Scan will continue after the trigger is released until scanTimeout occurs.</DESC>
@@ -156,7 +161,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to reaim the device between successive scans.</DESC>
+                <DESC>When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to re-aim the device between successive scans.</DESC>
             </PROPERTY>
             <PROPERTY name="aimMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -260,7 +265,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
                 <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration. Specified in milliseconds.</DESC>
+                <DESC>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.</DESC>
             </PROPERTY>
             <PROPERTY name="focusMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -314,7 +319,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                     <VALUE constName="INVERSE_AUTO" value="auto">
                         <DESC>Allows decoding of both positive and inverse 1D symbologies.</DESC>
                     </VALUE>
-                </VALUES>            
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="poorQuality1dMode" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -431,7 +436,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>Set to false to disable scanning when the battery is low/critical or set to true to enable it.</DESC>
+                <DESC>Set to false to disable scanning when the battery is low / critical or set to true to enable it.</DESC>
             </PROPERTY>
             <PROPERTY name="triggerConnected" type="BOOLEAN" generateAccessors="true" default="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
@@ -449,7 +454,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.  The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.</DESC>
+                <DESC>The volume of the device beeper when a barcode is scanned. Volume specified using 0 to 5, with 5 being the loudest. The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.</DESC>
             </PROPERTY>
             <PROPERTY name="decodeDuration" type="INTEGER" generateAccessors="true" default="250">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -562,7 +567,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                     <VALUE constName="CODE11_CHECKDIGIT_TWO" value="two">
                         <DESC>Scanning engine will verify two Code 11 check digits.</DESC>
                     </VALUE>
-                </VALUES>            
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="code11maxLength" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1643,6 +1648,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <DESC>Used to gain access to all scanner objects present on the device. For consumer devices you will most likely only have a single scanner, your device's camera but Enterprise grade hardware may have two or more scanners attached.</DESC>
                 <BACKWARDS_COMPATIBILITY state="false">
                     <DESC>This method replaces Barcode.enumerate from RhoElements 2.2 and takes a different prototype. Enumerate now returns an array of objects which can be used to control the specific scanner instance whereas previously it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC>
+                    <DESC_EB>Returns an array of objects which can be used to control the specific scanner instance whereas previously, it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC_EB>
                 </BACKWARDS_COMPATIBILITY>
                 <PLATFORM>WM, Android, iOS</PLATFORM>
                 <CALLBACK type="ARRAY">
@@ -1657,6 +1663,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <DESC>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method). Scanned barcodes will be available to the application through the callback provided to this method. Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner. If you do not specify a callback to this method you will received the scanned data as keystrokes. Note that it is necessary to enable the scanner on WM/CE devices prior to being able to retrieve the state of properties.</DESC>
                 <BACKWARDS_COMPATIBILITY state="false">
                     <DESC>This method replaces Barcode.enable from RhoElements 2.2 and takes a different prototype, no longer taking a 'deviceName' parameter this method can now be called on the individual scanner instances returned by Barcode.enumerate to control which hardware scanner on the device is enabled. Please consider using Barcode.take if you only require a 'single shot' scan and Barcode.enable if your user will be using the trigger to return scan events.</DESC>
+                    <DESC_EB>Enables the specified device specified by the propertyMap hash. Consider using Barcode.take if you only require a 'single shot' scan and Barcode.enable if your user will be using the trigger to return scan events.</DESC_EB>
                 </BACKWARDS_COMPATIBILITY>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -1688,7 +1695,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                             <DESC>The direction the barcode was scanned, either forward, reverse or unavailable.</DESC>
                         </PARAM>
                     </PARAMS>
-                </CALLBACK>    
+                </CALLBACK>
             </METHOD>
             
             <METHOD name="registerBluetoothStatus" hasCallback="mandatory">
@@ -1771,7 +1778,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 </CALLBACK>    
             </METHOD>
             
-            <METHOD name="take_barcode"  deprecated="true" >
+            <METHOD name="take_barcode"  deprecated="true" productException="eb">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
                 <PLATFORM>iOS</PLATFORM>
@@ -1788,8 +1795,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                     </PARAM>
                 </PARAMS>
             </METHOD>
-            
-            
+
             <METHOD name="commandRemoteScanner" hasCallback="none">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>

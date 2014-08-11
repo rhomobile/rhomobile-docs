@@ -6,15 +6,14 @@ The SimulScan is a software solution that enables customers to extract and
 process various types of information from documents. A single document may contain barcodes, text, image data and
 forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
 example, a driver's license can be thought of as a template containing regions such as name and address, signature
-and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
+and photo, each of these regions are processed and returned to the app separately by SimulScan so Optical Character
 Recognition captures the owners name and address whilst their photo is captured separately. These regions are
 defined by a template which maps the various regions of the document to the data they contain and can be created
 on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Motorola Android devices with firmware supporting SimulScan.
     
 ## Enabling the API
 In order to use this API you must TBD INSERT Eb specific instructions here
-
-        
+    
 
 
 ##Methods

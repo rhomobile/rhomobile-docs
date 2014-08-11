@@ -2,7 +2,8 @@
 
 
 ## Overview
-The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Motorola Solutions' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Motorola Solutions devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Motorola Windows Mobile / CE devices.Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode.
+The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
+        
 ## Enabling the API
 In order to use this API you must TBD INSERT Eb specific instructions here
 
@@ -448,25 +449,6 @@ Synchronous Return:
 	* <code>EB.Barcode.take(<span class="text-info">HASH</span> propertyMap)</code> 
 
 
-### take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)
-deprecated old method for taking barcode.
-
-####Parameters
-<ul><li>rubyCallbackURL : <span class='text-info'>STRING</span><p>Ruby callback URL. </p></li><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Method Access:
-
-* Instance Method: This method can be accessed via an instance object of this class: 
-	* <code>myObject.take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)</code>
-* Default Instance: This method can be accessed via the default instance object of this class. 
-	* <code>EB.Barcode.take_barcode(<span class="text-info">STRING</span> rubyCallbackURL, <span class="text-info">HASH</span> propertyMap)</code> 
-
-
 ##Properties
 
 
@@ -532,7 +514,7 @@ Describes the type of aiming to use.
 * Constant: EB.Barcode.AIMTYPE_TRIGGER - String: trigger Standard trigger mode. Holding the trigger will start a decoding session.
 * Constant: EB.Barcode.AIMTYPE_TIMED_HOLD - String: timedHold Aiming lasts for the time specified by 'timedAimDuration' before decoding. The opportunity to scan will last until the barcode is decoded or scanTimeout occurs.
 * Constant: EB.Barcode.AIMTYPE_TIMED_RELEASE - String: timedRelease Aiming lasts until trigger is released. If the timedAimDuration has expired when the trigger is released then a decode session is started until a barcode is decoded or for the remaining time equal to the scanTimeout value.
-* Constant: EB.Barcode.AIMTYPE_PRESENTATION - String: presentation Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the Rho.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation modes preenabled in scanner driver. Aimtype should not be set to presentation for MK31xx devices as it may produce undesirable results.
+* Constant: EB.Barcode.AIMTYPE_PRESENTATION - String: presentation Provided to support Kiosk devices. The scanner illuminates when movement is detected in the range of the scanner window. In order to use this mode the scanner must be initiated with a softscan using the EB.Barcode.start() method and again after each decode. The device must be equipped with a sensor to detect movement to use presentation mode. MK31XX devices come with presentation mode pre-enabled in the scanner driver and the aimType cannot be modified for these devices.
 * Constant: EB.Barcode.AIMTYPE_PRESS_AND_RELEASE - String: pressAndRelease Scan will continue after the trigger is released until scanTimeout occurs.
 * Constant: EB.Barcode.AIMTYPE_CONTINUOUS_READ - String: continuousRead Once the trigger is pulled barcodes will continue to be scanned as long as the trigger is held, enabling rapid scanning, to be used in conjunction with sameSymbolTimeout and differentSymbolTimeout. This value is ignored if viewfinderMode is set to 'dynamicReticle'
 ####Access
@@ -1871,7 +1853,7 @@ Path to a local wave file to be played when the scanner successfully decodes a b
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being the loudest.  The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.
+The volume of the device beeper when a barcode is scanned. Volume specified using 0 to 5, with 5 being the loudest. The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.
 ####Params
 <p><strong>Default:</strong> 5</p>
 ####Access
@@ -1894,7 +1876,7 @@ The volume of the device beeper when a barcode is scanned. 0 to 5 with 5 being t
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to reaim the device between successive scans.
+When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to re-aim the device between successive scans.
 ####Access
 
 
@@ -2636,7 +2618,7 @@ Describes the linear security level used during decoding. This determines the nu
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Set to false to disable scanning when the battery is low/critical or set to true to enable it.
+Set to false to disable scanning when the battery is low / critical or set to true to enable it.
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
@@ -4931,7 +4913,7 @@ Configures the feedback given after a successful scan. This value is ignored if 
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration. Specified in milliseconds.
+If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.
 ####Access
 
 

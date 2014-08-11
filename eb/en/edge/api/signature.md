@@ -5,7 +5,6 @@
 creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.
 ## Enabling the API
 In order to use this API you must TBD INSERT Eb specific instructions here
-
         
 
 

@@ -135,6 +135,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
             <DESC></DESC>
             <PARAM type="STRING">
               <DESC>id of Rho.NFC.Message object</DESC>
+              <DESC_EB>id of Message object</DESC_EB>
             </PARAM>
           </PARAM>
         </PARAMS>

@@ -66,7 +66,7 @@ Synchronous Return:
 
 
 ### start(<span class="text-info">STRING</span> filename)
-Play a media file using the supplied filename.
+Play the audio file using the supplied filename. On WM/CE devices, the API supports only wav file format.
 
 ####Parameters
 <ul><li>filename : <span class='text-info'>STRING</span><p>File name of the audio media to be played - absolute filepath. On iOS when you post URL to remote server (except https), then we open a standard browser (another application) for playing it. On iOS we support: mp3, mp4, wav formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wav and on Android mp3. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -88,7 +88,7 @@ Synchronous Return:
 
 
 ### startvideo(<span class="text-info">STRING</span> filename)
-Playing a video file back.
+Play the media file using the supplied filename. On WM/CE devices, it launches a media player process to play the supplied filename.
 
 ####Parameters
 <ul><li>filename : <span class='text-info'>STRING</span><p>File name of the video media to be played - full filepath. On iOS when you post URL to remote server  (except https), then we open a standard browser (another application) for playing it. On iOS we support: mov, mp4, 3gp formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wmv and on Android mp4. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -195,5 +195,5 @@ On Android devices, HTTPS is supported only on Android versions 4.0 (Ice Cream S
 
 ###Using File Transfer
 
-When more flexible file transfer is required than is provided by MediaPlayer itself it is recommended to use the Network API to fetch the media file, and then to play the local file using MediaPlayer. For example, if playing a file from an FTP server, or an HTTP server requiring authentication. This can also be more efficient if the same file is to be played multiple times, especially on Windows Mobile/CE, where there is no streaming support and therefore the file is completely downloaded before being played.
+When more flexible file transfer is required than is provided by MediaPlayer itself it is recommended to use the Network API to fetch the media file, and then to play the local file using MediaPlayer. For example, if playing a file from an FTP server, or an HTTP server requiring authentication. This can also be more efficient if the same file is to be played multiple times, especially on Windows Mobile/CE, where there is no streaming support and therefore the file is completely downloaded before being played. On Windows Mobile/CE devices, HTTPS file transfer is not supported.
                 

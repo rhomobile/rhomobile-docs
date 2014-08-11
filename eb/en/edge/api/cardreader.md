@@ -5,7 +5,6 @@
 The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
 ## Enabling the API
 In order to use this API you must TBD INSERT Eb specific instructions here
-
         
 
 
@@ -322,7 +321,7 @@ When enabled, appends a tab to any data returned as keystrokes by the cardreader
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-<span class='label label-important'>Deprecated</span> This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform. If the device has multiple card reader drivers installed this parameter is used to select which driver to use. The drivers present are output in the log file when the card reader is initialized. This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'.
+<span class='label label-important'>Deprecated</span> This method is present to provide backwards compatibility with PocketBrowser code, devices supported by the Enterprise Browser will have a single card reader driver installed as part of the platform. If the device has multiple card reader drivers installed this parameter is used to select which driver to use. The drivers present are output in the log file when the card reader is initialized. This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
@@ -432,7 +431,7 @@ For the DCR7000 the ModuleName parameter must be set at least once before the re
 ###Closing the reader while PIN entry pending
 
                     
-There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or RhoElements is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.
+There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or the Enterprise Browser is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.
                     
                 
 
@@ -446,7 +445,7 @@ In certain circumstances it is possible that the card reader may return empty ca
 ###Detaching / Reattaching the Card Reader
 
                     
-Applications running in RhoElements should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.
+Applications running in the Enterprise Browser should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.
                     
                 
 

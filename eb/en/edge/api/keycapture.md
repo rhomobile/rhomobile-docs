@@ -40,7 +40,7 @@ Synchronous Return:
 
 
 ### captureTrigger()
-Captures the event whenever a device hardware trigger is pressed or released. If the callback is not set then the capture setting for the trigger will be cleared. The trigger presses cannot be absorbed. All trigger presses will propagate to RhoElements.
+Captures the event whenever a device hardware trigger is pressed or released. If the callback is not set then the capture setting for the trigger will be cleared. The trigger presses cannot be absorbed. All trigger presses will propagate to the Enterprise Browser.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -96,7 +96,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Specifies a key which, when pressed, will navigate to the start page as defined in the RhoElements configuration. Set to 'Disabled' to prevent this behavior.
+Specifies a key which, when pressed, will navigate to the start page as defined in the config.xml file. Set to 'Disabled' to prevent this behavior.
 ####Params
 <p><strong>Default:</strong> Disabled</p>
 ####Access
@@ -121,16 +121,17 @@ Specifies a key which, when pressed, will navigate to the start page as defined 
 
 
 
-###Keys which can not be captured
+###Keys which cannot be captured
 It is not possible to capture the following types of keys:
 
 1.  Keyboard modifiers such as SHIFT, ALT, ORANGE button, BLUE button etc.
 2.  Device Keys such as the screen backlight or keyboard backlight.
 3.  Hot keys such as phone keys or 'soft' buttons, those whose function changes based on the running application.
 4.  The Home key and the power key on Android and iOS devices.
-5.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
-6. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
-7. On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesn't do anything specific with this key (unlike the menu key which raises the menu).                  
+5.  Depending on the device keyboard driver, some keys may not be easily capturable as they are interpreted as a shifted character by the device.  One example of such a key is the '#' character on CE7 devices, whilst the character code for this key is 23 it is interpreted as 33.  This applies to both capturing keys and specifying the HomeKeyValue.
+6.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
+7. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
+8. On ET1, Search (P3) key is application specific. Dispatching this key within the Enterprise Browser wont do anything as the MEB doesn't do anything specific with this key (unlike the menu key which raises the menu).
 Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.
 
 ###Precedence of APIs using the same keyValue
@@ -138,9 +139,9 @@ If captureKey and remapKey have been called with the same keyValue, the remapKey
 
 If the same key has been set as the homeKeyValue and captureKey with a callback, the captureKey will take precedence over the homeKeyValue. For example:
 
-`Rho.KeyCapture.homeKeyValue = '0x0D';`
+`EB.KeyCapture.homeKeyValue = '0x0D';`
 
-`Rho.KeyCapture.captureKey(true, '0x0D', capturekeyCallback);`
+`EB.KeyCapture.captureKey(true, '0x0D', capturekeyCallback);`
 
 When the specified key is pressed, the event will fire but the homeKey event will not occur.
 
@@ -154,10 +155,10 @@ Because the Home key cannot be captured on the ET1 and MC40 it is possible for u
 Only the volume up and volume down keys can be caught on iOS devices.
 
 ###Capturing Function
-If you have enabled the function key in the configuration settings and that function key has some special behavior in the Operating system the key will not be capturable unless you also set the 'FunctionKeysCapturable' option (see RhoElements Configuration Settings). An example of special behavior is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'FunctionKeysCapturable' will allow you to capture Function keys it will also disable the special Function key behavior. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labeled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
+If you have enabled the function key in the configuration settings and that function key has some special behavior in the Operating system the key will not be capturable unless you also set the 'FunctionKeysCapturable' option (see the Configuration Reference). An example of special behavior is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'FunctionKeysCapturable' will allow you to capture Function keys it will also disable the special Function key behavior. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labeled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
 
 ###VC70 Hardware Keys
-The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module. Additionally the the default Operating system behavior (like volume up / down) of hardware keys can not be blocked when RhoElements is running in fullscreen mode.
+The VC70 has a hardware keys (P1, P2, P3 and P4 as well as a brightness button) which are not capturable by the KeyCapture module. Additionally the the default Operating system behavior (like volume up / down) of hardware keys can not be blocked when the app is running in full-screen mode.
 
 ###ES400 Application Keys
 The ES400 has a hardware messaging key with an envelope icon on it that does not function like a standard Application Key. To disable this key go to 'Settings' on the device, then 'Personal', then 'KeyRemap' and remap it to a key not in use. Also note that the 'Sym' key on the ES400 is not capturable.
@@ -166,7 +167,7 @@ The ES400 has a hardware messaging key with an envelope icon on it that does not
 In Internet Explorer the F5 key is used to refresh the current page. It is not recommended to rely on this functionality on Windows Mobile and it is not supported.
 
 ###Accelerator Keys
-The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when RhoElements is run with the Internet Explorer engine on a Windows CE device.
+The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when the Enterprise Browser is run with the Internet Explorer engine on a Windows CE device.
 
 Key           Code    Usual Behavior               Special behavior in Internet Explorer
 
@@ -179,7 +180,7 @@ Enter         0x0D    Cursor line feed              Submit form
 Tab           0x09    Advance to next control       Advance to next control
 
 ###Remapping a key to itself
-If a key is remapped to itself then RhoElements will appear to hang because if that key is pressed it will generate another press of the same key, and so on forever. The same will happen if for instance key 1 is remapped to key 2, which in turn is remapped to key 1.
+If a key is remapped to itself then the app will appear to hang because if that key is pressed it will generate another press of the same key, and so on forever. The same will happen if for instance key 1 is remapped to key 2, which in turn is remapped to key 1.
 
 ###Special characters
 On some devices certain keys containing special characters trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &, ", (, ), !, :, ?, #, _, @.

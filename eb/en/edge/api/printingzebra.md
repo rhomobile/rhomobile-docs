@@ -931,8 +931,6 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
 ###Windows Mobile/CE Notes
 
 
-* You must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
-
 * Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
    
 * You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:
@@ -942,5 +940,3 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
         }
 
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
-
-            

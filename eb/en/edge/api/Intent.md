@@ -62,7 +62,7 @@ Android </p></li><li>categories : <span class='text-info'>ARRAY</span><p>List of
 Android </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>appName : <span class='text-info'>STRING</span><p>Explicit name of the application on the device to run. The platform will determine what value to use. 
 
 * Android it is application package name.
-* Windows it is the executable name.
+* Windows it is the application/executable name. For shared runtime based applications, the application name is taken from the "Name" attribute from the Config.xml file. Hence use the application name which is mentioned in config.xml.
  </p></li><li>targetClass : <span class='text-info'>STRING</span><p>Explicit name of the class in the application which will receive the intent. Must be specified if and only if 'appName' is defined. Platforms:
 Android </p></li><li>uri : <span class='text-info'>STRING</span><p>Open the application associated with the URI. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix usually executes the Web Browser installed on system and open URL in executed browser.
 >NOTE: For Android, this is similar to [Intent.setData()](http://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri\)). For example, if you were sending a [Map Intent](http://developer.android.com/guide/components/intents-common.html#Maps) you would set this value to something like `geo:47.6,-122.3`
