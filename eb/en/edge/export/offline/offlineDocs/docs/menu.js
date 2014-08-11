@@ -116,6 +116,7 @@ var menuStrcture = [
 							{"name":"Alarm","link":"#api-Alarm"},
 							{"name":"Application","link":"#api-Application"},
 							{"name":"AudioCapture","link":"#api-audiocapture"},
+							{"name":"BackButton","link":"#api-BackButton"},
 							{"name":"Barcode","link":"#api-barcode"},
 							{"name":"Battery","link":"#api-battery"},
 							{"name":"Btdiscover","link":"#api-btdiscover"},
@@ -123,6 +124,9 @@ var menuStrcture = [
 							{"name":"CardReader","link":"#api-cardreader"},
 						{"name":"EventSource","link":"#api-eventsource"},
 						{"name":"RhoFile","link":"#api-File"},
+						{"name":"ForwardButton","link":"#api-ForwardButton"},
+						{"name":"GoButton","link":"#api-GoButton"},
+						{"name":"HomeButton","link":"#api-HomeButton"},
 						{"name":"Intent","link":"#api-Intent"},
 						{"name":"KeyCapture","link":"#api-keycapture"},
 						{"name":"KeyState","link":"#api-keystate"},
@@ -139,18 +143,24 @@ var menuStrcture = [
 						{"name":"PrinterZebra","link":"#api-printingzebra"},
 						{"name":"Process","link":"#api-process"},
 						{"name":"Push","link":"#api-push"},
+						{"name":"QuitButton","link":"#api-QuitButton"},
 						{"name":"Record","link":"#api-Record"},
+						{"name":"ReloadButton","link":"#api-ReloadButton"},
 						{"name":"RhoConnectClient","link":"#api-RhoConnectClient"},
 						{"name":"ScreenOrientation","link":"#api-screenorientation"},
 						{"name":"Sensor","link":"#api-sensor"},
 						{"name":"SignalIndicators","link":"#api-signalindicators"},
 						{"name":"Signature","link":"#api-signature"},
 						{"name":"SimulScan","link":"#api-SimulScan"},
+						{"name":"SipButton","link":"#api-SipButton"},
+						{"name":"StopButton","link":"#api-StopButton"},
 						{"name":"System","link":"#api-system"},
 						{"name":"Tag","link":"#api-Tag"},
 						{"name":"Videocapture","link":"#api-videocapture"},
 						{"name":"Websocket","link":"#api-websocket"},
-						{"name":"WebView","link":"#api-webview"}]
+						{"name":"WebView","link":"#api-webview"},
+						{"name":"ZoomTextButton","link":"#api-ZoomTextButton"}
+						]
 					}
 				]
 			},

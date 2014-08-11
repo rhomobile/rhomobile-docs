@@ -1,4 +1,4 @@
-#AddressBar
+#addressBar
 
 
 ## Overview
@@ -22,7 +22,7 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 ###visibility
 
 ####Type
-<span class='text-info'>STRING</span> - Positive number, representing pixels
+<span class='text-info'>STRING</span> 
 ####Description
 Sets the visibility of the address bar.
 
