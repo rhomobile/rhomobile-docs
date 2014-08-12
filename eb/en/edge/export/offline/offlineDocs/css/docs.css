@@ -260,6 +260,7 @@ body {
 	margin-left: 15px;
 	float: left;
 	cursor: pointer;
+	display: none;
 }
 
 #versions :hover
