@@ -1,12 +1,10 @@
-#Supported Platforms
-
+# Supported Platforms
 ## Supported Operating Systems
-
 * iOS 6.0 or greater (iPhone, iPod Touch, iPad)
 * Android 2.3 and greater (Gingerbread, Ice Cream Sandwich, JellyBean) - Both ARM and x86
-* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 5, Windows CE 6, Windows CE 7
+* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 5, Windows CE 6, Windows CE 7, Windows XPe
 * Latest Windows Phone 8 mobile devices
-* Windows Desktop (XP, XPe, 7)
+* Windows Desktop (Windows 7, 8, 8.1)
 
 NOTE: Please review Release notes that accompany the software for further remarks on supported devices and operating systems.
 
