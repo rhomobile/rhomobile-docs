@@ -256,7 +256,7 @@ Synchronous Return:
 
 
 ### setObjectNotification()
-The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or timelines in your application and want them to update without the user taking any action.
+The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or time-lines in your application and want them to update without the user taking any action.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -281,7 +281,7 @@ Synchronous Return:
 
 
 ### stopSync()
-Stops any sync operations currently in progress.
+Stops any sync operations currently in progress. NOTE: There is a high potential of database corruption if this method is used during a sync. Do not do this unless you are planning on resetting your DB afterward.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -351,7 +351,7 @@ Sync poll interval in seconds. Setting this to 0 will disable polling-based sync
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Enable or disable show status popup.
+Enable or disable show status pop-up.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -449,7 +449,7 @@ In the following sections we cover the different status values and parameters av
 
 * total_count - Total number of records that exist for this RhoConnect source.
 * processed_count - Number of records included in the sync page.
-* cumulative_count - Number of records the SyncEngine has processed so far for this source.
+* cumulative_count - Number of records the RhoConnectClient has processed so far for this source.
 
 ### status: "in_progress" - bulk sync progress
 
@@ -488,7 +488,7 @@ JavaScript Example:
     //=> "Error connecting to backend server: http://rhostore.herokuapp.com"
 
 #### Handling 'create-error'
-"create-error" is a unique situation that needs to be handled in your sync callback. See `RhoConnectClient.onSyncCreateError()` for more details.
+"create-error" is a unique situation that needs to be handled in your sync callback. See [`RhoConnectClient.on_sync_create_error()`](#mon_sync_create_error) for more details.
 
 ### status: "complete"
 This status returns only when the sync run is complete (all partitions are done synchronizing).

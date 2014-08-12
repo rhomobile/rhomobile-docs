@@ -381,7 +381,7 @@ Maximum log file size in bytes, set 0 to unlimited size; when limit is reached, 
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Comma-separated list of included log categories. Set to '*' to log all categories. Set to '' (empty) to filter out all messages. Default value is '*', it is set in Config.xml.
+Comma-separated list of included log categories. Set to '\*' (asterisk) to log all categories. Set to '' (empty) to filter out all messages. Default value is '\*' (asterisk), it is set in Config.xml.
 ####Params
 <p><strong>Default:</strong> *</p>
 ####Access
