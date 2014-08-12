@@ -251,6 +251,10 @@ body {
 	color: #3EB6E6;	
 }
 
+#headerText img{
+    padding-right: 8px;
+}
+
 #versions
 {
 	margin-left: 15px;
