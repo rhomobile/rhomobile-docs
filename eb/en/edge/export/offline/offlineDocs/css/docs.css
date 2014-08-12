@@ -127,6 +127,8 @@ body {
 #tocList {
     width: 250px;
 	right:15px;
+	background-color: #ccc !important;
+
 }
 
 @media screen and (max-width: 800px) {
@@ -198,6 +200,11 @@ body {
 #toc .nav-list > li > a {
 	padding: 3px;
 	padding-left:10px;
+	color:#fff;
+}
+
+#toc .nav-list > li > a:hover {
+	color:#3EB6E6;
 }
 
 #toc  .nav-list > .active > a, .nav-list > .active > a:hover
@@ -251,11 +258,16 @@ body {
 	color: #3EB6E6;	
 }
 
+#headerText img{
+    padding-right: 8px;
+}
+
 #versions
 {
 	margin-left: 15px;
 	float: left;
 	cursor: pointer;
+	display: none;
 }
 
 #versions :hover
