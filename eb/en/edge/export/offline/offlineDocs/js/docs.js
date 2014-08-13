@@ -97,7 +97,8 @@ $(document).ready(function(){
 		$("#menu").multilevelpushmenu('redraw');
 		sizeTOC();
 	});
-	
+
+
 	//Load doc
 	loadHash();
 	
@@ -349,6 +350,8 @@ function loadDoc(key){
 
 	//change code blocks
 	html = html.replace(/<pre><code>(.*)/g,'<pre class="prettyprint"><code>');
+	//wrap H1 in stickyribbon
+	// html = html.replace(/<h1>(.*)<\/h1>/g,'<div id="stickyribbon"><h1>$1</h1></div>');
 
 	$("#markdownDoc").html(html);
 	
@@ -365,7 +368,7 @@ function loadDoc(key){
 		selectors: "h2,h3",
 		context: "#markdownDoc",
 		history:false,
-		scrollTo:52
+		scrollTo:92
 	}).data("toc-tocify");
 	
 	//Setup toc
@@ -438,16 +441,30 @@ function loadDoc(key){
 	else{
 		$('#toc').show();
 	}
-	
+
+	//Make first H1 be sticky on scrolling
+	//This works because all docs will have an H1 for the title
+	//The H1 needs to be wrapped in a div tag with id=stickyribbon
+	// var stickyRibbonTop = $('#stickyribbon').offset().top;
+	// var contentTop = $('#markdownDoc').offset().top;
+          
+ //    $(window).scroll(function(){
+ //            if( $(window).scrollTop() + contentTop > stickyRibbonTop ) {
+ //                    $('#stickyribbon').css({position: 'fixed', top: contentTop + 'px'});
+ //            } else {
+ //                    $('#stickyribbon').css({position: 'static', top: contentTop + 'px'});
+ //            }
+ //    });
+
 	//Scroll to top
 	scroll_position = 0;
 	if (key_scrollto != ''){
 		if($('H3').filter(function() { return $.text([this]) == key_scrollto; }).length>0){
-			scroll_position = $('H3').filter(function() { return $.text([this]) == key_scrollto; }).first().offset().top-$('#docsHeader').outerHeight();
+			scroll_position = $('H3').filter(function() { return $.text([this]) == key_scrollto; }).first().offset().top-($('#docsHeader').outerHeight());
 
 		}
 		if($('H2').filter(function() { return $.text([this]) == key_scrollto; }).length>0){
-			scroll_position = $('H2').filter(function() { return $.text([this]) == key_scrollto; }).first().offset().top-$('#docsHeader').outerHeight();
+			scroll_position = $('H2').filter(function() { console.log("changing top");return $.text([this]) == key_scrollto; }).first().offset().top-($('#docsHeader').outerHeight());
 
 		}
 
@@ -524,15 +541,18 @@ function loadDoc(key){
 	setTimeout(function(){
 		highlightText();
 	},1000);
+
 	
+		
 	//Find hash in ToC
 	findHash();
 }
 
 //Scroll to the specified item
 function scrollTo(item)
-{
-	$("html, body").animate({ scrollTop: $(item).offset().top -  $("#docsHeader").outerHeight(true)}, 500);
+{	
+	//used on search
+	$("html, body").animate({ scrollTop: $(item).offset().top -  ($("#docsHeader").outerHeight(true)+$('#stickyribbon').outerHeight()+72)}, 500);
 }
 
 function getByKey(key) 

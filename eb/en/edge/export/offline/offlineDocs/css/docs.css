@@ -69,8 +69,14 @@ body {
 	max-width:100%;
 }
 
+#markdownDoc #stickyribbon{
+	background-color: white;
+	
+}
+
 #markdownDoc H1{
 	font-size: 2.2em;
+	display:inline-block;
 }
 
 #markdownDoc H2{
@@ -201,6 +207,13 @@ body {
 	padding: 3px;
 	padding-left:10px;
 	color:#fff;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#toc .tocify-subheader > li > a{
+	color:#3EB6E6;
 }
 
 #toc .nav-list > li > a:hover {
@@ -240,6 +253,15 @@ body {
 	text-indent: 0px;
 }
 
+.tocify-item
+{
+	font-weight: bold;
+}
+.tocify-subheader > .tocify-item
+{
+	font-weight: normal;
+	background-color: #fff;
+}
 #headerText
 {
 	float: left;
