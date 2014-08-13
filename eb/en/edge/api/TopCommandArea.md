@@ -1,4 +1,4 @@
-#topCommandArea
+#TopCommandArea
 
 ## Overview
 The TopCommandArea API is used to set the parameters of the Top Command Area. The top command area is a region at the top of the screen designed to hold RhoElements controls such as the address bar or Go button to separate them from the rest of the user application.
@@ -7,6 +7,12 @@ The TopCommandArea API is used to set the parameters of the Top Command Area. Th
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
 
 * elements.js 
+
+> Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
+
+	:::html
+    <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
+
 
 ### API Usage
 This API does not use the `EB` namespace. It is simply referenced using the API name:

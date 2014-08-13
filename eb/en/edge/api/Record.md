@@ -4,7 +4,31 @@
 ## Overview
 NFC Record
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+There are two methods of enabling the Record API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Record API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.record.js"></script>
+
+The ebapi.js file is necessary for all single API inclusions.
 
         
 

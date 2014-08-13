@@ -1,4 +1,4 @@
-#sipButton
+#SipButton
 
 ## Overview
 The SipButton Module is used to set the parameters of the SIP Button. The SIPButton will toggle the display of the soft input panel allowing keyboard input via a stylus.

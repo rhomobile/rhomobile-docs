@@ -1,4 +1,4 @@
-#comm
+#Comm
 
 
 ## Overview
@@ -8,6 +8,12 @@ The Comm Module is used to control the functionality of the devices communicatio
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
 
 * elements.js 
+
+> Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
+
+	:::html
+    <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
+
 
 ### API Usage
 This API does not use the `EB` namespace. It is simply referenced using the API name:

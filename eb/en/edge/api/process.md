@@ -4,17 +4,31 @@
 ## Overview
 This API is used to either navigate to a URL or call a javascript function when an attached card reader decodes data. Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
 ## Enabling the API
-In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+There are two methods of enabling the Process API: 
 
-* ebapi-modules.js - this file contains all available Enterprise Browser APIs
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
-If you wish to minimize the amount of JavaScript being included, you can choose to only include the individual API that your application is using:
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
 
-ex:
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
 
-* ebapi.js - core APIs needed 
-* eb.process.js - just the Process API
-* other individual JavaScript files included with the Enterprise Browser installation
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Process API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.process.js"></script>
+
+The ebapi.js file is necessary for all single API inclusions.
 
         
 
