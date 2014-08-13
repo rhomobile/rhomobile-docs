@@ -31,12 +31,12 @@ Simply use the `wget` command to download the 4.0 debian package as follows:
     :::term
     sudo wget https://s3.amazonaws.com/rhoconnect/packages/deb/rhoconnect_4.1.0_all.deb
 
-You will download the file `rhoconnect_4.0.4_all.deb`.
+You will download the file `rhoconnect_4.1.0_all.deb`.
 
 Once that is done, it is time to install RhoConnect:
 
     :::term
-    $ sudo dpkg --install rhoconnect_4.0.4_all.deb
+    $ sudo dpkg --install rhoconnect_4.1.0_all.deb
 
 If the installation fails, you may need to update your apt-get using `sudo apt-get update` and you may also have to force the installation of dependencies using `sudo apt-get install -f`. Any further issues with the installation need to be resolved by the user.
 
