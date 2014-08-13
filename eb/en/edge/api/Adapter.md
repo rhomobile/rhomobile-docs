@@ -4,8 +4,7 @@
 ## Overview
 NFC Adapter
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
-
+To use this API, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the line <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script> to the <head> section of your index.html. Note that the pathing for this file is relative to the current page. This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
         
 
 

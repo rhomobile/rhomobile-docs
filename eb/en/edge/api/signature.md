@@ -4,7 +4,26 @@
 ## Overview
 creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+There are two methods of enabling the Signature API: include all ebapi modules or include only the API modules you need. For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the ebapi.js in your HTML as well as the API file you want to use. For instance, to use the Signature API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.signature.js"></script>
+
+The ebapi.js file is necessary for all single API inclusions.
         
 
 
@@ -107,7 +126,7 @@ Synchronous Return:
 
 
 ### show(<span class="text-info">HASH</span> propertyMap)
-Show in-line signature window. This function works witha non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect the capture area shown in takeFullScreen (modal full screen capture area).
+Show in-line signature window. This function works with a non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect the capture area shown in takeFullScreen (modal full screen capture area).
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Map of signature properties to be set Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Use already set properties</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -129,7 +148,7 @@ Synchronous Return:
 
 
 ### takeFullScreen(<span class="text-info">HASH</span> propertyMap)
-Shows a modal window with signature capture area and UI (toolbar with buttons) for cancel / capture and return to main application window. The callback is fired when the signature is closed (when in fullscreen) or when capture is called. In WM/CE, the signature area has visible buttons for 'clear', 'capture' and 'cancel'. In Android / iOS, the signature area has images which will behave as buttons for 'clear', 'capture' and 'cancel'. This function open modal full screen window, therefore other functions related to in-line signature capture (work with inside browser window area) do not affect the capture window shown by this function.
+Shows a modal window with signature capture area and UI (toolbar with buttons) for cancel / capture and return to main application window. The callback is fired when the signature window is closed (when in full-screen) or when capture is called. On WM/CE, the signature area has visible buttons for 'clear', 'capture' and 'cancel'. On Android, the signature area has images which will behave as buttons for 'clear', 'capture' and 'cancel'. This function opens a modal full screen window therefore, other functions related to in-line signature capture (work with inside browser window area) do not affect the capture window shown by this function.
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Map of signature properties to be set Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Use already set properties</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -183,7 +202,7 @@ RGB or ARGB value that sets the background color of the signature capture area.
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Shows or hides a border for the rectangular capture area. Not applicable to fullscreen signature capture area.
+Shows or hides a border for the rectangular capture area. Not applicable to full-screen signature capture area.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -204,14 +223,14 @@ Shows or hides a border for the rectangular capture area. Not applicable to full
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-<span class='label label-info'>Replaces:imageFormat</span> Compression format of the image file for the captured signature. In WM/CE, irrespective of setting any format, the output format will be of bitmap type. In WM/CE, when compressionFormat is queried, it will be of bitmap type always.
+<span class='label label-info'>Replaces:imageFormat</span> Compression format of the image file for the captured signature. On WM/CE, irrespective of setting any format, the output format will be of bitmap type. On WM/CE, when compressionFormat is queried, it will be of bitmap type always.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
 * Constant: EB.Signature.COMPRESSION_FORMAT_JPG - String: jpg JPEG file format (Not available on WM/CE).
 * Constant: EB.Signature.COMPRESSION_FORMAT_PNG - String: png Portable Network Graphics file (Not available on WM/CE).
-* Constant: EB.Signature.COMPRESSION_FORMAT_BMP - String: bmp Bitmap image file (Not available on iOS).
+* Constant: EB.Signature.COMPRESSION_FORMAT_BMP - String: bmp Bitmap image file.
 ####Access
 
 
@@ -251,7 +270,7 @@ Shows or hides a border for the rectangular capture area. Not applicable to full
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The height of the signature capture area in pixels. Not applicable to fullscreen signature capture area.
+The height of the signature capture area in pixels. Not applicable to full-screen signature capture area.
 ####Params
 <p><strong>Default:</strong> 150</p>
 ####Access
@@ -272,7 +291,7 @@ The height of the signature capture area in pixels. Not applicable to fullscreen
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The coordinates in pixels of the left side of the signature capture area. Not applicable to fullscreen signature capture area.
+The coordinates in pixels of the left side of the signature capture area. Not applicable to full-screen signature capture area.
 ####Params
 <p><strong>Default:</strong> 15</p>
 ####Access
@@ -301,7 +320,7 @@ The return type of the saved signature capture image.
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
 * Constant: EB.Signature.OUTPUT_FORMAT_IMAGE - String: image Outputs the signature capture image into an image file. The compression method and extension of the image file can be specified in compressionFormat.
-* Constant: EB.Signature.OUTPUT_FORMAT_DATAURI - String: dataUri Outputs the signature capture image as a DataURI string. (Not available on iOS).
+* Constant: EB.Signature.OUTPUT_FORMAT_DATAURI - String: dataUri Outputs the signature capture image as a DataURI string.
 ####Access
 
 
@@ -362,7 +381,7 @@ Sets the width of the pen line in pixels. Advised to keep this to 5 or less.
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The coordinates in pixels of the top side of the signature capture area. Not applicable to fullscreen signature capture area.
+The coordinates in pixels of the top side of the signature capture area. Not applicable to full-screen signature capture area.
 ####Params
 <p><strong>Default:</strong> 60</p>
 ####Access
@@ -383,7 +402,7 @@ The coordinates in pixels of the top side of the signature capture area. Not app
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The width of the signature capture area in pixels. Not applicable to fullscreen signature capture area.
+The width of the signature capture area in pixels. Not applicable to full-screen signature capture area.
 ####Params
 <p><strong>Default:</strong> 200</p>
 ####Access
@@ -404,29 +423,13 @@ The width of the signature capture area in pixels. Not applicable to fullscreen 
 
 
 ###Fullscreen and In-line
-
-                    
-                        The signature capture feature can work in two visual modes, Fullscreen and In-line. The fullscreen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the in-line signature capture, there are no such buttons so these will have to be designed into the app itself.
-                    
-                
+The signature capture feature can work in two visual modes, Full-screen and In-line. The full-screen variant has buttons to capture, clear and cancel the signature capture box, so the methods: "clear", "hide", "capture" don't need to be used. Whereas with the in-line signature capture, there are no such buttons so these will have to be designed into the app itself.
 
 ###Parameters which clear the signature
-
-                    
-                        The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "width", "height", "penColor", "bgColor".
-                    
-                
+The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "width", "height", "penColor", "bgColor".
 
 ###Page Navigation
+In Android, the state of the signature will not be cleared on page navigation whereas in Windows, the state of the signature is cleared.
 
-                    
-                        In Android, the state of the signature will not be cleared on page navigation whereas in Windows, the state of the signature is cleared.
-                    
-                
-
-###Persistent Behaviour
-
-                    
-                        While using "takeFullScreen" method, if we press Home button and re-launch the application the state won't be persisted in Android platform.
-                    
-                
+###Persistent Behavior
+While using "takeFullScreen" method, if we press Home button and re-launch the application the state won't be persisted in Android platform.

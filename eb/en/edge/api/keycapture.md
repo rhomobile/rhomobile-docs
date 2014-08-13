@@ -4,8 +4,26 @@
 ## Overview
 The KeyCapture module is used to intercept or override hardware keys. It is typically used to provide certain application functions through the use of the device's physical keyboard or other hardware enabled buttons.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+There are two methods of enabling the KeyCapture API: include all ebapi modules or include only the API modules you need. For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
 
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the ebapi.js in your HTML as well as the API file you want to use. For instance, to use the KeyCapture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.keycapture.js"></script>
+
+The ebapi.js file is necessary for all single API inclusions.
         
 
 
@@ -17,7 +35,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 Notifies the user when a specified physical key is pressed. The key event can also be absorbed so that it isn't delivered to the web view. If the callback is not set then the capture setting for the given key will be cleared.
 
 ####Parameters
-<ul><li>dispatch : <span class='text-info'>BOOLEAN</span><p>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. If any of volume keys are captured, real sound volume will not be changed. </p></li><li>keyValue : <span class='text-info'>STRING</span><p>Specifies the identifier of the key to capture. This this value is the operating system's identifier for the key, not the ASCII representation of the key (for example, the 'a' key on Windows Mobile devices has a keyValue of 101). Alternatively, this parameter can be set to 'all'. This value will capture all hardware key presses. This parameter needs to be passed as a string (for example '101' or '0x65' or 'all'). </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>dispatch : <span class='text-info'>BOOLEAN</span><p>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. If any of the volume keys are captured, real sound volume will not be changed. </p></li><li>keyValue : <span class='text-info'>STRING</span><p>Specifies the identifier of the key to capture. This this value is the operating system's identifier for the key, not the ASCII representation of the key (for example, the 'a' key on Windows Mobile devices has a keyValue of 101). Alternatively, this parameter can be set to 'all'. This value will capture all hardware key presses. This parameter needs to be passed as a string (for example '101' or '0x65' or 'all'). </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>keyValue : <span class='text-info'>INTEGER</span><p>The internal representation of the key expressed in decimal, e.g. 13 is the return key. Platforms:
@@ -111,12 +129,6 @@ Specifies a key which, when pressed, will navigate to the start page as defined 
 
 * Windows Mobile/CE
 
-##Constants
-
-
-* IPHONE_VOLUME_UPIPhone volume up keyCode. Used to capture the volume up key when it is pressed.
-* IPHONE_VOLUME_DOWNIPhone volume down keyCode. Used to capture the volume down key when it is pressed.
-
 ##Remarks
 
 
@@ -139,9 +151,9 @@ If captureKey and remapKey have been called with the same keyValue, the remapKey
 
 If the same key has been set as the homeKeyValue and captureKey with a callback, the captureKey will take precedence over the homeKeyValue. For example:
 
-`EB.KeyCapture.homeKeyValue = '0x0D';`
-
-`EB.KeyCapture.captureKey(true, '0x0D', capturekeyCallback);`
+    :::javascript
+    EB.KeyCapture.homeKeyValue = '0x0D';
+    EB.KeyCapture.captureKey(true, '0x0D', capturekeyCallback);
 
 When the specified key is pressed, the event will fire but the homeKey event will not occur.
 
@@ -150,9 +162,6 @@ Any captureKey calls set with a specific key will take precedence over any captu
 
 ###Device Lockdown on Motorola Solutions Android devices
 Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Motorola Solutions Android documentation for other device lock-down options.
-
-###Capturable keys on iOS devices
-Only the volume up and volume down keys can be caught on iOS devices.
 
 ###Capturing Function
 If you have enabled the function key in the configuration settings and that function key has some special behavior in the Operating system the key will not be capturable unless you also set the 'FunctionKeysCapturable' option (see the Configuration Reference). An example of special behavior is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'FunctionKeysCapturable' will allow you to capture Function keys it will also disable the special Function key behavior. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labeled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
@@ -167,17 +176,32 @@ The ES400 has a hardware messaging key with an envelope icon on it that does not
 In Internet Explorer the F5 key is used to refresh the current page. It is not recommended to rely on this functionality on Windows Mobile and it is not supported.
 
 ###Accelerator Keys
-The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when the Enterprise Browser is run with the Internet Explorer engine on a Windows CE device.
+The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when the app is run with the Internet Explorer engine on a Windows CE device.
 
-Key           Code    Usual Behavior               Special behavior in Internet Explorer
-
-Left Arrow    0x25    Cursor left                   Scroll window left
-Right Arrow   0x27    Cursor right                  Scroll window right
-Up Arrow      0x26    Cursor up                     Scroll window up
-Down Arrow    0x28    Cursor down                   Scroll window down
-Backspace     0x08    Delete previous character.   Navigate to previous page
-Enter         0x0D    Cursor line feed              Submit form
-Tab           0x09    Advance to next control       Advance to next control
+* Key (Code)
+    * Usual - Usual Behavior
+    * I.E. - Special behavior in Internet Explorer
+* Left Arrow (0x25)
+    * Usual - Cursor left
+    * I.E. - Scroll window left
+* Right Arrow (0x27)
+    * Usual - Cursor right
+    * I.E. - Scroll window right
+* Up Arrow (0x26)
+    * Usual - Cursor up
+    * I.E. - Scroll window up
+* Down Arrow (0x28)
+    * Usual - Cursor down
+    * I.E. - Scroll window down
+* Backspace (0x08)
+    * Usual - Delete previous character
+    * I.E. - Navigate to previous page
+* Enter (0x0D)
+    * Usual - Cursor line feed
+    * I.E. - Submit form
+* Tab (0x09)
+    * Usual - Advance to next control
+    * I.E. - Advance to next control
 
 ###Remapping a key to itself
 If a key is remapped to itself then the app will appear to hang because if that key is pressed it will generate another press of the same key, and so on forever. The same will happen if for instance key 1 is remapped to key 2, which in turn is remapped to key 1.
@@ -186,10 +210,7 @@ If a key is remapped to itself then the app will appear to hang because if that 
 On some devices certain keys containing special characters trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &, ", (, ), !, :, ?, #, _, @.
 
 ###Device Specific Exceptions
-Certain devices may map their function keys to apparently normal keys, for example the VC6090 maps the '{' key to F12 and the '}' key to F14. In order to capture those two keys it is necessary to enable F12 and F14 in the Configuration Settings. You may also find on some devices special keys like 'OK' return the same code as a function key, depending on your keyboard layout.
+Certain devices may map their function keys to apparently normal keys, for example the VC6090 maps the '{' key to F12 and the '}' key to F14. In order to capture those two keys it is necessary to enable F12 and F14 in the Configuration Settings. You may also find on some devices special keys like 'OK' return the same code as a function key, depending on your keyboard layout.  The MK3100 and other kiosk devices will report their symbol keys as '0' rather than assigning each key a different value.
 
 ###Use of Key Capture module on Localized Operating Systems
 Users of the key capture module with Chinese, Korean and Japanese operating systems should bear the following in mind: Internally the KeyCapture module stores key representations as VK codes, therefore the key event will always return VK_PROCESSKEY (229) and keys can not be individually specified. In JavaScript the DOM element's keyup event can be used as an indication of which key has been pressed.
-
-###Build Configuration
-To build the keycapture API into your application you must specify the 'hardwarekeys' extension and specify your application type to be 'rhoelements'.

@@ -5,8 +5,26 @@
 The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
         
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+There are two methods of enabling the Barcode API: include all ebapi modules or include only the API modules you need. For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
 
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the ebapi.js in your HTML as well as the API file you want to use. For instance, to use the Barcode API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.barcode.js"></script>
+
+The ebapi.js file is necessary for all single API inclusions.
         
 
 
@@ -423,7 +441,7 @@ Synchronous Return:
 
 
 ### take(<span class="text-info">HASH</span> propertyMap)
-Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.
+Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -3993,7 +4011,7 @@ When the aimType:continuousRead property is applied this value defines the inter
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.
+Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.
 ####Access
 
 
@@ -4115,7 +4133,7 @@ Specifies the output width of the captured signature barcode. Signature barcodes
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-Duration in milliseconds for aimType:timedHold and aimType:timedRelease.
+Aim duration in milliseconds for aimType:timedHold and aimType:timedRelease.
 ####Access
 
 
@@ -5086,73 +5104,37 @@ If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jell
 
 ###Bluetooth Scanner Overview
 
-                    
 Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behavior using the disconnectBtOnDisable property.
 
 The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:
 
-**'BTScanAssociationBarcode'** 
+**'BTScanAssociationBarcode'**
+
 Means the device is ready to be associated with a BT scanner. You must scan the 
 association barcode. It is only necessary to scan the association 
 barcode when you first associate a scanner with the device, this pairing will be remembered until
 you scan the unpairing barcode.
 
-** 'BluetoothConnected'**
+**'BluetoothConnected'**
+
 The remote scanner has successfully connected to the device.
-    
-** 'BluetoothDisconnected'**
+
+**'BluetoothDisconnected'**
+
 The remote scanner has become disconnected from the device, this may be due to loss of battery, being out
 of range or scanning the 'unpairing' barcode. The scanner will attempt to reconnect automatically for
 a period of time once it regains power or goes out of range, if it fails to reconnect after the specified
 timeout the reconnect button on the device should be pushed. Once the unpairing barcode is scanned
 it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
                 
-                
 
 ###Viewfinder Position Parameters
 
-                    
 On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
-                    
                 
 
 ###Scanning and Camera Interaction
-
-                    
-In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
-                    
-                
+In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa.
 
 ###Get Scanner Properties
-
-                    
-On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In WM/CE, some of the scanner properties are not exposed to set but can be retrieved. In Android, only supported scanner properties can be retrieved in "getAllProperties" method.
-                    
-                
-
-###DataWedge Interaction With Native Apps
-
-                    
-In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
-
-**Disabling Datawedge**
-
-1. Start the DataWedge app
-2. Click the menu button > "Settings" and untick "DataWedge enabled". 
-
-**RhoElements Datawedge Profile**
-
-1. Install your RhoElements native app,
-2. Start the DataWedge app
-3. Click the menu button > "New Profile" and enter a name,
-4. Click on the link to the new profile in the profile list,
-5. Click on "Associated apps" in the "Applications" section,
-6. Click the menu button > "New app/activity",
-7. Select the package name for your app,
-8. Select "*",
-9. Click the "Back" capacitive button,
-10. Make sure the "Profile enabled" checkbox is ticked.
-11. Uncheck all three "Enabled" checkboxes under the sections of:
-    "Barcode input", "Keystroke output" and "Intent output".
-                    
-                
+On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. On WM/CE, some of the scanner properties are not exposed to set but can be retrieved. On Android, only supported scanner properties can be retrieved in "getAllProperties" method.

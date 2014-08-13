@@ -29,14 +29,32 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
-
         </MORE_HELP>
+
         <MORE_HELP_EB>
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+There are two methods of enabling the Barcode API: include all ebapi modules or include only the API modules you need. For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
 
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the ebapi.js in your HTML as well as the API file you want to use. For instance, to use the Barcode API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.barcode.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
         </MORE_HELP_EB>
-    
+
         <TEMPLATES>
             <!-- <SINGLETON_INSTANCES/>    produce enumerate() fabric method, all instances is singletons by ID, add ID property -->
             <DEFAULT_INSTANCE/> <!-- object has default static property, all methods can be call by static way (called from default instance), produce default(), set_default() methods -->
@@ -90,7 +108,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.</DESC>
+                <DESC>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.</DESC>
             </PROPERTY>
             <PROPERTY name="rasterMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -149,7 +167,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
-                <DESC>Duration in milliseconds for aimType:timedHold and aimType:timedRelease.</DESC>
+                <DESC>Aim duration in milliseconds for aimType:timedHold and aimType:timedRelease.</DESC>
             </PROPERTY>
             <PROPERTY name="sameSymbolTimeout" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -388,7 +406,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                     <VALUE constName="FORMAT_TEXT" value="text">
                         <DESC>Scanned data will be returned in Text format.</DESC>
                     </VALUE>
-                </VALUES>            
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="dataBufferSize" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>2.1.0</VER_INTRODUCED>
@@ -633,7 +651,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                     <VALUE constName="CODE128ISBT_AUTO" value="auto">
                         <DESC>Auto-Discriminate.</DESC>
                     </VALUE>
-                </VALUES>  
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="code128maxLength" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1421,7 +1439,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <APPLIES msiOnly="true">Not all scanning engines support all symbologies or all symbology properties</APPLIES>
                 <DESC>If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jelly Bean).</DESC>
             </PROPERTY>
-            
+
             <!--  RSM Properties  -->
             <PROPERTY name="rsmModelNumber" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1711,26 +1729,28 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                     </PARAMS>
                 </CALLBACK>
             </METHOD>
-    
+
             <METHOD name="start" hasCallback="none">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
                 <DESC>Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.</DESC>
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
+
             <METHOD name="stop" hasCallback="none">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
                 <DESC>Performs a soft trigger stop.</DESC>
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
+
             <METHOD name="disable" hasCallback="none">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
                 <DESC>Disables the barcode scanner. This reverts the scanner to its default state and flushes any current decoder settings.</DESC>
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
-            
+
             <METHOD name="barcode_recognize" hasCallback="none" deprecated="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>iOS,Android</PLATFORM>
@@ -1744,8 +1764,8 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                 <RETURN type="STRING">
                     <DESC>String with recognized code, or empty string if the barcode is not recognized.</DESC>
                 </RETURN>
-            </METHOD>    
-            
+            </METHOD>
+
             <METHOD name="getSupportedProperties" hasCallback="optional">
                 <DESC>Return array of properties supported by this scanner.</DESC>
                 <RETURN type="ARRAY">
@@ -1753,10 +1773,11 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                     <PARAM type="STRING"/>
                 </RETURN>
             </METHOD>
-            
+
             <METHOD name="take" hasCallback="mandatory">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC>
+                <DESC_EB>Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC_EB>
                 <PLATFORM>WM, Android, iOS</PLATFORM>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -1775,18 +1796,18 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                             <DESC>Whether or not the barcode was successfully scanned, status will be 'ok' or 'cancel'</DESC>
                         </PARAM>
                     </PARAMS>
-                </CALLBACK>    
+                </CALLBACK>
             </METHOD>
-            
+
             <METHOD name="take_barcode"  deprecated="true" productException="eb">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
                 <PLATFORM>iOS</PLATFORM>
-                <DESC>deprecated old method for taking barcode.</DESC>
+                <DESC>Deprecated old method for Barcode.take().</DESC>
                 <PARAMS>
                     <PARAM name="rubyCallbackURL" type="STRING">
                         <DESC>Ruby callback URL.</DESC>
-                    </PARAM>    
+                    </PARAM>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
                         <CAN_BE_NIL>
@@ -1815,54 +1836,46 @@ In order to use this API you must TBD INSERT Eb specific instructions here
         <REMARKS>
             <REMARK title="Bluetooth Scanner Overview">
                 <DESC>
-                    <![CDATA[
 Once associated with the Device a Bluetooth Scanner will remain associated even after losing the BT connection. In order to associate a different Bluetooth scanner with the device it is necessary to scan the 'unpairing' barcode and then invoke the 'disabled' method followed by the 'enabled' method, this will allow you to scan the BT association barcode with a different scanner. You can override this default behavior using the disconnectBtOnDisable property.
 
 The following messages will be received from the Bluetooth Scanner in the bluetoothStatus event:
 
-**'BTScanAssociationBarcode'** 
+**'BTScanAssociationBarcode'**
+
 Means the device is ready to be associated with a BT scanner. You must scan the 
 association barcode. It is only necessary to scan the association 
 barcode when you first associate a scanner with the device, this pairing will be remembered until
 you scan the unpairing barcode.
 
-** 'BluetoothConnected'**
+**'BluetoothConnected'**
+
 The remote scanner has successfully connected to the device.
-    
-** 'BluetoothDisconnected'**
+
+**'BluetoothDisconnected'**
+
 The remote scanner has become disconnected from the device, this may be due to loss of battery, being out
 of range or scanning the 'unpairing' barcode. The scanner will attempt to reconnect automatically for
 a period of time once it regains power or goes out of range, if it fails to reconnect after the specified
 timeout the reconnect button on the device should be pushed. Once the unpairing barcode is scanned
 it is necessary to disable the scanner and then re-enable it before another scanner can be associated.
-                ]]>
                 </DESC>
             </REMARK>
             <REMARK title="Viewfinder Position Parameters">
                 <DESC>
-                    <![CDATA[
 On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
-                    ]]>
                 </DESC>
             </REMARK>
+
             <REMARK title="Scanning and Camera Interaction">
-                <DESC>
-                    <![CDATA[
-In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa. 
-                    ]]>
-                </DESC>
+                <DESC>In some device configurations the scanner and camera share the same hardware. Where two modules share the same physical hardware they cannot be enabled simultaneously, in this circumstance once the scanner is enabled it must be disabled before the camera can be used, and vice versa.</DESC>
             </REMARK>
-        <REMARK title="Get Scanner Properties">
-                <DESC>
-                    <![CDATA[
-On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. In WM/CE, some of the scanner properties are not exposed to set but can be retrieved. In Android, only supported scanner properties can be retrieved in "getAllProperties" method.
-                    ]]>
-                </DESC>
+
+            <REMARK title="Get Scanner Properties">
+                <DESC>On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. On WM/CE, some of the scanner properties are not exposed to set but can be retrieved. On Android, only supported scanner properties can be retrieved in "getAllProperties" method.</DESC>
             </REMARK>
-            <REMARK title="DataWedge Interaction With Native Apps">
-                <DESC>
-                    <![CDATA[
-In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
+
+            <REMARK title="DataWedge Interaction With Native Apps" productException="eb">
+                <DESC>In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
 
 **Disabling Datawedge**
 
@@ -1883,7 +1896,6 @@ In order to use the scanner with RhoElements Native Apps you will need to either
 10. Make sure the "Profile enabled" checkbox is ticked.
 11. Uncheck all three "Enabled" checkboxes under the sections of:
     "Barcode input", "Keystroke output" and "Intent output".
-                    ]]>
                 </DESC>
             </REMARK>
         </REMARKS>
@@ -2148,7 +2160,7 @@ Rho.Barcode.take({}, scan_received_callback);
                </CODE>
                </SECTION>
                </SECTIONS>
-           </EXAMPLE>
-       </EXAMPLES>
+            </EXAMPLE>
+        </EXAMPLES>
     </MODULE>
 </API>

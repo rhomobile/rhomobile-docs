@@ -4,8 +4,26 @@
 ## Overview
 The Battery API is used to notify the user of the remaining power in the battery. Windows Mobile / CE devices also support displaying a small indicator to show the available power.
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+There are two methods of enabling the Battery API: include all ebapi modules or include only the API modules you need. For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
 
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the ebapi.js in your HTML as well as the API file you want to use. For instance, to use the Battery API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.battery.js"></script>
+
+The ebapi.js file is necessary for all single API inclusions.
         
 
 
@@ -17,7 +35,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 Retrieve the current battery level. If a callback is provided to retrieve the battery then it will be called periodically at a frequency determined by the trigger property.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with accessing the battery status. </p></li><ul><li>trigger : <span class='text-info'>STRING</span><span class='label '> Default: Platform Dependant</span><p>What will cause the batteryStatus callback to fire. It is recommended to use system events to conserve battery life. Please note, that iOS devices have no system triggers and will provide updates only with a specified period (Trigger value will be ignored)  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Battery.BATTERY_TRIGGER_PERIODIC <br/> String:periodic</dt><dd>The batteryStatus callback will fire periodically at the specified refresh interval. This is the default setting on Windows Mobile / CE / Embedded but those platforms do also support the system trigger. Not supported on Android.</dd><dt>Constant: Battery.BATTERY_TRIGGER_SYSTEM <br/> String:system</dt><dd>The batteryStatus callback will fire when the underlying operating system notifies that there has been a change to the battery level. The resolution of this change will vary depending on operating system, for example on WP8 you are notified every percentage value change but on Windows Mobile the notifications only occur when 'critical', 'full' etc.</dd></dl></li><li>refreshInterval : <span class='text-info'>INTEGER</span><p>Alternative way of specifying the refreshInterval parameter. If you are using a system trigger then this parameter will be ignored. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with accessing the battery status. </p></li><ul><li>trigger : <span class='text-info'>STRING</span><span class='label '> Default: Platform Dependant</span><p>What will cause the batteryStatus callback to fire. It is recommended to use system events to conserve battery life. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Battery.BATTERY_TRIGGER_PERIODIC <br/> String:periodic</dt><dd>The batteryStatus callback will fire periodically at the specified refresh interval. This is the default setting on Windows Mobile / CE / Embedded but those platforms do also support the system trigger. Not supported on Android.</dd><dt>Constant: Battery.BATTERY_TRIGGER_SYSTEM <br/> String:system</dt><dd>The batteryStatus callback will fire when the underlying operating system notifies that there has been a change to the battery level. The resolution of this change will vary depending on operating system, for example on WP8 you are notified every percentage value change but on Windows Mobile the notifications only occur when 'critical', 'full' etc.</dd></dl></li><li>refreshInterval : <span class='text-info'>INTEGER</span><p>Alternative way of specifying the refreshInterval parameter. If you are using a system trigger then this parameter will be ignored. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>acLineStatus : <span class='text-info'>BOOLEAN</span><p>Whether or not the device is connected to external power. </p></li><li>batteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining battery power as a value between 0 and 100. </p></li><li>backupBatteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining backup battery power as a percentage between 0 and 100. Only supported on Motorola Windows Mobile / CE / Embedded devices. Platforms:
@@ -168,8 +186,6 @@ A callback to retrieve the battery strength can be specified to occur periodical
 
 
 ###Icon Layout
-
-                    
 Windows Mobile / CE and Handheld devices support the display of a small battery icon, this section explains the layout parameter which can be provided to showIcon(...).
 
 Layout:Left
@@ -187,19 +203,9 @@ Layout:Up
 Layout:Down
 -----------
 ![Down Layout Battery Indicator](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGIAAACOCAIAAABFQUqgAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sIBQotLKzmTmUAAAF9SURBVHja7d3hkUNQFIDR2EkBOqAEHVyl6EQLSkgpdKAEOtCBbcGwrCfn+51InMmTEXMji4iXJEmSJCnJsi0PKoqiLMtH7v80TfM8/8222rZdH1rbtlsEfiwoTJgw3bD3vqd9Pp9pmpLb27Ism6a5lGkYhuSYImIfk0WHCRMmTJgwCRMmTJgwYcIkTJgwXd7OXy+7rluWJbm9zfP8Uqaqqiw6YcKEKU2muq6zBKvr2qfJosOECRMmYcKECRMmTJiECRMmTIn0XRegdr/t/ZczLTphwoQpzW86Y4dbmYwdChMmTJgwYcIkTJgwYcKECZMwYTozY4dnMhk7FCZMmDBhwoRJmDBhwoQJEyZhwoQJEyZMmIQJEyZMmDB9Y5vu6xsRu/9Y83Vg2G9LBwcg+76/y2BgRJx3Y96IsOgcmzBhwiRMmDBhwvTA3he8xrIsfd+ft/ErnJI4pfr3k0qLzrEJEyZMmDAJEyZMmG5Ztq7rkeeP43j/Sfs8zw+Ouv8CFfQAjSZxPXkAAAAASUVORK5CYII= "Battery Indicator")
-                
-                
 
 ###Overlapping Indicators
-
-                    
-The position of the signal and battery indicators should not be set to overlap
-                
-                
+The position of the signal and battery indicators should not be set to overlap.
 
 ###Screen Orientation
-
-                    
 The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.
-                
-                
