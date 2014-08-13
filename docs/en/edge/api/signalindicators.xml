@@ -25,22 +25,41 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
+
         <MORE_HELP_EB>
 ## Enabling the API
-In order to use this API you must TBD INSERT Eb specific instructions here
+There are two methods of enabling the SignalIndicators API: include all ebapi modules or include only the API modules you need. For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
 
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the ebapi.js in your HTML as well as the API file you want to use. For instance, to use the SignalIndicators API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.signalindicators.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
         </MORE_HELP_EB>
 
         <!--  DEVELOPER NOTE: On WM/CE RE1 only ever implemented a periodic notification for WLAN signal strength, no API was available to retrieve it on change.  For Android / iOS you may wish to consider only updating the signal strength on change, in which case take a look at the Battery API which offers periodic and onChange notifications... it is recommended to use onChange notifications to save battery -->
 
         <TEMPLATES>
         </TEMPLATES>
-    
+
         <PROPERTIES access="STATIC">
             <PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
                 <PLATFORM>iOS, WM</PLATFORM>
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>A callback to retrieve the signal strength can be specified to occur periodically with the wlanStatus method.  This value specifies the periodicity of the callback as well as the update frequency of the indicator icon, if shown. On Android this value is not used as the signal icon will be updated as soon as the signal strength changes.</DESC>
+                <DESC>A callback to retrieve the signal strength can be specified to occur periodically with the wlanStatus method. This value specifies the periodicity of the callback as well as the update frequency of the indicator icon, if shown. On Android this value is not used as the signal icon will be updated as soon as the signal strength changes.</DESC>
             </PROPERTY>
         </PROPERTIES>
 
@@ -48,7 +67,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
             <METHOD name="wlanStatus" hasCallback="optional">
                 <PLATFORM>iOS, WM, Android</PLATFORM>
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Retrieve the current signal status.  If a callback is provided to retrieve the signal then it will be called periodically at the specified refreshInterval. On Android, instead of being called periodically, the callback will be called when one of the below values changes.</DESC>
+                <DESC>Retrieve the current signal status. If a callback is provided to retrieve the signal then it will be called periodically at the specified refreshInterval. On Android, instead of being called periodically, the callback will be called when one of the below values changes.</DESC>
                 <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="signalStrength" type="INTEGER">
@@ -66,11 +85,13 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                         </PARAM>
                         <PARAM name="dhcpServer" type="STRING">
                             <PLATFORM>WM, Android</PLATFORM>
-                            <DESC>The current DHCP server's address.  Always populated on Android, even on static IP configurations. Not supported on iOS </DESC>
+                            <DESC>The current DHCP server's address. Always populated on Android, even on static IP configurations. Not supported on iOS </DESC>
+                            <DESC_EB>The current DHCP server's address. Always populated on Android, even on static IP configurations.</DESC_EB>
                         </PARAM>
                         <PARAM name="dhcpStatic" type="STRING">
                             <PLATFORM>WM</PLATFORM>
-                            <DESC>Whether the unit hsa a static or DHCP address.  Not available on Android and iOS.</DESC>
+                            <DESC>Whether the unit has a static or DHCP address. Not available on Android and iOS.</DESC>
+                            <DESC_EB>Whether the unit has a static or DHCP address. Not available on Android.</DESC_EB>
                         </PARAM>
                         <PARAM name="gateway" type="STRING">
                             <DESC>The current gateway IP address</DESC>
@@ -81,13 +102,15 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                         <PARAM name="rssi" type="STRING">
                             <PLATFORM>WM, Android</PLATFORM>
                             <DESC>Signal strength in RSSI terms. Not supported on iOS.</DESC>
+                            <DESC_EB>Signal strength in RSSI terms.</DESC_EB>
                         </PARAM>
                         <PARAM name="subnetMask" type="STRING">
                             <DESC>The current subnet mask</DESC>
                         </PARAM>
                         <PARAM name="wins" type="STRING">
                             <PLATFORM>WM</PLATFORM>
-                            <DESC>The current WINs server IP address.  Not available on Android and iOS.</DESC>
+                            <DESC>The current WINs server IP address. Not available on Android and iOS.</DESC>
+                            <DESC_EB>The current WINs server IP address. Not available on Android</DESC_EB>
                         </PARAM>
                     </PARAMS>
                 </RETURN>
@@ -102,17 +125,17 @@ In order to use this API you must TBD INSERT Eb specific instructions here
             <METHOD name="showIcon" hasCallback="none" runInThread="ui">
                 <PLATFORM>WM, Android</PLATFORM>
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Overlays a small signal icon on top of the view indicating the remaining signal strength.  This is particularly useful in full screen applications which cover the system signal level indicator.</DESC>
+                <DESC>Overlays a small signal icon on top of the view indicating the remaining signal strength. This is particularly useful in full screen applications which cover the system signal level indicator.</DESC>
                 <APPLIES msiOnly="true">All platforms support wlanStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>The properties associated with the indicator, its position and colour.</DESC>
                         <PARAMS>
                             <PARAM name="left" type="INTEGER" default="[Top right of the screen]">
-                                <DESC>The absolute horizontal position of the indicator in pixels.  This value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen.</DESC>
+                                <DESC>The absolute horizontal position of the indicator in pixels. This value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen.</DESC>
                             </PARAM>
                             <PARAM name="top" type="INTEGER" default="[Top right of the screen]">
-                                <DESC>The absolute vertical position of the indicator in pixels.  Positive numbers go towards the bottom of the screen.  The value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen.</DESC>
+                                <DESC>The absolute vertical position of the indicator in pixels. Positive numbers push the icon towards the bottom of the screen. The value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen.</DESC>
                             </PARAM>
                             <PARAM name="layout" type="STRING" default="[Right]">
                                 <DESC>Sets the orientation of the icon, see the remarks section for illustrations.</DESC>
@@ -132,7 +155,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
                                 </VALUES>
                             </PARAM>
                             <PARAM name="color" type="STRING" default="#000000">
-                                <DESC>The color of the icon.  This value must be specified as a Hex value in the format #000000 to #FFFFFF.  Alpha values are not supported, i.e. you can only use the component parts RRGGBB.</DESC>
+                                <DESC>The color of the icon. This value must be specified as a Hex value in the format #000000 to #FFFFFF. Alpha values are not supported, i.e. you can only use the component parts RRGGBB.</DESC>
                             </PARAM>
                         </PARAMS>
                     </PARAM>
@@ -247,8 +270,7 @@ In order to use this API you must TBD INSERT Eb specific instructions here
 
         <REMARKS>
             <REMARK title="Icon Layout">
-                <DESC><![CDATA[
-Windows Mobile / CE and Handheld devices support the display of a small signal icon, this section explains the layout parameter which can be provided to showIcon(...).
+                <DESC>Windows Mobile / CE and Handheld devices support the display of a small signal icon, this section explains the layout parameter which can be provided to showIcon(...).
 
 Layout:Left
 -----------
@@ -264,9 +286,7 @@ Layout:Up
 
 Layout:Down
 -----------
-![Down Layout Signal Indicator](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAACOCAIAAACqgyGeAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sIBQsED0sFyssAAAOESURBVHja7Z3RcYJAEIaXDM8ZSqCCDB2AHeQ60BKoIEkF2oElkFQgSQWWYAmMDVweIChE5DgW4e7+fxgf1DDyze7e7t4GPBnHxKXdjqKIJtLHB82o9dqTjKc7HChJpvqtnjcnqTx/IkhNIAVSIAVSIAVSIAWBFEiB1KMUBCRE77d8dwFFEa1W1WsQUJaBVNN8SjpCUBgO+lPfIfNJElqttM/hW24+SUJCUBCMP59vp/kIwd5T9C0xHyEq59Iwn+ORDgerSdWhR8N8Sjrla1HYblNfX1PTcWntG0enSYpxb4ZjiWHQ6URZxkKnSSrPbbOjMLzkTXywPCmlGdf/fxfrfFZ1wCyrfFBbeW4yqTJpUl/7iqLitd8PNjSzSY1Jx4dGektI3ekQqKgM/9utY6S03fP52WFSg9yzn9Qslx3Hg7MTlgmOKKLNhjYbDVIO9KdKg3p91ayf7a9mxtTP9pMKw0sUVzSfOsmyn1TdGh9kPsMTd5NJpWm1d4CuS49UJj9L5/r85Oi62Kc69IysipvCHrJ618XczFOl68JlX2bn6Ir9qWtqWUZ5rhOzzCY1Zu9Tp+tiR91X51PqSUOL2tubYxWyXiLqei9hUFfP6V7C8XhZ70YXzI71p6h7iKHPpkjSHEccy6Ga4mdEkUxT+fMjz+eeb7pOqj6CoJcUqpm/pBR1H5cMn5/SVj1alqaN97t3/Tx5PzedSGFI6/Wj676b2VPrJF0roNn7fY8lhTiFTh5IYe0bEWvG6OXFAVIsOp2USb2/L/pKNPKJiSQXfiTJI+q+3gNZAtY+rH1cOfrwlRQ2Be8DKZBCRJ9OCv/o2ej27fftT28OEXfIW3p3KkkqInq7WNfr4//V7f6n10LmiTgFUiAFUiAFUhBIgRSqGR4pbyg4T0p5k8p5UnwcfTJlgmNu30REd8H7Hj1phvmpm++3hP4U4hRIzRnRp3tCDIuiiHa7ZZD6/jYskPdG32mST0yaqSafiFOI6CAFUiAFUiAFgRRIgRRIgZTdMqdCnruLDZtS1eInYoOA4Sav2+34kyze+4qC4UkTHI9ygPeBFEjNlyUwPplnycsCw9rn8qwLvA+kQAqkQMrNLMG+p9JNVGlKHGp30IT3IU6B1DJISenooXCrTtgUvA+kQAqkQAqkIJACKZACKZACKYioPevC9UQl2BRIQSDFGadU7h/qlDoGY34BQ9/qdocP8aYAAAAASUVORK5CYII= "Signal Indicator")
-                ]]>
-                </DESC>
+![Down Layout Signal Indicator](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAACOCAIAAACqgyGeAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sIBQsED0sFyssAAAOESURBVHja7Z3RcYJAEIaXDM8ZSqCCDB2AHeQ60BKoIEkF2oElkFQgSQWWYAmMDVweIChE5DgW4e7+fxgf1DDyze7e7t4GPBnHxKXdjqKIJtLHB82o9dqTjKc7HChJpvqtnjcnqTx/IkhNIAVSIAVSIAVSIAWBFEiB1KMUBCRE77d8dwFFEa1W1WsQUJaBVNN8SjpCUBgO+lPfIfNJElqttM/hW24+SUJCUBCMP59vp/kIwd5T9C0xHyEq59Iwn+ORDgerSdWhR8N8Sjrla1HYblNfX1PTcWntG0enSYpxb4ZjiWHQ6URZxkKnSSrPbbOjMLzkTXywPCmlGdf/fxfrfFZ1wCyrfFBbeW4yqTJpUl/7iqLitd8PNjSzSY1Jx4dGektI3ekQqKgM/9utY6S03fP52WFSg9yzn9Qslx3Hg7MTlgmOKKLNhjYbDVIO9KdKg3p91ayf7a9mxtTP9pMKw0sUVzSfOsmyn1TdGh9kPsMTd5NJpWm1d4CuS49UJj9L5/r85Oi62Kc69IysipvCHrJ618XczFOl68JlX2bn6Ir9qWtqWUZ5rhOzzCY1Zu9Tp+tiR91X51PqSUOL2tubYxWyXiLqei9hUFfP6V7C8XhZ70YXzI71p6h7iKHPpkjSHEccy6Ga4mdEkUxT+fMjz+eeb7pOqj6CoJcUqpm/pBR1H5cMn5/SVj1alqaN97t3/Tx5PzedSGFI6/Wj676b2VPrJF0roNn7fY8lhTiFTh5IYe0bEWvG6OXFAVIsOp2USb2/L/pKNPKJiSQXfiTJI+q+3gNZAtY+rH1cOfrwlRQ2Be8DKZBCRJ9OCv/o2ej27fftT28OEXfIW3p3KkkqInq7WNfr4//V7f6n10LmiTgFUiAFUiAFUhBIgRSqGR4pbyg4T0p5k8p5UnwcfTJlgmNu30REd8H7Hj1phvmpm++3hP4U4hRIzRnRp3tCDIuiiHa7ZZD6/jYskPdG32mST0yaqSafiFOI6CAFUiAFUiAFgRRIgRRIgZTdMqdCnruLDZtS1eInYoOA4Sav2+34kyze+4qC4UkTHI9ygPeBFEjNlyUwPplnycsCw9rn8qwLvA+kQAqkQMrNLMG+p9JNVGlKHGp30IT3IU6B1DJISenooXCrTtgUvA+kQAqkQAqkIJACKZACKZACKYioPevC9UQl2BRIQSDFGadU7h/qlDoGY34BQ9/qdocP8aYAAAAASUVORK5CYII= "Signal Indicator")</DESC>
             </REMARK>
 
             <REMARK title="Overlapping Indicators">
