@@ -25,26 +25,20 @@ Every package provides the following components:
 In addition, RPM package provides latest sqlite3 headers and binaries, because standard Cent OS (5.x) libraries for sqlite3 outdated.
 
 ### Getting the Packages
-
-To download the RhoConnect debian package, you first must add our repo to your list of sources.
-
 #### Steps for Debian-Based Linux Users
-Add the following line to the end of your <b>/etc/apt/sources.list</b>:
-
-    :::text
-    deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
-
-**NOTE: If you want to get the package with cool new features from the Beta repository, then define repo url as `http://rhoconnect.s3.amazonaws.com/beta-packages/deb`**
-
-Once the repo is added apt-get needs to be updated:
+Simply use the `wget` command to download the 4.0 debian package as follows:
 
     :::term
-    $ sudo apt-get update
+    sudo wget https://s3.amazonaws.com/rhoconnect/packages/deb/rhoconnect_4.1.0_all.deb
+
+You will download the file `rhoconnect_4.0.4_all.deb`.
 
 Once that is done, it is time to install RhoConnect:
 
     :::term
-    $ sudo apt-get install rhoconnect
+    $ sudo dpkg --install rhoconnect_4.0.4_all.deb
+
+If the installation fails, you may need to update your apt-get using `sudo apt-get update` and you may also have to force the installation of dependencies using `sudo apt-get install -f`. Any further issues with the installation need to be resolved by the user.
 
 #### Steps for RedHat-Based Linux Users
 Prerequisites: target Linux server should include CentOS Development tools.
