@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-  <MODULE name="Record" parent="Rho.NFC">
+  <MODULE name="Record" parent="Rho.NFC" productException='eb'>
     <HELP_OVERVIEW>NFC Record</HELP_OVERVIEW>
     <MORE_HELP>This class representative Record object
 # Enabling the API
