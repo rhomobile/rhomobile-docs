@@ -61,7 +61,7 @@ Rho.Intent.send(params);
 <ul>
 <li>iOS it is BundleURLScheme of executed application.</li>
 <li>Android it is application package name.</li>
-<li>Windows it is the executable name.</li>
+<li>Windows it is the application/executable name. For shared runtime based applications, the application name is taken from the &ldquo;Name&rdquo; attribute from the Config.xml file. Hence use the application name which is mentioned in config.xml.</li>
 </ul>
 
  </p></li><li>targetClass : <span class='text-info'>STRING</span><p><p>Explicit name of the class in the application which will receive the intent. Must be specified if and only if &lsquo;appName&rsquo; is defined.</p>

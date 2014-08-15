@@ -88,8 +88,7 @@ app_type: "rhoelements"
 <h2><i class='icon-edit'></i>Examples</h2>
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Retrieve the Battery status</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
-<pre><code>                Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows
-</code></pre>
+<p>Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
             
@@ -107,8 +106,7 @@ app_type: "rhoelements"
   end
                     
                     </code></pre></div></div>
-<pre><code>                Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback
-</code></pre>
+<p>Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback</p>
 <ul class='nav nav-tabs' id='exI0-S1Tab'><li class='active'><a href='#exI0-S1JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S1JS'><pre class='CodeRay'><code>:::javascript
 
             
@@ -187,7 +185,7 @@ app_type: "rhoelements"
 <h2>Layout:Down</h2>
 
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGIAAACOCAIAAABFQUqgAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sIBQotLKzmTmUAAAF9SURBVHja7d3hkUNQFIDR2EkBOqAEHVyl6EQLSkgpdKAEOtCBbcGwrCfn+51InMmTEXMji4iXJEmSJCnJsi0PKoqiLMtH7v80TfM8/8222rZdH1rbtlsEfiwoTJgw3bD3vqd9Pp9pmpLb27Ism6a5lGkYhuSYImIfk0WHCRMmTJgwCRMmTJgwYcIkTJgwXd7OXy+7rluWJbm9zfP8Uqaqqiw6YcKEKU2muq6zBKvr2qfJosOECRMmYcKECRMmTJiECRMmTIn0XRegdr/t/ZczLTphwoQpzW86Y4dbmYwdChMmTJgwYcIkTJgwYcKECZMwYTozY4dnMhk7FCZMmDBhwoRJmDBhwoQJEyZhwoQJEyZMmIQJEyZMmDB9Y5vu6xsRu/9Y83Vg2G9LBwcg+76/y2BgRJx3Y96IsOgcmzBhwiRMmDBhwvTA3he8xrIsfd+ft/ErnJI4pfr3k0qLzrEJEyZMmDAJEyZMmG5Ztq7rkeeP43j/Sfs8zw+Ouv8CFfQAjSZxPXkAAAAASUVORK5CYII=" title="Battery Indicator" alt="Down Layout Battery Indicator" /></p>
-  </div></div></div></div><a name='r1'></a><div class=' remarks' id='r1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark1"><strong>Overlapping Indicators</strong></div><div id="cRemark1" class="accordion-body">  <div class="accordion-inner"><p>The position of the signal and battery indicators should not be set to overlap</p>
+  </div></div></div></div><a name='r1'></a><div class=' remarks' id='r1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark1"><strong>Overlapping Indicators</strong></div><div id="cRemark1" class="accordion-body">  <div class="accordion-inner"><p>The position of the signal and battery indicators should not be set to overlap.</p>
   </div></div></div></div><a name='r2'></a><div class=' remarks' id='r2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark2"><strong>Screen Orientation</strong></div><div id="cRemark2" class="accordion-body">  <div class="accordion-inner"><p>The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.</p>
   </div></div></div></div>
 <a name='License'></a>
