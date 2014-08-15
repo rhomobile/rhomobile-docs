@@ -1,8 +1,7 @@
-#RhoConnectClient
-
-
+# RhoConnectClient
 ## Overview
 RhoConnectClient is used for synchronization with RhoConnect applications.
+
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
@@ -13,429 +12,390 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
-        
 
-
-##Methods
-
-
-
+## Methods
 ### addObjectNotify(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> object)
 Add the object notification by passing in an object ID.
 
-####Parameters
+#### Parameters
 <ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name for object notification. </p></li><li>object : <span class='text-info'>STRING</span><p>Object ID to get notifications. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.addObjectNotify(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> object)</code> 
 
-
 ### cleanObjectNotify()
 Removes callback for object notifications.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.cleanObjectNotify()</code> 
 
-
 ### clearNotification(<span class="text-info">STRING</span> sourceName)
 Clears the sync notification for a given source.
 
-####Parameters
+#### Parameters
 <ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name to clear notification. Use '*' to clear notification for all models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.clearNotification(<span class="text-info">STRING</span> sourceName)</code> 
 
-
 ### doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)
 Start the RhoConnectClient sync process.
 
-####Parameters
+#### Parameters
 <ul><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Set to true to show status popup. </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters to be passed to server. </p></li><li>syncOnlyChangedSources : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Sync only sources that have local changes. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
+#### Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * STRING
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)</code> 
 
-
 ### doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)
 Start RhoConnectClient sync process for a given source name.
 
-####Parameters
+#### Parameters
 <ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name. </p></li><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Set to true to show status popup. </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters to be passed to server. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
+#### Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * STRING
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)</code> 
 
-
 ### isLoggedIn()
 Returns true if the RhoConnectClient currently has a user session, false if not.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
+#### Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * BOOLEAN : True if have logged in user session, false if not.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.isLoggedIn()</code> 
 
-
 ### isSyncing()
 Returns true if sync is currently in progress.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
+#### Callback
 Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * BOOLEAN : True if sync has started but not finished yet, false otherwise.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.isSyncing()</code> 
 
-
 ### login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)
 Authenticates the user with RhoConnect. The callback will be executed when it is finished.
 
-####Parameters
+#### Parameters
 <ul><li>login : <span class='text-info'>STRING</span><p>Login name. </p></li><li>password : <span class='text-info'>STRING</span><p>Password. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
+#### Callback
 Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * INTEGER
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)</code> 
 
-
 ### logout()
 Logout the user from the RhoConnect server. This removes the local user session.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.logout()</code> 
 
-
 ### setNotification(<span class="text-info">STRING</span> sourceName)
 The RhoConnectClient system uses notifications to provide information about the sync process to a Rhodes application. Notifications can be setup once for the duration of runtime or each time a sync is triggered. Once a sync is processing for a model, notifications are called with parameters containing sync process state. Your application can use this information to display different wait pages, progress bars, etc. setNotification will set notification for a model.
 
-####Parameters
+#### Parameters
 <ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name for which notification will be enabled. Use '*' to set notification for all models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.setNotification(<span class="text-info">STRING</span> sourceName)</code> 
 
-
 ### setObjectNotification()
 The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or time-lines in your application and want them to update without the user taking any action.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
+#### Callback
 Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>created : <span class='text-info'>ARRAY</span><p>Array of created objects. </p></li><li>updated : <span class='text-info'>ARRAY</span><p>Array of updated objects. </p></li><li>deleted : <span class='text-info'>ARRAY</span><p>Array of deleted objects. </p></li></ul></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.setObjectNotification()</code> 
 
-
 ### stopSync()
 Stops any sync operations currently in progress. NOTE: There is a high potential of database corruption if this method is used during a sync. Do not do this unless you are planning on resetting your DB afterward.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-####Method Access:
+#### Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.RhoConnectClient.stopSync()</code> 
 
-
-##Properties
-
-
-
-###pageSize
-
-####Type
+## Properties
+### pageSize
+#### Type
 <span class='text-info'>INTEGER</span> 
-####Description
-Page size for RhoConnectClient. Default size is 2000.
-####Access
 
+#### Description
+Page size for RhoConnectClient. Default size is 2000.
+
+#### Access
 
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.RhoConnectClient.pageSize</code>
 
-
-
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###pollInterval
+### pollInterval
+#### Type
+<span class='text-info'>INTEGER</span>
 
-####Type
-<span class='text-info'>INTEGER</span> 
-####Description
+#### Description
 Sync poll interval in seconds. Setting this to 0 will disable polling-based sync. Sync process will be triggered automatically according to this setting.
-####Params
+
+#### Params
 <p><strong>Default:</strong> 60</p>
-####Access
 
-
+#### Access
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.RhoConnectClient.pollInterval</code>
 
-
-
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###showStatusPopup
+### showStatusPopup
+#### Type
+<span class='text-info'>BOOLEAN</span>
 
-####Type
-<span class='text-info'>BOOLEAN</span> 
-####Description
+#### Description
 Enable or disable show status pop-up.
-####Params
+
+#### Params
 <p><strong>Default:</strong> true</p>
-####Access
 
-
+#### Access
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.RhoConnectClient.showStatusPopup</code>
 
-
-
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###sslVerifyPeer
+### sslVerifyPeer
+#### Type
+<span class='text-info'>BOOLEAN</span>
 
-####Type
-<span class='text-info'>BOOLEAN</span> 
-####Description
+#### Description
 Enable or disable verification of RhoConnect ssl certificates, true by default.
-####Params
+
+#### Params
 <p><strong>Default:</strong> true</p>
-####Access
 
-
+#### Access
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.RhoConnectClient.sslVerifyPeer</code>
 
-
-
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###syncServer
-
-####Type
+### syncServer
+#### Type
 <span class='text-info'>STRING</span> 
-####Description
+
+#### Description
 Sync server URL.
-####Access
 
-
+#### Access
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.RhoConnectClient.syncServer</code>
 
-
-
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###userName
-
-####Type
+### userName
+#### Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
-####Description
+
+#### Description
 Current username of the RhoConnectClient session if isLoggedIn is true, otherwise returns the last logged in username.
-####Access
 
-
+#### Access
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.RhoConnectClient.userName</code>
 
-
-
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-##Remarks
-
-
-
-###Notification Callback Parameters
-
+## Remarks
+### Notification Callback Parameters
 When the notification is called, it will receive a variable called @params, just like a normal Rhodes controller action.
 
 ## Common Parameters
-
 These parameters are included in all notifications.
 
 * source_id - The id of the current model that is synchronizing.
@@ -488,7 +448,7 @@ JavaScript Example:
     //=> "Error connecting to backend server: http://rhostore.herokuapp.com"
 
 #### Handling 'create-error'
-"create-error" is a unique situation that needs to be handled in your sync callback. See [`RhoConnectClient.on_sync_create_error()`](#mon_sync_create_error) for more details.
+"create-error" is a unique situation that needs to be handled in your sync callback. See [`RhoConnectClient.on_sync_create_error()`](# mon_sync_create_error) for more details.
 
 ### status: "complete"
 This status returns only when the sync run is complete (all partitions are done synchronizing).
@@ -496,11 +456,5 @@ This status returns only when the sync run is complete (all partitions are done 
 ### status: "schema-changed"
 This is present if a FixedSchema model has changed during the current sync run. A new bulk sync run should be triggered (by setting bulksyncState) and the user should be alerted in the UI.
 
-                
-
-###Backround Sync on iOS
-
-
+### Backround Sync on iOS
 On iOS, if the application is backgrounded, it will be suspended. This also means if a current sync is in progress, it will immediately terminate. To prevent this behavior, set 'finish_sync_in_background' to '1' in rhoconfig.txt. When set to '1', the RhoConnectClient will attempt to finish synchronization before the application fully suspends.
-
-                

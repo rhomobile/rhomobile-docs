@@ -56,14 +56,6 @@ var menuStrcture = [
 							{
 								name: 'Hello EB',
 								link: '#guide-tutorial-helloeb',
-							},
-							{
-								name: 'Tut 2',
-								link: '#',
-							},
-							{
-								name: 'Tut 3',
-								link: '#',
 							}
 						]
 					}
@@ -81,10 +73,6 @@ var menuStrcture = [
 							{
 								name: 'Config Reference',
 								link: '#guide-configreference',
-							},
-							{
-								name: 'App Branding',
-								link: '#guide-branding',
 							},
 							{
 								name: 'App Shortcuts',
