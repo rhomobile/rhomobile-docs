@@ -247,7 +247,7 @@ end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do
   topic 'en/5.0.0/rhoconnect/preparing-production',    'Preparing for Production'
-  topic 'en/5.0.0/rhoconnect/hosting-rhohub',          'Hosting on RhoHub'
+  # topic 'en/5.0.0/rhoconnect/hosting-rhohub',          'Hosting on RhoHub'
   topic 'en/5.0.0/rhoconnect/deploying',               'Deploying RhoConnect'
   topic 'en/5.0.0/rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end
