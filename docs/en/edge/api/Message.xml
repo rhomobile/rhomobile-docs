@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Message" parent="Rho.NFC">
+    <MODULE name="Message" parent="Rho.NFC" productException='eb'>
         <HELP_OVERVIEW>NFC Message</HELP_OVERVIEW>
         <MORE_HELP>This class representative NFC Message object
     # Enabling the API

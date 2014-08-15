@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-  <MODULE name="Tag" parent="Rho.NFC">
+  <MODULE name="Tag" parent="Rho.NFC" productException='eb'>
     <HELP_OVERVIEW>NFC Tag</HELP_OVERVIEW>
     <MORE_HELP>This class representative NFC Tag object
 # Enabling the API
