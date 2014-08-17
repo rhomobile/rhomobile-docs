@@ -1,5 +1,5 @@
 # Rhom Synchronization 
-TBD - Tweak this for EB and move any images to local imagees folder
+<!-- TBD - Tweak this for EB and move any images to local imagees folder -->
 
 As we've shown in the [Rhom section](../../2.2.0/rhodes/rhom), adding synchronized data via RhoConnect to your Rhodes application is as simple as generating a model and enabling a `:sync` flag.  This triggers the internal Rhodes sync system called the [**`RhoConnectClient`**](../api/RhoConnectClient) to synchronize data for the model and transparently handle bi-directional updates between the Rhodes application and the RhoConnect server.
 

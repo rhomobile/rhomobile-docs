@@ -1,5 +1,5 @@
 #Using Shortcuts
-TBD - This guide will tell how the customer how to use shortcuts to launch an application
+<!-- TBD - This guide will tell how the customer how to use shortcuts to launch an application -->
 
 ## Windows Mobile/CE
 
@@ -37,7 +37,7 @@ For example, this code in the .lnk file will change the startup page to be a loc
 	70#"\Program Files\Rhoelements\rhoelements.exe" /S:file://\helloscan.html
 
 ## Android Shortcuts
-TBD - Is this possible
+<!-- TBD - Is this possible -->
 
 ## Running Multiple Web Apps
 

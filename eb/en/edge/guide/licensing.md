@@ -8,17 +8,17 @@ When you've purchased your license(s), you will be sent an email with a username
 
 Click on the licensing tab followed by "Assign a License" section and you will see a list of products for which you have available licenses.
 
-> TBD Insert Screen shot
+<!-- > TBD Insert Screen shot -->
 
 Ensure you select the correct version for the Enterprise Browser runtime you have installed, then click on the "Assign License" link to the right.
 
-> TBD Insert Screen Shot
+<!-- > TBD Insert Screen Shot -->
 
 You will now be presented with the licensing form; this corresponds with the licensing wizard which appears after you have started the EnterpriseBrowser runtime. Enter these details from the device into the form provided.
 
 > Note: The Group By field is free text and can be used to sort licenses on the website.
 
-> TBD ScreenShot
+<!-- > TBD ScreenShot -->
 
 Once you have completed the form, hit submit and you will be presented with two barcodes which should be scanned into your device.  If you have a laser barcode scanner, you will need to print the license out and scan the license code in from that, alternatively, with an imager scanner you can scan the codes directly from the screen.
 
@@ -39,14 +39,14 @@ There are two types of device license, both of which are applied in the same way
 
 Once your device is licensed, a splash screen will be displayed briefly each time the application is run saying who EnterpriseBrowser has been licensed to.
 
-> TBD ScreenShot
+<!-- > TBD ScreenShot -->
 
 ## Applying a Device License via the Wizard
 Devices running Windows Mobile and Windows CE as well as Motorola Solutions Android devices present the user with a licensing Wizard to guide the user through licensing.
 
 The first page of the licensing wizard has a "Cancel" button. Clicking it allows you to evaluate the software. While you are evaluating the software, the functionality is not restricted.
 
-> TBD ScreenShot
+<!-- > TBD ScreenShot -->
 
 The licensing wizard assumes you have already obtained a license via the Motorola Solutions software licensing website. The wizard will guide you through applying your license. There are two options available.
 

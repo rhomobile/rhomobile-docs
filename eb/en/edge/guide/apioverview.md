@@ -1,5 +1,5 @@
 # API Overview
-> TBD Insert overview statement about our APIs and link to the API compatibility chart. This guide is more of a getting started abbreviated version of how to use the APIs. Need to get more detail from Paul on new ways to include APIs as separate JS files, etc.
+The Enterprise Browser exposes certain methods to the developer which can be used to interact with write code for the MEB. These methods are separated into APIs for each capability that can be manipulated and used with the MEB app. Below We'll describe how to use these APIs in your MEB app.
 
 ## Enabling the JavaScript API's
 Depending on whether your application is running from local html files on the device or if it is running from a remote web server will determine how to enable the Enterprise Browser APIs. Essentially, you need to ensure the proper JavaScript file is included in the proper location

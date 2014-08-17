@@ -1,5 +1,5 @@
 # Data Handling Using Rhom
-TBD - Tweak this doc for EB specific - came from http://docs.rhomobile.com/en/4.1.0/guide/local_database
+<!-- TBD - Tweak this doc for EB specific - came from http://docs.rhomobile.com/en/4.1.0/guide/local_database -->
 
 ## What is Rhom?
 

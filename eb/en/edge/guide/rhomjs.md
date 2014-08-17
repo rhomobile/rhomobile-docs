@@ -1,5 +1,5 @@
 # Using Rhom in JavaScript
-TBD - Tweak this for EB specific. Came from http://docs.rhomobile.com/en/4.1.0/guide/rhom_js
+<!-- TBD - Tweak this for EB specific. Came from http://docs.rhomobile.com/en/4.1.0/guide/rhom_js -->
 
 ## Creating a JavaScript Model
 

@@ -76,7 +76,7 @@ For Windows Mobile and Windows CE, you'll get a message asking if you would like
 NOTE: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper MEB operations.
 
 ## Licensing
-TBD - Sunil to get licensing info for MEB
+<!-- TBD - Sunil to get licensing info for MEB -->
 
 ### Applying Your License
 

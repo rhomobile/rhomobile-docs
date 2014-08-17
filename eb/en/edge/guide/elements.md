@@ -27,7 +27,7 @@ In RhoElements 2.x and PocketBrowser there was the ability to access functionali
 
 To use RhoElements or PocketBrowser JavaScript objects within Enterprise Browser, you must include the `elements.js` file within your HTML code. This file is located in the Enterprise Browser installation folder:
 
-TBD Insert ScreenShot
+<!-- TBD Insert ScreenShot -->
 
 	:::html
 	<html>
