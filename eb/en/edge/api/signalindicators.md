@@ -1,9 +1,10 @@
-# SignalIndicators
+#SignalIndicators
+
+
 ## Overview
 The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Motorola Solutions' devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.
-
 ## Enabling the API
-There are two methods of enabling the SignalIndicators API:
+There are two methods of enabling the SignalIndicators API: 
 
 * Include all ebapi modules or 
 * Include only the API modules you need 
@@ -28,26 +29,31 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.signalindicators.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
+        
 
-## Methods
+
+##Methods
+
+
+
 ### hideIcon()
 Hide the icon if it has been previously set by the 'showIcon' call.
 
-#### Parameters
+####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-#### Returns
+####Returns
 Synchronous Return:
 
 * Void
 
-#### Platforms
+####Platforms
 
 * Android
 * Windows Mobile/CE
 * Motorola Solutions Devices Only
 
-#### Method Access:
+####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.SignalIndicators.hideIcon()</code> 
@@ -56,53 +62,55 @@ Synchronous Return:
 ### showIcon(<span class="text-info">HASH</span> propertyMap)
 Overlays a small signal icon on top of the view indicating the remaining signal strength. This is particularly useful in full screen applications which cover the system signal level indicator.
 
-#### Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the indicator, its position and colour. </p></li><ul><li>left : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top right of the screen]</span><p>The absolute horizontal position of the indicator in pixels. This value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>top : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top right of the screen]</span><p>The absolute vertical position of the indicator in pixels. Positive numbers push the icon towards the bottom of the screen. The value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>layout : <span class='text-info'>STRING</span><span class='label '> Default: [Right]</span><p>Sets the orientation of the icon, see the remarks section for illustrations. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_LEFT <br/> String:left</dt><dd>See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_RIGHT <br/> String:right</dt><dd>See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_UP <br/> String:up</dt><dd>See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_DOWN <br/> String:down</dt><dd>See the remarks section for illustrations of icon layout</dd></dl></li><li>color : <span class='text-info'>STRING</span><span class='label '> Default: # 000000</span><p>The color of the icon. This value must be specified as a Hex value in the format # 000000 to # FFFFFF. Alpha values are not supported, i.e. you can only use the component parts RRGGBB. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+####Parameters
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the indicator, its position and colour. </p></li><ul><li>left : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top right of the screen]</span><p>The absolute horizontal position of the indicator in pixels. This value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>top : <span class='text-info'>INTEGER</span><span class='label '> Default: [Top right of the screen]</span><p>The absolute vertical position of the indicator in pixels. Positive numbers push the icon towards the bottom of the screen. The value is relative to the screen and not the view, so non-fullscreen applications should take care not to display the indicator off screen. </p></li><li>layout : <span class='text-info'>STRING</span><span class='label '> Default: [Right]</span><p>Sets the orientation of the icon, see the remarks section for illustrations. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_LEFT <br/> String:left</dt><dd>See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_RIGHT <br/> String:right</dt><dd>See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_UP <br/> String:up</dt><dd>See the remarks section for illustrations of icon layout</dd><dt>Constant: EB.SignalIndicators.SIGNAL_LAYOUT_DOWN <br/> String:down</dt><dd>See the remarks section for illustrations of icon layout</dd></dl></li><li>color : <span class='text-info'>STRING</span><span class='label '> Default: #000000</span><p>The color of the icon. This value must be specified as a Hex value in the format #000000 to #FFFFFF. Alpha values are not supported, i.e. you can only use the component parts RRGGBB. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-#### Returns
+####Returns
 Synchronous Return:
 
 * Void
 
-#### Platforms
+####Platforms
 
 * Android
 * Windows Mobile/CE
 * Motorola Solutions Devices Only
 
-#### Method Access:
+####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.SignalIndicators.showIcon(<span class="text-info">HASH</span> propertyMap)</code> 
 
+
 ### stopWlanStatus()
 If the signal is being retrieved via callback, by a previously invoked call to wlanStatus, this method will stop the callback from firing.
 
-#### Parameters
+####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-#### Returns
+####Returns
 Synchronous Return:
 
 * Void
 
-#### Platforms
+####Platforms
 
 * Android
 * Windows Mobile/CE
 
-#### Method Access:
+####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.SignalIndicators.stopWlanStatus()</code> 
 
+
 ### wlanStatus()
 Retrieve the current signal status. If a callback is provided to retrieve the signal then it will be called periodically at the specified refreshInterval. On Android, instead of being called periodically, the callback will be called when one of the below values changes.
 
-#### Parameters
+####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-#### Callback
+####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>signalStrength : <span class='text-info'>INTEGER</span><p>The signal strength as a value between 0 and 100. Not supported on iOS Platforms:
 WM, Android </p></li><li>essid : <span class='text-info'>STRING</span><p>The current ESSID </p></li><li>macAddress : <span class='text-info'>STRING</span><p>The Device's MAC address </p></li><li>adapterName : <span class='text-info'>STRING</span><p>The Device's adapter name </p></li><li>dhcpServer : <span class='text-info'>STRING</span><p>The current DHCP server's address. Always populated on Android, even on static IP configurations. Platforms:
 WM, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p>Whether the unit has a static or DHCP address. Not available on Android. Platforms:
@@ -110,7 +118,7 @@ WM </p></li><li>gateway : <span class='text-info'>STRING</span><p>The current ga
 WM, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p>The current subnet mask </p></li><li>wins : <span class='text-info'>STRING</span><p>The current WINs server IP address. Not available on Android Platforms:
 WM </p></li></ul></ul>
 
-#### Returns
+####Returns
 Synchronous Return:
 
 * HASH<ul><li>signalStrength : <span class='text-info'>INTEGER</span><p>The signal strength as a value between 0 and 100. Not supported on iOS Platforms:
@@ -120,38 +128,46 @@ WM </p></li><li>gateway : <span class='text-info'>STRING</span><p>The current ga
 WM, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p>The current subnet mask </p></li><li>wins : <span class='text-info'>STRING</span><p>The current WINs server IP address. Not available on Android Platforms:
 WM </p></li></ul>
 
-#### Platforms
+####Platforms
 
 * Android
 * Windows Mobile/CE
 
-#### Method Access:
+####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.SignalIndicators.wlanStatus()</code> 
 
-## Properties
-### refreshInterval
-#### Type
-<span class='text-info'>INTEGER</span>
 
-#### Description
+##Properties
+
+
+
+###refreshInterval
+
+####Type
+<span class='text-info'>INTEGER</span> 
+####Description
 A callback to retrieve the signal strength can be specified to occur periodically with the wlanStatus method. This value specifies the periodicity of the callback as well as the update frequency of the indicator icon, if shown. On Android this value is not used as the signal icon will be updated as soon as the signal strength changes.
-
-#### Params
+####Params
 <p><strong>Default:</strong> 5000</p>
+####Access
 
-#### Access
 
 * Class: This property can only be accessed via the API class object.
 	* <code>EB.SignalIndicators.refreshInterval</code>
 
-#### Platforms
+
+
+####Platforms
 
 * Windows Mobile/CE
 
-## Remarks
-### Icon Layout
+##Remarks
+
+
+
+###Icon Layout
 Windows Mobile / CE and Handheld devices support the display of a small signal icon, this section explains the layout parameter which can be provided to showIcon(...).
 
 Layout:Left
@@ -170,8 +186,8 @@ Layout:Down
 -----------
 ![Down Layout Signal Indicator](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAACOCAIAAACqgyGeAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sIBQsED0sFyssAAAOESURBVHja7Z3RcYJAEIaXDM8ZSqCCDB2AHeQ60BKoIEkF2oElkFQgSQWWYAmMDVweIChE5DgW4e7+fxgf1DDyze7e7t4GPBnHxKXdjqKIJtLHB82o9dqTjKc7HChJpvqtnjcnqTx/IkhNIAVSIAVSIAVSIAWBFEiB1KMUBCRE77d8dwFFEa1W1WsQUJaBVNN8SjpCUBgO+lPfIfNJElqttM/hW24+SUJCUBCMP59vp/kIwd5T9C0xHyEq59Iwn+ORDgerSdWhR8N8Sjrla1HYblNfX1PTcWntG0enSYpxb4ZjiWHQ6URZxkKnSSrPbbOjMLzkTXywPCmlGdf/fxfrfFZ1wCyrfFBbeW4yqTJpUl/7iqLitd8PNjSzSY1Jx4dGektI3ekQqKgM/9utY6S03fP52WFSg9yzn9Qslx3Hg7MTlgmOKKLNhjYbDVIO9KdKg3p91ayf7a9mxtTP9pMKw0sUVzSfOsmyn1TdGh9kPsMTd5NJpWm1d4CuS49UJj9L5/r85Oi62Kc69IysipvCHrJ618XczFOl68JlX2bn6Ir9qWtqWUZ5rhOzzCY1Zu9Tp+tiR91X51PqSUOL2tubYxWyXiLqei9hUFfP6V7C8XhZ70YXzI71p6h7iKHPpkjSHEccy6Ga4mdEkUxT+fMjz+eeb7pOqj6CoJcUqpm/pBR1H5cMn5/SVj1alqaN97t3/Tx5PzedSGFI6/Wj676b2VPrJF0roNn7fY8lhTiFTh5IYe0bEWvG6OXFAVIsOp2USb2/L/pKNPKJiSQXfiTJI+q+3gNZAtY+rH1cOfrwlRQ2Be8DKZBCRJ9OCv/o2ej27fftT28OEXfIW3p3KkkqInq7WNfr4//V7f6n10LmiTgFUiAFUiAFUhBIgRSqGR4pbyg4T0p5k8p5UnwcfTJlgmNu30REd8H7Hj1phvmpm++3hP4U4hRIzRnRp3tCDIuiiHa7ZZD6/jYskPdG32mST0yaqSafiFOI6CAFUiAFUiAFgRRIgRRIgZTdMqdCnruLDZtS1eInYoOA4Sav2+34kyze+4qC4UkTHI9ygPeBFEjNlyUwPplnycsCw9rn8qwLvA+kQAqkQMrNLMG+p9JNVGlKHGp30IT3IU6B1DJISenooXCrTtgUvA+kQAqkQAqkIJACKZACKZACKYioPevC9UQl2BRIQSDFGadU7h/qlDoGY34BQ9/qdocP8aYAAAAASUVORK5CYII= "Signal Indicator")
 
-### Overlapping Indicators
-The position of the signal and battery indicators should not be set to overlap.
+###Overlapping Indicators
+The position of the signal and battery indicators should not be set to overlap
 
-### Screen Orientation
+###Screen Orientation
 The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.
