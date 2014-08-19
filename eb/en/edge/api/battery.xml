@@ -56,7 +56,7 @@ The ebapi.js file is necessary for all single API inclusions.
         <PROPERTIES access="STATIC">
             <PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
                 <PLATFORM>WM, iOS</PLATFORM>
-                <DESC>A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method. This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown. Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.</DESC>
+                <DESC>A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method. This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown. Setting this value to zero will disable the batteryStatus callback. Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.</DESC>
             </PROPERTY>
         </PROPERTIES>   
         
