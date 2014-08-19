@@ -740,7 +740,7 @@ Specifies the refresh rate of the signal display, see the Signal API for more in
 ### BatteryRefresh
 Specifies the refresh rate of the battery display, see the Battery API for more information. Not applicable to the Enterprise Tablet
 
->Note: On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
+>Note: On Android devices the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on Android devices. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
 
 **Possible Values**
 
