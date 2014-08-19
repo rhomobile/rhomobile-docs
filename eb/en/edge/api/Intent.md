@@ -116,3 +116,27 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.Intent.send(<span class="text-info">HASH</span> params)</code> 
+
+
+### startListening()
+Start listening for custom intents. 
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Windows Mobile/CE
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Intent.startListening()</code> 
