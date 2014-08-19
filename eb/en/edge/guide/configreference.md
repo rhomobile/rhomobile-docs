@@ -595,6 +595,8 @@ Specifies the technique used to scroll the viewport:
 * Scrollbars : When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page (Not available on Android)
 * None : No scrollbars will be displayed and the page will not respond to finger swipes.
 
+>Note: This setting is not supported on Windows CE using the IE rendering engine.
+
 ## Authentication
 ### Username
 Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of "".  Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
