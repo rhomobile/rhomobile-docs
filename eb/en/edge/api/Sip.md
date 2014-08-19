@@ -32,7 +32,6 @@ The SIP will show or hide only when the SIP button is pressed.
 
 ####Platforms
 
-* Android
 * Windows Mobile/CE
 
 ### automatic()
