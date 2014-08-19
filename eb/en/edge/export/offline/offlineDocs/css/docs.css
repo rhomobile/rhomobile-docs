@@ -133,8 +133,7 @@ body {
 #tocList {
     width: 250px;
 	right:15px;
-	background-color: #ccc !important;
-
+	
 }
 
 @media screen and (max-width: 800px) {
@@ -223,7 +222,7 @@ body {
 #toc  .nav-list > .active > a, .nav-list > .active > a:hover
 {
 	color:#ffffff;
-	background-color: #3EB6E6;
+	background-color: #333;
 }
 
 .popover-content { 
@@ -251,6 +250,9 @@ body {
 .tocify-header
 {
 	text-indent: 0px;
+	margin-top: 1px !important;
+	background-color: #428bca !important;
+
 }
 
 .tocify-item
