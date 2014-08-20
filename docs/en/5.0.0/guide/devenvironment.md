@@ -24,4 +24,4 @@ When using text editors or other IDE's, you can use RhoMobile's command line opt
 ## Build environments in the cloud with RhoMobile Remote Build
 RhoMobile remote build, formerly known as RhoHub, provides all of the supported platform specific build environments so that you can code locally but leverage a hosted environment for the build and packaging process. When using Remote Build you can either use RhoStudio's integrated features or your own text editor. RhoStudio provides one click access and integration to build remotely so that you can code locally but not worry about the hassle of setting up and maintaining local native platform SDKs. You can also use your own local text editor or IDE to write or edit your code and upload thanks to the remote build's GitHub integration.
 
-[Read more](../../hosted/guide/remote-build-tutorial) about how to use and setup RhoMobile Remote Build.
+[Read more](../../hosted/guide/remote-build-guide) about how to use and setup RhoMobile Remote Build.
