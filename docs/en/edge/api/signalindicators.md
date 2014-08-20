@@ -79,7 +79,7 @@ app_type: "rhoelements"
 
   function signal_status_sync(){
 
-    signalValue = Rho.Signal.wlanStatus;
+    signalValue = Rho.SignalIndicators.wlanStatus;
     console.log(signalValue);
     console.log("Signal Strength is: " + signalValue['signalStrength']);
   }
@@ -87,7 +87,7 @@ app_type: "rhoelements"
                             </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
   def signal_status_sync
-    signalValue = Rho::Signal.wlanStatus
+    signalValue = Rho::SignalIndicators.wlanStatus
     puts signalValue
     puts "Signal Strength is: " + signalValue['signalStrength']
   end
@@ -98,7 +98,7 @@ app_type: "rhoelements"
 
   function signal_status_async(){
     console.log("Registering Signal Callback");
-    Rho.Signal.wlanStatus(signalEvent);
+    Rho.SignalIndicators.wlanStatus(signalEvent);
   }
 
   function signalEvent(params){
@@ -109,7 +109,7 @@ app_type: "rhoelements"
 
   def signal_status_async
     puts "Registering Signal Callback"
-    Rho::Signal.wlanStatus(url_for(:action =&gt; :signalEvent))
+    Rho::SignalIndicators.wlanStatus(url_for(:action =&gt; :signalEvent))
   end
 
    def signalEvent
@@ -121,13 +121,13 @@ app_type: "rhoelements"
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
   function show_signal_icon(){
-    Rho.Signal.showIcon({});
+    Rho.SignalIndicators.showIcon({});
   }
                     
                             </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
   def show_signal_icon
-    Rho::Signal.showIcon({})
+    Rho::SignalIndicators.showIcon({})
   end
                     
                             </code></pre></div></div>
@@ -135,13 +135,13 @@ app_type: "rhoelements"
 <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
 
   function show_signal_icon(){
-    Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
+    Rho.SignalIndicators.showIcon({color:'#0000FF',layout: Rho.SignalIndicators.SIGNAL_LAYOUT_UP});
   }
   
                             </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
   def show_signal_icon
-    Rho::Signal.showIcon({color:'#0000FF',layout: Rho::Signal.SIGNAL_LAYOUT_UP})
+    Rho::SignalIndicators.showIcon({color:'#0000FF',layout: Rho::SignalIndicators.SIGNAL_LAYOUT_UP})
   end
   
                             </code></pre></div></div>  </div></div></div></div>
