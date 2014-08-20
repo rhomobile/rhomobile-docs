@@ -5,8 +5,7 @@ Apart from your source code, there are other important files that control how yo
 ## rhoconfig.txt
 
 ### What it affects
-
-The values in `rhoconfig.txt` control different aspects of your application, such as what page is loaded when the application starts or the address of the `RhoConnect` synchronization server, while those in `Config.xml` refer to features of the RhoElements runtime itself like what keys can be intercepted by the application or whether to preload modules on startup.
+The values in `rhoconfig.txt` control different aspects of your application, such as what page is loaded when the application starts or the address of the `RhoConnect` synchronization server, while those in `Config.xml` refer to features of the RhoElements runtime itself like what keys can be intercepted by the application or whether to pre-load modules on startup.
 
 Apart from the settings recognized by the platform, you can add arbitrary values that are specific to your application:
 
@@ -165,13 +164,13 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 ### What it affects
 
-** NOTE: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 5.0 applications using the stock browser **
+** NOTE: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser **
 
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
-* Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-5.0.2\libs\data\Config\Config.xml`
+* Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
 
-* OS X: ~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-5.0.2/libs/data/Config/Config.xml
+* OS X: ~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml
 
 ### Configuration File Location in a mobile device
 The location of the configuration file loaded by RhoElements is dependant on a number of factors:
@@ -207,15 +206,15 @@ The following is an example of a typical configuration file
       </FileLocations>
       <Screen>
         <FullScreen VALUE="1"/>
-		<PageZoom VALUE="1.0"/>
+    <PageZoom VALUE="1.0"/>
       </Screen>
-	  <VoidConnection>
-		<TrackConnection value="0"/>
-		<HostURL value="100.159.16.12"/>
-     	<Message value="Establishing Connection "/>
-     	<Timeout value="30000"/>
-		<PollInterval value="5000"/>
-	  </VoidConnection>
+    <VoidConnection>
+    <TrackConnection value="0"/>
+    <HostURL value="100.159.16.12"/>
+      <Message value="Establishing Connection "/>
+      <Timeout value="30000"/>
+    <PollInterval value="5000"/>
+    </VoidConnection>
       <WebServer>
         <Enabled   VALUE="1"/>
         <Port      VALUE="8080"/>
@@ -359,7 +358,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 5.0 native applications using the stock browser **
+** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
 
 ** NOTE: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc. **
 <div style="width:100%">
@@ -470,48 +469,48 @@ The following is an example of a typical configuration file
     </tr>
 
     <tr>
-	<td >Screen\\PageZoom</td>
-	<td >PAGEZOOM</td>
-	<td >Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.<a href="#_pageZoom">* (see remark)</a></td>
-	<td >Zoom factor of the page.</td>
-	</tr>
-	
-	<tr>
-	<td >VoidConnection\\TrackConnection</td>
-	<td >TrackConnection</td>
-	<td >This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up meaage will be disappered. If connection is not established during timeout value, it will navigate to badlink page. On windows, if this feature is enabled, it will display a non modal dialog whenever connectivity goes, whereas in case of Android it will display a modal dialog and user will be blocked from performing any UI actions. On windows as it is a non modal dialog, user still can continue work on the parent screen until the timeout occurs. However it is not recommended to access the back ground application when the  connection checking window is being shown.
-	<td >Connection Tracking</td>
-	</tr>
-	
-	<tr>
-	<td >VoidConnection\\HostURL</td>
-	<td >HostURL</td>
-	<td >This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appeneded to i after appending  colon to the ip </td>
-	<td >Connection Tracking</td>
-	</tr>
-	
-	<tr>
-	<td >VoidConnection\\Message</td>
-	<td >Message</td>
-	<td >Message is the customized Message to be shown in the pop up window. For windows devices, message length is limited to 160 characters including spaces. Characters beyond this limit might be truncated based on the device screen size.</td>
-	<td >Customized Message</td>
-	</tr>
-	
-	<tr>
-	<td >VoidConnection\\Timeout</td>
-	<td >Timeout</td>
-	<td >This value indicates for how many miliseconds the application should try to connect to the URL before navigating to badlink page. The minimum value is 30000. If specified less than 30000, it will take 30000. The value of this parameter should be atleast 3 times bigger than PollInterval,else both will take default  values. There could be a delay of at best PollInterval value as connection can go out when application is in pause mode. </td>
-	<td >Timeout</td>
-	</tr>
-	
-	<tr>
-	<td >VoidConnection\\PollInterval</td>
-	<td >PollInterval</td>
-	<td >This value indicates for how many miliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value. The minimum value is 5000. If specified less than 5000, it will take 5000. It is a non-testable parameter.   </td>
-	<td >PollInterval</td>
-	</tr>
-	
-	<tr>
+  <td >Screen\\PageZoom</td>
+  <td >PAGEZOOM</td>
+  <td >Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.<a href="#_pageZoom">* (see remark)</a></td>
+  <td >Zoom factor of the page.</td>
+  </tr>
+  
+  <tr>
+  <td >VoidConnection\\TrackConnection</td>
+  <td >TrackConnection</td>
+  <td >This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up meaage will be disappered. If connection is not established during timeout value, it will navigate to badlink page. On windows, if this feature is enabled, it will display a non modal dialog whenever connectivity goes, whereas in case of Android it will display a modal dialog and user will be blocked from performing any UI actions. On windows as it is a non modal dialog, user still can continue work on the parent screen until the timeout occurs. However it is not recommended to access the back ground application when the  connection checking window is being shown.
+  <td >Connection Tracking</td>
+  </tr>
+  
+  <tr>
+  <td >VoidConnection\\HostURL</td>
+  <td >HostURL</td>
+  <td >This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appeneded to i after appending  colon to the ip </td>
+  <td >Connection Tracking</td>
+  </tr>
+  
+  <tr>
+  <td >VoidConnection\\Message</td>
+  <td >Message</td>
+  <td >Message is the customized Message to be shown in the pop up window.</td>
+  <td >Customized Message</td>
+  </tr>
+  
+  <tr>
+  <td >VoidConnection\\Timeout</td>
+  <td >Timeout</td>
+  <td >This value indicates for how many miliseconds the application should try to connect to the URL before navigating to badlink page. The minimum value is 30000. If specified less than 30000, it will take 30000. The value of this parameter should be atleast 3 times bigger than PollInterval,else both will take default  values </td>
+  <td >Timeout</td>
+  </tr>
+  
+  <tr>
+  <td >VoidConnection\\PollInterval</td>
+  <td >PollInterval</td>
+  <td >This value indicates for how many miliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value. The minimum value is 5000. If specified less than 5000, it will take 5000. It is a non-testable parameter.   </td>
+  <td >PollInterval</td>
+  </tr>
+  
+  <tr>
     <td class="clsEvenRow">WebServer\\Enabled</td>
     <td class="clsEvenRow">WEBSENABLED</td>
     <td class="clsEvenRow">Enables or Disables an internal web server to run locally on the device.  If running multiple applications with internal web servers consideration should be made over whether a single server should be used or multiple servers running on different ports.</td>
@@ -771,7 +770,7 @@ The following is an example of a typical configuration file
     <tr>
     <td class="clsEvenRow">HTMLStyles\\UseNativeFonts</td>
     <td class="clsEvenRow">USENATIVEFONTS</td>
-    <td class="clsEvenRow">When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 5.0 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.</td>
+    <td class="clsEvenRow">When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.</td>
     <td class="clsEvenRow">0 - Use FontFamily Setting<BR>1 - Use FreeType font library</td>
     </tr>
 
@@ -792,7 +791,7 @@ The following is an example of a typical configuration file
     <tr>
     <td>System\\LowBatteryScan</td>
     <td>LOWBATTERYSCAN</td>
-    <td>Windows Mobile and CE only.  Set to 0 to disable scanning when the battery is low/critical or set to 1 to enable it.</code>.</td>
+    <td>Windows Mobile and CE only.  Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling <code>Barcode.enable</code>.</td>
     <td>0 - Disabled<BR>1 - Enabled</td>
     </tr>
 

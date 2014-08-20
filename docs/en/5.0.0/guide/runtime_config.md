@@ -5,8 +5,7 @@ Apart from your source code, there are other important files that control how yo
 ## rhoconfig.txt
 
 ### What it affects
-
-The values in `rhoconfig.txt` control different aspects of your application, such as what page is loaded when the application starts or the address of the `RhoConnect` synchronization server, while those in `Config.xml` refer to features of the RhoElements runtime itself like what keys can be intercepted by the application or whether to preload modules on startup.
+The values in `rhoconfig.txt` control different aspects of your application, such as what page is loaded when the application starts or the address of the `RhoConnect` synchronization server, while those in `Config.xml` refer to features of the RhoElements runtime itself like what keys can be intercepted by the application or whether to pre-load modules on startup.
 
 Apart from the settings recognized by the platform, you can add arbitrary values that are specific to your application:
 
