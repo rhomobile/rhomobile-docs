@@ -1,5 +1,5 @@
 # Debugging Enterprise Browser Apps
-TBD - Need to tweak this for EB specific - confirm Chrome feature still works. Move images to local
+<!-- > TBD - Need to tweak this for EB specific - confirm Chrome feature still works. Move images to local -->
 
 ## Debugging on the device using Weinre
 
