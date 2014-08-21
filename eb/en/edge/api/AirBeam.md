@@ -1,6 +1,4 @@
-#Airbeam
-
-
+# Airbeam
 ## Overview
 The AirBeam Preexisting JavaScript Object contains properties and methods which can be used to control the AirBeam Smart client. AirBeam is a separate application provided by Motorola Solutions and provides the ability to download software packages to your mobile device. If you have configured ‘PreloadLegacyAirBeam’ to be ‘1’ the JavaScript object ‘airbeam’ will be inserted automatically into your page’s DOM.
 

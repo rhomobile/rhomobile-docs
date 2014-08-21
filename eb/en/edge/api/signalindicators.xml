@@ -33,7 +33,7 @@ There are two methods of enabling the SignalIndicators API:
 * Include all ebapi modules or 
 * Include only the API modules you need 
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
 ### Include all JS API modules
 To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
@@ -186,7 +186,7 @@ The ebapi.js file is necessary for all single API inclusions.
                         <CODE>
                             <RUBY><![CDATA[
   def signal_status_sync
-    signalValue = Rho::Signal.wlanStatus
+    signalValue = Rho::SignalIndicators.wlanStatus
     puts signalValue
     puts "Signal Strength is: " + signalValue['signalStrength']
   end
@@ -195,7 +195,7 @@ The ebapi.js file is necessary for all single API inclusions.
                             <JAVASCRIPT><![CDATA[
   function signal_status_sync(){
 
-    signalValue = Rho.Signal.wlanStatus;
+    signalValue = Rho.SignalIndicators.wlanStatus;
     console.log(signalValue);
     console.log("Signal Strength is: " + signalValue['signalStrength']);
   }
@@ -209,7 +209,7 @@ The ebapi.js file is necessary for all single API inclusions.
                             <RUBY><![CDATA[
   def signal_status_async
     puts "Registering Signal Callback"
-    Rho::Signal.wlanStatus(url_for(:action => :signalEvent))
+    Rho::SignalIndicators.wlanStatus(url_for(:action => :signalEvent))
   end
 
    def signalEvent
@@ -220,7 +220,7 @@ The ebapi.js file is necessary for all single API inclusions.
                             <JAVASCRIPT><![CDATA[
   function signal_status_async(){
     console.log("Registering Signal Callback");
-    Rho.Signal.wlanStatus(signalEvent);
+    Rho.SignalIndicators.wlanStatus(signalEvent);
   }
 
   function signalEvent(params){
@@ -240,13 +240,13 @@ The ebapi.js file is necessary for all single API inclusions.
                         <CODE>
                             <RUBY><![CDATA[
   def show_signal_icon
-    Rho::Signal.showIcon({})
+    Rho::SignalIndicators.showIcon({})
   end
                     ]]>
                             </RUBY>
                             <JAVASCRIPT><![CDATA[
   function show_signal_icon(){
-    Rho.Signal.showIcon({});
+    Rho.SignalIndicators.showIcon({});
   }
                     ]]>
                             </JAVASCRIPT>
@@ -257,13 +257,13 @@ The ebapi.js file is necessary for all single API inclusions.
                         <CODE>
                             <RUBY><![CDATA[
   def show_signal_icon
-    Rho::Signal.showIcon({color:'#0000FF',layout: Rho::Signal.SIGNAL_LAYOUT_UP})
+    Rho::SignalIndicators.showIcon({color:'#0000FF',layout: Rho::SignalIndicators.SIGNAL_LAYOUT_UP})
   end
   ]]>
                             </RUBY>
                             <JAVASCRIPT><![CDATA[
   function show_signal_icon(){
-    Rho.Signal.showIcon({color:'#0000FF',layout: Rho.Signal.SIGNAL_LAYOUT_UP});
+    Rho.SignalIndicators.showIcon({color:'#0000FF',layout: Rho.SignalIndicators.SIGNAL_LAYOUT_UP});
   }
   ]]>
                             </JAVASCRIPT>
