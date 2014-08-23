@@ -236,13 +236,13 @@ section 'rhoconnect-push-reference',                    'Push Sync','RhoConnect 
   topic 'en/edge/rhoconnect/push-testing',              'Testing Push'
 end
 
-section 'rhoconnect-administration',              'Administration','RhoConnect Guides' do
-  topic 'en/edge/rhoconnect/settings',            'RhoConnect Settings'
-  topic 'en/edge/rhoconnect/web-console',         'Admin Web Interface'
-  topic 'en/edge/rhoconnect/licensing',           'Licensing your App'
-  topic 'en/edge/rhoconnect/benchmarks',          'Rhoconnect Benchmarking'
-  topic 'en/edge/rhoconnect/benchmarks-running',  'Running Rhoconnect Benchmarks'
-  topic 'en/edge/rhoconnect/stats-middleware',    'Collecting Runtime Stats'
+section 'rhoconnect-administration',             'Administration','RhoConnect Guides' do
+  topic 'en/edge/rhoconnect/settings',           'RhoConnect Settings'
+  topic 'en/edge/rhoconnect/web-console',        'Admin Web Interface'
+topic 'en/hosted/guide/licensing-rhoconnect',    'Licensing your RhoConnect App'
+  topic 'en/edge/rhoconnect/benchmarks',         'Rhoconnect Benchmarking'
+  topic 'en/edge/rhoconnect/benchmarks-running', 'Running Rhoconnect Benchmarks'
+  topic 'en/edge/rhoconnect/stats-middleware',   'Collecting Runtime Stats'
 end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do

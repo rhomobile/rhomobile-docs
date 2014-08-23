@@ -237,12 +237,12 @@ section 'rhoconnect-push-reference',                    'Push Sync','RhoConnect 
 end
 
 section 'rhoconnect-administration',              'Administration','RhoConnect Guides' do
-  topic 'en/5.0.0/rhoconnect/settings',            'RhoConnect Settings'
-  topic 'en/5.0.0/rhoconnect/web-console',         'Admin Web Interface'
-  topic 'en/5.0.0/rhoconnect/licensing',           'Licensing your App'
-  topic 'en/5.0.0/rhoconnect/benchmarks',          'Rhoconnect Benchmarking'
-  topic 'en/5.0.0/rhoconnect/benchmarks-running',  'Running Rhoconnect Benchmarks'
-  topic 'en/5.0.0/rhoconnect/stats-middleware',    'Collecting Runtime Stats'
+  topic 'en/5.0.0/rhoconnect/settings',           'RhoConnect Settings'
+  topic 'en/5.0.0/rhoconnect/web-console',        'Admin Web Interface'
+  topic 'en/hosted/guide/licensing-rhoconnect',   'Licensing your RhoConnect App'
+  topic 'en/5.0.0/rhoconnect/benchmarks',         'Rhoconnect Benchmarking'
+  topic 'en/5.0.0/rhoconnect/benchmarks-running', 'Running Rhoconnect Benchmarks'
+  topic 'en/5.0.0/rhoconnect/stats-middleware',   'Collecting Runtime Stats'
 end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do
