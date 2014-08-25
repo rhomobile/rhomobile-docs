@@ -1,26 +1,26 @@
 # Debugging Enterprise Browser Apps
 <!-- > TBD - Need to tweak this for EB specific - confirm Chrome feature still works. Move images to local -->
+This guide will help you with debugging your Enterprise Browser apps directly from the device using a tool called [weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html).
 
-## Debugging on the device using Weinre
-Weinre is a must have developer tool for testing or debugging your JavaScript RhoMobile application. Although a lot of testing and analysis can be done using [RhoSimulator](debugging_with_rhosimulator), sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) in RhoSiumulator. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the RhoMobile APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs. 
+## Debugging on the Device Using Weinre
+Weinre is a must have developer tool for testing or debugging your JavaScript MEB application. Although a lot of testing and analysis can be done using emulators and your IDE, sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) as effectively. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the MEB APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs.
 
-For those who would rather see it in action, this guide is modeled after a [webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we are going to cover here. We will also be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You may download it and follow along but the app is by no means necessary. You can use Weinre with any application or simply if you would just like to play around with the RhoMobile APIs to try out some code.
-
+For those who would rather see it in action, this guide is modeled after a [webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we are going to cover here. We will also be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You may download it and follow along but the app is by no means necessary. You can use Weinre with any application or simply if you would just like to play around with the APIs to try out some code.
 
 ### Installing Weinre
 > Note: You must have admin/sudo privileges to install weinre and your device must be on the same WiFi network as your laptop.
 
-Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running the command:
+Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Download node.js [here](http://nodejs.org/download/) and install it on your computer. Once it is installed, install weinre using the following command:
 
     :::term
     $ npm -g install weinre
 
-> Note: Mac users you may have to include the 'sudo' command
+> Note: Mac users you may have to include the 'sudo' prefix
 
-More details around the installation process and configuration of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html). If you did not install RhoMobile Suite, you can still use Weinre, but you will have to install Node.JS separately.
+More details around the installation process and configuration of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html).
 
 ### Starting Weinre
-Open a command prompt and start Weinre with your local machine's local IP address using the `--boundhost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be unaccessible from your device's application.
+Open a command prompt and start Weinre with your local machine's local IP address using the `--boundhost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be inaccessible from your device.
 
     :::term
     $ weinre --boundhost <your local IP address>
@@ -37,9 +37,7 @@ Verify that Weinre is running correctly by navigating your browser to the addres
 ![img](images/debugging/weinre-web-console.png)
 
 ### Enabling Weinre In Your App
-Notice the section in the web console labeled "Target Script". This is a string that you must copy into your app in order for Weinre to be able to interact with your app. This string is `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`. I'm going to put this line into my barcode_enumerate.html file so that when I load that file in my app, it will connect to Weinre and start capturing info. Remember when editing HTML in RhoStudio, the default double click action is to open the browser representation in the editor, so to edit the HTML itself, make sure to right-click the file and select open with "Text Editor" as shown below. After editing this file, you would rebuild and relaunch the application so that the changes take effect. 
-
-![img](images/debugging/weinre-edit-barcode-enumerate.png)
+Notice the section in the web console labeled "Target Script". This is a string that you must copy into your app in order for Weinre to be able to interact with your app. This string is `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`. I'm going to put this line into my `barcode_enumerate.html` file so that when I load that file in my app, it will connect to Weinre and start capturing info. After editing this file, you would rebuild and relaunch the application so that the changes take effect. 
 
 Here is what the line looks like in my HTML:
 
@@ -62,34 +60,31 @@ Now you can inspect your app just as you would any other HTML page if you were u
 
 You can use the Elements tool to change things on the app's view on the fly just by changing the code in the inspector itself. For instance, in the below images I am simply changing the text on the button from "Enumerate" to "Changed!".
 
-<div class="row-fluid">
-  <div>
-    <div class="span6" style="text-align:center">
-        <p><b>Button text "Enumerate"</b></p>
-        ![img](images/debugging/weinre-button-element-before-change.png)
-    </div>
-    <div class="span6" style="text-align:center">
-        <p><b>Button text "Changed!"</b></p>
-        ![img](images/debugging/weinre-button-element-after-change.png)
-    </div>
-  </div>
+<div class="span6" style="text-align:center">
+    <p><b>Button text "Enumerate"</b></p>
 </div>
+![img](images/debugging/weinre-button-element-before-change.png)
+<div class="span6" style="text-align:center">
+    <p><b>Button text "Changed!"</b></p>
+</div>
+![img](images/debugging/weinre-button-element-after-change.png)
 
 You can change pretty much any part of the view such as CSS styling and even which APIs and methods are called, but I chose to do a simple one for brevity's sake.
 
 ### Console and Issuing API Calls
-One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware APIs in RhoMobile will only work on actual hardware, which means they cannot be tested in the RhoSimulator.
+One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware MEB APIs will only work on actual hardware, which means they cannot be tested in an emulator.
 
-In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on, use the camera to scan a barcode, and then issue a command to the ScreenOrientation API which returns an error.
+In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on, use the camera to scan a barcode, and then issue a command to the `ScreenOrientation` API which returns an error.
 
 ![img](images/debugging/weinre-barcode-take-and-failed-extension.png)
 
 As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is a Motorola Solutions ET1 which is in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the Barcode.take() method, so I know that the Barcode module is working properly.
 
-Notice that when the barcode callback handler function is executed we are doing a `console.log(e)` where `e` is the callback return object. We can then simply inspect the object right in the console and see that it contains a `barcode` property and a `status` property. Exactly what is described in the [Barcode.take()](../api/barcode#mtake) method description. Using other means like looking in [Rholog.txt](logging) for information like this may be very time consuming and tedious to add code to output to the log, retrieve it from the device, etc.
+Notice that when the barcode callback handler function is executed we are doing a `console.log(e)` where `e` is the callback return object. We can then simply inspect the object right in the console and see that it contains a `barcode` property and a `status` property. Exactly what is described in the [Barcode.take()](../api-barcode?mtake) method description. Using other means like looking in [your log file](guide-logging) for information like this may be very time consuming and tedious to add code to output to the log, retrieve it from the device, etc.
 
+<!-- 
 ### Extension Inclusion
-Now notice the error I received from the last API call: `TypeError: cannot call method 'normal' of undefined.` This error means that it cannot find the [ScreenOrientation](../api/screenorientation) module. This is because ScreenOrientation is not included by default in RhoMobile apps. To add this module in, all we have to do is list it in the app's build.yml in the extensions section as shown below and then rebuild the app.
+Now notice the error I received from the last API call: `TypeError: cannot call method 'normal' of undefined.` This error means that it cannot find the [`ScreenOrientation`](../api-screenorientation) module. This is because ScreenOrientation is not included by default in RhoMobile apps. To add this module in, all we have to do is list it in the app's build.yml in the extensions section as shown below and then rebuild the app.
 
 ![img](images/debugging/weinre-adding-extension.png)
 
@@ -109,14 +104,14 @@ Now notice the error I received from the last API call: `TypeError: cannot call 
         ![img](images/debugging/weinre-extension-included-return-value.png)
     </div>
 </div>
+ -->  <!-- Not sure how this is done in EB -->
 
 ### Other Tabs in Debugger UI
 ![img](images/debugging/weinre-tabs.png)
-
 There are a few other tabs that we have seen in the debugger UI that I should briefly mention. 
 
 #### Network Tab
-This tab is great for inspecting what files the application is obtaining from the 'server'. Remember that when building a RhoMobile application, the 'server' is normally running on the device as well. However it is still important to inspect this as unnecessary processing of JavaScript or CSS files may be giving your application a lag that you may not have noticed while running the app in RhoSimulator. There are many resources on the internet that describe using this tab in detail either in the context of Weinre or Chrome Dev Tools. Be sure to be aware of how to use this useful resource when optimizing your application.
+This tab is great for inspecting what files the application is obtaining from the 'server'. Remember that when building an EB application, the 'server' is normally running on the device as well. However it is still important to inspect this as unnecessary processing of JavaScript or CSS files may be giving your application a lag that you may not have noticed while running the app in an emulator. There are many resources on the internet that describe using this tab in detail either in the context of Weinre or Chrome Dev Tools. Be sure to be aware of how to use this useful resource when optimizing your application.
 
 #### TimeLine Tab
 This tab is great for inspecting front-end UI or DOM performance. Each action in your user interface will be displayed and you can inspect for bottle necks in rendering, or other areas. Again there are many resources on the web that discuss this feature. We also did a full [webinar](https://developer.motorolasolutions.com/docs/DOC-1661) on the topic for detecting Reflows and the usual CSS suspects for performance hits on devices. Be sure to get familiar with these concepts and include them in your routine for application optimization.
@@ -124,8 +119,9 @@ This tab is great for inspecting front-end UI or DOM performance. Each action in
 #### Resources Tab
 The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
 
-> Note: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers.
+<!-- > Note: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers. -->
 
+<!-- 
 ## Remote Debugging with a Browser's Web Inspector
 > Note: This JS debugging feature is currently only supported on Windows development environments.
 Using a feature introduced in RhoElements 4.1, you can use your standard browser web inspector to debug your app's JavaScript. This is helpful if you are used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
@@ -149,7 +145,7 @@ As with most web inspectors you can change attributes in the inspector...
 ...and have them appear immediately in the app.
 
 ![img](images/debugging/changed_app_text.png)
-
+ -->
 ### Further Research
 As you can probably guess by now, debugging using this method is very similar to debugging using your web browser's built in web inspector because that is exactly what you are doing. Any further tutorials concerning debugging in this fashion should be looked into via tutorials for the given web inspection utility of your respective web browser.
 
