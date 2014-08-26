@@ -1,7 +1,5 @@
 # Testing
-
 ## Adding Unit Tests
-
 When you [generate a model](rhom_ruby#creating-a-ruby-data-model), you get an _spec.rb file generated along with your controller. You would get the following for a model named "Person".
 
 	Generating with model generator:
@@ -33,7 +31,7 @@ You will then see the mspec framework added to your application:
 	     [ADDED]  app/mspec.rb
 	     [ADDED]  app/spec_runner.rb
 
-**NOTE: You can also [create the mspec framework and run the test on applications within RhoStudio](../rhostudio.tutorial#running-a-unit-test-in rhostudio).**
+**NOTE: You can also [create the mspec framework and run the test on applications within RhoStudio](../../2.2.0/rhostudio.tutorial#running-a-unit-test-in-rhostudio).**
 
 Finally, add the fileutils and mspec extensions to your build.yml:
 	
