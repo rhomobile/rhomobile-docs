@@ -1,5 +1,4 @@
 # Debugging Enterprise Browser Apps
-<!-- > TBD - Need to tweak this for EB specific - confirm Chrome feature still works. Move images to local -->
 This guide will help you with debugging your Enterprise Browser apps directly from the device using a tool called [weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html).
 
 ## Debugging on the Device Using Weinre
@@ -74,37 +73,13 @@ You can change pretty much any part of the view such as CSS styling and even whi
 ### Console and Issuing API Calls
 One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware MEB APIs will only work on actual hardware, which means they cannot be tested in an emulator.
 
-In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on, use the camera to scan a barcode, and then issue a command to the `ScreenOrientation` API which returns an error.
+In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on and use the camera to scan a barcode.
 
-![img](images/debugging/weinre-barcode-take-and-failed-extension.png)
+![img](images/debugging/weinre-barcode-take.png)
 
-As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is a Motorola Solutions ET1 which is in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the Barcode.take() method, so I know that the Barcode module is working properly.
+As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is a Motorola Solutions ET1 which is in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the `Barcode.take()` method, so I know that the Barcode module is working properly.
 
-Notice that when the barcode callback handler function is executed we are doing a `console.log(e)` where `e` is the callback return object. We can then simply inspect the object right in the console and see that it contains a `barcode` property and a `status` property. Exactly what is described in the [Barcode.take()](../api-barcode?mtake) method description. Using other means like looking in [your log file](guide-logging) for information like this may be very time consuming and tedious to add code to output to the log, retrieve it from the device, etc.
-
-<!-- 
-### Extension Inclusion
-Now notice the error I received from the last API call: `TypeError: cannot call method 'normal' of undefined.` This error means that it cannot find the [`ScreenOrientation`](../api-screenorientation) module. This is because ScreenOrientation is not included by default in RhoMobile apps. To add this module in, all we have to do is list it in the app's build.yml in the extensions section as shown below and then rebuild the app.
-
-![img](images/debugging/weinre-adding-extension.png)
-
-<div class="row-fluid">
-    <div class="span6">
-        <p>
-            Once the app is rebuilt, it should connect to Weinre as soon as it is activated as we did not remove the target script line from the HTML. Back in the console, now that the module is included you should notice that the module name will auto-complete since the framework is now aware of this module. And since this module is now available, the API call I made before will not return an error but will return what it is supposed to: VOID, which in the console is represented by a null return. It also change the orientation of the screen.
-        </p>
-        <p>
-            To tell whether or not you'll have to add the extension into your build.yml please see the <a href="http://docs.rhomobile.com/guide/apisummary">API Summary Page</a> in our docs. Click on the API you wish to use and the corresponding module page will describe what needs to be done to use the API in question.
-        </p>
-    </div>
-    <div class="span6" style="text-align:center">
-        <p><b>Auto-Completing Code</b></p>
-        ![img](images/debugging/weinre-auto-complete.png)
-        <p><b>Extension Working properly</b></p>
-        ![img](images/debugging/weinre-extension-included-return-value.png)
-    </div>
-</div>
- -->  <!-- Not sure how this is done in EB -->
+Notice that when the barcode callback handler function is executed we are doing a `console.log(e)` where `e` is the callback return object. We can then simply inspect the object right in the console and see that it contains a `barcode` property and a `status` property. Exactly what is described in the [Barcode.take()](../api-barcode?take(HASH propertyMap)) method description. Using other means like looking in [your log file](#guide-logging) for information like this may be very time consuming and tedious to add code to output to the log, retrieve it from the device, etc.
 
 ### Other Tabs in Debugger UI
 ![img](images/debugging/weinre-tabs.png)
@@ -119,9 +94,7 @@ This tab is great for inspecting front-end UI or DOM performance. Each action in
 #### Resources Tab
 The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
 
-<!-- > Note: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers. -->
-
-<!-- 
+<!-- Once we figure out if this works, we can uncomment this piece. Leaving it out for now.
 ## Remote Debugging with a Browser's Web Inspector
 > Note: This JS debugging feature is currently only supported on Windows development environments.
 Using a feature introduced in RhoElements 4.1, you can use your standard browser web inspector to debug your app's JavaScript. This is helpful if you are used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
@@ -146,6 +119,7 @@ As with most web inspectors you can change attributes in the inspector...
 
 ![img](images/debugging/changed_app_text.png)
  -->
+
 ### Further Research
 As you can probably guess by now, debugging using this method is very similar to debugging using your web browser's built in web inspector because that is exactly what you are doing. Any further tutorials concerning debugging in this fashion should be looked into via tutorials for the given web inspection utility of your respective web browser.
 
