@@ -147,7 +147,6 @@ var menuStrcture = [
 						{"name":"Sensor","link":"#api-sensor"},
 						{"name":"SignalIndicators","link":"#api-signalindicators"},
 						{"name":"Signature","link":"#api-signature"},
-						{"name":"SimulScan","link":"#api-SimulScan"},
 						{"name":"Sip","link":"#api-Sip"},
 						{"name":"SipButton","link":"#api-SipButton"},
 						{"name":"StopButton","link":"#api-StopButton"},
