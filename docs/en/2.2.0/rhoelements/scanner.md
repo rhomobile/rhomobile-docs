@@ -82,7 +82,7 @@ Items listed in this section indicate parameters, or attributes which can be set
  <br /><b>allThrice:</b>
   Three times redundancy for all barcodes.</DESCDETAIL><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>scanTimeout:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager.  A value of 0 indicates an infinite timeout.  This parameter is compatibile with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease.  Note that for regulatory reasons scanTimeout is not configurable on all laser/imager scanners.<br /><br /><b>Possible Values:milliseconds</b><br /><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: 5000 (Laser), 15000 (Imager)</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>rasterMode:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Describes the type of vertical rastering to use.  
+</b></td><td class="clsSyntaxCells clsOddRow">Describes the type of vertical rastering to use.  This is not supported on Android.
 <DESCDETAIL>
  <br /><b>Possible values:</b>
 <br /><b>none:</b>
@@ -94,7 +94,7 @@ Items listed in this section indicate parameters, or attributes which can be set
  <br /><b>cyclone:</b>
   Vertical rastering mode is 'Cyclone'.</DESCDETAIL><i>Applicable scanner types: Laser Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>rasterHeight:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Vertical rastering height to use, as a percentage, when rasterMode:openAlways is applied.<br /><br /><b>Possible Values:0 - 100</b><br /><i>Applicable scanner types: Laser Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>aimType:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Describes the type of aiming to use.   
+</b></td><td class="clsSyntaxCells clsOddRow">Describes the type of aiming to use.  This is not supported on Android. 
 <DESCDETAIL>
  <br /><b>Possible values:</b>
  <br /><b>trigger:</b>
