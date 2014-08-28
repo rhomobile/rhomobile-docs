@@ -76,7 +76,7 @@ N/A
 </b></td><td class="clsSyntaxCells clsEvenRow">Numeric values (0 - ScreenWidth)</td><td class="clsSyntaxCells clsEvenRow">Sets the width of the viewer window in pixels</td><td class="clsSyntaxCells clsEvenRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>height:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Numeric values (0 - ScreenHeight)</td><td class="clsSyntaxCells clsOddRow">Sets the height of the viewer window in pixels</td><td class="clsSyntaxCells clsOddRow">Device Specific</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>lamp:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">ON/OFF</td><td class="clsSyntaxCells clsEvenRow">switches the lamp ON or OFF</td><td class="clsSyntaxCells clsEvenRow">OFF</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>aim:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">ON/OFF</td><td class="clsSyntaxCells clsOddRow">switches the imager's aim ON or OFF</td><td class="clsSyntaxCells clsOddRow">OFF</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>username:[Value]
+</b></td><td class="clsSyntaxCells clsOddRow">ON/OFF</td><td class="clsSyntaxCells clsOddRow">switches the imager's aim ON or OFF. This is not available on Android.</td><td class="clsSyntaxCells clsOddRow">OFF</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>username:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">http or ftp server user name</td><td class="clsSyntaxCells clsEvenRow">username for the http or ftp server if required</td><td class="clsSyntaxCells clsEvenRow">
 N/A
 </td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>password:[Value]
