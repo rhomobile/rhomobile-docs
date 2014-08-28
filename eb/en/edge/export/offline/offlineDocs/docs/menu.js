@@ -191,12 +191,16 @@ var menuStrcture = [
 			{
 				name: 'Migration Guides',
 				icon: 'fa fa-exchange',
-				link: '#',
+				link: '#guide-migration',
 				items: [
 					{
 						title: 'Getting Started',
 						icon: 'fa fa-exchange',
 						items: [
+							{
+								name: 'Common Migration Notes',
+								link: '#guide-migration',
+							},
 							{
 								name: 'RhoElements 2.x & PocketBrowser',
 								link: '#guide-elements',

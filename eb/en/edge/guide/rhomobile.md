@@ -1,6 +1,10 @@
 # RhoMobile Migration guide
 
-Enterprise Browser supports applications that were using RhoElements 4.x Shared Runtime on Windows Mobile/CE and Android. In RhoElements 4.x, access to the features were made available through JavaScript objects under the `Rho.` namespace:
+## Overview
+Enterprise Browser supports applications that were using RhoElements 4.x Shared Runtime or HTML based Hybrid RhoMobile applications on Windows Mobile/CE and Android using HTML and JavaScript. It does not support any Ruby API's or usage from RhoMobile applications. 
+
+## JavaScript Usage
+In RhoElements 4.x, access to the features were made available through JavaScript objects under the `Rho.` namespace:
 
 	:::javascript
 	// Scan with default options
