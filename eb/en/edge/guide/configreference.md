@@ -851,6 +851,31 @@ This setting is a number which specifies the width of the textbox / text area ca
 	:::xml
 	<CaretWidth value="3"/>
 
+
+###ClearTypeEnabled
+Enables or Disables ClearType (Windows Mobile Only).
+
+**Possible Values**
+
+* 0 - Disabled
+* 1 - Enabled
+
+#### Example
+	:::xml
+	<ClearTypeEnabled value="0"/>
+
+###FitToScreenEnabled
+Automatically expands the application window to fit the screen (Windows Mobile Only).
+
+**Possible Values**
+
+* 0 - Disabled
+* 1 - Enabled
+
+#### Example
+	:::xml
+	<FitToScreenEnabled value="0"/>
+
 ### FontFamily
 Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in `\Windows` for Windows WM / CE devices, or `/system/fonts for Enterprise Tablet`.
 
@@ -872,6 +897,32 @@ Specifies the font directory where true type fonts can be found.  On Windows the
 #### Example
 	:::xml
 	<FontDirectory value="\\Windows"/>
+
+###JavascriptEnabled
+Enables or Disables Javascript (Windows Mobile Only).
+
+**Possible Values**
+
+* 0 - Disabled
+* 1 - Enabled
+
+#### Example
+	:::xml
+	<JavascriptEnabled value="0"/>
+
+###TextSelectionEnabled
+Enables or Disables selection of text when dragging the stylus on the screen (Windows Mobile Only).
+
+**Possible Values**
+
+* 0 - Disabled
+* 1 - Enabled
+
+#### Example
+	:::xml
+	<TextSelectionEnabled value="0"/>
+
+
 
 ### UseNativeFonts
 When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.

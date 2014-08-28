@@ -116,6 +116,7 @@ var menuStrcture = [
 						{"name":"File","link":"#api-File"},
 						{"name":"FileTransfer","link":"#api-FileTransfer"},
 						{"name":"ForwardButton","link":"#api-ForwardButton"},
+						{"name":"Gesture","link":"#api-Gesture"},
 						{"name":"GoButton","link":"#api-GoButton"},
 						{"name":"HomeButton","link":"#api-HomeButton"},
 						{"name":"Hourglass","link":"#api-Hourglass"},
