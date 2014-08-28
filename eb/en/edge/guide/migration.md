@@ -2,8 +2,10 @@
 
 Enterprise Browser provides backwards compatibility for PocketBrowser, RhoElements 2.x and RhoMobile 4.x Shared Runtime applications. This part of the migration section is to provide migrations notes on what is common across either Pocket Browser, RhoElements 2.x and RhoMobile 4.x Shared Runtime applications (Non Ruby Only). For specific application migration notes please consult the following guides:
 
-* [PocketBrowser/RhoElements 2.x](../api/pocketbrowser)
-* [RhoMobile 4.x Shared Runtime](../api/rhomobile)
+* [PocketBrowser 2.x](../guide/pb2)
+* [PocketBrowser 3.x](../guide/pb3)
+* [RhoElements 2.x](../guide/elements)
+* [RhoMobile 4.x Shared Runtime](../guide/rhomobile)
 
 
 ##Configuration

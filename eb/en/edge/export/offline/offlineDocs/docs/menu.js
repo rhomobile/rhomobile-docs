@@ -202,7 +202,15 @@ var menuStrcture = [
 								link: '#guide-migration',
 							},
 							{
-								name: 'RhoElements 2.x & PocketBrowser',
+								name: 'PocketBrowser 2.x',
+								link: '#guide-pb2',
+							},
+							{
+								name: 'PocketBrowser 3.x',
+								link: '#guide-pb3',
+							},
+							{
+								name: 'RhoElements 2.x',
 								link: '#guide-elements',
 							},
 							{
