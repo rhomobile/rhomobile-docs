@@ -51,7 +51,7 @@ By default this control will be placed a the top of the screen. On Windows Mobil
 
 
 ###Switching to Other Applications
-All controls are designed to be shown on top of RhoElements. If you require to switch to an application other than RhoElements you should minimize RhoElements to ensure the buttons do not remain shown. (Not applicable to Enterprise Tablet)
+All controls are designed to be shown on top of RhoElements. If you require to switch to an application other than RhoElements you should minimize RhoElements to ensure the buttons do not remain shown. (Not applicable to Android)
 
 
 ###Screen Orientation
