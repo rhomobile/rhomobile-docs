@@ -126,3 +126,14 @@ Launching Enterprise Browser after installing on the device, will launch a defau
 >Note: On Android, if you do not disconnect the device from your laptop, you will see the application being forced closed. The USB storage option needs to be turned off so that Enterprise Browser can launch properly.
 
 After launching, a default [configuration file](../guide/configreference) will be created. You will need to modify this to make Enterprise Browser [start with your application](../guide/launching).
+
+## Removing Enterprise Browser
+
+### Windows Mobile
+Remove Enterprise Browser by removing the application.
+
+### Windows CE
+If you installed the persistant version of Enterprise Browser, it will not be removed after a cold boot. To remove it, you will need to manually remove the folder and CPY files that are found in the non-volatile area of memory.
+
+### Android
+Use Android Settings applet to remove the Enterprise Browser from the device.

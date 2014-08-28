@@ -106,6 +106,9 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 * Generic methods RasConnect & RasDisconnect are not supported.
 * [PageZoom](../guide/configreference?PageZoom) is not supported on IE. This web view supports text zoom only.
 
+####Scrollbars/Fingerscrolling
+In order to support backwards compatibility, PocketBrowser was forced to use PIE (IE4) for WM6.5 devices even though IE6 was available. This was because developers at the time were reliant on the scrollbars, which Microsoft dropped in IE6 on Windows Mobile. As a result of that decision, PIE is still used on WM today, rather than IE6. IE6 on CE supports scrollbars and is more capable web view.The Scroll options have changed in the configuration file to accommodate more options since CE7 has introduced Finger Scrolling.
+
 ##Android
 Since you have chosen Android to run a PocketBrowser v2 application, you should expect some major differences with regard to rendering. The rendering that is used on Android is the stock Webview that comes with the Android SDK.
 
