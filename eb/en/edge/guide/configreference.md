@@ -802,6 +802,8 @@ Preloads are not applicable to the enterprise tablet, as plugins are integral to
 ### ScrollTechnique
 Specifies the technique used to scroll the viewport:
 
+>Note: This setting is not supported on Android.
+
 **Possible Values**
 
 * FingerScroll : You can scroll around the page using finger swiping.
