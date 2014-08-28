@@ -395,6 +395,8 @@ Setting page zoom property on page load will reflect only for that page.
 
 * Zoom factor of the page.
 
+> Not Supported when using Internet Explorer as the rendering engine.
+
 #### Example
 	:::xml
 	<PageZoom value="1.0"/>

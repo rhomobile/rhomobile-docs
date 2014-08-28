@@ -119,3 +119,10 @@ The Enterprise Browser runtime can also be installed manually by the user. Pleas
 ![img](images/getting-started/setup/setup-enterprise-browswer-runtimes.png)
 
 Once the installation is completed on your device, you can start Enterprise Browser on your device by clicking the associated icon form the programs group/Apps.
+
+## Launching Enterprise Browser
+Launching Enterprise Browser after installing on the device, will launch a default welcome start page that is included with the installation
+
+>Note: On Android, if you do not disconnect the device from your laptop, you will see the application being forced closed. The USB storage option needs to be turned off so that Enterprise Browser can launch properly.
+
+After launching, a default [configuration file](../guide/configreference) will be created. You will need to modify this to make Enterprise Browser [start with your application](../guide/launching).
