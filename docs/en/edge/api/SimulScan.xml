@@ -1,6 +1,6 @@
 <?xml version = "1.0"?>
 <API>
-    <MODULE name="SimulScan" parent="Rho">
+    <MODULE name="SimulScan" parent="Rho" productException="eb">
         <HELP_OVERVIEW>The SimulScan is a software solution that enables customers to extract and
     process various types of information from documents. A single document may contain barcodes, text, image data and
     forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
