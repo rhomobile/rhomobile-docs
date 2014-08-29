@@ -42,7 +42,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
     
     # Rhodes log properties
     # log level
-    # 0-trace, 1-info(app level), 3-warnings, 4-errors
+    # 0-trace, 1-info(app level), 2-warnings, 3-errors
     # for production set to 3
     MinSeverity  = 1 
     
