@@ -485,7 +485,7 @@ The following is an example of a typical configuration file
   <tr>
   <td >VoidConnection\\HostURL</td>
   <td >HostURL</td>
-  <td >This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appeneded to i after appending  colon to the ip </td>
+  <td >This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appeneded to i after appending  colon to the ip. So the accepatable formats are www.symbol.com , http://192.168.7.32:8080, http://192.168.7.32 </td>
   <td >Connection Tracking</td>
   </tr>
   
