@@ -15,15 +15,13 @@ While there are enough similarities between most browsers to facilitate the use 
 
 ### Conditional display in view files
 
-To render content in some browsers but not others, you can include conditional statements within your views.  For example, this code can be used to conditionally display the name of the phone's operating system in your model views.  
+To render content in some browsers but not others, you can include conditional statements within your views.  For example, this code can be used to conditionally display the name of the phone's operating system in your model views.
 
 	:::ruby
 	<% if platform == 'APPLE' %>
 		iPhone 
 	<% elsif  platform == 'ANDROID' %>
 		Android
-	<% elsif platform == 'Blackberry' %>
-		BlackBerry
 	<% else %>
 		Windows Mobile
 	<% end %>	
@@ -46,19 +44,16 @@ b) and if it is, include a custom webkit stylesheet in the html header in the ap
 
 ### Dynamic loading of custom view files based on the current platform
 
-For more significant differences between browsers, Rhodes supports platform-specific loading of view files.  At runtime, the application detects the current platform, and checks first for a platform-specific file before loading the default view file.  
+For more significant differences between browsers, Rhodes supports platform-specific loading of view files.  At runtime, the application detects the current platform, and checks first for a platform-specific file before loading the default view file.
 
 To create a platform-specific view file, simply name the file using the following convention
 [action_name].[platform_abbreviation].erb (e.g., index.bb.erb, show.wm.erb)
 
 <table>
 <tr><td width="125">Android:</td><td width="125" > android</td><td width="125" >index.android.erb</td></tr>
-<tr><td width="125">BlackBerry:</td><td width="125" >bb</td><td width="125" >index.bb.erb</td></tr>
 <tr><td width="125">iPhone:</td><td width="125" >iphone</td><td width="125" >index.iphone.erb</td></tr>
 <tr><td width="125">Windows Mobile:</td><td width="125" > wm</td><td width="125" >index.wm.erb</td></tr>
 </table>
-
-As an example, the BlackBerry browser has severely limited support for modern css. In order to take full advantage of the capabilities of the more advanced browsers found on iPhone, Android and Windows Mobile devices, the views generated via the rhogen command include custom BlackBerry view files which are loaded when running on a BB device.  As described above, the files customized for the BlackBerry are designated by including "bb" before the standard erb extension (e.g., app/index.bb.erb). 
 
 Keep in mind that any changes made to the standard view files are not incorporated into the custom views, so if you're developing custom views for a specific platform, ensure that any necessary changes are applied to all relevant view files.
 

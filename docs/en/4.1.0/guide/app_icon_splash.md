@@ -62,7 +62,6 @@ You can customize you loading image (showed on start of application) for each pl
 * Android `loading.android.png`
 * iPhone `loading.iPhone.png`
 * WM `loading.wm.png`
-* BB `loading.bb.png`
 
 If application doesn't have platform specific `loading.png`, then Rhodes will try to load default `loading.png`.
 

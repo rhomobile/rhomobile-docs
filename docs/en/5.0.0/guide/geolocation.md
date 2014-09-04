@@ -34,7 +34,6 @@ The Rhodes framework provides a simple HTML tag for accessing Geolocation inform
 
 * For iPhone, Android: `/public/jquery/jquery-1.6.2.min.js` and `/public/js/rhogeolocation.js`
 * For Windows Mobile: `/public/js/rhogeolocation-wm.js`
-* For BlackBerry: Unsupported. The BlackBerry webview control doesn't support Ajax. 
 
 Then add one of the following tags in the appropriate location in your HTML: `<geolocation/>`, `<geolatitude/>` or `<geolongitude/>`. The included JavaScript will query a predefined URL and fill these tags with location information.
 
@@ -66,8 +65,6 @@ Refer to the [Geolocation API](../api/geolocation) for the methods to access geo
 ## Testing Geolocation
 
 While developing your application on Windows Mobile emulator, you may find the [FakeGPS](http://msdn.microsoft.com/en-us/library/bb158722.aspx) utility useful.
-
-Before testing on BB simulator, select menu Simulate/GPS Location and set your position.
 
 To provide Mock Location Data on Android, see [here](http://developer.android.com/guide/topics/location/index.html)
 

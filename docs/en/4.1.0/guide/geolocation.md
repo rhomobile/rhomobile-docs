@@ -67,8 +67,6 @@ Refer to the [Geolocation API](../api/geolocation) for the methods to access geo
 
 While developing your application on Windows Mobile emulator, you may find the [FakeGPS](http://msdn.microsoft.com/en-us/library/bb158722.aspx) utility useful.
 
-Before testing on BB simulator, select menu Simulate/GPS Location and set your position.
-
 To provide Mock Location Data on Android, see [here](http://developer.android.com/guide/topics/location/index.html)
 
 ## Samples

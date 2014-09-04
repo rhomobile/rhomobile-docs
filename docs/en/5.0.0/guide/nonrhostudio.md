@@ -102,23 +102,17 @@ If your IDE or Text-Editor provides a means to launch an external executable, yo
 	rake build:android:eclipsebundle         # Build RhoBundle for Eclipse project
 	rake build:android:extensions            # Building native extensions
 	rake build:android:rhobundle             # Build RhoBundle for android
-	rake build:symbian:rhobundle             # Build symbian rhobundle
 	rake build:wp8:rhobundle_noext           # Build WP8 rhobundle
 	rake build:wp:rhobundle                  # Build WP7 rhobundle
 	rake clean:android                       # Clean Android
-	rake clean:bb                            # Clean bb
-	rake clean:bbsim                         # Clean bb and simulator
 	rake clean:iphone                        # Clean iphone
 	rake clean:win32                         # Clean win32
 	rake clean:wince                         # Clean windows ce
 	rake clean:wm                            # Clean wm
 	rake clean:wp                            # Clean wp
 	rake clean:wp8                           # Clean wp
-	rake config:checkbb                      # Check local blackberry configuration
 	rake device:android:debug                # Build debug self signed for device
 	rake device:android:production           # Build production signed for device
-	rake device:bb:debug                     # Build debug for device
-	rake device:bb:production                # Build production for device
 	rake device:iphone:production            # Builds and signs iphone for production
 	rake device:symbian:production           # Build production for device
 	rake device:win32:production             # Build installer for Windows
@@ -128,15 +122,9 @@ If your IDE or Text-Editor provides a means to launch an external executable, yo
 	rake device:wp8:production               # Build production for device
 	rake device:wp:production                # Build production for device or emulator
 	rake emulator:wp8:production             # Build production for device
-	rake package:bb:production_sim           # Package all production (all parts in one package) for simulator
 	rake run:android                         # build and launch emulator
 	rake run:android:device                  # build and install on device
 	rake run:android:rhosimulator            # Run application on RhoSimulator
-	rake run:bb                              # Builds everything, loads and starts bb sim and mds
-	rake run:bb:rhosimulator                 # Run application on RhoSimulator
-	rake run:bb:startsim                     # Start Blackberry simulator
-	rake run:bbapp                           # Builds everything and loads application on simulator
-	rake run:bbdev                           # Same as run:bb, but only supports one app at a time and works faster
 	rake run:iphone                          # Builds everything, launches iphone simulator
 	rake run:iphone:rhosimulator             # Run application on RhoSimulator
 	rake run:webrickrhologserver[app_path]   # start rholog(webrick) server
@@ -158,4 +146,3 @@ If your IDE or Text-Editor provides a means to launch an external executable, yo
 	rake run:wp:rhosimulator                 # Run application on RhoSimulator
 	rake uninstall:android                   # uninstall from emulator
 	rake uninstall:android:device            # uninstall from device
-

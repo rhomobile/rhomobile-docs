@@ -11,10 +11,8 @@ To allow Bluetooth enable the bluetooth capability. This is done by adding the f
 Currently Bluetooth support has the following limitations:
 
 * On Apple device (iPhone, iPad etc.), you can connect only to another Apple device.
-* On Blackberry, if you want to make client connection to any device, you should pair devices only when on another device is running server service, because it needs to add paired device to list of devices with support serial port profile - only the devices you can see in the list of devices to connect.
 * On any platform, except iPhone, you should pair your devices before making connection.
-* You can change local device name for display on another device only on iOS and Android platform - for WM and BB use system settings for change local device name.
-* You can not see another device name when you are using server connection on BlackBerry.
+* You can change local device name for display on another device only on iOS and Android platform - for WM use system settings for change local device name.
 * Only one connection session can be created and used on any device. You should close your current session before making another session.
 * One-to-few peers connection scheme is unsupported.
 
