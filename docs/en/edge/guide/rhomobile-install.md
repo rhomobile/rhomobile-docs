@@ -34,7 +34,6 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 * A link to the [RhoMobile documentation](/home).
 * A launcher for RhoStudio.
 * A link to the readme file.
-* A link to the RhoElements Shared Runtime for Windows Mobile. 
 * A link to the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](../rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
 * An uninstaller for RhoMobile Suite.
 
