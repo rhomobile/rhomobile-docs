@@ -1,10 +1,10 @@
 # Quick Start
-This guide will provide an easy to use overview of how to get started using the Motorola Enterprise Browser (MEB). We will go through [installation](#guide-quick-start?installation), [licensing](#guide-quick-start?licensing), [your first app](#guide-quick-start?your-first-meb-app), and setting [your app's start page](#guide-quick-start?your-apps-start-page).
+This guide will provide an easy to use overview of how to get started using the Enterprise Browser (EB). We will go through [installation](#guide-quick-start?installation), [licensing](#guide-quick-start?licensing), [your first app](#guide-quick-start?your-first-meb-app), and setting [your app's start page](#guide-quick-start?your-apps-start-page).
 
 ## Installation
-To install the MEB on your device, there are two requirements:
+To install the EB on your device, there are two requirements:
 
-1. Your device must be a Motorola Solutions device.
+1. Your device must be a Zebra Technologies device.
 2. Your device's OS must be either Windows Mobile, Windows CE, or Android.
 
 Once you have verified that your device meets the above requirements, you'll need to make sure your device is connected to your computer in a way that the Enterprise Browser Installer can interface with it.
@@ -45,7 +45,7 @@ Which, if your device is setup correctly, you should see something like this:
 
 ![img](images/quick_start/quick-start-adb-devices-output.png)
 
-Now that you have your android device connected to your computer through adb, you are ready to deploy the MEB onto your device using the Enterprise Browser Installer.
+Now that you have your android device connected to your computer through adb, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
 
 ### Windows Mobile / Windows CE
 To connect your Motorola WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
@@ -56,14 +56,14 @@ With your device connected and recognized by the OS and the Mobile Device Center
 
 ![img](images/quick_start/quick-start-mobile-device-center-connected.png)
 
-Now that your device is connected and recognized by your computer, you are ready to deploy the MEB onto your device using the Enterprise Browser Installer.
+Now that your device is connected and recognized by your computer, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
 
 ### Enterprise Browser Installer
-The Enterprise Browser Installer is an application that you will us in order to get the MEB onto your device. To acquire the installer, you'll need to download it [here]() and install it as you would any other Windows application. Once it is installed, launch the Enterprise Browser Installer and you should see something like this.
+The Enterprise Browser Installer is an application that you will us in order to get the EB onto your device. To acquire the installer, you'll need to download it [here]() and install it as you would any other Windows application. Once it is installed, launch the Enterprise Browser Installer and you should see something like this.
 
 ![img](images/quick_start/quick-start-eb-installer-platform-select.png)
 
-Now, simply choose an installation of the MEB to deploy to your device and click the "Deploy" button.
+Now, simply choose an installation of the EB to deploy to your device and click the "Deploy" button.
 
 For Android, you'll see a message asking you to make sure that your device is recognized by the `adb devices` command then, you should see something like this.
 
@@ -73,22 +73,22 @@ For Windows Mobile and Windows CE, you'll get a message asking if you would like
 
 ![img](images/quick_start/quick-start-deploying-winmo.png)
 
-NOTE: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper MEB operations.
+NOTE: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper EB operations.
 
 ## Licensing
-<!-- TBD - Sunil to get licensing info for MEB -->
+<!-- TBD - Sunil to get licensing info for EB -->
 
 ### Applying Your License
 
 ## Your App's Start Page
-### Types of MEB Apps
-The MEB will usually be used in one of three different but, related, scenarios:
+### Types of EB Apps
+The EB will usually be used in one of three different but, related, scenarios:
 
-1. Hosted Web App - You already have a web app hosted somewhere and you want the MEB to render it on your mobile device.
-2. Local Web App - You have all your assets stored on your mobile device and want MEB to render these pages for use on your mobile device.
-3. Hybrid local / hosted App - You have a web app hosted somewhere but some of the assets that your web app uses are stored locally on your device. You want the MEB to render these pages for use on your mobile device.
+1. Hosted Web App - You already have a web app hosted somewhere and you want the EB to render it on your mobile device.
+2. Local Web App - You have all your assets stored on your mobile device and want EB to render these pages for use on your mobile device.
+3. Hybrid local / hosted App - You have a web app hosted somewhere but some of the assets that your web app uses are stored locally on your device. You want the EB to render these pages for use on your mobile device.
 
-With any of these three scenarios, you will need to be able to edit the config.xml file that comes with the MEB. The config.xml resides on the device in a directory which is dependent on your device's OS:
+With any of these three scenarios, you will need to be able to edit the config.xml file that comes with the EB. The config.xml resides on the device in a directory which is dependent on your device's OS:
 
 * **Android** - /Android/data/com.zebratechnologies.enterprisebrowser/Config.xml
 * **Windows Mobile / Windows CE** - \Program Files\Enterprise Browser\Config\Config.xml
@@ -96,7 +96,7 @@ With any of these three scenarios, you will need to be able to edit the config.x
 NOTE: It is worth noting that, with most Windows Mobile / CE devices, you will have to copy the config.xml file to a location that is not on your device in order to modify it. Once your modifications are done, copy it back to your device and overwrite the old one.
 
 ### Setting Your App's Start Page
-Whether your app is hosted, local, or both, you'll need to edit the line in the config.xml file that controls the start path of the MEB. in the config.xml you'll find the startPage value and this is what you'll need to change in order for your app to start where you want it to. For example, if I wanted my app to start at yahoo.com for some reason I would edit the startPage to look like this:
+Whether your app is hosted, local, or both, you'll need to edit the line in the config.xml file that controls the start path of the EB. in the config.xml you'll find the startPage value and this is what you'll need to change in order for your app to start where you want it to. For example, if I wanted my app to start at yahoo.com for some reason I would edit the startPage to look like this:
 
 	:::xml
 	<General>
@@ -114,19 +114,19 @@ If I were starting my app from a local page I would need to prepend the file pat
 		<UseRegularExpressions value="1"/>
 	</General>
 
-This address will cause the MEB to start my app at the index.html file located in my device's root directory.
+This address will cause the EB to start my app at the index.html file located in my device's root directory.
 
 NOTE: Notice that there are three forward-slashes in that address; the first two are for the file: protocol and the third specifies the root directory of the device.
 
-## Your First MEB App
-So let's create a very basic index page that we can launch from our MEB app.
+## Your First EB App
+So let's create a very basic index page that we can launch from our EB app.
 
 ### Create Your Start Page
 Create a new file called index.html and use the contents below.
 
 	:::html
 	<body>
-		<h1>My First MEB App</h1>
+		<h1>My First EB App</h1>
 
 		<p>This is my first app and all it does right now is point to Google's homepage.</p>
 
@@ -142,10 +142,10 @@ Now change the startPage in your config.xml to:
 	:::xml
 	<StartPage value="file:///index.html" name="Menu"/>
 
-### Start Your MEB App
+### Start Your EB App
 <table>
 	<tr>
-		<td>Now start your MEB app and you should see something like this:</td>
+		<td>Now start your EB app and you should see something like this:</td>
 		<td>
 			<p>
 			And when you click on the link (assuming you have an active<br>

@@ -1,5 +1,5 @@
 # Supported Devices
-This is a list of the devices that are supported with the Motorola Enterprise Browser.
+This is a list of the devices that are supported with the Enterprise Browser.
 
 ## Android
 <!-- List of android supported devices -->

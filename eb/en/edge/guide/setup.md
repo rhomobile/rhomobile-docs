@@ -1,6 +1,6 @@
 # Installation
 ## Desktop Installation
-To install the MEB on your device, there are two requirements:
+To install the EB on your device, there are two requirements:
 
 * Your device must be a **Motorola Solutions device**.
 * Your device's OS must be either **Windows Mobile, Windows CE, or Android**.
@@ -35,7 +35,7 @@ Here is what the Installer looks like; options on the left, explanations on the 
 
 ![img](images/getting-started/setup/setup-eb-installer-platform-select.png)
 
-> Note: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper MEB operations.
+> Note: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper EB operations.
 
 ### Android Devices
 To connect your Motorola Android device to your Windows computer, you'll need two things:
@@ -71,13 +71,13 @@ Which, if your device is setup correctly, you should see something like this:
 
 ![img](images/getting-started/setup/setup-adb-devices-output.png)
 
-Now that you have your android device connected to your computer through adb, you are ready to deploy the MEB onto your device using the Enterprise Browser Installer.
+Now that you have your android device connected to your computer through adb, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
 
 When you choose to deploy to your android device you'll see a message asking you to make sure that your device is recognized by the `adb devices` command then, you should see something like this.
 
 ![img](images/getting-started/setup/setup-deploying-android.png)
 
-After this step. the MEB should be deployed on your Android device.
+After this step. the EB should be deployed on your Android device.
 
 ### Windows Mobile/Windows CE Devices
 To connect your Motorola WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
@@ -88,7 +88,7 @@ With your device connected and recognized by the OS and the Mobile Device Center
 
 ![img](images/getting-started/setup/setup-mobile-device-center-connected.png)
 
-Now that your device is connected and recognized by your computer, you are ready to deploy the MEB onto your device using the Enterprise Browser Installer.
+Now that your device is connected and recognized by your computer, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
 
 1. The ActiveSync installer will install the selected Enterprise Browser runtime files to your device. 
 2. If you have chosen to install the Persistent Runtime for Windows then you are required to Cold Boot/Clean PS the device after installation.

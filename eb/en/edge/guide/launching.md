@@ -1,5 +1,4 @@
 # Starting Your Application
-
 ## Overview
 In order for Enterprise Browser work with your application, it needs to be configured into what we refer to as *Runtime configuration*. This is managed through an XML file called **Config.xml**. This file is mandatory for proper Enterprise Browser execution: not every setting has a default and if the configuration file cannot be found, Enterprise Browser *will not start*. 
 
@@ -17,7 +16,7 @@ For persistant installations, on cold boot the Config.xml file is copied from \A
 ## Starting Your Application
 To set Enterprise Browser to Start With your Application, you find the `startPage` parameter in the Config.xml file and change it to the location of your HTML application. This application can reside locally on the device or it can reside remotely on a web server.
 
->Note: Different steps need to be taken for each scenario in order to make use of Enterprise Browser APIs. Be sure to read the [API Overview guide](../guide/apioverview) for more details.
+> Note: Different steps need to be taken for each scenario in order to make use of Enterprise Browser APIs. Be sure to read the [API Overview guide](../guide/apioverview) for more details.
 
 As an example of using a local file called `HelloScan.html`. The following steps would be taken:
 
@@ -27,4 +26,4 @@ As an example of using a local file called `HelloScan.html`. The following steps
 4. Find the `Application` entry in the xml file and change it's `startPage` parameter to "file://\helloscan.html". 
 5. Start Enterprise Browser using the icon in the programs group. 
 
->Note: 	If you are using a localized variant of the operating system, you may need to edit the default config.xml shipped with Enterprise Browser to account for the localized folder names on the system, e.g. The Italian build of the OS uses \Programmi\ rather than \Program Files.
+> Note: If you are using a localized variant of the operating system, you may need to edit the default config.xml shipped with Enterprise Browser to account for the localized folder names on the system, e.g. The Italian build of the OS uses \Programmi\ rather than \Program Files.

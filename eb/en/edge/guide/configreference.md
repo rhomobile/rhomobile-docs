@@ -1,5 +1,5 @@
 # Config.XML Reference
-Runtime configuration of the Motorola Enterprise Browser is managed through an XML file called Config.xml. This file is *mandatory* for proper MEB execution: not every setting has a default and if the configuration file cannot be found, the MEB will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled your installation or the MEB on your device.
+Runtime configuration of the Enterprise Browser is managed through an XML file called Config.xml. This file is *mandatory* for proper MEB execution: not every setting has a default and if the configuration file cannot be found, the MEB will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled your installation or the MEB on your device.
 
 ## Configuration File Location
 The location of the configuration file loaded by the MEB is dependent on a number of factors:
@@ -28,7 +28,7 @@ The following is an example of a typical configuration file
 
 	:::xml
 	<?xml version="1.0"?>
-	<!-- Motorola Enterprise Browser Configuration file -->
+	<!-- Enterprise Browser Configuration file -->
 	<Configuration>
 		<DebugButtons>
 			<DebugButtonsEnabled value="0"/>
@@ -122,7 +122,7 @@ The following is an example of a typical configuration file
 
 				<Navigation>
 					<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
-					<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"/>
+					<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
 					<NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/>
 					<ViewportEnabled value="1"/>
 					<Cache value="5MB"/>
@@ -133,7 +133,7 @@ The following is an example of a typical configuration file
 
 ## General
 ### StartPage
-Defines the start page of the Enterprise Browser application, the first page to be displayed when Enterprise Browser is launched.  This should be a local file to avoid connectivity issues on start up.
+Defines the start page of the Enterprise Browser application, the first page to be displayed when the Enterprise Browser is launched. This should be a local file to avoid connectivity issues on start up.
 
 >Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -172,7 +172,7 @@ In order to be backwardly compatible with PocketBrowser syntax for controlling d
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.
+Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.
 
 **Possible Values**
 
@@ -183,7 +183,7 @@ Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.
+Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.
 
 **Possible Values**
 
@@ -194,7 +194,7 @@ Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that thi
 	<HTTPS_Proxy value="https://my.proxy.com:8181"/>
 
 ### No_Proxy
-Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24. Note this configuration setting is usable with the Motorola Webkit browser only.
+Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24. Note this configuration setting is usable with the Webkit browser only.
 
 **Possible Values**
 
@@ -371,7 +371,7 @@ Enterprise Browser has a plugin based architecture so functionality can be tailo
 
 ## Screen
 ### FullScreen
-Sets Enterprise Browser to fullscreen mode, locking out the OS to the user unless specifically minimized using the Application API. Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.
+Sets Enterprise Browser to fullscreen mode, locking out the OS to the user unless specifically minimized using the Application API. Some Windows Mobile devices feature a customized user interface; in this case access is provided to the status bar at the top of the screen.
 
 **Possible Values**
 
@@ -695,7 +695,7 @@ Path to an existing directory where the NPAPI Plugins are stored.
 	<NPAPIDirectory value="file:///path-to-NPAPI-dir"/>
 
 ### Preloads \\ PreloadLegacyActiveX
-Whether or not to preload the ActiveX object in WebKit. You'll need to use this if you want backwards compatibility with code written in PocketBrowser that used the ActiveXObject. This setting is supported on Windows Mobile / CE with the Motorola Webkit only.
+Whether or not to preload the ActiveX object in WebKit. You'll need to use this if you want backwards compatibility with code written in PocketBrowser that used the ActiveXObject. This setting is supported on Windows Mobile / CE with the webkit only.
 
 **Possible Values**
 
@@ -877,7 +877,7 @@ Automatically expands the application window to fit the screen (Windows Mobile O
 	<FitToScreenEnabled value="0"/>
 
 ### FontFamily
-Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in `\Windows` for Windows WM / CE devices, or `/system/fonts for Enterprise Tablet`.
+Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Zebra Technologies WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in `\Windows` for Windows WM / CE devices, or `/system/fonts for Enterprise Tablet`.
 
 **Possible Values**
 
@@ -888,7 +888,7 @@ Specifies the default font to use when rendering text in web pages.  The specifi
 	<FontFamily value="Tahoma"/>
 
 ### FontDirectory
-Specifies the font directory where true type fonts can be found.  On Windows the default font directory is `\Windows` on all Motorola WM / CE devices.  Not applicable to the Enterprise Tablet.
+Specifies the font directory where true type fonts can be found.  On Windows the default font directory is `\Windows` on all Zebra Technologies WM / CE devices.  Not applicable to the Enterprise Tablet.
 
 **Possible Values**
 
@@ -1151,11 +1151,11 @@ When visiting a web server the WebKit browser will report its User-Agent header 
 
 * %p - platform name ("Windows CE " + version number)
 * %w - WebKit version number
-* %e - MotorolaWebKit version number.
+* %e - WebKit version number.
 
 Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.
 
-From Enterprise Browser 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to Enterprise Browser 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"
+From Enterprise Browser 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to Enterprise Browser 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"
 
 **Possible Values**
 
@@ -1163,7 +1163,7 @@ From Enterprise Browser 2.1 onwards the default value was changed to work out of
 
 #### Example
 	:::xml
-	<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"/>
+	<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
 
 ### ViewportEnabled
 Whether to enable or disable viewport meta tag processing (default is enabled)
