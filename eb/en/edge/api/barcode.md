@@ -5143,3 +5143,6 @@ In some device configurations the scanner and camera share the same hardware. Wh
 
 ###Get Scanner Properties
 On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. On WM/CE, some of the scanner properties are not exposed to set but can be retrieved. On Android, only supported scanner properties can be retrieved in "getAllProperties" method.
+
+###Set Scanner Properties
+On WM/CE, for some properties, it is first necessary to apply those properties before enabling the scanner.

@@ -6,7 +6,7 @@
             <ALIAS new="Signal" deprecated="true"/>
         </ALIASES>
 
-        <HELP_OVERVIEW>The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Zebra Technologies' devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Motorola Solutions' devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
