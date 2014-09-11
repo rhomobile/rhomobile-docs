@@ -897,11 +897,11 @@ Use this name for requestState(), return true if battery low.</li>
 <li>It will only work with Zebra printers which have the <code>Made For iPod/iPhone</code> certification.</li>
 <li>Before using the printer you should pair it using the iOS system Bluetooth settings.</li>
 <li>You need to include the External Accessory framework in your project (this is automatically added when you first generate the iPhone project file)</li>
-<li>You need to include the Zebra printer protocol string &ldquo;com.zebra.rawport&rdquo; in your info.plist file ([project root]/project/iphone/Info.plist) under &ldquo;Supported external accessory protocols&rdquo;:
+<li>You need to include the Zebra printer protocol string &ldquo;com.zebratechnologies.rawport&rdquo; in your info.plist file ([project root]/project/iphone/Info.plist) under &ldquo;Supported external accessory protocols&rdquo;:
 
 <pre><code>  &lt;key&gt;UISupportedExternalAccessoryProtocols&lt;/key&gt;
   &lt;array&gt;
-      &lt;string&gt;com.zebra.rawport&lt;/string&gt;
+      &lt;string&gt;com.zebratechnologies.rawport&lt;/string&gt;
   &lt;/array&gt;
 </pre></li>
 <li>You need to set the key <code>Required Background modes</code> to <code>App Communicates with an accessory</code> in your app&rsquo;s plist file

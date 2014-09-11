@@ -56,7 +56,7 @@ And the name I have just sett will be printed to the log file in the form of a l
 Once you have sufficient data output to the log, you may want to actually see the logs so you can determine what is happening in the app. The log file is in a different place depending on what platform your MEB app is running on.
 
 ### Android
-On Android your log file will be in `/Android/data/com.motorolasolutions.enterprisebrowser/` with all the other app data.
+On Android your log file will be in `/Android/data/com.zebratechnologies.enterprisebrowser/` with all the other app data.
 
 ### Windows Mobile / CE
 On a Windows Mobile or Windows CE device, your log file will be in `/Program Files/Enterprise Browser/log/`.

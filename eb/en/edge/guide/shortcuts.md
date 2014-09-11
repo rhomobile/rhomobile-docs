@@ -1,8 +1,7 @@
-#Using Shortcuts
+# Using Shortcuts
 <!-- TBD - This guide will tell how the customer how to use shortcuts to launch an application -->
 
 ## Windows Mobile/CE
-
 You can setup Windows Mobile shortcut files to launch the RhoElements runtime with different startup options that will override the default settings. You set these parameters in a shortcut (.lnk) file for Windows Mobile/CE; you must create this shortcut file. You can use a text editor such as Notepad on Windows CE, or use the File menu in Platform Builder (New Project or File, Text File type). Edit the file for command line parameters and save it to \Windows\Start Menu (Windows Mobile) and \Windows\Programs (Windows CE). This will put the shortcut at the top level in your Start Menu.
 
 The RhoElements runtime installation path on Windows CE/Mobile devices is `\Program Files\RhoElements` and the path to the executable is `\Program Files\RhoElements\RhoElements.exe`.
@@ -20,7 +19,7 @@ The shortcut file supports the following command line parameters.
         /S:file://\HTML\index.html
         /S:'file://\RE App\index.html'
         /S:"file://\Program Files\MyApp\index.html"
-        /S:http://www.motorola.com
+        /S:"http://www.zebra.com/us/en.html"
 
 If neither the `/S` nor `/C` parameters are specified in the shortcut file, then the default values for the location of the configuration file and the start page of the RhoElements application will be used. 
 
@@ -52,4 +51,3 @@ And another could be:
 	66#\Program Files\Rhoelements\rhoelements.exe /S:file://\helloscan.html
 
 >Note: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL.
-

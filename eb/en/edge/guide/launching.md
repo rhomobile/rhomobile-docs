@@ -8,7 +8,7 @@ An example configuration file is provided as part of the installation and contai
 ### Config.XML Location
 The location of the configuration file loaded by Enterprise Browser is dependent on a number of factors:
 
-* When running on the Enterprise Tablet the configuration file is read from /Android/data/com.motorolasolutions.EnterpriseBrowser/Config.xml.
+* When running on the Enterprise Tablet the configuration file is read from /Android/data/com.zebratechnologies.EnterpriseBrowser/Config.xml.
 * When running on all other devices Enterprise Browser will attempt to launch the configuration file Config.xml located in the folder `Config` off the installation root.
 * You can change which configuration file is loaded using the /C: configuration option. See the shortcuts section for more detail.
 

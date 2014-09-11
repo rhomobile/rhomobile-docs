@@ -316,10 +316,10 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
 * It will only work with Zebra printers which have the `Made For iPod/iPhone` certification.
 * Before using the printer you should pair it using the iOS system Bluetooth settings.
 * You need to include the External Accessory framework in your project (this is automatically added when you first generate the iPhone project file)
-* You need to include the Zebra printer protocol string "com.zebra.rawport" in your info.plist file ([project root]/project/iphone/Info.plist) under "Supported external accessory protocols":
+* You need to include the Zebra printer protocol string "com.zebratechnologies.rawport" in your info.plist file ([project root]/project/iphone/Info.plist) under "Supported external accessory protocols":
         &lt;key&gt;UISupportedExternalAccessoryProtocols&lt;/key&gt;
         &lt;array&gt;
-            &lt;string&gt;com.zebra.rawport&lt;/string&gt;
+            &lt;string&gt;com.zebratechnologies.rawport&lt;/string&gt;
         &lt;/array&gt;
 * You need to set the key `Required Background modes` to `App Communicates with an accessory` in your app's plist file
         &lt;key&gt;UIBackgroundModes&lt;/key&gt;

@@ -2,7 +2,7 @@
 ## Welcome To the Enterprise Browser
 The Enterprise Browser is a cross-platform application development framework that allows developers to use standard web technologies such as HTML5, CSS3, and JavaScript, without having to code in each mobile platform's native development language. True write-once, run-anywhere capability frees developers from having to tweak code to support multiple operating systems.
 
-The Enterprise Browser enables developers and integrators to provide advanced Web-based solutions for Motorola Solution's Microsoft&copy; Windows Mobile, Windows&copy; CE, and Enterprise Android mobile computers. 
+The Enterprise Browser enables developers and integrators to provide advanced Web-based solutions for Zebra Technologies' Microsoft&copy; Windows Mobile, Windows&copy; CE, and Enterprise Android mobile computers. 
 
 The Enterprise Browser provides Meta tags and JavaScript interfaces designed specifically for Enterprise systems computer hardware and features (Barcode scanners and other peripherals such as printers and magnetic stripe readers (MSR)) using Meta tags and JavaScript interfaces designed specifically for Enterprise systems. (Refer to Device Capabilities section for more details.)
 
