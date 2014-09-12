@@ -116,7 +116,7 @@ The Enterprise Browser runtime can also be installed manually by the user. Pleas
 7. Open the File location on your device where you have copied the Runtime and click to install.
 8. If you are installing a Persistent Runtime then you are required to Coldboot/CleanPS the device after installation.
 
-![img](images/getting-started/setup/setup-enterprise-browswer-runtimes.png)
+![img](images/getting-started/setup/setup-enterprise-browser-runtimes.png)
 
 Once the installation is completed on your device, you can start Enterprise Browser on your device by clicking the associated icon form the programs group/Apps.
 
