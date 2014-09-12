@@ -10,7 +10,7 @@ Installing Enterprise Browser on your desktop will provide you will all you need
 1. Download the Enterprise Browser MSI.
 2. Install the MSI.
 
-![img](images/getting-started/setup/setup-msi-install.png)
+<img style="width:50%" src="images/getting-started/setup/setup-msi-install.png">
 
 At this point you should now have an item in the start menu structured as follows:
 
@@ -20,7 +20,7 @@ At this point you should now have an item in the start menu structured as follow
 	* Enterprise Browser Runtimes
 	* JavaScript Files
 
-![img](images/getting-started/setup/setup-start-menu-items.png)
+<img style="width:35%" src="images/getting-started/setup/setup-start-menu-items.png">
 
 ## Device Deployment
 To install the Enterprise Browser runtime onto your device, follow the steps below:
@@ -33,7 +33,7 @@ To install the Enterprise Browser runtime onto your device, follow the steps bel
 
 Here is what the Installer looks like; options on the left, explanations on the right.
 
-![img](images/getting-started/setup/setup-eb-installer-platform-select.png)
+<img style="width:50%" src="images/getting-started/setup/setup-eb-installer-platform-select.png">
 
 > Note: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper EB operations.
 
