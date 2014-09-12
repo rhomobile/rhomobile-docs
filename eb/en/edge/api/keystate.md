@@ -2,7 +2,7 @@
 
 
 ## Overview
-The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Motorola Solutions' Windows Mobile / CE / Embedded handheld devices (see remarks).
+The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Zebra Technologies' Windows Mobile / CE / Embedded handheld devices (see remarks).
 ## Enabling the API
 There are two methods of enabling the KeyState API: 
 
@@ -85,7 +85,7 @@ Synchronous Return:
 
 
 ###Devices lacking support
-Due to platform limitations this API is not available on the following Motorola Solutions' devices:
+Due to platform limitations this API is not available on the following Zebra Technologies' devices:
 
 * ES400
 * MC45

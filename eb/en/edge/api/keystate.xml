@@ -2,7 +2,7 @@
 
 <API>
     <MODULE name="KeyState" parent="Rho" license="Required">
-        <HELP_OVERVIEW>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Motorola Solutions' Windows Mobile / CE / Embedded handheld devices (see remarks).</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Zebra Technologies' Windows Mobile / CE / Embedded handheld devices (see remarks).</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
@@ -117,7 +117,7 @@ function show_keystates(){
 
         <REMARKS>
             <REMARK title="Devices lacking support">
-                <DESC>Due to platform limitations this API is not available on the following Motorola Solutions' devices:
+                <DESC>Due to platform limitations this API is not available on the following Zebra Technologies' devices:
 
 * ES400
 * MC45

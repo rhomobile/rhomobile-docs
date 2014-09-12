@@ -10,11 +10,11 @@ One of its main benefits is that, instead of having to write SELECT and UPDATE s
 Without Rhom, you would issue SQL statements to the database:
 
     :::sql
-    update product set price=119,brand='Motorola' where object='12345'
+    update product set price=119,brand='Zebra' where object='12345'
 
 With Rhom you can achieve the same result with:
     :::javascript
-    product.updateAttibutes({price: 119, brand: "Motorola"});
+    product.updateAttibutes({price: 119, brand: "Zebra"});
 
 Object deletion in SQL:
 
@@ -73,7 +73,7 @@ RhoMobile applications provide definition and CRUD access to your data models in
 
 ## Database Encryption
 
-**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to upgrade to RhoMobile Suite purchase a [RhoElements license](licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is removed from Rhodes. This feature is only supported in RhoMobile Suite. If you wish to use this feature, you will need to upgrade to RhoMobile Suite purchase a [RhoElements license](licensing) is required.**
 
 If your application requires that the local database is encrypted on the filesystem, you can enable it by setting a flag in `build.yml`:
 

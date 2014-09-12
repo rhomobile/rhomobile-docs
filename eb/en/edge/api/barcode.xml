@@ -7,9 +7,9 @@
             <ALIAS new="Barcode" deprecated="true"/>
         </ALIASES>
 
-        <HELP_OVERVIEW>The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Motorola Solutions' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Motorola Solutions devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Motorola Windows Mobile / CE devices.Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Zebra Technologies' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Zebra Technologies devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Zebra Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Zebra Technologies Windows Mobile / CE devices.Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode.</HELP_OVERVIEW>
 
-        <HELP_OVERVIEW_EB>The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
+        <HELP_OVERVIEW_EB>The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Zebra Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
         </HELP_OVERVIEW_EB>
 
         <MORE_HELP>
@@ -71,25 +71,25 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="autoEnter" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When true, automatically appends the character code for 'enter' to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.</DESC>
             </PROPERTY>
             <PROPERTY name="autoTab" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When true, automatically appends the tab character to the end of any barcodes scanned. This is useful if you are populating a form and want to jump to the next field in the form without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoTab and AutoEnter are mutually exclusive properties.</DESC>
             </PROPERTY>
             <PROPERTY name="hapticFeedback" type="BOOLEAN" generateAccessors="true" default="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Controls the haptic feedback on decode. This means that if this is set to true, then the device will vibrate when a decode occurs.</DESC>
             </PROPERTY>
             <PROPERTY name="linearSecurityLevel" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Describes the linear security level used during decoding. This determines the number of times a barcode must be read before it is decoded. If the successive reads of the barcode do not match, it will not be decoded.</DESC>
                 <VALUES>
                     <VALUE constName="REDUNDANCY_AND_LENGTH" value="redundancyAndLength">
@@ -112,13 +112,13 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="scanTimeout" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.</DESC>
             </PROPERTY>
             <PROPERTY name="rasterMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Describes the type of vertical rastering to use.</DESC>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <PLATFORM>WM</PLATFORM>
                 <VALUES>
                     <VALUE constName="RASTER_NONE" value="none">
@@ -138,13 +138,13 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="rasterHeight" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Laser Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Laser Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Vertical rastering height to use, as a percentage, when rasterMode:openAlways is applied. This value must be between 0 and 100.</DESC>
             </PROPERTY>
             <PROPERTY name="aimType" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Describes the type of aiming to use.</DESC>
                 <VALUES>
                     <VALUE constName="AIMTYPE_TRIGGER" value="trigger">
@@ -171,25 +171,25 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="timedAimDuration" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Aim duration in milliseconds for aimType:timedHold and aimType:timedRelease.</DESC>
             </PROPERTY>
             <PROPERTY name="sameSymbolTimeout" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When the aimType:continuousRead property is applied this value defines the interval between which the same barcode can be decoded twice. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this value to prevent accidental duplicate scans.</DESC>
             </PROPERTY>
             <PROPERTY name="differentSymbolTimeout" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When the aimType:continuousRead property is applied this value defines the interval between which different barcodes can be scanned. The value is specified in milliseconds, use 0 to indicate no interval between successive reads. Use this setting to allow time for the operator to re-aim the device between successive scans.</DESC>
             </PROPERTY>
             <PROPERTY name="aimMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Defines the aiming mode to use.</DESC>
                 <VALUES>
                     <VALUE constName="AIMMODE_NONE" value="none">
@@ -209,7 +209,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="picklistMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Imager / Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle. This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode. When enabled picklistMode will override aimMode or, if no aiming is chosen, and use aimMode:reticle. This mode will also interact with viewfinderMode, see the EMDK for C help file for more information. Enabling picklist mode may adversely affect overall decoding performance.</DESC>
                 <VALUES>
                     <VALUE constName="PICKLIST_DISABLED" value="disabled">
@@ -226,7 +226,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="viewfinderMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Configures the mode of the scanner viewfinder window. This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.</DESC>
                 <VALUES>
                     <VALUE constName="VIEWFINDER_ENABLED" value="enabled">
@@ -246,31 +246,31 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="viewfinderX" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the left hand side of the screen. The images displayed in the viewfinder will be scaled as appropriate.</DESC>
             </PROPERTY>
             <PROPERTY name="viewfinderY" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When scanning a barcode using a Camera scanner the viewfinder preview window will appear this number of pixels from the top of the screen. The images displayed in the viewfinder will be scaled as appropriate.</DESC>
             </PROPERTY>
             <PROPERTY name="viewfinderWidth" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels wide. The images displayed in the viewfinder will be scaled as appropriate.</DESC>
             </PROPERTY>
             <PROPERTY name="viewfinderHeight" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When scanning a barcode using a Camera scanner the viewfinder preview window will be this number of pixels in height. The images displayed in the viewfinder will be scaled as appropriate.</DESC>
             </PROPERTY>
             <PROPERTY name="viewfinderFeedback" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.</DESC>
                 <VALUES>
                     <VALUE constName="VF_FEEDBACK_ENABLED" value="enabled">
@@ -287,13 +287,13 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="viewfinderFeedbackTime" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.</DESC>
             </PROPERTY>
             <PROPERTY name="focusMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Imager / Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Sets the focus mode in use.</DESC>
                 <VALUES>
                     <VALUE constName="FOCUS_FIXED" value="fixed">
@@ -307,7 +307,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="illuminationMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Imager / Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Selects the illumination mode to use.</DESC>
                 <VALUES>
                     <VALUE constName="ILLUMINATION_AUTO" value="auto">
@@ -324,13 +324,13 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="dpmMode" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Imager / Camera Scanners on Motorola Solutions' devices. The scanning engine must support DPM barcodes.</APPLIES>
+                <APPLIES msiOnly="true">Imager / Camera Scanners on Zebra Technologies' devices. The scanning engine must support DPM barcodes.</APPLIES>
                 <DESC>Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversely affect overall decoding performance. DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.</DESC>
             </PROPERTY>
             <PROPERTY name="inverse1dMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices. The scanning engine must support inverse barcodes</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices. The scanning engine must support inverse barcodes</APPLIES>
                 <DESC>Allows the user to select inverse 1D barcodes for decoding.</DESC>
                 <VALUES>
                     <VALUE constName="INVERSE_ENABLED" value="enabled">
@@ -347,13 +347,13 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="poorQuality1dMode" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Imager / Camera Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Imager / Camera Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Allows poor quality 1D barcodes to be read When true, but this will adversely affect the overall decoding performance.</DESC>
             </PROPERTY>
             <PROPERTY name="beamWidth" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>2.1.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Laser Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Laser Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Specifies the width of the laser beam. All devices will support normal beam widths but other widths may not be supported on your device.</DESC>
                 <VALUES>
                     <VALUE constName="BEAM_NORMAL" value="normal">
@@ -370,7 +370,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="dbpMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Laser Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Laser Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.</DESC>
                 <VALUES>
                     <VALUE constName="DBP_NORMAL" value="normal">
@@ -384,25 +384,25 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="klasseEins" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Laser Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Laser Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Enables or disables the Klasse Eins laser on time function.</DESC>
             </PROPERTY>
             <PROPERTY name="adaptiveScanning" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Laser Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Laser Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Enables or disables adaptive scanning. When set to true, the scan engine will automatically toggle between 2 scan angles, wide and narrow, allowing the scan engine to decode barcodes both in close proximity and far away (~100 inches). Adaptive scanning is only supported in high performance, long working range scan engines such as SE960.</DESC>
             </PROPERTY>
             <PROPERTY name="bidirectionalRedundancy" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Laser Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Laser Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Enables or disables bidirectional redundancy.</DESC>
             </PROPERTY>
             <PROPERTY name="barcodeDataFormat" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>2.1.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Camera / Imager Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Camera / Imager Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Specifies the format in which the barcode data is returned, binary data is returned in Data URI format with the appropriate mime type. This parameter is designed to be used primarily with image based symbologies (eg. Signature). Binary data will not be output as keystrokes, you must set a decode callback in order to receive scanned data.</DESC>
                 <VALUES>
                     <VALUE constName="FORMAT_BINARY" value="binary">
@@ -416,97 +416,97 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="dataBufferSize" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>2.1.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Specifies the number of bytes allocated to receive the scanned barcode. This parameter is designed to be used primarily with image based symbologies and should not be modified unless absolutely necessary (eg. Signature).</DESC>
             </PROPERTY>
             <PROPERTY name="connectionIdleTimeout" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Bluetooth Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Bluetooth Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Specifies the time, in seconds, that an external scanner will be allowed to remain idle before the connection is terminated to conserve power.</DESC>
             </PROPERTY>
             <PROPERTY name="disconnectBtOnDisable" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Bluetooth Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Bluetooth Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Forces the scanner to disconnect from the terminal when it is 'disabled'. Since the scanner is disabled when you navigate to a new page, set this value to false if you want to maintain the bluetooth connection to your remote scanner.</DESC>
             </PROPERTY>
             <PROPERTY name="displayBtAddressBarcodeOnEnable" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>2.1.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Bluetooth Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Bluetooth Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>If set to true the bluetooth address will be displayed as a barcode on the screen during the pairing process, initiated by calling 'enable' on a bluetooth scanner. Not all devices support this functionality. Note you must specify this parameter before or within the call to 'enable'.</DESC>
             </PROPERTY>
             <PROPERTY name="enableTimeout" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>2.1.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Bluetooth Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Bluetooth Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Configures the time (in seconds) allowed to pair with the external bluetooth scanner after calling the 'enable()' method. You must specify this parameter before calling 'enable' to change the default.</DESC>
             </PROPERTY>
             <PROPERTY name="friendlyName" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Returns the friendly name associated with the scanner.</DESC>
             </PROPERTY>
             <PROPERTY name="lcdMode" type="BOOLEAN" generateAccessors="true" default="false">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to scan barcodes off of LCD screens (like mobile device screens)</DESC>
             </PROPERTY>
             <PROPERTY name="lowBatteryScan" type="BOOLEAN" generateAccessors="true" default="false">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Set to false to disable scanning when the battery is low / critical or set to true to enable it.</DESC>
             </PROPERTY>
             <PROPERTY name="triggerConnected" type="BOOLEAN" generateAccessors="true" default="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Only applies to an enabled laser or imaging scanner. Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer. By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately. Please note that disconnecting the trigger will also prevent the start method from emitting a laser. This property will only affect the scanner and will have no effect on the 'captureTrigger' API.</DESC>
             </PROPERTY>
             <!--PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" generateAccessors="true" default="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>By default if you have enabled the Scanner on a page, through either JavaScript or Ruby and navigate to a new page the Scanner will automatically disable. To override this behavior you can set this option to false and once enabled the Scanner will remain so in the foreground application until you disable it.</DESC>
             </PROPERTY-->
             <PROPERTY name="decodeVolume" type="INTEGER" generateAccessors="true" default="5">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>The volume of the device beeper when a barcode is scanned. Volume specified using 0 to 5, with 5 being the loudest. The value of 0 is device dependent, some Windows Mobile / CE devices interpret this as the quietest volume; if you wish to completely disable the beeper on scan please set decodeSound to an empty or invalid sound file.</DESC>
             </PROPERTY>
             <PROPERTY name="decodeDuration" type="INTEGER" generateAccessors="true" default="250">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>The duration of the device beeper when a barcode is scanned, in milliseconds.</DESC>
             </PROPERTY>
             <PROPERTY name="decodeFrequency" type="INTEGER" generateAccessors="true" default="3000">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>The frequency of the device beeper when a barcode is successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.</DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeFrequency" type="INTEGER" generateAccessors="true" default="2500">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper but the API will accept values in the range 0 to 65535.</DESC>
             </PROPERTY>
             <PROPERTY name="decodeSound" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeSound" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.</DESC>
             </PROPERTY>
             <PROPERTY name="scannerType" type="STRING" generateAccessors="true" readOnly="true">
@@ -518,7 +518,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="allDecoders" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, Android</PLATFORM>
-                <APPLIES msiOnly="false">Scanners on Motorola Solutions' devices</APPLIES>
+                <APPLIES msiOnly="false">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>When set to true, the barcode scanner will read all barcode types that the scanner is capable of reading. When set to false, the barcode scanner will not be able to decode any symbologies, this is most useful if you want to set the scanner to a default state before only enabling your required symbologies. The fewer symbologies that are enabled the faster the decoding performance of the scanning engine will be. This property will return true only if all supported symbologies by the scanner are enabled, if only a subset of supported symbologies are enabled then false will be returned. Note that some decoders will not be enabled as some symbologies use the same systems to encode data, making it impossible to differentiate between them. For example: "canpostal" and "auspostal" both use a 4-state system, so devices will only enable either "canpostal" OR "auspostal" when "alldecoders" is enabled. Note that other symbologies also share the 4-state system.</DESC>
             </PROPERTY>
             <PROPERTY name="aztec" type="BOOLEAN" generateAccessors="true">
@@ -1449,121 +1449,121 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="rsmModelNumber" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Ring scanner model number.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmSerialNumber" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Ring scanner serial number.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmDateOfManufacture" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Ring scanner date of manufacture as DDMMYY.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmDateOfService" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Ring scanner date of service as DDMMYY.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothAddress" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmFirmwareVersion" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Scanner's operating system version.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmDeviceClass" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>The device class of the ring scanner.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBatteryStatus" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Indicates the status of the remote scanner's battery, will be one of 'unknown', 'full', 'medium', 'empty', 'chargingFullRate', 'chargingHalfRate', 'chargingTrickle' or 'discharging'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBatteryCapacity" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be returned if the capacity could not be determined, for example if the scanner had no battery.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBatteryId" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>One of 'simple', 'double', 'disabled' or 'unknown'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothAuthentication" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>True if authentication is required.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothEncryption" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>True if encryption is required.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothPinCode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Up to 5 character PIN code used for Bluetooth authentication.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothPinCodeType" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>'UseStored' will use the PIN code stored in the memory of the ring scanner, by default '12345'. 'PromptUser' indicates that the ring scanner should be used to scan 5 alpha numeric barcodes to define the PIN, eg. "1", "2", "3", "4", "5" (for PIN 12345). This parameter is not saved permanently on the ring scanner.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothReconnectionAttempts" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>How long the scanner tries to re-establish connection if it goes out of range, in seconds. This value must be a multiple of 5 and in the range 30 to 60 seconds.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothBeepOnReconnectAttempt" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in progress.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothHidAutoReconnect" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>'neverReconnect', 'reconnectOnData' or 'reconnectImmediately'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothFriendlyName" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Friendly Bluetooth name, e.g. 'MyBTScanner'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothInquiryMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>To use a general inquiry mode, 'general' else, 'limited'</DESC>
             </PROPERTY>
             <PROPERTY name="rsmBluetoothAutoReconnect" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Bluetooth reconnection scheme.</DESC>
                 <VALUES>
                     <VALUE constName="RSM_AUTORECONNECT_NONE" value="none">
@@ -1583,85 +1583,85 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY name="rsmForceSavePairingBarcode" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Force saving the barcode assigned to the device to which the scanner has been paired.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmLowBatteryIndication" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Whether or not the ring scanner should give a low battery indication.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmLowBatteryIndicationCycle" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 120.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmScanLineWidth" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>The laser scan line width, 'wide' or 'narrow'.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmGoodScansDelay" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Delay between good scans in proximity continuous mode, measured in milliseconds. Range 0 to 15000. This value must be a multiple of 100.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmDecodeFeedback" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>If true, the remote scanner beeps and illuminates its green LED on a successful decode.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmIgnoreCode128Usps" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Feature for ignoring Code 128 barcodes beginning with 420 and 421.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmScanTriggerWakeup" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Scanner trigger will wakeup the device from a low power state.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmMems" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmProximityEnable" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>If you press the trigger on an RSM scanner, proximity enabled will be turned off, even though it still reports its self as being turned on if you query the property. In order to use ProximityEnable you need to also have Mems enabled, this is the motion sensor and if you disable Mems the scanner will not function.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmProximityContinuous" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Proximity continuous mode.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmProximityDistance" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Specify the distance for the proximity feature as 'short', 'medium' or 'long' </DESC>
             </PROPERTY>
             <PROPERTY name="rsmPagingEnable" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Specify whether paging the device is enabled.</DESC>
             </PROPERTY>
             <PROPERTY name="rsmPagingBeepSequence" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Range 0 to 15 to specify the pattern for the paging beep sequence.</DESC>
             </PROPERTY>
         </PROPERTIES>
@@ -1681,7 +1681,7 @@ The ebapi.js file is necessary for all single API inclusions.
             </METHOD>
             <METHOD name="enable" hasCallback="optional">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <APPLIES msiOnly="true">Motorola Solutions' Scanners which support a hardware or software trigger to invoke the scan.</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Scanners which support a hardware or software trigger to invoke the scan.</APPLIES>
                 <PLATFORM>WM,Android</PLATFORM>
                 <DESC>Enabling the scanner puts it in a state where it will respond to the trigger (on devices with a hardware trigger) or will accept a command to initiate a soft scan (start method). Scanned barcodes will be available to the application through the callback provided to this method. Only one scanner on the device can be enabled at any one time, to switch between the imager and camera scanners (for example) then first disable the currently enabled scanner. If you do not specify a callback to this method you will received the scanned data as keystrokes. Note that it is necessary to enable the scanner on WM/CE devices prior to being able to retrieve the state of properties.</DESC>
                 <BACKWARDS_COMPATIBILITY state="false">
@@ -1724,7 +1724,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="registerBluetoothStatus" hasCallback="mandatory">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>If you are using an RS507 barcode scanner you can register to receive connected or disconnected events through this method.</DESC>
                 <CALLBACK type="HASH">
                     <PARAMS>
@@ -1737,21 +1737,21 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="start" hasCallback="none">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' scanners</APPLIES>
                 <DESC>Performs a soft trigger start, initiating a scan without pressing the hardware trigger. If the scan does not result in a decode it is necessary to perform a soft stop before another soft start.</DESC>
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
 
             <METHOD name="stop" hasCallback="none">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' scanners</APPLIES>
                 <DESC>Performs a soft trigger stop.</DESC>
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
 
             <METHOD name="disable" hasCallback="none">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <APPLIES msiOnly="true">Motorola Solutions' scanners</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' scanners</APPLIES>
                 <DESC>Disables the barcode scanner. This reverts the scanner to its default state and flushes any current decoder settings.</DESC>
                 <PLATFORM>WM,Android</PLATFORM>
             </METHOD>
@@ -1781,8 +1781,8 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="take" hasCallback="mandatory">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC>
-                <DESC_EB>Enable the scanner and start capturing the barcode automatically. On Motorola Solutions' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC_EB>
+                <DESC>Enable the scanner and start capturing the barcode automatically. On Zebra Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC>
+                <DESC_EB>Enable the scanner and start capturing the barcode automatically. On Zebra Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC_EB>
                 <PLATFORM>WM, Android, iOS</PLATFORM>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -1825,7 +1825,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="commandRemoteScanner" hasCallback="none">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
-                <APPLIES msiOnly="true">Motorola Solutions' Bluetooth barcode scanners, model RS507</APPLIES>
+                <APPLIES msiOnly="true">Zebra Technologies' Bluetooth barcode scanners, model RS507</APPLIES>
                 <DESC>Instruct the connected RS507 scanner to perform some action.</DESC>
                 <PARAMS>
                     <PARAM name="command" type="STRING">
@@ -1867,7 +1867,7 @@ it is necessary to disable the scanner and then re-enable it before another scan
             </REMARK>
             <REMARK title="Viewfinder Position Parameters">
                 <DESC>
-On Motorola Solutions' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
+On Zebra Technologies' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
                 </DESC>
             </REMARK>
 
@@ -1877,6 +1877,10 @@ On Motorola Solutions' scanners the scanner viewfinder window is not infinitely 
 
             <REMARK title="Get Scanner Properties">
                 <DESC>On WM/CE, it is first necessary to enable the scanner before most of the properties can be retrieved. The case of scanner properties will differ across platforms. On WM/CE, some of the scanner properties are not exposed to set but can be retrieved. On Android, only supported scanner properties can be retrieved in "getAllProperties" method.</DESC>
+            </REMARK>
+			
+	    <REMARK title="Set Scanner Properties">
+                <DESC>On WM/CE, for some properties, it is first necessary to apply those properties before enabling the scanner.</DESC>
             </REMARK>
 
             <REMARK title="DataWedge Interaction With Native Apps" productException="eb">

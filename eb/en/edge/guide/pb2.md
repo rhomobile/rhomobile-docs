@@ -1,19 +1,18 @@
-#PocketBrowser 2.x Migration Guide
-
-##Overview
+# PocketBrowser 2.x Migration Guide
+## Overview
 PocketBrowser 2.x applications are supported when running within Enterprise Browser. Please review the [Common Migration Notes](../guide/migration) for items that also apply to migrating PocketBrowser applications to Enterprise Browser. Then review the sections below that apply to your device and installation choice type.
 
-##Windows Mobile/CE using Webkit
+## Windows Mobile/CE using Webkit
 Since you have chosen Webkit to run a PocketBrowser v2 application, you should expect some major differences with regard to rendering. If you wanted your page to render as it does on PocketBrowser consider using the IE web view.
 
 > Note: If you switch from CE to WM or vice versa, the rendering may be different as these systems have variant browser controls.
 
-###Installation	
+### Installation	
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  If deploying to a Windows CE device, a persistent installation for Webkit should be selected so that Enterprise Browser persists over a cold boot.
 
 > Note: Do not forget to cold boot the device to complete the installation.	 
 
-###Configuration Settings
+### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
 
 1. Set the [StartPage](../guide/configreference?StartPage).
@@ -56,15 +55,15 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 * NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser.
 * [FitToScreenEnabled](../guide/configreference?FitToScreenEnabled) not supported. This is a function for Windows Mobile only.
 
-##Windows Mobile/CE using IE
+## Windows Mobile/CE using IE
 When using IE as the rendering engine only PocketBrowser API's and funtioanlity will be available. API's listed in this help document will not be supported. You may wish to choose to use this option if you are not looking to take advantage of Webkit abilities and/or other functionality that Enterprise Browser provides. This may be an only option for very low memory/CPU devices.
 
-###Installation	
+### Installation	
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  If deploying to a Windows CE device, a persistent installation for IE should be selected so that Enterprise Browser persists over a cold boot.
 
 > Note: Do not forget to cold boot the device to complete the installation.	 
 
-###Configuration Settings
+### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
 
 1. Set the [StartPage](../guide/configreference?StartPage).
@@ -106,13 +105,13 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 * Generic methods RasConnect & RasDisconnect are not supported.
 * [PageZoom](../guide/configreference?PageZoom) is not supported on IE. This web view supports text zoom only.
 
-##Android
+## Android
 Since you have chosen Android to run a PocketBrowser v2 application, you should expect some major differences with regard to rendering. The rendering that is used on Android is the stock Webview that comes with the Android SDK.
 
-###Installation	
+### Installation	
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  
 
-###Configuration Settings
+### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
 
 1. Set the [StartPage](../guide/configreference?StartPage).
@@ -155,5 +154,4 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 * NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser.
 * [FitToScreenEnabled](../guide/configreference?FitToScreenEnabled) not supported. This is a function for Windows Mobile only.
 * EMML profiles do not work.
-* Check the device for hardware compatibility, especially the [barcode scanning](http://docs.rhomobile.com/en/2.2.0/rhoelements/scanner) options. 
-
+* Check the device for hardware compatibility, especially the [barcode scanning](http://docs.rhomobile.com/en/2.2.0/rhoelements/scanner) options.

@@ -134,7 +134,7 @@ Synchronous Return:
 
 
 ### quit()
-Quit the application.
+Quit the application. Quitting the application while license screen is shown will be slightly delayed.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
