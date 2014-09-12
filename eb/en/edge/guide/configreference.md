@@ -208,6 +208,8 @@ Sets the sites that should be accessed directly. This should be a comma-separate
 ### DebugButtonsEnabled
 When enabled, a set of controls useful for development and debugging purposes will be present in the interface.
 
+>Note: When debug buttons are enabled, [Gestures](../api/Gesture) will not function as expected.
+
 **Possible Values**
 
 * 0 - Disabled
@@ -865,7 +867,7 @@ Enables or Disables ClearType (Windows Mobile Only).
 	<ClearTypeEnabled value="0"/>
 
 ###FitToScreenEnabled
-Automatically expands the application window to fit the screen (Windows Mobile Only).
+Automatically expands the application window to fit the screen (Windows Mobile with Internet Explorer Rendering Engine Only).
 
 **Possible Values**
 

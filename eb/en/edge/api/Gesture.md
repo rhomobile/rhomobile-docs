@@ -1,6 +1,6 @@
 #Gesture
 
-> Note This feature is not supported in CE7.
+> Note This feature is not supported in CE7. When [debug buttons](../guide/configreference?DebugButtons) are activated in [Config.xml](../guide/configreference), Gestures will not function as expected.
 
 ## Overview
 Enterprise Browser is capable of capturing gestures from the touch screen if the appropriate hardware is installed. You can define multiple gestures on the same page but to avoid performance issues it is recommended you do not create more than 5 per page. 
