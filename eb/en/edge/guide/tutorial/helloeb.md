@@ -10,7 +10,7 @@ The MEB will usually be used in one of three different but, related, scenarios:
 
 With any of these three scenarios, you will need to be able to edit the config.xml file that comes with the MEB. The config.xml resides on the device in a directory which is dependent on your device's OS:
 
-* **Android** - /Android/data/com.zebratechnologies.enterprisebrowser/Config.xml
+* **Android** - /Android/data/com.symbol.enterprisebrowser/Config.xml
 * **Windows Mobile / Windows CE** - \Program Files\Enterprise Browser\Config\Config.xml
 
 NOTE: It is worth noting that, with most Windows Mobile / CE devices, you will have to copy the config.xml file to a location that is not on your device in order to modify it. Once your modifications are done, copy it back to your device and overwrite the old one.

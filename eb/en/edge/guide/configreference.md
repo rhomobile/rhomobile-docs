@@ -4,7 +4,7 @@ Runtime configuration of the Enterprise Browser is managed through an XML file c
 ## Configuration File Location
 The location of the configuration file loaded by the MEB is dependent on a number of factors:
 
-* When running on the Enterprise Tablet the configuration file is read from `/Android/data/com.zebratechnologies.enterprisebrowser/Config.xml`.
+* When running on the Enterprise Tablet the configuration file is read from `/Android/data/com.symbol.enterprisebrowser/Config.xml`.
 * When running on all other devices the MEB will attempt to launch the configuration file `Config.xml` located in the folder `Config` off the installation root.
 * You can change which configuration file is loaded using the /C: configuration option
 

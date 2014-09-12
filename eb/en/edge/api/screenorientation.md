@@ -159,7 +159,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Motorola Solutions devices with IST Sensor support.
+Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Zebra Technologies devices with IST Sensor support.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access

@@ -16,8 +16,8 @@ The shortcut file supports the following command line parameters.
         
 `/S:` specifies the start page of the RhoElements application. Other configuration parameters will be used from the default config.xml file. If the full file name contains spaces, surround URL with single or double quotes, e.g.:
 
-        /S:file://\HTML\index.html
-        /S:'file://\RE App\index.html'
+        /S:"file://\HTML\index.html"
+        /S:"file://\RE App\index.html"
         /S:"file://\Program Files\MyApp\index.html"
         /S:"http://www.zebra.com/us/en.html"
 

@@ -148,7 +148,7 @@ It is not possible to capture the following types of keys:
 5.  Depending on the device keyboard driver, some keys may not be easily capturable as they are interpreted as a shifted character by the device.  One example of such a key is the '#' character on CE7 devices, whilst the character code for this key is 23 it is interpreted as 33.  This applies to both capturing keys and specifying the HomeKeyValue.
 6.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
 7. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
-8. On ET1, Search (P3) key is application specific. Dispatching this key within the Enterprise Browser wont do anything as the MEB doesn't do anything specific with this key (unlike the menu key which raises the menu).
+8. On ET1, Search (P3) key is application specific. Dispatching this key within the Enterprise Browser wont do anything as the Enterprise Browser doesn't do anything specific with this key (unlike the menu key which raises the menu).
 Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.
 
 ###Precedence of APIs using the same keyValue
@@ -165,8 +165,8 @@ When the specified key is pressed, the event will fire but the homeKey event wil
 ###Precedence of captureKey events
 Any captureKey calls set with a specific key will take precedence over any captureKey calls with value 'all'. This means that the 'all' callback will not be called when individual keys that have been registered with captureKey are pressed. This also goes for dispatch values. If captureKey 'all' has a dispatch value of false, and captureKey with an individual keyCode value has a dispatch value of true, then this individual key will be dispatched to the app when pressed.
 
-###Device Lockdown on Motorola Solutions Android devices
-Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Motorola Solutions Android documentation for other device lock-down options.
+###Device Lockdown on Zebra Technologies Android devices
+Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Zebra Technologies Android documentation for other device lock-down options.
 
 ###Capturing Function
 If you have enabled the function key in the configuration settings and that function key has some special behavior in the Operating system the key will not be capturable unless you also set the 'FunctionKeysCapturable' option (see the Configuration Reference). An example of special behavior is the F6 and F7 keys on the MC75a (non QWERTY) which control the volume up and volume down. Although 'FunctionKeysCapturable' will allow you to capture Function keys it will also disable the special Function key behavior. Which buttons map to which function keys will differ from device to device, some devices such as the MC9500 have dedicated, labeled function keys whereas other devices such as the MC75a do not label the fact that their volume / red phone / green phone keys all behave as function keys internally.
