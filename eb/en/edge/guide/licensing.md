@@ -59,7 +59,7 @@ More verbose instructions on licensing your device and how to interact with the 
 There are two ways to apply a device license via a file.
 
 * **Via a Registry key**: From the Zebra Technologies Software licensing site, after you have applied for your license you are able to download a registry key file (.reg) containing the company name and license key. On Windows Mobile and Windows CE devices, you can license the device via this registry key.
-* **Via a file** on Android devices when developing hybrid applications: Create the file /mnt/sdcard/keys/rhoelements. On its first line, enter your company name associated with the license. On its second line, enter the hexadecimal license key. The easiest way to do this is to manually license one device and then the use the file /mnt/sdcard/keys/rhoelements that was created.
+* **Via a file** on Android devices when developing hybrid applications: Create the file /mnt/sdcard/keys/enterprisebrowser. On its first line, enter your company name associated with the license. On its second line, enter the hexadecimal license key. The easiest way to do this is to manually license one device and then the use the file /mnt/sdcard/keys/enterprisebrowser that was created.
 
 You can also define your device license and company name in your config.xml file as follows:
 

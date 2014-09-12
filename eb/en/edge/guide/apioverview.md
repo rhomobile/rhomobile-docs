@@ -1,5 +1,5 @@
 # API Overview
-The Enterprise Browser exposes certain methods to the developer which can be used to interact with write code for the MEB. These methods are separated into APIs for each capability that can be manipulated and used with the MEB app. Below We'll describe how to use these APIs in your MEB app.
+The Enterprise Browser exposes certain methods to the developer which can be used to interact with write code for the Enterprise Browser. These methods are separated into APIs for each capability that can be manipulated and used with the Enterprise Browser app. Below We'll describe how to use these APIs in your Enterprise Browser app.
 
 ## Enabling the JavaScript API's
 Depending on whether your application is running from local html files on the device or if it is running from a remote web server will determine how to enable the Enterprise Browser APIs. Essentially, you need to ensure the proper JavaScript file is included in the proper location
@@ -10,8 +10,8 @@ After installing Enterprise Browser, there will be a folder `JavaScriptFiles` fo
 * EnterpriseBrowser - JavaScript API files for Enterprise Browser
 	* ebapi-modules.js - includes all `EB.module` APIs. 
 	* individual modules JS files - optionally can include just the modules you need. See the [optimization guide](../guide/optimization) for more information.
-* BackwardsCompatibility - used for supporting PocketBrowser and RhoElements applications
-	* elements.js - used for supporting RhoElements and PocketBrowser applications. See the [RhoElements & Pocketbrpwser Migration guide](../guide/elements)
+* BackwardsCompatibility - used for supporting PocketBrowser and RhoElements 2.x applications
+	* elements.js - used for supporting RhoElements 2.x and PocketBrowser applications. See the [RhoElements & PocketBrowser Migration guide](../guide/elements)
 	* rhoapi-modules.js - used for supporting RhoMobile applications. See the [RhoMobile Migration guide](../guide/rhomobile)
 
 ### Using JS APIs From Your Web App
@@ -25,14 +25,6 @@ For example if you placed your html and JS files in `<device-root>\myApp` then i
 	:::html
 	<script src="ebapi-modules.js" type="text/javascript"></script>
 
-<!-- ### JavaScript ORM
-If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
-
-	:::html
-	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
-
->Note: You do not need to place your HTML files in the `Program Files\RhoElements\rho\apps\public` folder. Just be sure to copy the `rhoapi-modules.js` to the folder you are using and reference it appropriately.
- -->
 ## Using Your Own Objects
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them. In the following example we want to save a reference to the front facing camera of the device so that we can manipulate the front facing camera properties separate from the rear-facing camera:
 

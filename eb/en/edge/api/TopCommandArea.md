@@ -1,7 +1,6 @@
-#TopCommandArea
-
+# TopCommandArea
 ## Overview
-The TopCommandArea API is used to set the parameters of the Top Command Area. The top command area is a region at the top of the screen designed to hold RhoElements controls such as the address bar or Go button to separate them from the rest of the user application.
+The TopCommandArea API is used to set the parameters of the Top Command Area. The top command area is a region at the top of the screen designed to hold Enterprise Browser controls such as the address bar or Go button to separate them from the rest of the user application.
 
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
@@ -13,21 +12,18 @@ In order to use this API you must include reference to the following JavaScript 
 	:::html
     <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
 
-
 ### API Usage
 This API does not use the `EB` namespace. It is simply referenced using the API name:
 
 	:::javascript
 	topCommandArea.visibility = 'visible';
 
+## Properties
+### visibility
+#### Type
+<span class='text-info'>STRING</span>
 
-##Properties
-
-###visibility
-
-####Type
-<span class='text-info'>STRING</span> 
-####Description
+#### Description
 Sets the visibility of the button.
 
 #### Possible Value
@@ -35,62 +31,61 @@ Sets the visibility of the button.
 * visible
 * hidden
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###height
-
-####Type
+### height
+#### Type
 <span class='text-info'>INTEGER</span> - Positive number, representing pixels
-####Description
+
+#### Description
 Slightly greater than the height of a buttons default height, which depends on the screen resolution.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###image
+### image
+#### Type
+<span class='text-info'>STRING</span>
 
-####Type
-<span class='text-info'>STRING</span> 
-####Description
+#### Description
 Sets the image to be displayed on the bottom command area. See Remarks.
 
 #### Possible Value
 
 * String - URL to location of image file in relation to the Enterprise Browser device folder. A default image is provided.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-###color
-
-####Type
+### color
+#### Type
 <span class='text-info'>STRING</span> 
-####Description
+
+#### Description
 The color to set the bottom command area to.
 
 #### Possible Value
 
 * Color in the #RRGGBB format ex: `bottomCommandArea.color='#FF0000';`
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-
 ## Remarks
-###Use of Images.
+### Use of Images.
 Images can be specified as local to the device or on an HTTP / FTP server, just specify the required protocol as part of your URL (file://\, HTTP:// and FTP://). Image will be scaled to the size of the command area. JPEG and GIF images are only supported on WM devices. Both CE and WM support BMP files.
 
-###Switching to Other Applications
+### Switching to Other Applications
 All controls are designed to be shown on top of Enterprise Browser. If you require to switch to an application other than Enterprise Browser you should minimize Enterprise Browser to ensure the buttons do not remain shown. (Not applicable to Android)
 
-###Screen Orientation
+### Screen Orientation
 When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
