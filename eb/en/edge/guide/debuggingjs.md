@@ -2,7 +2,7 @@
 This guide will help you with debugging your Enterprise Browser apps directly from the device using a tool called [weinre](http://people.apache.org/~pmuellr/weinre/docs/latest/Home.html).
 
 ## Debugging on the Device Using Weinre
-Weinre is a must have developer tool for testing or debugging your JavaScript MEB application. Although a lot of testing and analysis can be done using emulators and your IDE, sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) as effectively. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the MEB APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs.
+Weinre is a must have developer tool for testing or debugging your JavaScript Enterprise Browser application. Although a lot of testing and analysis can be done using emulators and your IDE, sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) as effectively. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the Enterprise Browser APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs.
 
 For those who would rather see it in action, this guide is modeled after a [webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we are going to cover here. We will also be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You may download it and follow along but the app is by no means necessary. You can use Weinre with any application or simply if you would just like to play around with the APIs to try out some code.
 
@@ -71,7 +71,7 @@ You can use the Elements tool to change things on the app's view on the fly just
 You can change pretty much any part of the view such as CSS styling and even which APIs and methods are called, but I chose to do a simple one for brevity's sake.
 
 ### Console and Issuing API Calls
-One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware MEB APIs will only work on actual hardware, which means they cannot be tested in an emulator.
+One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware APIs will only work on actual hardware, which means they cannot be tested in an emulator.
 
 In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on and use the camera to scan a barcode.
 
