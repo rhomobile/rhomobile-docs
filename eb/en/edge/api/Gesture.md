@@ -1,6 +1,6 @@
 #Gesture
 
-> Note This feature is not supported in CE7.
+> Note: This feature is not supported on Windows CE.
 
 ## Overview
 Enterprise Browser is capable of capturing gestures from the touch screen if the appropriate hardware is installed. You can define multiple gestures on the same page but to avoid performance issues it is recommended you do not create more than 5 per page. 
@@ -106,7 +106,7 @@ Creates the previously defined gesture. Properties must be set prior to calling 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ### delete()
 Deletes the gesture last defined by the ID property.
@@ -117,7 +117,7 @@ Deletes the gesture last defined by the ID property.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ##Properties
 
@@ -139,7 +139,7 @@ Specifies the type of gesture being created. Must be the first tag when creating
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 > Tilt and Shake are only available om devices that have an accelerometer.
 
@@ -156,7 +156,7 @@ Depends on gesture type and preset used, if any. See remarks.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###preset
 ####Type
@@ -171,7 +171,7 @@ Dependant on the Gesture Type, the following present names are available
 	***left-right**
 	*right-left
 	*top-bottom
-	*bottom-top                 
+	*bottom-top
 * Circle
 	***happy** :  a 180 degree semi-circle, clockwise from the 3 o'clock position. 
 	*sad : a 180 degree semi-circle, clockwise from the 9 o'clock position.
@@ -190,14 +190,14 @@ Dependant on the Gesture Type, the following present names are available
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###diagnostics
 ####Type
 <span class='text-info'>STRING</span> 
 
 ####Description
-Enables drawing of diagnostic information to provide guidance showing whether or not the gesture will be detected. Note that by their very nature Diagnostics are not designed to be seen by the user.	
+Enables drawing of diagnostic information to provide guidance showing whether or not the gesture will be detected. Note that by their very nature Diagnostics are not designed to be seen by the user.
 
 
 ####Possible Values
@@ -207,7 +207,7 @@ Enables drawing of diagnostic information to provide guidance showing whether or
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###startX
 ####Type
@@ -225,7 +225,7 @@ Linear Gestures: Starting point of gesture.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###startY
 ####Type
@@ -243,7 +243,7 @@ Linear Gestures: Starting point of gesture.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###endX
 ####Type
@@ -261,7 +261,7 @@ Linear Gestures: End point of gesture.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###endY
 ####Type
@@ -278,9 +278,7 @@ Linear Gestures: End point of gesture.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
-
-***********************
+* Windows Mobile
 
 ###skew
 ####Type
@@ -298,7 +296,7 @@ Linear Gestures: Maximum angle which straight line through mouse track can make 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###deviation
 ####Type
@@ -315,7 +313,7 @@ Linear Gestures: Maximum deviation of mouse track from a straight line.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###regionWidth
 ####Type
@@ -333,7 +331,7 @@ Linear Gestures: Width of regions into which gesture path is divided. Setting ve
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###centerX
 ####Type
@@ -350,7 +348,7 @@ Center of screen.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 
 ###centerY
@@ -368,7 +366,7 @@ Center of screen.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###radius
 ####Type
@@ -386,7 +384,7 @@ Circle & Hold Gestures: Radius (in pixels) of gesture.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###start
 ####Type
@@ -403,7 +401,7 @@ Circle Gestures: Starting angle of gesture in degrees. Angles are measured clock
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###end
 ####Type
@@ -420,7 +418,7 @@ Circle Gestures: Ending angle of gesture in degrees. Angles are measured clockwi
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###tolerance
 ####Type
@@ -438,7 +436,7 @@ Linear & Circle Gestures: How far (in pixels) the mouse track can vary from the 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###sensitivity
 ####Type
@@ -455,7 +453,7 @@ Linear & Circle Gestures: Percentage of gesture path which mouse track must cove
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###delay
 ####Type
@@ -472,7 +470,7 @@ Hold Gestures: Time (in milliseconds) that screen must be touched within gesture
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###interval
 ####Type
@@ -489,7 +487,7 @@ Hold Gestures: Time (in milliseconds) between subsequent detections while screen
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###TargetX
 ####Type
@@ -506,7 +504,7 @@ Tilt Gestures: Target orientation of device on X-axis
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###TargetY
 ####Type
@@ -523,7 +521,7 @@ Tilt Gestures: Target orientation of device on Y-axiS.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 
 ###TargetZ
@@ -541,7 +539,7 @@ Tilt Gestures: Target orientation of device on Z-axis
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 
 ###TiltTolerance
@@ -559,7 +557,7 @@ Tilt Gestures: How close the device must be to the target orientation.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###Hysteresis
 ####Type
@@ -576,7 +574,7 @@ Tilt Gestures: How far the device must move away from the target orientation bef
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###Threshold
 ####Type
@@ -593,7 +591,7 @@ Shake Gestures: How vigorously the device must be shaken. The smaller the value 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###Quiet
 ####Type
@@ -610,7 +608,7 @@ Shake Gestures: Time (in milliseconds) that the device must be still before anot
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 
 ## Remarks
