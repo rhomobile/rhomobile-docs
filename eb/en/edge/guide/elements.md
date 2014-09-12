@@ -20,7 +20,7 @@ You will need to replace the version of the Config.xml with the version of Confi
 
 
 ## Meta Tags
-In Pocketbrowser and RhoElements, you could easily access functionality through the use of meta-tags. For  example:
+In Pocketbrowser and RhoElements 2.x, you could easily access functionality through the use of meta-tags. For  example:
 
 	:::html
 	<META HTTP-Equiv="scanner" Content="Enable">
