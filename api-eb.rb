@@ -291,7 +291,10 @@ class Apieb
 			# indicators += "\n* iOS"
 	  	end
 	  	if !platforms.downcase.index("wm").nil? || !platforms.downcase.index("all").nil?
-			indicators += "\n* Windows Mobile/CE"
+			indicators += "\n* Windows Mobile"
+	  	end
+	  	if !platforms.downcase.index("ce").nil? || !platforms.downcase.index("all").nil?
+			indicators += "\n* Windows CE"
 	  	end
 	  	if !platforms.downcase.index("wp8").nil? || !platforms.downcase.index("all").nil?
   			# Ignoring for EB
