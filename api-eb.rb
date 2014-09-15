@@ -305,7 +305,7 @@ class Apieb
 			#indicators += "\n* Windows Desktop"
 	  	end
 	  	if msionly
-			indicators += "\n* Motorola Solutions Devices Only"
+			indicators += "\n* Symbol Devices Only"
 		end
 	end	
 	if indicators !=""
