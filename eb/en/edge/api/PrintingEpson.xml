@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="PrintingEpson" parent="Rho" productException='eb'>
+    <MODULE name="PrintingEpson" parent="Rho" productException="eb">
         <HELP_OVERVIEW>The PrinterEpson API provides Epson specific API access Epson Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](printing)</HELP_OVERVIEW>
         <MORE_HELP>This is example of API. Implementation contain in extension.</MORE_HELP>
         <MORE_HELP_EB>
