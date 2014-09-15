@@ -54,7 +54,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -79,7 +79,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -100,7 +100,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -125,7 +125,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -147,7 +147,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -172,7 +172,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -193,7 +193,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -220,7 +220,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -249,7 +249,7 @@ Application name.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###badLinkURI
 
@@ -267,7 +267,7 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###bundleFolder
 
@@ -286,7 +286,7 @@ Path to the Enterprise Browser folder on the device.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###configPath
 
@@ -305,7 +305,7 @@ Path to the configuration file.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###databaseBlobFolder
 
@@ -324,7 +324,7 @@ Path to folder where the database blob files are stored. Blobs are usually image
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###defaultNativeMenu
 
@@ -345,7 +345,7 @@ Native Menu items.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###invalidSecurityTokenStartPath
 
@@ -364,7 +364,7 @@ Page to navigate to in case of check of SecurityToken failed. Can be set in rhoc
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###modelsManifestPath
 
@@ -383,7 +383,7 @@ Path to file with the model list.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###nativeMenu
 
@@ -404,7 +404,7 @@ Native Menu items.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###publicFolder
 
@@ -423,7 +423,7 @@ Path to the application's public folder.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###securityTokenNotPassed
 
@@ -442,7 +442,7 @@ Indicates if the security token check was failed. Security token can be passed a
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###settingsPageURI
 
@@ -461,7 +461,7 @@ Settings page URI. Will be used when Options menu or toolbar item is chosen by u
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###splash
 
@@ -480,7 +480,7 @@ Splash screen image display options. This a string with several parameters divid
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###startURI
 
@@ -499,7 +499,7 @@ Startup page for your application.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###title
 
@@ -517,7 +517,7 @@ Define Window caption text. If missed - caption from page used. Not supported on
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###userFolder
 
@@ -536,7 +536,7 @@ Path to folder where the application can write files and create subfolders.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###version
 
@@ -555,4 +555,4 @@ Version of Enterprise Browser.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile

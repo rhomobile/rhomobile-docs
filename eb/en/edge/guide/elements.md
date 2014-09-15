@@ -1,6 +1,8 @@
 # RhoElements 2.x Migration Guide
+This guide is meant to assist in migration from RhoElements 2.x to the Enterprise Browser. For online documentation specific to RhoElements 2.x, please see the [online RE 2.x docs](http://docs.rhomobile.com/en/2.2.0).
+
 ## Overview
-Enterprise Browser supports RhoElements 2.x applications in most cases without making any changes to your application.
+Enterprise Browser supports RhoElements 2.x applications in most cases without making any changes to your application. If you do need to make changes, please refer to the changes mentioned below.
 
 ## Config.xml
 You will need to replace the version of the Config.xml with the version of Config.xml that comes with Enterprise Browser. Be sure to make the necessary changes to this file to point to your application and customize any other options that you had in PocketBrowser and RhoElements. Consult the [Configuration Reference](../guide/configreference) for more information.

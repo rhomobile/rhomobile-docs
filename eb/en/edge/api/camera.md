@@ -54,7 +54,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -79,7 +79,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -104,7 +104,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -131,7 +131,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -156,7 +156,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -181,7 +181,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -208,7 +208,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -253,7 +253,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -275,7 +275,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -299,7 +299,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -326,7 +326,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -366,7 +366,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###captureSound
 
@@ -386,7 +386,7 @@ Path to a sound file resident on the device which will be played when the image 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">colorModel</span>
 
@@ -441,7 +441,7 @@ Path to a sound file resident on the device which will be played when the image 
 ####Platforms
 
 * Android
-* Windows Mobile/CE(JPG is supported on all devices, Android and Windows Mobile does not support PNG images)
+* Windows Mobile(JPG is supported on all devices, Android and Windows Mobile does not support PNG images)
 
 ###<span class="text-info">desiredHeight</span>
 
@@ -461,7 +461,7 @@ Path to a sound file resident on the device which will be played when the image 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">desiredWidth</span>
 
@@ -481,7 +481,7 @@ Path to a sound file resident on the device which will be played when the image 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">enableEditing</span>
 
@@ -517,7 +517,7 @@ The path without filename extension to store captured image in subsequent calls 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">flashMode</span>
 
@@ -565,7 +565,7 @@ The maximum height of images which can be captured.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###maxWidth
 
@@ -585,7 +585,7 @@ The maximum width of images which can be captured.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###outputFormat
 
@@ -614,7 +614,7 @@ Android,WM
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###previewHeight
 
@@ -633,7 +633,7 @@ In cases where the resident camera application on the device is not used this AP
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">previewLeft</span>
 
@@ -652,7 +652,7 @@ In cases where the resident camera application on the device is not used this AP
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">previewTop</span>
 
@@ -671,7 +671,7 @@ In cases where the resident camera application on the device is not used this AP
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###previewWidth
 
@@ -690,7 +690,7 @@ In cases where the resident camera application on the device is not used this AP
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">saveToDeviceGallery</span>
 

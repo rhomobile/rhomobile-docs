@@ -38,27 +38,10 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 ### send(<span class="text-info">HASH</span> params)
-Sends an intent. The receiver of the intent can either be another RhoMobile  application that is listening for this Intent characteristic or on Android can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method. 
+Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method. 
 
->Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI. In most cases it is also needed to add extension of exported file to 'android:no_compression' list at build.yml
-
-`build.yml:`
-
-    :::ruby
-    android:
-      no_compression: ['pdf','html','css']
-
-`JavaScript:`
-
-    :::javascript
-    var params = {
-        intentType: Rho.Intent.START_ACTIVITY,
-        action: "ACTION_VIEW",
-        uri: "content://com.rhomobile.sample/rhodata/apps/public/sample.pdf"
-    }
-    Rho.Intent.send(params);    
-
-
+> Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI.
+            
 
 ####Parameters
 <ul><li>params : <span class='text-info'>HASH</span><p>A hash-map with intent parameters. </p></li><ul><li>intentType : <span class='text-info'>STRING</span><p>Type of Intent to send.  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Intent.BROADCAST <br/> String:broadcast</dt><dd>Use the intent as broadcast intent.</dd><dt>Constant: Intent.START_ACTIVITY <br/> String:startActivity</dt><dd>Use the intent to start a UI activity. Platforms: 
@@ -110,7 +93,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -134,7 +117,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 

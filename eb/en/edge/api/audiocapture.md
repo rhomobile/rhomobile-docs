@@ -50,7 +50,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -77,7 +77,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -104,7 +104,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -129,7 +129,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -156,7 +156,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -180,7 +180,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -202,7 +202,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -226,7 +226,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -253,7 +253,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -277,7 +277,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -335,7 +335,7 @@ Encoder to compress recorded audio. In Android devices, the supported encoder ty
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###maxDuration
 
@@ -357,7 +357,7 @@ Specifies the number of milliseconds of audio to capture, defining the size of t
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ##Remarks
 

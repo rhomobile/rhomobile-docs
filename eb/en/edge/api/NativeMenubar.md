@@ -54,7 +54,7 @@ Defined behavior of the Left menu button for Windows Mobile applications. This t
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###extraMenu
 
@@ -74,7 +74,7 @@ The Left menu items for Windows Mobile applications. This defines the list of me
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###mainButton
 
@@ -92,7 +92,7 @@ Defined behavior of the Right menu button for Windows Mobile applications. This 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ###mainMenu
 
@@ -113,4 +113,4 @@ WM </p></li></ul>
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile

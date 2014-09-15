@@ -53,7 +53,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -75,7 +75,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -97,7 +97,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -122,7 +122,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -144,7 +144,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -169,7 +169,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -200,7 +200,7 @@ RGB or ARGB value that sets the background color of the signature capture area.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###border
 
@@ -221,7 +221,7 @@ Shows or hides a border for the rectangular capture area. Not applicable to full
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">compressionFormat</span>
 
@@ -247,7 +247,7 @@ Shows or hides a border for the rectangular capture area. Not applicable to full
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">fileName</span>
 
@@ -268,7 +268,7 @@ Shows or hides a border for the rectangular capture area. Not applicable to full
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###height
 
@@ -289,7 +289,7 @@ The height of the signature capture area in pixels. Not applicable to full-scree
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###left
 
@@ -310,7 +310,7 @@ The coordinates in pixels of the left side of the signature capture area. Not ap
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###outputFormat
 
@@ -337,7 +337,7 @@ The return type of the saved signature capture image.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###penColor
 
@@ -358,7 +358,7 @@ RGB or ARGB value that sets the color of the stylus pen ink using HTML web color
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###penWidth
 
@@ -379,7 +379,7 @@ Sets the width of the pen line in pixels. Advised to keep this to 5 or less.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###top
 
@@ -400,7 +400,7 @@ The coordinates in pixels of the top side of the signature capture area. Not app
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###width
 
@@ -421,7 +421,7 @@ The width of the signature capture area in pixels. Not applicable to full-screen
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ##Remarks
 

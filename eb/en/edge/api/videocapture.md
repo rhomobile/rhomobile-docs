@@ -50,7 +50,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -77,7 +77,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -102,7 +102,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -129,7 +129,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -154,7 +154,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -181,7 +181,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -205,7 +205,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -227,7 +227,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -251,7 +251,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -278,7 +278,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -301,7 +301,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -335,7 +335,7 @@ Specifies the number of milliseconds of video to capture. This is the maximum nu
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###fileName
 
@@ -355,7 +355,7 @@ The path and name of the file that the video is saved to locally on the device. 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###resolution
 
@@ -383,7 +383,7 @@ The resolution of the video file to be captured.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###saveToGallery
 
@@ -403,7 +403,7 @@ Specifies whether or not to save the recorded video file into the device gallery
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ##Remarks
 

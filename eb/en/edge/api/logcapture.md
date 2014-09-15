@@ -52,7 +52,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -77,7 +77,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -102,7 +102,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -124,7 +124,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -146,7 +146,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -175,7 +175,7 @@ Comma-separated list of excluded log categories.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###maxLines
 
@@ -196,4 +196,4 @@ Maximum number of captured lines.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile

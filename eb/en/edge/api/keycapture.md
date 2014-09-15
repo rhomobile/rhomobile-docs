@@ -54,7 +54,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -79,7 +79,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -102,7 +102,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -132,7 +132,7 @@ Specifies a key which, when pressed, will navigate to the start page as defined 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ##Remarks
 

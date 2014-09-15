@@ -1,6 +1,4 @@
-#Sip
-
-
+# Sip
 ## Overview
 The Sip Module is used to control attributes of the soft input panel. Note that these settings apply to both text boxes on the current page as well as the [address bar](../api/AddressBar).
 
@@ -21,36 +19,34 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 	:::javascript
 	sip.manual();
 
-
-##Methods
-
+## Methods
 ### manual()
 The SIP will show or hide only when the SIP button is pressed.
 
-####Returns
+#### Returns
 * Void
 
-####Platforms
+#### Platforms
 
 * Windows Mobile/CE
 
 ### automatic()
 Shows and hides the SIP when editable fields have focus.
 
-####Returns
+#### Returns
+
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile/CE
 
-##Properties
+## Properties
+### left
+#### Type
+<span class='text-info'>INTEGER</span>
 
-###left
-
-####Type
-<span class='text-info'>INTEGER</span> 
 ####Description
 Sets the horizontal position of the SIP in pixels. 
 
@@ -64,9 +60,8 @@ Sets the horizontal position of the SIP in pixels.
 
 * Windows Mobile/CE
 
-###top
-
-####Type
+### top
+#### Type
 <span class='text-info'>INTEGER</span> 
 ####Description
 Sets the vertical position of the SIP in pixels. 
@@ -83,10 +78,10 @@ Sets the vertical position of the SIP in pixels.
 
 
 ## Remarks
-###Multi Instance
+### Multi Instance
 When multiple Enterprise Browser applications are running the following considerations should be made: The SIP settings are application specific. Switching to another application which uses the SIP module will apply the focused application’s settings to it, e.g. the SIP may move position.
 
-###Disabling the SIP
+### Disabling the SIP
 If you want to completely disable to the use of the SIP, set it to appear off the visible area of the screen by setting the Left and Top coordinates to be off the device's display size. Alternatively on Android, call the manual method.
 
 ###Interaction with Hardware Keyboard

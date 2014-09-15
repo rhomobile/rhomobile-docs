@@ -76,7 +76,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -101,7 +101,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -129,7 +129,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -157,7 +157,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -182,7 +182,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -209,7 +209,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -234,7 +234,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -261,7 +261,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -288,7 +288,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -314,7 +314,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -339,7 +339,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -361,7 +361,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -385,7 +385,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -409,7 +409,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -434,7 +434,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -462,7 +462,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -493,7 +493,7 @@ Enables or disables adaptive scanning. When set to true, the scan engine will au
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Laser Scanners on Zebra Technologies' devices)
 
 ###aimMode
@@ -521,7 +521,7 @@ Defines the aiming mode to use.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###aimType
@@ -551,7 +551,7 @@ Describes the type of aiming to use.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###allDecoders
@@ -572,7 +572,7 @@ When set to true, the barcode scanner will read all barcode types that the scann
 ####Platforms
 
 * Android
-* Windows Mobile/CE(Scanners on Zebra Technologies' devices)
+* Windows Mobile(Scanners on Zebra Technologies' devices)
 
 ###ausPostal
 
@@ -592,7 +592,7 @@ Enables or disables the symbology for Australian Postal barcodes. If your applic
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###autoEnter
@@ -613,7 +613,7 @@ When true, automatically appends the character code for 'enter' to the end of an
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###autoTab
@@ -634,7 +634,7 @@ When true, automatically appends the tab character to the end of any barcodes sc
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###aztec
@@ -655,7 +655,7 @@ Enables or disables the symbology for Aztec barcodes. If your application does n
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###barcodeDataFormat
@@ -681,7 +681,7 @@ Specifies the format in which the barcode data is returned, binary data is retur
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera / Imager Scanners on Zebra Technologies' devices)
 
 ###beamWidth
@@ -708,7 +708,7 @@ Specifies the width of the laser beam. All devices will support normal beam widt
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Laser Scanners on Zebra Technologies' devices)
 
 ###bidirectionalRedundancy
@@ -728,7 +728,7 @@ Enables or disables bidirectional redundancy.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Laser Scanners on Zebra Technologies' devices)
 
 ###canPostal
@@ -749,7 +749,7 @@ Enables or disables the symbology for Canadian Postal barcodes. If your applicat
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###chinese2of5
@@ -770,7 +770,7 @@ Enables or disables the symbology for Chinese 2of5 barcodes. If your application
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabar
@@ -791,7 +791,7 @@ Enables or disables the symbology for Codabar barcodes. If your application does
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarClsiEditing
@@ -812,7 +812,7 @@ Enables Codabar CLSi formatting when set to true.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarMaxLength
@@ -833,7 +833,7 @@ Specifies the maximum number of allowable characters in a Codabar barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarMinLength
@@ -854,7 +854,7 @@ Specifies the minimum number of allowable characters in a Codabar barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarNotisEditing
@@ -875,7 +875,7 @@ Enables Codabar NotisEditing formatting when set to true.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarRedundancy
@@ -896,7 +896,7 @@ Sets the Codabar Redundancy property, if set the barcode must be decoded twice b
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11
@@ -917,7 +917,7 @@ Enables or disables the symbology for Code11 barcodes. If your application does 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11checkDigitCount
@@ -945,7 +945,7 @@ Specifies whether to verify 0, 1 or 2 check digits.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11maxLength
@@ -966,7 +966,7 @@ Specifies the maximum number of allowable characters in a Code 11 barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11minLength
@@ -987,7 +987,7 @@ Specifies the minimum number of allowable characters in a Code 11 barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11redundancy
@@ -1008,7 +1008,7 @@ Sets the Code 11 Redundancy property, if set the barcode must be decoded twice b
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11reportCheckDigit
@@ -1029,7 +1029,7 @@ When true, the barcode check digit(s) will be reported for scanned Code 11 barco
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128
@@ -1050,7 +1050,7 @@ Enables or disables the symbology for Code128 barcodes. If your application does
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128checkIsBtTable
@@ -1071,7 +1071,7 @@ When true, decodes concatenated Code128 output only if the pair belongs to one o
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128ean128
@@ -1092,7 +1092,7 @@ When true, barcodes with the EAN128 subtype property set will be read.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128isbt128
@@ -1113,7 +1113,7 @@ When true, barcodes with the isbt128 subtype property set will be read.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128isbt128ConcatMode
@@ -1141,7 +1141,7 @@ Sets the Code128 ISBT concatenation mode property. This feature allows a pair of
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128maxLength
@@ -1162,7 +1162,7 @@ Specifies the maximum number of allowable characters in a Code 128 barcode. If y
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128minLength
@@ -1183,7 +1183,7 @@ Specifies the minimum number of allowable characters in a Code 128 barcode. If y
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128other128
@@ -1204,7 +1204,7 @@ Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128redundancy
@@ -1225,7 +1225,7 @@ Sets the Code 128 Redundancy property, if set the barcode must be decoded twice 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128securityLevel
@@ -1246,7 +1246,7 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39
@@ -1267,7 +1267,7 @@ Enables or disables the symbology for Code 39 barcodes. If your application does
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39code32Prefix
@@ -1288,7 +1288,7 @@ Enables reporting of the Code32 prefix when a Code39 barcode is converted.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39convertToCode32
@@ -1309,7 +1309,7 @@ Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39fullAscii
@@ -1330,7 +1330,7 @@ Enables full ASCII conversion of Code 39 barcodes.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39maxLength
@@ -1351,7 +1351,7 @@ Specifies the maximum number of allowable characters in a Code 39 barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39minLength
@@ -1372,7 +1372,7 @@ Specifies the minimum number of allowable characters in a Code 39 barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39redundancy
@@ -1393,7 +1393,7 @@ Sets the Code 39 Redundancy property, if set the barcode must be decoded twice b
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39reportCheckDigit
@@ -1414,7 +1414,7 @@ Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39securityLevel
@@ -1435,7 +1435,7 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39verifyCheckDigit
@@ -1456,7 +1456,7 @@ Turns on verification of the Code 39 check digit.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93
@@ -1477,7 +1477,7 @@ Enables or disables the symbology for Code 93 barcodes. If your application does
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93maxLength
@@ -1498,7 +1498,7 @@ Specifies the maximum number of allowable characters in a Code 93 barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93minLength
@@ -1519,7 +1519,7 @@ Specifies the minimum number of allowable characters in a Code 93 barcode. If yo
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93redundancy
@@ -1540,7 +1540,7 @@ Sets the Code 93 Redundancy property, if set the barcode must be decoded twice b
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeAb
@@ -1561,7 +1561,7 @@ Enables or disables the symbology for Composite AB barcodes. If your application
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeAbUccLinkMode
@@ -1589,7 +1589,7 @@ Describes whether UCC link mode is enabled.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeAbUseUpcPreambleCheckDigitRules
@@ -1609,7 +1609,7 @@ This setting causes the UPC rules specified in the UPC EAN parameters to be used
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeC
@@ -1630,7 +1630,7 @@ Enables or disables the symbology for Composite C barcodes. If your application 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###connectionIdleTimeout
@@ -1650,7 +1650,7 @@ Specifies the time, in seconds, that an external scanner will be allowed to rema
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
 
 ###d2of5
@@ -1671,7 +1671,7 @@ Enables or disables the symbology for D2of5 barcodes. If your application does n
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###d2of5maxLength
@@ -1692,7 +1692,7 @@ Specifies the maximum number of allowable characters in a D2of5 barcode. If your
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###d2of5minLength
@@ -1713,7 +1713,7 @@ Specifies the minimum number of allowable characters in a D2of5 barcode. If your
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###d2of5redundancy
@@ -1734,7 +1734,7 @@ Sets the D2of5 Redundancy property, if set the barcode must be decoded twice bef
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###dataBufferSize
@@ -1754,7 +1754,7 @@ Specifies the number of bytes allocated to receive the scanned barcode. This par
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###datamatrix
@@ -1775,7 +1775,7 @@ Enables or disables the symbology for Datamatrix barcodes. If your application d
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###dbpMode
@@ -1801,7 +1801,7 @@ Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Laser Scanners on Zebra Technologies' devices)
 
 ###decodeDuration
@@ -1824,7 +1824,7 @@ The duration of the device beeper when a barcode is scanned, in milliseconds.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###decodeFrequency
@@ -1847,7 +1847,7 @@ The frequency of the device beeper when a barcode is successfully decoded. This 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###decodeSound
@@ -1868,7 +1868,7 @@ Path to a local wave file to be played when the scanner successfully decodes a b
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###decodeVolume
@@ -1891,7 +1891,7 @@ The volume of the device beeper when a barcode is scanned. Volume specified usin
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###differentSymbolTimeout
@@ -1911,7 +1911,7 @@ When the aimType:continuousRead property is applied this value defines the inter
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###disconnectBtOnDisable
@@ -1931,7 +1931,7 @@ Forces the scanner to disconnect from the terminal when it is 'disabled'. Since 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
 
 ###displayBtAddressBarcodeOnEnable
@@ -1951,7 +1951,7 @@ If set to true the bluetooth address will be displayed as a barcode on the scree
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
 
 ###dpmMode
@@ -1971,7 +1971,7 @@ Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversel
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Imager / Camera Scanners on Zebra Technologies' devices. The scanning engine must support DPM barcodes.)
 
 ###dutchPostal
@@ -1992,7 +1992,7 @@ Enables or disables the symbology for Dutch Postal barcodes. If your application
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean13
@@ -2013,7 +2013,7 @@ Enables or disables the symbology for EAN 13 barcodes. If your application does 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean8
@@ -2034,7 +2034,7 @@ Enables or disables the symbology for EAN 8 barcodes. If your application does n
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean8convertToEan13
@@ -2055,7 +2055,7 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###enableTimeout
@@ -2075,7 +2075,7 @@ Configures the time (in seconds) allowed to pair with the external bluetooth sca
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
 
 ###focusMode
@@ -2101,7 +2101,7 @@ Sets the focus mode in use.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
 
 ###friendlyName
@@ -2122,7 +2122,7 @@ Returns the friendly name associated with the scanner.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###gs1dataBar
@@ -2143,7 +2143,7 @@ Enables or disables the symbology for GS1 DataBar barcodes. If your application 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###gs1dataBarExpanded
@@ -2164,7 +2164,7 @@ Enables or disables the symbology for GS1 Databar Expanded barcodes. If your app
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###gs1dataBarLimited
@@ -2185,7 +2185,7 @@ Enables or disables the symbology for GS1 Databar Limited barcodes. If your appl
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###hapticFeedback
@@ -2228,7 +2228,7 @@ Enables or disables the symbology for I2of5 barcodes. If your application does n
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5convertToEan13
@@ -2249,7 +2249,7 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5maxLength
@@ -2270,7 +2270,7 @@ Specifies the maximum number of allowable characters in a I2of5 barcode. If your
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5minLength
@@ -2291,7 +2291,7 @@ Specifies the minimum number of allowable characters in a I2of5 barcode. If your
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5redundancy
@@ -2312,7 +2312,7 @@ Sets the I2of5 Redundancy property, if set the barcode must be decoded twice bef
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5reportCheckDigit
@@ -2333,7 +2333,7 @@ When true, the barcode check digit(s) will be reported for scanned I2of5 barcode
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5verifyCheckDigit
@@ -2361,7 +2361,7 @@ Enables the verification of the I2of5 check digit.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###illuminationMode
@@ -2389,7 +2389,7 @@ Selects the illumination mode to use.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
 
 ###invalidDecodeFrequency
@@ -2411,7 +2411,7 @@ The frequency of the device beeper when a barcode is scanned but not successfull
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###invalidDecodeSound
@@ -2431,7 +2431,7 @@ Path to a local wave file to be played when a barcode is scanned but not success
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###inverse1dMode
@@ -2459,7 +2459,7 @@ Allows the user to select inverse 1D barcodes for decoding.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices. The scanning engine must support inverse barcodes)
 
 ###japPostal
@@ -2480,7 +2480,7 @@ Enables or disables the symbology for Japanese Postal barcodes. If your applicat
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###klasseEins
@@ -2500,7 +2500,7 @@ Enables or disables the Klasse Eins laser on time function.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Laser Scanners on Zebra Technologies' devices)
 
 ###korean3of5
@@ -2521,7 +2521,7 @@ Enables or disables the symbology for Korean 3of5 barcodes. If your application 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###korean3of5maxLength
@@ -2541,7 +2541,7 @@ Specifies the maximum number of allowable characters in a Korean 3of5 barcode. I
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###korean3of5minLength
@@ -2561,7 +2561,7 @@ Specifies the minimum number of allowable characters in a Korean 3of5 barcode. I
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###korean3of5redundancy
@@ -2581,7 +2581,7 @@ Sets Korean 3of5 Redundancy property, if set the barcode must be decoded twice b
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###lcdMode
@@ -2633,7 +2633,7 @@ Describes the linear security level used during decoding. This determines the nu
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###lowBatteryScan
@@ -2655,7 +2655,7 @@ Set to false to disable scanning when the battery is low / critical or set to tr
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###macroMicroPdf
@@ -2675,7 +2675,7 @@ Enables or disables the symbology for MacroMicroPDF barcodes. If your applicatio
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroMicroPdfBufferLabels
@@ -2695,7 +2695,7 @@ If true, the scanner driver will return the barcode data only after the complete
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroMicroPdfConvertToMicroPdf
@@ -2715,7 +2715,7 @@ If true, MacroMicroPDF barcodes will be converted to MicroPDF codes.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroMicroPdfExclusive
@@ -2735,7 +2735,7 @@ If true, the scanner driver will not complete read requests while in the middle 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroMicroPdfReportAppendInfo
@@ -2755,7 +2755,7 @@ If true, the appended info is concatenated to the decoded data before being retu
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroPdf
@@ -2775,7 +2775,7 @@ Enables or disables the symbology for Macro PDF barcodes. If your application do
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroPdfBufferLabels
@@ -2795,7 +2795,7 @@ When true, the scanner driver will return  he barcode data only after the comple
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroPdfConvertToPdf417
@@ -2815,7 +2815,7 @@ If true, MacroPDF barcodes will be converted to PDF417 codes.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###macroPdfExclusive
@@ -2835,7 +2835,7 @@ If true, the scanner driver will not complete read requests while in the middle 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5
@@ -2856,7 +2856,7 @@ Enables or disables the symbology for Matrix 2of5 barcodes. If your application 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5maxLength
@@ -2877,7 +2877,7 @@ Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. I
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5minLength
@@ -2898,7 +2898,7 @@ Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. I
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5reportCheckDigit
@@ -2919,7 +2919,7 @@ When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 b
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5verifyCheckDigit
@@ -2940,7 +2940,7 @@ Enables verification of the Matrix 2of5 symbology check digit.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###maxiCode
@@ -2961,7 +2961,7 @@ Enables or disables the symbology for Maxicode barcodes. If your application doe
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###microPdf
@@ -2982,7 +2982,7 @@ Enables or disables the symbology for Micro PDF barcodes. If your application do
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###microQr
@@ -3003,7 +3003,7 @@ Enables or disables the symbology for Micro QR barcodes. If your application doe
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msi
@@ -3024,7 +3024,7 @@ Enables or disables the symbology for MSI barcodes. If your application does not
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiCheckDigitScheme
@@ -3051,7 +3051,7 @@ Specifies the check digit scheme used to verify MSI barcodes.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiCheckDigits
@@ -3078,7 +3078,7 @@ Sets the number of MSI check digits to use.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiMaxLength
@@ -3099,7 +3099,7 @@ Specifies the maximum number of allowable characters in a MSI barcode. If your a
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiMinLength
@@ -3120,7 +3120,7 @@ Specifies the minimum number of allowable characters in a MSI barcode. If your a
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiRedundancy
@@ -3141,7 +3141,7 @@ Sets the MSI Redundancy property, if set the barcode must be decoded twice befor
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiReportCheckDigit
@@ -3162,7 +3162,7 @@ When true, the barcode check digit(s) will be reported for scanned MSI barcodes.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###pdf417
@@ -3183,7 +3183,7 @@ Enables or disables the symbology for PDF 417 barcodes. If your application does
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###picklistMode
@@ -3211,7 +3211,7 @@ Allows the imager to decode only the barcode that is directly under the cross-ha
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
 
 ###poorQuality1dMode
@@ -3231,7 +3231,7 @@ Allows poor quality 1D barcodes to be read When true, but this will adversely af
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
 
 ###qrCode
@@ -3252,7 +3252,7 @@ Enables or disables the symbology for QR Code barcodes. If your application does
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###rasterHeight
@@ -3272,7 +3272,7 @@ Vertical rastering height to use, as a percentage, when rasterMode:openAlways is
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Laser Scanners on Zebra Technologies' devices)
 
 ###rasterMode
@@ -3300,7 +3300,7 @@ Describes the type of vertical rastering to use.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###rsmBatteryCapacity
@@ -3320,7 +3320,7 @@ The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBatteryId
@@ -3340,7 +3340,7 @@ One of 'simple', 'double', 'disabled' or 'unknown'
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBatteryStatus
@@ -3360,7 +3360,7 @@ Indicates the status of the remote scanner's battery, will be one of 'unknown', 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAddress
@@ -3380,7 +3380,7 @@ Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAuthentication
@@ -3400,7 +3400,7 @@ True if authentication is required.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAutoReconnect
@@ -3428,7 +3428,7 @@ Bluetooth reconnection scheme.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothBeepOnReconnectAttempt
@@ -3448,7 +3448,7 @@ When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in pro
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothEncryption
@@ -3468,7 +3468,7 @@ True if encryption is required.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothFriendlyName
@@ -3488,7 +3488,7 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothHidAutoReconnect
@@ -3508,7 +3508,7 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothInquiryMode
@@ -3528,7 +3528,7 @@ To use a general inquiry mode, 'general' else, 'limited'
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothPinCode
@@ -3548,7 +3548,7 @@ Up to 5 character PIN code used for Bluetooth authentication.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothPinCodeType
@@ -3568,7 +3568,7 @@ Up to 5 character PIN code used for Bluetooth authentication.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothReconnectionAttempts
@@ -3588,7 +3588,7 @@ How long the scanner tries to re-establish connection if it goes out of range, i
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDateOfManufacture
@@ -3608,7 +3608,7 @@ Ring scanner date of manufacture as DDMMYY.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDateOfService
@@ -3628,7 +3628,7 @@ Ring scanner date of service as DDMMYY.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDecodeFeedback
@@ -3648,7 +3648,7 @@ If true, the remote scanner beeps and illuminates its green LED on a successful 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDeviceClass
@@ -3668,7 +3668,7 @@ The device class of the ring scanner.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmFirmwareVersion
@@ -3688,7 +3688,7 @@ Scanner's operating system version.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmForceSavePairingBarcode
@@ -3708,7 +3708,7 @@ Force saving the barcode assigned to the device to which the scanner has been pa
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmGoodScansDelay
@@ -3728,7 +3728,7 @@ Delay between good scans in proximity continuous mode, measured in milliseconds.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmIgnoreCode128Usps
@@ -3748,7 +3748,7 @@ Feature for ignoring Code 128 barcodes beginning with 420 and 421.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmLowBatteryIndication
@@ -3768,7 +3768,7 @@ Whether or not the ring scanner should give a low battery indication.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmLowBatteryIndicationCycle
@@ -3788,7 +3788,7 @@ Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmMems
@@ -3808,7 +3808,7 @@ If you press the trigger on an RSM scanner, proximity enabled will be turned off
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmModelNumber
@@ -3828,7 +3828,7 @@ Ring scanner model number.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmPagingBeepSequence
@@ -3848,7 +3848,7 @@ Range 0 to 15 to specify the pattern for the paging beep sequence.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmPagingEnable
@@ -3868,7 +3868,7 @@ Specify whether paging the device is enabled.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmProximityContinuous
@@ -3888,7 +3888,7 @@ Proximity continuous mode.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmProximityDistance
@@ -3908,7 +3908,7 @@ Specify the distance for the proximity feature as 'short', 'medium' or 'long'
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmProximityEnable
@@ -3928,7 +3928,7 @@ If you press the trigger on an RSM scanner, proximity enabled will be turned off
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmScanLineWidth
@@ -3948,7 +3948,7 @@ The laser scan line width, 'wide' or 'narrow'.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmScanTriggerWakeup
@@ -3968,7 +3968,7 @@ Scanner trigger will wakeup the device from a low power state.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmSerialNumber
@@ -3988,7 +3988,7 @@ Ring scanner serial number.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
 
 ###sameSymbolTimeout
@@ -4008,7 +4008,7 @@ When the aimType:continuousRead property is applied this value defines the inter
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###scanTimeout
@@ -4029,7 +4029,7 @@ Maximum time in milliseconds that laser scanners will emit a beam or imager scan
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###scannerType
@@ -4050,7 +4050,7 @@ The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera
 ####Platforms
 
 * Android
-* Windows Mobile/CE(All Scanners)
+* Windows Mobile(All Scanners)
 
 ###signature
 
@@ -4070,7 +4070,7 @@ Enables or disables the symbology for Signature barcodes. If your application do
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###signatureImageHeight
@@ -4090,7 +4090,7 @@ Specifies the output height of the captured signature barcode. Signature barcode
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###signatureImageQuality
@@ -4110,7 +4110,7 @@ Specifies the output quality of the captured signature barcode. Signature barcod
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###signatureImageWidth
@@ -4130,7 +4130,7 @@ Specifies the output width of the captured signature barcode. Signature barcodes
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###timedAimDuration
@@ -4150,7 +4150,7 @@ Aim duration in milliseconds for aimType:timedHold and aimType:timedRelease.
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###tlc39
@@ -4171,7 +4171,7 @@ Enables or disables the symbology for TLC 39 barcodes. If your application does 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###triggerConnected
@@ -4193,7 +4193,7 @@ Only applies to an enabled laser or imaging scanner. Disconnecting the trigger w
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Scanners on Zebra Technologies' devices)
 
 ###trioptic39
@@ -4214,7 +4214,7 @@ Enables or disables the symbology for Trioptic 39 barcodes. If your application 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###trioptic39Redundancy
@@ -4235,7 +4235,7 @@ Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twi
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ukPostal
@@ -4256,7 +4256,7 @@ Enables or disables the symbology for UK Postal barcodes. If your application do
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ukPostalReportCheckDigit
@@ -4297,7 +4297,7 @@ Enables or disables decoding of UPC EAN Bookland barcodes.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanBooklandFormat
@@ -4324,7 +4324,7 @@ Specifies the bookland format to use when decoding UPC EAN Bookland barcodes.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanConvertGs1dataBarToUpcEan
@@ -4345,7 +4345,7 @@ If true, RSS barcodes will be converted to UPC/EAN format. For this setting to w
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanCoupon
@@ -4366,7 +4366,7 @@ Enables or disables decoding of UPC EAN Coupon barcodes.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanLinearDecode
@@ -4387,7 +4387,7 @@ Sets the linear decode property.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanRandomWeightCheckDigit
@@ -4408,7 +4408,7 @@ When true, enables random weight check digit verification.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanRetryCount
@@ -4429,7 +4429,7 @@ Sets the retry count for auto-discriminating for supplementals. The value must b
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSecurityLevel
@@ -4450,7 +4450,7 @@ Sets the Security level for decoding UPC EAN barcodes and accepts a value betwee
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSupplemental2
@@ -4471,7 +4471,7 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSupplemental5
@@ -4492,7 +4492,7 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSupplementalMode
@@ -4524,7 +4524,7 @@ Describes the UPC EAN Supplemental mode.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upca
@@ -4545,7 +4545,7 @@ Enables or disables the symbology for UPCA barcodes. If your application does no
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcaPreamble
@@ -4573,7 +4573,7 @@ Controls the preamble applied to the UPCA barcode.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcaReportCheckDigit
@@ -4594,7 +4594,7 @@ When true, the barcode check digit(s) will be reported for scanned UPCA barcodes
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0
@@ -4615,7 +4615,7 @@ Enables or disables the symbology for UPCE0 barcodes. If your application does n
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0convertToUpca
@@ -4636,7 +4636,7 @@ When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0preamble
@@ -4664,7 +4664,7 @@ Controls the preamble applied to the UPCE0 barcode.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0reportCheckDigit
@@ -4685,7 +4685,7 @@ When true, the barcode check digit(s) will be reported for scanned UPCE0 barcode
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1
@@ -4706,7 +4706,7 @@ Enables or disables the symbology for UPCE1 barcodes. If your application does n
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1convertToUpca
@@ -4727,7 +4727,7 @@ When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1preamble
@@ -4755,7 +4755,7 @@ Controls the preamble applied to the UPCE1 barcode.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1reportCheckDigit
@@ -4776,7 +4776,7 @@ When true, the barcode check digit(s) will be reported for scanned UPCE1 barcode
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###us4state
@@ -4797,7 +4797,7 @@ Enables or disables the symbology for US 4-State barcodes. If your application d
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###us4stateFics
@@ -4818,7 +4818,7 @@ Enables or disables the symbology for US 4-State FICS barcodes. If your applicat
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPlanet
@@ -4839,7 +4839,7 @@ Enables or disables the symbology for US Planet barcodes. If your application do
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPlanetReportCheckDigit
@@ -4880,7 +4880,7 @@ Enables or disables the symbology for US Post Net barcodes. If your application 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPostNetReportCheckDigit
@@ -4928,7 +4928,7 @@ Configures the feedback given after a successful scan. This value is ignored if 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderFeedbackTime
@@ -4949,7 +4949,7 @@ If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderHeight
@@ -4969,7 +4969,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderMode
@@ -4998,7 +4998,7 @@ Configures the mode of the scanner viewfinder window. This attribute is not supp
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderWidth
@@ -5018,7 +5018,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderX
@@ -5038,7 +5038,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderY
@@ -5058,7 +5058,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###webcode
@@ -5079,7 +5079,7 @@ Enables or disables the symbology for Webcode barcodes. If your application does
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###webcodeDecodeGtSubtype
@@ -5100,7 +5100,7 @@ If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jell
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ##Remarks
