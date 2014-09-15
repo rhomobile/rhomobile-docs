@@ -22,7 +22,7 @@ There are two methods of enabling the Intent API:
 * Include all ebapi modules or 
 * Include only the API modules you need 
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
 ### Include all JS API modules
 To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
@@ -69,6 +69,10 @@ The ebapi.js file is necessary for all single API inclusions.
     Rho.Intent.send(params);    
 
 </DESC>
+            <DESC_EB>Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method. 
+
+> Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI.
+            </DESC_EB>
                 <PARAMS>
                     <PARAM name="params" type="HASH">
                         <DESC>A hash-map with intent parameters.</DESC>

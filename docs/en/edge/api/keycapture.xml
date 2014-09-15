@@ -29,7 +29,7 @@ There are two methods of enabling the KeyCapture API:
 * Include all ebapi modules or 
 * Include only the API modules you need 
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Motorola Enterprise Browser.
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
 ### Include all JS API modules
 To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
@@ -323,7 +323,7 @@ Although on some device configurations pressing the SHIFT key twice generates CA
 5.  Depending on the device keyboard driver, some keys may not be easily capturable as they are interpreted as a shifted character by the device.  One example of such a key is the '#' character on CE7 devices, whilst the character code for this key is 23 it is interpreted as 33.  This applies to both capturing keys and specifying the HomeKeyValue.
 6.  On Android devices, keys reserved for use by the "PTT" apps (such as the left trigger button), if a "PTT" app has been enabled.
 7. On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of "Google Now".
-8. On ET1, Search (P3) key is application specific. Dispatching this key within the Enterprise Browser wont do anything as the MEB doesn't do anything specific with this key (unlike the menu key which raises the menu).
+8. On ET1, Search (P3) key is application specific. Dispatching this key within the Enterprise Browser wont do anything as the Enterprise Browser doesn't do anything specific with this key (unlike the menu key which raises the menu).
 Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.</DESC_EB>
             </REMARK>
 
@@ -352,8 +352,8 @@ When the specified key is pressed, the event will fire but the homeKey event wil
                 <DESC>Any captureKey calls set with a specific key will take precedence over any captureKey calls with value 'all'. This means that the 'all' callback will not be called when individual keys that have been registered with captureKey are pressed. This also goes for dispatch values. If captureKey 'all' has a dispatch value of false, and captureKey with an individual keyCode value has a dispatch value of true, then this individual key will be dispatched to the app when pressed.</DESC>
             </REMARK>
 
-            <REMARK title="Device Lockdown on Motorola Solutions Android devices">
-                <DESC>Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Motorola Solutions Android documentation for other device lock-down options.</DESC>
+            <REMARK title="Device Lockdown on Zebra Technologies Android devices">
+                <DESC>Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Zebra Technologies Android documentation for other device lock-down options.</DESC>
             </REMARK>
 
             <REMARK title="Capturable keys on iOS devices" productException="eb">
