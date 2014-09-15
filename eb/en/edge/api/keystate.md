@@ -49,7 +49,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -71,7 +71,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:

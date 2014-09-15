@@ -51,7 +51,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -73,7 +73,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -94,7 +94,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -116,7 +116,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -138,7 +138,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -162,7 +162,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -184,7 +184,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -209,7 +209,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -234,7 +234,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -259,7 +259,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -283,7 +283,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -308,7 +308,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -333,7 +333,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -358,7 +358,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -383,7 +383,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -406,7 +406,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -428,7 +428,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -467,7 +467,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -489,7 +489,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -511,7 +511,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -533,7 +533,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -557,7 +557,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -579,7 +579,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -668,7 +668,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -690,7 +690,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -712,7 +712,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -734,7 +734,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -756,7 +756,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -777,7 +777,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -799,7 +799,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -821,7 +821,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -843,7 +843,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -865,7 +865,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -907,7 +907,7 @@ Current device country code.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###deviceName
 
@@ -926,7 +926,7 @@ Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###deviceOwnerEmail
 
@@ -981,7 +981,7 @@ Name(account name) of phone owner. To access this property 'pim' capability must
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###freeServerPort
 
@@ -1000,7 +1000,7 @@ Get free local server port, available for binding.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###hasCalendar
 
@@ -1019,7 +1019,7 @@ Returns true if calendar support is available.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###hasCamera
 
@@ -1038,7 +1038,7 @@ Returns true if there is a camera available on the device.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-error">hasCellNetwork</span>
 
@@ -1057,7 +1057,7 @@ Returns true if there is a camera available on the device.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-error">hasNetwork</span>
 
@@ -1076,7 +1076,7 @@ Returns true if there is a camera available on the device.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-error">hasSqlite</span>
 
@@ -1095,7 +1095,7 @@ Returns true if there is a camera available on the device.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###hasTouchscreen
 
@@ -1114,7 +1114,7 @@ Returns true if the device has touch screen capabilities.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-error">hasWifiNetwork</span>
 
@@ -1133,7 +1133,7 @@ Returns true if the device has touch screen capabilities.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">httpProxyURI</span>
 
@@ -1152,7 +1152,7 @@ Returns true if the device has touch screen capabilities.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###isEmulator
 
@@ -1171,7 +1171,7 @@ Returns true if the application is running on a platform emulator.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###isMotorolaDevice
 
@@ -1190,7 +1190,7 @@ Returns true if the device supports Motorola device capabilities. APIs will indi
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###keyboardState
 
@@ -1217,7 +1217,7 @@ For Windows Mobile and Windows CE the keyboard can be manually shown or hidden a
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ###localServerPort
@@ -1239,7 +1239,7 @@ Port of the local (embedded) HTTP server. This parameter is mainly for debug pur
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###locale
 
@@ -1258,7 +1258,7 @@ Current device locale Like 'en', 'ru' etc.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###lockWindowSize
 
@@ -1292,7 +1292,7 @@ The OEM Information string for the terminal.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ###osVersion
@@ -1312,7 +1312,7 @@ Version OS of device. Examples:  '4.1' (Android).
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###phoneId
 
@@ -1331,7 +1331,7 @@ Hardware based ID. It depends on capabilities configured for an application and 
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###platform
 
@@ -1359,7 +1359,7 @@ Platform where application is running.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###ppiX
 
@@ -1378,7 +1378,7 @@ Horizontal PPI (Pixels Per Inch).
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###ppiY
 
@@ -1397,7 +1397,7 @@ Vertical PPI (Pixels Per Inch).
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###realScreenHeight
 
@@ -1416,7 +1416,7 @@ Screen height in real pixels.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###realScreenWidth
 
@@ -1435,7 +1435,7 @@ Screen width in real pixels.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###screenAutoRotate
 
@@ -1474,7 +1474,7 @@ Screen height in logical pixels (used for set coordinates).
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###screenOrientation
 
@@ -1499,7 +1499,7 @@ Current screen orientation.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###screenSleeping
 
@@ -1536,7 +1536,7 @@ Screen width in logical pixels (used for set coordinates).
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###uuid
 
@@ -1555,7 +1555,7 @@ The Unique Unit IDentifier for the terminal.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ###webviewFramework
@@ -1575,4 +1575,4 @@ Browser framework identity string.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile

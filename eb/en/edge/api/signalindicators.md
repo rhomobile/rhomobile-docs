@@ -50,7 +50,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -73,7 +73,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 * Motorola Solutions Devices Only
 
 ####Method Access:
@@ -96,7 +96,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -131,7 +131,7 @@ WM </p></li></ul>
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -161,7 +161,7 @@ A callback to retrieve the signal strength can be specified to occur periodicall
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ##Remarks
 

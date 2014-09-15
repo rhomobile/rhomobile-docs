@@ -51,7 +51,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -75,7 +75,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -100,7 +100,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -121,7 +121,7 @@ Synchronous Return:
 
 ####Platforms
 
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -146,7 +146,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -171,7 +171,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -196,7 +196,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -221,7 +221,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -246,7 +246,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -271,7 +271,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -296,7 +296,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -318,7 +318,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -340,7 +340,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -365,7 +365,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -395,7 +395,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###authType
 
@@ -420,7 +420,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###authUser
 
@@ -440,7 +440,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###headers
 
@@ -460,7 +460,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">httpVerb</span>
 
@@ -480,7 +480,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###responseTimeout
 
@@ -502,7 +502,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###url
 
@@ -522,7 +522,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###<span class="text-info">verifyPeerCertificate</span>
 
@@ -544,7 +544,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ##Remarks
 

@@ -54,7 +54,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -76,7 +76,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -98,7 +98,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -120,7 +120,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -142,7 +142,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -185,7 +185,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ####Method Access:
 
@@ -214,7 +214,7 @@ Return an active tab index. For change active tab use Use Rho.NativeTabbar.curre
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###cacheSize
 
@@ -232,7 +232,7 @@ The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###enableCache
 
@@ -273,7 +273,7 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 ####Platforms
 
 * Android
-* Windows Mobile/CE(Motorola Solutions' WebKit on Windows Mobile/CE)
+* Windows Mobile(Motorola Solutions' WebKit on Windows Mobile/CE)
 
 ###enableWebPlugins
 
@@ -331,7 +331,7 @@ Specifies the default font to use when rendering text in web pages. The specifie
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###framework
 
@@ -350,7 +350,7 @@ Same as System.webViewFramework.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###fullScreen
 
@@ -371,7 +371,7 @@ Use full screen mode.
 ####Platforms
 
 * Android
-* Windows Mobile/CE
+* Windows Mobile
 
 ###navigationTimeout
 
@@ -391,7 +391,7 @@ Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(max
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###scrollTechnique
 
@@ -418,7 +418,7 @@ Specifies the technique used to scroll about the page.Defines in config.xml: Scr
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###textZoomLevel
 
@@ -436,7 +436,7 @@ Sets the font size to be displayed on the page, set to 0 for the smallest font a
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###userAgent
 
@@ -462,7 +462,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###viewportEnabled
 
@@ -482,7 +482,7 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###viewportWidth
 
@@ -500,7 +500,7 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
 
 ###zoomPage
 
@@ -518,4 +518,4 @@ Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 ar
 
 ####Platforms
 
-* Windows Mobile/CE(Motorola Solutions' WebKit)
+* Windows Mobile(Motorola Solutions' WebKit)
