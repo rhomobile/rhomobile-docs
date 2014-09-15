@@ -1,4 +1,6 @@
 # PocketBrowser 3.x Migration Guide
+This guide is meant to assist in migration from PocketBrowser 3.x to the Enterprise Browser. For online documentation specific to PocketBrowser 3.x, please see the [online PB3 docs](http://goo.gl/H8G4IW).
+
 ## Overview
 PocketBrowser 3.x applications are supported when running within Enterprise Browser. Please review the [Common Migration Notes](../guide/migration) for items that also apply to migrating PocketBrowser applications to Enterprise Browser. Then review the sections below that apply to your device and installation choice type.
 

@@ -1,4 +1,6 @@
 # PocketBrowser 2.x Migration Guide
+This guide is meant to assist in migration from PocketBrowser 2.x to the Enterprise Browser. For online documentation specific to PocketBrowser 2.x, please see the [online PB2 docs](http://goo.gl/H1Fuik).
+
 ## Overview
 PocketBrowser 2.x applications are supported when running within Enterprise Browser. Please review the [Common Migration Notes](../guide/migration) for items that also apply to migrating PocketBrowser applications to Enterprise Browser. Then review the sections below that apply to your device and installation choice type.
 
