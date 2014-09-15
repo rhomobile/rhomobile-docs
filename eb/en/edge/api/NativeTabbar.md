@@ -47,7 +47,7 @@ Win32, Android, iOS, WP8 </p></li><li>reload : <span class='text-info'>BOOLEAN</
 Win32, Android, iOS, WP8 </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Tab will be displayed as disabled. Platforms:
 Win32, Android, iOS, WP8 </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p> Background color for tab. Use when your application background color is not white for removing blink during switch tabs. Platforms:
 Win32, Android, iOS, WP8 </p></li><li>useCurrentViewForTab : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Gives a smooth transfer to a newly opened tab from the current view into this Tab and make this Tab active. Only one Tab can have this parameter. Platforms:
-WM, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
+WM, CE, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
 WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Platforms:
 WM </p></li></ul></ul><li>tabBarProperties : <span class='text-info'>HASH</span><p>Properties of TabBar. </p></li><ul><li>verticalOrientation : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Creates a vertical tabbar on the iPad. Platforms:
 iOS </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p>Background color of the tabbar. Platforms:
@@ -71,6 +71,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -96,6 +97,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -118,6 +120,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -178,6 +181,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 

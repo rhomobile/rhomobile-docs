@@ -55,6 +55,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -80,6 +81,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -101,6 +103,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -126,6 +129,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -148,6 +152,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -173,6 +178,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -194,6 +200,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -221,6 +228,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -250,6 +258,7 @@ Application name.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###badLinkURI
 
@@ -287,6 +296,7 @@ Path to the Enterprise Browser folder on the device.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###configPath
 
@@ -306,6 +316,7 @@ Path to the configuration file.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###databaseBlobFolder
 
@@ -325,6 +336,7 @@ Path to folder where the database blob files are stored. Blobs are usually image
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###defaultNativeMenu
 
@@ -346,6 +358,7 @@ Native Menu items.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###invalidSecurityTokenStartPath
 
@@ -365,6 +378,7 @@ Page to navigate to in case of check of SecurityToken failed. Can be set in rhoc
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###modelsManifestPath
 
@@ -384,6 +398,7 @@ Path to file with the model list.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###nativeMenu
 
@@ -405,6 +420,7 @@ Native Menu items.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###publicFolder
 
@@ -424,6 +440,7 @@ Path to the application's public folder.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###securityTokenNotPassed
 
@@ -443,6 +460,7 @@ Indicates if the security token check was failed. Security token can be passed a
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###settingsPageURI
 
@@ -462,6 +480,7 @@ Settings page URI. Will be used when Options menu or toolbar item is chosen by u
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###splash
 
@@ -481,6 +500,7 @@ Splash screen image display options. This a string with several parameters divid
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###startURI
 
@@ -500,6 +520,7 @@ Startup page for your application.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###title
 
@@ -518,6 +539,7 @@ Define Window caption text. If missed - caption from page used. Not supported on
 ####Platforms
 
 * Windows Mobile
+* Windows CE
 
 ###userFolder
 
@@ -537,6 +559,7 @@ Path to folder where the application can write files and create subfolders.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###version
 
@@ -556,3 +579,4 @@ Version of Enterprise Browser.
 
 * Android
 * Windows Mobile
+* Windows CE

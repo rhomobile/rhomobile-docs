@@ -55,7 +55,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
         <PROPERTIES access="STATIC">
             <PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
-                <PLATFORM>WM, iOS</PLATFORM>
+                <PLATFORM>WM, CE, iOS</PLATFORM>
                 <DESC>A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method. This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown. Setting this value to zero will disable the batteryStatus callback. Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.</DESC>
             </PROPERTY>
         </PROPERTIES>   
@@ -63,7 +63,7 @@ The ebapi.js file is necessary for all single API inclusions.
         <METHODS access="STATIC">
             <METHOD name="batteryStatus" hasCallback="optional">
                 <DESC>Retrieve the current battery level. If a callback is provided to retrieve the battery then it will be called periodically at a frequency determined by the trigger property.</DESC>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                     <DESC>The properties associated with accessing the battery status.</DESC>
@@ -100,7 +100,7 @@ The ebapi.js file is necessary for all single API inclusions.
                             <DESC>The remaining backup battery power as a percentage between 0 and 100. Only supported on Zebra Technologies Windows Mobile / CE / Embedded devices.</DESC>
                         </PARAM>
                         <PARAM name="trigger" type="STRING">
-                            <PLATFORM>WM, Android</PLATFORM>
+                            <PLATFORM>WM, CE, Android</PLATFORM>
                             <DESC>Human readable form of what has caused this callback to fire. This value will be OS dependent. On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown". In the case of periodic updates, this field will contain the last known status of the battery.</DESC>
                         </PARAM>
                         <PARAM name="batteryLifeKnown" type="BOOLEAN">
@@ -117,7 +117,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="stopBatteryStatus" hasCallback="none">
                 <DESC>If the battery status is being retrieved via callback, by a previously invoked call to batteryStatus, this method will stop the callback from firing.</DESC>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
             </METHOD>
 
             <METHOD name="smartBatteryStatus" hasCallback="optional">
@@ -161,7 +161,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="showIcon" hasCallback="none" runInThread="ui">
                 <DESC>Overlays a small battery icon on top of the view indicating the remaining battery strength. This is particularly useful in full screen applications which cover the system battery level indicator.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">All platforms support batteryStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -200,13 +200,13 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="hideIcon" hasCallback="none" runInThread="ui">
                 <DESC>Hide the icon if it has been previously set by the 'showIcon' call.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">All platforms support batteryStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
             </METHOD>
         </METHODS>
 
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>WM, Android, iOS</PLATFORM>
+        <PLATFORM>WM, CE, Android, iOS</PLATFORM>
         <EXAMPLES>
             <EXAMPLE title="Retrieve the Battery status">
                 <SECTIONS>

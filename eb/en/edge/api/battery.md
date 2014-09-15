@@ -45,7 +45,7 @@ Retrieve the current battery level. If a callback is provided to retrieve the ba
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>acLineStatus : <span class='text-info'>BOOLEAN</span><p>Whether or not the device is connected to external power. </p></li><li>batteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining battery power as a value between 0 and 100. </p></li><li>backupBatteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining backup battery power as a percentage between 0 and 100. Only supported on Zebra Technologies Windows Mobile / CE / Embedded devices. Platforms:
 WM </p></li><li>trigger : <span class='text-info'>STRING</span><p>Human readable form of what has caused this callback to fire. This value will be OS dependent. On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown". In the case of periodic updates, this field will contain the last known status of the battery. Platforms:
-WM, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>Only supported on Zebra Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:
+WM, CE, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>Only supported on Zebra Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:
 WM </p></li><li>backupBatteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>Only supported on Zebra Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate. Platforms:
 WM </p></li></ul></ul>
 
@@ -54,7 +54,7 @@ Synchronous Return:
 
 * HASH<ul><li>acLineStatus : <span class='text-info'>BOOLEAN</span><p>Whether or not the device is connected to external power. </p></li><li>batteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining battery power as a value between 0 and 100. </p></li><li>backupBatteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining backup battery power as a percentage between 0 and 100. Only supported on Zebra Technologies Windows Mobile / CE / Embedded devices. Platforms:
 WM </p></li><li>trigger : <span class='text-info'>STRING</span><p>Human readable form of what has caused this callback to fire. This value will be OS dependent. On Windows Mobile / CE / Embedded it will be one of: "High Battery", "Low Battery", "Critical Battery", "Charging", "No Battery", "Unknown". In the case of periodic updates, this field will contain the last known status of the battery. Platforms:
-WM, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>Only supported on Zebra Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:
+WM, CE, Android </p></li><li>batteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>Only supported on Zebra Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate. Platforms:
 WM </p></li><li>backupBatteryLifeKnown : <span class='text-info'>BOOLEAN</span><p>Only supported on Zebra Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate. Platforms:
 WM </p></li></ul>
 
@@ -62,6 +62,7 @@ WM </p></li></ul>
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -84,6 +85,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -107,6 +109,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -155,6 +158,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -185,6 +189,7 @@ A callback to retrieve the battery strength can be specified to occur periodical
 ####Platforms
 
 * Windows Mobile
+* Windows CE
 
 ##Remarks
 

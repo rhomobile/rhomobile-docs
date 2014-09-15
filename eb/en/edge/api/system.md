@@ -309,6 +309,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -669,6 +670,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -778,6 +780,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -1293,6 +1296,7 @@ The OEM Information string for the terminal.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ###osVersion
@@ -1332,6 +1336,7 @@ Hardware based ID. It depends on capabilities configured for an application and 
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###platform
 
@@ -1556,6 +1561,7 @@ The Unique Unit IDentifier for the terminal.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ###webviewFramework

@@ -51,6 +51,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -104,6 +105,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -131,6 +133,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -156,6 +159,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -183,6 +187,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -210,6 +215,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -235,6 +241,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -257,6 +264,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -281,6 +289,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -315,6 +324,7 @@ When enabled, appends a carriage return to any data returned as keystrokes by th
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ###autoTab
@@ -338,6 +348,7 @@ When enabled, appends a tab to any data returned as keystrokes by the cardreader
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ###<span class="text-error">moduleName</span>

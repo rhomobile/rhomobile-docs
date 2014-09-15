@@ -51,6 +51,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -74,6 +75,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -112,20 +114,20 @@ Retrieve the current signal status. If a callback is provided to retrieve the si
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>signalStrength : <span class='text-info'>INTEGER</span><p>The signal strength as a value between 0 and 100. Not supported on iOS Platforms:
-WM, Android </p></li><li>essid : <span class='text-info'>STRING</span><p>The current ESSID </p></li><li>macAddress : <span class='text-info'>STRING</span><p>The Device's MAC address </p></li><li>adapterName : <span class='text-info'>STRING</span><p>The Device's adapter name </p></li><li>dhcpServer : <span class='text-info'>STRING</span><p>The current DHCP server's address. Always populated on Android, even on static IP configurations. Platforms:
-WM, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p>Whether the unit has a static or DHCP address. Not available on Android. Platforms:
+WM, CE, Android </p></li><li>essid : <span class='text-info'>STRING</span><p>The current ESSID </p></li><li>macAddress : <span class='text-info'>STRING</span><p>The Device's MAC address </p></li><li>adapterName : <span class='text-info'>STRING</span><p>The Device's adapter name </p></li><li>dhcpServer : <span class='text-info'>STRING</span><p>The current DHCP server's address. Always populated on Android, even on static IP configurations. Platforms:
+WM, CE, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p>Whether the unit has a static or DHCP address. Not available on Android. Platforms:
 WM </p></li><li>gateway : <span class='text-info'>STRING</span><p>The current gateway IP address </p></li><li>ipAddress : <span class='text-info'>STRING</span><p>The device's IP address </p></li><li>rssi : <span class='text-info'>STRING</span><p>Signal strength in RSSI terms. Platforms:
-WM, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p>The current subnet mask </p></li><li>wins : <span class='text-info'>STRING</span><p>The current WINs server IP address. Not available on Android Platforms:
+WM, CE, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p>The current subnet mask </p></li><li>wins : <span class='text-info'>STRING</span><p>The current WINs server IP address. Not available on Android Platforms:
 WM </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
 
 * HASH<ul><li>signalStrength : <span class='text-info'>INTEGER</span><p>The signal strength as a value between 0 and 100. Not supported on iOS Platforms:
-WM, Android </p></li><li>essid : <span class='text-info'>STRING</span><p>The current ESSID </p></li><li>macAddress : <span class='text-info'>STRING</span><p>The Device's MAC address </p></li><li>adapterName : <span class='text-info'>STRING</span><p>The Device's adapter name </p></li><li>dhcpServer : <span class='text-info'>STRING</span><p>The current DHCP server's address. Always populated on Android, even on static IP configurations. Platforms:
-WM, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p>Whether the unit has a static or DHCP address. Not available on Android. Platforms:
+WM, CE, Android </p></li><li>essid : <span class='text-info'>STRING</span><p>The current ESSID </p></li><li>macAddress : <span class='text-info'>STRING</span><p>The Device's MAC address </p></li><li>adapterName : <span class='text-info'>STRING</span><p>The Device's adapter name </p></li><li>dhcpServer : <span class='text-info'>STRING</span><p>The current DHCP server's address. Always populated on Android, even on static IP configurations. Platforms:
+WM, CE, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p>Whether the unit has a static or DHCP address. Not available on Android. Platforms:
 WM </p></li><li>gateway : <span class='text-info'>STRING</span><p>The current gateway IP address </p></li><li>ipAddress : <span class='text-info'>STRING</span><p>The device's IP address </p></li><li>rssi : <span class='text-info'>STRING</span><p>Signal strength in RSSI terms. Platforms:
-WM, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p>The current subnet mask </p></li><li>wins : <span class='text-info'>STRING</span><p>The current WINs server IP address. Not available on Android Platforms:
+WM, CE, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p>The current subnet mask </p></li><li>wins : <span class='text-info'>STRING</span><p>The current WINs server IP address. Not available on Android Platforms:
 WM </p></li></ul>
 
 ####Platforms

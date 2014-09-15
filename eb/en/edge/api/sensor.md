@@ -56,6 +56,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -80,6 +81,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -104,6 +106,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -128,6 +131,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -153,6 +157,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -174,6 +179,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -195,6 +201,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -219,6 +226,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -240,6 +248,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -268,6 +277,7 @@ The minimum amount of time gap between two sensor update events, specified in mi
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###status
 
@@ -285,6 +295,7 @@ Current status: not_ready, ready, started, error etc.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###type
 
@@ -302,6 +313,7 @@ Type of current sensor: Accelerometer, Magnetometer, etc.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ##Constants
 

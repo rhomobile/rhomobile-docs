@@ -102,6 +102,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -130,6 +131,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -158,6 +160,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -410,6 +413,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -435,6 +439,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -463,6 +468,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -572,7 +578,8 @@ When set to true, the barcode scanner will read all barcode types that the scann
 ####Platforms
 
 * Android
-* Windows Mobile(Scanners on Zebra Technologies' devices)
+* Windows Mobile
+* Windows CE(Scanners on Zebra Technologies' devices)
 
 ###ausPostal
 
@@ -593,6 +600,7 @@ Enables or disables the symbology for Australian Postal barcodes. If your applic
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###autoEnter
@@ -614,6 +622,7 @@ When true, automatically appends the character code for 'enter' to the end of an
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###autoTab
@@ -635,6 +644,7 @@ When true, automatically appends the tab character to the end of any barcodes sc
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###aztec
@@ -656,6 +666,7 @@ Enables or disables the symbology for Aztec barcodes. If your application does n
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###barcodeDataFormat
@@ -750,6 +761,7 @@ Enables or disables the symbology for Canadian Postal barcodes. If your applicat
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###chinese2of5
@@ -771,6 +783,7 @@ Enables or disables the symbology for Chinese 2of5 barcodes. If your application
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabar
@@ -792,6 +805,7 @@ Enables or disables the symbology for Codabar barcodes. If your application does
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarClsiEditing
@@ -813,6 +827,7 @@ Enables Codabar CLSi formatting when set to true.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarMaxLength
@@ -834,6 +849,7 @@ Specifies the maximum number of allowable characters in a Codabar barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarMinLength
@@ -855,6 +871,7 @@ Specifies the minimum number of allowable characters in a Codabar barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarNotisEditing
@@ -876,6 +893,7 @@ Enables Codabar NotisEditing formatting when set to true.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###codabarRedundancy
@@ -897,6 +915,7 @@ Sets the Codabar Redundancy property, if set the barcode must be decoded twice b
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11
@@ -918,6 +937,7 @@ Enables or disables the symbology for Code11 barcodes. If your application does 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11checkDigitCount
@@ -946,6 +966,7 @@ Specifies whether to verify 0, 1 or 2 check digits.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11maxLength
@@ -967,6 +988,7 @@ Specifies the maximum number of allowable characters in a Code 11 barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11minLength
@@ -988,6 +1010,7 @@ Specifies the minimum number of allowable characters in a Code 11 barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11redundancy
@@ -1009,6 +1032,7 @@ Sets the Code 11 Redundancy property, if set the barcode must be decoded twice b
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code11reportCheckDigit
@@ -1030,6 +1054,7 @@ When true, the barcode check digit(s) will be reported for scanned Code 11 barco
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128
@@ -1051,6 +1076,7 @@ Enables or disables the symbology for Code128 barcodes. If your application does
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128checkIsBtTable
@@ -1072,6 +1098,7 @@ When true, decodes concatenated Code128 output only if the pair belongs to one o
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128ean128
@@ -1093,6 +1120,7 @@ When true, barcodes with the EAN128 subtype property set will be read.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128isbt128
@@ -1114,6 +1142,7 @@ When true, barcodes with the isbt128 subtype property set will be read.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128isbt128ConcatMode
@@ -1142,6 +1171,7 @@ Sets the Code128 ISBT concatenation mode property. This feature allows a pair of
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128maxLength
@@ -1163,6 +1193,7 @@ Specifies the maximum number of allowable characters in a Code 128 barcode. If y
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128minLength
@@ -1184,6 +1215,7 @@ Specifies the minimum number of allowable characters in a Code 128 barcode. If y
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128other128
@@ -1205,6 +1237,7 @@ Sets the other 128 property which enables the non EAN and non ISBT 128 subtype.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128redundancy
@@ -1226,6 +1259,7 @@ Sets the Code 128 Redundancy property, if set the barcode must be decoded twice 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code128securityLevel
@@ -1247,6 +1281,7 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39
@@ -1268,6 +1303,7 @@ Enables or disables the symbology for Code 39 barcodes. If your application does
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39code32Prefix
@@ -1289,6 +1325,7 @@ Enables reporting of the Code32 prefix when a Code39 barcode is converted.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39convertToCode32
@@ -1310,6 +1347,7 @@ Enables conversion from Code39 to Code 32 barcodes, when set the decoded barcode
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39fullAscii
@@ -1331,6 +1369,7 @@ Enables full ASCII conversion of Code 39 barcodes.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39maxLength
@@ -1352,6 +1391,7 @@ Specifies the maximum number of allowable characters in a Code 39 barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39minLength
@@ -1373,6 +1413,7 @@ Specifies the minimum number of allowable characters in a Code 39 barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39redundancy
@@ -1394,6 +1435,7 @@ Sets the Code 39 Redundancy property, if set the barcode must be decoded twice b
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39reportCheckDigit
@@ -1415,6 +1457,7 @@ Enables reporting of the Code 39 check digit when a Code 39 barcode is scanned.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39securityLevel
@@ -1436,6 +1479,7 @@ Sets the Code 128 security level and accepts a value between 0 and 3 inclusive. 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code39verifyCheckDigit
@@ -1457,6 +1501,7 @@ Turns on verification of the Code 39 check digit.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93
@@ -1478,6 +1523,7 @@ Enables or disables the symbology for Code 93 barcodes. If your application does
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93maxLength
@@ -1499,6 +1545,7 @@ Specifies the maximum number of allowable characters in a Code 93 barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93minLength
@@ -1520,6 +1567,7 @@ Specifies the minimum number of allowable characters in a Code 93 barcode. If yo
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###code93redundancy
@@ -1541,6 +1589,7 @@ Sets the Code 93 Redundancy property, if set the barcode must be decoded twice b
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeAb
@@ -1562,6 +1611,7 @@ Enables or disables the symbology for Composite AB barcodes. If your application
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeAbUccLinkMode
@@ -1590,6 +1640,7 @@ Describes whether UCC link mode is enabled.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###compositeAbUseUpcPreambleCheckDigitRules
@@ -1631,6 +1682,7 @@ Enables or disables the symbology for Composite C barcodes. If your application 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###connectionIdleTimeout
@@ -1672,6 +1724,7 @@ Enables or disables the symbology for D2of5 barcodes. If your application does n
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###d2of5maxLength
@@ -1693,6 +1746,7 @@ Specifies the maximum number of allowable characters in a D2of5 barcode. If your
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###d2of5minLength
@@ -1714,6 +1768,7 @@ Specifies the minimum number of allowable characters in a D2of5 barcode. If your
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###d2of5redundancy
@@ -1735,6 +1790,7 @@ Sets the D2of5 Redundancy property, if set the barcode must be decoded twice bef
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###dataBufferSize
@@ -1776,6 +1832,7 @@ Enables or disables the symbology for Datamatrix barcodes. If your application d
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###dbpMode
@@ -1825,6 +1882,7 @@ The duration of the device beeper when a barcode is scanned, in milliseconds.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###decodeFrequency
@@ -1848,6 +1906,7 @@ The frequency of the device beeper when a barcode is successfully decoded. This 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###decodeSound
@@ -1869,6 +1928,7 @@ Path to a local wave file to be played when the scanner successfully decodes a b
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###decodeVolume
@@ -1892,6 +1952,7 @@ The volume of the device beeper when a barcode is scanned. Volume specified usin
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###differentSymbolTimeout
@@ -1993,6 +2054,7 @@ Enables or disables the symbology for Dutch Postal barcodes. If your application
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean13
@@ -2014,6 +2076,7 @@ Enables or disables the symbology for EAN 13 barcodes. If your application does 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean8
@@ -2035,6 +2098,7 @@ Enables or disables the symbology for EAN 8 barcodes. If your application does n
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ean8convertToEan13
@@ -2056,6 +2120,7 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###enableTimeout
@@ -2123,6 +2188,7 @@ Returns the friendly name associated with the scanner.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###gs1dataBar
@@ -2144,6 +2210,7 @@ Enables or disables the symbology for GS1 DataBar barcodes. If your application 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###gs1dataBarExpanded
@@ -2165,6 +2232,7 @@ Enables or disables the symbology for GS1 Databar Expanded barcodes. If your app
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###gs1dataBarLimited
@@ -2186,6 +2254,7 @@ Enables or disables the symbology for GS1 Databar Limited barcodes. If your appl
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###hapticFeedback
@@ -2229,6 +2298,7 @@ Enables or disables the symbology for I2of5 barcodes. If your application does n
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5convertToEan13
@@ -2250,6 +2320,7 @@ When true, EAN 8 barcodes will be converted to EAN 13 and EAN 13 parameters used
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5maxLength
@@ -2271,6 +2342,7 @@ Specifies the maximum number of allowable characters in a I2of5 barcode. If your
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5minLength
@@ -2292,6 +2364,7 @@ Specifies the minimum number of allowable characters in a I2of5 barcode. If your
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5redundancy
@@ -2313,6 +2386,7 @@ Sets the I2of5 Redundancy property, if set the barcode must be decoded twice bef
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5reportCheckDigit
@@ -2334,6 +2408,7 @@ When true, the barcode check digit(s) will be reported for scanned I2of5 barcode
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###i2of5verifyCheckDigit
@@ -2362,6 +2437,7 @@ Enables the verification of the I2of5 check digit.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###illuminationMode
@@ -2390,6 +2466,7 @@ Selects the illumination mode to use.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
 
 ###invalidDecodeFrequency
@@ -2460,6 +2537,7 @@ Allows the user to select inverse 1D barcodes for decoding.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices. The scanning engine must support inverse barcodes)
 
 ###japPostal
@@ -2481,6 +2559,7 @@ Enables or disables the symbology for Japanese Postal barcodes. If your applicat
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###klasseEins
@@ -2522,6 +2601,7 @@ Enables or disables the symbology for Korean 3of5 barcodes. If your application 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###korean3of5maxLength
@@ -2634,6 +2714,7 @@ Describes the linear security level used during decoding. This determines the nu
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###lowBatteryScan
@@ -2857,6 +2938,7 @@ Enables or disables the symbology for Matrix 2of5 barcodes. If your application 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5maxLength
@@ -2878,6 +2960,7 @@ Specifies the maximum number of allowable characters in a Matrix 2of5 barcode. I
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5minLength
@@ -2899,6 +2982,7 @@ Specifies the minimum number of allowable characters in a Matrix 2of5 barcode. I
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5reportCheckDigit
@@ -2920,6 +3004,7 @@ When true, the barcode check digit(s) will be reported for scanned Matrix 2of5 b
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###matrix2of5verifyCheckDigit
@@ -2941,6 +3026,7 @@ Enables verification of the Matrix 2of5 symbology check digit.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###maxiCode
@@ -2962,6 +3048,7 @@ Enables or disables the symbology for Maxicode barcodes. If your application doe
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###microPdf
@@ -2983,6 +3070,7 @@ Enables or disables the symbology for Micro PDF barcodes. If your application do
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###microQr
@@ -3004,6 +3092,7 @@ Enables or disables the symbology for Micro QR barcodes. If your application doe
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msi
@@ -3025,6 +3114,7 @@ Enables or disables the symbology for MSI barcodes. If your application does not
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiCheckDigitScheme
@@ -3052,6 +3142,7 @@ Specifies the check digit scheme used to verify MSI barcodes.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiCheckDigits
@@ -3079,6 +3170,7 @@ Sets the number of MSI check digits to use.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiMaxLength
@@ -3100,6 +3192,7 @@ Specifies the maximum number of allowable characters in a MSI barcode. If your a
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiMinLength
@@ -3121,6 +3214,7 @@ Specifies the minimum number of allowable characters in a MSI barcode. If your a
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiRedundancy
@@ -3142,6 +3236,7 @@ Sets the MSI Redundancy property, if set the barcode must be decoded twice befor
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###msiReportCheckDigit
@@ -3163,6 +3258,7 @@ When true, the barcode check digit(s) will be reported for scanned MSI barcodes.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###pdf417
@@ -3184,6 +3280,7 @@ Enables or disables the symbology for PDF 417 barcodes. If your application does
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###picklistMode
@@ -3212,6 +3309,7 @@ Allows the imager to decode only the barcode that is directly under the cross-ha
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
 
 ###poorQuality1dMode
@@ -3253,6 +3351,7 @@ Enables or disables the symbology for QR Code barcodes. If your application does
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###rasterHeight
@@ -4030,6 +4129,7 @@ Maximum time in milliseconds that laser scanners will emit a beam or imager scan
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
 ###scannerType
@@ -4050,7 +4150,8 @@ The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera
 ####Platforms
 
 * Android
-* Windows Mobile(All Scanners)
+* Windows Mobile
+* Windows CE(All Scanners)
 
 ###signature
 
@@ -4071,6 +4172,7 @@ Enables or disables the symbology for Signature barcodes. If your application do
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###signatureImageHeight
@@ -4172,6 +4274,7 @@ Enables or disables the symbology for TLC 39 barcodes. If your application does 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###triggerConnected
@@ -4215,6 +4318,7 @@ Enables or disables the symbology for Trioptic 39 barcodes. If your application 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###trioptic39Redundancy
@@ -4236,6 +4340,7 @@ Sets the Trioptic 39 Redundancy property, if set the barcode must be decoded twi
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ukPostal
@@ -4257,6 +4362,7 @@ Enables or disables the symbology for UK Postal barcodes. If your application do
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###ukPostalReportCheckDigit
@@ -4298,6 +4404,7 @@ Enables or disables decoding of UPC EAN Bookland barcodes.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanBooklandFormat
@@ -4325,6 +4432,7 @@ Specifies the bookland format to use when decoding UPC EAN Bookland barcodes.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanConvertGs1dataBarToUpcEan
@@ -4346,6 +4454,7 @@ If true, RSS barcodes will be converted to UPC/EAN format. For this setting to w
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanCoupon
@@ -4367,6 +4476,7 @@ Enables or disables decoding of UPC EAN Coupon barcodes.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanLinearDecode
@@ -4388,6 +4498,7 @@ Sets the linear decode property.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanRandomWeightCheckDigit
@@ -4409,6 +4520,7 @@ When true, enables random weight check digit verification.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanRetryCount
@@ -4430,6 +4542,7 @@ Sets the retry count for auto-discriminating for supplementals. The value must b
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSecurityLevel
@@ -4451,6 +4564,7 @@ Sets the Security level for decoding UPC EAN barcodes and accepts a value betwee
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSupplemental2
@@ -4472,6 +4586,7 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSupplemental5
@@ -4493,6 +4608,7 @@ When true, enables the supplemental barcode decoding. Note you must have upcEanS
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcEanSupplementalMode
@@ -4525,6 +4641,7 @@ Describes the UPC EAN Supplemental mode.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upca
@@ -4546,6 +4663,7 @@ Enables or disables the symbology for UPCA barcodes. If your application does no
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcaPreamble
@@ -4574,6 +4692,7 @@ Controls the preamble applied to the UPCA barcode.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upcaReportCheckDigit
@@ -4595,6 +4714,7 @@ When true, the barcode check digit(s) will be reported for scanned UPCA barcodes
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0
@@ -4616,6 +4736,7 @@ Enables or disables the symbology for UPCE0 barcodes. If your application does n
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0convertToUpca
@@ -4637,6 +4758,7 @@ When true, scanned UPCE0 barcodes will be converted to UPCA and UPCA parameters 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0preamble
@@ -4665,6 +4787,7 @@ Controls the preamble applied to the UPCE0 barcode.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce0reportCheckDigit
@@ -4686,6 +4809,7 @@ When true, the barcode check digit(s) will be reported for scanned UPCE0 barcode
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1
@@ -4707,6 +4831,7 @@ Enables or disables the symbology for UPCE1 barcodes. If your application does n
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1convertToUpca
@@ -4728,6 +4853,7 @@ When true, scanned UPCE1 barcodes will be converted to UPCA and UPCA parameters 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1preamble
@@ -4756,6 +4882,7 @@ Controls the preamble applied to the UPCE1 barcode.
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###upce1reportCheckDigit
@@ -4777,6 +4904,7 @@ When true, the barcode check digit(s) will be reported for scanned UPCE1 barcode
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###us4state
@@ -4798,6 +4926,7 @@ Enables or disables the symbology for US 4-State barcodes. If your application d
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###us4stateFics
@@ -4819,6 +4948,7 @@ Enables or disables the symbology for US 4-State FICS barcodes. If your applicat
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPlanet
@@ -4840,6 +4970,7 @@ Enables or disables the symbology for US Planet barcodes. If your application do
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPlanetReportCheckDigit
@@ -4881,6 +5012,7 @@ Enables or disables the symbology for US Post Net barcodes. If your application 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###usPostNetReportCheckDigit
@@ -4929,6 +5061,7 @@ Configures the feedback given after a successful scan. This value is ignored if 
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderFeedbackTime
@@ -4950,6 +5083,7 @@ If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderHeight
@@ -4999,6 +5133,7 @@ Configures the mode of the scanner viewfinder window. This attribute is not supp
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
 
 ###viewfinderWidth
@@ -5080,6 +5215,7 @@ Enables or disables the symbology for Webcode barcodes. If your application does
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ###webcodeDecodeGtSubtype
@@ -5101,6 +5237,7 @@ If true, the GT Webcode subtype will be decoded. Deprecated in Android 4.1 (Jell
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only(Not all scanning engines support all symbologies or all symbology properties)
 
 ##Remarks

@@ -54,6 +54,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -68,7 +69,7 @@ Connect to a printer using user options. Works asynchronously; use callback to c
 
 ####Parameters
 <ul><li>options : <span class='text-info'>HASH</span><p>Connect options. </p></li><ul><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 15000</span><p>Connection timeout in milliseconds. Must be larger than 0! Platforms:
-WM, iOS, Android </p></li><li>additionalStringOption : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Any additional info. This is currently not being used. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+WM, CE, iOS, Android </p></li><li>additionalStringOption : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Any additional info. This is currently not being used. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
@@ -82,6 +83,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -109,6 +111,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -136,6 +139,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -163,6 +167,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -188,6 +193,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -215,6 +221,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -240,6 +247,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -265,6 +273,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -292,6 +301,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -319,6 +329,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -346,6 +357,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -375,6 +387,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -407,6 +420,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -441,6 +455,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -463,6 +478,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -485,6 +501,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -509,6 +526,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -562,6 +580,7 @@ Unique printer ID during application lifetime.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###connectionType
 
@@ -582,6 +601,7 @@ Type of connection to printer.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###deviceAddress
 
@@ -602,6 +622,7 @@ Bluetooth mac/TCP IP address.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###deviceName
 
@@ -622,6 +643,7 @@ Bluetooth/Network name of printer.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###devicePort
 
@@ -642,6 +664,7 @@ Default port when connecting using TCP/IP.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###isConnected
 
@@ -662,6 +685,7 @@ Connection status flag. All other properties are valid only if isConnect equals 
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###printerType
 
@@ -682,6 +706,7 @@ Type of printer - see PRINTER_TYPE_... constants.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ##Constants
 

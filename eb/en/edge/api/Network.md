@@ -52,6 +52,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -101,6 +102,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -147,6 +149,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -172,6 +175,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -197,6 +201,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -222,6 +227,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -247,6 +253,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -272,6 +279,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -319,6 +327,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -366,6 +375,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -396,6 +406,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###authType
 
@@ -421,6 +432,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###authUser
 
@@ -441,6 +453,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###headers
 
@@ -461,6 +474,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###<span class="text-info">httpVerb</span>
 
@@ -481,6 +495,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###responseTimeout
 
@@ -503,6 +518,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###url
 
@@ -523,6 +539,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###<span class="text-info">verifyPeerCertificate</span>
 
@@ -545,6 +562,7 @@ This property cannot be accessed via setter or getter methods. It can be used in
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ##Remarks
 

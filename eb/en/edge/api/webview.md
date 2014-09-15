@@ -55,6 +55,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -77,6 +78,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -99,6 +101,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -121,6 +124,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -143,6 +147,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -186,6 +191,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -215,6 +221,7 @@ Return an active tab index. For change active tab use Use Rho.NativeTabbar.curre
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###cacheSize
 
@@ -273,7 +280,8 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 ####Platforms
 
 * Android
-* Windows Mobile(WebKit on Windows Mobile/CE)
+* Windows Mobile
+* Windows CE(WebKit on Windows Mobile/CE)
 
 ###enableWebPlugins
 
@@ -351,6 +359,7 @@ Same as System.webViewFramework.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###fullScreen
 
@@ -372,6 +381,7 @@ Use full screen mode.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###navigationTimeout
 

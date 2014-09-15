@@ -77,7 +77,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PLATFORM>iOS, WM, Android</PLATFORM>
             <PARAMS>
                 <PARAM name="dispatch" type="BOOLEAN">
-                        <PLATFORM>WM, Android</PLATFORM>
+                        <PLATFORM>WM, CE, Android</PLATFORM>
                     <DESC>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. If any of the volume keys are captured, real sound volume will not be changed.</DESC>
                 </PARAM>
                 <PARAM name="keyValue" type="STRING">
@@ -88,7 +88,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <PARAMS>
                     <PARAM name="keyValue" type="INTEGER">
                         <DESC>The internal representation of the key expressed in decimal, e.g. 13 is the return key.</DESC>
-                        <PLATFORM>WM, Android</PLATFORM>
+                        <PLATFORM>WM, CE, Android</PLATFORM>
                     </PARAM>
                 </PARAMS>
             </CALLBACK>
@@ -96,7 +96,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="remapKey" hasCallback="none" runInThread="ui">
                 <DESC>Captures and consumes a specific key value and spawns a new key event with the remapped key code. If remapTo is empty or null, the remapping for this key value will be cleared.</DESC>
-            <PLATFORM>WM, Android</PLATFORM>
+            <PLATFORM>WM, CE, Android</PLATFORM>
             <PARAMS>
                 <PARAM name="keyValue" type="STRING">
                     <DESC>Specifies the identifier of the key to capture. This this value is the operating system's identifier for the key, not the ASCII representation of the key (for example, the 'a' key on Windows Mobile devices has a keyValue of 101). This parameter needs to be passed as a string (for example '101' or '0x65').</DESC>
@@ -110,7 +110,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="captureTrigger" hasCallback="optional" runInThread="ui">
                 <DESC>Captures the event whenever a device hardware trigger is pressed or released. If the callback is not set then the capture setting for the trigger will be cleared. The trigger presses cannot be absorbed. All trigger presses will propagate to RhoElements.</DESC>
                 <DESC_EB>Captures the event whenever a device hardware trigger is pressed or released. If the callback is not set then the capture setting for the trigger will be cleared. The trigger presses cannot be absorbed. All trigger presses will propagate to the Enterprise Browser.</DESC_EB>
-            <PLATFORM>WM, Android</PLATFORM>
+            <PLATFORM>WM, CE, Android</PLATFORM>
             <APPLIES msiOnly="true"></APPLIES>
             <CALLBACK  type="HASH">
                 <PARAMS>
@@ -123,7 +123,7 @@ The ebapi.js file is necessary for all single API inclusions.
         </METHODS>
 
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>WM, Android, iOS</PLATFORM>
+        <PLATFORM>WM, CE, Android, iOS</PLATFORM>
 
         <EXAMPLES>
             <EXAMPLE title="Disabling all keys">

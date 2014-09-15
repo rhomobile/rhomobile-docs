@@ -44,7 +44,7 @@ Notifies the user when a specified physical key is pressed. The key event can al
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>keyValue : <span class='text-info'>INTEGER</span><p>The internal representation of the key expressed in decimal, e.g. 13 is the return key. Platforms:
-WM, Android </p></li></ul></ul>
+WM, CE, Android </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
@@ -80,6 +80,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 * Symbol Devices Only
 
 ####Method Access:
@@ -103,6 +104,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 

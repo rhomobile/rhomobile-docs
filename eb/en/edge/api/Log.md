@@ -75,6 +75,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -97,6 +98,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -119,6 +121,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -141,6 +144,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -166,6 +170,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -188,6 +193,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -210,6 +216,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -232,6 +239,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -254,6 +262,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -290,6 +299,7 @@ List of log destinations that are being used. Destination could be set to empty 
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###destinationURI
 
@@ -309,6 +319,7 @@ Log server URI where log will be posted by using EB.Log.sendLogFile or from the 
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###excludeCategories
 
@@ -328,6 +339,7 @@ Comma-separated list of excluded log categories. Set to '' (empty) to allow all 
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###excludeFilter
 
@@ -347,6 +359,7 @@ Define exclude parameters log filter(for security reasons) - parameter names sep
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###filePath
 
@@ -368,6 +381,7 @@ Path to the log file including file name. The path is relative to the platform s
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###fileSize
 
@@ -389,6 +403,7 @@ Maximum log file size in bytes, set 0 to unlimited size; when limit is reached, 
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###includeCategories
 
@@ -410,6 +425,7 @@ Comma-separated list of included log categories. Set to '\*' (asterisk) to log a
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###level
 
@@ -438,6 +454,7 @@ The current logging level. Minimal severity level of messages that will appear i
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###memoryPeriod
 
@@ -459,6 +476,7 @@ Enables the logging of memory usage in the system; specifies the time interval i
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###netTrace
 
@@ -500,3 +518,4 @@ Skip http package body from log(for security reasons). Please note that this par
 
 * Android
 * Windows Mobile
+* Windows CE
