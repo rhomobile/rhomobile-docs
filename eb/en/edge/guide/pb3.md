@@ -111,7 +111,7 @@ In order to support backwards compatibility, PocketBrowser was forced to use PIE
 ## Android
 Since you have chosen Android to run a PocketBrowser v2 application, you should expect some major differences with regard to rendering. The rendering that is used on Android is the stock Webview that comes with the Android SDK.
 
-### Installation	
+### Installation
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).
 
 ### Configuration Settings
