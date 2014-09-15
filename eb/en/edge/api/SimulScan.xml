@@ -8,7 +8,7 @@
     and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
     Recognition captures the owners name and address whilst their photo is captured separately. These regions are
     defined by a template which maps the various regions of the document to the data they contain and can be created
-    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Motorola Android devices with firmware supporting SimulScan.
+    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
         </HELP_OVERVIEW>
         <HELP_OVERVIEW_EB>The SimulScan is a software solution that enables customers to extract and
     process various types of information from documents. A single document may contain barcodes, text, image data and
@@ -17,7 +17,7 @@
     and photo, each of these regions are processed and returned to the app separately by SimulScan so Optical Character
     Recognition captures the owners name and address whilst their photo is captured separately. These regions are
     defined by a template which maps the various regions of the document to the data they contain and can be created
-    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Motorola Android devices with firmware supporting SimulScan.
+    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
         </HELP_OVERVIEW_EB>
         <MORE_HELP>
     ## Enabling the API

@@ -2,7 +2,7 @@
 ## Desktop Installation
 To install the EB on your device, there are two requirements:
 
-* Your device must be a **Motorola Solutions device**.
+* Your device must be a **Symbol Device**.
 * Your device's OS must be either **Windows Mobile, Windows CE, or Android**.
 
 Installing Enterprise Browser on your desktop will provide you will all you need to get started.
@@ -38,7 +38,7 @@ Here is what the Installer looks like; options on the left, explanations on the 
 > Note: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper EB operations.
 
 ### Android Devices
-To connect your Motorola Android device to your Windows computer, you'll need two things:
+To connect your Android device to your Windows computer, you'll need two things:
 
 1. USB Drivers for your device. - Drivers to allow your device to interface with your computer.
 2. Android ADT bundle with platform-tools (adb). - Tools to let other programs on your computer interface with your device.
@@ -80,7 +80,7 @@ When you choose to deploy to your android device you'll see a message asking you
 After this step. the EB should be deployed on your Android device.
 
 ### Windows Mobile/Windows CE Devices
-To connect your Motorola WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
+To connect your WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
 
 > Note: Connecting your device to a USB 3.0 port may result in the device not being recognized by your computer. Be sure to connect the device to a USB 2.0 port.
 

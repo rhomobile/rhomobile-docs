@@ -10,7 +10,7 @@ To install the EB on your device, there are two requirements:
 Once you have verified that your device meets the above requirements, you'll need to make sure your device is connected to your computer in a way that the Enterprise Browser Installer can interface with it.
 
 ### Android
-To connect your Motorola Android device to your Windows computer, you'll need two things:
+To connect your Android device to your Windows computer, you'll need two things:
 
 1. [USB Drivers for your device.](#guide-quick-start?usb-drivers) - Drivers to allow your device to interface with your computer.
 2. [Android ADT bundle with platform-tools (adb).](#guide-quick-start?android-adt-bundle) - Tools to let other programs on your computer interface with your device.
@@ -48,7 +48,7 @@ Which, if your device is setup correctly, you should see something like this:
 Now that you have your android device connected to your computer through adb, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
 
 ### Windows Mobile / Windows CE
-To connect your Motorola WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
+To connect your WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
 
 NOTE: Connecting your device to a USB 3.0 port will result in the device not being recognized by your computer. Be sure to connect the device to a USB 2.0 port.
 

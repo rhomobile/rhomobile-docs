@@ -232,7 +232,7 @@ The browser cache size, in whole MBs. Defines in config.xml: Navigation\\Cache.
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###enableCache
 
@@ -273,7 +273,7 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 ####Platforms
 
 * Android
-* Windows Mobile(Motorola Solutions' WebKit on Windows Mobile/CE)
+* Windows Mobile(WebKit on Windows Mobile/CE)
 
 ###enableWebPlugins
 
@@ -320,7 +320,7 @@ Enable WebView zoom. Use 'enable_screen_zoom' parameter in Config.xml to configu
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-Specifies the default font to use when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet. Defines in config.xml: HTMLStyles\\FontFamily 
+Specifies the default font to use when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Symbol WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet. Defines in config.xml: HTMLStyles\\FontFamily 
 ####Access
 
 
@@ -331,7 +331,7 @@ Specifies the default font to use when rendering text in web pages. The specifie
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###framework
 
@@ -391,7 +391,7 @@ Can be defined in config.xml: Navigation\\NavTimeout. Number of milliseconds(max
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###scrollTechnique
 
@@ -418,7 +418,7 @@ Specifies the technique used to scroll about the page.Defines in config.xml: Scr
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###textZoomLevel
 
@@ -436,7 +436,7 @@ Sets the font size to be displayed on the page, set to 0 for the smallest font a
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###userAgent
 
@@ -447,10 +447,10 @@ Defines in config.xml: Navigation\\UserAgent. When visiting a web server the Web
 
 * %p - platform name ("Windows CE " + version number)
 * %w - WebKit version number
-* %e - MotorolaWebKit version number.
+* %e - WebKit version number.
 
 Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.
-From RhoElements 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to RhoElements 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"
+From RhoElements 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to RhoElements 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) WebKit/%e Safari/%w"
                 
 ####Access
 
@@ -462,7 +462,7 @@ From RhoElements 2.1 onwards the default value was changed to work out of the bo
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###viewportEnabled
 
@@ -482,7 +482,7 @@ Whether to enable or disable viewport meta tag processing.Defines in config.xml:
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###viewportWidth
 
@@ -500,7 +500,7 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###zoomPage
 
@@ -518,4 +518,4 @@ Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 ar
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
