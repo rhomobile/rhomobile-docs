@@ -54,7 +54,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 
 ### Usage Notes
 * Generic methods RasConnect & RasDisconnect are not supported.
-* NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser.
+* NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser. To disable the SIP, see the [disabling the SIP](../api-Sip?Disabling%20the%20SIP) section in the SIP API reference.
 * [FitToScreenEnabled](../guide/configreference?FitToScreenEnabled) not supported. This is a function for Windows Mobile only.
 
 ## Windows Mobile/CE using IE
@@ -155,7 +155,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 
 ### Usage Notes
 * Generic methods RasConnect & RasDisconnect are not supported.
-* NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser.
+* NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser. To disable the SIP, see the [disabling the SIP](../api-Sip?Disabling%20the%20SIP) section in the SIP API reference.
 * [FitToScreenEnabled](../guide/configreference?FitToScreenEnabled) not supported. This is a function for Windows Mobile only.
 * EMML profiles do not work.
 * Check the device for hardware compatibility, especially the [barcode scanning](http://docs.rhomobile.com/en/2.2.0/rhoelements/scanner) options.
