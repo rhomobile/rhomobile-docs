@@ -80,7 +80,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Motorola Solutions Devices Only
+* Symbol Devices Only
 
 ####Method Access:
 

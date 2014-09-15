@@ -267,7 +267,7 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 
 ####Platforms
 
-* Windows Mobile(Motorola Solutions' WebKit)
+* Windows Mobile(WebKit)
 
 ###bundleFolder
 

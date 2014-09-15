@@ -50,7 +50,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
-* Motorola Solutions Devices Only
+* Symbol Devices Only
 
 ####Method Access:
 
@@ -72,7 +72,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
-* Motorola Solutions Devices Only
+* Symbol Devices Only
 
 ####Method Access:
 
