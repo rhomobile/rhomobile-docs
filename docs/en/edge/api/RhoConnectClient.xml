@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="RhoConnectClient" parent="Rho" generateUnderscoreRubyNames="true">
+    <MODULE name="RhoConnectClient" parent="Rho" generateUnderscoreRubyNames="true" productException="eb">
         <HELP_OVERVIEW>RhoConnectClient is used for synchronization with RhoConnect applications.
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`

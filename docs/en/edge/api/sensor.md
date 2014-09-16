@@ -48,7 +48,7 @@ extensions: ["sensor"]
  </p></li><li>tiltangle_x : <span class='text-info'>FLOAT</span><p><p>X co-ordinate value of the tiltangle sensor in degrees units.</p>
  </p></li><li>tiltangle_y : <span class='text-info'>FLOAT</span><p><p>Y co-ordinate value of the tiltangle sensor in degrees units.</p>
  </p></li><li>tiltangle_z : <span class='text-info'>FLOAT</span><p><p>Z co-ordinate value of the tiltangle sensor in degrees units.</p>
- </p></li><li>deviceorientation_value : <span class='text-info'>STRING</span><p><p>The values of the Orientation sensor. Possible values include Portrait Down, Portrait Up, Landscape Left, Landscape Right, Face Up, Face Down. Applicable only for Motorola Windows Mobile/CE devices with Sensor support.</p>
+ </p></li><li>deviceorientation_value : <span class='text-info'>STRING</span><p><p>The values of the Orientation sensor. Possible values include Portrait Down, Portrait Up, Landscape Left, Landscape Right, Face Up, Face Down. Applicable only for Symbol Windows Mobile/CE devices with Sensor support.</p>
  </p></li><li>motion_value : <span class='text-info'>STRING</span><p><p>Value from the Motion sensor.</p>
  </p></li><li>ecompass_value : <span class='text-info'>STRING</span><p><p>Value from the E-Compass sensor.</p>
  </p></li><li>magnetometer_x : <span class='text-info'>FLOAT</span><p><p>X value of the magnetometer sensor in micro-Tesla (uT) units.</p>

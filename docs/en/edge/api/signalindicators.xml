@@ -6,7 +6,7 @@
             <ALIAS new="Signal" deprecated="true"/>
         </ALIASES>
 
-        <HELP_OVERVIEW>The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Motorola Solutions' devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Symbol devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
@@ -76,7 +76,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="signalStrength" type="INTEGER">
-                            <PLATFORM>WM, Android</PLATFORM>
+                            <PLATFORM>WM, CE, Android</PLATFORM>
                             <DESC>The signal strength as a value between 0 and 100. Not supported on iOS</DESC>
                         </PARAM>
                         <PARAM name="essid" type="STRING">
@@ -89,7 +89,7 @@ The ebapi.js file is necessary for all single API inclusions.
                             <DESC>The Device's adapter name</DESC>
                         </PARAM>
                         <PARAM name="dhcpServer" type="STRING">
-                            <PLATFORM>WM, Android</PLATFORM>
+                            <PLATFORM>WM, CE, Android</PLATFORM>
                             <DESC>The current DHCP server's address. Always populated on Android, even on static IP configurations. Not supported on iOS </DESC>
                             <DESC_EB>The current DHCP server's address. Always populated on Android, even on static IP configurations.</DESC_EB>
                         </PARAM>
@@ -105,7 +105,7 @@ The ebapi.js file is necessary for all single API inclusions.
                             <DESC>The device's IP address</DESC>
                         </PARAM>
                         <PARAM name="rssi" type="STRING">
-                            <PLATFORM>WM, Android</PLATFORM>
+                            <PLATFORM>WM, CE, Android</PLATFORM>
                             <DESC>Signal strength in RSSI terms. Not supported on iOS.</DESC>
                             <DESC_EB>Signal strength in RSSI terms.</DESC_EB>
                         </PARAM>
@@ -128,7 +128,7 @@ The ebapi.js file is necessary for all single API inclusions.
             </METHOD>
 
             <METHOD name="showIcon" hasCallback="none" runInThread="ui">
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Overlays a small signal icon on top of the view indicating the remaining signal strength. This is particularly useful in full screen applications which cover the system signal level indicator.</DESC>
                 <APPLIES msiOnly="true">All platforms support wlanStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
@@ -168,7 +168,7 @@ The ebapi.js file is necessary for all single API inclusions.
             </METHOD>
 
             <METHOD name="hideIcon" hasCallback="none" runInThread="ui">
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <DESC>Hide the icon if it has been previously set by the 'showIcon' call.</DESC>
                 <APPLIES msiOnly="true">All platforms support wlanStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
@@ -176,7 +176,7 @@ The ebapi.js file is necessary for all single API inclusions.
         </METHODS>
         
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-        <PLATFORM>WM, Android, iOS</PLATFORM>
+        <PLATFORM>WM, CE, Android, iOS</PLATFORM>
 
         <EXAMPLES>
             <EXAMPLE title="Retrieve the WLAN status">

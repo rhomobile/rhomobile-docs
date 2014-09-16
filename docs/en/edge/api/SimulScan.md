@@ -8,7 +8,7 @@ example, a driver's license can be thought of as a template containing regions s
 and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
 Recognition captures the owners name and address whilst their photo is captured separately. These regions are
 defined by a template which maps the various regions of the document to the data they contain and can be created
-on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Motorola Android devices with firmware supporting SimulScan.
+on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
 </code></pre>
 <pre><code>## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
