@@ -76,7 +76,7 @@ The ebapi.js file is necessary for all single API inclusions.
                                     <DESC>The batteryStatus callback will fire periodically at the specified refresh interval. This is the default setting on Windows Mobile / CE / Embedded but those platforms do also support the system trigger. Not supported on Android.</DESC>
                                 </VALUE>
                                 <VALUE constName="BATTERY_TRIGGER_SYSTEM" value ="system">
-                                    <DESC>The batteryStatus callback will fire when the underlying operating system notifies that there has been a change to the battery level. The resolution of this change will vary depending on operating system, for example on WP8 you are notified every percentage value change but on Windows Mobile the notifications only occur when 'critical', 'full' etc.</DESC>
+                                    <DESC>The batteryStatus callback will fire when the underlying operating system notifies that there has been a change to the battery level. The resolution of this change will vary depending on operating system, for example on Windows Mobile the notifications only occur when 'critical', 'full' etc.</DESC>
                                 </VALUE>
                             </VALUES>
                             </PARAM>
