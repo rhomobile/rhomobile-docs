@@ -63,7 +63,7 @@ Sets the alarm. The alarm will fire after the specified interval or at the speci
 <span class='text-info'>STRING</span> - Alarm Interval in the format HH-MM-SS
 
 #### Description
-Sets a time after which the Alarm will fire. The delay cannot be set to less that 30 seconds, if a value of less than 30 seconds is supplied, the delay will be defaulted to 30 seconds.
+Sets a time after which the Alarm will fire. The delay cannot be set to less than 30 seconds, if a value of less than 30 seconds is supplied, the delay will be defaulted to 30 seconds.
 
 #### Platforms
 
