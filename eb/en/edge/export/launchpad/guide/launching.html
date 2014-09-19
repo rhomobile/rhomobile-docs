@@ -1,0 +1,39 @@
+<div class='tableofcontents'> </div><h1>Starting Your Application</h1>
+
+<h2>Overview</h2>
+
+<p>In order for Enterprise Browser work with your application, it needs to be configured into what we refer to as <em>Runtime configuration</em>. This is managed through an XML file called <strong>Config.xml</strong>. This file is mandatory for proper Enterprise Browser execution: not every setting has a default and if the configuration file cannot be found, Enterprise Browser <em>will not start</em>.</p>
+
+<p>An example configuration file is provided as part of the installation and contains sensible defaults. Please refer to <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Configuration Settings</a> page for more details on the meanings and utilization of each of the settings and their possible values.</p>
+
+<h3>Config.XML Location</h3>
+
+<p>The location of the configuration file loaded by Enterprise Browser is dependent on a number of factors:</p>
+
+<ul>
+<li>When running on the Enterprise Tablet the configuration file is read from /Android/data/com.symbol.EnterpriseBrowser/Config.xml.</li>
+<li>When running on all other devices Enterprise Browser will attempt to launch the configuration file Config.xml located in the folder <code>Config</code> off the installation root.</li>
+<li>You can change which configuration file is loaded using the /C: configuration option. See the shortcuts section for more detail.</li>
+</ul>
+
+
+<p>For persistant installations, on cold boot the Config.xml file is copied from \Application\EnterpriseBrowser\Config\Config.xml to \Program Files\EnterpriseBrowser\Config\Config.xml; bear this in mind if you want your configuration to persist across cold boot. This behavior may be modified by changing \Application\EnterpriseBrowser.cpy.</p>
+
+<h2>Starting Your Application</h2>
+
+<p>To set Enterprise Browser to Start With your Application, you find the <code>startPage</code> parameter in the Config.xml file and change it to the location of your HTML application. This application can reside locally on the device or it can reside remotely on a web server.</p>
+
+<blockquote><p>Note: Different steps need to be taken for each scenario in order to make use of Enterprise Browser APIs. Be sure to read the <a href="https://developer.motorolasolutions.com/docs/DOC-2550">API Overview guide</a> for more details.</p></blockquote>
+
+<p>As an example of using a local file called <code>HelloScan.html</code>. The following steps would be taken:</p>
+
+<ol>
+<li>Copy the file HelloScan.html to the root folder of your device using ActiveSync.</li>
+<li>Find the file &ldquo;\Program Files\EnterpriseBrowser\config\config.xml&rdquo; and copy it to your PC.</li>
+<li>Edit config.xml in your text editor.</li>
+<li>Find the <code>Application</code> entry in the xml file and change it&rsquo;s <code>startPage</code> parameter to &ldquo;file://\helloscan.html&rdquo;.</li>
+<li>Start Enterprise Browser using the icon in the programs group.</li>
+</ol>
+
+
+<blockquote><p>Note: If you are using a localized variant of the operating system, you may need to edit the default config.xml shipped with Enterprise Browser to account for the localized folder names on the system, e.g. The Italian build of the OS uses \Programmi\ rather than \Program Files.</p></blockquote>

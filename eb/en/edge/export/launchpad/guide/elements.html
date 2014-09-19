@@ -1,0 +1,75 @@
+<div class='tableofcontents'> </div><h1>RhoElements 2.x Migration Guide</h1>
+
+<p>This guide is meant to assist in migration from RhoElements 2.x to the Enterprise Browser. For online documentation specific to RhoElements 2.x, please see the <a href="http://docs.rhomobile.com/en/2.2.0">online RE 2.x docs</a>.</p>
+
+<h2>Overview</h2>
+
+<p>Enterprise Browser supports RhoElements 2.x applications in most cases without making any changes to your application. If you do need to make changes, please refer to the changes mentioned below.</p>
+
+<h2>Config.xml</h2>
+
+<p>You will need to replace the version of the Config.xml with the version of Config.xml that comes with Enterprise Browser. Be sure to make the necessary changes to this file to point to your application and customize any other options that you had in PocketBrowser and RhoElements. Consult the <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Configuration Reference</a> for more information.</p>
+
+<ol>
+<li><p>Set the <a href="../guide/configreference?StartPage">StartPage</a>.</p>
+
+<pre name="code" class="xml"> &lt;Configuration&gt;
+     &lt;Applications&gt;
+         &lt;Application&gt;
+             &lt;General&gt;
+                 &lt;Name value="Menu"/&gt;
+                 &lt;StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/&gt;
+             &lt;/General&gt;
+</pre></li>
+<li>Move any offline files to the device.
+
+<blockquote><p>If you have any BadLink pages or offline resources (on the device), copy them over now.</p></blockquote></li>
+</ol>
+
+
+<h2>Meta Tags</h2>
+
+<p>In Pocketbrowser and RhoElements 2.x, you could easily access functionality through the use of meta-tags. For  example:</p>
+
+<pre name="code" class="html">&lt;META HTTP-Equiv="scanner" Content="Enable"&gt;
+&lt;META HTTP-Equiv="scanner" Content="AutoEnter:Enabled"&gt;
+&lt;META HTTP-Equiv="scanner" Content="Start"&gt; 
+</pre>
+
+<p>Enterprise Browser supports the use of these Meta Tags without any changes to your code on Windows Mobile/CE and Android</p>
+
+<h2>Android</h2>
+
+<p>Since you have chosen Android to run a RhoElements 2.x shared runtime application, you should expect some differences with regard to rendering as the Shared Runtime makes use of Zebra Technologies Webkit, and Enterprise Browser uses the Android stock webkit.</p>
+
+<h3>JavaScript APIs</h3>
+
+<p>In RhoElements 2.x there was the ability to access functionality through the use of Javascript like:</p>
+
+<pre name="code" class="javascript">// scanner is a Rholements 2.x API
+scanner.start();
+
+// generic is a JS object in PocketBrowser and RhoElements
+generic.InvokeMETAFunction('SignatureCapture', 'Visibility:Visible');
+</pre>
+
+<p>To use RhoElements JavaScript objects within Enterprise Browser on Android, you must include the <code>elements.js</code> file within your HTML code. This file is located in the Enterprise Browser installation folder:</p>
+
+<!-- TBD Insert ScreenShot -->
+
+
+<pre name="code" class="html">&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;
+</pre>
+
+<h2>Usage Notes</h2>
+
+<ul>
+<li>Generic methods RasConnect &amp; RasDisconnect are not supported.</li>
+<li>NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser. To disable the SIP, see the <a href="../api-Sip?Disabling%20the%20SIP">disabling the SIP</a> section in the SIP API reference.</li>
+<li><a href="../guide/configreference?FitToScreenEnabled">FitToScreenEnabled</a> not supported. This is a function for Windows Mobile only.</li>
+<li>EMML profiles do not work.</li>
+<li>Check the device for hardware compatibility, especially the <a href="http://docs.rhomobile.com/en/2.2.0/rhoelements/scanner">barcode scanning</a> options.</li>
+</ul>
+

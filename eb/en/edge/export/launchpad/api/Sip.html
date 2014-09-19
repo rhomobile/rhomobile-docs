@@ -1,0 +1,148 @@
+<div class='tableofcontents'> </div><h1>Sip</h1>
+
+<h2>Overview</h2>
+
+<p>The Sip Module is used to control attributes of the soft input panel. Note that these settings apply to both text boxes on the current page as well as the <a href="https://developer.motorolasolutions.com/docs/DOC-2506">address bar</a>.</p>
+
+<h2>Enabling the API</h2>
+
+<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
+
+<ul>
+<li>elements.js</li>
+</ul>
+
+
+<blockquote><p>Note &ndash; this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
+</pre>
+
+<h3>API Usage</h3>
+
+<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
+
+<pre name="code" class="javascript">sip.manual();
+</pre>
+
+<h2>Methods</h2>
+
+<h3>manual()</h3>
+
+<p>The SIP will show or hide only when the SIP button is pressed.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h3>automatic()</h3>
+
+<p>Shows and hides the SIP when editable fields have focus.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h2>Properties</h2>
+
+<h3>left</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the horizontal position of the SIP in pixels.</p>
+
+<blockquote><p>Note: Note compatible with Finger Scrolling on Windows devices</p></blockquote>
+
+<h3>Possible Values</h3>
+
+<ul>
+<li>Horizontal position, in pixels &ndash; Default: Center of Screen</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h3>top</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the vertical position of the SIP in pixels.</p>
+
+<blockquote><p>Note: Note compatible with Finger Scrolling on Windows devices</p></blockquote>
+
+<h3>Possible Values</h3>
+
+<ul>
+<li>Vertical position, in pixels &ndash; Default: Bottom of Screen</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h2>Remarks</h2>
+
+<h3>Multi Instance</h3>
+
+<p>When multiple Enterprise Browser applications are running the following considerations should be made: The SIP settings are application specific. Switching to another application which uses the SIP module will apply the focused application’s settings to it, e.g. the SIP may move position.</p>
+
+<h3>Disabling the SIP</h3>
+
+<p>If you want to completely disable to the use of the SIP, set it to appear off the visible area of the screen by setting the Left and Top coordinates to be off the device&rsquo;s display size. Alternatively on Android, call the manual method.</p>
+
+<h3>Interaction with Hardware Keyboard</h3>
+
+<p>The SIP used is the standard keyboard input panel supplied with Windows. Certain incompatibilities exist when using the software keyboard on a device which also has a hardware keyboard though this will have no impact on the average user. For example moving the SIP will reset the alpha or function key (orange or blue key) lock and using the orange or blue keys may reset the position of the SIP on certain devices. Also note that if you press a hardware key the SIP will disappear if you are using the Internet Explorer engine and you will need to press the SIP button again or return focus to an editable field to get it to appear</p>
+
+<h3>Interaction with Screen Rotation</h3>
+
+<p>Depending on the underlying operating system the SIP position may change following screen rotation. The SIP left and top parameters can be applied in a ScreenOrientationEvent to bypass this feature if required.</p>
+
+<h3>IE Rendering Engine</h3>
+
+<p>The SIP behavior have slightly different behavior when using Internet Explorer as the rendering engine:</p>
+
+<ul>
+<li>Manual: When shown by the SIP Button, will show and hide when text boxes have focus.</li>
+<li>Automatic: Shows and hides when text boxes have focus. Applying SIP control Automatic will prevent SIP control Manual being applied in the same application. To return to Manual SIP control you can press a hardware key.</li>
+<li>Manual and Automatic do not apply for Windows CE, only Windows Mobile.</li>
+</ul>
+

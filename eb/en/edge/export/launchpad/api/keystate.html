@@ -1,0 +1,135 @@
+<div class='tableofcontents'> </div><h1>KeyState</h1>
+
+<h2>Overview</h2>
+
+<p>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Zebra Technologies' Windows Mobile / CE / Embedded handheld devices (see remarks).</p>
+
+<h2>Enabling the API</h2>
+
+<p>There are two methods of enabling the KeyState API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
+
+
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
+
+<h3>Include all JS API modules</h3>
+
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+</pre>
+
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
+
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
+
+<h3>Include only the modules you need</h3>
+
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the KeyState API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.keystate.js"&gt;&lt;/script&gt;
+</pre>
+
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
+
+<h2>Methods</h2>
+
+<h3>hideStates()</h3>
+
+<p>Stops showing keystate icons representing the shifted state of the hardware keyboard.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+<li>Symbol Devices Only</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.KeyState.hideStates()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>showStates(<span class="text-info">HASH</span> propertyMap)</h3>
+
+<p>Display keystate icons representing the shifted state of the hardware keyboard.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>The properties associated with the keystate indicator, its size and position. Not specifying any properties will display the keystate indicators at the bottom right hand corner of the screen.</p></li><ul><li>right : <span class='text-info'>INTEGER</span><span class='label '> Default: [Keystate Indicators start at the bottom right of the screen]</span><p>The absolute horizontal position of the keystate indicators in pixels. This is the rightmost edge of the rightmost indicator, where multiple indicators are displayed simultaneously they will grow from right to left. </p></li><li>top : <span class='text-info'>INTEGER</span><span class='label '> Default: [Keystate Indicators start at the bottom right of the screen]</span><p>The absolute vertical position of the keystate indicators in pixels. </p></li><li>width : <span class='text-info'>INTEGER</span><span class='label '> Default: [A sensible width based on Screen Resolution]</span><p>The width of each keystate indicator in pixels. </p></li><li>height : <span class='text-info'>INTEGER</span><span class='label '> Default: [A sensible height based on Screen Resolution]</span><p>The width of each keystate indicator in pixels. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+<li>Symbol Devices Only</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.KeyState.showStates(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Remarks</h2>
+
+<h3>Devices lacking support</h3>
+
+<p>Due to platform limitations this API is not available on the following Zebra Technologies' devices:</p>
+
+<ul>
+<li>ES400</li>
+<li>MC45</li>
+<li>MC65</li>
+<li>VC70</li>
+<li>MC45</li>
+</ul>
+
+
+<h3>Rotating the Screen</h3>
+
+<p>The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.</p>
