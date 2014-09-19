@@ -2,47 +2,40 @@
 
 <h2>Overview</h2>
 
-<p>captures video files from the default camera device.</p>
-
-
-<p>Only the foreground RhoElements application is given access to capture video, when an application is sent to the background any capture that is in progress will be canceled and it will automatically relinquish control of the video hardware. When brought back to the foreground, an application previously using the video capture will have its previous configuration (eg. name etc.) reapplied to the plug-in automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background.</p>
-
-
-
+<p>captures video files from the default camera device.Only the foreground application is given access to capture video, when an application is sent to the background any capture that is in progress will be canceled and it will automatically relinquish control of the video hardware. When brought back to the foreground, an application previously using the video capture will have its previous configuration (eg. name etc.) reapplied to the plug-in automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background.</p>
 
 <h2>Enabling the API</h2>
 
+<p>There are two methods of enabling the VideoCapture API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
 
 
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+<h3>Include all JS API modules</h3>
 
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
 
-
-
-<pre name="code" class="ruby">extensions: ["mediacapture"]
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
+<h3>Include only the modules you need</h3>
 
-<h2>JavaScript Usage</h2>
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the VideoCapture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
 
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.videocapture.js"&gt;&lt;/script&gt;
+</pre>
 
-
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
-
-
-
-
-<h2>Ruby Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
-
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
@@ -57,20 +50,36 @@
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.cancel()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.cancel()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.cancel()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.cancel()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>enumerate()</h3>
@@ -84,27 +93,36 @@
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p> </p></li></ul></ul></p>
+<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p> </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>ARRAY :
-Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>ARRAY : Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.enumerate()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Videocapture.enumerate()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getAllProperties()</h3>
@@ -122,23 +140,38 @@ Array of video capture objects.<ul><li><i>Object</i> : <span class='text-info'>S
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getAllProperties()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getAllProperties()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.getAllProperties()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getDefault()</h3>
@@ -156,23 +189,32 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>SELF_INSTANCE :
-Default object of Module.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>SELF_INSTANCE : Default object of Module.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.getDefault()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Videocapture.getDefault()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperties(<span class="text-info">ARRAY</span> arrayofNames)</h3>
@@ -181,8 +223,7 @@ Default object of Module.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -191,23 +232,38 @@ List of properties I want to know about </p></li><ul><li><i>Object</i> : <span c
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperty(<span class="text-info">STRING</span> propertyName)</h3>
@@ -216,8 +272,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -226,53 +281,77 @@ The property to return info about. </p></li><li>callback : <span class='text-inf
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-The property to return info about.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : The property to return info about.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.getProperty(<span class="text-info">STRING</span> propertyName)</code></li>
+</ul>
+</li>
+</ul>
 
 
-<h3>setDefault(<span class="text-info">SELF_INSTANCE: Rho.Videocapture</span> defaultInstance)</h3>
+<h3>setDefault(<span class="text-info">SELF_INSTANCE: EB.Videocapture</span> defaultInstance)</h3>
 
 <p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.Videocapture</span><p>
-An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Videocapture</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Videocapture.setDefault(<span class="text-info">SELF_INSTANCE: Rho.Videocapture</span> defaultInstance)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Videocapture.setDefault(<span class="text-info">SELF_INSTANCE: EB.Videocapture</span> defaultInstance)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperties(<span class="text-info">HASH</span> propertyMap)</h3>
@@ -281,28 +360,43 @@ An instance object that is of the same class. </p></li><li>callback : <span clas
 
 <h4>Parameters</h4>
 
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</h3>
@@ -311,29 +405,43 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>start()</h3>
@@ -347,30 +455,42 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>transferResult : <span class='text-info'>STRING</span><p>
-Reports success or failure of transfer. </p></li><li>fileName : <span class='text-info'>STRING</span><p>
-Name of the saved file (absolute path). </p></li><li>fileSize : <span class='text-info'>STRING</span><p>
-Size of the saved file in kilobytes (KB). </p></li></ul></ul></p>
+<p>Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>transferResult : <span class='text-info'>STRING</span><p>Reports success or failure of transfer. </p></li><li>fileName : <span class='text-info'>STRING</span><p>Name of the saved file (absolute path). </p></li><li>fileSize : <span class='text-info'>STRING</span><p>Size of the saved file in kilobytes (KB). </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void :
-Not providing a callback to be invoked will result in that file is saved only locally and file is not transfered.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void : Not providing a callback to be invoked will result in that file is saved only locally and file is not transfered.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.start()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.start()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.start()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.start()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>stop()</h3>
@@ -384,20 +504,36 @@ Not providing a callback to be invoked will result in that file is saved only lo
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stop()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.stop()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.stop()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.stop()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h2>Properties</h2>
@@ -419,7 +555,24 @@ Not providing a callback to be invoked will result in that file is saved only lo
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.duration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.duration</code> </li></ul></li></ul>
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.duration</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.duration</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h3>fileName</h3>
@@ -434,7 +587,24 @@ Not providing a callback to be invoked will result in that file is saved only lo
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.fileName</code> </li></ul></li></ul>
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.fileName</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.fileName</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h3>resolution</h3>
@@ -457,26 +627,27 @@ Not providing a callback to be invoked will result in that file is saved only lo
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: Rho.Videocapture.LOW
-
-<ul>
-<li>String: low</li>
-<li><p>Low resolution.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.Videocapture.HIGH
-
-<ul>
-<li>String: high</li>
-<li><p>High resolution.</p>
+<li>Constant: EB.Videocapture.LOW &ndash; String: low Low resolution.</li>
+<li><p>Constant: EB.Videocapture.HIGH &ndash; String: high High resolution.</p>
 
 <h4>Access</h4></li>
+<li><p>Instance: This property can be accessed via an instance object of this class: <code>myObject.resolution</code></p></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.resolution</code></li>
 </ul>
 </li>
 </ul>
 
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.resolution</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.resolution</code> </li></ul></li></ul>
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h3>saveToGallery</h3>
@@ -491,7 +662,24 @@ Not providing a callback to be invoked will result in that file is saved only lo
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.saveToGallery</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Videocapture.saveToGallery</code> </li></ul></li></ul>
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.saveToGallery</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Videocapture.saveToGallery</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h2>Remarks</h2>
@@ -503,11 +691,3 @@ Not providing a callback to be invoked will result in that file is saved only lo
 <h3>File Formats</h3>
 
 <p>The output file format on Android is MP4 and on Windows is WMV.</p>
-
-<h2>Examples</h2>
-
-<h3>Basic Example</h3>
-
-<p>The default video capture object on the device is enabled when the index view is loaded.</p>
-
-<p>Then in index.erb file:</p>

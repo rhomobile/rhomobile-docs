@@ -2,64 +2,40 @@
 
 <h2>Overview</h2>
 
-<p>The Push API provides access to Push messaging functionality</p>
-
-
-<p>Use this API to give your application the ability to receive server initiated messages.</p>
-
-
-
+<p>The Push API provides access to Push messaging functionality. Use this API to give your application the ability to receive server initiated messages.</p>
 
 <h2>Enabling the API</h2>
 
+<p>There are two methods of enabling the Push API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
 
 
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code>:</p>
+<h3>Include all JS API modules</h3>
 
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
 
-
-
-<p>For APNS or GCM:</p>
-
-
-
-
-<pre name="code" class="ruby">capabilities: ["push"]
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
+<h3>Include only the modules you need</h3>
 
-<p>For RhoConnect Push Service:</p>
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the Push API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
 
-
-
-
-<pre name="code" class="ruby">extensions: ["rhoconnect-push", "rhoconnect-client"]
-For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be installed on device to get it work.
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.push.js"&gt;&lt;/script&gt;
 </pre>
 
-
-
-
-<h2>JavaScript Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-
-
-
-<h2>Ruby Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
@@ -74,27 +50,36 @@ For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be inst
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Process</span><p> </p></li></ul></ul></p>
+<p>Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>ARRAY :
-Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Process</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>ARRAY : Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Push.enumerate()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Push.enumerate()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getAllProperties()</h3>
@@ -112,23 +97,38 @@ Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getAllProperties()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getAllProperties()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.getAllProperties()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getDefault()</h3>
@@ -146,23 +146,32 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>SELF_INSTANCE :
-Default object of Module.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>SELF_INSTANCE : Default object of Module.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Push.getDefault()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Push.getDefault()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getDeviceId()</h3>
@@ -180,22 +189,38 @@ Default object of Module.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDeviceId()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getDeviceId()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getDeviceId()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.getDeviceId()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperties(<span class="text-info">ARRAY</span> arrayofNames)</h3>
@@ -204,8 +229,7 @@ Default object of Module.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -214,23 +238,38 @@ List of properties I want to know about </p></li><ul><li><i>Object</i> : <span c
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperty(<span class="text-info">STRING</span> propertyName)</h3>
@@ -239,8 +278,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -249,53 +287,77 @@ The property to return info about. </p></li><li>callback : <span class='text-inf
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-The property to return info about.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : The property to return info about.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code></li>
+</ul>
+</li>
+</ul>
 
 
-<h3>setDefault(<span class="text-info">SELF_INSTANCE: Rho.Push</span> defaultInstance)</h3>
+<h3>setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)</h3>
 
 <p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.Push</span><p>
-An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Push</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Push.setDefault(<span class="text-info">SELF_INSTANCE: Rho.Push</span> defaultInstance)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Push.setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperties(<span class="text-info">HASH</span> propertyMap)</h3>
@@ -304,28 +366,43 @@ An instance object that is of the same class. </p></li><li>callback : <span clas
 
 <h4>Parameters</h4>
 
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</h3>
@@ -334,29 +411,43 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>startNotifications()</h3>
@@ -370,30 +461,42 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>doSync : <span class='text-info'>STRING</span><p>
-List of sources to sync separated by comma or &lsquo;all&rsquo;. </p></li><li>alertText : <span class='text-info'>STRING</span><p>
-Alert message to show to user. </p></li><li>vibrateDuration : <span class='text-info'>INTEGER</span><p>
-Vibrate duration in milliseconds. </p></li><li>alertSound : <span class='text-info'>STRING</span><p>
-Path to sound file to play when push message is received. </p></li></ul></ul></p>
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>doSync : <span class='text-info'>STRING</span><p>List of sources to sync separated by comma or &lsquo;all&rsquo;. </p></li><li>alertText : <span class='text-info'>STRING</span><p>Alert message to show to user. </p></li><li>vibrateDuration : <span class='text-info'>INTEGER</span><p>Vibrate duration in milliseconds. </p></li><li>alertSound : <span class='text-info'>STRING</span><p>Path to sound file to play when push message is received. </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.startNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.startNotifications()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.startNotifications()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.startNotifications()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>stopNotifications()</h3>
@@ -407,22 +510,38 @@ Path to sound file to play when push message is received. </p></li></ul></ul></p
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stopNotifications()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.stopNotifications()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.stopNotifications()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.stopNotifications()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h2>Properties</h2>
@@ -439,7 +558,24 @@ Path to sound file to play when push message is received. </p></li></ul></ul></p
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushAppName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.pushAppName</code> </li></ul></li></ul>
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.pushAppName</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.pushAppName</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h3>pushServer</h3>
@@ -454,7 +590,24 @@ Path to sound file to play when push message is received. </p></li></ul></ul></p
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.pushServer</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.pushServer</code> </li></ul></li></ul>
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.pushServer</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.pushServer</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h3>type</h3>
@@ -472,102 +625,25 @@ Path to sound file to play when push message is received. </p></li></ul></ul></p
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: Rho.Push.PUSH_TYPE_RHOCONNECT
-
-<ul>
-<li>String: rhoconnect-push</li>
-<li><p>RhoConnect push engine.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.Push.PUSH_TYPE_NATIVE
-
-<ul>
-<li>String: native-push</li>
-<li><p>Native push engine (like GCM on Android).</p>
+<li>Constant: EB.Push.PUSH_TYPE_RHOCONNECT &ndash; String: rhoconnect-push RhoConnect push engine.</li>
+<li><p>Constant: EB.Push.PUSH_TYPE_NATIVE &ndash; String: native-push Native push engine (like GCM on Android).</p>
 
 <h4>Access</h4></li>
+<li><p>Instance: This property can be accessed via an instance object of this class: <code>myObject.type</code></p></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Push.type</code></li>
 </ul>
 </li>
 </ul>
 
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.type</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.Push.type</code> </li></ul></li></ul>
-
-
-<h3><span class="text-error">userNotifyMode</span></h3>
-
-<h4>Type</h4>
-
-<p><span class='text-info'>STRING</span></p>
-
-<h4>Description</h4>
-
-<p><span class='label label-important'>Deprecated</span>
-UI notification mode. Use <code>Rho.Notification</code> instead.</p>
-
-<h4>Params</h4>
-
-<p><strong>Default:</strong> backgroundNotifications</p>
-
-
-<h4>Values</h4>
-
-<p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
+<h4>Platforms</h4>
 
 <ul>
-<li>Constant: Rho.Push.PUSH_NOTIFY_NONE
-
-<ul>
-<li>String: none</li>
-<li><p>Do not notify user about received push messages.</p></li>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
-</li>
-<li>Constant: Rho.Push.PUSH_NOTIFY_ALERTS
-
-<ul>
-<li>String: alert</li>
-<li><p>Notify user with alerts inside of application UI only.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.Push.PUSH_NOTIFY_NOTIFICATIONS
-
-<ul>
-<li>String: notification</li>
-<li><p>Notify user using notification bar.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.Push.PUSH_NOTIFY_NOTIFICATIONS_AND_ALERTS
-
-<ul>
-<li>String: backgroundNotifications</li>
-<li><p>Notify user using notification bar if in background and with alerts in foreground.</p>
-
-<h4>Access</h4></li>
-</ul>
-</li>
-</ul>
-
-
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.userNotifyMode</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul></ul></li></ul>
-
-
-<h2>Examples</h2>
-
-<h3>Handle push message</h3>
-
-<p>Start Push Notifications service and define alert popup window in push callback method.</p>
-
-<pre name="code" class="javascript">function setupPush() {
-  // Start listening for push messages. Parameter is an url to push_callback method
-  Rho.Push.startNotifications(pushCallback);
-}
-
-function pushCallback(params) {
-  // Show 'alert' popup window with push message text
-  var propertyMap = {message: params["alert"], buttons: [{id: 'OK', title: 'OK'}]};
-  Rho.Notification.showPopup(propertyMap);
-}
-                                
-                            
-</pre>
 

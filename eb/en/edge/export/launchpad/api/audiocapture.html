@@ -2,42 +2,40 @@
 
 <h2>Overview</h2>
 
-<p>Audio capture API</p>
-
+<p>Audio capture API allows you to capture audio from the device&rsquo;s built in microphone or input source.</p>
 
 <h2>Enabling the API</h2>
 
+<p>There are two methods of enabling the AudioCapture API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
 
 
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
+<h3>Include all JS API modules</h3>
 
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
 
-
-
-<pre name="code" class="ruby">extensions: ["audiocapture"]
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
+<h3>Include only the modules you need</h3>
 
-<h2>JavaScript Usage</h2>
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the AudioCapture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
 
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.audiocapture.js"&gt;&lt;/script&gt;
+</pre>
 
-
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-
-
-
-<h2>Ruby Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
@@ -52,22 +50,38 @@
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.cancel()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.cancel()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.cancel()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.cancel()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getAllProperties()</h3>
@@ -85,23 +99,38 @@
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.getAllProperties()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getAllProperties()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.getAllProperties()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getDefault()</h3>
@@ -119,23 +148,32 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>SELF_INSTANCE :
-Default object of Module.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>SELF_INSTANCE : Default object of Module.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.AudioCapture.getDefault()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.AudioCapture.getDefault()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperties(<span class="text-info">ARRAY</span> arrayofNames)</h3>
@@ -144,8 +182,7 @@ Default object of Module.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -154,23 +191,38 @@ List of properties I want to know about </p></li><ul><li><i>Object</i> : <span c
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperty(<span class="text-info">STRING</span> propertyName)</h3>
@@ -179,8 +231,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -189,53 +240,77 @@ The property to return info about. </p></li><li>callback : <span class='text-inf
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-The property to return info about.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : The property to return info about.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.getProperty(<span class="text-info">STRING</span> propertyName)</code></li>
+</ul>
+</li>
+</ul>
 
 
-<h3>setDefault(<span class="text-info">SELF_INSTANCE: Rho.AudioCapture</span> defaultInstance)</h3>
+<h3>setDefault(<span class="text-info">SELF_INSTANCE: EB.AudioCapture</span> defaultInstance)</h3>
 
 <p>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: Rho.AudioCapture</span><p>
-An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.AudioCapture</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.AudioCapture.setDefault(<span class="text-info">SELF_INSTANCE: Rho.AudioCapture</span> defaultInstance)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.AudioCapture.setDefault(<span class="text-info">SELF_INSTANCE: EB.AudioCapture</span> defaultInstance)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperties(<span class="text-info">HASH</span> propertyMap)</h3>
@@ -244,28 +319,43 @@ An instance object that is of the same class. </p></li><li>callback : <span clas
 
 <h4>Parameters</h4>
 
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</h3>
@@ -274,66 +364,92 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>start(<span class="text-info">HASH</span> props)</h3>
 
-<p>Starts capturing audio until either &lsquo;stop&rsquo; is received, or &lsquo;maxDuration&rsquo; is reached. The successful recording will set &lsquo;ok&rsquo; status and unsuccessful recording will set &lsquo;cancel&rsquo; or &lsquo;error&rsquo; status in the callback returning parameters. If &lsquo;cancel&rsquo; method is called during recording, &lsquo;cancel&rsquo; status will be set in the callback returning parameters. In order to restart the audio capture, if the audio capturing is already in process, it is mandatory to call &lsquo;stop&rsquo; or &lsquo;cancel&rsquo; method before calling &lsquo;start&rsquo; method again.</p>
+<p>Starts capturing audio until either &lsquo;stop&rsquo; is received, or &lsquo;maxDuration&rsquo; is reached. The successful recording will set &lsquo;ok&rsquo; as the status. An unsuccessful recording will set &lsquo;cancel&rsquo; or &lsquo;error&rsquo; as the status in the callback returning parameters. If &lsquo;cancel&rsquo; method is called during recording, &lsquo;cancel&rsquo; status will be set in the callback returning parameters. In order to restart the audio capture, if the audio capturing is already in process, it is mandatory to call &lsquo;stop&rsquo; or &lsquo;cancel&rsquo; method before calling &lsquo;start&rsquo; method again.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>props : <span class='text-info'>HASH</span><p>
-Map of Audio Capture properties to be set. For iOS 22kHz 16bit Mono WAV file will be created. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>props : <span class='text-info'>HASH</span><p>Map of Audio Capture properties to be set. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>
-Whether or not the audio recording was successfully captured, status will be &lsquo;ok&rsquo; or &lsquo;cancel&rsquo; or &lsquo;error&rsquo;. </p></li><li>message : <span class='text-info'>STRING</span><p>
-If &lsquo;status&rsquo; == &lsquo;error&rsquo;, then message contains error message. In all other cases, it will remain empty. </p></li><li>fileName : <span class='text-info'>STRING</span><p>
-If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with the file name of recorded audiofile. In all other cases, it will remain empty. </p></li></ul></ul></p>
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>Whether or not the audio recording was successfully captured, status will be &lsquo;ok&rsquo; or &lsquo;cancel&rsquo; or &lsquo;error&rsquo;. </p></li><li>message : <span class='text-info'>STRING</span><p>If &lsquo;status&rsquo; == &lsquo;error&rsquo;, then message contains error message. In all other cases, it will remain empty. </p></li><li>fileName : <span class='text-info'>STRING</span><p>If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with the file name of recorded audiofile. In all other cases, it will remain empty. </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.start(<span class="text-info">HASH</span> props)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.start(<span class="text-info">HASH</span> props)</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.start(<span class="text-info">HASH</span> props)</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.start(<span class="text-info">HASH</span> props)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>stop()</h3>
@@ -347,22 +463,38 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.stop()</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.stop()</code> </li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.stop()</code></li>
+</ul>
+</li>
+<li>Default Instance: This method can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.stop()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h2>Properties</h2>
@@ -375,40 +507,33 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <h4>Description</h4>
 
-<p>Encoder to compress recorded audio. In Android devices the supported encoder type is dependent upon device hardware snd vendor.</p>
+<p>Encoder to compress recorded audio. In Android devices, the supported encoder type is dependent upon device hardware and vendor.</p>
 
 <h4>Values</h4>
 
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: Rho.AudioCapture.ENCODER_AAC
-
-<ul>
-<li>String: AAC</li>
-<li><p>AAC low complexity. This is the default value. If wrong or no value is specified this value will be accounted.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.AudioCapture.ENCODER_AMR_NB
-
-<ul>
-<li>String: AMR_NB</li>
-<li><p>AMR narrow-band.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.AudioCapture.ENCODER_AMR_WB
-
-<ul>
-<li>String: AMR_WB</li>
-<li><p>AMR wide-band.</p>
+<li>Constant: EB.AudioCapture.ENCODER_AAC &ndash; String: AAC AAC low complexity. This is the default value. If wrong or no value is specified this value will be accounted.</li>
+<li>Constant: EB.AudioCapture.ENCODER_AMR_NB &ndash; String: AMR_NB AMR narrow-band.</li>
+<li><p>Constant: EB.AudioCapture.ENCODER_AMR_WB &ndash; String: AMR_WB AMR wide-band.</p>
 
 <h4>Access</h4></li>
+<li><p>Instance: This property can be accessed via an instance object of this class: <code>myObject.encoder</code></p></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.encoder</code></li>
 </ul>
 </li>
 </ul>
 
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.encoder</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.encoder</code> </li></ul></li></ul>
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+</ul>
 
 
 <h3>fileName</h3>
@@ -419,11 +544,28 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <h4>Description</h4>
 
-<p>This parameter is used to specify the file name. File name must be specified. File name should be set atleast once before calling &lsquo;start&rsquo; method otherwise &lsquo;start&rsquo; method will update the callback &lsquo;status&rsquo; as &lsquo;error&rsquo;.</p>
+<p>(Required) This parameter is used to specify the file name. The file name should be set at least once before calling &lsquo;start&rsquo; method, otherwise the &lsquo;start&rsquo; method will update the callback &lsquo;status&rsquo; as &lsquo;error&rsquo;.</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.fileName</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.fileName</code> </li></ul></li></ul>
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.fileName</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.fileName</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h3>maxDuration</h3>
@@ -434,7 +576,7 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <h4>Description</h4>
 
-<p>Specifies the number of milliseconds of audio to capture, defining the size of the capture buffer. This is also the maximum number of milliseconds of audio to capture when the &lsquo;start&rsquo; method is called if not interrupted with the &lsquo;stop&rsquo; method. The duration cannot be set to less than 1000 milliseconds, if a value of less than 1000 milli seconds is specified, the interval will be defaulted to 20000 milliseconds. The default value is 20,000 milisec.</p>
+<p>Specifies the number of milliseconds of audio to capture, defining the size of the capture buffer. This is also the maximum number of milliseconds of audio to capture when the &lsquo;start&rsquo; method is called if not interrupted with the &lsquo;stop&rsquo; method. The duration cannot be set to less than 1000 milliseconds, if a value of less than 1000 milliseconds is specified, the interval will be defaulted to 20000 milliseconds. The default value is 20,000 milliseconds.</p>
 
 <h4>Params</h4>
 
@@ -443,7 +585,24 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.maxDuration</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul><li><code>Rho.AudioCapture.maxDuration</code> </li></ul></li></ul>
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.maxDuration</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.AudioCapture.maxDuration</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h2>Remarks</h2>
@@ -462,11 +621,11 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <h3>Page Refresh</h3>
 
-<p>Audio recording should be cancelled. In android and iOS, the state will be persisted.</p>
+<p>If the page is to be refreshed, the audio recording should be canceled. In Android, the state will be persisted.</p>
 
 <h3>Page Navigation</h3>
 
-<p>Audio recording should be cancelled.In iOS, the state will be persisted.</p>
+<p>Upon page navigation, the audio recording should be canceled.</p>
 
 <h3>Duration And File Name Settings</h3>
 
@@ -474,89 +633,8 @@ If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with th
 
 <h3>Get Property Or Get Properties</h3>
 
-<p>In Windows, &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; for fileName will return the complete path along with the extension name. For example: If file name was set to &lsquo;\Application\AudioCapture&rsquo;, then &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; will return &lsquo;\Application\AudioCapture.wav&rsquo;. If file name was set to &lsquo;AudioCapture&rsquo;, then &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; will return &lsquo;\AudioCapture.wav&rsquo;. In android, the fileName will return whatever is set with or without extension.</p>
+<p>In Windows, &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; for fileName will return the complete path along with the extension name. For example: If file name was set to &lsquo;\Application\AudioCapture&rsquo;, then &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; will return &lsquo;\Application\AudioCapture.wav&rsquo;. If file name was set to &lsquo;AudioCapture&rsquo;, then &lsquo;getProperty&rsquo; or &lsquo;getProperties&rsquo; will return &lsquo;\AudioCapture.wav&rsquo;. In Android, the fileName will return whatever is set with or without extension.</p>
 
 <h3>General</h3>
 
-<p>On Quitting of the Application, Android will save the data in the file and gracefully exit.</p>
-
-<h2>Examples</h2>
-
-<h3>Starting, Stopping And Cancelling Audio Capture</h3>
-
-<p>Starting, Stopping and Cancelling audio capture is same across all platforms.</p>
-
-<pre name="code" class="javascript">// Starting Audio Capture without settings. Callback is mandatory. Setting the file name at least once is also mandatory before invoking 'start' method.
-Rho.AudioCapture.start({},mycallback);
-
-// Starting Audio Capture with settings. Callback is mandatory. 
-// On successful recording the hash property  for fileName' in callback will return the complete file path with the filename.
-// In Windows, for the below settings, it will return "file://\AudioCapture.wav".
-Rho.AudioCapture.start({'fileName':"AudioCapture",'maxDuration':'15000'},mycallback);
-
-// Stopping Audio Capture
-Rho.AudioCapture.stop();
-
-// Cancelling Audio Capture
-Rho.AudioCapture.cancel();
-
-                                
-</pre>
-
-
-<h3>Setting And Getting File Name</h3>
-
-<p>In WM/WinCE, one can set the fileName with or without extensions. On retrieving, the fileName property will return the complete path with the extension name.</p>
-
-<pre name="code" class="javascript">// Setting fileName without extension
-Rho.AudioCapture.fileName = "\\Application\\Audio1";
-
-// The returned value is "\Application\Audio1.wav"
-alert(Rho.AudioCapture.fileName);
-
-// Setting fileName with extension
-Rho.AudioCapture.fileName = "Audio2.wav";
-
-// The returned value is "\Audio2.wav"
-alert(Rho.AudioCapture.fileName);
-
-                                
-</pre>
-
-
-<p>In Android, one can set the fileName with or without extensions. The extension depends on encoder. The directory should be present.</p>
-
-<pre name="code" class="javascript">// Setting fileName without extension
-Rho.AudioCapture.fileName = "/sdcard/Audio/sample";
-
-// The returned value is "/sdcard/Audio/sample";
-alert(Rho.AudioCapture.fileName);
-
-// Setting fileName with extension
-Rho.AudioCapture.fileName = "/sdcard/Audio/sample.mp4";
-
-// The returned value is "/sdcard/Audio/sample.mp4";
-alert(Rho.AudioCapture.fileName);
-
-                                
-</pre>
-
-
-<p>In iOS, one can set the fileName without extensions. The extension depends on encoder and will be automatically added. Currently supported WAV (16kHz, 16 bit, mono) IF you do not specify fullpath filename, then file will be placed to default folder. You can receive result fullpath filename in callback.</p>
-
-<pre name="code" class="javascript">#Setting fileName without extension
-Rho::AudioCapture.fileName = "sample";
-
-// The returned value is "sample";
-alert(Rho.AudioCapture.fileName);
-
-#Setting fileName with fullpath
-Rho::AudioCapture.fileName = Rho::Application.userFolder + 'mysound';
-
-// The returned value is (this is example for simulator) "/Users/MOHUS/Library/Application Support/iPhone Simulator/7.1/Applications/376D660D-B6C7-4E6E-8B69-38E7C681DAC5/Documents/apps/mysound";
-alert(Rho.AudioCapture.fileName);
-
-
-                                
-</pre>
-
+<p>On Quitting of the Application, Android will save the data in the file and gracefully exit. In Android, during suspend/resume or screen timeout the audio will keep on recording.</p>

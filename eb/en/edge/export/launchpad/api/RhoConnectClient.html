@@ -4,42 +4,20 @@
 
 <p>RhoConnectClient is used for synchronization with RhoConnect applications.</p>
 
-
-
-
 <h2>Enabling the API</h2>
 
-
-
-
 <p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-
-
 
 <pre name="code" class="ruby">extensions: ["rhoconnect-client"]
 </pre>
 
-
-
-
 <h2>JavaScript Usage</h2>
-
-
-
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
 
-
-
-
 <h2>Ruby Usage</h2>
 
-
-
-
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
-
 
 <h2>Methods</h2>
 
@@ -49,31 +27,36 @@
 
 <h4>Parameters</h4>
 
-<ul><li>sourceName : <span class='text-info'>STRING</span><p>
-Source name for object notification. </p></li><li>object : <span class='text-info'>STRING</span><p>
-Object ID to get notifications. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name for object notification. </p></li><li>object : <span class='text-info'>STRING</span><p>Object ID to get notifications. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.addObjectNotify(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> object)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.addObjectNotify(<span class="text-info">STRING</span> sourceName, <span class="text-info">STRING</span> object)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>cleanObjectNotify()</h3>
@@ -87,24 +70,31 @@ Object ID to get notifications. </p></li><li>callback : <span class='text-info'>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.cleanObjectNotify()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.cleanObjectNotify()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>clearNotification(<span class="text-info">STRING</span> sourceName)</h3>
@@ -113,30 +103,36 @@ Object ID to get notifications. </p></li><li>callback : <span class='text-info'>
 
 <h4>Parameters</h4>
 
-<ul><li>sourceName : <span class='text-info'>STRING</span><p>
-Source name to clear notification. Use '*' to clear notification for all models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name to clear notification. Use '*' to clear notification for all models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.clearNotification(<span class="text-info">STRING</span> sourceName)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.clearNotification(<span class="text-info">STRING</span> sourceName)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)</h3>
@@ -145,10 +141,7 @@ Source name to clear notification. Use '*' to clear notification for all models.
 
 <h4>Parameters</h4>
 
-<ul><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-Set to true to show status popup. </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Parameters to be passed to server. </p></li><li>syncOnlyChangedSources : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-Sync only sources that have local changes. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Set to true to show status popup. </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters to be passed to server. </p></li><li>syncOnlyChangedSources : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Sync only sources that have local changes. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -157,24 +150,31 @@ Sync only sources that have local changes. </p></li><li>callback : <span class='
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.doSync(<span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams, <span class="text-info">BOOLEAN</span> syncOnlyChangedSources)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)</h3>
@@ -183,10 +183,7 @@ Sync only sources that have local changes. </p></li><li>callback : <span class='
 
 <h4>Parameters</h4>
 
-<ul><li>sourceName : <span class='text-info'>STRING</span><p>
-Source name. </p></li><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-Set to true to show status popup. </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Parameters to be passed to server. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name. </p></li><li>showStatusPopup : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Set to true to show status popup. </p></li><li>queryParams : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters to be passed to server. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -195,24 +192,31 @@ Parameters to be passed to server. </p></li><li>callback : <span class='text-inf
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.doSyncSource(<span class="text-info">STRING</span> sourceName, <span class="text-info">BOOLEAN</span> showStatusPopup, <span class="text-info">STRING</span> queryParams)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>isLoggedIn()</h3>
@@ -230,25 +234,31 @@ Parameters to be passed to server. </p></li><li>callback : <span class='text-inf
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-True if have logged in user session, false if not.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : True if have logged in user session, false if not.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.isLoggedIn()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.isLoggedIn()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>isSyncing()</h3>
@@ -266,25 +276,31 @@ True if have logged in user session, false if not.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-True if sync has started but not finished yet, false otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : True if sync has started but not finished yet, false otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.isSyncing()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.isSyncing()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)</h3>
@@ -293,9 +309,7 @@ True if sync has started but not finished yet, false otherwise.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>login : <span class='text-info'>STRING</span><p>
-Login name. </p></li><li>password : <span class='text-info'>STRING</span><p>
-Password. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>login : <span class='text-info'>STRING</span><p>Login name. </p></li><li>password : <span class='text-info'>STRING</span><p>Password. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -304,24 +318,31 @@ Password. </p></li><li>callback : <span class='text-info'>CallBackHandler</span>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.login(<span class="text-info">STRING</span> login, <span class="text-info">STRING</span> password)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>logout()</h3>
@@ -335,69 +356,31 @@ Password. </p></li><li>callback : <span class='text-info'>CallBackHandler</span>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.logout()</code> </li></ul></li></ul>
-
-
-<h3>search(<span class="text-info">HASH</span> args)</h3>
-
-<p>If you have a large dataset in your backend service, you don&rsquo;t have to synchronize everything with the RhoConnectClient. Instead you can filter the synchronized dataset using the RhoConnectClient&rsquo;s search function. Provide callback, which will be executed after search is completed.</p>
-
-<h4>Parameters</h4>
-
-<ul><li>args : <span class='text-info'>HASH</span><p>
-Hash of arguments passed to search. </p></li><ul><li>sourceNames : <span class='text-info'>ARRAY</span><p>
-Array of source names to be included in search result. </p></li><li>from : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Default is 'search' </p></li><li>searchParams : <span class='text-info'>HASH</span><p>
-Hash of key-value pairs to be included in search result. </p></li><li>offset : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>
-{} </p></li><li>maxResults : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>
-Maximum number of results to be returned. </p></li><li>progressStep : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>
-{} </p></li><li>syncChanges : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-If true and there are local changes, client sync will be triggered before search. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-
-<h4>Callback</h4>
-
-<p>Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>
-Resulting status of search. &lsquo;ok&rsquo; of completed successfully, &lsquo;error&rsquo; otherwise. </p></li><li>search_params : <span class='text-info'>HASH</span><p>
-Search_params originally provided for the search call. Typically you want to forward the original search_params to your view that displays the results so you can perform the same query locally. Please see examples section. </p></li></ul></ul></p>
-
-<h4>Returns</h4>
-
-<p>Synchronous Return:<ul><li>HASH :
-Will return value only if threadedMode set to false. Otherwise search results returned in callback.</li></ul></p>
-
-<h4>Platforms</h4>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
 
 <ul>
-<li>Ruby</li>
-<li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li><code>EB.RhoConnectClient.logout()</code></li>
 </ul>
-
-
-<h4>Method Access:</h4>
-
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul></ul></li></ul>
+</li>
+</ul>
 
 
 <h3>setNotification(<span class="text-info">STRING</span> sourceName)</h3>
@@ -406,30 +389,36 @@ Will return value only if threadedMode set to false. Otherwise search results re
 
 <h4>Parameters</h4>
 
-<ul><li>sourceName : <span class='text-info'>STRING</span><p>
-Source name for which notification will be enabled. Use '*' to set notification for all models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>sourceName : <span class='text-info'>STRING</span><p>Source name for which notification will be enabled. Use '*' to set notification for all models. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.setNotification(<span class="text-info">STRING</span> sourceName)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.setNotification(<span class="text-info">STRING</span> sourceName)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setObjectNotification()</h3>
@@ -443,31 +432,35 @@ Source name for which notification will be enabled. Use '*' to set notification 
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>created : <span class='text-info'>ARRAY</span><p>
-Array of created objects. </p></li><li>updated : <span class='text-info'>ARRAY</span><p>
-Array of updated objects. </p></li><li>deleted : <span class='text-info'>ARRAY</span><p>
-Array of deleted objects. </p></li></ul></ul></p>
+<p>Async Callback Returning Parameters: <span class='text-info'>OBJECT</span></p><ul><ul><li>created : <span class='text-info'>ARRAY</span><p>Array of created objects. </p></li><li>updated : <span class='text-info'>ARRAY</span><p>Array of updated objects. </p></li><li>deleted : <span class='text-info'>ARRAY</span><p>Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.setObjectNotification()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.setObjectNotification()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>stopSync()</h3>
@@ -481,47 +474,34 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.stopSync()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.stopSync()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h2>Properties</h2>
-
-<h3>bulksyncState</h3>
-
-<h4>Type</h4>
-
-<p><span class='text-info'>INTEGER</span></p>
-
-<h4>Description</h4>
-
-<p>Set 0 to force bulk sync on next synchronization cycle. After sync is complete, bulksyncState will be set to 1.</p>
-
-<h4>Params</h4>
-
-<p><strong>Default:</strong> 1</p>
-
-
-<h4>Access</h4>
-
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul></ul></li></ul>
-
 
 <h3>pageSize</h3>
 
@@ -535,7 +515,22 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.pageSize</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.pageSize</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>pollInterval</h3>
@@ -555,7 +550,22 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.pollInterval</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.pollInterval</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>showStatusPopup</h3>
@@ -575,7 +585,22 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.showStatusPopup</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.showStatusPopup</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>sslVerifyPeer</h3>
@@ -595,7 +620,22 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.sslVerifyPeer</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.sslVerifyPeer</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>syncServer</h3>
@@ -610,7 +650,22 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.syncServer</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.syncServer</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>userName</h3>
@@ -625,7 +680,22 @@ Array of deleted objects. </p></li></ul></ul></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.RhoConnectClient.userName</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoConnectClient.userName</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h2>Remarks</h2>
@@ -723,121 +793,3 @@ Array of deleted objects. </p></li></ul></ul></p>
 <h3>Backround Sync on iOS</h3>
 
 <p>On iOS, if the application is backgrounded, it will be suspended. This also means if a current sync is in progress, it will immediately terminate. To prevent this behavior, set &lsquo;finish_sync_in_background&rsquo; to &lsquo;1&rsquo; in rhoconfig.txt. When set to &lsquo;1&rsquo;, the RhoConnectClient will attempt to finish synchronization before the application fully suspends.</p>
-
-<h2>Examples</h2>
-
-<h3>Sync Authentication</h3>
-
-<p>In your controller call login.</p>
-
-<pre name="code" class="javascript">Rho.RhoConnectClient.login('john','password',function(result){
-   loginCallback(result);
-});
-                          
-</pre>
-
-
-<pre><code>                        When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-</pre>
-
-<pre name="code" class="javascript">// Error codes:
-// ERR_NONE = 0
-// ERR_NETWORK = 1
-// ERR_REMOTESERVER = 2
-// ERR_RUNTIME = 3
-// ERR_UNEXPECTEDSERVERRESPONSE = 4
-// ERR_DIFFDOMAINSINSYNCSRC = 5
-// ERR_NOSERVERRESPONSE = 6
-// ERR_CLIENTISNOTLOGGEDIN = 7
-// ERR_CUSTOMSYNCSERVER = 8
-// ERR_UNATHORIZED = 9
-
-function loginCallback(result) {
-  var errorCode = parseInt(result.error_code);
-  var errorMessage = result.error_message;
-  if(errorCode === 0 {
-    // process success
-  } else {
-    // process error with errorMessage
-  }
-}
-                            
-</pre>
-
-
-<h3>Notifications</h3>
-
-<p>First, assign a sync notification for the Account model:</p>
-
-<pre name="code" class="javascript">function syncNotify(params) {
-  // handle notifications...
-}
-Rho.RhoConnectClient.setNotification('Account', syncNotify);
-
-                            
-</pre>
-
-
-<p>Which is the same as:</p>
-
-<pre name="code" class="javascript">function syncNotify() {
-  // handle notifications...
-}
-Account.setNotification(syncNotify);
-
-                            
-</pre>
-
-
-<p>You can also set a notification for all models:</p>
-
-<pre name="code" class="javascript">function syncNotify(params) {
-  // handle notifications...
-}
-Rho.RhoConnectClient.setNotification('*', syncNotify);
-
-                            
-</pre>
-
-
-<h3>Object notifications</h3>
-
-<p>To use object notifications, first set the notification callback in application.rb#initialize.</p>
-
-<p>Next, in your controller action that displays the object(s), add the object notification by passing in a record or collection of records:</p>
-
-<pre name="code" class="javascript">function syncObjectNotified(params) {
-  // handle notifications...
-}
-
-var product = Product.find('first');
-
-Rho.RhoConnectClient.addObjectNotify('Product', product.id);
-
-                            
-</pre>
-
-
-<h3>Handling Errors</h3>
-
-<p>Here we will set a notification and log an error code 1 or ERR_NETWORK:</p>
-
-<pre name="code" class="javascript">function syncNotify(result) {
-  var errorCode = parseInt(result.error_code);
-  var errorMessage = result.error_message;
-  if(errorCode === 1) {
-    console.log("We received a network error: " + errorMessage);
-    return;
-  }
-}
-Rho.RhoConnectClient.setNotification('*', syncNotify);
-
-                            
-</pre>
-
-
-<h3>Using search (Ruby Only)</h3>
-
-<p>First, call search from your controller action:</p>
-
-<p>The <code>search_params</code> will be forwarded to your callback so you can update the view with the results:</p>

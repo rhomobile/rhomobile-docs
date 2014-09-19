@@ -2,47 +2,40 @@
 
 <h2>Overview</h2>
 
-<p>is used to either navigate to a URL or call a javascript function when an attached card reader decodes data.</p>
-
-
-<p>Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</p>
-
-
-
+<p>This API is used to either navigate to a URL or call a javascript function when an attached card reader decodes data. Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</p>
 
 <h2>Enabling the API</h2>
 
+<p>There are two methods of enabling the Process API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
 
 
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+<h3>Include all JS API modules</h3>
 
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
 
-
-
-<pre name="code" class="ruby">extensions: ["coreapi"]
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
+<h3>Include only the modules you need</h3>
 
-<h2>JavaScript Usage</h2>
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the Process API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
 
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.process.js"&gt;&lt;/script&gt;
+</pre>
 
-
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
-
-
-
-
-<h2>Ruby Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
-
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
@@ -57,24 +50,32 @@
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.closeHandle()</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.closeHandle()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProcessExitCode()</h3>
@@ -92,25 +93,32 @@
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-Process exit code.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : Process exit code.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getProcessExitCode()</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.getProcessExitCode()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</h3>
@@ -119,11 +127,7 @@ Process exit code.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>appName : <span class='text-info'>STRING</span><p>
-The name of the application on the device to run. </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-The name of the application on the device to run. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-The name of the application on the device to run. 
-False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>appName : <span class='text-info'>STRING</span><p>The name of the application on the device to run. </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>The name of the application on the device to run. False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -132,25 +136,32 @@ False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>SELF_INSTANCE :
-Process object.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>SELF_INSTANCE : Process object.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.Process.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Process.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>waitForApplication()</h3>
@@ -164,22 +175,30 @@ Process object.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.waitForApplication()</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.waitForApplication()</code></li>
+</ul>
+</li>
+</ul>
 

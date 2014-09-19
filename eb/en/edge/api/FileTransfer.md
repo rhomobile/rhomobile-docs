@@ -176,7 +176,7 @@ On a filetransfer that results in local file storage, OverWrite will overwrite t
 The default port settings are 80 for HTTP and 21 for FTP.
 
 ###Common mistakes
-Remember that in Javascript the ‘\’ character is the escape character so to use a backslash in the URL use ‘\’. This is not the case when specifying the URL via a meta tag where a single ‘\’ will suffice. See the examples above.
+Remember that in Javascript the '\' character is the escape character so to use a backslash in the URL use '\'. This is not the case when specifying the URL via a meta tag where a single '\'' will suffice. See the examples above.
 
 ###Setting up a Transfer
 File transfer is designed to be configured before any transfer() is made. Once a transfer hs been initiated the parameters can not be guaranteed to be the same for the next transfer, therefore set all non default parameters before starting the transfer.
@@ -185,7 +185,9 @@ File transfer is designed to be configured before any transfer() is made. Once a
 The protocol, port number, username (optional) and password (optional) are all derived from the URL string and should be specified in the following manner: [protocol]://[username]:[password@]Server[:Port]FileNameAndPath. FTP Example: ftp://admin:root@192.168.1.1:2500/Folder/file.txt. HTTP Example: http://admin:root@192.168.1.1:8080/Folder/upload.aspx
 
 ###Relative URLs
-The FileTransfer meta tag also supports relative URLs, for example if the current page’s path is ‘http://192.168.0.1/myElementsApp/index.html and you specify <META HTTP-Equiv=“FileTransfer” Content=“Source:url(’../file.xls')”> then the source file will be ‘http://192.168.0.1/file.xls’. This notation can also be used for FTP upload and file URLs. Note that the relative URL must start with a ‘.’ so to specify a file in the same directory as your application page use Source:url(‘./file.xls’)
+The FileTransfer meta tag also supports relative URLs, for example if the current page’s path is `http://192.168.0.1/myElementsApp/index.html` and you specify 
+      <META HTTP-Equiv="FileTransfer" Content="Source:url('../file.xls')">
+then the source file will be `http://192.168.0.1/file.xls`. This notation can also be used for FTP upload and file URLs. Note that the relative URL must start with a '.' so to specify a file in the same directory as your application page use `Source:url('./file.xls')`
 
 ###Maximum File Size
 The maximum file size which can be transferred is about 4MB but is also dependent on the memory available to the device and the transport protocol selected. For file sizes above 2MB on lower memory devices alternate methods for transferring files should be considered.

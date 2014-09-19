@@ -4,61 +4,40 @@
 
 <p>The NativeMenubar API lets you customize the Windows Mobile/CE native menu buttons.</p>
 
-
 <h2>Enabling the API</h2>
 
+<p>There are two methods of enabling the NativeMenubar API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
 
 
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+<h3>Include all JS API modules</h3>
 
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
 
-
-
-<pre name="code" class="ruby">extensions: ["coreapi"]
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
+<h3>Include only the modules you need</h3>
 
-<h2>JavaScript Usage</h2>
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the NativeMenubar API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
 
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.nativemenubar.js"&gt;&lt;/script&gt;
+</pre>
 
-
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-
-
-
-<h2>Ruby Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Properties</h2>
-
-<h3>defaultMainMenu</h3>
-
-<h4>Type</h4>
-
-<p><span class='text-info'>ARRAY</span> <span class='label'>Read Only</span></p>
-
-<h4>Description</h4>
-
-<p>This will return what the default right menu should be. This is a read-only property.</p>
-
-<h4>Params</h4>
-
-<p><li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li></p>
-
-<h4>Access</h4>
-
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul></ul></li></ul>
-
 
 <h3>extraButton</h3>
 
@@ -72,7 +51,21 @@
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.NativeMenubar.extraButton</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.NativeMenubar.extraButton</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>extraMenu</h3>
@@ -87,12 +80,25 @@
 
 <h4>Params</h4>
 
-<p><li><i>Object</i> : <span class='text-info'>HASH</span><p>
-Same values as for mainMenu. </p></li></p>
+<p><li><i>Object</i> : <span class='text-info'>HASH</span><p>Same values as for mainMenu. </p></li></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.NativeMenubar.extraMenu</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.NativeMenubar.extraMenu</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>mainButton</h3>
@@ -107,7 +113,21 @@ Same values as for mainMenu. </p></li></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.NativeMenubar.mainButton</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.NativeMenubar.mainButton</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>mainMenu</h3>
@@ -122,49 +142,24 @@ Same values as for mainMenu. </p></li></p>
 
 <h4>Params</h4>
 
-<p><li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>label : <span class='text-info'>STRING</span><p>
-Visible label. </p></li><li>action : <span class='text-info'>STRING</span><p>
-URL to page which will be loaded into tab. It may be path to Ruby controller action; i.e. &lsquo;/app/Account&rsquo; would load the Account index action. For ruby callback use &lsquo;callback:/app/Account&rsquo; Or JavaScript method to call: &lsquo;javascript: methodOnTab();&rsquo;. Or path to html page to load. </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>
-Menu item will be displayed as disabled. Platforms:WM </p></li></ul></p>
+<p><li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>label : <span class='text-info'>STRING</span><p>Visible label. </p></li><li>action : <span class='text-info'>STRING</span><p>URL to page which will be loaded into tab. It may be a JavaScript method to call: &lsquo;javascript: methodOnTab();&rsquo;. Or path to html page to load. </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Menu item will be displayed as disabled. Platforms:
+WM </p></li></ul></p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.NativeMenubar.mainMenu</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.NativeMenubar.mainMenu</code></li>
+</ul>
+</li>
+</ul>
 
 
-<h2>Examples</h2>
+<h4>Platforms</h4>
 
-<h3>Customize the extra menu</h3>
-
-<pre name="code" class="javascript">Rho.NativeMenubar.extraButton = {
-    label: "Extra"
-};
-
-Rho.NativeMenubar.extraMenu = [
-  {
-      label: "Show alert 1",
-      action: javascript:show_alert_1();,
-  },
-  {
-      label: "Show alert 2",
-      action: javascript:show_alert_2();,
-  },
-  {
-      label: "Win the lottery",
-      disabled: true
-  }
-];
-                  
-                 
-</pre>
-
-
-<h3>Clear the main menu</h3>
-
-<pre name="code" class="javascript">function remove_menuitems() {
-    Rho.NativeMenubar.mainMenu = [];
-}
-                  
-                 
-</pre>
+<ul>
+<li>Windows Mobile</li>
+</ul>
 

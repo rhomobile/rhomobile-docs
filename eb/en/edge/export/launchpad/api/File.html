@@ -2,47 +2,40 @@
 
 <h2>Overview</h2>
 
-<p>File I/O</p>
-
-
-<p>Use this API to access local files for reading and writing. Only string data can be read and written with this API. Please note that binary files are not supported. Strings filled with \0 will be truncated to the last non \0 character.</p>
-
-
-
+<p>This API provides several methods for access to files and folders found on the device&rsquo;s local file system.</p>
 
 <h2>Enabling the API</h2>
 
+<p>There are two methods of enabling the RhoFile API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
 
 
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+<h3>Include all JS API modules</h3>
 
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
 
-
-
-<pre name="code" class="ruby">extensions: ["coreapi"]
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
+<h3>Include only the modules you need</h3>
 
-<h2>JavaScript Usage</h2>
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the RhoFile API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
 
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.file.js"&gt;&lt;/script&gt;
+</pre>
 
-
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-
-
-
-<h2>Ruby Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
@@ -52,8 +45,7 @@
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path for which basename is given. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path for which basename is given. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -62,25 +54,32 @@ Absolute path for which basename is given. </p></li><li>callback : <span class='
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-Basename part for the given path.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : Basename part for the given path.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.basename(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.basename(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3><span class="label label-inverse"> Destructor</span> close()</h3>
@@ -94,24 +93,32 @@ Basename part for the given path.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul><li><code>myObj.close()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method is a destructor and can only be accessed via the object that was created by the <code>new</code> constructor.
+
+<ul>
+<li><code>myObj.close()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</h3>
@@ -120,9 +127,7 @@ Basename part for the given path.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>from : <span class='text-info'>STRING</span><p>
-File name to be copied. </p></li><li>to : <span class='text-info'>STRING</span><p>
-Destination path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>from : <span class='text-info'>STRING</span><p>File name to be copied. </p></li><li>to : <span class='text-info'>STRING</span><p>Destination path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -131,25 +136,32 @@ Destination path. </p></li><li>callback : <span class='text-info'>CallBackHandle
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-Error code raised during copy operation. 0 if no error.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : Error code raised during copy operation. 0 if no error.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.copy(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>deleteDir(<span class="text-info">STRING</span> path)</h3>
@@ -158,8 +170,7 @@ Error code raised during copy operation. 0 if no error.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the directory to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the directory to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -168,25 +179,32 @@ Absolute path to the directory to be deleted. </p></li><li>callback : <span clas
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-Error code raised on directory deletion. 0 on success, -1 otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : Error code raised on directory deletion. 0 on success, -1 otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.deleteDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.deleteDir(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>deleteFile(<span class="text-info">STRING</span> path)</h3>
@@ -195,8 +213,7 @@ Error code raised on directory deletion. 0 on success, -1 otherwise.</li></ul></
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the file to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the file to be deleted. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -205,25 +222,32 @@ Absolute path to the file to be deleted. </p></li><li>callback : <span class='te
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-Error code raised on file deletion. 0 on success, -1 otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : Error code raised on file deletion. 0 on success, -1 otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.deleteFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.deleteFile(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</h3>
@@ -232,31 +256,37 @@ Error code raised on file deletion. 0 on success, -1 otherwise.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the directory. </p></li><li>leaveRoot : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>
-Set to true if you only want to delete directory contents, but no the directory itself. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the directory. </p></li><li>leaveRoot : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><span class='label '> Default: false</span><p>Set to true if you only want to delete directory contents, but no the directory itself. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.deleteRecursive(<span class="text-info">STRING</span> path, <span class="text-info">BOOLEAN</span> leaveRoot)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>dirname(<span class="text-info">STRING</span> path)</h3>
@@ -265,8 +295,7 @@ Set to true if you only want to delete directory contents, but no the directory 
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -275,25 +304,32 @@ Absolute path to directory. </p></li><li>callback : <span class='text-info'>Call
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-Directory name.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : Directory name.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.dirname(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.dirname(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>exists(<span class="text-info">STRING</span> path)</h3>
@@ -302,8 +338,7 @@ Directory name.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to file or directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to file or directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -312,25 +347,32 @@ Absolute path to file or directory. </p></li><li>callback : <span class='text-in
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-True if path exists, otherwise false.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : True if path exists, otherwise false.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.exists(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.exists(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>flush()</h3>
@@ -344,24 +386,32 @@ True if path exists, otherwise false.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.flush()</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.flush()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getFileSize(<span class="text-info">STRING</span> path)</h3>
@@ -370,8 +420,7 @@ True if path exists, otherwise false.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -380,25 +429,32 @@ Absolute path to the file. </p></li><li>callback : <span class='text-info'>CallB
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-File size in bytes.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : File size in bytes.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.getFileSize(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.getFileSize(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>isDir(<span class="text-info">STRING</span> path)</h3>
@@ -407,8 +463,7 @@ File size in bytes.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path of the directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path of the directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -417,25 +472,32 @@ Absolute path of the directory. </p></li><li>callback : <span class='text-info'>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-True if path is a directory. False otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : True if path is a directory. False otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.isDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.isDir(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>isFile(<span class="text-info">STRING</span> path)</h3>
@@ -444,8 +506,7 @@ True if path is a directory. False otherwise.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path of the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path of the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -454,25 +515,32 @@ Absolute path of the file. </p></li><li>callback : <span class='text-info'>CallB
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-True if path is a file, false otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : True if path is a file, false otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.isFile(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.isFile(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>isOpened()</h3>
@@ -490,25 +558,32 @@ True if path is a file, false otherwise.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-True if file is opened, false otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : True if file is opened, false otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.isOpened()</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.isOpened()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</h3>
@@ -517,9 +592,7 @@ True if file is opened, false otherwise.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>p1 : <span class='text-info'>STRING</span><p>
-First part of the path. </p></li><li>p2 : <span class='text-info'>STRING</span><p>
-Second part of the path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>p1 : <span class='text-info'>STRING</span><p>First part of the path. </p></li><li>p2 : <span class='text-info'>STRING</span><p>Second part of the path. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -528,25 +601,32 @@ Second part of the path. </p></li><li>callback : <span class='text-info'>CallBac
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-Joined path.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : Joined path.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.join(<span class="text-info">STRING</span> p1, <span class="text-info">STRING</span> p2)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>listDir(<span class="text-info">STRING</span> path)</h3>
@@ -555,8 +635,7 @@ Joined path.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -565,25 +644,32 @@ Absolute path to directory. </p></li><li>callback : <span class='text-info'>Call
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>ARRAY :
-Array of directory entry names. If directory is empty array of size 0 will be returned.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>ARRAY : Array of directory entry names. If directory is empty array of size 0 will be returned.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.listDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.listDir(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>makeDir(<span class="text-info">STRING</span> path)</h3>
@@ -592,8 +678,7 @@ Array of directory entry names. If directory is empty array of size 0 will be re
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Path to the new directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Path to the new directory. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -602,25 +687,32 @@ Path to the new directory. </p></li><li>callback : <span class='text-info'>CallB
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-Error code raised on directory creation. 0 on success, -1 otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : Error code raised on directory creation. 0 on success, -1 otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.makeDir(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.makeDir(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>makeDirs(<span class="text-info">STRING</span> path)</h3>
@@ -629,67 +721,76 @@ Error code raised on directory creation. 0 on success, -1 otherwise.</li></ul></
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the directory to be created. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the directory to be created. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.makeDirs(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.makeDirs(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
-<h3><span class="label label-inverse"> Constructor</span>  new Rho.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</h3>
+<h3><span class="label label-inverse"> Constructor</span>  new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</h3>
 
 <p>Opens file in a mode specified by the &ldquo;mode&rdquo; parameter.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to the file. </p></li><li>mode : <span class='text-info'>INTEGER</span><p>
-Mode in which to open the file. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>
-Open file for output at the end of a file. The file is created if it does not exist.</dd><dt>Constant: Rho.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>
-Open file for read-only operations. The file must exist.</dd><dt>Constant: Rho.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>
-Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</dd><dt>Constant: Rho.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>
-Open a file for update (both for read and write). The file must exist.</dd></dl></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to the file. </p></li><li>mode : <span class='text-info'>INTEGER</span><p>Mode in which to open the file. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.RhoFile.OPEN_FOR_APPEND <br/> String:1</dt><dd>Open file for output at the end of a file. The file is created if it does not exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ <br/> String:2</dt><dd>Open file for read-only operations. The file must exist.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_WRITE <br/> String:3</dt><dd>Create an empty file for output operations. If a file with the same name already exists, its contents are discarded and the file is treated as a new empty file.</dd><dt>Constant: EB.RhoFile.OPEN_FOR_READ_WRITE <br/> String:4</dt><dd>Open a file for update (both for read and write). The file must exist.</dd></dl></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul><li><code>var myObj = new Rho.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method is a constructor and can only be accessed via the <code>new</code> construct.
+
+<ul>
+<li><code>var myObj = new EB.RhoFile(<span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> mode)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>read(<span class="text-info">STRING</span> path)</h3>
@@ -698,8 +799,7 @@ Open a file for update (both for read and write). The file must exist.</dd></dl>
 
 <h4>Parameters</h4>
 
-<ul><li>path : <span class='text-info'>STRING</span><p>
-Absolute path to file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>Absolute path to file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -708,25 +808,32 @@ Absolute path to file. </p></li><li>callback : <span class='text-info'>CallBackH
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-File contents.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : File contents.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.read(<span class="text-info">STRING</span> path)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.read(<span class="text-info">STRING</span> path)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>read(<span class="text-info">INTEGER</span> size)</h3>
@@ -735,8 +842,7 @@ File contents.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>size : <span class='text-info'>INTEGER</span><p>
-Number of characters to be read. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>size : <span class='text-info'>INTEGER</span><p>Number of characters to be read. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -745,25 +851,32 @@ Number of characters to be read. </p></li><li>callback : <span class='text-info'
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-String from current position of file containing specified number of characters.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : String from current position of file containing specified number of characters.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.read(<span class="text-info">INTEGER</span> size)</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.read(<span class="text-info">INTEGER</span> size)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>readAll()</h3>
@@ -781,25 +894,32 @@ String from current position of file containing specified number of characters.<
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-Contents of the file.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : Contents of the file.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.readAll()</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.readAll()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</h3>
@@ -808,9 +928,7 @@ Contents of the file.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>from : <span class='text-info'>STRING</span><p>
-Original path / name. </p></li><li>to : <span class='text-info'>STRING</span><p>
-New path / name. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>from : <span class='text-info'>STRING</span><p>Original path / name. </p></li><li>to : <span class='text-info'>STRING</span><p>New path / name. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -819,25 +937,32 @@ New path / name. </p></li><li>callback : <span class='text-info'>CallBackHandler
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-Error code raised on move / rename. 0 on success, -1 otherwise.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : Error code raised on move / rename. 0 on success, -1 otherwise.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.RhoFile.rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.RhoFile.rename(<span class="text-info">STRING</span> from, <span class="text-info">STRING</span> to)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>seek(<span class="text-info">INTEGER</span> pos)</h3>
@@ -846,30 +971,37 @@ Error code raised on move / rename. 0 on success, -1 otherwise.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>pos : <span class='text-info'>INTEGER</span><p>
-Position within the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>pos : <span class='text-info'>INTEGER</span><p>Position within the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.seek(<span class="text-info">INTEGER</span> pos)</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.seek(<span class="text-info">INTEGER</span> pos)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>size()</h3>
@@ -887,25 +1019,32 @@ Position within the file. </p></li><li>callback : <span class='text-info'>CallBa
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-File size in bytes.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : File size in bytes.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.size()</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.size()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>write(<span class="text-info">STRING</span> val)</h3>
@@ -914,8 +1053,7 @@ File size in bytes.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>val : <span class='text-info'>STRING</span><p>
-String to be written to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>val : <span class='text-info'>STRING</span><p>String to be written to the file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -924,46 +1062,30 @@ String to be written to the file. </p></li><li>callback : <span class='text-info
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>INTEGER :
-Number of bytes written.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>INTEGER : Number of bytes written.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.write(<span class="text-info">STRING</span> val)</code></li></ul></li></ul>
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
 
-
-<h2>Examples</h2>
-
-<h3>List contents of a folder</h3>
-
-<p>Iterate through the contents of a folder and divide the entries in &ldquo;folders&rdquo; and &ldquo;files&rdquo;.</p>
-
-<pre name="code" class="javascript">var folders = [];
-var files = [];
-var root_path = "/arbitrary/path"
-var entries = Rho.RhoFile.listDir(root_path);
-
-for (var i = 0; i &lt; entries.length; i++) {
-  var entry = entries[i];
-  if ((entry != ".") && (entry != "..")) {
-
-    (Rho.RhoFile.isDir(Rho.RhoFile.join(root_path, entry)) ? folders : files).push(entry);
-  }
-}
-                   
-                 
-</pre>
+<ul>
+<li><code>myObject.write(<span class="text-info">STRING</span> val)</code></li>
+</ul>
+</li>
+</ul>
 

@@ -1,0 +1,151 @@
+<div class='tableofcontents'> </div><h1>Backlight</h1>
+
+<h2>Overview</h2>
+
+<p>The Backlight API is used to illuminate / extinguish the display backlight as well as setting the intensity of the backlight.</p>
+
+<h2>Enabling the API</h2>
+
+<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
+
+<ul>
+<li>elements.js</li>
+</ul>
+
+
+<blockquote><p>Note &ndash; this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
+</pre>
+
+<h3>API Usage</h3>
+
+<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
+
+<pre name="code" class="javascript">backlight.on();
+</pre>
+
+<h2>Events</h2>
+
+<p>To handle events, you assign a string value to the event name that represents a function name or javascript statement to execute.</p>
+
+<h3>backlightSettingsEvent</h3>
+
+<p>Triggered after executing the <code>getBacklightSettings</code> method. Make sure to include the %json notation in order to get the callback parameters.</p>
+
+<h4>Callback Parameters</h4>
+
+<ul>
+<li>intensity &ndash; The current backlight intensity value E.g. 2. On Android a negative value indicates the default system value.</li>
+<li>intensityRange &ndash; A JavaScript array of integers containing the valid range of intensity values. e.g. [&lsquo;0&rsquo;,&lsquo;1&rsquo;,&lsquo;2&rsquo;]</li>
+<li>state &ndash; The current backlight state &ldquo;on&rdquo; or &ldquo;off&rdquo; or &ldquo;timeout&rdquo;</li>
+</ul>
+
+
+<h4>Usage</h4>
+
+<pre name="code" class="javascript">backlight.on();
+backlight.getBacklightSettings = "handleBacklight(%json)";
+
+function handleBacklight(params){
+    alert('The backlight is' + params['state'] + ' with intensity of' + params['intensity']);
+}
+</pre>
+
+<h2>Methods</h2>
+
+<h3>on()</h3>
+
+<p>Turn on the screen backlight. N/A for Android devices, please use the <a href="https://developer.motorolasolutions.com/docs/DOC-2468">Wake API</a> to keep the screen ON.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h3>off()</h3>
+
+<p>Turn off the screen backlight.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h3>getBacklightSettings()</h3>
+
+<p>Returns the backlight settings via a <code>backlightSettingsEvent</code>.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h2>Properties</h2>
+
+<h3>intensity</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> &ndash; Positive Number, see remarks for range</p>
+
+<h4>Description</h4>
+
+<p>Sets the screen backlight to the specified intensity.</p>
+
+<blockquote><p>Note: The intensity tag will only have an observable effect if the screen backlight is turned on, setting the intensity by its self is insufficient to illuminate the backlight.</p></blockquote>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h2>Remarks</h2>
+
+<h3>Multi Instance</h3>
+
+<p>When multiple Enterprise Browser applications are running the following considerations should be made: The backlight settings are application specific. Switching to another application which uses the backlight module will cause the screen illumination settings to change to those of the application with focus. Only the application with Focus will have the ability to change the backlight settings.</p>
+
+<h3>Device Limits</h3>
+
+<p>The levels of supported screen backlight intensity are device dependent. You can determine the levels on your device using the backlightSettingsEvent and getBacklightSettings method.</p>
+
+<h3>‘Auto’ and ‘Manual’ Backlight Intensity</h3>
+
+<p>Windows Mobile 6.5 Devices with a light sensor, such as the ES400 will support two modes for the Backlight: Auto Mode (default) where the light sensor input affects the backlight intensity and Manual Mode where the user sets the backlight manually. In order to use the Intensity setting in Enterprise Browser, the device must be put into Manual Mode, most easily achieved via the ‘Backlight &amp; Keylight’ applet accessed via Start->Settings->System.</p>
+
+<h3>Android</h3>
+
+<p>Unlike all other devices, changes made to the backlight intensity are made only to Enterprise Browser. Switching native applications or quitting Enterprise Browser will revert the backlight intensity to the system’s default level until Enterprise Browser is resumed. Also the method <code>on</code> does not work as the backlight settings are application specific, please use the <a href="https://developer.motorolasolutions.com/docs/DOC-2468">Wake API</a> to keep the screen on.</p>

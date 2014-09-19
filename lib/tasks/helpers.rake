@@ -217,13 +217,13 @@ def lp_publish_html
         print "."
         html = File.read(fileName)
     
-         Launchpad.publish_html(fileName,html,url_map,"uat")
+         Launchpad.publish_html(fileName,html,url_map,ENV['server'])
       
     end
     # Edit document with updated links
     apiFiles.each do |fileName|
       basename = fileName.gsub(AppConfig['launchpad_eb'],'')
-        Launchpad.replace_url fileName,url_map,"uat"
+        Launchpad.replace_url fileName,url_map,ENV['server']
       
     end
     

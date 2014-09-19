@@ -4,40 +4,38 @@
 
 <p>The System API is used to control and modify core aspects of the device such as the screen, OS and device capabilities.</p>
 
-
 <h2>Enabling the API</h2>
 
+<p>There are two methods of enabling the System API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
 
 
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
+<h3>Include all JS API modules</h3>
 
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
 
-
-
-<pre name="code" class="ruby">extensions: ["coreapi"]
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
+<h3>Include only the modules you need</h3>
 
-<h2>JavaScript Usage</h2>
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the System API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
 
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.system.js"&gt;&lt;/script&gt;
+</pre>
 
-
-
-<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
-
-
-
-
-<h2>Ruby Usage</h2>
-
-
-
-
-<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
@@ -47,29 +45,36 @@
 
 <h4>Parameters</h4>
 
-<ul><li>applicationUrl : <span class='text-info'>STRING</span><p>
-The url of an application to install on the device. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>applicationUrl : <span class='text-info'>STRING</span><p>The url of an application to install on the device. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.applicationInstall(<span class="text-info">STRING</span> applicationUrl)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.applicationInstall(<span class="text-info">STRING</span> applicationUrl)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>applicationUninstall(<span class="text-info">STRING</span> applicationName)</h3>
@@ -78,28 +83,36 @@ The url of an application to install on the device. </p></li><li>callback : <spa
 
 <h4>Parameters</h4>
 
-<ul><li>applicationName : <span class='text-info'>STRING</span><p>
-The name of the application. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>applicationName : <span class='text-info'>STRING</span><p>The name of the application. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>Windows Embedded</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.applicationUninstall(<span class="text-info">STRING</span> applicationName)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.applicationUninstall(<span class="text-info">STRING</span> applicationName)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>bringToFront()</h3>
@@ -113,20 +126,30 @@ The name of the application. </p></li><li>callback : <span class='text-info'>Cal
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.bringToFront()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.bringToFront()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>clearNetworkStatusNotify()</h3>
@@ -140,24 +163,31 @@ The name of the application. </p></li><li>callback : <span class='text-info'>Cal
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.clearNetworkStatusNotify()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.clearNetworkStatusNotify()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>deleteFolder(<span class="text-info">STRING</span> pathToFolder)</h3>
@@ -166,44 +196,45 @@ The name of the application. </p></li><li>callback : <span class='text-info'>Cal
 
 <h4>Parameters</h4>
 
-<ul><li>pathToFolder : <span class='text-info'>STRING</span><p>
-Path to folder. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>pathToFolder : <span class='text-info'>STRING</span><p>Path to folder. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.deleteFolder(<span class="text-info">STRING</span> pathToFolder)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.deleteFolder(<span class="text-info">STRING</span> pathToFolder)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>deleteRegistrySetting(<span class="text-info">HASH</span> propertyMap)</h3>
 
-<p>Deletes the specified value from the device registry. Only applicable on Windows Mobile / Embedded Handheld and CE devices. When running on RhoSimulator, this method is supported only for Windows OS.</p>
+<p>Deletes the specified value from the device registry. Only applicable on Windows Mobile / Embedded Handheld and CE devices.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties associated with the registry key being set. </p></li><ul><li>hive : <span class='text-info'>STRING</span><p>
-The hive name, setRegistrySetting. </p></li><li>key : <span class='text-info'>STRING</span><p>
-Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash. </p></li><li>setting : <span class='text-info'>STRING</span><p>
-The name of the setting to be deleted. </p></li><li>persistent : <span class='text-info'>BOOLEAN</span><p>
-If the registry value was set to be persistent, ie a corresponding .reg file was created in the \Application folder then setting true here will delete that .reg file. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties associated with the registry key being set. </p></li><ul><li>hive : <span class='text-info'>STRING</span><p>The hive name, setRegistrySetting. </p></li><li>key : <span class='text-info'>STRING</span><p>Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash. </p></li><li>setting : <span class='text-info'>STRING</span><p>The name of the setting to be deleted. </p></li><li>persistent : <span class='text-info'>BOOLEAN</span><p>If the registry value was set to be persistent, ie a corresponding .reg file was created in the \Application folder then setting true here will delete that .reg file. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -212,21 +243,30 @@ If the registry value was set to be persistent, ie a corresponding .reg file was
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-Whether or not the registry key was successfully deleted.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : Whether or not the registry key was successfully deleted.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.deleteRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.deleteRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>exit()</h3>
@@ -240,24 +280,31 @@ Whether or not the registry key was successfully deleted.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.exit()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.exit()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getAllProperties()</h3>
@@ -275,25 +322,31 @@ Whether or not the registry key was successfully deleted.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.getAllProperties()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.getAllProperties()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperties(<span class="text-info">ARRAY</span> arrayofNames)</h3>
@@ -302,8 +355,7 @@ Map of all available properties<ul><li> : <span class='text-info'>STRING</span><
 
 <h4>Parameters</h4>
 
-<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>
-List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -312,25 +364,31 @@ List of properties I want to know about </p></li><ul><li><i>Object</i> : <span c
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>HASH :
-Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getProperty(<span class="text-info">STRING</span> propertyName)</h3>
@@ -339,8 +397,7 @@ Map of properties I want to know about<ul><li> : <span class='text-info'>STRING<
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -349,38 +406,40 @@ The property to return info about. </p></li><li>callback : <span class='text-inf
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-The property to return info about.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : The property to return info about.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.getProperty(<span class="text-info">STRING</span> propertyName)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.getProperty(<span class="text-info">STRING</span> propertyName)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getRegistrySetting(<span class="text-info">HASH</span> propertyMap)</h3>
 
-<p>Retrieve a value from the device registry. Only applicable on Windows Mobile / Embedded Handheld and CE devices. When running on RhoSimulator, this method is supported only for Windows OS.</p>
+<p>Retrieve a value from the device registry. Only applicable on Windows Mobile / Embedded Handheld and CE devices.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties associated with the registry key being set. </p></li><ul><li>hive : <span class='text-info'>STRING</span><p>
-The hive name, see setRegistrySetting. </p></li><li>key : <span class='text-info'>STRING</span><p>
-Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash. </p></li><li>setting : <span class='text-info'>STRING</span><p>
-The name of the setting to be retrieved. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties associated with the registry key being set. </p></li><ul><li>hive : <span class='text-info'>STRING</span><p>The hive name, see setRegistrySetting. </p></li><li>key : <span class='text-info'>STRING</span><p>Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash. </p></li><li>setting : <span class='text-info'>STRING</span><p>The name of the setting to be retrieved. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -389,21 +448,30 @@ The name of the setting to be retrieved. </p></li></ul><li>callback : <span clas
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING :
-Registry value of the key.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING : Registry value of the key.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.getRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.getRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>getStartParams()</h3>
@@ -421,22 +489,32 @@ Registry value of the key.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>Windows Embedded</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.getStartParams()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.getStartParams()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>get_locale()</h3>
@@ -454,24 +532,31 @@ Registry value of the key.</li></ul></p>
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>STRING</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>STRING</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.get_locale()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.get_locale()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>isApplicationInstalled(<span class="text-info">STRING</span> applicationName)</h3>
@@ -480,8 +565,7 @@ Registry value of the key.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>applicationName : <span class='text-info'>STRING</span><p>
-The name of the application. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>applicationName : <span class='text-info'>STRING</span><p>The name of the application. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -490,23 +574,31 @@ The name of the application. </p></li><li>callback : <span class='text-info'>Cal
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.isApplicationInstalled(<span class="text-info">STRING</span> applicationName)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.isApplicationInstalled(<span class="text-info">STRING</span> applicationName)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>isBlobAttr(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID, <span class="text-info">STRING</span> attrName)</h3>
@@ -524,90 +616,69 @@ The name of the application. </p></li><li>callback : <span class='text-info'>Cal
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.isBlobAttr(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID, <span class="text-info">STRING</span> attrName)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.isBlobAttr(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID, <span class="text-info">STRING</span> attrName)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>openUrl(<span class="text-info">STRING</span> url)</h3>
 
-<p>Open the application associated with the URL. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix will execute the Web Browser installed on system and open URL in executed browser. Note: For opening pdf files on android devices it is necessary to add option &ldquo;no_compression: [ pdf ]&rdquo; to android section in build.yml</p>
+<p>Open the application associated with the URL. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix will execute the Web Browser installed on system and open URL in executed browser. Note: Opening pdf files on Android devices is not supported.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>url : <span class='text-info'>STRING</span><p>
-URL as string. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>URL as string. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.openUrl(<span class="text-info">STRING</span> url)</code> </li></ul></li></ul>
-
-
-<h3>replaceCurrentBundle(<span class="text-info">STRING</span> pathToBundle, <span class="text-info">HASH</span> params)</h3>
-
-<p>Replace application bundle.</p>
-
-<h4>Parameters</h4>
-
-<ul><li>pathToBundle : <span class='text-info'>STRING</span><p>
-Local path to bundle folder. See Build Application/Upgrade Application section to find out how to build bundle on computer. </p></li><li>params : <span class='text-info'>HASH</span><p>
-Update parameters. </p></li><ul><li>do_not_restart_app : <span class='text-info'>BOOLEAN</span><p>
-If true, when Application will not be automatically restarted after the replace bundle is finished. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-
-<h4>Returns</h4>
-
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
-
-<h4>Platforms</h4>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li><code>EB.System.openUrl(<span class="text-info">STRING</span> url)</code></li>
 </ul>
-
-
-<h4>Method Access:</h4>
-
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.replaceCurrentBundle(<span class="text-info">STRING</span> pathToBundle, <span class="text-info">HASH</span> params)</code> </li></ul></li></ul>
+</li>
+</ul>
 
 
 <h3>runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</h3>
@@ -616,32 +687,36 @@ If true, when Application will not be automatically restarted after the replace 
 
 <h4>Parameters</h4>
 
-<ul><li>appName : <span class='text-info'>STRING</span><p>
-The name of the application on the device to run. It depends from platform. On iOS it is BundleURLScheme of executed application. </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Start parameters string. Executed Application can receive this string by getStartParams method. Parameter could be just value, or key-value pair separated by '=' sign. Please note that for each platform there are distinct ways to write several params at once. On Android parameters should be separated by "&", on other platforms by ',' or ' '. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>
-Not Implemented. 
-False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>appName : <span class='text-info'>STRING</span><p>The name of the application on the device to run.  </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Start parameters string. Executed Application can receive this string by getStartParams method. Parameter could be just value, or key-value pair separated by '=' sign. Please note that for each platform there are distinct ways to write several params at once. On Android parameters should be separated by an amperstand, on other platforms by a comma or a space. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Not Implemented. False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</h3>
@@ -650,27 +725,28 @@ False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler
 
 <h4>Parameters</h4>
 
-<ul><li>pathToFile : <span class='text-info'>STRING</span><p>
-Path to file. </p></li><li>doNotBackup : <span class='text-info'>BOOLEAN</span><p>
-True set doNotBackup attribute to file (exclude this file from backup), false for remove doNotBackup attribute from file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>pathToFile : <span class='text-info'>STRING</span><p>Path to file. </p></li><li>doNotBackup : <span class='text-info'>BOOLEAN</span><p>True set doNotBackup attribute to file (exclude this file from backup), false for remove doNotBackup attribute from file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
-
-<h4>Platforms</h4>
+<p>Synchronous Return:</p>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>iOS</li>
+<li>Void</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</h3>
@@ -679,31 +755,36 @@ True set doNotBackup attribute to file (exclude this file from backup), false fo
 
 <h4>Parameters</h4>
 
-<ul><li>url : <span class='text-info'>STRING</span><p>
-The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>
-IOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>IOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperties(<span class="text-info">HASH</span> propertyMap)</h3>
@@ -712,30 +793,36 @@ IOS. The network status polling period for systems that can not notify network s
 
 <h4>Parameters</h4>
 
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setProperties(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setProperties(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</h3>
@@ -744,31 +831,36 @@ Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='te
 
 <h4>Parameters</h4>
 
-<ul><li>propertyName : <span class='text-info'>STRING</span><p>
-The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>
-The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setPushNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params, <span class="text-info">STRING</span> push_client)</h3>
@@ -777,57 +869,45 @@ The one property value that I want to set </p></li><li>callback : <span class='t
 
 <h4>Parameters</h4>
 
-<ul><li>url : <span class='text-info'>STRING</span><p>
-URL of the callback method. If empty, unregisters rhoconnect-push. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Parameters which will be added to callback URL. </p></li><li>push_client : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Name of a push service client. Current values can be 'rhoconnect_push' or 'gcm' or 'legacy' or empty. 
-The call will be applied to every push client.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. If empty, unregisters rhoconnect-push. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters which will be added to callback URL. </p></li><li>push_client : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Name of a push service client. Current values can be 'rhoconnect_push' or 'gcm' or 'legacy' or empty. The call will be applied to every push client.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setPushNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params, <span class="text-info">STRING</span> push_client)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setPushNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params, <span class="text-info">STRING</span> push_client)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setRegistrySetting(<span class="text-info">HASH</span> propertyMap)</h3>
 
-<p>Set a value in the device registry. Only applicable on Windows Mobile / Embedded Handheld and CE devices. When running on RhoSimulator, this method is supported only for Windows OS.</p>
+<p>Set a value in the device registry. Only applicable on Windows Mobile / Embedded Handheld and CE devices.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>
-Map of properties associated with the registry key being set. </p></li><ul><li>hive : <span class='text-info'>STRING</span><p>
-The hive name. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.System.REGKEY_CLASSES_ROOT <br/> String:HKCR</dt><dd>
-Set the property in the HKEY_CLASSES_ROOT hive.</dd><dt>Constant: Rho.System.REGKEY_CURRENT_USER <br/> String:HKCU</dt><dd>
-Set the property in the HKEY_CURRENT_USER hive.</dd><dt>Constant: Rho.System.REGKEY_LOCAL_MACHINE <br/> String:HKLM</dt><dd>
-Set the property in the HKEY_LOCAL_MACHINE hive.</dd><dt>Constant: Rho.System.REGKEY_USERS <br/> String:HKU</dt><dd>
-Set the property in the HKEY_USERS hive.</dd></dl></li><li>type : <span class='text-info'>STRING</span><p>
-The type. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Rho.System.REGTYPE_SZ <br/> String:String</dt><dd>
-The type of the value being set is a string.</dd><dt>Constant: Rho.System.REGTYPE_BINARY <br/> String:Binary</dt><dd>
-The type of the value being set is a binary number.</dd><dt>Constant: Rho.System.REGTYPE_DWORD <br/> String:DWORD</dt><dd>
-The type of the value being set is a natural number (DWORD)</dd><dt>Constant: Rho.System.REGTYPE_MULTI_SZ <br/> String:MultiSZ</dt><dd>
-The type of the value being set is a multi line string. Separate your lines with \n (\\n in JavaScript)</dd></dl></li><li>key : <span class='text-info'>STRING</span><p>
-Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash. </p></li><li>setting : <span class='text-info'>STRING</span><p>
-The name of the registry setting to be set. </p></li><li>value : <span class='text-info'>STRING</span><p>
-The registry value to be set. </p></li><li>persistent : <span class='text-info'>BOOLEAN</span><p>
-Whether or not to create a corresponding merge file, setting to true will cause your value to persist across a device clean boot. A .reg file is written to the \Application folder on the device to persist the setting. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties associated with the registry key being set. </p></li><ul><li>hive : <span class='text-info'>STRING</span><p>The hive name. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.System.REGKEY_CLASSES_ROOT <br/> String:HKCR</dt><dd>Set the property in the HKEY_CLASSES_ROOT hive.</dd><dt>Constant: EB.System.REGKEY_CURRENT_USER <br/> String:HKCU</dt><dd>Set the property in the HKEY_CURRENT_USER hive.</dd><dt>Constant: EB.System.REGKEY_LOCAL_MACHINE <br/> String:HKLM</dt><dd>Set the property in the HKEY_LOCAL_MACHINE hive.</dd><dt>Constant: EB.System.REGKEY_USERS <br/> String:HKU</dt><dd>Set the property in the HKEY_USERS hive.</dd></dl></li><li>type : <span class='text-info'>STRING</span><p>The type. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.System.REGTYPE_SZ <br/> String:String</dt><dd>The type of the value being set is a string.</dd><dt>Constant: EB.System.REGTYPE_BINARY <br/> String:Binary</dt><dd>The type of the value being set is a binary number.</dd><dt>Constant: EB.System.REGTYPE_DWORD <br/> String:DWORD</dt><dd>The type of the value being set is a natural number (DWORD)</dd><dt>Constant: EB.System.REGTYPE_MULTI_SZ <br/> String:MultiSZ</dt><dd>The type of the value being set is a multi line string. Separate your lines with \n (\\n in JavaScript)</dd></dl></li><li>key : <span class='text-info'>STRING</span><p>Full path of the key, including '\' separators as required. Remember to use '\\' in JavaScript to specify backslash. </p></li><li>setting : <span class='text-info'>STRING</span><p>The name of the registry setting to be set. </p></li><li>value : <span class='text-info'>STRING</span><p>The registry value to be set. </p></li><li>persistent : <span class='text-info'>BOOLEAN</span><p>Whether or not to create a corresponding merge file, setting to true will cause your value to persist across a device clean boot. A .reg file is written to the \Application folder on the device to persist the setting. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -836,21 +916,30 @@ Whether or not to create a corresponding merge file, setting to true will cause 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>BOOLEAN :
-Whether or not the registry key was successfully set.</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : Whether or not the registry key was successfully set.</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setRegistrySetting(<span class="text-info">HASH</span> propertyMap)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setScreenRotationNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</h3>
@@ -859,29 +948,36 @@ Whether or not the registry key was successfully set.</li></ul></p>
 
 <h4>Parameters</h4>
 
-<ul><li>url : <span class='text-info'>STRING</span><p>
-URL of the callback method. If empty, unregisters notification callback. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Parameters which will be added to callback URL. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. If empty, unregisters notification callback. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters which will be added to callback URL. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setScreenRotationNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setScreenRotationNotification(<span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setWindowFrame(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</h3>
@@ -890,29 +986,28 @@ Parameters which will be added to callback URL. </p></li><li>callback : <span cl
 
 <h4>Parameters</h4>
 
-<ul><li>x : <span class='text-info'>INTEGER</span><p>
-Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>
-Top corner of window. </p></li><li>width : <span class='text-info'>INTEGER</span><p>
-Width of window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>
-Height of window. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>x : <span class='text-info'>INTEGER</span><p>Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>Top corner of window. </p></li><li>width : <span class='text-info'>INTEGER</span><p>Width of window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>Height of window. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
-
-<h4>Platforms</h4>
+<p>Synchronous Return:</p>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Desktop</li>
+<li>Void</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setWindowFrame(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setWindowFrame(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setWindowPosition(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y)</h3>
@@ -921,27 +1016,28 @@ Height of window. </p></li><li>callback : <span class='text-info'>CallBackHandle
 
 <h4>Parameters</h4>
 
-<ul><li>x : <span class='text-info'>INTEGER</span><p>
-Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>
-Top corner of window. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>x : <span class='text-info'>INTEGER</span><p>Left corner of window. </p></li><li>y : <span class='text-info'>INTEGER</span><p>Top corner of window. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
-
-<h4>Platforms</h4>
+<p>Synchronous Return:</p>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Desktop</li>
+<li>Void</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setWindowPosition(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setWindowPosition(<span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>setWindowSize(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</h3>
@@ -950,27 +1046,28 @@ Top corner of window. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Parameters</h4>
 
-<ul><li>width : <span class='text-info'>INTEGER</span><p>
-Width of the window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>
-Width of the of window. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>width : <span class='text-info'>INTEGER</span><p>Width of the window. </p></li><li>height : <span class='text-info'>INTEGER</span><p>Width of the of window. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
-
-<h4>Platforms</h4>
+<p>Synchronous Return:</p>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Desktop</li>
+<li>Void</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.setWindowSize(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.setWindowSize(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</h3>
@@ -984,20 +1081,23 @@ Width of the of window. </p></li><li>callback : <span class='text-info'>CallBack
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
-
-<h4>Platforms</h4>
+<p>Synchronous Return:</p>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>iOS</li>
+<li>Void</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)</h3>
@@ -1011,21 +1111,31 @@ Width of the of window. </p></li><li>callback : <span class='text-info'>CallBack
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>set_locale(<span class="text-info">STRING</span> locale_code, <span class="text-info">STRING</span> country_code)</h3>
@@ -1039,24 +1149,31 @@ Width of the of window. </p></li><li>callback : <span class='text-info'>CallBack
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.set_locale(<span class="text-info">STRING</span> locale_code, <span class="text-info">STRING</span> country_code)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.set_locale(<span class="text-info">STRING</span> locale_code, <span class="text-info">STRING</span> country_code)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>set_sleeping(<span class="text-info">BOOLEAN</span> enable)</h3>
@@ -1070,24 +1187,31 @@ Width of the of window. </p></li><li>callback : <span class='text-info'>CallBack
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.set_sleeping(<span class="text-info">BOOLEAN</span> enable)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.set_sleeping(<span class="text-info">BOOLEAN</span> enable)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</h3>
@@ -1096,32 +1220,36 @@ Width of the of window. </p></li><li>callback : <span class='text-info'>CallBack
 
 <h4>Parameters</h4>
 
-<ul><li>interval : <span class='text-info'>INTEGER</span><p>
-Timer interval. </p></li><li>url : <span class='text-info'>STRING</span><p>
-URL of the callback method. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Parameters which will be added to callback URL. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>interval : <span class='text-info'>INTEGER</span><p>Timer interval. </p></li><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters which will be added to callback URL. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>stopTimer(<span class="text-info">STRING</span> url)</h3>
@@ -1130,30 +1258,36 @@ Parameters which will be added to callback URL. </p></li><li>callback : <span cl
 
 <h4>Parameters</h4>
 
-<ul><li>url : <span class='text-info'>STRING</span><p>
-URL of the callback method which identify the timer to stop. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method which identify the timer to stop. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.stopTimer(<span class="text-info">STRING</span> url)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.stopTimer(<span class="text-info">STRING</span> url)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>unset_http_proxy()</h3>
@@ -1167,21 +1301,31 @@ URL of the callback method which identify the timer to stop. </p></li><li>callba
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
-<li>Windows Embedded</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.unset_http_proxy()</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.unset_http_proxy()</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</h3>
@@ -1190,31 +1334,36 @@ URL of the callback method which identify the timer to stop. </p></li><li>callba
 
 <h4>Parameters</h4>
 
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>
-The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>updateBlobAttribs(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)</h3>
@@ -1228,24 +1377,31 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.updateBlobAttribs(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.updateBlobAttribs(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>zipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> localPathToFile, <span class="text-info">STRING</span> password)</h3>
@@ -1254,32 +1410,36 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Parameters</h4>
 
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>
-The path to the specified zip. Application should have write permissions to this folder. </p></li><li>localPathToFile : <span class='text-info'>STRING</span><p>
-The path to the file to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the specified zip. Application should have write permissions to this folder. </p></li><li>localPathToFile : <span class='text-info'>STRING</span><p>The path to the file to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.zipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> localPathToFile, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.zipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> localPathToFile, <span class="text-info">STRING</span> password)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>zipFiles(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> basePath, <span class="text-info">ARRAY</span> filePathsToZip, <span class="text-info">STRING</span> password)</h3>
@@ -1288,33 +1448,36 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Parameters</h4>
 
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>
-The path to the specified zip. </p></li><li>basePath : <span class='text-info'>STRING</span><p>
-Base path to the files to be zipped. </p></li><li>filePathsToZip : <span class='text-info'>ARRAY</span><p>
-List of file paths to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>
-Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the specified zip. </p></li><li>basePath : <span class='text-info'>STRING</span><p>Base path to the files to be zipped. </p></li><li>filePathsToZip : <span class='text-info'>ARRAY</span><p>List of file paths to be zipped. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
 
-<p>Synchronous Return:<ul><li>Void</li></ul></p>
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Javascript</li>
-<li>Ruby</li>
 <li>Android</li>
-<li>iOS</li>
-<li>Windows Embedded</li>
-<li>Windows Phone 8</li>
-<li>Windows Desktop</li>
+<li>Windows Mobile</li>
 </ul>
 
 
 <h4>Method Access:</h4>
 
-<ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li><code>Rho.System.zipFiles(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> basePath, <span class="text-info">ARRAY</span> filePathsToZip, <span class="text-info">STRING</span> password)</code> </li></ul></li></ul>
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.zipFiles(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> basePath, <span class="text-info">ARRAY</span> filePathsToZip, <span class="text-info">STRING</span> password)</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h2>Properties</h2>
@@ -1331,7 +1494,14 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.applicationIconBadge</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.applicationIconBadge</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>country</h3>
@@ -1346,7 +1516,22 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.country</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.country</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>deviceName</h3>
@@ -1361,7 +1546,22 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.deviceName</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.deviceName</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>deviceOwnerEmail</h3>
@@ -1376,7 +1576,21 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.deviceOwnerEmail</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.deviceOwnerEmail</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+</ul>
 
 
 <h3>deviceOwnerName</h3>
@@ -1391,7 +1605,21 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.deviceOwnerName</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.deviceOwnerName</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+</ul>
 
 
 <h3><span class="text-info">devicePushId</span></h3>
@@ -1402,12 +1630,26 @@ Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHa
 
 <h4>Description</h4>
 
-<p><span class='label label-info'>Replaces:deviceId</span>
-Push notifications device ID which may be used to receive push messages.To get this ID , Push service should be configured on the device. Please refer to Push documentation.</p>
+<p><span class='label label-info'>Replaces:deviceId</span> Push notifications device ID which may be used to receive push messages.To get this ID , Push service should be configured on the device. Please refer to Push documentation.</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.devicePushId</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.devicePushId</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>freeServerPort</h3>
@@ -1422,7 +1664,22 @@ Push notifications device ID which may be used to receive push messages.To get t
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.freeServerPort</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.freeServerPort</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>hasCalendar</h3>
@@ -1437,7 +1694,22 @@ Push notifications device ID which may be used to receive push messages.To get t
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.hasCalendar</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hasCalendar</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>hasCamera</h3>
@@ -1452,7 +1724,22 @@ Push notifications device ID which may be used to receive push messages.To get t
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.hasCamera</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hasCamera</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3><span class="text-error">hasCellNetwork</span></h3>
@@ -1463,12 +1750,26 @@ Push notifications device ID which may be used to receive push messages.To get t
 
 <h4>Description</h4>
 
-<p><span class='label label-important'>Deprecated</span>
-Use Network.hasCellNetwork to tell if device is connected to the cell network.</p>
+<p><span class='label label-important'>Deprecated</span> Use Network.hasCellNetwork to tell if device is connected to the cell network.</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.hasCellNetwork</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hasCellNetwork</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3><span class="text-error">hasNetwork</span></h3>
@@ -1479,12 +1780,26 @@ Use Network.hasCellNetwork to tell if device is connected to the cell network.</
 
 <h4>Description</h4>
 
-<p><span class='label label-important'>Deprecated</span>
-Use Network.hasNetwork to tell if the device is connected to the network.</p>
+<p><span class='label label-important'>Deprecated</span> Use Network.hasNetwork to tell if the device is connected to the network.</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.hasNetwork</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hasNetwork</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3><span class="text-error">hasSqlite</span></h3>
@@ -1495,12 +1810,26 @@ Use Network.hasNetwork to tell if the device is connected to the network.</p>
 
 <h4>Description</h4>
 
-<p><span class='label label-important'>Deprecated</span>
-Returns true if the device has sqlite capabilities (previously only BlackBerry did not support this).</p>
+<p><span class='label label-important'>Deprecated</span> Returns true if the device has sqlite capabilities (previously only BlackBerry did not support this).</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.hasSqlite</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hasSqlite</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>hasTouchscreen</h3>
@@ -1515,7 +1844,22 @@ Returns true if the device has sqlite capabilities (previously only BlackBerry d
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.hasTouchscreen</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hasTouchscreen</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3><span class="text-error">hasWifiNetwork</span></h3>
@@ -1526,12 +1870,26 @@ Returns true if the device has sqlite capabilities (previously only BlackBerry d
 
 <h4>Description</h4>
 
-<p><span class='label label-important'>Deprecated</span>
-Use Network.hasWifiNetwork to tell if the device is connected to the wifi network.</p>
+<p><span class='label label-important'>Deprecated</span> Use Network.hasWifiNetwork to tell if the device is connected to the wifi network.</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.hasWifiNetwork</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hasWifiNetwork</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3><span class="text-info">httpProxyURI</span></h3>
@@ -1542,12 +1900,26 @@ Use Network.hasWifiNetwork to tell if the device is connected to the wifi networ
 
 <h4>Description</h4>
 
-<p><span class='label label-info'>Replaces:http_proxy_url</span>
-Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password) in rhoconfig.txt. To set proxy for Motorola WebKit for Windows Mobile/CE use config.xml settings.</p>
+<p><span class='label label-info'>Replaces:http_proxy_url</span> Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password). To set proxy for WebKit for Windows Mobile/CE use config.xml settings.</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.httpProxyURI</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.httpProxyURI</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>isEmulator</h3>
@@ -1562,7 +1934,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.isEmulator</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.isEmulator</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>isMotorolaDevice</h3>
@@ -1577,22 +1964,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.isMotorolaDevice</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.isMotorolaDevice</code></li>
+</ul>
+</li>
+</ul>
 
 
-<h3>isRhoSimulator</h3>
+<h4>Platforms</h4>
 
-<h4>Type</h4>
-
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
-
-<h4>Description</h4>
-
-<p>Returns true if the application is running on RhoSimulator.</p>
-
-<h4>Access</h4>
-
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.isRhoSimulator</code> </li></ul></li></ul>
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>keyboardState</h3>
@@ -1615,33 +2002,26 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: Rho.System.KEYBOARD_SHOWN
-
-<ul>
-<li>String: shown</li>
-<li><p>Shows the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.System.KEYBOARD_HIDDEN
-
-<ul>
-<li>String: hidden</li>
-<li><p>Hides the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic. This is most useful if your device has a hardware keyboard or you are scanning / capturing data to an input field.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.System.KEYBOARD_AUTOMATIC
-
-<ul>
-<li>String: automatic</li>
-<li><p>Automatically shows or hides the keyboard as needed by the application.</p>
+<li>Constant: EB.System.KEYBOARD_SHOWN &ndash; String: shown Shows the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic.</li>
+<li>Constant: EB.System.KEYBOARD_HIDDEN &ndash; String: hidden Hides the on screen keyboard, after setting the keyboard to shown or hidden it will no longer appear / disappear automatically until you set this property to automatic. This is most useful if your device has a hardware keyboard or you are scanning / capturing data to an input field.</li>
+<li><p>Constant: EB.System.KEYBOARD_AUTOMATIC &ndash; String: automatic Automatically shows or hides the keyboard as needed by the application.</p>
 
 <h4>Access</h4></li>
+<li><p>Class: This property can only be accessed via the API class object.</p>
+
+<ul>
+<li><code>EB.System.keyboardState</code></li>
 </ul>
 </li>
 </ul>
 
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.keyboardState</code> </li></ul></li></ul>
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+<li>Symbol Devices Only</li>
+</ul>
 
 
 <h3>localServerPort</h3>
@@ -1661,7 +2041,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.localServerPort</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.localServerPort</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>locale</h3>
@@ -1676,7 +2071,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.locale</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.locale</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>lockWindowSize</h3>
@@ -1696,7 +2106,14 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.lockWindowSize</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.lockWindowSize</code></li>
+</ul>
+</li>
+</ul>
 
 
 <h3>oemInfo</h3>
@@ -1711,7 +2128,24 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.oemInfo</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.oemInfo</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+<li>Symbol Devices Only</li>
+</ul>
 
 
 <h3>osVersion</h3>
@@ -1722,11 +2156,26 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Description</h4>
 
-<p>Version OS of device. Examples: &lsquo;4.6.0.192&rsquo; (BB), &lsquo;3.0&rsquo; (iPhone), &lsquo;1.6&rsquo; (Android).</p>
+<p>Version OS of device. Examples:  &lsquo;4.1&rsquo; (Android).</p>
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.osVersion</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.osVersion</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>phoneId</h3>
@@ -1741,7 +2190,23 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.phoneId</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.phoneId</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
 
 
 <h3>platform</h3>
@@ -1759,45 +2224,28 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: Rho.System.PLATFORM_WM_CE
+<li>Constant: EB.System.PLATFORM_WM_CE &ndash; String: WINDOWS</li>
+<li>Constant: EB.System.PLATFORM_ANDROID &ndash; String: ANDROID</li>
+<li>Constant: EB.System.PLATFORM_IOS &ndash; String: APPLE</li>
+<li>Constant: EB.System.PLATFORM_WP8 &ndash; String: WP8</li>
+<li><p>Constant: EB.System.PLATFORM_WINDOWS_DESKTOP &ndash; String: WINDOWS_DESKTOP</p>
+
+<h4>Access</h4></li>
+<li><p>Class: This property can only be accessed via the API class object.</p>
 
 <ul>
-<li>String: WINDOWS</li>
-<li></li>
-</ul>
-</li>
-<li>Constant: Rho.System.PLATFORM_ANDROID
-
-<ul>
-<li>String: ANDROID</li>
-<li></li>
-</ul>
-</li>
-<li>Constant: Rho.System.PLATFORM_IOS
-
-<ul>
-<li>String: APPLE</li>
-<li></li>
-</ul>
-</li>
-<li>Constant: Rho.System.PLATFORM_WP8
-
-<ul>
-<li>String: WP8</li>
-<li></li>
-</ul>
-</li>
-<li>Constant: Rho.System.PLATFORM_WINDOWS_DESKTOP
-
-<ul>
-<li>String: WINDOWS_DESKTOP</li>
-<li><h4>Access</h4></li>
+<li><code>EB.System.platform</code></li>
 </ul>
 </li>
 </ul>
 
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.platform</code> </li></ul></li></ul>
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>ppiX</h3>
@@ -1812,7 +2260,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.ppiX</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.ppiX</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>ppiY</h3>
@@ -1827,7 +2290,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.ppiY</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.ppiY</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>realScreenHeight</h3>
@@ -1842,7 +2320,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.realScreenHeight</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.realScreenHeight</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>realScreenWidth</h3>
@@ -1857,7 +2350,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.realScreenWidth</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.realScreenWidth</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>screenAutoRotate</h3>
@@ -1877,7 +2385,21 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.screenAutoRotate</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.screenAutoRotate</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+</ul>
 
 
 <h3>screenHeight</h3>
@@ -1892,7 +2414,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.screenHeight</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.screenHeight</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>screenOrientation</h3>
@@ -1910,26 +2447,25 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: Rho.System.SCREEN_PORTRAIT
-
-<ul>
-<li>String: portrait</li>
-<li><p>The return value if the screen is in portrait mode.</p></li>
-</ul>
-</li>
-<li>Constant: Rho.System.SCREEN_LANDSCAPE
-
-<ul>
-<li>String: landscape</li>
-<li><p>The return value if the screen is in landscape mode.</p>
+<li>Constant: EB.System.SCREEN_PORTRAIT &ndash; String: portrait The return value if the screen is in portrait mode.</li>
+<li><p>Constant: EB.System.SCREEN_LANDSCAPE &ndash; String: landscape The return value if the screen is in landscape mode.</p>
 
 <h4>Access</h4></li>
+<li><p>Class: This property can only be accessed via the API class object.</p>
+
+<ul>
+<li><code>EB.System.screenOrientation</code></li>
 </ul>
 </li>
 </ul>
 
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.screenOrientation</code> </li></ul></li></ul>
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>screenSleeping</h3>
@@ -1944,7 +2480,21 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.screenSleeping</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.screenSleeping</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+</ul>
 
 
 <h3>screenWidth</h3>
@@ -1959,7 +2509,22 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.screenWidth</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.screenWidth</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
 
 <h3>uuid</h3>
@@ -1974,7 +2539,24 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.uuid</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.uuid</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+<li>Symbol Devices Only</li>
+</ul>
 
 
 <h3>webviewFramework</h3>
@@ -1989,92 +2571,20 @@ Set HTTP proxy parameters for using by Network module. Example: user:password@ur
 
 <h4>Access</h4>
 
-<ul><li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul><li><code>Rho.System.webviewFramework</code> </li></ul></li></ul>
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.webviewFramework</code></li>
+</ul>
+</li>
+</ul>
 
 
-<h2>Examples</h2>
+<h4>Platforms</h4>
 
-<h3>Get device capabilities</h3>
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
 
-<p>You can find out whether the device has access to several system-dependent features such as calendar, camera, touchscreen, etc.</p>
-
-<pre name="code" class="javascript">// Returns true if device supports Motorola device capabilities, such as Scanner, etc.
-var is_motorola_device = Rho.System.isMotorolaDevice;
-
-var has_calendar = Rho.System.hasCalendar;
-var has_camera = Rho.System.hasCamera;
-var has_cell_network = Rho.System.hasCellNetwork;
-var has_wifi_network = Rho.System.hasWifiNetwork;
-var has_network = Rho.System.hasNetwork;
-var has_sqlite = Rho.System.hasSqlite;
-var has_touchscreen = Rho.System.hasTouchscreen;
-
-message = "Motorola device: "+is_motorola_device+"\n"+
-  "Calendar: "+has_calendar+"\n"+ 
-  "Camera: "+has_camera+"\n"+
-  "Cell network: "+has_cell_network+"\n"+
-  "WiFi: "+has_wifi_network+"\n"+
-  "Network: "+has_network+"\n"+
-  "SQLite: "+has_sqlite+"\n"+
-  "Touchscreen: "+has_touchscreen;
-
-alert(message);
-
-                            
-</pre>
-
-
-<h3>Get version information</h3>
-
-<p>Retrieve the version of the underlying Operating System.</p>
-
-<pre name="code" class="javascript">var version_info = Rho.System.osVersion;
-alert(version_info);
-
-                                
-</pre>
-
-
-<h3>Install / uninstall other applications</h3>
-
-<p>You can ask the system to install or uninstall a different application. This feature is useful for installing sub-applications, custom upgrades, etc.</p>
-
-<pre name="code" class="javascript">// install an application from given url
-Rho.System.applicationInstall("/bin/target/android/rhodes-app-debug.apk");
-  
-// uninstall the application
-Rho.System.applicationUninstall("rhodes-app");
-
-                                
-</pre>
-
-
-<h3>Get the local server port for debug purposes</h3>
-
-<p>If necessary, you can read the embedded HTTP server&rsquo;s port, for debugging purposes.</p>
-
-<pre name="code" class="javascript">// Get port of the local (embedded) HTTP server
-var local_port = Rho.System.localServerPort;
-alert(local_port);
-
-                                
-</pre>
-
-
-<h3>Zipping and unzipping files</h3>
-
-<p>If you ever need to build or extract zip archives, RhoMobile includes easy-to-use APIs for this task.</p>
-
-<pre name="code" class="javascript">// unzip file 
-Rho.System.unzipFile("/app/public/sample.zip");
-  
-// zip file
-Rho.System.zipFile("/app/public/zipfile.zip", "/app/public/sample.txt");
-
-                                
-</pre>
-
-
-<h3>Working with the Windows Registry</h3>
-
-<p>On devices running Windows Mobile, Windows CE, Windows Embedded Handheld and Windows Embedded CE it is possible to interact with the registry, this example shows how to do that.</p>

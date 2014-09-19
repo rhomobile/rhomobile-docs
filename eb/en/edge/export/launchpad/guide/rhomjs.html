@@ -1,0 +1,270 @@
+<div class='tableofcontents'> </div><h1>Using Rhom in JavaScript</h1>
+
+<!-- TBD - Tweak this for EB specific. Came from http://docs.rhomobile.com/en/4.1.0/guide/rhom_js -->
+
+
+<h2>Creating a JavaScript Model</h2>
+
+<p>The first step in order to use Rhom is to create a model class with the required attributes. You can create models from JavaScript using the <a href="../api/Orm#maddModel">ORM.addModel</a> method. What this method does is define a class reference for your model so it is available to the rest of your application. When your application pages load, you must execute the <code>Rho.ORM.addModel</code> function for every model that you wish to define in your application.</p>
+
+<pre name="code" class="javascript">// Models MUST be defined when your HTML pages load
+
+// You can either set a global reference 
+var userModel = Rho.ORM.addModel(function(model) {
+    model.modelName('User');
+    model.property('name','string');
+    model.property('email','string');
+    // optionally enable sync for rhoconnect applications
+    // model.enable('sync');
+    // optionally, define the model as fixed schema default is propertyBag
+    // model.enable('fixedSchema');
+});
+
+// Or just define the model without a global reference
+Rho.ORM.addModel(function(model) {
+    model.modelName('Product');
+    model.property('name','string');
+    model.property('qty','string');
+});
+</pre>
+
+<p>Once created, models can be retrieved using the <code>ORM.getModel</code> method.</p>
+
+<pre name="code" class="javascript">var productModel = Rho.ORM.getModel('Product');
+</pre>
+
+<p><strong>NOTE: It is advised that you either use the Ruby or JavaScript methods for handling model definition and access and not do this from <b>both</> languages. </strong></p>
+
+<h2>Adding new items</h2>
+
+<p>Use the <code>create</code> method to create a new model object and save it to the database.</p>
+
+<p>NOTE: This is the fastest way to insert a single item into the database.</p>
+
+<pre name="code" class="javascript">var user = userModel.create({
+            name: 'Alice', 
+            email: 'alice@example.com'});
+</pre>
+
+<p>You can also create the new model object without saving it automatically and then explicitly use the <code>save</code> method. This is useful when you want to update some of the object attributes before saving.</p>
+
+<pre name="code" class="javascript">var user = userModel.make({name: 'Alice'});
+// update the object
+user.email = 'alice@example.com';
+user.save();
+</pre>
+
+<h2>Retrieving objects</h2>
+
+<p>You can retrieve all objects for a model or only those matching given conditions using the <code>find</code> method.</p>
+
+<h3>Getting all objects for a model</h3>
+
+<pre name="code" class="javascript">var users = userModel.find('all');
+</pre>
+
+<h3>Finding objects matching conditions</h3>
+
+<pre name="code" class="javascript">var users = userModel.find(
+                'all', 
+                {
+                    conditions: {name: 'Alice'}
+                }
+            );
+</pre>
+
+<h3>Ordering the objects</h3>
+
+<p>You can retrieve objects sorted by one or more attributes using the <code>order</code> and <code>orderdir</code> parameters.</p>
+
+<pre name="code" class="javascript">// order by one attribute
+var users = userModel.find(
+                'all', 
+                {
+                    order: 'name', 
+                    orderdir: 'DESC', 
+                    conditions: {...} // JavaScript API requires conditions
+                }
+            );
+
+// order by multiple attributes
+var users = userModel.find(
+                'all', 
+                {
+                    order: ['name', 'email'], 
+                    orderdir: ['ASC', 'DESC'], 
+                    conditions: {...} // JavaScript API requires conditions
+                }
+            );
+</pre>
+
+<p>You can also sort with an user defined function.</p>
+
+<pre name="code" class="javascript">// order by one attribute
+var users = userModel.find(
+    'all',
+    {
+        orderFunction: function(a, b) { return a &lt;= b }
+    }
+); 
+
+// order by multiple attributes
+var users = userModel.find(
+    'all',
+    {
+        orderFunction: function(a, b) {
+                return a.name &lt;= b.name &amp;&amp; a.email &lt;= b.email
+            }
+    }
+);
+</pre>
+
+<p><strong>NOTE: Whenever possible, use <code>order</code> instead of <code>orderFunction</code>. The database will sort objects faster than JavaScript code.</strong></p>
+
+<h3>Retrieving specific attributes</h3>
+
+<p>If, for a particular action, you do not need every attribute in an object, you can make your application faster by selecting only the specific attributes you need using the <code>select</code> parameter.</p>
+
+<p>JavaScript syntax:</p>
+
+<pre name="code" class="javascript">var users = userModel.find(
+                'all', 
+                {
+                    select: ['name'],
+                    conditions: {...} // JavaScript API requires conditions
+                }
+            );
+</pre>
+
+<h3>Retrieving only the first object matching conditions</h3>
+
+<p>You can get only the first object matching given conditions using <code>first</code> instead of <code>all</code> when calling <code>find</code>.</p>
+
+<pre name="code" class="javascript">var user = userModel.find(
+                'first', 
+                {
+                    conditions: {name: 'Alice'}
+                }
+            );
+</pre>
+
+<h2>Counting objects</h2>
+
+<p>You can get the number of objects matching given conditions using the <code>count</code> parameter with <code>find</code> method.</p>
+
+<p>JavaScript syntax:</p>
+
+<pre name="code" class="javascript">var count = userModel.find(
+                'count', 
+                {
+                    conditions: {name: 'Alice'}
+                }
+            );
+</pre>
+
+<h2>Updating</h2>
+
+<p>You can update an object’s attributes and save it to the database using the <code>updateAttributes</code> method</p>
+
+<p>NOTE: This is the fastest way to add or update item attributes.</p>
+
+<p>JavaScript syntax:</p>
+
+<pre name="code" class="javascript">var user = userModel.find('first', {conditions: {name: 'Alice'});
+user.updateAttributes({
+        name: 'Bob', 
+        email: 'bob@example.com'});
+</pre>
+
+<h2>Deleting</h2>
+
+<h3>Deleting one object</h3>
+
+<p>To delete one model object use the <code>destroy</code> method on the object to be deleted.</p>
+
+<p>JavaScript syntax:</p>
+
+<pre name="code" class="javascript">var user = userModel.find('first');
+user.destroy();
+</pre>
+
+<h3>Delete multiple objects</h3>
+
+<p>To delete all objects for a model, or only those matching given conditions, use the <code>deleteAll</code> method.</p>
+
+<p>JavaScript syntax:</p>
+
+<pre name="code" class="javascript">// delete all objects
+userModel.deleteAll();
+
+// delete only objects matching :conditions
+userModel.deleteAll({conditions: {name: 'Alice'}})
+</pre>
+
+<h2>Transactions</h2>
+
+<p>Use transactions to group together database operations that must either succeed or fail as a group, without leaving any partially completed operations. You can combine any set of object/model operations like insert/update/delete under a transaction.</p>
+
+<pre name="code" class="javascript">// open 'app' partition
+var db = new Rho.Database(Rho.Application.databaseFilePath('app'),'app');
+db.startTransaction();
+try
+{
+    // do multiple operations
+    db.executeSql("update User set name=?, email=? where object=?",["Alice","alice@example.com","12345"]);
+    db.executeSql("update User set name=?, email=? where object=?",["Bob","bob@example.com","67890"]);
+
+    // no errors, so commit all the changes
+    db.commitTransaction();
+}
+catch
+{
+    // on error rollback all changes
+    db.rollbackTransaction();
+}
+finally // always close every database connection you open
+{
+    db.close();
+}
+</pre>
+
+<h2>Executing SQL</h2>
+
+<p>You can execute SQL statements directly on the database by using <code>Database.executeSql</code> method.</p>
+
+<p>JavaScript syntax:</p>
+
+<pre name="code" class="javascript">try {
+
+
+var db = new Rho.Database(Rho.Application.databaseFilePath('app'),'app');
+var result = db.executeSql('SELECT * FROM User');  // result is an array of hashes, where each hash is a record
+} finally {
+    db.close();
+}
+</pre>
+
+<p>You can execute a series of SQL statements in a single method call by using <code>Database.executeBatchSql</code> method.</p>
+
+<pre name="code" class="javascript">db.executeBatchSql("UPDATE User set valid=0; Update Account set active=0");
+</pre>
+
+<h2>Resetting database</h2>
+
+<p>You can use the following method for recovering the database from a bad or corrupt state or if the RhoConnect server returns errors.</p>
+
+<h3>Delete all objects for given models.</h3>
+
+<p>JavaScript syntax:</p>
+
+<pre name="code" class="javascript">Rho.ORM.databaseFullResetEx({'models': ['User'], 'reset_client_info': true, 'reset_local_models': true});
+</pre>
+
+<h2>Related reading</h2>
+
+<ul>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2406">Database API reference</a></li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2439">ORM API reference</a></li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2430">ORMModel API reference</a></li>
+</ul>
+

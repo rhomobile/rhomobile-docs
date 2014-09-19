@@ -419,7 +419,7 @@ Synchronous Return:
 Run an application.
 
 ####Parameters
-<ul><li>appName : <span class='text-info'>STRING</span><p>The name of the application on the device to run.  </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Start parameters string. Executed Application can receive this string by getStartParams method. Parameter could be just value, or key-value pair separated by '=' sign. Please note that for each platform there are distinct ways to write several params at once. On Android parameters should be separated by "&", on other platforms by ',' or ' '. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Not Implemented. False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>appName : <span class='text-info'>STRING</span><p>The name of the application on the device to run.  </p></li><li>params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Start parameters string. Executed Application can receive this string by getStartParams method. Parameter could be just value, or key-value pair separated by '=' sign. Please note that for each platform there are distinct ways to write several params at once. On Android parameters should be separated by an amperstand, on other platforms by a comma or a space. </p></li><li>blockingCall : <span class='text-info'>BOOLEAN</span> <span class='label label-info'>Optional</span><p>Not Implemented. False by default.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:

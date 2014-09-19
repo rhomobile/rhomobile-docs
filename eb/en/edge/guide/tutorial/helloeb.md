@@ -146,7 +146,7 @@ To make your Enterprise Browser app start on this page, change your config.xml t
 ### Start the App
 The barcode I am using to test this is this one:
 
-<a href="http://www.barcodesinc.com/generator/"><img src="http://www.barcodesinc.com/generator/image.php?code=EB.Barcode Test&style=197&type=C128B&width=200&height=50&xres=1&font=3" alt="the barcode printer: free barcode generator" border="0"></a>
+<a href="http://www.barcodesinc.com/generator/"><img src="http://tinyurl.com/jwtv74x" alt="the barcode printer: free barcode generator" border="0"></a>
 
 Here is what we will see after starting the app and going through the initial splash screen(s).
 
