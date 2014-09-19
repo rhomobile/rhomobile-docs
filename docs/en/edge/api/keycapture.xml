@@ -423,8 +423,8 @@ Tab           0x09    Advance to next control       Advance to next control</DES
                 <DESC_EB>If a key is remapped to itself then the app will appear to hang because if that key is pressed it will generate another press of the same key, and so on forever. The same will happen if for instance key 1 is remapped to key 2, which in turn is remapped to key 1.</DESC_EB>
             </REMARK>
 
-            <REMARK title="Special characters">
-                <DESC>On some devices certain keys containing special characters trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, ", (, ), !, :, ?, #, _, @.</DESC>
+            <REMARK title="Symbol Keys">
+                <DESC>On some devices certain keys containing special characters, these keys are known as symbol keys and they trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, ", (, ), !, :, ?, #, _, @. Capturing symbol key input via the SIP is not possible on CE7 as all symbol keys return the same value; there is no such limitation on the physical keys representing the special characters.</DESC>
             </REMARK>
 
             <REMARK title="Device Specific Exceptions">
