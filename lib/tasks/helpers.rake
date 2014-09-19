@@ -249,7 +249,7 @@ def lp_delete_docs
     apiFiles.each do |fileName|
       basename = fileName.gsub(AppConfig['launchpad_eb'],'')
         print "."
-        Launchpad.delete_doc(fileName,url_map,"uat")
+        Launchpad.delete_doc(fileName,url_map,ENV['server'])
       
     end
   else
