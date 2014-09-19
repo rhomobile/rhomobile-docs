@@ -29,7 +29,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 		            </General>
 
 	     
-2. Switch backwards compatibility on.The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.
+2. Switch backwards compatibility on. The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.
 
 		:::xml
 		<Configuration>
