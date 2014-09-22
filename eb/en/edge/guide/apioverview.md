@@ -15,7 +15,7 @@ After installing Enterprise Browser, there will be a folder `JavaScriptFiles` fo
 	* rhoapi-modules.js - used for supporting RhoMobile applications. See the [RhoMobile Migration guide](../guide/rhomobile)
 
 ### Using JS APIs From Your Web App
-When you are running your web pages from a web server, the Enterprise Browser is essentially acting as a browser. In order to use the Enterprise Browser API’s you will need to copy the ebapi-modules.js to your web server in a location where you will be able to access it and link it appropriately in your web server’s web pages. Typically you will copy this file to your web application's js folder where you may be including other JavaScript libraries that are being used. 
+When you are running your web pages from a web server, the Enterprise Browser is essentially acting as a browser. In order to use the Enterprise Browser API's you will need to copy the ebapi-modules.js to your web server in a location where you will be able to access it and link it appropriately in your web server’s web pages. Typically you will copy this file to your web application's js folder where you may be including other JavaScript libraries that are being used. 
 
 ### Using JS APIs From Local Pages
 To use the JS APIs on your device using local web pages, you'll need to copy the JS API files you'll be using, to your device in a location you'll be able to access them from your local app pages.

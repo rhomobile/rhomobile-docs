@@ -60,21 +60,14 @@ Now change the startPage in your config.xml to:
 	<StartPage value="file:///index.html" name="Menu"/>
 
 ### Start Your Enterprise Browser App
-<table>
-	<tr>
-		<td>Now start your Enterprise Browser app and you should see something like this:</td>
-		<td>
-			<p>
-			And when you click on the link (assuming you have an active<br>
-			internet connection), you'll be navigated to Google's homepage.
-			</p>
-		</td>
-	</tr>
-	<tr>
-		<td><img src="images/getting-started/helloeb/helloeb-first-app-index.png"></td>
-		<td><img src="images/getting-started/helloeb/helloeb-first-app-google.png"></td>
-	</tr>
-</table>
+
+1) Now start your Enterprise Browser app and you should see something like this:
+
+![img](images/getting-started/helloeb/helloeb-first-app-index.png)
+
+2) And when you click on the link (assuming you have an active internet connection), you'll be navigated to Google's homepage.
+
+![img](images/getting-started/helloeb/helloeb-first-app-google.png)
 
 But we don't want to just link to some other page, we want to use some of the APIs at our disposal! Let's make an app that uses the Barcode API to scan an barcode and displays the barcode we scanned on the screen.
 
@@ -150,10 +143,10 @@ The barcode I am using to test this is this one:
 
 Here is what we will see after starting the app and going through the initial splash screen(s).
 
-<img style="width:500px;" src="images/getting-started/helloeb/helloeb-app-start-page.png">
+![img](images/getting-started/helloeb/helloeb-app-start-page.png)
 
 And here is the app after scanning a barcode.
 
-<img style="width:500px;" src="images/getting-started/helloeb/helloeb-app-barcode-scanned.png">
+![img](images/getting-started/helloeb/helloeb-app-barcode-scanned.png)
 
 You can also opt to add only the APIs that you plan on using if you want to minimize the amount of device storage you use. We discuss strategies like this in the [Optimization](#guide-optimization) guide.

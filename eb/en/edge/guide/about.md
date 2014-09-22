@@ -45,7 +45,7 @@ Enterprise Browser is a powerful, next generation industrial browser enabling de
 Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices/operating systems, providing highly cost effective support for a mixed-OS environment.
 
 ###Protect the business from OS market uncertainty
-Devices and platforms can continue to churn without impacting your business — these OS-agnostic applications work on the Motorola Solutions platforms of yesterday (MPA2), today and tomorrow.
+Devices and platforms can continue to churn without impacting your business - these OS-agnostic applications work on the Motorola Solutions platforms of yesterday (MPA2), today and tomorrow.
 
 ###Reduce end-user training costs
 Enterprise Browser app development is incredibly intuitive for developers skilled in HTML5, CSS and JavaScript.
@@ -59,22 +59,23 @@ Without OS constraints to impact app design, a graphical user interface can be c
 ###Faster time to market
 A simplified application development approach allows for shorter time to market than ever before.
 
-### Compatibility
+## Compatibility
 
-* Windows Embedded Compact / Windows Embedded Handheld
-	* Internet Explorer Rendering Engine
-		* All devices previously supported by PocketBrowser v 3.1
-		* No HTML5 Support
-		* EMML 1.1/1.0
-	* Symbol Webkit Engine
-		* MPA2 Devices and Above
-		* HTML5 Support
-		* EMML 1.1/1.0
-		* RhoElements 2.x & 4.x
-* Android
-	* Stock Android Webkit Engine
-	* Symbol Android Devices
+### Windows Embedded Compact / Windows Embedded Handheld
+* Internet Explorer Rendering Engine
+	* All devices previously supported by PocketBrowser v 3.1
+	* No HTML5 Support
+	* EMML 1.1/1.0
+* Symbol Webkit Engine
+	* MPA2 Devices and Above
 	* HTML5 Support
 	* EMML 1.1/1.0
 	* RhoElements 2.x & 4.x
+
+###Android
+* Stock Android Webkit Engine
+* Symbol Android Devices
+* HTML5 Support
+* EMML 1.1/1.0
+* RhoElements 2.x & 4.x
 
