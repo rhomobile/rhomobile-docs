@@ -59,22 +59,23 @@ Without OS constraints to impact app design, a graphical user interface can be c
 ###Faster time to market
 A simplified application development approach allows for shorter time to market than ever before.
 
-### Compatibility
+## Compatibility
 
-* Windows Embedded Compact / Windows Embedded Handheld
-	* Internet Explorer Rendering Engine
-		* All devices previously supported by PocketBrowser v 3.1
-		* No HTML5 Support
-		* EMML 1.1/1.0
-	* Symbol Webkit Engine
-		* MPA2 Devices and Above
-		* HTML5 Support
-		* EMML 1.1/1.0
-		* RhoElements 2.x & 4.x
-* Android
-	* Stock Android Webkit Engine
-	* Symbol Android Devices
+### Windows Embedded Compact / Windows Embedded Handheld
+* Internet Explorer Rendering Engine
+	* All devices previously supported by PocketBrowser v 3.1
+	* No HTML5 Support
+	* EMML 1.1/1.0
+* Symbol Webkit Engine
+	* MPA2 Devices and Above
 	* HTML5 Support
 	* EMML 1.1/1.0
 	* RhoElements 2.x & 4.x
+
+###Android
+* Stock Android Webkit Engine
+* Symbol Android Devices
+* HTML5 Support
+* EMML 1.1/1.0
+* RhoElements 2.x & 4.x
 
