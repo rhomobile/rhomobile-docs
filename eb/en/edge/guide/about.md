@@ -45,7 +45,7 @@ Enterprise Browser is a powerful, next generation industrial browser enabling de
 Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices/operating systems, providing highly cost effective support for a mixed-OS environment.
 
 ###Protect the business from OS market uncertainty
-Devices and platforms can continue to churn without impacting your business — these OS-agnostic applications work on the Motorola Solutions platforms of yesterday (MPA2), today and tomorrow.
+Devices and platforms can continue to churn without impacting your business - these OS-agnostic applications work on the Motorola Solutions platforms of yesterday (MPA2), today and tomorrow.
 
 ###Reduce end-user training costs
 Enterprise Browser app development is incredibly intuitive for developers skilled in HTML5, CSS and JavaScript.
