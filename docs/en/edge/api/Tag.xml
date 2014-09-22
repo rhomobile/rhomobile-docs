@@ -167,7 +167,7 @@ The ebapi.js file is necessary for all single API inclusions.
       </METHOD>
 
       <METHOD name="exchangeData">
-        <DESC>This function exchanges raw data with Tag</DESC>
+        <DESC>This function exchanges raw data with Tag. Tag shouldn't be NDEF formated. Only Milfare and Ti tags are supported. When sendData is empty then method reads data from Tag and write into receiveData parameter.</DESC>
         <PARAMS>
           <PARAM name="sendData" type="STRING">
             <DESC></DESC>
