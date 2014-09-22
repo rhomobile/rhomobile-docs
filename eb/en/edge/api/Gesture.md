@@ -1,5 +1,5 @@
-#Gesture
-> Note This feature is not supported on Windows CE. When [debug buttons](../guide/configreference?DebugButtons) are activated in [Config.xml](../guide/configreference), Gestures will not function as expected.
+# Gesture
+> Note: This feature is not supported on Windows CE if [debug buttons](../guide/configreference?DebugButtons) are enabled in the [Config.xml](../guide/configreference).
 
 ## Overview
 Enterprise Browser is capable of capturing gestures from the touch screen if the appropriate hardware is installed. You can define multiple gestures on the same page but to avoid performance issues it is recommended you do not create more than 5 per page. 
@@ -10,7 +10,7 @@ There are three types of screen gesture:
 * Circle – detects full or partial circular movements on the screen 
 * Hold – detects when the screen is touched and held 
 
-###Linear Gesture
+### Linear Gesture
 A linear gesture is defined by its Start and End points, and values called Tolerance, Sensitivity, Skew and Deviation. Start, End and Tolerance (all expressed in pixels) define a rectangle which is the active gesture area; this area is divided into smaller rectangles. The region-width parameter specifies the width of the rectangles. 
 
 ![img](images/gestures/linear1.gif)
@@ -23,7 +23,7 @@ Enterprise Browser then calculates the difference between the tracked line and t
 
 ![img](images/gestures/linear2.gif)
 
-###Circle Gesture
+### Circle Gesture
 Circle gestures operate in a similar way to linear gestures but cover the gesture region with circles instead of rectangles: 
 
 The Start and End angles (in degrees) specify the start and end of the gesture region, measuring clockwise from the 3 o’clock position. The example above uses a Start of 0° and an End of 180°. The End angle can be less than the Start, in which case the gesture must be performed in an anti-clockwise direction. Angles greater than 360° are supported. 
@@ -34,7 +34,7 @@ Detection of the gesture from the mouse point track is done in a similar way to 
 
 ![img](images/gestures/circle.gif)
 
-###Hold Gesture
+### Hold Gesture
 Hold gestures implement the press-and-hold functionality. The circular gesture region is defined by the Center point and the Radius (in pixels). There are also Delay and Interval parameters (in milliseconds). 
 
 The gesture is detected if the stylus is held down within the region for 'Delay' milliseconds. The gesture is further detected every Interval milliseconds thereafter as long as the stylus remains held down within the region. When the stylus is raised or moved out of the region the gesture is detected a final time. 
@@ -43,12 +43,12 @@ If the Interval is set to zero only the initial gesture will be detected.
 
 ![img](images/gestures/hold.gif)
 
-###Tilt Gesture
+### Tilt Gesture
 Tilt gestures detect if the device is placed in the specified angular positions according to the horizontal plane. The user can specify the angle for each axis X, Y and Z or can select some predefined values like face-up etc.
 
 The tilt tolerance parameter can be used to specify the tolerance level for the specified angles and the hysteresis parameter can be used to avoid detecting the same gesture continuously.
 
-###Shake Gesture
+### Shake Gesture
 Shake gestures detect if the device is shaken as per the specified threshold values. This can detect the shake in all the three axis X, Y and Z.
 
 The threshold parameter can be used to define the shake intensity and the quiet parameter can be used to avoid detecting the same gesture continuously.
@@ -70,39 +70,38 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 	:::javascript
 	gesture.create();
 
-##Events
+## Events
 To handle events, you assign a string value to the event name that represents a function name or javascript statement to execute.
 
 ### detected 
 This event will be triggered each time an gesture event is detected for created active gestures. 
 
-####Callback Parameters
+#### Callback Parameters
 
 * id - The ID string of the detected gesture.
 * count - The number of times a hold gesture has been detected for a single press of the screen. Returns zero when the screen touch stops. Only applies to hold gestures.
 
 
-####Usage  
+#### Usage  
 	:::javascript
 	gesture.type = 'Shake';
 	gesture.id = "Device_Shake"
-  	gesture.detected = url('JavaScript:handleGesture('%json');');
-  	gesture.create();
+		gesture.detected = url('JavaScript:handleGesture('%json');');
+		gesture.create();
 	
 	function handleGesture(params){
 		alert('Received the following gesture' + params['id']);
 	}
 
 
-##Methods
-
+## Methods
 ### create()
 Creates the previously defined gesture. Properties must be set prior to calling this method.Make sure to specify the detected callback handler function as well as the required properties per the type of gesture being defined.
 
-####Returns
+#### Returns
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
@@ -110,21 +109,20 @@ Creates the previously defined gesture. Properties must be set prior to calling 
 ### delete()
 Deletes the gesture last defined by the ID property.
 
-####Returns
+#### Returns
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-##Properties
+## Properties
+### type
+#### Type
+<span class='text-info'>STRING</span>
 
-###type
-
-####Type
-<span class='text-info'>STRING</span> 
-####Description
+#### Description
 Specifies the type of gesture being created. Must be the first tag when creating a gesture.
 
 #### Possible Values
@@ -135,36 +133,36 @@ Specifies the type of gesture being created. Must be the first tag when creating
 * Tilt
 * Shake
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
 > Tilt and Shake are only available om devices that have an accelerometer.
 
-###id
-####Type
+### id
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
+#### Description
 ID used to identify gesture when detected.	
 
-####Default Value
+#### Default Value
 Depends on gesture type and preset used, if any. See remarks.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###preset
-####Type
+### preset
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
+#### Description
 The ‘preset’ tag is used to specify one of the preset values below. When a gesture definition is started using the ‘type’ tag its parameters are initially set to the preset shown as default. When a preset is specified for a gesture, including when it is first created, its ID is set to [gesture name]–[default preset name]. E.g. a new linear gesture will have the ID ‘linear-left-right’. This can be replaced (as can any preset value) by a subsequent parameter tag.
 
-####Possible Values
+#### Possible Values
 Dependant on the Gesture Type, the following present names are available
 * Linear
 	***left-right**
@@ -186,442 +184,450 @@ Dependant on the Gesture Type, the following present names are available
 * Shake
 	* **normal**
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###diagnostics
-####Type
+### diagnostics
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
+#### Description
 Enables drawing of diagnostic information to provide guidance showing whether or not the gesture will be detected. Note that by their very nature Diagnostics are not designed to be seen by the user.
 
-
-####Possible Values
+#### Possible Values
 * TRUE
 * FALSE
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###startX
-####Type
+### startX
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
+#### Description
 Linear Gestures: Starting point of gesture.
 
-####Possible Values
+#### Possible Values
 * 0 to 10000
 
-####Default Value
+#### Default Value
 * 10% of screen width.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###startY
-####Type
+### startY
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
+#### Description
 Linear Gestures: Starting point of gesture.
 
-####Possible Values
+#### Possible Values
 * 0 to 10000
 
-####Default Value
+#### Default Value
 * 50% of screen height.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###endX
-####Type
+### endX
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
+#### Description
 Linear Gestures: End point of gesture.
 
-####Possible Values
+#### Possible Values
 * 0 to 10000
 
 #### Default Values
 * 90% of screen width.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###endY
-####Type
+### endY
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Linear Gestures: End point of gesture.	
-####Possible Values
+#### Description
+Linear Gestures: End point of gesture.
+#### Possible Values
 * 0 to 10000
 
 #### Default Values
 * 50% of screen height.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###skew
-####Type
+### skew
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
+#### Description
 Linear Gestures: Maximum angle which straight line through mouse track can make to the gesture path.
 
-####Possible Values
+#### Possible Values
 * 0 to 90
 
 #### Default Values
 * 20.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###deviation
-####Type
+### deviation
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Linear Gestures: Maximum deviation of mouse track from a straight line.	
-####Possible Values
+#### Description
+Linear Gestures: Maximum deviation of mouse track from a straight line.
+#### Possible Values
 * 0 to 100
 
 #### Default Values
 * 20
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###regionWidth
-####Type
+### regionWidth
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Linear Gestures: Width of regions into which gesture path is divided. Setting very small (e.g. 1) or large (e.g. equal to the gesture line length) values is allowed but may lead to unexpected results.	
+#### Description
+Linear Gestures: Width of regions into which gesture path is divided. Setting very small (e.g. 1) or large (e.g. equal to the gesture line length) values is allowed but may lead to unexpected results.
 
-####Possible Values
+#### Possible Values
 * 10% of screen width.
 
 #### Default Values
 50% of screen height.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###centerX
-####Type
+### centerX
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Circle & Hold Gestures: Center of gesture.	
-####Possible Values
+#### Description
+Circle & Hold Gestures: Center of gesture.
+#### Possible Values
 * -10000 to 10000
 
 #### Default Values
 Center of screen.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-
-###centerY
-####Type
+### centerY
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Circle & Hold Gestures: Center of gesture.	
-####Possible Values
+#### Description
+Circle & Hold Gestures: Center of gesture.
+#### Possible Values
 * -10000 to 10000
 
 #### Default Values
 Center of screen.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###radius
-####Type
+### radius
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Circle & Hold Gestures: Radius (in pixels) of gesture.	
+#### Description
+Circle & Hold Gestures: Radius (in pixels) of gesture.
 
-####Possible Values
+#### Possible Values
 * 1 to 10000
 
 #### Default Values
 33% of screen width or height, whichever is smaller.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###start
-####Type
+### start
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Circle Gestures: Starting angle of gesture in degrees. Angles are measured clockwise from 3 o'clock position.	
-####Possible Values
+#### Description
+Circle Gestures: Starting angle of gesture in degrees. Angles are measured clockwise from 3 o'clock position.
+
+#### Possible Values
 * 0 to 10000
 
 #### Default Values
 0
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###end
-####Type
+### end
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Circle Gestures: Ending angle of gesture in degrees. Angles are measured clockwise from 3 o'clock position.	
-####Possible Values
+#### Description
+Circle Gestures: Ending angle of gesture in degrees. Angles are measured clockwise from 3 o'clock position.
+
+#### Possible Values
 * 0 to 10000
 
 #### Default Values
 180
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###tolerance
-####Type
+### tolerance
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Linear & Circle Gestures: How far (in pixels) the mouse track can vary from the gesture path.	
-####Possible Values
+#### Description
+Linear & Circle Gestures: How far (in pixels) the mouse track can vary from the gesture path.
+
+#### Possible Values
 * 0 to 10000
 
 #### Default Values
 * Linear: 25% of screen height. 
 * Circle: 16% of screen width.
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###sensitivity
-####Type
+### sensitivity
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Linear & Circle Gestures: Percentage of gesture path which mouse track must cover. Rounds down if this results in a non-whole number of regions.	
-####Possible Values
+#### Description
+Linear & Circle Gestures: Percentage of gesture path which mouse track must cover. Rounds down if this results in a non-whole number of regions.
+
+#### Possible Values
 * 0 to 100
 
 #### Default Values
 50
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###delay
-####Type
+### delay
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Hold Gestures: Time (in milliseconds) that screen must be touched within gesture before first detected.	
-####Possible Values
+#### Description
+Hold Gestures: Time (in milliseconds) that screen must be touched within gesture before first detected.
+
+#### Possible Values
 * >=0
 
 #### Default Values
 1000
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###interval
-####Type
+### interval
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Hold Gestures: Time (in milliseconds) between subsequent detections while screen continues to be touched. Zero means no further detections. This parameter is ignored if the detection event is not set to navigate to a new page.	
-####Possible Values
-* >=0	
+#### Description
+Hold Gestures: Time (in milliseconds) between subsequent detections while screen continues to be touched. Zero means no further detections. This parameter is ignored if the detection event is not set to navigate to a new page.
+
+#### Possible Values
+* >=0
 
 #### Default Values
 0
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###TargetX
-####Type
+### TargetX
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Tilt Gestures: Target orientation of device on X-axis	
-####Possible Values
+#### Description
+Tilt Gestures: Target orientation of device on X-axis.
+
+#### Possible Values
 * -90 to 90
 
 #### Default Values
 0
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###TargetY
-####Type
+### TargetY
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Tilt Gestures: Target orientation of device on Y-axiS.
-####Possible Values
+#### Description
+Tilt Gestures: Target orientation of device on Y-axis.
+
+#### Possible Values
 * -90 to 90
 
 #### Default Values
 0
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-
-###TargetZ
-####Type
+### TargetZ
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Tilt Gestures: Target orientation of device on Z-axis
-####Possible Values
+#### Description
+Tilt Gestures: Target orientation of device on Z-axis.
+
+#### Possible Values
 * -90 to 90
 
 #### Default Values
 90
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-
-###TiltTolerance
-####Type
+### TiltTolerance
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Tilt Gestures: How close the device must be to the target orientation.	
-####Possible Values
+#### Description
+Tilt Gestures: How close the device must be to the target orientation.
+
+#### Possible Values
 * 0 to 90
 
 #### Default Values
 10
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###Hysteresis
-####Type
+### Hysteresis
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Tilt Gestures: How far the device must move away from the target orientation before the gesture can be detected again.	
-####Possible Values
+#### Description
+Tilt Gestures: How far the device must move away from the target orientation before the gesture can be detected again.
+
+#### Possible Values
 * 0 to 90
 
 #### Default Values
 10
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###Threshold
-####Type
+### Threshold
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Shake Gestures: How vigorously the device must be shaken. The smaller the value the more vigorous.	
-####Possible Values
+#### Description
+Shake Gestures: How vigorously the device must be shaken. The smaller the value the more vigorous.
+
+#### Possible Values
 * 0 to 1000
 
 #### Default Values
 500
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-###Quiet
-####Type
+### Quiet
+#### Type
 <span class='text-info'>STRING</span> 
 
-####Description
-Shake Gestures: Time (in milliseconds) that the device must be still before another shake gesture can be detected.	
-####Possible Values
+#### Description
+Shake Gestures: Time (in milliseconds) that the device must be still before another shake gesture can be detected.
+
+#### Possible Values
 * >=0	
 
 #### Default Values
 1000
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 
-
 ## Remarks
-###Maximum Gesture Size
+### Maximum Gesture Size
 There is no formal maximum size for a gesture, for example a circle gesture could require the user to move several times round the circle. However if the user draws such a gesture very slowly it’s possible that too many stylus move points could be generated, and the gesture wouldn’t be detected. The Gesture API has been tested with a circle gesture from 0 to 720 degrees and taking approximately 6 seconds to draw without problem.
 
-###Finger Scrolling
+### Finger Scrolling
 Gestures are not compatible with when the rendering engine has finger scrolling capabilities enabled.
 
-###Common Pitfalls
+### Common Pitfalls
 Do not use alert boxes within the Gesture-Detected Callback, doing so will steal focus from the gesture region.
 
-###Out-of-range Values
+### Out-of-range Values
 Any parameter values out of the allowed range will be limited to the nearest allowed value. E.g. giving a sensitivity greater than 100 will use 100. Numeric parameters given as text will be treated as zero.
 
-###Diagnostics
+### Diagnostics
 Note that diagnostics exist only for the purpose of understanding and evaluating the various parameters. They should not be enabled in the release version of the code. They may also not display correctly in every circumstance, e.g. when scrolling, or for certain sets of parameters, e.g. for nearly vertical linear gestures. Diagnostics are not available for Tilt and Shake gestures.
