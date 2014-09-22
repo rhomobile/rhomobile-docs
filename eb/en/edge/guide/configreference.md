@@ -101,7 +101,6 @@ The following is an example of a typical configuration file
 					<Preloads>
 						<PreloadLegacyGeneric value="1"/>
 						<PreloadLegacyODAX value="1"/>
-						<PreloadLegacyNoSIP value="1"/>
 						<PreloadLegacyAirBeam value="1"/>
 						<PreloadLegacyAPD value="1"/>
 						<PreloadJSObjects value="1"/>
@@ -734,8 +733,10 @@ Whether or not to preload the NPAPI plugin to mimic the ODAX ActiveX object in W
 	:::xml
 	<PreloadLegacyODAX value="1"/>
 
-### Preloads \\ PreloadLegacyNoSIP
+<!-- ### Preloads \\ PreloadLegacyNoSIP
 Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in WebKit.
+
+> Note: We recommend using the [Sip API](../api-Sip?Disabling%20the%20SIP) instead of this NOSIP setting.
 
 **Possible Values**
 
@@ -745,6 +746,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 #### Example
 	:::xml
 	<PreloadLegacyNoSIP value="1"/>
+ -->
 
 ### Preloads \\ PreloadLegacyAirBeam
 Not applicable to the Enterprise Tablet:
