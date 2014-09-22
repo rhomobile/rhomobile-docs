@@ -1975,6 +1975,28 @@ When the aimType:continuousRead property is applied this value defines the inter
 * Windows Mobile
 * Symbol Devices Only(Scanners on Zebra Technologies' devices)
 
+###disableScannerDuringNavigate
+
+####Type
+<span class='text-info'>BOOLEAN</span> 
+####Description
+By default if you have enabled the Scanner on a page, through either JavaScript or Ruby and navigate to a new page the Scanner will automatically disable. To override this behavior you can set this option to false and once enabled the Scanner will remain so in the foreground application until you disable it.
+####Params
+<p><strong>Default:</strong> true</p>
+####Access
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.disableScannerDuringNavigate</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Barcode.disableScannerDuringNavigate</code> 
+
+
+
+####Platforms
+
+* Windows Mobile
+* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+
 ###disconnectBtOnDisable
 
 ####Type

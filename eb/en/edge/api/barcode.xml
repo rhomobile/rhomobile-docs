@@ -467,12 +467,12 @@ The ebapi.js file is necessary for all single API inclusions.
                 <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>Only applies to an enabled laser or imaging scanner. Disconnecting the trigger will prevent the scan beam from being emitted, this can temporarily prevent a user from scanning without having to disable the scanner, which can take longer. By default the trigger will be connected when the scanner is first enabled, you do not have to connect it separately. Please note that disconnecting the trigger will also prevent the start method from emitting a laser. This property will only affect the scanner and will have no effect on the 'captureTrigger' API.</DESC>
             </PROPERTY>
-            <!--PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" generateAccessors="true" default="true">
+            <PROPERTY name="disableScannerDuringNavigate" type="BOOLEAN" generateAccessors="true" default="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Zebra Technologies' devices</APPLIES>
                 <DESC>By default if you have enabled the Scanner on a page, through either JavaScript or Ruby and navigate to a new page the Scanner will automatically disable. To override this behavior you can set this option to false and once enabled the Scanner will remain so in the foreground application until you disable it.</DESC>
-            </PROPERTY-->
+            </PROPERTY>
             <PROPERTY name="decodeVolume" type="INTEGER" generateAccessors="true" default="5">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
