@@ -2,13 +2,31 @@
 > Note: This feature is not supported on Windows CE if [debug buttons](../guide/configreference?DebugButtons) are enabled in the [Config.xml](../guide/configreference).
 
 ## Overview
-Enterprise Browser is capable of capturing gestures from the touch screen if the appropriate hardware is installed. You can define multiple gestures on the same page but to avoid performance issues it is recommended you do not create more than 5 per page. 
+The Enterprise Browser is capable of capturing gestures from the touch screen if the appropriate hardware is installed. You can define multiple gestures on the same page but to avoid performance issues it is recommended you do not create more than 5 per page. 
 
 There are three types of screen gesture: 
 
 * Linear – detects straight line movements on the screen 
 * Circle – detects full or partial circular movements on the screen 
 * Hold – detects when the screen is touched and held 
+
+## Enabling the API
+In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+
+* elements.js 
+
+> Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
+
+	:::html
+    <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
+
+
+### API Usage
+This API does not use the `EB` namespace. It is simply referenced using the API name:
+
+	:::javascript
+	gesture.create();
+
 
 ### Linear Gesture
 A linear gesture is defined by its Start and End points, and values called Tolerance, Sensitivity, Skew and Deviation. Start, End and Tolerance (all expressed in pixels) define a rectangle which is the active gesture area; this area is divided into smaller rectangles. The region-width parameter specifies the width of the rectangles. 
@@ -44,31 +62,18 @@ If the Interval is set to zero only the initial gesture will be detected.
 ![img](images/gestures/hold.gif)
 
 ### Tilt Gesture
+> Note: On Windows platforms, this gesture is supported for use on MPA3 devices only.
+
 Tilt gestures detect if the device is placed in the specified angular positions according to the horizontal plane. The user can specify the angle for each axis X, Y and Z or can select some predefined values like face-up etc.
 
 The tilt tolerance parameter can be used to specify the tolerance level for the specified angles and the hysteresis parameter can be used to avoid detecting the same gesture continuously.
 
 ### Shake Gesture
+> Note: On Windows platforms, this gesture is supported for use on MPA3 devices only.
+
 Shake gestures detect if the device is shaken as per the specified threshold values. This can detect the shake in all the three axis X, Y and Z.
 
 The threshold parameter can be used to define the shake intensity and the quiet parameter can be used to avoid detecting the same gesture continuously.
-
-## Enabling the API
-In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
-
-* elements.js 
-
-> Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
-
-	:::html
-    <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
-
-
-### API Usage
-This API does not use the `EB` namespace. It is simply referenced using the API name:
-
-	:::javascript
-	gesture.create();
 
 ## Events
 To handle events, you assign a string value to the event name that represents a function name or javascript statement to execute.
