@@ -32,7 +32,7 @@ In Pocketbrowser and RhoElements 2.x, you could easily access functionality thro
 Enterprise Browser supports the use of these Meta Tags without any changes to your code on Windows Mobile/CE and Android
 
 ## Android
-Since you have chosen Android to run a RhoElements 2.x shared runtime application, you should expect some differences with regard to rendering as the Shared Runtime makes use of Zebra Technologies Webkit, and Enterprise Browser uses the Android stock webkit.
+Since you have chosen Android to run a RhoElements 2.x shared runtime application, you should expect some differences with regard to rendering as the Shared Runtime makes use of Symbol Technologies Webkit, and Enterprise Browser uses the Android stock webkit.
 
 ### JavaScript APIs
 In RhoElements 2.x there was the ability to access functionality through the use of Javascript like:

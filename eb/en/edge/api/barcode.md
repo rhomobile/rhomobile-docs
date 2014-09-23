@@ -2,7 +2,7 @@
 
 
 ## Overview
-The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Zebra Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
+The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
         
 ## Enabling the API
 There are two methods of enabling the Barcode API: 
@@ -451,7 +451,7 @@ Synchronous Return:
 
 
 ### take(<span class="text-info">HASH</span> propertyMap)
-Enable the scanner and start capturing the barcode automatically. On Zebra Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.
+Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Not providing properties to this function will use the scanner's default properties, or those previously set on the Scanner instance.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -500,7 +500,7 @@ Enables or disables adaptive scanning. When set to true, the scan engine will au
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)
 
 ###aimMode
 
@@ -528,7 +528,7 @@ Defines the aiming mode to use.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###aimType
 
@@ -558,7 +558,7 @@ Describes the type of aiming to use.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###allDecoders
 
@@ -579,7 +579,7 @@ When set to true, the barcode scanner will read all barcode types that the scann
 
 * Android
 * Windows Mobile
-* Windows CE(Scanners on Zebra Technologies' devices)
+* Windows CE(Scanners on Symbol Technologies' devices)
 
 ###ausPostal
 
@@ -623,7 +623,7 @@ When true, automatically appends the character code for 'enter' to the end of an
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###autoTab
 
@@ -645,7 +645,7 @@ When true, automatically appends the tab character to the end of any barcodes sc
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###aztec
 
@@ -693,7 +693,7 @@ Specifies the format in which the barcode data is returned, binary data is retur
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Camera / Imager Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera / Imager Scanners on Symbol Technologies' devices)
 
 ###beamWidth
 
@@ -720,7 +720,7 @@ Specifies the width of the laser beam. All devices will support normal beam widt
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)
 
 ###bidirectionalRedundancy
 
@@ -740,7 +740,7 @@ Enables or disables bidirectional redundancy.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)
 
 ###canPostal
 
@@ -1703,7 +1703,7 @@ Specifies the time, in seconds, that an external scanner will be allowed to rema
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)
 
 ###d2of5
 
@@ -1811,7 +1811,7 @@ Specifies the number of bytes allocated to receive the scanned barcode. This par
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###datamatrix
 
@@ -1859,7 +1859,7 @@ Describes the type of Digital Bar Pulse (DBP) being produced by the scan engine.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)
 
 ###decodeDuration
 
@@ -1883,7 +1883,7 @@ The duration of the device beeper when a barcode is scanned, in milliseconds.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###decodeFrequency
 
@@ -1907,7 +1907,7 @@ The frequency of the device beeper when a barcode is successfully decoded. This 
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###decodeSound
 
@@ -1929,7 +1929,7 @@ Path to a local wave file to be played when the scanner successfully decodes a b
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###decodeVolume
 
@@ -1953,7 +1953,7 @@ The volume of the device beeper when a barcode is scanned. Volume specified usin
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###differentSymbolTimeout
 
@@ -1973,7 +1973,7 @@ When the aimType:continuousRead property is applied this value defines the inter
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###disableScannerDuringNavigate
 
@@ -1995,7 +1995,7 @@ By default if you have enabled the Scanner on a page, through either JavaScript 
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###disconnectBtOnDisable
 
@@ -2015,7 +2015,7 @@ Forces the scanner to disconnect from the terminal when it is 'disabled'. Since 
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)
 
 ###displayBtAddressBarcodeOnEnable
 
@@ -2035,7 +2035,7 @@ If set to true the bluetooth address will be displayed as a barcode on the scree
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)
 
 ###dpmMode
 
@@ -2055,7 +2055,7 @@ Allows Direct Part Marking (DPM) barcodes to be read When true, but may adversel
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices. The scanning engine must support DPM barcodes.)
+* Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices. The scanning engine must support DPM barcodes.)
 
 ###dutchPostal
 
@@ -2163,7 +2163,7 @@ Configures the time (in seconds) allowed to pair with the external bluetooth sca
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)
 
 ###focusMode
 
@@ -2189,7 +2189,7 @@ Sets the focus mode in use.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)
 
 ###friendlyName
 
@@ -2211,7 +2211,7 @@ Returns the friendly name associated with the scanner.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###gs1dataBar
 
@@ -2299,7 +2299,7 @@ Controls the haptic feedback on decode. This means that if this is set to true, 
 ####Platforms
 
 * Android
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###i2of5
 
@@ -2489,7 +2489,7 @@ Selects the illumination mode to use.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)
 
 ###invalidDecodeFrequency
 
@@ -2511,7 +2511,7 @@ The frequency of the device beeper when a barcode is scanned but not successfull
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###invalidDecodeSound
 
@@ -2531,7 +2531,7 @@ Path to a local wave file to be played when a barcode is scanned but not success
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###inverse1dMode
 
@@ -2560,7 +2560,7 @@ Allows the user to select inverse 1D barcodes for decoding.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices. The scanning engine must support inverse barcodes)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices. The scanning engine must support inverse barcodes)
 
 ###japPostal
 
@@ -2602,7 +2602,7 @@ Enables or disables the Klasse Eins laser on time function.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)
 
 ###korean3of5
 
@@ -2706,7 +2706,7 @@ Controls whether LCD Mode is enabled on the scanner. LCD Mode makes it easier to
 ####Platforms
 
 * Android
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###linearSecurityLevel
 
@@ -2737,7 +2737,7 @@ Describes the linear security level used during decoding. This determines the nu
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###lowBatteryScan
 
@@ -2759,7 +2759,7 @@ Set to false to disable scanning when the battery is low / critical or set to tr
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###macroMicroPdf
 
@@ -3332,7 +3332,7 @@ Allows the imager to decode only the barcode that is directly under the cross-ha
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)
 
 ###poorQuality1dMode
 
@@ -3352,7 +3352,7 @@ Allows poor quality 1D barcodes to be read When true, but this will adversely af
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)
 
 ###qrCode
 
@@ -3394,7 +3394,7 @@ Vertical rastering height to use, as a percentage, when rasterMode:openAlways is
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)
 
 ###rasterMode
 
@@ -3422,7 +3422,7 @@ Describes the type of vertical rastering to use.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###rsmBatteryCapacity
 
@@ -3442,7 +3442,7 @@ The remaining capacity of the battery, in the range 0 to 100. 'unknown' will be 
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBatteryId
 
@@ -3462,7 +3462,7 @@ One of 'simple', 'double', 'disabled' or 'unknown'
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBatteryStatus
 
@@ -3482,7 +3482,7 @@ Indicates the status of the remote scanner's battery, will be one of 'unknown', 
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAddress
 
@@ -3502,7 +3502,7 @@ Bluetooth address as FF:FF:FF:FF:FF:FF where FF is a hex number.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAuthentication
 
@@ -3522,7 +3522,7 @@ True if authentication is required.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothAutoReconnect
 
@@ -3550,7 +3550,7 @@ Bluetooth reconnection scheme.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothBeepOnReconnectAttempt
 
@@ -3570,7 +3570,7 @@ When true, scanner will emit 5 beeps every 5 seconds whilst re-connection in pro
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothEncryption
 
@@ -3590,7 +3590,7 @@ True if encryption is required.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothFriendlyName
 
@@ -3610,7 +3610,7 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothHidAutoReconnect
 
@@ -3630,7 +3630,7 @@ Friendly Bluetooth name, e.g. 'MyBTScanner'
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothInquiryMode
 
@@ -3650,7 +3650,7 @@ To use a general inquiry mode, 'general' else, 'limited'
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothPinCode
 
@@ -3670,7 +3670,7 @@ Up to 5 character PIN code used for Bluetooth authentication.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothPinCodeType
 
@@ -3690,7 +3690,7 @@ Up to 5 character PIN code used for Bluetooth authentication.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmBluetoothReconnectionAttempts
 
@@ -3710,7 +3710,7 @@ How long the scanner tries to re-establish connection if it goes out of range, i
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDateOfManufacture
 
@@ -3730,7 +3730,7 @@ Ring scanner date of manufacture as DDMMYY.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDateOfService
 
@@ -3750,7 +3750,7 @@ Ring scanner date of service as DDMMYY.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDecodeFeedback
 
@@ -3770,7 +3770,7 @@ If true, the remote scanner beeps and illuminates its green LED on a successful 
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmDeviceClass
 
@@ -3790,7 +3790,7 @@ The device class of the ring scanner.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmFirmwareVersion
 
@@ -3810,7 +3810,7 @@ Scanner's operating system version.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmForceSavePairingBarcode
 
@@ -3830,7 +3830,7 @@ Force saving the barcode assigned to the device to which the scanner has been pa
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmGoodScansDelay
 
@@ -3850,7 +3850,7 @@ Delay between good scans in proximity continuous mode, measured in milliseconds.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmIgnoreCode128Usps
 
@@ -3870,7 +3870,7 @@ Feature for ignoring Code 128 barcodes beginning with 420 and 421.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmLowBatteryIndication
 
@@ -3890,7 +3890,7 @@ Whether or not the ring scanner should give a low battery indication.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmLowBatteryIndicationCycle
 
@@ -3910,7 +3910,7 @@ Low battery indication cycle time, in seconds. Must be one of 15, 30, 60, 90 or 
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmMems
 
@@ -3930,7 +3930,7 @@ If you press the trigger on an RSM scanner, proximity enabled will be turned off
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmModelNumber
 
@@ -3950,7 +3950,7 @@ Ring scanner model number.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmPagingBeepSequence
 
@@ -3970,7 +3970,7 @@ Range 0 to 15 to specify the pattern for the paging beep sequence.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmPagingEnable
 
@@ -3990,7 +3990,7 @@ Specify whether paging the device is enabled.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmProximityContinuous
 
@@ -4010,7 +4010,7 @@ Proximity continuous mode.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmProximityDistance
 
@@ -4030,7 +4030,7 @@ Specify the distance for the proximity feature as 'short', 'medium' or 'long'
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmProximityEnable
 
@@ -4050,7 +4050,7 @@ If you press the trigger on an RSM scanner, proximity enabled will be turned off
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmScanLineWidth
 
@@ -4070,7 +4070,7 @@ The laser scan line width, 'wide' or 'narrow'.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmScanTriggerWakeup
 
@@ -4090,7 +4090,7 @@ Scanner trigger will wakeup the device from a low power state.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###rsmSerialNumber
 
@@ -4110,7 +4110,7 @@ Ring scanner serial number.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)
+* Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)
 
 ###sameSymbolTimeout
 
@@ -4130,7 +4130,7 @@ When the aimType:continuousRead property is applied this value defines the inter
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###scanTimeout
 
@@ -4152,7 +4152,7 @@ Maximum time in milliseconds that laser scanners will emit a beam or imager scan
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###scannerType
 
@@ -4275,7 +4275,7 @@ Aim duration in milliseconds for aimType:timedHold and aimType:timedRelease.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###tlc39
 
@@ -4319,7 +4319,7 @@ Only applies to an enabled laser or imaging scanner. Disconnecting the trigger w
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Scanners on Symbol Technologies' devices)
 
 ###trioptic39
 
@@ -5084,7 +5084,7 @@ Configures the feedback given after a successful scan. This value is ignored if 
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)
 
 ###viewfinderFeedbackTime
 
@@ -5106,7 +5106,7 @@ If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)
 
 ###viewfinderHeight
 
@@ -5126,7 +5126,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)
 
 ###viewfinderMode
 
@@ -5156,7 +5156,7 @@ Configures the mode of the scanner viewfinder window. This attribute is not supp
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)
 
 ###viewfinderWidth
 
@@ -5176,7 +5176,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)
 
 ###viewfinderX
 
@@ -5196,7 +5196,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)
 
 ###viewfinderY
 
@@ -5216,7 +5216,7 @@ When scanning a barcode using a Camera scanner the viewfinder preview window wil
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)
+* Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)
 
 ###webcode
 
@@ -5294,7 +5294,7 @@ it is necessary to disable the scanner and then re-enable it before another scan
 
 ###Viewfinder Position Parameters
 
-On Zebra Technologies' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
+On Symbol Technologies' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.
                 
 
 ###Scanning and Camera Interaction
