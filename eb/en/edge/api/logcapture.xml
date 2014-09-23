@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="LogCapture" parent="Rho">
+    <MODULE name="LogCapture" parent="Rho" productException='eb'>
         <HELP_OVERVIEW>The LogCapture class is used for capturing logging events.
         </HELP_OVERVIEW>
         <MORE_HELP>
@@ -44,7 +44,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     &lt;script type="text/javascript" charset="utf-8" src="eb.logcapture.js"&gt;&lt;/script&gt;
 
 The ebapi.js file is necessary for all single API inclusions.
-
         </MORE_HELP_EB>
         
         <PROPERTIES access="STATIC" generateAccessors="true">

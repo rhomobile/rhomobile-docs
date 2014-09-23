@@ -1,6 +1,6 @@
 # About Enterprise Browser Help
 ## Overview
-Welcome to the Zebra Technologies Enterprise Browser Technical Documentation. This help system allows you to browse the Enteprise Browser documentation on your local computer and features many tools for navigating and searching through the content. The documentation for the latest version is also published to [Launchpad](https://developer.motorolasolutions.com/) and may contain additional or updated content.
+Welcome to the Symbol Technologies Enterprise Browser Technical Documentation. This help system allows you to browse the Enteprise Browser documentation on your local computer and features many tools for navigating and searching through the content. The documentation for the latest version is also published to [Launchpad](https://developer.motorolasolutions.com/) and may contain additional or updated content.
 
 ## Help Features
 ### Table of Contents:
