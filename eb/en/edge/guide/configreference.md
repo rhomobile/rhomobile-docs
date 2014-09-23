@@ -1348,7 +1348,7 @@ The operating systems of some devices have case sensitive file systems. Therefor
 On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
 
 ### Open and Print
-If you plan on enabling the Ctrl+O or Ctrl+P (open dialog and print dialog, respectively) shortcut key combinations in your app, be aware that they do not work on Windows CE devices.
+If you plan on enabling the Ctrl+O or Ctrl+P (open dialog and print dialog, respectively) shortcut key combinations in your app, be aware that they do not work on Windows CE7 devices.
 
 ### <a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
 On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system any settings applied will persist until the device is next warm booted.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behavior.
