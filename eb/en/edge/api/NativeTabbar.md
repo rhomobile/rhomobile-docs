@@ -47,7 +47,7 @@ Win32, Android </p></li><li>reload : <span class='text-info'>BOOLEAN</span><span
 Win32, Android </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Tab will be displayed as disabled. Platforms:
 Win32, Android </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p> Background color for tab. Use when your application background color is not white for removing blink during switch tabs. Platforms:
 Win32, Android </p></li><li>useCurrentViewForTab : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Gives a smooth transfer to a newly opened tab from the current view into this Tab and make this Tab active. Only one Tab can have this parameter. Platforms:
-WM, CE, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
+WM, CE, Win32, Android </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
 WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Platforms:
 WM </p></li></ul></ul><li>tabBarProperties : <span class='text-info'>HASH</span><p>Properties of TabBar. </p></li><ul><li>verticalOrientation : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Creates a vertical tabbar on the iPad. Platforms:
 iOS </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p>Background color of the tabbar. Platforms:
@@ -147,23 +147,6 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.NativeTabbar.removeTab(<span class="text-info">INTEGER</span> tabIndex)</code> 
-
-
-### setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)
-Set the iPhone badge to tab.
-
-####Parameters
-<ul><li>tabIndex : <span class='text-info'>INTEGER</span><p>The index for this tab (index numbered from 0). You can also set -1 to select current tab for set badge. </p></li><li>badge : <span class='text-info'>STRING</span><p>String for iPhone badge, such as '12'. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.NativeTabbar.setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)</code> 
 
 
 ### switchTab(<span class="text-info">INTEGER</span> tabIndex)

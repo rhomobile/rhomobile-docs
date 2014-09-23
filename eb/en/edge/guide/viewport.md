@@ -21,16 +21,12 @@ Pages that specify an initial or maximum scale means the width property actually
 
 ### With Specified initial-scale
 
-The same page rendered on iPhone, Nexus 5 and MC75a will appear as follows:
+The same page rendered on MC75a will appear as follows:
 
 In your app's html:
 
     :::html
     <meta name="viewport" content="width=500, initial-scale=1"/>
-
-* Nexus 5 Android 5 (KitKat)
-
-![img](images/viewport_config/android_viewport_demo.png)
 
 * MC75A Windows Mobile 6.5
 
@@ -48,14 +44,10 @@ In your app's html:
     :::html
     <meta name="viewport" content="width=320"/>
 
-* Nexus 5 Android 5 (KitKat)
-    
-![img](images/viewport_config/android_no_initial_scale.png)
-
 * MC75A Windows Mobile 6.5
 
 ![img](images/viewport_config/winmo_no_initial_scale.png)
 
-Note that without specifying an initial-scale the MC75a will display the page with a viewport width of 320 pixels. This is with a specified device width of 320 pixels in the `config.xml` file, had this been left blank, the page would again render with a width of 480 pixels.The specification of a 320 pixel width is used to match the appearance on the iPhone as closely as possible.
+Note that without specifying an initial-scale the MC75a will display the page with a viewport width of 320 pixels. This is with a specified device width of 320 pixels in the `config.xml` file, had this been left blank, the page would again render with a width of 480 pixels.
 
 We suggest that you not specify an initial-scale in the viewport if you want the page to be locked to a resolution of 320 pixels on Windows Mobile. You can modify your html file to have a custom viewport for Windows Mobile if required.
