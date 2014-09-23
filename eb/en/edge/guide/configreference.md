@@ -1368,14 +1368,14 @@ The table below shows the behavior of the Enterprise Browser when Function Keys 
 		<th>Enable Function Key = TRUE</th>
 		<td valign="top">
 			<ul>
-				<li>All Function Keys <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+				<li>All Function Keys <b>can</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
 				<li>Function Key will <b>not</b> have its default Operating system behavior
 			</ul>
 		</td>
 		<td valign="top">
 			<ul>
-				<li>Function Keys with default OS behavior <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
-				<li>Function Keys without default OS behavior <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+				<li>Function Keys with default OS behavior <b>can not</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
+				<li>Function Keys without default OS behavior <b>can</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
 				<li>Function Key <b>will</b> have its default Operating system behavior (if any)
 			</ul>
 		</td>
@@ -1385,13 +1385,13 @@ The table below shows the behavior of the Enterprise Browser when Function Keys 
 		<th>Enable Function Key = FALSE</th>
 		<td valign="top">
 			<ul>
-				<li>All Function Keys <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+				<li>All Function Keys <b>can</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
 				<li>Function Key will <b>not</b> have its default Operating system behavior
 			</ul>
 		</td>
 		<td valign="top">
 			<ul>
-				<li>All Function Keys <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+				<li>All Function Keys <b>can not</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
 				<li>Function Key will <b>not</b> have its default Operating system behavior (if any)</li>
 			</ul>
 		</td>
