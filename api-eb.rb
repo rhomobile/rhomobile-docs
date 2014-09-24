@@ -333,107 +333,111 @@ def self.getparams(element,toplevel)
 			end
 			element["PARAMS"].each { |params|
 				params["PARAM"].each { |param|
-					param["name"] = getElementName(param) 
-		
-					methparamsdetailsdesc = ''
+					if noproductException(param)
+						param["name"] = getElementName(param) 
 			
-					# puts param
-					if !param["DESC"].nil?
-						methparamsdetailsdesc=getMDDesc(param)
-						if methparamsdetailsdesc.to_s == '{}'
-							methparamsdetailsdesc= ''
-						end
-					end
-					if elementHasPlatform(param) && !toplevel
-						pdesc= getPlatformDesc(param)
-						if pdesc.to_s == '{}'
-							pdesc= ''
-						else
-							pdesc = ' Platforms:' + pdesc
-						end
-						methparamsdetailsdesc+=pdesc
-						
-					end
-					
-					if !param["propertyHash"].nil? && param["propertyHash"] == "true" && param["PARAMS"].nil?
-						methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
-					end
-					methparamsnil=""
-					methparamsnildesc=""
-					if !param["CAN_BE_NIL"].nil?
-						param["CAN_BE_NIL"].each { |paramsnil|
-							methparamsnil=" <span class='label label-info'>Optional</span>"
-							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  getMDDesc(paramsnil)
-							end
-							
-						}
-					end
-					
-					if !param["default"].nil?
-						methparamsnil += "<span class='label '> Default: " + param["default"] + "</span>"
+						methparamsdetailsdesc = ''
 				
-					end
-
-					if param["type"].nil?
-						param["type"] = "STRING"
-					end
-					if param["type"] == "SELF_INSTANCE"
-						param["type"] = "SELF_INSTANCE: " + @@apiName
-					end
-					if toplevel
+						# puts param
+						if !param["DESC"].nil?
+							methparamsdetailsdesc=getMDDesc(param)
+							if methparamsdetailsdesc.to_s == '{}'
+								methparamsdetailsdesc= ''
+							end
+						end
+						if elementHasPlatform(param) && !toplevel
+							pdesc= getPlatformDesc(param)
+							if pdesc.to_s == '{}'
+								pdesc= ''
+							else
+								pdesc = ' Platforms:' + pdesc
+							end
+							methparamsdetailsdesc+=pdesc
+							
+						end
 						
-						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
-						@seperator =  ', '
-					end 
-					# puts param
-					if param["name"].nil?
-						param["name"] = ""
-					end
-					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>\n" + methparamsdetailsdesc + "\n</td><td>" + methparamsnil + "</td></tr></table>"
-					values = ""
-					valuetype = param["type"]
-								
-					if !param["VALUES"].nil?
-						values = "<dl  >"
-								
-						param["VALUES"].each() { |velement|
-							velement["VALUE"].each() { |vaelement|
-								if !vaelement["DESC"].nil?
-									if !vaelement["DESC"][0].empty?
-										valdesc = getMDDesc(vaelement)
-									else
-										valdesc = ""
-									end 
-								end	
-								if elementHasPlatform(vaelement)
-									valdesc += " Platforms: " + getPlatformDesc(vaelement)
+						if !param["propertyHash"].nil? && param["propertyHash"] == "true" && param["PARAMS"].nil?
+							methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
+						end
+						methparamsnil=""
+						methparamsnildesc=""
+						if !param["CAN_BE_NIL"].nil?
+							param["CAN_BE_NIL"].each { |paramsnil|
+								methparamsnil=" <span class='label label-info'>Optional</span>"
+								if !paramsnil["DESC"].nil?
+									methparamsnildesc =  getMDDesc(paramsnil)
 								end
-
-								@seperator = ', '
-								if !vaelement["type"].nil?
-									valuetype = vaelement["type"]
-								end
-								if !vaelement["constName"].nil?
-									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String:' + vaelement["value"] + ''
-								end
-
-								if noproductException(vaelement)
-									values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>"
-								end  
 								
 							}
+						end
 						
-
-						}
-						values += "</dl>"
-					end
-					if values != ""
-						values = "<p><strong>Possible Values</strong> :</p> " + values 
-					end
+						if !param["default"].nil?
+							methparamsnil += "<span class='label '> Default: " + param["default"] + "</span>"
 					
-					methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
-					methsectionparams += getparams(param,false)
+						end
+
+						if param["type"].nil?
+							param["type"] = "STRING"
+						end
+						if param["type"] == "SELF_INSTANCE"
+							param["type"] = "SELF_INSTANCE: " + @@apiName
+						end
+						if toplevel
+							
+							@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
+							@seperator =  ', '
+						end 
+						# puts param
+						if param["name"].nil?
+							param["name"] = ""
+						end
+						methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>\n" + methparamsdetailsdesc + "\n</td><td>" + methparamsnil + "</td></tr></table>"
+						values = ""
+						valuetype = param["type"]
+									
+						if !param["VALUES"].nil?
+							values = "<dl  >"
+									
+							param["VALUES"].each() { |velement|
+								velement["VALUE"].each() { |vaelement|
+									if !vaelement["DESC"].nil?
+										if !vaelement["DESC"][0].empty?
+											valdesc = getMDDesc(vaelement)
+										else
+											valdesc = ""
+										end 
+									end	
+									if elementHasPlatform(vaelement)
+										valdesc += " Platforms: " + getPlatformDesc(vaelement)
+									end
+
+									@seperator = ', '
+									if !vaelement["type"].nil?
+										valuetype = vaelement["type"]
+									end
+									if !vaelement["constName"].nil?
+										vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String:' + vaelement["value"] + ''
+									end
+
+									if noproductException(vaelement)
+										values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>"
+									end  
+									
+								}
+							
+
+							}
+							values += "</dl>"
+						end
+						if values != ""
+							values = "<p><strong>Possible Values</strong> :</p> " + values 
+						end
+						
+						methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
+						methsectionparams += getparams(param,false)
+
+					end	
+				
 				}
 
 			}
@@ -453,93 +457,95 @@ def self.getparams(element,toplevel)
 				methsectionparams += "<ul>"
 			end
 				element["PARAM"].each { |param|
-					param["name"] = getElementName(param) 
-		
-					methparamsdetailsdesc = ''
+					if noproductException(param)
+						param["name"] = getElementName(param) 
 			
-					# puts param
-					if !param["DESC"].nil?
-						methparamsdetailsdesc=getMDDesc(param)
-						if methparamsdetailsdesc.to_s == '{}'
-							methparamsdetailsdesc= ''
-						end
-					end
-					
-
-					
-
-					methparamsnil=""
-					methparamsnildesc=""
-					if !param["CAN_BE_NIL"].nil?
-						param["CAN_BE_NIL"].each { |paramsnil|
-							methparamsnil=" <span class='label label-info'>Optional</span>"
-							if !paramsnil["DESC"].nil?
-								methparamsnildesc =  getMDDesc(paramsnil)
-							end
-							
-						}
-					end
-					if !param["default"].nil?
-						methparamsnil += " <span class='label '> Default: " + param["default"] + "</span>"
+						methparamsdetailsdesc = ''
 				
-					end
-					
-					if param["type"].nil?
-						param["type"] = "STRING"
-					end
-					if param["type"] == "SELF_INSTANCE"
-						param["type"] = "SELF_INSTANCE: " + @@apiName
-					end
+						# puts param
+						if !param["DESC"].nil?
+							methparamsdetailsdesc=getMDDesc(param)
+							if methparamsdetailsdesc.to_s == '{}'
+								methparamsdetailsdesc= ''
+							end
+						end
+						
 
-					if param["name"].nil?
-						param["name"] = "<i>Object</i>"
-					end
+						
 
-					# puts param
-					if param["name"].nil?
-						param["name"] = ""
-					end
-					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
-					values = ""
-					valuetype = param["type"]
-								
-					if !param["VALUES"].nil?
-						param["VALUES"].each() { |velement|
-							velement["VALUE"].each() { |vaelement|
-								valdesc = "<dl  >"
-								if !vaelement["DESC"].nil?
-									if !vaelement["DESC"][0].empty?
-										valdesc = getMDDesc(vaelement)
-									else
-										valdesc = ""
-									end 
-								end	
-								if elementHasPlatform(vaelement)
-									valdesc += " Platforms: " + getPlatformDesc(vaelement)
-								end								
-								@seperator = ', '
-								if !vaelement["type"].nil?
-									valuetype = vaelement["type"]
-								end
-								if !vaelement["constName"].nil?
-									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String: ' + vaelement["value"] + ' '
-								end
-
-								if noproductException(vaelement)
-									values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+						methparamsnil=""
+						methparamsnildesc=""
+						if !param["CAN_BE_NIL"].nil?
+							param["CAN_BE_NIL"].each { |paramsnil|
+								methparamsnil=" <span class='label label-info'>Optional</span>"
+								if !paramsnil["DESC"].nil?
+									methparamsnildesc =  getMDDesc(paramsnil)
 								end
 								
 							}
-						values += "</dl>"
-
-						}
-					end
-					if values != ""
-						values = "<p><strong>Possible Values</strong> :</p> " + values 
-					end
+						end
+						if !param["default"].nil?
+							methparamsnil += " <span class='label '> Default: " + param["default"] + "</span>"
 					
-					methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
-					methsectionparams += getparams(param,false)
+						end
+						
+						if param["type"].nil?
+							param["type"] = "STRING"
+						end
+						if param["type"] == "SELF_INSTANCE"
+							param["type"] = "SELF_INSTANCE: " + @@apiName
+						end
+
+						if param["name"].nil?
+							param["name"] = "<i>Object</i>"
+						end
+
+						# puts param
+						if param["name"].nil?
+							param["name"] = ""
+						end
+						methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
+						values = ""
+						valuetype = param["type"]
+									
+						if !param["VALUES"].nil?
+							param["VALUES"].each() { |velement|
+								velement["VALUE"].each() { |vaelement|
+									valdesc = "<dl  >"
+									if !vaelement["DESC"].nil?
+										if !vaelement["DESC"][0].empty?
+											valdesc = getMDDesc(vaelement)
+										else
+											valdesc = ""
+										end 
+									end	
+									if elementHasPlatform(vaelement)
+										valdesc += " Platforms: " + getPlatformDesc(vaelement)
+									end								
+									@seperator = ', '
+									if !vaelement["type"].nil?
+										valuetype = vaelement["type"]
+									end
+									if !vaelement["constName"].nil?
+										vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' <br/> String: ' + vaelement["value"] + ' '
+									end
+
+									if noproductException(vaelement)
+										values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dd>" 
+									end
+									
+								}
+							values += "</dl>"
+
+							}
+						end
+						if values != ""
+							values = "<p><strong>Possible Values</strong> :</p> " + values 
+						end
+						
+						methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
+						methsectionparams += getparams(param,false)
+					end
 				}
 
 			
