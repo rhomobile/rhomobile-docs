@@ -367,8 +367,6 @@ Define exclude parameters log filter(for security reasons) - parameter names sep
 <span class='text-info'>STRING</span> 
 ####Description
 Path to the log file including file name. The path is relative to the platform specific application root or start if from '/' if you wish to store elsewhere ('/mnt/sdcard/myapp.log').  Default file path is Log.txt
-####Params
-<p><strong>Default:</strong> rholog.txt</p>
 ####Access
 
 

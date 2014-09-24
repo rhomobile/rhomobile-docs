@@ -881,7 +881,10 @@ def self.getproperties(doc)
 				if element["default"].nil? 
 					propdefault= ""
 				else
-					
+					# Hack for overriding log api default of file name
+					if element["default"]=="rholog.txt"
+						element["default"]=""
+					end
 					propdefault= "<p><strong>Default:</strong> " + element["default"] + "</p>"
 					if propdefault == "<p><strong>Default:</strong> </p>"
 						propdefault=""
