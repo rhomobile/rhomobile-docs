@@ -56,6 +56,7 @@ The ebapi.js file is necessary for all single API inclusions.
         <PROPERTIES access="STATIC">
             <PROPERTY name="refreshInterval" type="INTEGER" default="5000" generateAccessors="true">
                 <PLATFORM>WM, CE, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE</PLATFORM_EB>
                 <DESC>A callback to retrieve the battery strength can be specified to occur periodically with the batteryStatus method. This value specifies the periodicity of the callback as well as the update frequency of the battery icon, if shown. Setting this value to zero will disable the batteryStatus callback. Note that most platforms will not support periodic updates to the battery level, this is only supported on Windows Mobile / CE / Embedded.</DESC>
             </PROPERTY>
         </PROPERTIES>   
@@ -64,6 +65,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="batteryStatus" hasCallback="optional">
                 <DESC>Retrieve the current battery level. If a callback is provided to retrieve the battery then it will be called periodically at a frequency determined by the trigger property.</DESC>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                     <DESC>The properties associated with accessing the battery status.</DESC>
@@ -118,6 +120,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="stopBatteryStatus" hasCallback="none">
                 <DESC>If the battery status is being retrieved via callback, by a previously invoked call to batteryStatus, this method will stop the callback from firing.</DESC>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
             </METHOD>
 
             <METHOD name="smartBatteryStatus" hasCallback="optional">
@@ -207,6 +210,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+        <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
         <EXAMPLES>
             <EXAMPLE title="Retrieve the Battery status">
                 <SECTIONS>
