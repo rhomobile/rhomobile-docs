@@ -19,7 +19,7 @@ The shortcut file supports the following command line parameters.
         /S:"file://\HTML\index.html"
         /S:"file://\RE App\index.html"
         /S:"file://\Program Files\MyApp\index.html"
-        /S:"http://www.zebra.com/us/en.html"
+        /S:"http://www.google.com"
 
 If neither the `/S` nor `/C` parameters are specified in the shortcut file, then the default values for the location of the configuration file and the start page of the Enterprise Browser application will be used. 
 
@@ -37,9 +37,7 @@ For example, this code in the .lnk file will change the startup page to be a loc
 
 ## Android Shortcuts
 <!-- TBD - Is this possible? -->
-
 ## Running Multiple Web Apps
-
 If you have multiple web apps that you would like to point Enterprise Browser to, you can create multiple shortcuts as described above. For example, one startup file could be:
 
 	:::bash

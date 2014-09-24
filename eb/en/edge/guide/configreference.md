@@ -881,7 +881,7 @@ Automatically expands the application window to fit the screen (Windows Mobile w
 	<FitToScreenEnabled value="0"/>
 
 ### FontFamily
-Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Zebra Technologies WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in `\Windows` for Windows WM / CE devices, or `/system/fonts for Enterprise Tablet`.
+Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Symbol Technologies WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in `\Windows` for Windows WM / CE devices, or `/system/fonts for Enterprise Tablet`.
 
 **Possible Values**
 
@@ -892,7 +892,7 @@ Specifies the default font to use when rendering text in web pages.  The specifi
 	<FontFamily value="Tahoma"/>
 
 ### FontDirectory
-Specifies the font directory where true type fonts can be found.  On Windows the default font directory is `\Windows` on all Zebra Technologies WM / CE devices.  Not applicable to the Enterprise Tablet.
+Specifies the font directory where true type fonts can be found.  On Windows the default font directory is `\Windows` on all Symbol Technologies WM / CE devices.  Not applicable to the Enterprise Tablet.
 
 **Possible Values**
 
