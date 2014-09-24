@@ -1,4 +1,3 @@
-
 # Push
 ## Overview
 The Push Module is used to receive data over an HTTP connection.
@@ -34,8 +33,6 @@ Values are returned to the caller in the Enterprise Browser via Events. Most mod
 One value is returned for each name=value pair in the HTTP request, you access this in JSON using the names you provided in the request. An example is provided in the examples section below.
 
 #### Callback Parameters
-Whatever is defined as 'name' in each name=value pair in the HTTP request.
-
 * jsonObject
 
 ## Methods
@@ -151,6 +148,7 @@ In version 2.2 of RhoElements for WM / CE the default push port was changed from
 ## HTML/JavaScript Examples
 The code below configures the server to listen on port 8081, to accept only requests to the virtual path \push and to require a passkey of 'secret'. Assuming the device has IP address 1.2.3.4 then browsing to the following URL will cause the JavaScript function onPush() to be called with the parameters 'hello' and 'world': http://1.2.3.4:8081/push?name1=hello&amp;name2=world&amp;passkey=secret. The browser will receive the contents of the file \ok.html as response.
 
+	:::html
 	<META HTTP-Equiv="Push" Content="Port:8081">
 	<META HTTP-Equiv="Push" Content="Passkey:secret">
 	<META HTTP-Equiv="Push" Content="Path:/push">
@@ -160,6 +158,7 @@ The code below configures the server to listen on port 8081, to accept only requ
 	      
 The following code shows a very simple push server which just responds by executing a JavaScript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8081/push?name1=hello&amp;myname=world
 
+	:::html
 	<HEAD>
 	<META HTTP-Equiv="Push" Content="Port:1234">
 	<META HTTP-Equiv="Push-detected" Content="url('JavaScript:pushDetectJSON(%json);')">
@@ -173,7 +172,8 @@ The following code shows a very simple push server which just responds by execut
 	  }
 	  </script>
 	</HEAD>
-	
+
 To enable unattended mode:
 
+	:::html
 	<META HTTP-Equiv="push" Content="unattended:enable">
