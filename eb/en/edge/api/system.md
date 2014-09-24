@@ -1350,8 +1350,6 @@ Platform where application is running.
  
 * Constant: EB.System.PLATFORM_WM_CE - String: WINDOWS 
 * Constant: EB.System.PLATFORM_ANDROID - String: ANDROID 
-* Constant: EB.System.PLATFORM_IOS - String: APPLE 
-* Constant: EB.System.PLATFORM_WP8 - String: WP8 
 * Constant: EB.System.PLATFORM_WINDOWS_DESKTOP - String: WINDOWS_DESKTOP 
 ####Access
 
@@ -1365,6 +1363,7 @@ Platform where application is running.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###ppiX
 
