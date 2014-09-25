@@ -28,7 +28,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/2.2.0/rhodesapi/camera-api',                            'Camera'
   topic 'en/5.0.0/api/cardreader',                                  'CardReader'
   topic 'en/2.2.0/rhoelements/comm',                                'Comm'
-  topic 'en/2.2.0/rhoelements/configurationSettings',               'Config'
+  topic 'en/2.2.0/rhoelements/ConfigurationSettings',               'Config'
   topic 'en/2.2.0/rhoelements/contact',                             'Contact'
   topic 'en/5.0.0/api/Database',                                    'Database'
   topic 'en/5.0.0/api/SimulScan',                                   'SimulScan (BETA)'
