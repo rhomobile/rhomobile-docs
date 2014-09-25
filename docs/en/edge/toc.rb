@@ -15,10 +15,11 @@ end
 
 section 'rhodescommonapi-reference',                                'API Reference','Mobile API Docs' do
   topic 'en/edge/guide/apisummary',                                 'RhoMobile API Summary'
+  topic 'en/2.2.0/rhoelements/addressbar',                          'Addressbar'
   topic 'en/2.2.0/rhoelements/alarm',                               'Alarm'
-  topic 'en/2.2.0/rhoelements/apd',                                 'Apd'
   topic 'en/edge/api/Application',                                  'Application'
   topic 'en/edge/api/audiocapture',                                 'AudioCapture'
+  topic 'en/2.2.0/rhoelements/backlight',                           'Backlight'
   topic 'en/edge/api/barcode',                                      'Barcode'
   topic 'en/edge/api/battery',                                      'Battery'
   topic 'en/2.2.0/rhodesapi/bluetoothmanager-api',                  'BluetoothManager'
@@ -27,8 +28,10 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/2.2.0/rhodesapi/camera-api',                            'Camera'
   topic 'en/edge/api/cardreader',                                   'CardReader'
   topic 'en/2.2.0/rhoelements/comm',                                'Comm'
+  topic 'en/2.2.0/rhoelements/config',                              'Config'
+  topic 'en/2.2.0/rhoelements/contact',                             'Contact'
   topic 'en/edge/api/Database',                                     'Database'
-  topic 'en/edge/api/DPX',                                          'DPX (BETA)'
+  topic 'en/edge/api/SimulScan',                                    'SimulScan (BETA)'
   topic 'en/edge/api/geolocation',                                  'Geolocation'
   topic 'en/2.2.0/rhoelements/Gesture',                             'Gesture'
   topic 'en/2.2.0/rhoelements/hourglass',                           'Hourglass'
@@ -73,7 +76,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/edge/api/push',                                         'Push'
   topic 'en/2.2.0/rhoelements/reboot',                              'Reboot'
   topic 'en/2.2.0/rhoelements/registry',                            'Registry'
-  topic 'en/2.2.0/rhoelements/rfid',                                'Rfid'
+  topic 'en/2.2.0/rhoelements/rfid',                                'RFID'
   topic 'en/2.2.0/rhodesapi/rhoconfig-api',                         'RhoConfig'
   topic 'en/edge/api/RhoConnectClient',                             'RhoConnectClient'
   topic 'en/2.2.0/rhodesapi/rhocontact-api',                        'RhoContact'
@@ -106,8 +109,6 @@ section 'rhomob-setup',                     'Dev Environment Setup','Mobile Guid
   topic 'en/edge/guide/nativesdksetup',     'Native SDK Setup'
   topic 'en/edge/guide/nonrhostudio',       'Developing Without RhoStudio'
   topic 'en/edge/guide/visualstudio',       'Developing with Visual Studio'
-  topic 'en/edge/guide/rhohubtutorial',     'Build In The Cloud With RhoHub'
-  topic 'en/edge/rhostudio-rhohub',         'Using RhoStudio with RhoHub'
 end
 
 section 'rhomob-apps',                        'Developing Apps','Mobile Guides' do
@@ -124,7 +125,6 @@ section 'rhomob-apps',                        'Developing Apps','Mobile Guides' 
   topic 'en/edge/guide/app_icon_splash',      'Application Icon & Splash Screen'
   topic 'en/edge/guide/css-framework',        'CSS Frameworks'
   topic 'en/edge/guide/webapps',              'RhoMobile for Web Apps'
-  topic 'en/edge/guide/rhoelements-runtime',  'RhoElements Shared Runtime'
   topic 'en/edge/guide/webcontainer',         'Custom Web App Container'
   topic 'en/edge/guide/app_upgrade',          'Upgrading Your App'
 end
@@ -135,7 +135,7 @@ section 'rhomob-data',                    'Data Handling','Mobile Guides' do
   topic 'en/edge/guide/rhom_js',          'Using Rhom with JavaScript'
   topic 'en/edge/guide/rhom_backbone',    'Using Rhom with Backbone.JS'
   topic 'en/edge/guide/rhom_angular',     'Using Rhom with Angular JS'
-  topic 'en/edge/guide/using_rhoconnect', 'Synchronization'
+  topic 'en/edge/guide/synchronization',  'Synchronization'
   topic 'en/edge/guide/web_services',     'Web Services & AJAX'
 end
 
@@ -169,6 +169,7 @@ end
 section 'rhomob-test',                  'Testing & Debugging','Mobile Guides' do
   topic 'en/edge/guide/debugging_ruby', 'Debugging Ruby'
   topic 'en/edge/guide/debugging_js',   'Debugging JavaScript'
+  topic 'en/edge/guide/remote-debug',   'Remote JS Debugging'
   topic 'en/edge/guide/logging',        'Logging'
   topic 'en/edge/guide/testing',        'Testing'
   topic 'en/edge/guide/profiling',      'Performance Profiling'
@@ -184,7 +185,7 @@ end
 section 'rhoconnect-reference',                     'Getting Started','RhoConnect Guides' do
   topic 'en/edge/rhoconnect/introduction',          'Introduction'
   topic 'en/edge/rhoconnect/install',               'Installation'
-  topic 'en/edge/rhoconnect/migration',             'Migrating to RhoConnect 4.0'
+  topic 'en/edge/rhoconnect/migration',             'Migrating to RhoConnect 5.0'
   topic 'en/edge/rhoconnect/command-line',          'App Generator and Command Line'
   topic 'en/edge/rhoconnect/supported-platforms',   'Supported Platforms'
   topic 'en/edge/rhoconnect/rhoconnect-calculator', 'RhoConnect Calculator'
@@ -235,18 +236,18 @@ section 'rhoconnect-push-reference',                    'Push Sync','RhoConnect 
   topic 'en/edge/rhoconnect/push-testing',              'Testing Push'
 end
 
-section 'rhoconnect-administration',              'Administration','RhoConnect Guides' do
-  topic 'en/edge/rhoconnect/settings',            'RhoConnect Settings'
-  topic 'en/edge/rhoconnect/web-console',         'Admin Web Interface'
-  topic 'en/edge/rhoconnect/licensing',           'Licensing your App'
-  topic 'en/edge/rhoconnect/benchmarks',          'Rhoconnect Benchmarking'
-  topic 'en/edge/rhoconnect/benchmarks-running',  'Running Rhoconnect Benchmarks'
-  topic 'en/edge/rhoconnect/stats-middleware',    'Collecting Runtime Stats'
+section 'rhoconnect-administration',             'Administration','RhoConnect Guides' do
+  topic 'en/edge/rhoconnect/settings',           'RhoConnect Settings'
+  topic 'en/edge/rhoconnect/web-console',        'Admin Web Interface'
+topic 'en/hosted/guide/licensing-rhoconnect',    'Licensing your RhoConnect App'
+  topic 'en/edge/rhoconnect/benchmarks',         'Rhoconnect Benchmarking'
+  topic 'en/edge/rhoconnect/benchmarks-running', 'Running Rhoconnect Benchmarks'
+  topic 'en/edge/rhoconnect/stats-middleware',   'Collecting Runtime Stats'
 end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do
   topic 'en/edge/rhoconnect/preparing-production',    'Preparing for Production'
-  topic 'en/edge/rhoconnect/hosting-rhohub',          'Hosting on RhoHub'
+  # topic 'en/edge/rhoconnect/hosting-rhohub',          'Hosting on RhoHub'
   topic 'en/edge/rhoconnect/deploying',               'Deploying RhoConnect'
   topic 'en/edge/rhoconnect/rhoconnect-redis-stack',  'High Availability Deployment on AWS'
 end

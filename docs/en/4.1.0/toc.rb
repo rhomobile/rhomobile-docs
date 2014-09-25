@@ -28,7 +28,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/4.1.0/api/cardreader',                                  'CardReader'
   topic 'en/2.2.0/rhoelements/comm',                                'Comm'
   topic 'en/4.1.0/api/Database',                                    'Database'
-  topic 'en/4.1.0/api/DPX',                                         'DPX (BETA)'
+  topic 'en/4.1.0/api/SimulScan',                                   'SimulScan (BETA)'
   topic 'en/4.1.0/api/geolocation',                                 'Geolocation'
   topic 'en/2.2.0/rhoelements/Gesture',                             'Gesture'
   topic 'en/2.2.0/rhoelements/hourglass',                           'Hourglass'
@@ -101,13 +101,13 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/4.1.0/api/webview',                                     'WebView'
 end
 
-section 'rhomob-setup',                     'Dev Environment Setup','Mobile Guides' do
-  topic 'en/4.1.0/guide/rhomobile-install', 'RhoMobile Suite Install'
-  topic 'en/4.1.0/guide/nativesdksetup',    'Native SDK Setup'
-  topic 'en/4.1.0/guide/nonrhostudio',      'Developing Without RhoStudio'
-  topic 'en/4.1.0/guide/visualstudio',      'Developing with Visual Studio'
-  topic 'en/4.1.0/guide/rhohubtutorial',    'Build In The Cloud With RhoHub'
-  topic 'en/4.1.0/rhostudio-rhohub',        'Using RhoStudio with RhoHub'
+section 'rhomob-setup',                          'Dev Environment Setup','Mobile Guides' do
+  topic 'en/4.1.0/guide/rhomobile-install',      'RhoMobile Suite Install'
+  topic 'en/4.1.0/guide/nativesdksetup',         'Native SDK Setup'
+  topic 'en/4.1.0/guide/nonrhostudio',           'Developing Without RhoStudio'
+  topic 'en/4.1.0/guide/visualstudio',           'Developing with Visual Studio'
+  topic 'en/hosted/guide/remote-build-guide',    'Build In The Cloud'
+  # topic 'en/4.1.0/rhostudio-rhohub',             'Using RhoStudio with RhoHub'
 end
 
 section 'rhomob-apps',                        'Developing Apps','Mobile Guides' do
@@ -135,7 +135,7 @@ section 'rhomob-data',                      'Data Handling','Mobile Guides' do
   topic 'en/4.1.0/guide/rhom_js',           'Using Rhom with JavaScript'
   topic 'en/4.1.0/guide/rhom_backbone',     'Using Rhom with Backbone.JS'
   topic 'en/4.1.0/guide/rhom_angular',      'Using Rhom with Angular JS'
-  topic 'en/4.1.0/guide/using_rhoconnect',  'Synchronization'
+  topic 'en/4.1.0/guide/synchronization',  'Synchronization'
   topic 'en/4.1.0/guide/web_services',      'Web Services & AJAX'
 end
 
@@ -151,7 +151,7 @@ section 'rhomob-dev',                                       'Device Capabilities
   topic 'en/4.1.0/guide/html5',                             'Html5 Tags'
   topic 'en/4.1.0/guide/handling_local_files',              'File System'
   topic 'en/4.1.0/guide/geolocation',                       'Geolocation'
-  topic 'en/4.1.0/guide/Intent',                            'Intents'
+  topic 'en/4.1.0/guide/intent',                            'Intents'
   topic 'en/4.1.0/guide/localization',                      'Localization'
   topic 'en/4.1.0/guide/maps',                              'Mapping'
   topic 'en/4.1.0/guide/media',                             'Media & Ringtones'
@@ -246,7 +246,7 @@ end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do
   topic 'en/4.1.0/rhoconnect/preparing-production',   'Preparing for Production'
-  topic 'en/4.1.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
+  # topic 'en/4.1.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'en/4.1.0/rhoconnect/deploying',              'Deploying RhoConnect'
   topic 'en/4.1.0/rhoconnect/rhoconnect-redis-stack', 'High Availability Deployment on AWS'
 end

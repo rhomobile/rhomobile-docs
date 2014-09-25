@@ -476,7 +476,7 @@ If your back end web service requires authentication, add code to the authentica
 
 ## Compatibility with older versions of RhoConnect
 
-The RhoConnect Source Adapter Controller/Model concept has been introduced in RhoConnect 4. In previous versions, a Source Adapter consisted only of one class - which is now has been moved to Source Adapter model. "Controller" part of the Source Adapter has been hidden inside of the RhoConnect library code. This posed a significant obstacle in a way how the developer could utilize the code and the common techniques. To overcome this obstacle, RhoConnect 4 provides you with direct access to the Controller allowing you to customize route behavior and utilize all of the powerful sinatra plugins/extensions that are available.
+The RhoConnect Source Adapter Controller/Model concept was introduced in RhoConnect 4.0. In previous versions, a Source Adapter consisted only of one class - which is now has been moved to Source Adapter model. "Controller" part of the Source Adapter has been hidden inside of the RhoConnect library code. This posed a significant obstacle in a way how the developer could utilize the code and the common techniques. To overcome this obstacle, RhoConnect 4 provides you with direct access to the Controller allowing you to customize route behavior and utilize all of the powerful sinatra plugins/extensions that are available.
 
 At the same time, applications that were written using the pre-4.0 versions of RhoConnect will still continue to function without modifications for at least one version cycle. This is accomplished by providing the "default" implementation of the controller for the pre-4.0 Source Adapters. All the Model APIs that are described throughout the documentation are still applicable to the pre-4.0 Source Adapters. In this sense - the RhoConnect 4 Source Adapter Model class and pre-4.0 Source Adapter are interchangeable. 
 
@@ -484,7 +484,7 @@ However, we strongly recommend migrating your pre-4.0 application using this [gu
 
     RhoConnect has detected that you're using deprecated Application class.
 
-      Application class support will be removed in RhoConnect 4.1.
+      Application class support was removed in RhoConnect 4.1.
       Please, migrate your Application class into ApplicationController.
 
       For more details, see RhoConnect Migration guidelines at 
@@ -492,7 +492,7 @@ However, we strongly recommend migrating your pre-4.0 application using this [gu
 
     RhoConnect has detected that you're using deprecated SourceAdapter classes.
 
-      SourceAdapter class support will be removed in RhoConnect 4.1.
+      SourceAdapter class support was removed in RhoConnect 4.1.
       Please, migrate your SourceAdapter classes into RhoConnect Models.
 
       For more details, see RhoConnect Migration guidelines at

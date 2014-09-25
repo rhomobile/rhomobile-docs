@@ -3,18 +3,14 @@
 <p>NFC Adapter</p>
 <p>NFC Adapter provides access to the NFC device to perform device related operations.</p>
 
-<pre><code>All properties and methods should be used after activate. Besides supported and isActive.
+<pre><code>    All properties and methods should be used after activate. Besides supported and isActive.
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
+
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 </code></pre>
-
-<h2>Enabling the API</h2>
-
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-extensions: ["NFC"]
-</code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
 
 
 <a name='Methods'></a>

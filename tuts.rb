@@ -25,7 +25,6 @@ tutorial 'rhohub-rhogallery',   'RhoGallery Tutorial','RhoHub','' do
   gitlabel 'add-apps',          'Adding Applications'
   gitlabel 'add-consumers',     'Adding Consumers'
   gitlabel 'add-groups',        'Adding Groups'
-  gitlabel 'add-collaboraters', 'Adding Collaborators'
-  gitlabel 'look-feel',         'Customize Look & Feel'
-  gitlabel 'on-device',         'Using on a Device'
+  gitlabel 'add-collaborators', 'Adding Collaborators'
+  # gitlabel 'on-device',         'Using on a Device'
 end

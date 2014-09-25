@@ -16,7 +16,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </HELP_OVERVIEW>
 
         <ALIASES>
-            <ALIAS new="SyncEngine" existing="Rho.RhoConnectClient" deprecated="true"/>
+            <ALIAS new="RhoConnectClient" existing="Rho.RhoConnectClient" deprecated="true"/>
         </ALIASES>
 
         <PROPERTIES access="STATIC">
@@ -44,11 +44,11 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </PROPERTY>
 
         <PROPERTY name="threadedMode" type="BOOLEAN" default="true" generateDoc="false">
-            <DESC>Sets if RhoConnectClient will work in a separate thread. If true then calls to login, doSync, doSyncSource and search will perform asynchronously without delaying calling thread. Results should be handled in provided callbacks. If false, all calls are blocking and resuls are returned directly from method calls. Default is true.</DESC>
+            <DESC>Sets if RhoConnectClient will work in a separate thread. If true then calls to login, doSync, doSyncSource and search will perform asynchronously without delaying calling thread. Results should be handled in provided callbacks. If false, all calls are blocking and results are returned directly from method calls. Default is true.</DESC>
         </PROPERTY>
 
         <PROPERTY name="showStatusPopup" type="BOOLEAN" default="true">
-            <DESC>Enable or disable show status popup.</DESC>
+            <DESC>Enable or disable show status pop-up.</DESC>
         </PROPERTY>
 
         <PROPERTY name="sslVerifyPeer" type="BOOLEAN" default="true">
@@ -211,7 +211,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </METHOD>
 
         <METHOD name="stopSync">
-            <DESC>Stops any sync operations currently in progress.</DESC>
+            <DESC>Stops any sync operations currently in progress. NOTE: There is a high potential of database corruption if this method is used during a sync. Do not do this unless you are planning on resetting your DB afterward.</DESC>
         </METHOD>
 
         <METHOD name="setNotification" hasCallback="mandatory" runInThread="none">
@@ -233,7 +233,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </METHOD>
 
         <METHOD name="setObjectNotification" hasCallback="mandatory" runInThread="none">
-            <DESC>The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or timelines in your application and want them to update without the user taking any action.</DESC>
+            <DESC>The RhoConnectClient can send a notification when a specific object on the current page has been modified. This is useful if you have frequently-changing data like feeds or time-lines in your application and want them to update without the user taking any action.</DESC>
             <CALLBACK>
                 <PARAMS>
                     <PARAM name="created" type="ARRAY">
@@ -307,6 +307,168 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PARAMS>
             <RETURN type="STRING"/>
         </METHOD>
+
+        <METHOD name="lock_sync_mutex" generateAPI="false" generateDoc="false">
+            <DESC>Blocks the synchronization call to wait for RhoConnectClient lock (useful for performing batch operations).</DESC>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="unlock_sync_mutex" generateAPI="false" generateDoc="false">
+            <DESC>Release the RhoConnectClient lock started by lock_sync_mutex.</DESC>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="set_syncserver" generateAPI="false">
+            <DESC>Sets the RhoConnect server address and stores it in rhoconfig.txt. This will modify the URL set before running the app.</DESC>
+            <PARAMS>
+                <PARAM name="server_url" type="STRING">
+                    <DESC>The URL for the RhoConnect server.</DESC>
+                </PARAM>
+            </PARAMS>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+        
+        <METHOD name="on_sync_create_error" generateAPI="false">
+            <DESC>Perform an action on a record upon a sync create-error. The `:recreate` action will write the records to the local DB and schedule them to be pushed to the back-end again at the next sync. For example, if a create-error occurred because something was missing but it is mandatory for validation. You can use the :recreate flag after catching the error in order resend a fixed record. The `:delete` action will permanently delete a record on the local DB and will never be synced with the back-end. This might be used in cases where a time-stamp is vital and upon error, a new record must be generated before syncing.</DESC>
+            <APPLIES rubyOnly="true"/>
+            <PARAMS>
+                <PARAM name="source_name" type="STRING">
+                    <DESC>The ORM model name. This is necessary for RhoConnect to know the model on which the action is to be performed.</DESC>
+                </PARAM>
+                <PARAM name="objects" type="ARRAY">
+                    <DESC>An array of one or more object IDs. These IDs are the IDs of the objects that failed to create.</DESC>
+                </PARAM>
+                <PARAM name="action" type="SYMBOL">
+                    <DESC>Action to be performed on the objects specified in the objects array.</DESC>
+                    <PARAMS>
+                        <PARAM name=":delete" type="STRING">
+                            <DESC>Remove the object from the local DB and do not retry creation of the record on the back-end.</DESC>
+                        </PARAM>
+                        <PARAM name=":recreate" type="STRING">
+                            <DESC>Push this object to the server again at the next sync.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </PARAM>
+            </PARAMS>
+        </METHOD>
+
+        <METHOD name="on_sync_update_error" generateAPI="false">
+            <DESC>Perform an action on a record upon a sync update-error. The `:retry` action is similar to the `:recreate` action in the [`on_sync_create_error`](#mon_sync_create_error) method. The `:rollback` action will roll back changes that are not accepted by the back-end. The record that will be rolled back to is the record(s) provided in the rollback_objects parameter. We recommend that the previous state of the record be saved in some way (preferably local such as cache) so that it can be provided upon update-error.</DESC>
+            <PARAMS>
+                <PARAM name="source_name" type="STRING">
+                    <DESC>The ORM model name. This is necessary for RhoConnect to know the model on which the action is to be performed.</DESC>
+                </PARAM>
+                <PARAM name="objects" type="HASH">
+                    <DESC>A hash of one or more error objects. The structure of the `objects` hash is { id => { 'attributes' => { attribute => value }}}</DESC>
+                </PARAM>
+                <PARAM name="action" type="SYMBOL">
+                    <DESC>Action to be performed on the objects specified in the objects hash.</DESC>
+                    <PARAMS>
+                        <PARAM name=":retry" type="STRING">
+                            <DESC>Push the update object operation to server again at next sync.</DESC>
+                        </PARAM>
+                        <PARAM name=":rollback" type="STRING">
+                            <DESC>Write the `rollback_objects` to client database.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </PARAM>
+                <PARAM name="rollback_objects" type="HASH">
+                    <DESC>A hash of the attributes for the objects before a failed update and send by the server. Must be specified for :rollback action. Structure of the `rollback_objects` hash is { id => { 'attributes' => { attribute => value }}}</DESC>
+                </PARAM>
+            </PARAMS>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="on_sync_delete_error" generateAPI="false">
+            <DESC>Decide whether or not to retry deletion of a record upon a sync delete-error. In case you would like to retry for example, if the network your device is on is not completely reliable, you may opt to retry a few times before reporting that the delete failed. To retry a delete specify the `:retry` action with this method. For example: `RhoConnectClient.on_sync_delete_error('Product', object, :retry)` </DESC>
+            <PARAMS>
+                <PARAM name="source_name" type="STRING">
+                    <DESC>The name of the source on the RhoConnect server.</DESC>
+                </PARAM>
+                <PARAM name="objects" type="HASH">
+                    <DESC>An hash of one or more error objects. Structure of the `objects` hash is { id => { 'attributes' => { attribute => value }}}</DESC>
+                </PARAM>
+                <PARAM name="action" type="SYMBOL">
+                    <DESC>Action to be performed on the error object(s).</DESC>
+                    <PARAMS>
+                        <PARAM name=":retry" type="STRING">
+                            <DESC>Push delete object operation to server again at next sync.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </PARAM>
+            </PARAMS>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="set_pollinterval" generateAPI="false">
+            <DESC>Updates the RhoConnectClient poll interval.</DESC>
+            <PARAMS>
+                <PARAM name="interval" type="INTEGER">
+                    <DESC>Number of seconds for the poll interval. 0 disables polling-based synchronization (you may still use push-based-synchronization).</DESC>
+                </PARAM>
+            </PARAMS>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="set_pagesize" generateAPI="false" default="2000">
+            <DESC>Set the synchronization page size for the RhoConnectClient.</DESC>
+            <PARAMS>
+                <PARAM name="size" type="INTEGER">
+                    <DESC>Size of the RhoConnectClient synchronization page.</DESC>
+                </PARAM>
+            </PARAMS>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="get_pagesize" generateAPI="false">
+            <DESC>Returns the current sync page size for the RhoConnectClient.</DESC>
+            <RETURN type="INTEGER">
+                <DESC>Page size for the RhoConnectClient.</DESC>
+            </RETURN>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="enable_status_popup" generateAPI="false">
+            <DESC>Enable or disable the show status popup.</DESC>
+            <PARAMS>
+                <PARAM name="true_or_false" type="BOOLEAN" default="false">
+                    <PARAMS>
+                        <PARAM name="true" type="BOOLEAN">
+                            <DESC>Enable the status popup.</DESC>
+                        </PARAM>
+                        <PARAM name="false" type="BOOLEAN">
+                            <DESC>Disable the status popup.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </PARAM>
+            </PARAMS>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="set_ssl_verify_peer" generateAPI="false">
+            <DESC>Enable or disable verification of RhoConnect SSL certificates.</DESC>
+            <PARAMS>
+                <PARAM name="true_or_false" type="BOOLEAN" default="true">
+                    <PARAMS>
+                        <PARAM name="true" type="BOOLEAN">
+                            <DESC>Enable verification of RhoConnect SSL certificates.</DESC>
+                        </PARAM>
+                        <PARAM name="false" type="BOOLEAN">
+                            <DESC>Disable verification of RhoConnect SSL certificates.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </PARAM>
+            </PARAMS>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
+
+        <METHOD name="get_user_name" generateAPI="false">
+            <DESC>Returns the current username of the RhoConnectClient session.</DESC>
+            <RETURN type="STRING">
+                <DESC>Username of current user if logged in, last logged in user if not logged in.</DESC>
+            </RETURN>
+            <APPLIES rubyOnly="true"/>
+        </METHOD>
     </METHODS>
 
     <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -335,9 +497,7 @@ Rho.RhoConnectClient.login('john','password',function(result){
                         </CODE>
                     </SECTION>
                     <SECTION>
-                        <DESC>
-                            When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).
-                        </DESC>
+                        <DESC>When RhoConnectClient.login completes, the callback declared is executed and receives parameters including success or failure and error messages (if any).</DESC>
                         <CODE>
                             <RUBY><![CDATA[
 # Error codes:
@@ -664,7 +824,7 @@ In the following sections we cover the different status values and parameters av
 
 * total_count - Total number of records that exist for this RhoConnect source.
 * processed_count - Number of records included in the sync page.
-* cumulative_count - Number of records the SyncEngine has processed so far for this source.
+* cumulative_count - Number of records the RhoConnectClient has processed so far for this source.
 
 ### status: "in_progress" - bulk sync progress
 
@@ -703,7 +863,7 @@ JavaScript Example:
     //=> "Error connecting to backend server: http://rhostore.herokuapp.com"
 
 #### Handling 'create-error'
-"create-error" is a unique situation that needs to be handled in your sync callback. See `RhoConnectClient.onSyncCreateError()` for more details.
+"create-error" is a unique situation that needs to be handled in your sync callback. See [`RhoConnectClient.on_sync_create_error()`](#mon_sync_create_error) for more details.
 
 ### status: "complete"
 This status returns only when the sync run is complete (all partitions are done synchronizing).

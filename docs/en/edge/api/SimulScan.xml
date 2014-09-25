@@ -1,39 +1,77 @@
 <?xml version = "1.0"?>
 <API>
-  <MODULE name="SimulScan" parent="Rho">
-    <HELP_OVERVIEW>The SimulScan is a software solution that enables customers to extract and
-process various types of information from documents. A single document may contain barcodes, text, image data and
-forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
-example, a driver's license can be thought of as a template containing regions such as name and address, signature
-and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
-Recognition captures the owners name and address whilst their photo is captured separately. These regions are
-defined by a template which maps the various regions of the document to the data they contain and can be created
-on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Motorola Android devices with firmware supporting SimulScan.
-    </HELP_OVERVIEW>
-    <MORE_HELP>
+    <MODULE name="SimulScan" parent="Rho" productException="eb">
+        <HELP_OVERVIEW>The SimulScan is a software solution that enables customers to extract and
+    process various types of information from documents. A single document may contain barcodes, text, image data and
+    forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
+    example, a driver's license can be thought of as a template containing regions such as name and address, signature
+    and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
+    Recognition captures the owners name and address whilst their photo is captured separately. These regions are
+    defined by a template which maps the various regions of the document to the data they contain and can be created
+    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
+        </HELP_OVERVIEW>
+        <HELP_OVERVIEW_EB>The SimulScan is a software solution that enables customers to extract and
+    process various types of information from documents. A single document may contain barcodes, text, image data and
+    forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
+    example, a driver's license can be thought of as a template containing regions such as name and address, signature
+    and photo, each of these regions are processed and returned to the app separately by SimulScan so Optical Character
+    Recognition captures the owners name and address whilst their photo is captured separately. These regions are
+    defined by a template which maps the various regions of the document to the data they contain and can be created
+    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
+        </HELP_OVERVIEW_EB>
+        <MORE_HELP>
+    ## Enabling the API
+    In order to use this API you must include the following extension in your `build.yml`.
+        :::ruby
+        extensions: ["simulscan"]
+
+    ## JavaScript Usage
+    Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API
+    in JavaScript.
+
+    ## Ruby Usage
+    Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
+    Ruby.
+        </MORE_HELP>
+
+        <MORE_HELP_EB>
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`.
-    :::ruby
-    extensions: ["simulscan"]
+There are two methods of enabling the SimulScan API: 
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API
-in JavaScript.
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
-Ruby.</MORE_HELP>
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
-    <TEMPLATES>
-      <DEFAULT_INSTANCE/>
-      <PROPERTY_BAG/>
-    </TEMPLATES>
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the SimulScan API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.simulscan.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+        </MORE_HELP_EB>
+
+        <TEMPLATES>
+            <DEFAULT_INSTANCE/>
+            <PROPERTY_BAG/>
+        </TEMPLATES>
 
     <PROPERTIES>
-      <DESC>These properties are used to configure how the SimulScan works, for example how feedback is provided to the user
-      </DESC>
+      <DESC>These properties are used to configure how the SimulScan works, for example how feedback is provided to the user</DESC>
       <PROPERTY name="template" type="STRING">
-        <DESC>The template XML which defines the document to be processed. This should be file URI to the template on the device. You must provide this property to define the form being captured and what is contained in each region on that form. Templates are specific to each document format you intend on capturing and can be created online at https://dpx-uat.motorolasolutions.com/.</DESC>
+        <DESC>The template XML which defines the document to be processed. This should be file URI to the template on the device. You must provide this property to define the form being captured and what is contained in each region on that form. Templates are specific to each document format you intend on capturing and can be created on-line at https://dpx-uat.motorolasolutions.com/.</DESC>
         <PLATFORM>Android</PLATFORM>
       </PROPERTY>
       <PROPERTY name="audioFeedback" type="BOOLEAN" default="true">
@@ -49,8 +87,7 @@ Ruby.</MORE_HELP>
         <PLATFORM>Android</PLATFORM>
       </PROPERTY>
       <PROPERTY name="autoImageCapture" type="BOOLEAN" default="true">
-        <DESC>If true, form will be captured automatically when detected.
-          If false, user must manually tap screen or press trigger to capture the form.</DESC>
+        <DESC>If true, form will be captured automatically when detected. If false, user must manually tap screen or press trigger to capture the form.</DESC>
         <PLATFORM>Android</PLATFORM>
       </PROPERTY>
       <PROPERTY name="frameThreshold" type="INTEGER" default="15">
@@ -246,8 +283,10 @@ Ruby.</MORE_HELP>
         <PLATFORM>Android</PLATFORM>
       </METHOD>
       <METHOD name="getDataUri">
-          <DESC>Return data URI encoding of the raw image associated with the region or captured form, this allows the operator to easily verify that the captured data is accurate and if necessary perform any post processing changes by hand. To show the image on the HTML page insert the data URI  string into the src attribute of the img tag: 
-    &lt;img src="dataURI string;"&gt;.
+          <DESC>Return data URI encoding of the raw image associated with the region or captured form, this allows the operator to easily verify that the captured data is accurate and if necessary perform any post processing changes by hand. To show the image on the HTML page insert the data URI  string into the src attribute of the img tag:
+
+    :::html
+    &lt;img src="dataURI string;"&gt;
         </DESC>
         <PARAMS>
           <PARAM name="imageId" type="INTEGER">
@@ -261,12 +300,12 @@ Ruby.</MORE_HELP>
         <PLATFORM>Android</PLATFORM>
       </METHOD>
     </METHODS>
+
     <USER_OVERVIEW>
     </USER_OVERVIEW>
     <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-    <PLATFORM>
-      Android
-    </PLATFORM>
+    <PLATFORM>Android</PLATFORM>
+
     <EXAMPLES>
       <EXAMPLE title="Download Templates">
         <SECTIONS>

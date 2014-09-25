@@ -1,7 +1,7 @@
 # Printing
 
 ## Overview
-In RhoMobile 4.1, we have introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and BlueTooth), but in subsequent releases we will be adding different printer types. 
+In RhoMobile Suite 4.1, we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and BlueTooth), but in subsequent releases we will be adding different printer types. 
 
 ## Enabling the APIs
 In the [API reference](apisummary), you will see two new APIs: [Printing](../api/printing) and [PrintingZebra](../api/printingzebra). The `Printing` API is a parent class that is defined to easily define common class attributes that specific printer type APIs like [PrintingZebra](../api/printingzebra) will inherit. To enable this functionality in your application, your must include both of these extensions in you build.yml
@@ -264,6 +264,6 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 * The .cab file for the printing service is held inside the `printing-service` folder inside your RhoMobile Suite installation directory located at `C:\<path to your rhomobile suite installation>\printing-service\PrintingService.cab`
 
 #### Limitations
-* Currently, the printing service only works with one client at a time but, this will be changed in RE 4.2 to include a multi-client mode.
+* Currently, the printing service only works with one client at a time but, this will be changed in RE 5.0 to include a multi-client mode.
 * The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with bluetooth printers.
 * The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) currently does not work.

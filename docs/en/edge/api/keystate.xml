@@ -2,7 +2,7 @@
 
 <API>
     <MODULE name="KeyState" parent="Rho" license="Required">
-        <HELP_OVERVIEW>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessry if more than one key state is set at once. This API is only supported on a subset of Motorola Solutions' Windows Mobile / CE / Embedded handheld devices (see remarks).</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Symbol Technologies' Windows Mobile / CE / Embedded handheld devices (see remarks).</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
@@ -20,8 +20,36 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
-
         </MORE_HELP>
+
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the KeyState API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the KeyState API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.keystate.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+        </MORE_HELP_EB>
 
         <TEMPLATES>
         </TEMPLATES>
@@ -53,13 +81,14 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     </PARAM>
                 </PARAMS>
             </METHOD>
+
             <METHOD name="hideStates" hasCallback="none" runInThread="ui">
                 <DESC>Stops showing keystate icons representing the shifted state of the hardware keyboard.</DESC>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
             </METHOD>
         </METHODS>
-        
+
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM</PLATFORM>
         <EXAMPLES>
@@ -83,20 +112,20 @@ function show_keystates(){
                     </CODE>
                     </SECTION>
                 </SECTIONS>
-            </EXAMPLE>          
+            </EXAMPLE>
         </EXAMPLES>
+
         <REMARKS>
             <REMARK title="Devices lacking support">
-                <DESC><![CDATA[
-Due to platform limitations this API is not available on the following Motorola Solutions' devices:
+                <DESC>Due to platform limitations this API is not available on the following Symbol Technologies' devices:
 
-- ES400
-- MC45
-- MC65
-- VC70
-- MC45
-                ]]></DESC>
+* ES400
+* MC45
+* MC65
+* VC70
+* MC45</DESC>
             </REMARK>
+
             <REMARK title="Rotating the Screen">
                 <DESC>The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.</DESC>
             </REMARK>

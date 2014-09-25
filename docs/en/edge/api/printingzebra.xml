@@ -4,8 +4,6 @@
     <MODULE name="PrinterZebra" parent="Rho">
         <HELP_OVERVIEW>The PrinterZebra API provides Zebra specific API access Zebra Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](printing)</HELP_OVERVIEW>
         <MORE_HELP>
-
-
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
     :::ruby
@@ -17,7 +15,35 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
         </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the Zebra Printing API: 
 
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Zebra Printing API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.printer.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.printerzebra.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+        </MORE_HELP_EB>
         <TEMPLATES>
             <DEFAULT_INSTANCE/>
             <PROPERTY_BAG/>
@@ -64,13 +90,11 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 <DESC>Unknown print mode</DESC>
             </CONSTANT>
 
-
             <!-- Connection types types -->
             <CONSTANT name="DISCOVERY_MODE_MULTICAST" value="DISCOVERY_MODE_MULTICAST" type="STRING"/>
             <CONSTANT name="DISCOVERY_MODE_SUBNET_SEARCH" value="DISCOVERY_MODE_SUBNET_SEARCH" type="STRING"/>
             <CONSTANT name="DISCOVERY_MODE_DIRECTED_BROADCAST" value="DISCOVERY_MODE_DIRECTED_BROADCAST" type="STRING"/>
             <CONSTANT name="DISCOVERY_MODE_LOCAL_BROADCAST" value="DISCOVERY_MODE_LOCAL_BROADCAST" type="STRING"/>
-
 
             <CONSTANT name="ERROR_NO_CONNECTION" value="ERROR_NO_CONNECTION" type="STRING">
                 <DESC>Unable to create a connection to a printer</DESC>
@@ -97,7 +121,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </CONSTANT>
 
             <CONSTANT name="ERROR_INVALID_DISCOVERY_HOP_COUNT" value="ERROR_INVALID_DISCOVERY_HOP_COUNT" type="STRING">
-                <DESC>Invalid multicast hop count</DESC>
+                <DESC>Invalid multi-cast hop count</DESC>
             </CONSTANT>
 
             <CONSTANT name="ERROR_MALFORMED_PRINTER_STATUS_RESPONSE" value="ERROR_MALFORMED_PRINTER_STATUS_RESPONSE" type="STRING">
@@ -129,45 +153,45 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </CONSTANT>
             
             <CONSTANT name="PRINTER_STATE_IS_HEAD_COLD" value="PRINTER_STATE_IS_HEAD_COLD" type="STRING">
-                <DESC>use this name for requestState(), true if the head is cold</DESC>
+                <DESC>Use this name for requestState(), true if the head is cold</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_HEAD_OPEN" value="PRINTER_STATE_IS_HEAD_OPEN" type="STRING">
-                <DESC>use this name for requestState(), true if the head is open</DESC>
+                <DESC>Use this name for requestState(), true if the head is open</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_HEAD_TOO_HOT" value="PRINTER_STATE_IS_HEAD_TOO_HOT" type="STRING">
-                <DESC>use this name for requestState(), true if the head is too hot</DESC>
+                <DESC>Use this name for requestState(), true if the head is too hot</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_PARTIAL_FORMAT_IN_PROGRESS" value="PRINTER_STATE_IS_PARTIAL_FORMAT_IN_PROGRESS" type="STRING">
-                <DESC>use this name for requestState(), true if there is a partial format in progress</DESC>
+                <DESC>Use this name for requestState(), true if there is a partial format in progress</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_PAUSED" value="PRINTER_STATE_IS_PAUSED" type="STRING">
-                <DESC>use this name for requestState(), true if the printer is paused</DESC>
+                <DESC>Use this name for requestState(), true if the printer is paused</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_RECEIVE_BUFFER_FULL" value="PRINTER_STATE_IS_RECEIVE_BUFFER_FULL" type="STRING">
-                <DESC>use this name for requestState(), true if the receive buffer is full</DESC>
+                <DESC>Use this name for requestState(), true if the receive buffer is full</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_IS_RIBBON_OUT" value="PRINTER_STATE_IS_RIBBON_OUT" type="STRING">
-                <DESC>use this name for requestState(), true if the ribbon is out</DESC>
+                <DESC>Use this name for requestState(), true if the ribbon is out</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_LABEL_LENGTH_IN_DOTS" value="PRINTER_STATE_LABEL_LENGTH_IN_DOTS" type="STRING">
-                <DESC>use this name for requestState(), The length of the label in dots</DESC>
+                <DESC>Use this name for requestState(), The length of the label in dots</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_LABELS_REMAINING_IN_BATCH" value="PRINTER_STATE_LABELS_REMAINING_IN_BATCH" type="STRING">
-                <DESC>use this name for requestState(), The number of labels remaining in the batch</DESC>
+                <DESC>Use this name for requestState(), The number of labels remaining in the batch</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_NUMBER_OF_FORMATS_IN_RECEIVE_BUFFER" value="PRINTER_STATE_NUMBER_OF_FORMATS_IN_RECEIVE_BUFFER" type="STRING">
-                <DESC>use this name for requestState(), The number of formats currently in the receive buffer of the printer</DESC>
+                <DESC>Use this name for requestState(), The number of formats currently in the receive buffer of the printer</DESC>
             </CONSTANT>
             <CONSTANT name="PRINTER_STATE_PRINT_MODE" value="PRINTER_STATE_PRINT_MODE" type="STRING">
-                <DESC>use this name for requestState(), The print mode</DESC>
+                <DESC>Use this name for requestState(), The print mode</DESC>
             </CONSTANT>
         </CONSTANTS>
 
-        <METHODS access="INSTANCE">            
+        <METHODS access="INSTANCE">
             <METHOD name="retrieveFileNames" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
-                <DESC>Retrieves the names of the files which are stored on the printer. Works asynchronously, use callback to check the result.</DESC>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <DESC>Retrieves the names of the files which are stored on the printer. Works asynchronously; use callback to check the result.</DESC>
                 <CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
@@ -183,8 +207,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
             <METHOD name="retrieveFileNamesWithExtensions" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
-                <DESC>This method only returns files which have the extensions in "extensions". Works asynchronously, use callback to check the result.</DESC>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <DESC>This method only returns files which have the extensions in "extensions". Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="extensions" type="ARRAY">
                         <PARAM type="STRING"></PARAM>
@@ -206,8 +230,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
             <METHOD name="sendFileContents" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
-                <DESC>Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously, use callback to check the result.</DESC>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <DESC>Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
                         <DESC>Location of file to print. This path must be fully qualified path to local file on the device.</DESC>
@@ -220,25 +244,26 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
             <METHOD name="printStoredFormatWithHash" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
-                <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously, use callback to check the result.</DESC>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
                     </PARAM>
                     <PARAM name="vars" type="HASH">
-                        <DESC>An Hash which contains the key/value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as String: '1':'field1' etc. CPCL format do not supported - only ZPL!</DESC>
+                        <DESC>An Hash which contains the key / value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as Strings, i.e. '1':'field1' etc. CPCL format do not supported - only ZPL!</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occured.</DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print formats containing invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occurred.</DESC>
+                    <DESC_EB>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print formats containing invalid data, on Android and WM Zebra SDK does not provide that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occurred.</DESC_EB>
                 </CALLBACK>
             </METHOD>
 
             <METHOD name="printStoredFormatWithArray" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
-                <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchronously, use callback to check the result.</DESC>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
@@ -248,14 +273,16 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
-                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occured. </DESC>
+                    <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occurred.</DESC>
+                    <DESC_EB>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print formats containing invalid data, on Android and WM Zebra SDK does not provide that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occurred.</DESC_EB>
                 </CALLBACK> 
             </METHOD>
 
             <METHOD name="storeImage" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM>
-                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously, use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note: if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS, Android and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS, Android and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
+                <DESC_EB>Stores the specified image to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. Android and WM support only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC_EB>
                 <PARAMS>
                     <PARAM name="printerDriveAndFileName" type="STRING">
                         <DESC>Path on the printer where the image will be stored.</DESC>
@@ -280,9 +307,9 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </USER_OVERVIEW>
 
         <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-        <PLATFORM>WM, Android, iOS</PLATFORM>
+        <PLATFORM>WM, CE, Android, iOS</PLATFORM>
         <REMARKS>
-            <REMARK title="iOS Notes">
+            <REMARK title="iOS Notes" productException="eb">
                 <DESC>
 To use a Bluetooth connection on iOS devices you should take into account the following preconditions:
 
@@ -298,12 +325,10 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
         &lt;key&gt;UIBackgroundModes&lt;/key&gt;
         &lt;array&gt;
             &lt;string&gt;external-accessory&lt;/string&gt;
-        &lt;/array&gt;
-            </DESC>                    
+        &lt;/array&gt;</DESC>
             </REMARK>
             <REMARK title="Android Notes">
                 <DESC>
-
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
 
             </DESC>                    
@@ -321,9 +346,19 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
             printer.disconnect();
         }
 
-* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
+* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.</DESC>
+                <DESC_EB>
 
-            </DESC>                    
+* Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
+   
+* You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:
+
+        :::javascript
+        window.onunload = function(){
+            printer.disconnect();
+        }
+
+* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.</DESC_EB>
             </REMARK>
         </REMARKS>
         <EXAMPLES>

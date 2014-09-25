@@ -55,7 +55,7 @@ extensions: ["coreapi"]
 </dt><dt>first</dt><dd><p>returns first object matching :conditions.</p>
 </dt><dt>count</dt><dd><p>returns the number of objects matching these :conditions.</p>
 </dt></dl></li><li>queryOptions : <span class='text-info'>HASH</span><p><p>An object of selection options</p>
- </p></li><ul><li>conditions : <span class='text-info'>HASH</span><p><p>A name:value object that you want to find. Ex: conditions { name:&lsquo;Motorola&rsquo;}.</p>
+ </p></li><ul><li>conditions : <span class='text-info'>HASH</span><p><p>A name:value object that you want to find. Ex: conditions { name:&lsquo;Symbol&rsquo;}.</p>
  </p></li><ul><li>propertyName : <span class='text-info'></span><p> </p></li><li>propertyValue : <span class='text-info'></span><p> </p></li></ul><li>order : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p><p>Attribute(s) to order the list. This cannot be used when using a select parameter and you must pass a conditions hash.</p>
  </p></li><li>orderdir : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p><p>Order direction. This cannot be used when using a select parameter and you must pass a conditions hash</p>
  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>ASC</dt><dd><p>Ascending order. (Default)</p>

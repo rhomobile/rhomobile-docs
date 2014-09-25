@@ -13,10 +13,12 @@ extensions: ["coreapi"]
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<p>If you are going to be using the JS ORM API, you&rsquo;ll also need to include this line in any files that will be using it:</p>
+<p>If you are going to be using the JS ORM API, you&rsquo;ll also need to include these lines in any files that will be using it:</p>
 
 <pre><code>:::html
 &lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORMHelper.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-Ruby-RunTime.js"&gt;&lt;/script&gt;
 </code></pre>
 
 <h2>Ruby Usage</h2>

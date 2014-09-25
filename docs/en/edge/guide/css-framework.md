@@ -15,15 +15,13 @@ While there are enough similarities between most browsers to facilitate the use 
 
 ### Conditional display in view files
 
-To render content in some browsers but not others, you can include conditional statements within your views.  For example, this code can be used to conditionally display the name of the phone's operating system in your model views.  
+To render content in some browsers but not others, you can include conditional statements within your views.  For example, this code can be used to conditionally display the name of the phone's operating system in your model views.
 
 	:::ruby
 	<% if platform == 'APPLE' %>
 		iPhone 
 	<% elsif  platform == 'ANDROID' %>
 		Android
-	<% elsif platform == 'Blackberry' %>
-		BlackBerry
 	<% else %>
 		Windows Mobile
 	<% end %>	
@@ -53,12 +51,9 @@ To create a platform-specific view file, simply name the file using the followin
 
 <table>
 <tr><td width="125">Android:</td><td width="125" > android</td><td width="125" >index.android.erb</td></tr>
-<tr><td width="125">BlackBerry:</td><td width="125" >bb</td><td width="125" >index.bb.erb</td></tr>
 <tr><td width="125">iPhone:</td><td width="125" >iphone</td><td width="125" >index.iphone.erb</td></tr>
 <tr><td width="125">Windows Mobile:</td><td width="125" > wm</td><td width="125" >index.wm.erb</td></tr>
 </table>
-
-As an example, the BlackBerry browser has severely limited support for modern css. In order to take full advantage of the capabilities of the more advanced browsers found on iPhone, Android and Windows Mobile devices, the views generated via the rhogen command include custom BlackBerry view files which are loaded when running on a BB device.  As described above, the files customized for the BlackBerry are designated by including "bb" before the standard erb extension (e.g., app/index.bb.erb). 
 
 Keep in mind that any changes made to the standard view files are not incorporated into the custom views, so if you're developing custom views for a specific platform, ensure that any necessary changes are applied to all relevant view files.
 
@@ -131,6 +126,6 @@ You can  see an example of this in the generated stylesheets for Android and iPh
 You can find more information about -webkit-appearance at http://developer.apple.com/safari/articles/cssrecipes.html
 
 <p style="font-weight:bold">Viewports vs postion:fixed</p>
-The position:fixed attribute does not exhibit the expected behavior in webkit-based mobile browsers.  To ensure that the view is rendered at the appropriate resolution, mobile webkit-based browsers use a viewport to determine which content is displayed.  
+The position:fixed attribute does not exhibit the expected behavior in webkit-based mobile browsers.  To ensure that the view is rendered at the appropriate resolution, mobile webkit-based browsers use a viewport to determine which content is displayed.
 
 To understand how scrolling in a viewport differs from scrolling in a desktop browser, imagine a newspaper laid out on a desk.  Take a large piece of paper, and cut a 480mm x320mm rectangle out of the center of the construction paper.  When you lay the construction paper on top of the newspaper, you can only view a small portion of the content at any given time, and you must move the paper around to see additional content.  Similarly, mobile webkit-based browsers render the entire page, and allow the user to move their 480x320px window over the top of the page, in contrast to dynamically rendering of pages found in desktop browsers.  Since the entire page is rendered once, the browser is unable to regenerate the toolbar in the appropriate location.  As a result, items with position:fixed are interpreted as being fixed relative to the page body, rather than the viewport, and from the user's perspective, the position of the toolbar is not fixed.

@@ -89,13 +89,13 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/4.0.0/api/webview',                                     'WebView'
 end
 
-section 'rhomob-setup',                     'Dev Environment Setup',  'Mobile Guides' do
-  topic 'en/4.0.0/guide/rhomobile-install', 'RhoMobile Suite Install'
-  topic 'en/4.0.0/guide/nativesdksetup',    'Native SDK Setup'
-  topic 'en/4.0.0/guide/nonrhostudio',      'Developing Without RhoStudio'
-  topic 'en/4.0.0/guide/visualstudio',      'Developing with Visual Studio'
-  topic 'en/4.0.0/guide/rhohubtutorial',    'Build In The Cloud With RhoHub'
-  topic 'en/4.0.0/rhostudio-rhohub',        'Using RhoStudio with RhoHub'
+section 'rhomob-setup',                          'Dev Environment Setup',  'Mobile Guides' do
+  topic 'en/4.0.0/guide/rhomobile-install',      'RhoMobile Suite Install'
+  topic 'en/4.0.0/guide/nativesdksetup',         'Native SDK Setup'
+  topic 'en/4.0.0/guide/nonrhostudio',           'Developing Without RhoStudio'
+  topic 'en/4.0.0/guide/visualstudio',           'Developing with Visual Studio'
+  topic 'en/hosted/guide/remote-build-guide',    'Build In The Cloud'
+  # topic 'en/4.0.0/rhostudio-rhohub',             'Using RhoStudio with RhoHub'
 end
 
 section 'rhomob-apps',                        'Developing Apps','Mobile Guides' do
@@ -122,7 +122,7 @@ section 'rhomob-data',                      'Data Handling','Mobile Guides' do
   topic 'en/4.0.0/guide/rhom_js',           'Using Rhom with JavaScript'
   topic 'en/4.0.0/guide/rhom_backbone',     'Using Rhom with Backbone.JS'
   topic 'en/4.0.0/guide/rhom_angular',      'Using Rhom with Angular JS'
-  topic 'en/4.0.0/guide/using_rhoconnect',  'Synchronization'
+  topic 'en/4.0.0/guide/Synchronization',   'Synchronization'
   topic 'en/4.0.0/guide/web_services',      'Web Services & AJAX'
 end
 
@@ -232,7 +232,7 @@ end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do
   topic 'en/4.0.0/rhoconnect/preparing-production',   'Preparing for Production'
-  topic 'en/4.0.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
+  # topic 'en/4.0.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'en/4.0.0/rhoconnect/deploying',              'Deploying RhoConnect'
   topic 'en/4.0.0/rhoconnect/rhoconnect-redis-stack', 'High Availability Deployment on AWS'
 end

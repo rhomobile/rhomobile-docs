@@ -2,8 +2,8 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="CardReader" parent="Rho" license="Required">
-        <HELP_OVERVIEW>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Motorola Solutions devices.</HELP_OVERVIEW>
-        <MORE_HELP>Only the foreground RhoElements application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.
+        <HELP_OVERVIEW>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Symbol Technologies devices.Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</HELP_OVERVIEW>
+        <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
     :::ruby
@@ -20,19 +20,46 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
-
         </MORE_HELP>
+
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the CardReader API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the CardReader API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.cardreader.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+        </MORE_HELP_EB>
 
         <TEMPLATES>
             <DEFAULT_INSTANCE/> <!-- object has default static property, all methods can be call by static way (called from default instance), produce default(), set_default() methods -->
             <PROPERTY_BAG/> <!-- object has properties, produce getProps(), setProps() methods -->
         </TEMPLATES>
 
-        <PLATFORM>WM, Android</PLATFORM>
+        <PLATFORM>WM, CE, Android</PLATFORM>
 
         <PROPERTIES usePropertyBag="accessorsViaPropertyBag">
             <DESC>These properties are used to configure the card reader.</DESC>
-
              <PROPERTY name="pinTimeout" type="INTEGER" generateAccessors="true" default="30000">
                 <!-- <VALUES>0 - 65535</VALUES> -->
                 <DESC>PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite. Accepts values between 0 and 65535.</DESC>
@@ -51,16 +78,17 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             </PROPERTY>
             <PROPERTY name="autoTab" type="BOOLEAN" generateAccessors="true" default="false">
                 <DESC>When enabled, appends a tab to any data returned as keystrokes by the cardreader. This is useful when filling out a form so that you can move to the next field without extra interaction necessary.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
             </PROPERTY>
             <PROPERTY name="autoEnter" type="BOOLEAN" generateAccessors="true" default="false">
                 <DESC>When enabled, appends a carriage return to any data returned as keystrokes by the cardreader. This is useful for auto submitting returned data without extra interaction necessary.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
             </PROPERTY>
             <PROPERTY name="moduleName" type="STRING" generateAccessors="true" deprecated="true">
                 <DESC>This method is present to provide backwards compatibility with PocketBrowser code, devices supported by RhoElements will have a single card reader driver installed as part of the platform. If the device has multiple card reader drivers installed this parameter is used to select which driver to use. The drivers present are output in the log file when the card reader is initialized. This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'.</DESC>
+                <DESC_EB>This method is present to provide backwards compatibility with PocketBrowser code, devices supported by the Enterprise Browser will have a single card reader driver installed as part of the platform. If the device has multiple card reader drivers installed this parameter is used to select which driver to use. The drivers present are output in the log file when the card reader is initialized. This parameter is also used to distinguish between an MSR and a DCR, e.g. if you attach a DCR7000 to your device you can specify that only the MSR functionality is used by specifying this parameter as 'MSR7000'.</DESC_EB>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
                 <VALUES>
@@ -95,7 +123,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         <METHODS>
             <METHOD name="open" hasCallback="optional">
                 <DESC>Opens the card reader.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
                 <CALLBACK  type="HASH">
                     <DESC>Not providing a callback to be invoked when a card is swiped will result in that card data being output as keystrokes. In case of Android devices the RawData will be shown as keystrokes.</DESC>
@@ -154,77 +182,57 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                     </PARAMS>
                 </CALLBACK> 
             </METHOD>
+
             <METHOD name="close">
                 <DESC>Closes the card reader.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
             </METHOD>
 
             <METHOD name="enumerate" access="STATIC" hasCallback="optional">
                 <DESC>Enumerates all the available card readers.</DESC>
-
                 <RETURN type="ARRAY">
                     <DESC>Array of Card reader objects.</DESC>
                     <PARAM name="cardreaderArray" type="SELF_INSTANCE"/>
                 </RETURN>
                 <PLATFORM>Android, WM</PLATFORM>
             </METHOD>
-
         </METHODS>
 
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>Android, WM</PLATFORM>
         <REMARKS>
             <REMARK title="General">
-                <DESC>
-                    <![CDATA[
-If the CardReader open method is not specified with a callback, the cardreader data will be returned as keystrokes. If both the autotab and autoenter parameters are set to "enabled", autoenter will take precedence. An opened card reader must be closed before the attached card reader device and associated modulename parameter are changed. Any attempt to set a parameter to an invalid value, will result in no effect on the parameter's current value. There should be made a delay around 2 secs or more between API calls which interact with hardware.
-                    ]]>
-                </DESC>
+                <DESC>If the CardReader open method is not specified with a callback, the cardreader data will be returned as keystrokes. If both the autotab and autoenter parameters are set to "enabled", autoenter will take precedence. An opened card reader must be closed before the attached card reader device and associated modulename parameter are changed. Any attempt to set a parameter to an invalid value, will result in no effect on the parameter's current value. There should be made a delay around 2 secs or more between API calls which interact with hardware.</DESC>
             </REMARK>
+
             <!--REMARK title="AutoEnter and AccelerateKey">
-                <DESC>
-                    <![CDATA[
-The AccelerateKey Meta tag controls the behavior of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either. 
-                    ]]>
-                </DESC>
+                <DESC>The AccelerateKey Meta tag controls the behavior of Accelerate keys on Windows CE, if the Enter key is configured to be non functional then AutoEnter will also appear to not function either.</DESC>
             </REMARK-->
+
             <REMARK title="Operational Modes (Backwards compatibility with PocketBrowser)">
-                <DESC>
-                    <![CDATA[
-For the DCR7000 the ModuleName parameter must be set at least once before the readevent parameter is set. If the card reader is an MSR, when a card is swiped it returns the data read from the card. Setting ModuleName to a DCR will cause the card data to be returned followed by the PAN Data before waiting for a PIN to be entered on the keypad. Once entered the PIN will be encrypted and returned by a third ReadEvent. The card must be a validly formatted IATA or ABA card. 
-                    ]]>
-                </DESC>
+                <DESC>For the DCR7000 the ModuleName parameter must be set at least once before the readevent parameter is set. If the card reader is an MSR, when a card is swiped it returns the data read from the card. Setting ModuleName to a DCR will cause the card data to be returned followed by the PAN Data before waiting for a PIN to be entered on the keypad. Once entered the PIN will be encrypted and returned by a third ReadEvent. The card must be a validly formatted IATA or ABA card.</DESC>
             </REMARK>
+
             <REMARK title="Closing the reader while PIN entry pending">
-                <DESC>
-                    <![CDATA[
-There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or RhoElements is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.
-                    ]]>
-                </DESC>
+                <DESC>There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or RhoElements is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.</DESC>
+                <DESC_EB>There is no way to abort a pending PIN entry (other than the customer pressing the Cancel button), for security reasons. Therefore if the reader is closed or the Enterprise Browser is quit during that time it will become unresponsive until a PIN is entered or the PIN timeout occurs.</DESC_EB>
             </REMARK>
+
             <REMARK title="Blank card data">
-                <DESC>
-                    <![CDATA[
-In certain circumstances it is possible that the card reader may return empty card data. The JavaScript event function should be able to handle this correctly. 
-                    ]]>
-                </DESC>
+                <DESC>In certain circumstances it is possible that the card reader may return empty card data. The JavaScript event function should be able to handle this correctly. </DESC>
             </REMARK>
+
             <REMARK title="Detaching / Reattaching the Card Reader">
-                <DESC>
-                    <![CDATA[
-Applications running in RhoElements should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.
-                    ]]>
-                </DESC>
+                <DESC>Applications running in RhoElements should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.</DESC>
+                <DESC_EB>Applications running in the Enterprise Browser should be resilient against the card reader being detached and subsequently reattached. Card data parsing code should be robust against unexpected characters in the first read after reattachment.</DESC_EB>
             </REMARK>
+
             <REMARK title="Encrypted Card data">
-                <DESC>
-                    <![CDATA[
-The encrypted data is supported only on the card readers that are configured for encryption. Since the encrypted data might contain unreadable characters sometimes it is recommended to use only JSON object method rather than JavaScript '%s' notation. 
-                    ]]>
-                </DESC>
+                <DESC>The encrypted data is supported only on the card readers that are configured for encryption. Since the encrypted data might contain unreadable characters sometimes it is recommended to use only JSON object method rather than JavaScript '%s' notation.</DESC>
             </REMARK>
         </REMARKS>
+
         <EXAMPLES>
             <EXAMPLE title="Basic Example">
                 <SECTIONS>
