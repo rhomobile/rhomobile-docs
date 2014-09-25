@@ -124,7 +124,6 @@ var menuStrcture = [
 							{"name":"KeyState","link":"#api-keystate"},
 							{"name":"KeyLight","link":"#api-Keylight"},
 							{"name":"Log","link":"#api-Log"},
-							{"name":"LogCapture","link":"#api-logcapture"},
 							{"name":"Mediaplayer","link":"#api-mediaplayer"},
 							{"name":"Memory","link":"#api-Memory"},
 							{"name":"NativeMenubar","link":"#api-NativeMenubar"},
