@@ -119,6 +119,7 @@ var menuStrcture = [
 							{"name":"GoButton","link":"#api-GoButton"},
 							{"name":"HomeButton","link":"#api-HomeButton"},
 							{"name":"Hourglass","link":"#api-Hourglass"},
+							{"name":"Imager","link":"#api-Imager"},
 							{"name":"Intent","link":"#api-Intent"},
 							{"name":"KeyCapture","link":"#api-keycapture"},
 							{"name":"KeyState","link":"#api-keystate"},
