@@ -103,11 +103,11 @@ So, if your application needs HTTPS or Windows XP compatibility, then you need t
 
       call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" x86
       set CL=/MP /D_USING_V110_SDK71_ %CL%
-      set PATH=%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Bin;%PATH%
+      set PATH=%ProgramFiles(x86)%\Microsoft SDKs\Windows\v7.1A\Bin;%PATH%
       set PATH=%PATH%;C:\Qt\icu\bin;C:\Qt\Qt5-src\gnuwin32\bin
-      set INCLUDE=%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Include;%INCLUDE%
+      set INCLUDE=%ProgramFiles(x86)%\Microsoft SDKs\Windows\v7.1A\Include;%INCLUDE%
       set INCLUDE=%INCLUDE%;C:\Qt\icu\include
-      set LIB=%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Lib;%LIB%
+      set LIB=%ProgramFiles(x86)%\Microsoft SDKs\Windows\v7.1A\Lib;%LIB%
       set LIB=%LIB%;C:\Qt\icu\lib
       mkdir qtbase\include\QtZlib
       copy C:\Qt\Qt5-src\qtbase\include\QtZlib\*.h qtbase\include\QtZlib
@@ -138,12 +138,12 @@ So, if your application needs HTTPS or Windows XP compatibility, then you need t
 
 Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically.
 
-<!-- <a name="build-qt5-for-vs2008"></a>
+<a name="build-qt5-for-vs2008"></a>
 ### Visual Studio 2008
 
 It's recommended to build Windows desktop applications with Visual Studio 2012. However if you can't use VS2012, then you need to use a custom build of the Qt libraries for Visual Studio 2008 (since there are no official binaries of Qt 5.1.1 libraries for VS2008).
 
-First of all you may [download our build of the Qt binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-rho2008.7z) that we use in our development and testing process. Exctract downloaded archive to `C:\Qt` (`Qt5-rho2008` folder will be created) and set `QTDIR` system variable to `C:\Qt\Qt5-rho2008`.
+First of all you may [download our build of the Qt binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z) that we use in our development and testing process. Exctract downloaded archive to `C:\Qt` (`Qt5-vs2008` folder will be created) and set `QTDIR` system variable to `C:\Qt\Qt5-vs2008`.
 
 NOTE: You may use our precompiled binaries of Qt libraries for development and testing, but your production builds may require your own build of Qt libraries (you need to consult with Qt and OpenSSL license agreements to begin with).
 
@@ -152,16 +152,20 @@ To build your own binaries of the Qt libraries for Visual Studio 2008:
 * Follow the instructions for [setting up the build environment for Qt libraries](#setup-qt-build-environment).
 * Install [Microsoft Windows Platform 7.1 SDK](http://www.microsoft.com/en-us/download/details.aspx?id=8279)
 * Install [DirectX SDK](http://www.microsoft.com/en-us/download/details.aspx?id=6812)
-* Install [Cygwin](http://cygwin.com/install.html), e.g. to `C:\Cygwin` (you will need it to compile ICU 52.1 libraries)
+* Install [Cygwin](http://cygwin.com/install.html), e.g. to `C:\Cygwin` (you will need it to compile ICU 52.1 libraries). Make sure you have installed `make`, `bash`, and `dos2unix`.
 * Open Control Panel » System » Advanced system settings » Environment Variables and then:
     * Create new (or update existing) system variable `QTDIR` = `C:\Qt\Qt5-vs2008` (this will be the installation folder for the compiled Qt libraries)
     * Either close all command prompts and Visual Studio instances, or reboot the computer so the new settings take effect.
 * Open Visual Studio 2008 Command Prompt. This is accomplished using Start » All Programs » Microsoft Visual Studio 2008 » Visual Studio Tools » Visual Studio 2008 Command Prompt. To build ICU 52.1 libraries run in Visual Studio 2008 Command Prompt:
 
-      > set PATH=C:\Cygwin\bin;%PATH%
-      > "%VS90COMNTOOLS%..\..\VC\vcvarsall.bat" x86
+      > set PATH=C:\Cygwin\bin;%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin;%PATH%
+      > set INCLUDE=%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Include;%INCLUDE%
+      > set LIB=%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Lib;%LIB%
+      > call "%VS90COMNTOOLS%..\..\VC\vcvarsall.bat" x86
       > cd \Qt\icu\source
-      > bash ./runConfigureICU Cygwin/MSVC --prefix=C:/Qt/Qt5-icu
+      > dos2unix *
+      > dos2unix -f configure
+      > bash ./runConfigureICU Cygwin/MSVC --prefix=/cygdrive/c/Qt/Qt5-icu
       > make
       > make check
       > make install
@@ -173,9 +177,9 @@ To build your own binaries of the Qt libraries for Visual Studio 2008:
       set CL=/MP %CL%
       set PATH=%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin;%PATH%
       set PATH=%PATH%;C:\Qt\Qt5-icu\bin;C:\Qt\Qt5-src\gnuwin32\bin
-      set INCLUDE=%ProgramFiles%\Microsoft SDKs\Windows\7.1\Include;%INCLUDE%
+      set INCLUDE=%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Include;%INCLUDE%
       set INCLUDE=%INCLUDE%;C:\Qt\Qt5-icu\include
-      set LIB=%ProgramFiles%\Microsoft SDKs\Windows\7.1\Lib;%LIB%
+      set LIB=%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Lib;%LIB%
       set LIB=%LIB%;C:\Qt\Qt5-icu\lib
       mkdir qtbase\include\QtZlib
       copy C:\Qt\Qt5-src\qtbase\include\QtZlib\*.h qtbase\include\QtZlib
@@ -183,8 +187,7 @@ To build your own binaries of the Qt libraries for Visual Studio 2008:
       copy C:\Qt\Qt5-src\qtbase\src\3rdparty\zlib\*.h qtbase\src\3rdparty\zlib
       call ..\Qt5-src\configure.bat -opensource -confirm-license ^
        -prefix C:/Qt/Qt5-vs2008 -debug-and-release -platform win32-msvc2008 -mp ^
-       -no-plugin-manifests -D "_BIND_TO_CURRENT_VCLIBS_VERSION=1" ^
-       -icu -shared -make libs -nomake tests -nomake examples -angle ^
+       -icu -shared -c++11 -make libs -nomake tests -nomake examples -angle ^
        -qt-zlib -qt-libpng -qt-libjpeg -qt-freetype -openssl-linked ^
        -I <path-to-rhodes>/lib/extensions/openssl.so/ext/win32/include ^
        -L <path-to-rhodes>/lib/extensions/openssl.so/ext/win32/msvc2008/lib
@@ -204,4 +207,4 @@ To build your own binaries of the Qt libraries for Visual Studio 2008:
   Be aware that it will take a while to build the Qt libraries from sources (maybe few hours or even a day).
 * After the build process is completed exit Visual Studio 2008 Command Prompt
 
-Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically. -->
+Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically.
