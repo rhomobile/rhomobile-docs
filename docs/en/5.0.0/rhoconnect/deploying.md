@@ -34,7 +34,7 @@ Add the following line to the end of your <b>/etc/apt/sources.list</b>:
     :::text
     deb http://rhoconnect.s3.amazonaws.com/packages/deb rhoconnect main
 
-**NOTE: If you want to get the package with cool new features from the Beta repository, then define repo url as `http://rhoconnect.s3.amazonaws.com/beta-packages/deb`**
+> Note: If you want to get the package with cool new features from the Beta repository, then define repo url as `http://rhoconnect.s3.amazonaws.com/beta-packages/deb`
 
 Once the repo is added apt-get needs to be updated:
 
@@ -88,7 +88,7 @@ Copy and paste these contents into the file.
     enabled=1
     gpgcheck=0
 
-**NOTE: If you want to get the package with cool new features from the Beta repository, then define baseurl as `baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`**
+> Note: If you want to get the package with cool new features from the Beta repository, then define baseurl as `baseurl=http://rhoconnect.s3.amazonaws.com/beta-packages/rpm`
 
 Once that is done, it is time to install RhoConnect:
 
@@ -231,14 +231,14 @@ f) As root user restart Thin, and Nginx servers
     /etc/init.d/nginx restart
 
 
-#### Deploying multiple rhoconnect apps
+#### Deploying multiple RhoConnect apps
 
-**NOTE: Deploying multiple rhoconnect apps on nginx has not yet been tested. Perform these steps only if you are experienced with nginx.**
+> Note: Deploying multiple RhoConnect apps on nginx has not yet been tested. Perform these steps only if you are experienced with nginx.
 
-To deploy and develop two rhoconnect applications on nginx and thin servers,
+To deploy and develop two RhoConnect applications on nginx and thin servers,
 refer to the nginx documentation on [nginx server blocks](http://wiki.nginx.org/ServerBlockExample) to see how to configure an nginx sever for multiple host names.
 
-For each rhoconnect app, you need to set up its own redis instance. Refer to [the redis quick start documentation](http://redis.io/topics/quickstart).
+For each RhoConnect app, you need to set up its own redis instance. Refer to [the redis quick start documentation](http://redis.io/topics/quickstart).
 
 If you have questions on setting this up, contact your system administrator.
 
@@ -248,7 +248,7 @@ For monitoring and troubleshooting purposes visit web console of your app and lo
 
 Also you can use RhoConnect `/opt/nginx/html/rhoapp` application as a template and modify it as you wanted.
 
-**NOTE: You should pay attentions to situations, if you have already Ruby installed on system level. Avoid usage of system gems in your application. It might lead to unpredictable results, if ruby versions are different. Either set up path to rhoconnect binaries for root user, or install required gems as `sudo /opt/rhoconnect/bin/gem install gem_name`**
+> Note: You should pay attentions to situations, if you have already Ruby installed on system level. Avoid usage of system gems in your application. It might lead to unpredictable results, if ruby versions are different. Either set up path to RhoConnect binaries for root user, or install required gems as `sudo /opt/rhoconnect/bin/gem install gem_name`
 
 ## Nginx configuration for SSL with self-signed certificate
 
@@ -571,9 +571,3 @@ If you have a rhodes client and want to sync it with your rhoconnect app on Hero
 
     :::term
     syncserver = 'https://<your-heroku-app-here>.herokuapp.com'
-
-
-
-
-
-
