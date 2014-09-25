@@ -39,7 +39,7 @@ NOTE: When running on device you may need to disconnect USB cable from device to
 
 ## Build from IDE
 ### Rhodes
-* Open `rhodes\platform\wp8\rhodes.sln` in VS 2012 or VS Express 2012 for Windows Phone.
+* Open `rhodes\platform\wp8\rhodes.sln` in VS 2013 or VS Express 2013 for Windows Phone.
 * Select Debug or Release configuration, Windows Phone 8 Emulator target and build solution.
 * Run emulator by pressing Start Debugging or Start Without Debugging
 * After Application code modifications , build Rhodes solution and Start Debugging. DO NOT close emulator!

@@ -59,7 +59,7 @@ The complete documentation for all iOS Simulator features can be found at [Inter
 
 ## Windows Phone 8
 
-The Windows Phone 8 SDK can be [freely downloaded](https://dev.windowsphone.com/en-us/downloadsdk) and will integrate with Visual Studio 2012 automatically.
+The Windows Phone 8 SDK can be [freely downloaded](https://dev.windowsphone.com/en-us/downloadsdk) and will integrate with Visual Studio 2013 automatically.
 
 **NOTE: If you are running Windows on a virtual machine, the emulator may fail to start and the system will show an error message like "xde.exe has stopped working". Running the WP8 emulator on a virtual machine is not officially supported by Microsoft, but it is possible to make it work if you enable "Nested VT" (Parallels) / "Virtualize Intel VT-x/EPT or AMD-V/RVI" (VMWare) on your virtualization host software. At the time of this writing, VirtualBox does not support nested virtualization.**
 

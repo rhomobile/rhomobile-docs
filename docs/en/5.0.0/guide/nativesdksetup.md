@@ -101,14 +101,14 @@ NOTE: If your application uses HTTPS protocol, then you need to build Qt librari
 
 ### Prerequisites
 
-* Windows 8 OS
-* Visual Studio 2012 installed or VS Express 2012 for Windows Phone
+* Windows 8.x OS
+* Visual Studio 2013 or Visual Studio Express 2013 for Windows Phone installed
     * [Windows Phone SDK 8.0](http://dev.windowsphone.com/en-us/downloadsdk)
     
 * Add path to `msbuild` to `rhobuild.yml` in rhodes folder. Use 32-bit version compiler to build for device.
 
 	    env:
 	      paths:
-	        msbuild: C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+	        msbuild: C:/Program Files (x86)/MSBuild/12.0/Bin/MSBuild.exe
 
 
