@@ -915,7 +915,7 @@ Enables or Disables Javascript (Windows Mobile Only).
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Enables or Disables selection of text when dragging the stylus on the screen (Windows Mobile Only).
+Enables or Disables selection of text when dragging the stylus on the screen.
 
 **Possible Values**
 

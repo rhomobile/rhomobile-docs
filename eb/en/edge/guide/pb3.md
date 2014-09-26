@@ -160,8 +160,8 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 * EMML profiles do not work.
 * Check the device for hardware compatibility, especially the [barcode scanning](http://docs.rhomobile.com/en/2.2.0/rhoelements/scanner) options.
 
-### API specific notes
+## API specific notes
 This section provides remarks on peculiarities or dependencies concerning specific APIs and their compatibility with PB3.
 
-#### DeviceApplication API
-* Windows CE - The `TextSize` feature in the DeviceApplication API from PB3 will not function properly unless you also enable text selection using the `TextSelectionEnabled` setting.
+### DeviceApplication API
+* Windows CE - The `TextSize` feature in the DeviceApplication API from PB3 will not function properly unless you also enable text selection using the `TextSelectionEnabled` setting in Config.xml.

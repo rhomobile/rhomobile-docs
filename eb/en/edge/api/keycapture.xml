@@ -4,7 +4,7 @@
     <MODULE name="KeyCapture" parent="Rho" license="Required">
         <HELP_OVERVIEW>The KeyCapture module is used to intercept or override hardware keys. It is typically used to provide certain application functions through the use of the device's physical keyboard or other hardware enabled buttons.</HELP_OVERVIEW>
         <MORE_HELP>
-## Enabling the API
+## Enabling the API           
 In order to use this API you must include the following extension in your `build.yml`
     :::ruby
     extensions: ["hardwarekeys"]
@@ -427,7 +427,7 @@ Tab           0x09    Advance to next control       Advance to next control</DES
             </REMARK>
 
             <REMARK title="Symbol Keys">
-                <DESC>On some devices certain keys containing special characters, these keys are known as symbol keys and they trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, ", (, ), !, :, ?, #, _, @. Capturing symbol key input via the SIP is not possible on WM/CE as all symbol keys return the same value; there is no such limitation on the physical keys representing the special characters.</DESC>
+                <DESC>On some devices certain keys containing special characters, these keys are known as symbol keys and they trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, ", (, ), !, :, ?, #, _, @. Capturing symbol key input via the SIP is not possible on CE7 as all symbol keys return the same value; there is no such limitation on the physical keys representing the special characters.</DESC>
             </REMARK>
 
             <REMARK title="Device Specific Exceptions">

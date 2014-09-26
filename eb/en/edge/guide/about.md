@@ -1,6 +1,6 @@
 # About Enterprise Browser
 ## Welcome To the Enterprise Browser
-Enterprise Browser is a powerful, next generation industrial browser enabling developers to build feature rich web applications that integrate seamlessly with the features in Motorola Solutions mobile computers and peripherals - such as barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3, and JavaScript) to run and integrate with virtually any Motorola Solutions devices running Microsoft&copy; Windows Mobile, Windows&copy; CE or Android. With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with todays highly-graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reducing costs and making the transition to next generation devices and operating systems fast, easy and affordable - especially in high volume mobile environments.
+Enterprise Browser is a powerful, next generation industrial browser enabling developers to build feature rich web applications that integrate seamlessly with the features in Symbol Technologies mobile computers and peripherals - such as barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3, and JavaScript) to run and integrate with virtually any Symbol Technologies devices running Microsoft&copy; Windows Mobile, Windows&copy; CE or Android. With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with todays highly-graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reducing costs and making the transition to next generation devices and operating systems fast, easy and affordable - especially in high volume mobile environments.
 
 ##Key Features
 
@@ -45,7 +45,7 @@ Enterprise Browser is a powerful, next generation industrial browser enabling de
 Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices/operating systems, providing highly cost effective support for a mixed-OS environment.
 
 ###Protect the business from OS market uncertainty
-Devices and platforms can continue to churn without impacting your business - these OS-agnostic applications work on the Motorola Solutions platforms of yesterday (MPA2), today and tomorrow.
+Devices and platforms can continue to churn without impacting your business - these OS-agnostic applications work on then Symbol Technologies platforms of yesterday (MPA2), today and tomorrow.
 
 ###Reduce end-user training costs
 Enterprise Browser app development is incredibly intuitive for developers skilled in HTML5, CSS and JavaScript.

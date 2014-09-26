@@ -108,7 +108,6 @@ var menuStrcture = [
 							{"name":"Barcode","link":"#api-barcode"},
 							{"name":"Battery","link":"#api-battery"},
 							{"name":"BottomCommandArea","link":"#api-BottomCommandArea"},
-							{"name":"Camera","link":"#api-camera"},
 							{"name":"CardReader","link":"#api-cardreader"},
 							{"name":"Comm","link":"#api-Comm"},
 							{"name":"Device","link":"#api-Device"},

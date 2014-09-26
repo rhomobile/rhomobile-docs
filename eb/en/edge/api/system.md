@@ -788,11 +788,11 @@ Synchronous Return:
 	* <code>EB.System.unset_http_proxy()</code> 
 
 
-### unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)
+### unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)
 Unzip file.
 
 ####Parameters
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>outputFileName : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Output file name. Used when decompressing gzip streams. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -807,7 +807,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code> 
+	* <code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)</code> 
 
 
 ### updateBlobAttribs(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)
