@@ -259,9 +259,28 @@ Here is an example of the iPhone settings in build.yml for distribution:
         BundleIdentifier: com.johnsmithcompany.jsapp
         BundleURLScheme: jsapp                
         
-### Setting your application name, icon and loading screen
+### Setting your application name, icons and loading screen
 
 You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](app_icon_splash) guide for detailed information.
+
+You must also include the following icon sizes for your app in order for it to pass App Store requirements:
+
+* icon57
+* icon60
+* icon76
+* icon72
+* icon114
+* icon120
+* icon144
+* icon152
+* icon180
+
+In addition to these, you need to also add icons for iTunes artwork images to be shown in iTunes and the AppStore application. Rhodes now generates iOS apps with the following image files:
+
+* "iTunesArtwork"    - 512x512 PNG
+* "iTunesArtwork@2x" - 1024x1024 PNG
+
+Simply put your images in place of these with the same names to customize the images.
 
 ### Turn off developer options
 
