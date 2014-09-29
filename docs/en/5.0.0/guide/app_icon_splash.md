@@ -24,9 +24,59 @@ Place your image to use as an icon into the folder called `icon` in your applica
 ### iOS 
 
 * Target->info->General->Name
-* Target->info->Build->Product Name (for all configurations)    
+* Target->info->Build->Product Name (for all configurations)
 * rhodes\platform\iphone\icon.png, icon57.png, icon72.png, icon114.png - change to your icons
 * check rhodes\platform\iphone\Info.plist it should contain BundleName=${PRODUCT_NAME}
+
+#### Splash Screen Images on Different Devices
+Apple has recently released a lot of devices with varying sizes and you must account for this in building your app using the following files for their respective devices.
+
+* loading-568h@2x.png - for iPhone 5 and 5S, 640x1136
+* loading-667h@2x.png - for iPhone 6, 750x1334
+* loading-736h@3x.png - for iPone 6 Plus, 1242x2208
+
+In XCode, these files will be converted to the following file names. also just add the files into the XCode project.
+
+* Default-568h@2x.png - for iPhone 5 and 5S
+* Default-667h@2x.png - for iPhone 6
+* Default-736h@3x.png - for iPone 6 Plus
+
+If you choose to manually add the files into your XCode project, you'll need to also edit your info.plist as such:
+
+	:::xml
+	<key>UILaunchImages</key>
+	<array>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>8.0</string>
+			<key>UILaunchImageName</key>
+			<string>Default-568h</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{320, 568}</string>
+		</dict>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>8.0</string>
+			<key>UILaunchImageName</key>
+			<string>Default-667h</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{375, 667}</string>
+		</dict>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>8.0</string>
+			<key>UILaunchImageName</key>
+			<string>Default-736h</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{414, 736}</string>
+		</dict>
+	</array>
 
 ### Android 
 You can change the icon for your Android application by replacing icon.png, which is in your application icon folder, with a new icon.png.
