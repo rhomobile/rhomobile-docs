@@ -454,11 +454,11 @@ Synchronous Return:
 	* <code>EB.System.setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</code> 
 
 
-### setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)
+### setNetworkStatusNotify(<span class="text-info">STRING</span> url)
 Use Network.setStatusNotify: set network notification callback.
 
 ####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>IOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -473,7 +473,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code> 
+	* <code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url)</code> 
 
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
@@ -637,23 +637,6 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.System.setWindowSize(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code> 
-
-
-### set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)
-Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.
-
-####Parameters
-<ul><li>badgeNumber : <span class='text-info'>INTEGER</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</code> 
 
 
 ### set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)
@@ -878,19 +861,6 @@ Synchronous Return:
 
 ##Properties
 
-
-
-###applicationIconBadge
-
-####Type
-<span class='text-info'>INTEGER</span> 
-####Description
-Set the application icon to have this badge number. Set to 0 (zero) to remove badge.
-####Access
-
-
-* Class: This property can only be accessed via the API class object.
-	* <code>EB.System.applicationIconBadge</code>
 
 
 ###country
