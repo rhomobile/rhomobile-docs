@@ -146,7 +146,7 @@ end
 
 def process_xml
   puts 'rebuilding API docs'
-  apiXML = File.join(AppConfig['api'],"**","*.xml")
+  apiXML = File.join(AppConfig['api'],"**","*.{xml,_xml}")
   
   apiFiles = Dir.glob(apiXML)
 
@@ -165,7 +165,7 @@ end
 def update_xml
  apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|
-   apiSourceFolder = File.join(s,"**","*.xml")
+   apiSourceFolder = File.join(s,"**","*.{xml,_xml}")
     puts apiSourceFolder
    Dir.glob(apiSourceFolder).each do|f|
     filename = File.basename(f)

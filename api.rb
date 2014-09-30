@@ -24,17 +24,21 @@ class Api
 	#returns markdown for the name of the API 
   def self.getApiName(doc,lang,allowoverride)
   	md=""
-  	md = doc["MODULE"][0]["name"]
+  	docName = doc["MODULE"][0]["name"]
+  	if !doc["MODULE"][0]["parent"].nil? && doc["MODULE"][0]["parent"] !="Rho"
+  		docName = doc["MODULE"][0]["parent"].gsub('Rho.','') + '.' + doc["MODULE"][0]["name"]
+  	end
+  	md = docName 
   	if allowoverride
 	  	if !doc["MODULE"][0]["docNameOverride"].nil?
 	  		md = doc["MODULE"][0]["docNameOverride"]
 	  	else
 	  		if lang == 'RUBY'
-	  			md = 'Rho::' + doc["MODULE"][0]["name"]
+	  			md = 'Rho::' + docName
 	  		elsif lang =='JS'
-	  			md = 'Rho.' + doc["MODULE"][0]["name"]
+	  			md = 'Rho.' + docName
 	  		else
-	  			md = doc["MODULE"][0]["name"]
+	  			md = docName
 
 	  		end
 	  	end
@@ -1880,7 +1884,8 @@ end
 		    md += "</div>"
 
 	  	# puts md
-	  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
+	  	file_extension = File.extname(topic)
+	  	File.open("#{topic.gsub!(file_extension,'.md')}", 'w') {|f| f.write(md) }
 	else
 		puts ('Skipping Undocumented API: ' + doc["MODULE"][0]["name"] )
 	end

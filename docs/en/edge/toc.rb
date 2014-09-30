@@ -67,6 +67,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology_NfcV-api',             'NFCTagTechnology_NfcV'
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology-api',                  'NFCTagTechnology'
   topic 'en/edge/api/Notification',                                 'Notification'
+  topic 'en/edge/api/Notification.Led',                                 'Notification.Led'
   topic 'en/edge/api/Orm',                                          'ORM JavaScript'
   topic 'en/edge/api/rhom-api',                                     'ORM Ruby'
   topic 'en/edge/api/OrmModel',                                     'ORM Model JavaScript'
