@@ -626,7 +626,7 @@ function search()
 		caseSensitive: false,
 		includeScore: false,
 		shouldSort: true,
-		threshold: 0.5,
+		threshold: 0.2,
 		location: 0,
 		distance: 10000,
 		maxPatternLength: 32,
