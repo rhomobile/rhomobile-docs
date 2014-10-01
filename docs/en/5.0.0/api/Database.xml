@@ -158,7 +158,7 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
             <CODE>
               <RUBY>
                 <![CDATA[
-db = Rho::Database
+db = Rho::Database.new
   db.startTransaction
   begin
     items.each do |item|

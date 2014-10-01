@@ -51,6 +51,7 @@ extensions: ["coreapi"]
 <p>To insert/update multiple object/models use database transactions. This is the most performant method to initialize your application with a large set of data.</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
+                
 var db = Rho.Database;
 db.startTransaction();
 try
@@ -71,9 +72,11 @@ catch
 {
  db.rollbackTransaction();
 }
+
               </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-db = Rho::Database
+                
+db = Rho::Database.new
 db.startTransaction
 begin
   items.each do |item|
@@ -89,6 +92,7 @@ begin
 rescue
   db.rollbackTransaction
 end
+
               </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Open and close database</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>The following example opens the database using the <code>constructor</code> method: .initialize. It then closes the database using the destructor method <code>.close()</code></p>
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
