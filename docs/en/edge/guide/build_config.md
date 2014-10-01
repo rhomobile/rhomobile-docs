@@ -172,6 +172,25 @@ By default, the build process will build only for ARM-based processors but, Rhod
 
 You can also elect to build for both arm AND Intel-based processor by specifying `abis: [arm, x86]`.
 
+### Production iOS
+To build iOS for production, there are a few settings that need to be added to your build.yml file in order to allow Rhodes correctly configure the build. You'll need to add the `mobileprovision` file, the `certificate_file`, and the `certificate_password` in a production sub-heading in the iphone section of the build.yml as shown below.
+
+	:::yaml
+	iphone:
+		configuration: Release
+		sdk: iphonesimulator7.1
+		provisionprofile: profile_name
+		codesignidentity: iPhone Developer
+		entitlements: ""
+		BundleIdentifier: com.rhomobile.mytestapp
+		BundleURLScheme: mytestapp
+		production:
+			mobileprovision_file: "./production/PROVISION.mobileprovision"
+			certificate_file: "./production/CERTS.p12"
+			certificate_password: "PASSWORD"
+
+Of course you'll need to add your custom information into the appropriate fields here.
+
 ## Capabilities
 There are two ways of modifying your app's capabilities:
 
