@@ -1,4 +1,4 @@
-#Rhoconnect Tutorial
+# RhoConnect Tutorial
 
 Currently there are two different types of RhoConnect apps that can be generated, Ruby and JavaScript:
 

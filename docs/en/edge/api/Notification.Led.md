@@ -39,7 +39,8 @@ extensions: ["coreapi"]
 <h2><i class='icon-edit'></i>Examples</h2>
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Flash a specific LED</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
-<p>Enumerating the LEDs will return an array objects which will map to the real LEDs on the device, using these returned objects you can control the device LEDs</p>
+<pre><code>               Enumerating the LEDs will return an array objects which will map to the real LEDs on the device, using these returned objects you can control the device LEDs
+</code></pre>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
            
@@ -74,5 +75,6 @@ end
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
-<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Underlying hardware</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>The LED API relies on Motorola drivers on Windows Mobile / CE and therefore will not work on non-Motorola platforms.  Depending on your device configuration, not all LEDs reported by the API may exist physically on the device.</p>
+<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Underlying hardware</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><pre><code>                The LED API relies on Motorola drivers on Windows Mobile / CE and therefore will not work on non-Motorola platforms.  Depending on your device configuration, not all LEDs reported by the API may exist physically on the device.
+</code></pre>
   </div></div></div></div></div>

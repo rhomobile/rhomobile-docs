@@ -108,7 +108,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <REMARK title="Underlying hardware">
                 <DESC>
                     <![CDATA[
-The LED API relies on Motorola drivers on Windows Mobile / CE and therefore will not work on non-Motorola platforms.  Depending on your device configuration, not all LEDs reported by the API may exist physically on the device.
+					The LED API relies on Motorola drivers on Windows Mobile / CE and therefore will not work on non-Motorola platforms.  Depending on your device configuration, not all LEDs reported by the API may exist physically on the device.
                 ]]>
 
                 </DESC>
@@ -118,7 +118,8 @@ The LED API relies on Motorola drivers on Windows Mobile / CE and therefore will
            <EXAMPLE title="Flash a specific LED">
             <SECTIONS>
               <SECTION>
-               <DESC>Enumerating the LEDs will return an array objects which will map to the real LEDs on the device, using these returned objects you can control the device LEDs
+               <DESC>
+                   Enumerating the LEDs will return an array objects which will map to the real LEDs on the device, using these returned objects you can control the device LEDs
                </DESC>
                <CODE>
                 <RUBY>

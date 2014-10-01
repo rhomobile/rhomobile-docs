@@ -1,5 +1,4 @@
-# Rhoconnect Tutorial
-
+# RhoConnect Tutorial
 To test to make sure the sync is working, we need to create a basic RhoMobile application. This can be done either through the command line interface or through RhoStudio.
 
 ## Creating the RhoMobile client Application

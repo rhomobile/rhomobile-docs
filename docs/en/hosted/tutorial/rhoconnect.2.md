@@ -1,4 +1,4 @@
-#Rhoconnect Tutorial
+# RhoConnect Tutorial
 
 Once RhoConnect is installed we’re ready to build a RhoConnect source adapter to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. If you generated a JavaScript RhoConnect application then you will need to generate [JavaScript Source adapters](../../rhoconnect/source-adapters). Likewise, if you generated a Ruby RhoConnect application, you will need to generate [Ruby Source Adapters](../../rhoconnect/source-adapters-js).
 
