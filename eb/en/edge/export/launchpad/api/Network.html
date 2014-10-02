@@ -312,7 +312,6 @@
 <ul>
 <li>Android</li>
 <li>Windows Mobile</li>
-<li>Windows CE</li>
 </ul>
 
 
@@ -355,7 +354,6 @@
 <ul>
 <li>Android</li>
 <li>Windows Mobile</li>
-<li>Windows CE</li>
 </ul>
 
 
@@ -398,7 +396,6 @@
 <ul>
 <li>Android</li>
 <li>Windows Mobile</li>
-<li>Windows CE</li>
 </ul>
 
 
@@ -457,13 +454,13 @@
 </ul>
 
 
-<h3>startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)</h3>
+<h3>startStatusNotify()</h3>
 
 <p>Start network status notifications. Notifications are sent when WiFi or Cell network appear/disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>pollInterval : <span class='text-info'>INTEGER</span><span class='label '> Default: 20</span><p>The network status polling period for systems that can not notify network status change immediately. In seconds. Currently applies to iOS only as immediate status notification is not available on this platform. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -493,7 +490,7 @@
 <li>Class Method: This method can only be accessed via the API class object.
 
 <ul>
-<li><code>EB.Network.startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)</code></li>
+<li><code>EB.Network.startStatusNotify()</code></li>
 </ul>
 </li>
 </ul>

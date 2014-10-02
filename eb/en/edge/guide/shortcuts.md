@@ -35,8 +35,6 @@ For example, this code in the .lnk file will change the startup page to be a loc
 	:::bash
 	70#"\Program Files\Enterprise Browser\EnterpriseBrowser.exe" /S:file://\helloscan.html
 
-## Android Shortcuts
-<!-- TBD - Is this possible? -->
 ## Running Multiple Web Apps
 If you have multiple web apps that you would like to point Enterprise Browser to, you can create multiple shortcuts as described above. For example, one startup file could be:
 

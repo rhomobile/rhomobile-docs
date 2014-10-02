@@ -4,9 +4,9 @@
 
 <h2>Enabling Viewport Modification</h2>
 
-<p>This will enable you to use your stnadard viewport settings within the Zebra Technologies Webkit. For more information on the Viewport metatag see the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">Mozilla Viewport Docs</a>.</p>
+<p>This will enable you to use your stnadard viewport settings within the Symbol Technologies Webkit. For more information on the Viewport metatag see the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">Mozilla Viewport Docs</a>.</p>
 
-<p>Firstly, to enable the viewport in Zebra Technologies WebKit on Windows Mobile / CE you need to specify the following configuration option:</p>
+<p>Firstly, to enable the viewport in Symbol Technologies WebKit on Windows Mobile / CE you need to specify the following configuration option:</p>
 
 <p><code>config.xml</code></p>
 
@@ -27,19 +27,12 @@
 
 <h3>With Specified initial-scale</h3>
 
-<p>The same page rendered on iPhone, Nexus 5 and MC75a will appear as follows:</p>
+<p>The same page rendered on MC75a will appear as follows:</p>
 
 <p>In your app&rsquo;s html:</p>
 
 <pre name="code" class="html">&lt;meta name="viewport" content="width=500, initial-scale=1"/&gt;
 </pre>
-
-<ul>
-<li>Nexus 5 Android 5 (KitKat)</li>
-</ul>
-
-
-<p><img src="https://s3.amazonaws.com/enterprise-browser/helpimages/1.0/viewport_config/android_viewport_demo.png" alt="img" /></p>
 
 <ul>
 <li>MC75A Windows Mobile 6.5</li>
@@ -64,19 +57,12 @@
 </pre>
 
 <ul>
-<li>Nexus 5 Android 5 (KitKat)</li>
-</ul>
-
-
-<p><img src="https://s3.amazonaws.com/enterprise-browser/helpimages/1.0/viewport_config/android_no_initial_scale.png" alt="img" /></p>
-
-<ul>
 <li>MC75A Windows Mobile 6.5</li>
 </ul>
 
 
 <p><img src="https://s3.amazonaws.com/enterprise-browser/helpimages/1.0/viewport_config/winmo_no_initial_scale.png" alt="img" /></p>
 
-<p>Note that without specifying an initial-scale the MC75a will display the page with a viewport width of 320 pixels. This is with a specified device width of 320 pixels in the <code>config.xml</code> file, had this been left blank, the page would again render with a width of 480 pixels.The specification of a 320 pixel width is used to match the appearance on the iPhone as closely as possible.</p>
+<p>Note that without specifying an initial-scale the MC75a will display the page with a viewport width of 320 pixels. This is with a specified device width of 320 pixels in the <code>config.xml</code> file, had this been left blank, the page would again render with a width of 480 pixels.</p>
 
 <p>We suggest that you not specify an initial-scale in the viewport if you want the page to be locked to a resolution of 320 pixels on Windows Mobile. You can modify your html file to have a custom viewport for Windows Mobile if required.</p>

@@ -109,7 +109,6 @@
                 &lt;Preloads&gt;
                     &lt;PreloadLegacyGeneric value="1"/&gt;
                     &lt;PreloadLegacyODAX value="1"/&gt;
-                    &lt;PreloadLegacyNoSIP value="1"/&gt;
                     &lt;PreloadLegacyAirBeam value="1"/&gt;
                     &lt;PreloadLegacyAPD value="1"/&gt;
                     &lt;PreloadJSObjects value="1"/&gt;
@@ -999,22 +998,21 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 <pre name="code" class="xml">&lt;PreloadLegacyODAX value="1"/&gt;
 </pre>
 
-<h3>Preloads \ PreloadLegacyNoSIP</h3>
+<!-- ### Preloads \\ PreloadLegacyNoSIP
+Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in WebKit.
 
-<p>Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in WebKit.</p>
+> Note: We recommend using the [Sip API](../api-Sip?Disabling%20the%20SIP) instead of this NOSIP setting.
 
-<p><strong>Possible Values</strong></p>
+**Possible Values**
 
-<ul>
-<li>0 &ndash; Do Not Preload</li>
-<li>1 &ndash; Preload</li>
-</ul>
+* 0 - Do Not Preload
+* 1 - Preload
 
+#### Example
+    :::xml
+    <PreloadLegacyNoSIP value="1"/>
+ -->
 
-<h4>Example</h4>
-
-<pre name="code" class="xml">&lt;PreloadLegacyNoSIP value="1"/&gt;
-</pre>
 
 <h3>Preloads \ PreloadLegacyAirBeam</h3>
 
@@ -1203,7 +1201,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>FontFamily</h3>
 
-<p>Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to &lsquo;Tahoma&rsquo; as this is present on all Zebra Technologies WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.</p>
+<p>Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to &lsquo;Tahoma&rsquo; as this is present on all Symbol Technologies WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1219,7 +1217,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>FontDirectory</h3>
 
-<p>Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Zebra Technologies WM / CE devices.  Not applicable to the Enterprise Tablet.</p>
+<p>Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Symbol Technologies WM / CE devices.  Not applicable to the Enterprise Tablet.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1252,7 +1250,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>TextSelectionEnabled</h3>
 
-<p>Enables or Disables selection of text when dragging the stylus on the screen (Windows Mobile Only).</p>
+<p>Enables or Disables selection of text when dragging the stylus on the screen.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1872,7 +1870,7 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
 
 <h3>Open and Print</h3>
 
-<p>If you plan on enabling the Ctrl+O or Ctrl+P (open dialog and print dialog, respectively) shortcut key combinations in your app, be aware that they do not work on Windows CE devices.</p>
+<p>If you plan on enabling the Ctrl+O or Ctrl+P (open dialog and print dialog, respectively) shortcut key combinations in your app, be aware that they do not work on Windows CE7 devices.</p>
 
 <h3><a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings</h3>
 
@@ -1893,14 +1891,14 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
         <th>Enable Function Key = TRUE</th>
         <td valign="top">
             <ul>
-                <li>All Function Keys <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+                <li>All Function Keys <b>can</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
                 <li>Function Key will <b>not</b> have its default Operating system behavior
             </ul>
         </td>
         <td valign="top">
             <ul>
-                <li>Function Keys with default OS behavior <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
-                <li>Function Keys without default OS behavior <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+                <li>Function Keys with default OS behavior <b>can not</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
+                <li>Function Keys without default OS behavior <b>can</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
                 <li>Function Key <b>will</b> have its default Operating system behavior (if any)
             </ul>
         </td>
@@ -1910,13 +1908,13 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
         <th>Enable Function Key = FALSE</th>
         <td valign="top">
             <ul>
-                <li>All Function Keys <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+                <li>All Function Keys <b>can</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
                 <li>Function Key will <b>not</b> have its default Operating system behavior
             </ul>
         </td>
         <td valign="top">
             <ul>
-                <li>All Function Keys <b>can not</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
+                <li>All Function Keys <b>can not</b> be captured by the <a href="index.html#api-keycapture">Key Capture Module</a>
                 <li>Function Key will <b>not</b> have its default Operating system behavior (if any)</li>
             </ul>
         </td>

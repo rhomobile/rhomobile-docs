@@ -1,10 +1,10 @@
 <div class='tableofcontents'> </div><h1>Gesture</h1>
 
-<blockquote><p>Note This feature is not supported on Windows CE. When <a href="../guide/configreference?DebugButtons">debug buttons</a> are activated in <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml</a>, Gestures will not function as expected.</p></blockquote>
+<blockquote><p>Note: This feature is not supported on Windows CE if <a href="../guide/configreference?DebugButtons">debug buttons</a> are enabled in the <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml</a>.</p></blockquote>
 
 <h2>Overview</h2>
 
-<p>Enterprise Browser is capable of capturing gestures from the touch screen if the appropriate hardware is installed. You can define multiple gestures on the same page but to avoid performance issues it is recommended you do not create more than 5 per page.</p>
+<p>The Enterprise Browser is capable of capturing gestures from the touch screen if the appropriate hardware is installed. You can define multiple gestures on the same page but to avoid performance issues it is recommended you do not create more than 5 per page.</p>
 
 <p>There are three types of screen gesture:</p>
 
@@ -14,6 +14,27 @@
 <li>Hold – detects when the screen is touched and held</li>
 </ul>
 
+
+<h2>Enabling the API</h2>
+
+<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
+
+<ul>
+<li>elements.js</li>
+</ul>
+
+
+<blockquote><p>Note &ndash; this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
+</pre>
+
+<h3>API Usage</h3>
+
+<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
+
+<pre name="code" class="javascript">gesture.create();
+</pre>
 
 <h3>Linear Gesture</h3>
 
@@ -53,36 +74,19 @@
 
 <h3>Tilt Gesture</h3>
 
+<blockquote><p>Note: On Windows platforms, this gesture is supported for use on MPA3 devices only.</p></blockquote>
+
 <p>Tilt gestures detect if the device is placed in the specified angular positions according to the horizontal plane. The user can specify the angle for each axis X, Y and Z or can select some predefined values like face-up etc.</p>
 
 <p>The tilt tolerance parameter can be used to specify the tolerance level for the specified angles and the hysteresis parameter can be used to avoid detecting the same gesture continuously.</p>
 
 <h3>Shake Gesture</h3>
 
+<blockquote><p>Note: On Windows platforms, this gesture is supported for use on MPA3 devices only.</p></blockquote>
+
 <p>Shake gestures detect if the device is shaken as per the specified threshold values. This can detect the shake in all the three axis X, Y and Z.</p>
 
 <p>The threshold parameter can be used to define the shake intensity and the quiet parameter can be used to avoid detecting the same gesture continuously.</p>
-
-<h2>Enabling the API</h2>
-
-<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
-
-<ul>
-<li>elements.js</li>
-</ul>
-
-
-<blockquote><p>Note &ndash; this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
-
-<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
-</pre>
-
-<h3>API Usage</h3>
-
-<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
-
-<pre name="code" class="javascript">gesture.create();
-</pre>
 
 <h2>Events</h2>
 
@@ -104,8 +108,8 @@
 
 <pre name="code" class="javascript">gesture.type = 'Shake';
 gesture.id = "Device_Shake"
-gesture.detected = url('JavaScript:handleGesture('%json');');
-gesture.create();
+    gesture.detected = url('JavaScript:handleGesture('%json');');
+    gesture.create();
 
 function handleGesture(params){
     alert('Received the following gesture' + params['id']);
@@ -785,7 +789,7 @@ function handleGesture(params){
 
 <h4>Description</h4>
 
-<p>Tilt Gestures: Target orientation of device on X-axis</p>
+<p>Tilt Gestures: Target orientation of device on X-axis.</p>
 
 <h4>Possible Values</h4>
 
@@ -814,7 +818,7 @@ function handleGesture(params){
 
 <h4>Description</h4>
 
-<p>Tilt Gestures: Target orientation of device on Y-axiS.</p>
+<p>Tilt Gestures: Target orientation of device on Y-axis.</p>
 
 <h4>Possible Values</h4>
 
@@ -843,7 +847,7 @@ function handleGesture(params){
 
 <h4>Description</h4>
 
-<p>Tilt Gestures: Target orientation of device on Z-axis</p>
+<p>Tilt Gestures: Target orientation of device on Z-axis.</p>
 
 <h4>Possible Values</h4>
 

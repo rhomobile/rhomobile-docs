@@ -1,0 +1,545 @@
+<div class='tableofcontents'> </div><h1>Imager</h1>
+
+<h2>Overview</h2>
+
+<p>The Imager API allows the device to capture images using a 2D imager or camera on the device that appears as an imager. This API is not supported on Micro Kiosk devices.</p>
+
+<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
+
+<ul>
+<li>elements.js</li>
+</ul>
+
+
+<blockquote><p>Note &ndash; this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
+</pre>
+
+<h3>API Usage</h3>
+
+<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
+
+<pre name="code" class="javascript">imager.capture();
+</pre>
+
+<h2>Events</h2>
+
+<p>To handle events, you assign a string value to the event name that represents a function name or javascript statement to execute.</p>
+
+<h3>imagerEvent</h3>
+
+<p>The imagerEvent is called when the captured image has been successfully transfered to the specified destination.  This should be used in conjunction with the Capture method.</p>
+
+<h4>Callback Parameters</h4>
+
+<ul>
+<li>transferResult &ndash; In response to an upload to an HTTP site, the reply from the web server will be returned. There will be no response to an upload to an FTP site.</li>
+</ul>
+
+
+<h4>Usage</h4>
+
+<pre name="code" class="javascript">imager.imagerEvent = url('JavaScript:imageSaveHandler('%json');');
+imager.capture();
+
+function imageSaveHandler(params){
+    alert('Status' + params['transferResult']);
+}
+</pre>
+
+<h3>imagerCaptureEvent</h3>
+
+<p>Specifying an ImagerCaptureEvent will cause the captured image to be returned as a Data URI object when the capture() method is invoked. A Data URI is a base 64 encoding of the image and can be used to easily embed the image on the page, store the image in a database or transfer the image to a server.</p>
+
+<h4>Callback Parameters</h4>
+
+<ul>
+<li>imageData &ndash; A DataURI representation of the captured Image.</li>
+</ul>
+
+
+<h4>Usage</h4>
+
+<pre name="code" class="javascript">imager.imagerCaptureEvent = url('JavaScript:imageUriHandler('%json');');
+imager.capture();
+
+function imageUriHandler(params){
+    //imagerImage may be an IMG tag object 
+    //We can use this to display the image
+    imagerImage.src = params.imageData;
+}
+</pre>
+
+<h3>imagerEnumEvent</h3>
+
+<p>The imagerEnumEvent is called after the enumerate method is invoked to provide the available imagers on the device.</p>
+
+<h4>Callback Parameters</h4>
+
+<ul>
+<li>imagerArray (deviceName, friendlyName) &ndash; Two dimensional array of imagers present on the device.</li>
+</ul>
+
+
+<blockquote><p>The imagerArray attribute returned from imagerEnumEvent will enumerate each imager present on the device in a 2D array, associating each Imager’s device name with a user friendly name. The deviceName can be assigned imager.enabled property. The friendly name is a user readable description of the Imager, e.g: [&ldquo;IMG1&rdquo;, &ldquo;Imager&rdquo;],[&ldquo;IMG2&rdquo;, &ldquo;Color Camera&rdquo;].</p></blockquote>
+
+<pre name="code" class="javascript">[
+   [            //  Array for Imager 1
+      deviceName,    //  The internal name given to the Imager, use this when enabling a specific imager.
+      friendlyName,  //  A human readable description of the Imager.
+   ]
+   [            //  Array for Imager 2
+      deviceName,
+      friendlyName,
+   ]
+]
+</pre>
+
+<h4>Usage</h4>
+
+<pre name="code" class="javascript">imager.imagerEnumEvent = url('JavaScript:imageEnumHandler('%json');');
+imager.enumerate();
+
+function imageEnumHandler(params)
+{
+    var imagerArray = params["imagerArray"];
+    var imagerInfo = "Imagers On Device: " + imagerArray.length + "&lt;BR&gt;ID  --  Name&lt;BR&gt;" 
+
+    for (i=0; i &lt; imagerArray.length; i++)
+    {
+        imagerInfo = imagerInfo + imagerArray[i][0] + ' -- ' + imagerArray[i][1] + '&lt;BR&gt;';
+    }
+    message.innerHTML = imagerInfo;
+}
+</pre>
+
+<h2>Methods</h2>
+
+<h3>enable()</h3>
+
+<p>Enables the imager device and shows the viewer window</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>disable()</h3>
+
+<p>Disables the imager device and hides the viewer window</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>capture()</h3>
+
+<p>Captures the current image and sends the file to the specified destination address. If an imagerCaptureEvent is specified the image will also be returned as a Data URI object.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>enumerate()</h3>
+
+<p>Return a list of imagers available on the device using ImagerEnumEvent. This event will be triggered immediately.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h2>Properties</h2>
+
+<h3>enabled</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Enables the referenced imager device and shows the viewer window.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Imager ID &ndash;  Imager <code>devicename</code> IDs can be obtained via ImagerEnumEvent. Do not use the friendlyName. ex: <code>imager.enabled ='IMG1';</code></li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>desiredWidth</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the desired width of the output image, in pixels. Depending on the camera hardware in use the closest matching image size will be chosen; the width of the chosen image will equal or exceed the value specified up to the capabilities of the hardware.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Numeric Value</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>desiredHeight</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the desired height of the output image, in pixels. Depending on the camera hardware in use the closest matching image size will be chosen; the width of the chosen image will equal or exceed the value specified up to the capabilities of the hardware.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Numeric Value</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>username</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>The username for the HTTP or FTP server if required.</p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>password</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>The password for the HTTP or FTP server if required.</p>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>left</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> &ndash; Positive number, representing pixels</p>
+
+<h4>Description</h4>
+
+<p>Sets the top left horizontal position of the viewer window in pixels.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Numeric Value (0 &ndash; ScreenWidth)</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>top</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> &ndash; Positive number, representing pixels</p>
+
+<h4>Description</h4>
+
+<p>Sets the top left vertical position of the viewer window in pixels.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Numeric values (0 &ndash; ScreenHeight)</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>width</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> &ndash; Positive number, representing pixels</p>
+
+<h4>Description</h4>
+
+<p>Sets the width of the viewer window in pixels.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Numeric values (0 &ndash; ScreenWidth)</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>height</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> &ndash; Positive number, representing pixels</p>
+
+<h4>Description</h4>
+
+<p>Sets the height of the viewer window in pixels.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Numeric values (0 &ndash; ScreenHeight)</li>
+</ul>
+
+
+<blockquote><p>Note: On Android the height of the viewfinder cannot be set to any value less than 200.</p></blockquote>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>destination</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Sets the destination path and name for the captured video file.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>Fully qualified URL or file name. Supports HTTP, FTP and File protocols.</li>
+</ul>
+
+
+<blockquote><p>Note: The protocol, port number, username (optional) and password (optional) are all derived from the URL string and should be specified in the following manner: [protocol]://[username]:[password@]Server[:Port]FileNameAndPath. FTP Example: ftp://admin:root@192.168.1.1:2500/Folder/Cap.mov. HTTP Example: http://admin:root@192.168.1.1:8080/Folder/Upload.aspx. File Example: file://\path\Cap.mov.</p></blockquote>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>lamp</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Switches the illumination lamp ON or OFF.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>ON/OFF</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>aim</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Switches the imager laser aimer ON or OFF.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>ON/OFF</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h3>sound</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>STRING</span></p>
+
+<h4>Description</h4>
+
+<p>Specifies the wave file to play when capturing an image.</p>
+
+<h4>Possible Value</h4>
+
+<ul>
+<li>wav file name &ndash; ex: &lsquo;\windows\alarm2.wav&rsquo;</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h2>Remarks</h2>
+
+<h3>Scanning and Image Capture Interaction</h3>
+
+<p>In some device configurations the scanner and imager share the same hardware, e.g. the blockbuster scanner and top mounted imager on the MC75a. Where two modules share the same physical hardware they cannot be enabled simultaneously, once the scanner is enabled it must be disabled before the imager can be used, and vice versa.</p>
+
+<h3>Setting up a Transfer to a remote HTTP or FTP location</h3>
+
+<p>The Imager API is designed to be configured before any transfer is made to a remote location. If the &lsquo;Destination&rsquo; parameter is specified as either HTTP or an FTP location the &lsquo;destination&rsquo; / &lsquo;username&rsquo; / &lsquo;password&rsquo; parameters can not be guaranteed to stay the same after the capture has completed, therefore configure your destination for each capture.</p>
+
+<h3>Image Size</h3>
+
+<p>The image can only be stretched as far as the screen dimensions will allow, do not expect to be able to create an image larger than the dimensions of your device&rsquo;s screen.</p>
+
+<h3>Multi Instance</h3>
+
+<p>When multiple Enterprise Browser applications are running the following considerations should be made: Only the foreground application is given access to the imaging hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the imager. When brought back to the foreground, an application previously using the imager will have its previous configuration (eg. whether it was enabled or not) reapplied to the imager automatically. Please note that any file transfer that is in progress continues even if the application is sent to the background and capture will not have any effect on an application that is in the background</p>

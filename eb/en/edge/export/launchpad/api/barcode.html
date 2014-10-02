@@ -2,7 +2,7 @@
 
 <h2>Overview</h2>
 
-<p>The Barcode Module provides access to control the functionality of the device&rsquo;s scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Zebra Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a &lsquo;one shot&rsquo; use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.</p>
+<p>The Barcode Module provides access to control the functionality of the device&rsquo;s scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a &lsquo;one shot&rsquo; use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.</p>
 
 <h2>Enabling the API</h2>
 
@@ -771,7 +771,7 @@
 
 <h3>take(<span class="text-info">HASH</span> propertyMap)</h3>
 
-<p>Enable the scanner and start capturing the barcode automatically. On Zebra Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</p>
+<p>Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</p>
 
 <h4>Parameters</h4>
 
@@ -847,7 +847,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -886,7 +886,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -927,7 +927,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -959,7 +959,7 @@
 <ul>
 <li>Android</li>
 <li>Windows Mobile</li>
-<li>Windows CE(Scanners on Zebra Technologies' devices)</li>
+<li>Windows CE(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -1025,7 +1025,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -1058,7 +1058,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -1128,7 +1128,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Camera / Imager Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera / Imager Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -1166,7 +1166,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -1197,7 +1197,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -2633,7 +2633,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -2796,7 +2796,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -2866,7 +2866,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -2904,7 +2904,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -2942,7 +2942,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -2975,7 +2975,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3013,7 +3013,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3044,7 +3044,43 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
+</ul>
+
+
+<h3>disableScannerDuringNavigate</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>By default if you have enabled the Scanner on a page, through either JavaScript or Ruby and navigate to a new page the Scanner will automatically disable. To override this behavior you can set this option to false and once enabled the Scanner will remain so in the foreground application until you disable it.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul>
+<li>Instance: This property can be accessed via an instance object of this class: <code>myObject.disableScannerDuringNavigate</code></li>
+<li>Default Instance: This property can be accessed via the default instance object of this class.
+
+<ul>
+<li><code>EB.Barcode.disableScannerDuringNavigate</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3075,7 +3111,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3106,7 +3142,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3137,7 +3173,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices. The scanning engine must support DPM barcodes.)</li>
+<li>Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices. The scanning engine must support DPM barcodes.)</li>
 </ul>
 
 
@@ -3300,7 +3336,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Bluetooth Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Bluetooth Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3337,7 +3373,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3370,7 +3406,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3505,7 +3541,7 @@
 
 <ul>
 <li>Android</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3783,7 +3819,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3819,7 +3855,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3850,7 +3886,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -3890,7 +3926,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices. The scanning engine must support inverse barcodes)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices. The scanning engine must support inverse barcodes)</li>
 </ul>
 
 
@@ -3954,7 +3990,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -4116,7 +4152,7 @@
 
 <ul>
 <li>Android</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -4158,7 +4194,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -4194,7 +4230,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -5053,7 +5089,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -5084,7 +5120,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Imager / Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -5148,7 +5184,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Laser Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Laser Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -5187,7 +5223,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -5218,7 +5254,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5249,7 +5285,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5280,7 +5316,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5311,7 +5347,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5342,7 +5378,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5381,7 +5417,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5412,7 +5448,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5443,7 +5479,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5474,7 +5510,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5505,7 +5541,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5536,7 +5572,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5567,7 +5603,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5598,7 +5634,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5629,7 +5665,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5660,7 +5696,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5691,7 +5727,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5722,7 +5758,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5753,7 +5789,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5784,7 +5820,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5815,7 +5851,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5846,7 +5882,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5877,7 +5913,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5908,7 +5944,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5939,7 +5975,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -5970,7 +6006,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6001,7 +6037,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6032,7 +6068,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6063,7 +6099,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6094,7 +6130,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6125,7 +6161,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6156,7 +6192,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6187,7 +6223,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6218,7 +6254,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6249,7 +6285,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Zebra Technologies' Bluetooth barcode scanners, model RS507)</li>
+<li>Symbol Devices Only(Symbol Technologies' Bluetooth barcode scanners, model RS507)</li>
 </ul>
 
 
@@ -6280,7 +6316,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -6313,7 +6349,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -6502,7 +6538,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -6571,7 +6607,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7699,7 +7735,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7732,7 +7768,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7763,7 +7799,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7804,7 +7840,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7835,7 +7871,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7866,7 +7902,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7897,7 +7933,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only(Camera Scanners on Zebra Technologies' devices)</li>
+<li>Symbol Devices Only(Camera Scanners on Symbol Technologies' devices)</li>
 </ul>
 
 
@@ -7996,7 +8032,7 @@ it is necessary to disable the scanner and then re-enable it before another scan
 
 <h3>Viewfinder Position Parameters</h3>
 
-<p>On Zebra Technologies' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.</p>
+<p>On Symbol Technologies' scanners the scanner viewfinder window is not infinitely resizable, when setting ViewFinderX, ViewFinderY, ViewFinderWidth and ViewFinderHeight ensure you do not exceed the size of the screen and it is recommended to use the same aspect ratio as your device. For applications designed to handle screen rotation it is recommended to use a scan window whose longest side will fit within both the screen width and screen height. If your viewfinder position fails to be applied it is recommended you query your log file to see which parameter is causing trouble, or reposition the window away from the edges of the screen.</p>
 
 <h3>Scanning and Camera Interaction</h3>
 

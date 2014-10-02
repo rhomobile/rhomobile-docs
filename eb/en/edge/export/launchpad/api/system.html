@@ -749,13 +749,13 @@
 </ul>
 
 
-<h3>setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</h3>
+<h3>setNetworkStatusNotify(<span class="text-info">STRING</span> url)</h3>
 
 <p>Use Network.setStatusNotify: set network notification callback.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>IOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
@@ -781,7 +781,7 @@
 <li>Class Method: This method can only be accessed via the API class object.
 
 <ul>
-<li><code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code></li>
+<li><code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url)</code></li>
 </ul>
 </li>
 </ul>
@@ -1070,36 +1070,6 @@
 </ul>
 
 
-<h3>set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</h3>
-
-<p>Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.</p>
-
-<h4>Parameters</h4>
-
-<ul><li>badgeNumber : <span class='text-info'>INTEGER</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-
-<h4>Returns</h4>
-
-<p>Synchronous Return:</p>
-
-<ul>
-<li>Void</li>
-</ul>
-
-
-<h4>Method Access:</h4>
-
-<ul>
-<li>Class Method: This method can only be accessed via the API class object.
-
-<ul>
-<li><code>EB.System.set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</code></li>
-</ul>
-</li>
-</ul>
-
-
 <h3>set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)</h3>
 
 <p>Use System.httpProxyURI property: To use client with the HTTP proxy.</p>
@@ -1328,13 +1298,13 @@
 </ul>
 
 
-<h3>unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</h3>
+<h3>unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)</h3>
 
 <p>Unzip file.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>outputFileName : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Output file name. Used when decompressing gzip streams. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
@@ -1360,7 +1330,7 @@
 <li>Class Method: This method can only be accessed via the API class object.
 
 <ul>
-<li><code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code></li>
+<li><code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)</code></li>
 </ul>
 </li>
 </ul>
@@ -1481,28 +1451,6 @@
 
 
 <h2>Properties</h2>
-
-<h3>applicationIconBadge</h3>
-
-<h4>Type</h4>
-
-<p><span class='text-info'>INTEGER</span></p>
-
-<h4>Description</h4>
-
-<p>Set the application icon to have this badge number. Set to 0 (zero) to remove badge.</p>
-
-<h4>Access</h4>
-
-<ul>
-<li>Class: This property can only be accessed via the API class object.
-
-<ul>
-<li><code>EB.System.applicationIconBadge</code></li>
-</ul>
-</li>
-</ul>
-
 
 <h3>country</h3>
 
@@ -2226,8 +2174,6 @@
 <ul>
 <li>Constant: EB.System.PLATFORM_WM_CE &ndash; String: WINDOWS</li>
 <li>Constant: EB.System.PLATFORM_ANDROID &ndash; String: ANDROID</li>
-<li>Constant: EB.System.PLATFORM_IOS &ndash; String: APPLE</li>
-<li>Constant: EB.System.PLATFORM_WP8 &ndash; String: WP8</li>
 <li><p>Constant: EB.System.PLATFORM_WINDOWS_DESKTOP &ndash; String: WINDOWS_DESKTOP</p>
 
 <h4>Access</h4></li>
@@ -2245,6 +2191,7 @@
 <ul>
 <li>Android</li>
 <li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 

@@ -45,7 +45,7 @@
 
 <h4>Parameters</h4>
 
-<ul><li>dispatch : <span class='text-info'>BOOLEAN</span><p>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. For iOS devices this parameter has no effect. If any of the volume keys are captured, real sound volume will not be changed. </p></li><li>keyValue : <span class='text-info'>STRING</span><p>Specifies the identifier of the key to capture. This this value is the operating system's identifier for the key, not the ASCII representation of the key (for example, the 'a' key on Windows Mobile devices has a keyValue of 101). Alternatively, this parameter can be set to 'all'. This value will capture all hardware key presses. This parameter needs to be passed as a string (for example '101' or '0x65' or 'all'). </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>dispatch : <span class='text-info'>BOOLEAN</span><p>After a key has been intercepted this parameter will determine whether or not it will still be received by the Web View. For example if you have focus in a text box and are intercepting keys set this to 'False' to avoid having the keys appear in the box. If any of the volume keys are captured, real sound volume will not be changed. </p></li><li>keyValue : <span class='text-info'>STRING</span><p>Specifies the identifier of the key to capture. This this value is the operating system's identifier for the key, not the ASCII representation of the key (for example, the 'a' key on Windows Mobile devices has a keyValue of 101). Alternatively, this parameter can be set to 'all'. This value will capture all hardware key presses. This parameter needs to be passed as a string (for example '101' or '0x65' or 'all'). </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -211,7 +211,7 @@ WM, CE, Android </p></li></ul></ul></p>
 <li>Keyboard modifiers such as SHIFT, ALT, ORANGE button, BLUE button etc.</li>
 <li>Device Keys such as the screen backlight or keyboard backlight.</li>
 <li>Hot keys such as phone keys or &lsquo;soft&rsquo; buttons, those whose function changes based on the running application.</li>
-<li>The Home key and the power key on Android and iOS devices.</li>
+<li>The Home key and the power key on Android and devices.</li>
 <li>Depending on the device keyboard driver, some keys may not be easily capturable as they are interpreted as a shifted character by the device.  One example of such a key is the &lsquo;#&rsquo; character on CE7 devices, whilst the character code for this key is 23 it is interpreted as 33.  This applies to both capturing keys and specifying the HomeKeyValue.</li>
 <li>On Android devices, keys reserved for use by the &ldquo;PTT&rdquo; apps (such as the left trigger button), if a &ldquo;PTT&rdquo; app has been enabled.</li>
 <li>On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of &ldquo;Google Now&rdquo;.</li>
@@ -236,9 +236,9 @@ EB.KeyCapture.captureKey(true, '0x0D', capturekeyCallback);
 
 <p>Any captureKey calls set with a specific key will take precedence over any captureKey calls with value &lsquo;all&rsquo;. This means that the &lsquo;all&rsquo; callback will not be called when individual keys that have been registered with captureKey are pressed. This also goes for dispatch values. If captureKey &lsquo;all&rsquo; has a dispatch value of false, and captureKey with an individual keyCode value has a dispatch value of true, then this individual key will be dispatched to the app when pressed.</p>
 
-<h3>Device Lockdown on Zebra Technologies Android devices</h3>
+<h3>Device Lockdown on Symbol Technologies Android devices</h3>
 
-<p>Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Zebra Technologies Android documentation for other device lock-down options.</p>
+<p>Because the Home key cannot be captured on the ET1 and MC40 it is possible for users to return to the system home page by pressing it. If you need to prevent this then please consult the Symbol Technologies Android documentation for other device lock-down options.</p>
 
 <h3>Capturing Function</h3>
 
@@ -326,7 +326,7 @@ EB.KeyCapture.captureKey(true, '0x0D', capturekeyCallback);
 
 <h3>Symbol Keys</h3>
 
-<p>On some devices certain keys containing special characters, these keys are known as symbol keys and they trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, &ldquo;, (, ), !, :, ?, #, _, @. Capturing symbol key input via the SIP is not possible on CE7 as all symbol keys return the same value; there is no such limitation on the physical keys representing the special characters.</p>
+<p>On some devices certain keys containing special characters, these keys are known as symbol keys and they trigger two separate key events. This happens because such characters are translated by the platform into the combination of a Shift and a Base Key. Characters behaving in such way are $, %, &amp;, &ldquo;, (, ), !, :, ?, #, _, @. Capturing symbol key input via the SIP is not possible on WM/CE as all symbol keys return the same value; there is no such limitation on the physical keys representing the special characters.</p>
 
 <h3>Device Specific Exceptions</h3>
 

@@ -2,7 +2,7 @@
 
 <h2>Overview</h2>
 
-<p> Use this API to control the behavior of the RhoMobile Log API as well as access it.</p>
+<p> Use this API to control the behavior of the log as well as access it.</p>
 
 <pre><code>      This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.
 </pre>
@@ -438,7 +438,7 @@ cleanLogFile: removes all logged messages</p>
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: EB.Log.DEST_FILE &ndash; String: file Log is written to a local file on the device (typically rholog.txt)</li>
+<li>Constant: EB.Log.DEST_FILE &ndash; String: file Log is written to a local file on the device (typically Log.txt)</li>
 <li>Constant: EB.Log.DEST_OUTPUT &ndash; String: stdio Log is written to the standard output (ex: Android ADB)</li>
 <li><p>Constant: EB.Log.DEST_URI &ndash; String: uri Log is written to a remote logger.</p>
 
@@ -469,7 +469,7 @@ cleanLogFile: removes all logged messages</p>
 
 <h4>Description</h4>
 
-<p>Log server URI where log will be posted by using EB.Log.sendLogFile or from the log view. Log server source code is open and available at http://github.com/rhomobile/rhologs, so you can deploy your own logserver. URI format: &lsquo;http://host:port[/path][?log_name=appName]&rsquo;. Default value is set in Config.xml</p>
+<p>Log server URI where log will be posted by using EB.Log.sendLogFile or from the log view. Log server source code is open and available at http://github.com/rhomobile/rhologs, so you can deploy your own logserver. URI format: &lsquo;http://host:port[/path][?log_name=appName]&rsquo;. Default value is set in Config.xml in the LogURI setting under the Logger section.</p>
 
 <h4>Access</h4>
 
@@ -562,12 +562,7 @@ cleanLogFile: removes all logged messages</p>
 
 <h4>Description</h4>
 
-<p>Path to the log file including file name. The path is relative to the platform specific application root or start if from &lsquo;/&rsquo; if you wish to store elsewhere (&lsquo;/mnt/sdcard/myapp.log&rsquo;).  Default file path is Config.xml</p>
-
-<h4>Params</h4>
-
-<p><strong>Default:</strong> rholog.txt</p>
-
+<p>Path to the log file including file name. The path is relative to the platform specific application root or start if from &lsquo;/&rsquo; if you wish to store elsewhere (&lsquo;/mnt/sdcard/myapp.log&rsquo;).  Default file path is Log.txt</p>
 
 <h4>Access</h4>
 
