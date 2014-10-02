@@ -17,7 +17,7 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 
 	:::javascript
 	push.port = '8081';
-	push.detected = url('JavaScript:pushDetected('%json');');
+	push.detected = url("JavaScript:pushDetected('%json');");
 	push.start;
 
 ## Requirements

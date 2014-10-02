@@ -33,7 +33,7 @@ The imagerEvent is called when the captured image has been successfully transfer
 
 #### Usage  
 	:::javascript
-	imager.imagerEvent = url('JavaScript:imageSaveHandler('%json');');
+	imager.imagerEvent = url("JavaScript:imageSaveHandler('%json');");
   	imager.capture();
 	
 	function imageSaveHandler(params){
@@ -49,7 +49,7 @@ Specifying an ImagerCaptureEvent will cause the captured image to be returned as
 
 #### Usage  
 	:::javascript
-	imager.imagerCaptureEvent = url('JavaScript:imageUriHandler('%json');');
+	imager.imagerCaptureEvent = url("JavaScript:imageUriHandler('%json');");
   	imager.capture();
 	
 	function imageUriHandler(params){
@@ -82,7 +82,7 @@ The imagerEnumEvent is called after the enumerate method is invoked to provide t
 
 #### Usage  
 	:::javascript
-	imager.imagerEnumEvent = url('JavaScript:imageEnumHandler('%json');');
+	imager.imagerEnumEvent = url("JavaScript:imageEnumHandler('%json');");
   	imager.enumerate();
 	
 	function imageEnumHandler(params)

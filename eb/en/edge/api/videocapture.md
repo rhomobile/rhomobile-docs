@@ -19,7 +19,7 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 
 	:::javascript
 	videoCapture.duration = '60000';
-	videocapture.videoSaveEvent = url('JavaScript:videoSaveHandler('%json');');
+	videocapture.videoSaveEvent = url("JavaScript:videoSaveHandler('%json');");
     videoCapture.start();
 
 
@@ -35,7 +35,7 @@ The videoSaveEvent is called when the captured video has been successfully trans
 
 #### Usage  
 	:::javascript
-	videocapture.videoSaveEvent = url('JavaScript:videoSaveHandler('%json');');
+	videocapture.videoSaveEvent = url("JavaScript:videoSaveHandler('%json');");
   	videocapture.start();
 	
 	function videoSaveHandler(params){
