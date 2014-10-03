@@ -125,11 +125,11 @@ folders = []
 files = []
 
 root_path = "/arbitrary/path"
-entries = Rho::File.listDir(root_path)
+entries = Rho::RhoFile.listDir(root_path)
 
 entries.each do |entry|
   unless (entry == "." || entry == "..")
-    (Rho::File.isDir(Rho::File.join(root_path,entry)) ? folders : files) &lt;&lt; entry
+    (Rho::RhoFile.isDir(Rho::RhoFile.join(root_path,entry)) ? folders : files) &lt;&lt; entry
   end
 end
                    
