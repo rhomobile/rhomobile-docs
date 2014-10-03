@@ -82,7 +82,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../api/audiocapture">AudioCapture</a>
       </td>
-       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -208,9 +208,9 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td style="text-align:center" class=" "></td>
     </tr>
 
-    <tr>
+    <!-- <tr>
       <td>
-        <a href="../../2.2.0/rhodesapi/rhoconfig-api">Config *</a>
+        <a href="../../2.2.0/rhoelements/ConfigurationSettings">Config *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -219,11 +219,11 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
-    </tr>
+    </tr> -->
 
-    <tr>
+    <!-- <tr>
       <td>
-        <a href="../../2.2.0/rhodesapi/rhocontact-api">Contact *</a>
+        <a href="../api/contact">Contact</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -232,7 +232,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
-    </tr>
+    </tr> -->
 
     <tr>
       <td>
@@ -249,7 +249,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/SimulScan">SimulScan (BETA)</a>
+        <a href="../api/SimulScan">Document Capture (BETA)</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -717,7 +717,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/Orm">ORM</a> & <a href="../api/OrmModel">ORMModel</a>
+        <a href="../api/Orm">ORM</a> &amp; <a href="../api/OrmModel">ORMModel</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -899,7 +899,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/File">RhomSource *</a>
+        <a href="../../2.2.0/rhodesapi/rhomsource-api">RhomSource *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -912,7 +912,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/File">RhoProfiler *</a>
+        <a href="../../2.2.0/rhodesapi/rhoprofiler-api">RhoProfiler *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -925,7 +925,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/File">RhoUtils *</a>
+        <a href="../../2.2.0/rhodesapi/rhoutils-api">RhoUtils *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -1120,7 +1120,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
   </tbody>
 </table>
 
-Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.0, here these APIs are marked with an asterisk (*). However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in future versions of RhoMobile Suite 4.x in order to supply both a Common API format in both JavaScript and Ruby.
+Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.0, here these APIs are marked with an asterisk (*). However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in future versions of RhoMobile Suite 5.x in order to supply both a Common API format in both JavaScript and Ruby.
 
 **NOTE: When using 2.2 API's in RhoMobile 5.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 

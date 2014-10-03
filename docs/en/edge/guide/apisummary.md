@@ -208,9 +208,9 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td style="text-align:center" class=" "></td>
     </tr>
 
-    <tr>
+    <!-- <tr>
       <td>
-        <a href="../../2.2.0/rhodesapi/rhoconfig-api">Config *</a>
+        <a href="../../2.2.0/rhoelements/ConfigurationSettings">Config *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -219,11 +219,11 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
-    </tr>
+    </tr> -->
 
-    <tr>
+    <!-- <tr>
       <td>
-        <a href="../../2.2.0/rhodesapi/rhocontact-api">Contact *</a>
+        <a href="../api/contact">Contact</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -232,7 +232,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
-    </tr>
+    </tr> -->
 
     <tr>
       <td>
@@ -249,7 +249,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/SimulScan">SimulScan (BETA)</a>
+        <a href="../api/SimulScan">Document Capture (BETA)</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -717,7 +717,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/Orm">ORM</a> & <a href="../api/OrmModel">ORMModel</a>
+        <a href="../api/Orm">ORM</a> &amp; <a href="../api/OrmModel">ORMModel</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -899,7 +899,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/File">RhomSource *</a>
+        <a href="../../2.2.0/rhodesapi/rhomsource-api">RhomSource *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -912,7 +912,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/File">RhoProfiler *</a>
+        <a href="../../2.2.0/rhodesapi/rhoprofiler-api">RhoProfiler *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -925,7 +925,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/File">RhoUtils *</a>
+        <a href="../../2.2.0/rhodesapi/rhoutils-api">RhoUtils *</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>

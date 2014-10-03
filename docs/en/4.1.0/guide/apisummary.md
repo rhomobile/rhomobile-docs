@@ -93,7 +93,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
 
     <tr>
       <td>
-        <a href="../api/Database">Database
+        <a href="../api/Database">Database</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
@@ -106,7 +106,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
 
     <tr>
       <td>
-        <a href="../api/SimulScan">SimulScan (BETA)</a>
+        <a href="../api/SimulScan">Document Capture (BETA)</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -327,7 +327,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
 
     <tr>
       <td>
-        <a href="../api/Orm">ORM</a> & <a href="../api/OrmModel">ORMModel</a>
+        <a href="../api/Orm">ORM</a> &amp; <a href="../api/OrmModel">ORMModel</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
