@@ -193,3 +193,5 @@ To sync with the RhoConnect server, the Rhodes client must log in. The Rhodes ge
 </p>
 
 Now that you have your RhoConnect server successfully syncing to your back-end application, you're ready to move on to more advanced topics using RhoConnect such as PUSH notifications, RhoConnect plug-ins, and sync conflict resolution to name a few. For more information on these and other topics, refer to our [RhoConnect Guides](../../rhoconnect/introduction).
+
+For a tutorial on deploying your RhoConnect app in the cloud, continue on to the next page.

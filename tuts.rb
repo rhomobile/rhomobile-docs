@@ -12,6 +12,7 @@ tutorial 'rhoconnect',  'RhoConnect tutorial','RhoConnect','' do
   gitlabel '1',         'Generating a RhoConnect App'
   gitlabel '2',         'Creating Source Adapters'
   gitlabel '3',         'Testing Sync From the Client'
+  gitlabel '4',         'RhoConnect Apps in the Cloud'
 end
 
 tutorial 'nocode',  'Example of no code tutorial','Javascript MVC','' do
