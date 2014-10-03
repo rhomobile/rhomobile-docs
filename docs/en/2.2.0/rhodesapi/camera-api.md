@@ -83,8 +83,9 @@ The callback is a POST message; the body of the message contains the return stat
 </table>
 
 ## take_picture
-
 Take a picture. `options_hash` is used with iOS, Android, and RhoElements Motorola devices.
+
+> Note: On low memory devices, the `take_picture` method may not work. As a workaround, you can use the `Imager` API.
 
 Ruby syntax:
 
