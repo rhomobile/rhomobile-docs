@@ -10,14 +10,14 @@ In this tutorial, you will learn:
 2. How to create a source adapter
 3. How to enable synchronization in a RhoMobile application
 
-Full documentation of all capabilities of RhoConnect can be found in the [RhoConnect Developer Guides](../rhoconnect/introduction).
+Full documentation of all capabilities of RhoConnect can be found in the [RhoConnect Developer Guides](../../5.0.0/rhoconnect/introduction).
 
 ## Installing RhoConnect
 
 You can install RhoConnect in two ways:
   
-  * Install the RhoConnect gem from the [command-line](../rhoconnect/install).
-  * Install RhoConnect along side the other Rhomobile Suite tools with the [Rhomobile Suite installation](../guide/rhomobile-install).
+  * Install the RhoConnect gem from the [command-line](../../5.0.0/rhoconnect/install).
+  * Install RhoConnect along side the other Rhomobile Suite tools with the [Rhomobile Suite installation](../../5.0.0/guide/rhomobile-install).
 
-If you have been issued a RhoConnect license, you can license your app as described [here](../rhoconnect/licensing).
+If you have been issued a RhoConnect license, you can license your app as described [here](../guide/licensing-rhoconnect).
 
