@@ -842,7 +842,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			end
 
 	end
-	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
+	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == '' || generateAccessors
 		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + '</code></li></ul></li>'
 		if templateDefault
 			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
