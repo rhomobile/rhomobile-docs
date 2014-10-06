@@ -1,0 +1,271 @@
+<div class='tableofcontents'> </div><h1>ScreenOrientation</h1>
+
+<h2>Overview</h2>
+
+<p>The ScreenOrientation Module is used to control the screen orientation / layout and register to receive an event when it changes.</p>
+
+<h2>Enabling the API</h2>
+
+<p>There are two methods of enabling the ScreenOrientation API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
+
+
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
+
+<h3>Include all JS API modules</h3>
+
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+</pre>
+
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
+
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
+
+<h3>Include only the modules you need</h3>
+
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the ScreenOrientation API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.screenorientation.js"&gt;&lt;/script&gt;
+</pre>
+
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
+
+<h2>Methods</h2>
+
+<h3>leftHanded()</h3>
+
+<p>Sets the screen orientation to left-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.ScreenOrientation.leftHanded()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>normal()</h3>
+
+<p>Sets the screen orientation to default device orientation.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.ScreenOrientation.normal()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>rightHanded()</h3>
+
+<p>Sets the screen orientation to right-handed orientation. Note the webpage will not reformat in line with the new screen size automatically.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.ScreenOrientation.rightHanded()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>setScreenOrientationEvent()</h3>
+
+<p>Sets the callback to be called when a screen orientation event occurs.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.ScreenOrientation.setScreenOrientationEvent()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>upsideDown()</h3>
+
+<p>Sets the screen orientation to upside down, useful if presenting the device to a customer to obtain a signature.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.ScreenOrientation.upsideDown()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Properties</h2>
+
+<h3>autoRotate</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span></p>
+
+<h4>Description</h4>
+
+<p>Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Symbol Technologies devices with IST Sensor support.</p>
+
+<h4>Params</h4>
+
+<p><strong>Default:</strong> true</p>
+
+
+<h4>Access</h4>
+
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.ScreenOrientation.autoRotate</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
+

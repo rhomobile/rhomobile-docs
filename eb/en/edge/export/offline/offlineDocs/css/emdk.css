@@ -1,0 +1,274 @@
+/**
+* Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+* http://cssreset.com
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video 
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section 
+{
+    display: block;
+}
+body 
+{
+    line-height: 1.1;
+}
+ol, ul 
+{
+    list-style: none;
+}
+blockquote, q 
+{
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after 
+{
+    content: '';
+    content: none;
+}
+table 
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#menue
+{
+	padding-top:20px;
+	width:300px;
+	padding-left:10px;
+	padding-right:10px;
+	height:100%;
+	float:left;
+}
+
+#menueHeader
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	border: solid 1px #343434;
+	background:#797979;
+	color: #ffffff;
+	margin-bottom:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+}
+
+#searchHeader
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	border: solid 1px #343434;
+	background:#797979;
+	color: #ffffff;
+	margin-bottom:10px;
+	margin-top:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+}
+
+#searchBox
+{
+	width:280px;
+}
+
+.doclink
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color:#009FE0;
+	padding-bottom:1px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.doclink:hover 
+{
+	cursor: pointer;
+	color: #007BAD;
+}
+
+#doc
+{
+	padding-top:20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin-left:300px;
+	padding-left:20px;
+	padding-right:20px;
+	height:100%;
+}
+
+#docHeader
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	border: solid 1px #343434;
+	background:#797979;
+	color: #ffffff;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+}
+
+#markdownDoc
+{
+	padding-left:30px;
+	padding-right:30px;
+	padding-top:20px;
+}
+
+.MarkdownDoc a
+{
+	color: #009FE0;
+	text-decoration:none;
+}
+.MarkdownDoc a:hover
+{
+	color: #007BAD;
+}
+
+.MarkdownDoc  ul  li
+{
+	list-style-type:circle;
+	margin-left: 20px;
+	margin-top:3px;
+}
+
+.MarkdownDoc ol  li
+{
+	list-style-type:decimal;
+	margin-left: 20px;
+	margin-top:3px;
+}
+
+.MarkdownDoc   h1
+{
+	font-size: 24px;
+	font-weight: 800;
+	padding-top: 10px;
+}
+
+.MarkdownDoc   h2
+{
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	width:100%;
+	border: solid 1px #343434;
+	background:#797979;
+	color: #ffffff;
+}
+
+.MarkdownDoc  h3
+{
+	font-size: 18px;
+	font-weight:700;
+	padding-top: 10px;
+}
+
+.MarkdownDoc   h4
+{
+	font-size: 17px;
+	font-weight:600;
+	padding-top: 10px;
+}
+
+.MarkdownDoc  h5
+{
+	font-size: 16px;
+	font-weight:550;
+	padding-top: 10px;
+}
+
+.MarkdownDoc   h6
+{
+	font-size: 15px;
+	font-weight:500;
+	padding-top: 10px;
+}
+
+.MarkdownDoc img
+{
+ max-width:800px;
+}
+
+.MarkdownDoc b
+{
+	font-weight:bold;
+}
+
+.MarkdownDoc i
+{
+	font-style:italic;
+}
+
+.MarkdownDoc p
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.MarkdownDoc  blockquote 
+{
+	margin-top: 5px;
+    margin-bottom: 5px;
+	border-left: solid 5px #909090;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background: #F5F5F5;
+}
+
+.MarkdownDoc  blockquote  p
+{
+    padding-left: 0px;
+}
+
+.MarkdownDoc  blockquote ol
+{
+    padding-left: 10px;
+}
+
+.MarkdownDoc  blockquote ul
+{
+    padding-left: 10px;
+}
+.MarkdownDoc  blockquote ul li
+{
+	list-style-type:circle;
+}
+
+
+.highlight 
+{
+    background-color: #eeee00;
+}
+
