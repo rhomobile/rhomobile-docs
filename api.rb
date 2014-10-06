@@ -655,8 +655,12 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
 	  	# puts a
 		s.each() { |element|
-			element["name"] = getElementName(element) 
-		
+			element["name"] = getElementName(element)
+
+			if !element.nil? && !element["generateAccessors"].nil? && element["generateAccessors"] == "true"
+				generateAccessors = true
+			end
+
 			if element["generateDoc"].nil? || element["generateDoc"] == "true"
  
 			propname = element["name"]
@@ -844,7 +848,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			end
 
 	end
-	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
+	if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == '' || generateAccessors
 		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + '</code></li></ul></li>'
 		if templateDefault
 			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
@@ -1853,10 +1857,10 @@ end
 		  	md += "" + getmethods(doc) + ""
 		    md += "</div>"
 		end
-	  	if docproperties !=""
-		  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
+			if docproperties !=""
+				 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
 				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"].nil? && doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"] == "false"
-			  		md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods. However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
+						md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods (unless otherwise noted). However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
 				end
 		  	 md += "" + docproperties + ""
 	  	end 
