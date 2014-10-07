@@ -1,28 +1,21 @@
 #SimulScan
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;11</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Constructs</i></b></a><li><a href="#mclose" data-target="cMethodclose" class="autouncollapse">Destructor</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mgetDefaultSTATIC" data-target="cMethodgetDefault" class="autouncollapse">getDefault</a></li><li><a href="#msetDefaultSTATIC" data-target="cMethodsetDefault" class="autouncollapse">setDefault</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Instance</i></b></a><li><a href="#mcaptureDocument" data-target="cMethodcaptureDocument" class="autouncollapse">captureDocument</a></li><li><a href="#mfetchTemplates" data-target="cMethodfetchTemplates" class="autouncollapse">fetchTemplates</a></li><li><a href="#mgetAllProperties" data-target="cMethodgetAllProperties" class="autouncollapse">getAllProperties</a></li><li><a href="#mgetDataUri" data-target="cMethodgetDataUri" class="autouncollapse">getDataUri</a></li><li><a href="#mgetProperties" data-target="cMethodgetProperties" class="autouncollapse">getProperties</a></li><li><a href="#mgetProperty" data-target="cMethodgetProperty" class="autouncollapse">getProperty</a></li><li><a href="#msetProperties" data-target="cMethodsetProperties" class="autouncollapse">setProperties</a></li><li><a href="#msetProperty" data-target="cMethodsetProperty" class="autouncollapse">setProperty</a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;18</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pversion" data-target="cPropertyversion" class="autouncollapse">version</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Instance Properties</i></b></a><li><a href="#paudioFeedback" data-target="cPropertyaudioFeedback" class="autouncollapse">audioFeedback</a></li><li><a href="#pautoImageCapture" data-target="cPropertyautoImageCapture" class="autouncollapse">autoImageCapture</a></li><li><a href="#pdebug" data-target="cPropertydebug" class="autouncollapse">debug</a></li><li><a href="#pdecodeAudioFeedback" data-target="cPropertydecodeAudioFeedback" class="autouncollapse">decodeAudioFeedback</a></li><li><a href="#pdelayResultDisplay" data-target="cPropertydelayResultDisplay" class="autouncollapse">delayResultDisplay</a></li><li><a href="#pflashMode" data-target="cPropertyflashMode" class="autouncollapse">flashMode</a></li><li><a href="#pframeThreshold" data-target="cPropertyframeThreshold" class="autouncollapse">frameThreshold</a></li><li><a href="#phapticFeedback" data-target="cPropertyhapticFeedback" class="autouncollapse">hapticFeedback</a></li><li><a href="#pidentificationTimeout" data-target="cPropertyidentificationTimeout" class="autouncollapse">identificationTimeout</a></li><li><a href="#pinputSource" data-target="cPropertyinputSource" class="autouncollapse">inputSource</a></li><li><a href="#pledFeedback" data-target="cPropertyledFeedback" class="autouncollapse">ledFeedback</a></li><li><a href="#plogDirectory" data-target="cPropertylogDirectory" class="autouncollapse">logDirectory</a></li><li><a href="#pnegativeFrameThreshold" data-target="cPropertynegativeFrameThreshold" class="autouncollapse">negativeFrameThreshold</a></li><li><a href="#pprocessingTimeout" data-target="cPropertyprocessingTimeout" class="autouncollapse">processingTimeout</a></li><li><a href="#ptemplate" data-target="cPropertytemplate" class="autouncollapse">template</a></li><li><a href="#ptemplateDirectory" data-target="cPropertytemplateDirectory" class="autouncollapse">templateDirectory</a></li><li><a href="#puiResultConfirmation" data-target="cPropertyuiResultConfirmation" class="autouncollapse">uiResultConfirmation</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;2</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Download Templates</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Capture Document</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<p>The SimulScan is a software solution that enables customers to extract and</p>
+<p>The SimulScan is a software solution that enables customers to extract and process various types of information from documents. A single document may contain barcodes, text, image data and forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For example, a driver&rsquo;s license can be thought of as a template containing regions such as name and address, signature and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character Recognition captures the owners name and address whilst their photo is captured separately. These regions are defined by a template which maps the various regions of the document to the data they contain and can be created on-line at <a href="https://dpx-uat.motorolasolutions.com/">The SimulScan template builder</a>. This API is available only on Symbol Android devices with firmware supporting SimulScan.</p>
+<h2>Enabling the API</h2>
 
-<pre><code>process various types of information from documents. A single document may contain barcodes, text, image data and
-forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
-example, a driver's license can be thought of as a template containing regions such as name and address, signature
-and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
-Recognition captures the owners name and address whilst their photo is captured separately. These regions are
-defined by a template which maps the various regions of the document to the data they contain and can be created
-on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
+<p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
+
+<pre><code>:::ruby
+extensions: ["simulscan"]
 </code></pre>
-<pre><code>## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`.
-    :::ruby
-    extensions: ["simulscan"]
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API
-in JavaScript.
+<h2>JavaScript Usage</h2>
 
-## Ruby Usage
-Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
-Ruby.
-</code></pre>
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+<h2>Ruby Usage</h2>
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
 
 <a name='Methods'></a>
@@ -67,8 +60,8 @@ Ruby.
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"></p></div></p></div><div class="tab-pane fade" id="mgetAllProperties2"><div><p><strong>Parameters</strong></p><ul><li>callback : <span class='text-info'>CallBackHandler</span> <span class='label label-info'>Optional</span> </li></ul></div></div><div class="tab-pane fade" id="mgetAllProperties3"><div><p><strong>Async Callback Returning Parameters: <span class='text-info'>HASH</span></strong></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul></div></div><div class="tab-pane fade" id="mgetAllProperties4"><div><p><strong>Synchronous Return:</strong></p><ul><li>HASH : <p>Map of all available properties</p>
  : this method also supports async callbacks - check the Callback tab for callback return parameters.<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></li></ul></div></div><div class="tab-pane fade" id="mgetAllProperties6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getAllProperties(<span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li>JavaScript: <code>Rho.SimulScan.getAllProperties(<span class='text-info'>CallBackHandler</span> callback)</code> </li><li>Ruby: <code>Rho::SimulScan.getAllProperties(<span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li></ul></div></div></div>  </div><a name ='mgetDataUri'/><div class=' method  js ruby android' id='mgetDataUri'><h3><strong  >getDataUri</strong><span style='font-size:.7em;font-weight:normal;'>(<span class="text-info">INTEGER</span> imageId)</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mgetDataUri1" data-toggle="tab">Description</a></li><li ><a href="#mgetDataUri2" data-toggle="tab">Parameters</a></li><li ><a href="#mgetDataUri4" data-toggle="tab">Return</a></li><li ><a href="#mgetDataUri6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-getDataUri'><div class="tab-pane fade active in" id="mgetDataUri1"><p>Return data URI encoding of the raw image associated with the region or captured form, this allows the operator to easily verify that the captured data is accurate and if necessary perform any post processing changes by hand. To show the image on the HTML page insert the data URI  string into the src attribute of the img tag:</p>
 
-<pre><code>:::html
-&lt;img src="dataURI string;"&gt;
+<pre><code>    :::html
+    &lt;img src="dataURI string;"&gt;
 </code></pre>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"></p></div></p></div><div class="tab-pane fade" id="mgetDataUri2"><div><p><strong>Parameters</strong></p><ul><li>imageId : <span class='text-info'>INTEGER</span><p><p>Id of image to retrieve. Ids are valid until close method call.</p>
  </p></li></ul></div></div><div class="tab-pane fade" id="mgetDataUri3"></div><div class="tab-pane fade" id="mgetDataUri4"><div><p><strong>Synchronous Return:</strong></p><ul><li>Void</li></ul></div></div><div class="tab-pane fade" id="mgetDataUri6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.getDataUri(<span class="text-info">INTEGER</span> imageId)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li>JavaScript: <code>Rho.SimulScan.getDataUri(<span class="text-info">INTEGER</span> imageId)</code> </li><li>Ruby: <code>Rho::SimulScan.getDataUri(<span class="text-info">INTEGER</span> imageId)</code></li></ul></li></ul></div></div></div>  </div><a name ='mgetDefaultSTATIC'/><div class=' method  js ruby android' id='mgetDefaultSTATIC'><h3><strong  >getDefault</strong><span style='font-size:.7em;font-weight:normal;'>()</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mgetDefaultSTATIC1" data-toggle="tab">Description</a></li><li ><a href="#mgetDefaultSTATIC4" data-toggle="tab">Return</a></li><li ><a href="#mgetDefaultSTATIC6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-getDefaultSTATIC'><div class="tab-pane fade active in" id="mgetDefaultSTATIC1"><p>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</p>
@@ -120,24 +113,24 @@ Ruby.
 <p>Before you are able to process any documents with the SimulScan engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the SimulScan Engine as well as your application. To retrieve the templates from the server, you would use the <code>fetchTemplates</code> method. This method will communicate with the SimulScan back-end and download the templates to the folder that is specified by the <a href="#ptemplateDirectory">templateDirectory property</a></p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-       
+			 
 function downloadSimulScanTemplates(user,password){
-  // If you include your SimulScan template files in the applications public folder
-  // the SimulScan engine will not be able to access them due to Android
-  // security policies
+	// If you include your SimulScan template files in the applications public folder
+	// the SimulScan engine will not be able to access them due to Android
+	// security policies
 
-  Rho.SimulScan.templateDirectory = 'file:///sdcard/Templates';
-  Rho.SimulScan.fetchTemplates(user,password);
-  templates = Rho.RhoFile.listDir(Rho.SimulScan.templateDirectory);
-  for (var i = 0; i &lt; templates.length; ++i) {
-    console.log(templates[i]);
-  }
+	Rho.SimulScan.templateDirectory = 'file:///sdcard/Templates';
+	Rho.SimulScan.fetchTemplates(user,password);
+	templates = Rho.RhoFile.listDir(Rho.SimulScan.templateDirectory);
+	for (var i = 0; i &lt; templates.length; ++i) {
+		console.log(templates[i]);
+	}
 }
-           </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Capture Document</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
+					 </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Capture Document</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>The only requirement for capturing a document is to have the SimulScan template file location set using the <code>SimulScan.template</code> property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the SimulScan engine (i.e. it cannot be in the applications <code>public</code> folder)</p>
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
-       
+			 
 // POSTAL.XML was exported from the SimulScan Template Builder
 // In the Template Builder there were several fields defined
 
@@ -150,67 +143,67 @@ Rho.SimulScan.template = 'file:///sdcard/Templates/POSTAL.XML';
 // many reasons
 
 Rho.SimulScan.captureDocument(function(params){
-  if(params.callbackType == Rho.SimulScan.SUCCESS ){
-    // process the returned object:
-    var returnedField = params.processedForm;
-    processSimulScanForm(returnedField);
-  }
+	if(params.callbackType == Rho.SimulScan.SUCCESS ){
+		// process the returned object:
+		var returnedField = params.processedForm;
+		processSimulScanForm(returnedField);
+	}
 
-  if(params.callbackType == Rho.SimulScan.FAILURE ){
-    if(params.failureReason == Rho.SimulScan.FAILURE_IDENTIFICATION_TIMEOUT){
-      // This means it could not identify the label based on the template used
-      // Possible reasons
-      //    -label is the wrong label
-      //    -Template is poorly defined 
-      //      maybe scanned in image for defining was not high enough resolution
-      //    -camera cannot focus
+	if(params.callbackType == Rho.SimulScan.FAILURE ){
+		if(params.failureReason == Rho.SimulScan.FAILURE_IDENTIFICATION_TIMEOUT){
+			// This means it could not identify the label based on the template used
+			// Possible reasons
+			//    -label is the wrong label
+			//    -Template is poorly defined 
+			//      maybe scanned in image for defining was not high enough resolution
+			//    -camera cannot focus
 
-      // This may trigger multiple times and may not warrant display information 
-      // in your app - the SimulScan engine will prompt the user in most cases
-    }
-    if(params.failureReason == Rho.SimulScan.FAILURE_PROCESSING_TIMEOUT){
-      // This means it identified the form but could not process it
-      // Possible reasons
-      //    -Template is poorly defined 
-      //      maybe scanned in image for defining was not high enough resolution
-      //    -Camera cannot focus or poorly lit
+			// This may trigger multiple times and may not warrant display information 
+			// in your app - the SimulScan engine will prompt the user in most cases
+		}
+		if(params.failureReason == Rho.SimulScan.FAILURE_PROCESSING_TIMEOUT){
+			// This means it identified the form but could not process it
+			// Possible reasons
+			//    -Template is poorly defined 
+			//      maybe scanned in image for defining was not high enough resolution
+			//    -Camera cannot focus or poorly lit
 
-      // This will trigger once and return focus to your application
-    }
-  }
+			// This will trigger once and return focus to your application
+		}
+	}
 });
-          </code></pre></div></div>
+					</code></pre></div></div>
 <p>Now we can loop through the <code>processedForm</code> object returned by the <code>captureDocument</code> method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Check-boxes), Barcode, Picture. It will only return regions that it was able to be processed.</p>
 <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>JavaScript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
 
-       
+			 
 function processSimulScanForm(SimulScanForm){
-  var regions = SimulScanForm.regions;
-  for(i=0; i&lt; regions.length; ++i){
-    switch(regions[i].processingMode){
-    case Rho.SimulScan.PM_OCR:
-      // The text that OCR translated into an array of lines
-      regionTextArray = regions[i].processedData;
+	var regions = SimulScanForm.regions;
+	for(i=0; i&lt; regions.length; ++i){
+		switch(regions[i].processingMode){
+		case Rho.SimulScan.PM_OCR:
+			// The text that OCR translated into an array of lines
+			regionTextArray = regions[i].processedData;
 
-      //maybe do something with returned confidence
-      // PDXform.absoluteOcrConfidence
-      // PDXform.relativeOcrConfidence
-      break;
-    case Rho.SimulScan.PM_OMR:
-      // Checkbox region either True or False
-      regionBooleanCheckbox = regions[i].processedData;
-      break;
-    case Rho.SimulScan.PM_PICTURE:
-      // nothing in processedData
-      // Image held temporarily until Rho.SimulScan.close()
-      // use the id and the Rho.SimulScan.getDataUri method
-      regionImageURI = Rho.SimulScan.getDataUri(regions[i].image.id);
-      break;
-    case Rho.SimulScan.PM_BARCODE:
-      // Barcode data will be in processedData field
-      regionBarCode = regions[i].processedData;
-      break;
-    }
-  }
+			//maybe do something with returned confidence
+			// PDXform.absoluteOcrConfidence
+			// PDXform.relativeOcrConfidence
+			break;
+		case Rho.SimulScan.PM_OMR:
+			// Checkbox region either True or False
+			regionBooleanCheckbox = regions[i].processedData;
+			break;
+		case Rho.SimulScan.PM_PICTURE:
+			// nothing in processedData
+			// Image held temporarily until Rho.SimulScan.close()
+			// use the id and the Rho.SimulScan.getDataUri method
+			regionImageURI = Rho.SimulScan.getDataUri(regions[i].image.id);
+			break;
+		case Rho.SimulScan.PM_BARCODE:
+			// Barcode data will be in processedData field
+			regionBarCode = regions[i].processedData;
+			break;
+		}
+	}
 }
-           </code></pre></div></div>  </div></div></div></div></div>
+					 </code></pre></div></div>  </div></div></div></div></div>
