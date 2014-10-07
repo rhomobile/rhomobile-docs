@@ -1,10 +1,7 @@
-#Alert API
-Call system alert methods for popup, vibrate, or playing audio files.
-
-For examples of using the Alert API methods, refer to [Alerts in Device Capabilities](../rhodes/device-caps#alerts).
+# Alert API
+**Call system alert methods for popup, vibrate, or playing audio files. For examples of using the Alert API methods, refer to [Alerts in Device Capabilities](../rhodes/device-caps#alerts).**
 
 ## Enabling Vibration
-
 To use the vibrate method, you need to enable vibration on the device. Do this by adding that capability to the build.yml file:
 
 	:::yaml
@@ -12,14 +9,12 @@ To use the vibrate method, you need to enable vibration on the device. Do this b
 	  - vibrate
 
 ## hide_popup
-
 Closes the current popup window.
 
 	:::ruby
 	Alert.hide_popup
 
 ## play_file
-
 Play an audio file if that media type is supported by the device.
 
 	:::ruby
@@ -28,28 +23,31 @@ Play an audio file if that media type is supported by the device.
 <table border="1">
 	<tr>
 		<td><code>path</code></td>
-		<td>The path to the file, ending in the file name and extension. The file must located in the application; for example, <code>/apps/public/test-file.mp3</code>.</td>
+		<td>
+			The path to the file, ending in the file name and extension. The file must located in the application; for example, <code>/apps/public/test-file.mp3</code>.
+		</td>
 	</tr>
 	<tr>
 		<td><code>media_type</code></td>
-		<td>(optional) Media type can be specified explicitly, or can be recognized from the file extension. The known file extensions are ".mp3" – audio/mpeg and ".wav" – audio/x-wav.</td>
+		<td>
+			(optional) Media type can be specified explicitly, or can be recognized from the file extension. The known file extensions are ".mp3" – audio/mpeg and ".wav" – audio/x-wav.
+		</td>
 	</tr>
 </table>
 
 ## show_popup
-
 Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on the button.
 
-[Click for an example of show_popup with a button and callback.](../rhodes/device-caps#alerts)
+Click [here](../rhodes/device-caps#alerts) for an example of show_popup with a button and callback.
 
 	:::ruby
 	Alert.show_popup "message"
 
-<table border="1" width="100%">
-<tr>
-	<td><code>message</code></td>
-	<td>a text string</td>
-</tr>
+<table border="1">
+	<tr>
+		<td><code>message</code></td>
+		<td>a text string</td>
+	</tr>
 </table>
 
 	:::ruby
@@ -79,30 +77,31 @@ Bring the application up front and show a message in a popup window. The message
 	</tr>
 	<tr>
 		<td><code>:callback</code></td>
-		<td>url called on button click, such as <code>url_for(:action => :on_dismiss_popup)</code>. It is called with a @params hash of :button_id, :button_title, and :button_index.</td>
+		<td>
+			url called on button click, such as <code>url_for(:action => :on_dismiss_popup)</code>. It is called with a @params hash of :button_id, :button_title, and :button_index.
+		</td>
 	</tr>
 </table>
 
 ## show_status
-
 Display a window containing a status message. The window closes after the user clicks on its hide button.
 
 	:::ruby
 	Alert.show_status(title, status_text, hide_button_label)
 
 <table border="1">
-<tr>
-	<td><code>title</code></td>
-	<td>String. The title on the status message popup window.</td>
-</tr>
-<tr>
-	<td><code>status_text</code></td>
-	<td>String. The status message displayed in the popup status window.</td>
-</tr>
-<tr>
-	<td><code>hide_button_label</code></td>
-	<td>String. The label text for the hide button in the popup status window.</td>
-</tr>
+	<tr>
+		<td><code>title</code></td>
+		<td>String. The title on the status message popup window.</td>
+	</tr>
+	<tr>
+		<td><code>status_text</code></td>
+		<td>String. The status message displayed in the popup status window.</td>
+	</tr>
+	<tr>
+		<td><code>hide_button_label</code></td>
+		<td>String. The label text for the hide button in the popup status window.</td>
+	</tr>
 </table>
 
 ## vibrate
@@ -111,10 +110,8 @@ Display a window containing a status message. The window closes after the user c
 	Alert.vibrate(duration)
 
 <table border="1">
-<tr>
-	<td><code>duration</code></td>
-	<td>Integer. Vibrate the device for this number of milliseconds, up to 25500; if 0 or not specified, vibrate for 2500 milliseconds.</td>
-</tr>
+	<tr>
+		<td><code>duration</code></td>
+		<td>Integer. Vibrate the device for this number of milliseconds, up to 25500; if 0 or not specified, vibrate for 2500 milliseconds.</td>
+	</tr>
 </table>
-
-
