@@ -14,11 +14,18 @@ The `indicators` extension is also included automatically if you specify the fol
 
 NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-## JavaScript Usage
+### JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-## Ruby Usage
+### Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+
+## Persistence
+With the old PocketBrowser / RhoElemetns 1 APIs, any events, such as `batteryEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices which would crash if you tried to invoke a non-existent JS function. When moving to the common API we changed this so callbacks were not canceled. This decision was taken because:
+
+* Native applications would navigate far less often
+* It made much less sense with Ruby API access and Ruby controllers
+* The callbacks were now nearly always specified as part of a method call rather than being specified separately, e.g. `batteryEvent` event vs. setting the callback as part of the [`batteryStatus()`](#mbatteryStatus) method.
         </MORE_HELP>
 
         <MORE_HELP_EB>

@@ -296,7 +296,9 @@ For users migrating their PocketBrowser apps to RhoElements please note that due
 	</tr>
 	<tr>
 		<th class="tableHeading">Persistence</th>
-		<td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page.</td>
+		<td class="clsSyntaxCell clsEvenRow">
+			Partially Persistent - Changes to this module will persist when navigating to a new page with the exception of the view finder: this will be hidden on page navigation.
+		</td>
 	</tr>
 </table>
 
