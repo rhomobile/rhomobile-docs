@@ -17,13 +17,17 @@ app_type: "rhoelements"
 
 <p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
 
-<h2>JavaScript Usage</h2>
+<h3>JavaScript Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h2>Ruby Usage</h2>
+<h3>Ruby Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+
+<h2>Persistence</h2>
+
+<p>With the old PocketBrowser / RhoElemetns 1 APIs, any events, such as <code>signalEvent</code> were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices which would crash if you tried to invoke a non-existent JS function. When moving to the common API we changed this so callbacks were not canceled.</p>
 
 
 <a name='Methods'></a>

@@ -19,14 +19,7 @@ extensions: ["screenorientation"]
 
 <h2>Persistence</h2>
 
-<p>With the old PocketBrowser / RhoElemetns 1 APIs, any events, such as <code>batteryEvent</code> were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices which would crash if you tried to invoke a non-existent JS function. When moving to the common API we changed this so callbacks were not canceled. This decision was taken because:</p>
-
-<ul>
-<li>Native applications would navigate far less often</li>
-<li>It made much less sense with Ruby API access and Ruby controllers</li>
-<li>The callbacks were now nearly always specified as part of a method call rather than being specified separately, e.g. <code>batteryEvent</code> event vs. setting the callback as part of the <a href="#mbatteryStatus"><code>batteryStatus()</code></a> method.</li>
-</ul>
-
+<p>With the old PocketBrowser / RhoElemetns 1 APIs, any events, such as <code>screenOrientationEvent</code> were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices which would crash if you tried to invoke a non-existent JS function. When moving to the common API we changed this so callbacks were not canceled.</p>
 
 
 <a name='Methods'></a>
