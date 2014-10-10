@@ -19,7 +19,7 @@ extensions: ["screenorientation"]
 
 <h2>Persistence</h2>
 
-<p>With the old PocketBrowser / RhoElemetns 1 APIs, any events, such as <code>screenOrientationEvent</code> were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices which would crash if you tried to invoke a non-existent JS function. When moving to the common API we changed this so callbacks were not canceled.</p>
+<p>With the old PocketBrowser / RhoElements 1 APIs, any events, such as <code>screenOrientationEvent</code> were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.</p>
 
 
 <a name='Methods'></a>

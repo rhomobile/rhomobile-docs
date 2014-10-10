@@ -22,7 +22,7 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
 
 ## Persistence
-With the old PocketBrowser / RhoElemetns 1 APIs, any events, such as `signatureCaptureEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices which would crash if you tried to invoke a non-existent JS function. When moving to the common API this was changed so that callbacks are not canceled.
+With the old PocketBrowser / RhoElements 1 APIs, any events, such as `signatureCaptureEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         </MORE_HELP>
 
         <MORE_HELP_EB>
@@ -54,7 +54,7 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 The ebapi.js file is necessary for all single API inclusions.
 
 ## Persistence
-With the old PocketBrowser APIs, any events, such as `signatureCaptureEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices which would crash if you tried to invoke a non-existent JS function. When moving to the common API this was changed so that callbacks are not canceled.
+With the old PocketBrowser APIs, any events, such as `signatureCaptureEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         </MORE_HELP_EB>
 
         <PLATFORM>iOS, Android, WM</PLATFORM>
