@@ -9,14 +9,11 @@ In order to use this API you must include the following extension in your `build
     :::ruby
     extensions: ["screenorientation"]
 
-### JavaScript Usage
+## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-### Ruby Usage
+## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
-
-## Persistence
-With the old PocketBrowser / RhoElements 1 APIs, any events, such as `screenOrientationEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         </MORE_HELP>
         <MORE_HELP_EB>
 ## Enabling the API
@@ -46,8 +43,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 
 The ebapi.js file is necessary for all single API inclusions.
 
-## Persistence
-With the old PocketBrowser APIs, any events, such as `screenOrientationEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         </MORE_HELP_EB>
         <PROPERTIES access="STATIC">
             <DESC>Properties used to configure Screen Orientation module.</DESC>
