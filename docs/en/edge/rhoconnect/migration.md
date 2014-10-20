@@ -1,7 +1,5 @@
-Migrating your application to RhoConnect 4.0
-===
-
-The best way of migrating your old RhoConnect app to Rhoconnect 4.0+ is to re-generate the application skeleton
+# Migrating your application to RhoConnect 5.0
+The best way of migrating your old RhoConnect app to Rhoconnect 5.0+ is to re-generate the application skeleton
 using Rhoconnect, then integrate all of your implementation specifics into it.
 However, if you prefer to migrate your RhoConnect app manually, perform the steps in this document.
 
@@ -12,7 +10,7 @@ Open the `Gemfile` of your application and find the `rhoconnect` line, it should
 	:::ruby
 	gem 'rhoconnect', '3.4.4'
 
-Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 4.0.1:
+Change this to the latest release version, which you can find on [rubygems.org](http://rubygems.org/gems/rhoconnect), for example if it is 5.0.1:
 
 	:::ruby
 	gem 'rhoconnect', '4.0.1'
@@ -29,7 +27,7 @@ Now update your application's RhoConnect dependency manifest:
 
 ## Migrating application files
 
-If you have an existing RhoConnect application using version < 4.0 and want to upgrade it to RhoConnect 4.0+, then
+If you have an existing RhoConnect application using version < 5.0 and want to upgrade it to RhoConnect 5.0+, then
 you need to update the `Gemfile` file to properly use the latest RhoConnect runtime dependencies.
 
 First, follow the instructions described in the [previous section](migration#upgrading-dependency-manifest).
@@ -54,7 +52,7 @@ The `rhoconnect update` command will generate a reference `Gemfile.new` which yo
 	# DON'T FORGET to add your application specific gems after this line ...
 	# ...
 
-You must update `config.ru`, `Rakefile`, 'application.rb' and your source adapter files to match RhoConnect 4.0+ gem requirements.
+You must update `config.ru`, `Rakefile`, 'application.rb' and your source adapter files to match RhoConnect 5.0+ gem requirements.
 
 Replace your existing `config.ru` with the listing below. Save your old `config.ru` since you will use values within it in the new `config.ru`.
 
@@ -159,7 +157,7 @@ Finally, run `bundle install` to install any missing dependencies in your RhoCon
 	$ bundle install
 
 ### Updating client application
-RhoConnect's HTTP routes have changed starting with 4.0, so you'll want to update your client application's `rhoconfig.txt` to drop the trailing `/application`, for example:
+RhoConnect's HTTP routes have changed starting with 5.0, so you'll want to update your client application's `rhoconfig.txt` to drop the trailing `/application`, for example:
 
 
 	# sync server url, typically this will look like 'http://<hostname>:<port>'

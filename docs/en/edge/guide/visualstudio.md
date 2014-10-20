@@ -12,7 +12,7 @@ The RhoMobile Visual Studio Plugin allows you to build applications that are tar
 
 * Visual Studio 2012 Professional
 * Windows Phone 8 SDK
-* RhoMobile Suite 4.0
+* RhoMobile Suite 4.0+
 
 ## Installing
 1. Download the extension's [VSIX file](https://github.com/rhomobile/vsplugin/tree/master/Installer) and double-click it in Windows Explorer

@@ -1,13 +1,11 @@
+# Comm Module
+**The Comm Module is used to control the functionality of the devices communication (serial) port; the way RhoElements interacts with that port and the data it provides.**
 
-#Comm Module
+## Syntax
 
-<b>
-The Comm Module is used to control the functionality of the devices communication (serial) port; the way RhoElements interacts with that port and the data it provides.
-</b>
-
-##Syntax
-
-<table class="re-table"><tr><th class="tableHeading">comm (Module) &lt;META&gt; Syntax
+<table class="re-table">
+	<tr>
+		<th class="tableHeading">comm (Module) &lt;META&gt; Syntax
 </th></tr><tr><td class="clsSyntaxCells clsOddRow"><p>&lt;META HTTP-Equiv="Comm" content="[parameter]"&gt;</p></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><p>&lt;META HTTP-Equiv="Comm" content="CommEvent:url('[jsFunction | url]')"&gt;</p></td></tr></table>
 <table class="re-table"><tr><th class="tableHeading">Comm JavaScript Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the JavaScript Object <b>'comm'</b> will exist on the current page and can be used to interact directly with the comm.

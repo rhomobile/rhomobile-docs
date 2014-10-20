@@ -1,6 +1,6 @@
 # RhoMobile Suite KitchenSink 
 
-KitchenSink is a sample application and developer tool full of code snippets that show you how to use the APIs of RhoMobile 4. If you are new to RhoMobile, it is an excellent starting point to see how to start interacting with the different features of the platform and if you are an experienced user, it will quickly show you how to start getting the maximum value out of the new Ruby and JavaScript APIs.
+KitchenSink is a sample application and developer tool full of code snippets that show you how to use the APIs of RhoMobile 5.0 If you are new to RhoMobile, it is an excellent starting point to see how to start interacting with the different features of the platform and if you are an experienced user, it will quickly show you how to start getting the maximum value out of the new Ruby and JavaScript APIs.
 
 This document will be your step-by-step guide to how some specific features of KitchenSink were built. Along the way you will learn a few tricks on:
 

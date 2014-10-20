@@ -1851,10 +1851,10 @@ end
 		  	md += "" + getmethods(doc) + ""
 		    md += "</div>"
 		end
-	  	if docproperties !=""
-		  	 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
+			if docproperties !=""
+				 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
 				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"].nil? && doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"] == "false"
-			  		md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods (unless otherwise noted). However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
+						md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods (unless otherwise noted). However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
 				end
 		  	 md += "" + docproperties + ""
 	  	end 

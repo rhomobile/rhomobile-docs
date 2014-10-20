@@ -69,11 +69,10 @@ class Docs < Sinatra::Base
     erb :not_found
 
     rescue Exception => e
-      puts "EROR:#{e}"
+      puts "ERROR:#{e}"
       @alt=false
       erb :not_found
     end
-
   end
 
   ['/en/2.2.0','/en/2.2.0/','/en/2.2.0/home'].each do |path|
@@ -221,7 +220,7 @@ class Docs < Sinatra::Base
 #		xml_string += '   <channel>	     <title>Example.com Search: New York history</title>	     <link>http://example.com/New+York+history</link>	     <description>Search results for "New York history" at Example.com</description>	     <opensearch:totalResults>4230000</opensearch:totalResults>	     <opensearch:startIndex>21</opensearch:startIndex>	     <opensearch:itemsPerPage>10</opensearch:itemsPerPage>	     <atom:link rel="search" type="application/opensearchdescription+xml" href="http://example.com/opensearchdescription.xml"/>	     <opensearch:Query role="request" searchTerms="New York History" startPage="1" />	     <item>	       <title>New York History</title>	       <link>http://www.columbia.edu/cu/lweb/eguids/amerihist/nyc.html</link>	       <description>	         ... Harlem.NYC - A virtual tour and information on 	         businesses ...  with historic photos of Columbias own New York 	         neighborhood ... Internet Resources for the Citys History. ...	       </description>	     </item>	   </channel>	 </rss>'	
     xml_string
   end
-  
+
 ['/tutorial/:step/:topic/?',  '/tutorial/:topic/?','/en/:vnum/tutorial/:step/:topic/?',  '/en/:vnum/tutorial/:topic/?'].each do |path|
     get path do
       cache_long
@@ -229,6 +228,7 @@ class Docs < Sinatra::Base
       if @docversion.nil?
         @docversion = AppConfig['current_version']
       end
+
       # If the topic ends in ".pdf" or ".print", tell render_topic to use the print view
       
       @tut = TUT.steps(params[:topic])
@@ -298,13 +298,10 @@ get '/exists' do
     status 404
   end
 end
-  
-
-
 
   helpers do
   	def render_topic(topic, subpath = nil, print = 0, docversion = nil)
-        # puts "#{subpath} :#{topic} :  #{docversion}"
+         # puts "#{subpath} :#{topic} :  #{docversion}"
       if TOC.find("/#{subpath}/#{topic}") == '' && docversion.nil?
         
           #if not in TOC then make it default to 2.2 version
@@ -321,7 +318,7 @@ end
       end
       source = source
       @topic = Topic.load(topic, source)
-		
+
   		@title   = @topic.title 
   		@content = @topic.content
       @intro   = @topic.intro
@@ -332,8 +329,8 @@ end
   		  # @title  += Indicators.load('/' + subpath + '/' + topic + '/') 
          @indicatorslang = Indicators.languages('/' + subpath + '/' + topic + '/')
          @oslist = Indicators.oslist('/' + subpath + '/' + topic + '/')
-      
 		  end
+
   		@toc     = @topic.toc
   		@toc_sub     = @topic.toc_sub
       @body    = @topic.body
@@ -492,7 +489,6 @@ module TOC
 
 	def sections
 		@sections ||= []
-
 	end
 
 	# define a section
@@ -509,7 +505,6 @@ module TOC
   
   def find(path)
      # puts "#{path}"
-      
     compare = path.dup
     compare.slice!(0)
     compare.gsub!(/v\/([^\/]+)\//,'')
@@ -530,13 +525,10 @@ module TOC
     compare = path.dup
     compare.slice!(0)
     compare.gsub!(/v\/([^\/]+)\//,'')
-    
     found = 'Home' # Default to first section
     @sections.map do |section|
       section[3].map do |slug, title, group, _|
-        
         found = section[2] if slug == compare
-
       end
     end
     found
@@ -548,10 +540,8 @@ end
 module TUT
   extend self
 
-  
   def tutorials
     @tutorials ||= []
-
   end
 
   # define a section
@@ -566,9 +556,7 @@ module TUT
   end
   
   def steps(tut)
-      # puts "#{tut}"
-      
-    
+    # puts "#{tut}"
     found={}
     # found = @tutorials[0][0] # Default to first section
     @tutorials.each do |tutsection|
@@ -576,13 +564,11 @@ module TUT
       if tutsection[0] == tut
         found = tutsection
       end
-      
     end
-    # puts "FOund:#{found}"
+    # puts "Found:#{found}"
     found
   end
 
- 
   file = File.dirname(__FILE__) + '/tuts.rb'
   eval File.read(file), binding, file
 end

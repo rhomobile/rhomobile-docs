@@ -2,7 +2,11 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="CardReader" parent="Rho" license="Required">
+<<<<<<< HEAD
         <HELP_OVERVIEW>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Zebra Technologies devices.Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</HELP_OVERVIEW>
+=======
+        <HELP_OVERVIEW>The Card Reader module decodes the card data when read through a card reader attachment. Currently this is available only on Symbol Technologies devices.Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</HELP_OVERVIEW>
+>>>>>>> master
         <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
@@ -56,7 +60,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <PROPERTY_BAG/> <!-- object has properties, produce getProps(), setProps() methods -->
         </TEMPLATES>
 
-        <PLATFORM>WM, Android</PLATFORM>
+        <PLATFORM>WM, CE, Android</PLATFORM>
 
         <PROPERTIES usePropertyBag="accessorsViaPropertyBag">
             <DESC>These properties are used to configure the card reader.</DESC>
@@ -78,12 +82,12 @@ The ebapi.js file is necessary for all single API inclusions.
             </PROPERTY>
             <PROPERTY name="autoTab" type="BOOLEAN" generateAccessors="true" default="false">
                 <DESC>When enabled, appends a tab to any data returned as keystrokes by the cardreader. This is useful when filling out a form so that you can move to the next field without extra interaction necessary.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
             </PROPERTY>
             <PROPERTY name="autoEnter" type="BOOLEAN" generateAccessors="true" default="false">
                 <DESC>When enabled, appends a carriage return to any data returned as keystrokes by the cardreader. This is useful for auto submitting returned data without extra interaction necessary.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
             </PROPERTY>
             <PROPERTY name="moduleName" type="STRING" generateAccessors="true" deprecated="true">
@@ -123,7 +127,7 @@ The ebapi.js file is necessary for all single API inclusions.
         <METHODS>
             <METHOD name="open" hasCallback="optional">
                 <DESC>Opens the card reader.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
                 <CALLBACK  type="HASH">
                     <DESC>Not providing a callback to be invoked when a card is swiped will result in that card data being output as keystrokes. In case of Android devices the RawData will be shown as keystrokes.</DESC>
@@ -185,7 +189,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="close">
                 <DESC>Closes the card reader.</DESC>
-                <PLATFORM>WM, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true"></APPLIES>
             </METHOD>
 

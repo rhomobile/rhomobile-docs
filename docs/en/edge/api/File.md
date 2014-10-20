@@ -11,11 +11,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h2>JavaScript Usage</h2>
+<h3>JavaScript Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h2>Ruby Usage</h2>
+<h3>Ruby Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -125,11 +125,11 @@ folders = []
 files = []
 
 root_path = "/arbitrary/path"
-entries = Rho::File.listDir(root_path)
+entries = Rho::RhoFile.listDir(root_path)
 
 entries.each do |entry|
   unless (entry == "." || entry == "..")
-    (Rho::File.isDir(Rho::File.join(root_path,entry)) ? folders : files) &lt;&lt; entry
+    (Rho::RhoFile.isDir(Rho::RhoFile.join(root_path,entry)) ? folders : files) &lt;&lt; entry
   end
 end
                    

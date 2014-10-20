@@ -28,14 +28,13 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/4.1.0/api/cardreader',                                  'CardReader'
   topic 'en/2.2.0/rhoelements/comm',                                'Comm'
   topic 'en/4.1.0/api/Database',                                    'Database'
-  topic 'en/4.1.0/api/DPX',                                         'DPX (BETA)'
-  topic 'en/2.2.0/rhodesapi/geolocation-api',                       'GeoLocation'
+  topic 'en/4.1.0/api/SimulScan',                                   'Document Capture (BETA)'
   topic 'en/4.1.0/api/geolocation',                                 'Geolocation'
   topic 'en/2.2.0/rhoelements/Gesture',                             'Gesture'
   topic 'en/2.2.0/rhoelements/hourglass',                           'Hourglass'
   topic 'en/4.1.0/api/Intent',                                      'Intent'
   topic 'en/4.1.0/api/keycapture',                                  'KeyCapture'
-  topic 'en/2.2.0/rhoelements/Keylight',                            'Key Light'
+  topic 'en/2.2.0/rhoelements/Keylight',                            'Keylight'
   topic 'en/4.1.0/api/keystate',                                    'KeyState'
   topic 'en/4.1.0/api/Log',                                         'Log'
   topic 'en/2.2.0/rhodesapi/mapview-api',                           'MapView'
@@ -65,6 +64,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology_NfcV-api',             'NFCTagTechnology_NfcV'
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology-api',                  'NFCTagTechnology'
   topic 'en/4.1.0/api/Notification',                                'Notification'
+  topic 'en/4.1.0/api/Notification.Led',                            'Notification.Led'
   topic 'en/4.1.0/api/Orm',                                         'ORM JavaScript'
   topic 'en/4.1.0/api/rhom-api',                                    'ORM Ruby'
   topic 'en/4.1.0/api/OrmModel',                                    'ORM Model JavaScript'
@@ -88,14 +88,12 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/4.1.0/api/screenorientation',                           'ScreenOrientation'
   topic 'en/4.1.0/api/sensor',                                      'Sensor'
   topic 'en/4.1.0/api/signalindicators',                            'SignalIndicators'
-  topic 'en/2.2.0/rhoelements/SignatureCapture',                    'SignatureCapture'
+  topic 'en/4.1.0/api/signature',                                   'Signature'
   topic 'en/2.2.0/rhodesapi/signaturecapture-api',                  'SignatureCapture (In-line)'
-  topic 'en/4.1.0/api/signature',                                   'Signature Capture'
   topic 'en/2.2.0/rhoelements/stylus',                              'Stylus'
   topic 'en/4.1.0/api/system',                                      'System'
   topic 'en/2.2.0/rhoelements/systemTime',                          'SystemTime'
-  topic 'en/2.2.0/rhodesapi/timer-api',                             'Timer API'
-  topic 'en/2.2.0/rhoelements/timer',                               'Timer'
+  topic 'en/2.2.0/rhodesapi/timer-api',                             'Timer'
   topic 'en/2.2.0/rhoelements/VideoCapture',                        'VideoCapture'
   # topic 'en/4.1.0/api/videocapture',                                'Video Capture'
   topic 'en/2.2.0/rhoelements/volume',                              'Volume'
@@ -104,13 +102,13 @@ section 'rhodescommonapi-reference',                                'API Referen
   topic 'en/4.1.0/api/webview',                                     'WebView'
 end
 
-section 'rhomob-setup',                     'Dev Environment Setup','Mobile Guides' do
-  topic 'en/4.1.0/guide/rhomobile-install', 'RhoMobile Suite Install'
-  topic 'en/4.1.0/guide/nativesdksetup',    'Native SDK Setup'
-  topic 'en/4.1.0/guide/nonrhostudio',      'Developing Without RhoStudio'
-  topic 'en/4.1.0/guide/visualstudio',      'Developing with Visual Studio'
-  topic 'en/4.1.0/guide/rhohubtutorial',    'Build In The Cloud With RhoHub'
-  topic 'en/4.1.0/rhostudio-rhohub',        'Using RhoStudio with RhoHub'
+section 'rhomob-setup',                          'Dev Environment Setup','Mobile Guides' do
+  topic 'en/4.1.0/guide/rhomobile-install',      'RhoMobile Suite Install'
+  topic 'en/4.1.0/guide/nativesdksetup',         'Native SDK Setup'
+  topic 'en/4.1.0/guide/nonrhostudio',           'Developing Without RhoStudio'
+  topic 'en/4.1.0/guide/visualstudio',           'Developing with Visual Studio'
+  topic 'en/hosted/guide/remote-build-guide',    'Build In The Cloud'
+  # topic 'en/4.1.0/rhostudio-rhohub',             'Using RhoStudio with RhoHub'
 end
 
 section 'rhomob-apps',                        'Developing Apps','Mobile Guides' do
@@ -138,7 +136,7 @@ section 'rhomob-data',                      'Data Handling','Mobile Guides' do
   topic 'en/4.1.0/guide/rhom_js',           'Using Rhom with JavaScript'
   topic 'en/4.1.0/guide/rhom_backbone',     'Using Rhom with Backbone.JS'
   topic 'en/4.1.0/guide/rhom_angular',      'Using Rhom with Angular JS'
-  topic 'en/4.1.0/guide/using_rhoconnect',  'Synchronization'
+  topic 'en/4.1.0/guide/synchronization',  'Synchronization'
   topic 'en/4.1.0/guide/web_services',      'Web Services & AJAX'
 end
 
@@ -154,7 +152,7 @@ section 'rhomob-dev',                                       'Device Capabilities
   topic 'en/4.1.0/guide/html5',                             'Html5 Tags'
   topic 'en/4.1.0/guide/handling_local_files',              'File System'
   topic 'en/4.1.0/guide/geolocation',                       'Geolocation'
-  topic 'en/4.1.0/guide/Intent',                            'Intents'
+  topic 'en/4.1.0/guide/intent',                            'Intents'
   topic 'en/4.1.0/guide/localization',                      'Localization'
   topic 'en/4.1.0/guide/maps',                              'Mapping'
   topic 'en/4.1.0/guide/media',                             'Media & Ringtones'
@@ -206,7 +204,6 @@ section 'rhoconnect-source-adapter-reference',        'Source Adapters','RhoConn
 end
 
 section 'rhoconnect-ruby-api-reference',                              'Source Adapter Ruby APIs','RhoConnect Guides' do
-  topic 'en/4.1.0/rhoconnect/rest-api',                               'RhoConnect REST API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-controller-api-ruby',  'Source Adapter Controller API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-model-api-ruby',       'Source Adapter Model API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-store-api-ruby',       'Source Adapter Store API'
@@ -214,7 +211,6 @@ section 'rhoconnect-ruby-api-reference',                              'Source Ad
 end
 
 section 'rhoconnect-js-api-reference',                              'Source Adapter JS APIs','RhoConnect Guides' do
-  topic 'en/4.1.0/rhoconnect/rest-api',                             'RhoConnect REST API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-controller-api-js',  'Source Adapter Controller API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-model-api-js',       'Source Adapter Model API'
   topic 'en/4.1.0/rhoconnectapi/source-adapter-request-api-js',     'Source Request API'
@@ -251,7 +247,7 @@ end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do
   topic 'en/4.1.0/rhoconnect/preparing-production',   'Preparing for Production'
-  topic 'en/4.1.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
+  # topic 'en/4.1.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'en/4.1.0/rhoconnect/deploying',              'Deploying RhoConnect'
   topic 'en/4.1.0/rhoconnect/rhoconnect-redis-stack', 'High Availability Deployment on AWS'
 end
@@ -264,6 +260,7 @@ end
 
 section 'rhoconnect-nonrhodes-client-reference',  'Clients','RhoConnect Guides' do
   topic 'en/4.1.0/rhoconnect/client',             'Using RhoConnect without Rhodes'
+  topic 'en/4.1.0/rhoconnect/rest-api',           'RhoConnect REST API'
   topic 'en/4.1.0/rhoconnect/client-objc',        'RhoConnect Client for iOS'
   topic 'en/4.1.0/rhoconnect/client-java',        'RhoConnect without Rhodes: Android Java'
   topic 'rhoconnectjs/introduction',              'RhoConnect.JS Client'

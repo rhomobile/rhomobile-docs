@@ -1,141 +1,47 @@
 # Licensing
+Licensing in 5.0 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have a subscription from our [rhomobile.com](http://www.rhomobile.com) site. This does not meant that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in subscribing and building an app locally.
 
+## Subscriptions
+New to 5.0 we are introducing a subscription model for licensing for our products. The new licensing structure has three levels: Free, Silver, and Gold. The details of these plans are listed below.
 
-## Features Requiring a License
+<img style="border:solid;border-color:#999" src="https://s3.amazonaws.com/rhodocs/cloud/licensing/sub-details.png">
 
-If you have included any of the following features in your application, your application will require a RhoElements license to run in a production evironment.
+NOTE: This <b>does</b> mean that without a paid subscription your usage of RhoMobile products is limited to Rhodes and RhoStudio for local builds only.
 
-### Motorola Solutions WebKit
-Any application that is built with the option of `app_type:rhoelements` or `capabilities:motorola_browser` will be built with the Motorola Solutions Webkit. The use of this webkit requires a license. It will typically be used on Windows Mobile and Windows CE platforms as well as when the "RhoElements shared runtime" is used since it uses Motorola Solutions WebKit.
+## Applying Your Subscription Plan
+Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobile.com/content/rhopricing.html), you'll need to apply your new plan to your copy of RhoStudio or through the command line. There are two ways to do this using either method, you can either manually sign-in (detailed below) or you can attempt to build an app, which will ask for a valid username and password before it will build the app.
 
-**NOTE: In RhoMobile Suite 4.0, the default webkit for Android is now the stock Android webkit and not the Motorola Solutions Webkit. **
+### Signing In With the Command Line
+<div class="row-fluid">
+	<div class="span7">
+		<p>To apply your subscription plan using the command line run the command:</p>
+			<pre>$ rake cloud:login</pre>
 
-### Mobile APIs
-Certain APIs require a license. These API's are all included as extensions in the `RhoElements` Gem: 
+		<p>This will ask for your username and password, logging you into your rhomobile.com account and downloading the API token to your machine and stored in the <code>~/.rhomobile/token</code> directory on Mac OS and the <code>/Users/&lt;username&gt;/.rhomobile/token</code> directory on Windows.</p>
+	</div>
+	<div class="span5">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/licensing/cli-login-dialog.png">
+	</div>
+</div>
 
-* [Barcode](../api/barcode)
-* [Battery](../api/battery)
-* [Cardreader](../api/cardreader)
-* [KeyCapture](../api/cardreader)
-* [KeyState](../api/cardreader)
-* [NFC extension](../rhodes/device-caps#nfc)
-* [Database Encryption](../../2.2.0/rhodes/rhom#database-encryption)
-* [SignalIndicators](../api/signalindicators)
-* [Signature Capture](../api/signature)
+### Signing In Through RhoStudio
+<!-- Steps -->
+<div class="row-fluid">
+	<div class="span7">
+		<p>To apply your subscription plan using RhoStudio:</p>
+		<ul>
+			<li>Open the preferences pane (<b>&#8984;,</b> on Mac OS, <b>Ctrl+P</b> on Windows).</li>
+			<li>Select <b>RhoMobile -> RhoMobile.com</b> and click the "login to rhomobile.com" button.</li>
+			<li>You will be prompted for your username and password.</li>
+		</ul>
+		<p>Once you enter valid credentials, your API token will be downloaded to your machine and stored in the <code>~/.rhomobile/token</code> directory on Mac OS and the <code>/Users/&lt;username&gt;/.rhomobile/token</code> directory on Windows.</p>
+		<p>If you do not have an account when you are going through these steps, you will be able to sign-up by clicking the "signup" link in the login prompt.</p>
+	</div>
+	<!-- Sign-In Picture -->
+	<div class="span5">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/licensing/rs-login-dialog.png">
+	</div>
+</div>
 
-### Platforms
-* [Windows Desktop](build_win)
-* [Windows Mobile/CE](build_wm)
-
-##Running without a license
-You can fully use all features of the RhoMobile framework during evaluation, development or testing without obtaining a license. A message will be displayed on application startup will also display a periodic nag screen. Before deploying an application to a production environment, you should obtain a license key. The same license key will work across any operating system. The name associated with the license is stored in the log file when the application is started.
-
-## Obtaining a License
-
-There are a number of licensing options available depending on the specific customer need or deployment. To obtain a license for RhoElements, you should contact us or your local Motorola Solutions reseller. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
-
-## Application Licensing
-
-An application license is a completely separate concept from a device license and should be used when you only want to license a single RhoElements application without wanting to license RhoElements across the entire device.  Application licenses take precedence over device licenses and will prevent the splash screen from being displayed.
-
-Application licenses are currently only applicable for Android, iPhone, Windows Mobile, Windows CE and Windows Embedded Handheld devices, but will be extended to other platforms in the future.
-
-When you get an application license from Motorola Solutions for a hybrid application, you will need to provide Motorola Solutions with the following information.
-
-* Your company name.
-* The name of your application.
-* The version of RhoElements for which you want the license.
-
-Application Licenses are encoded by the Motorola Solutions Software License team on allocation but an unencrypted license will look like the following:
-
-	Company Name: Motorola Solutions
-	PackageName: Warehouse Picking	//  As defined in the build.yml file
-	For Version: 2.*.*			//  Application licenses can be version specific, this one is valid for any 2.x version of RhoElements
-
-### Applying an Application License
-
-There are two ways to apply an application license.
-
-For native applications, you should define your application license in your build.yml file as follows:
-
-	motorola_license: '@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq'
-
-**NOTE: Do not include `motorola_license_company` in build.yml, otherwise the application license will not be used.**
-
-For applications using the `RhoElements Shared Runtime`, you should define your application license and application name in your `config.xml` file as follows. Make sure you add the `LicenseKey` section as well as update your application name in the configuration file under the General section. The name must match the application name you provided when you applied for your license.
-
-	  <Applications>
-	    <Application >
-	       <LicenseKey value="@1J/9V\WEqG7gr8DH.kcKuK_V@:P%Vd_KVDd`2ODQkL2/gFK=51X)7^nOgwJ\o'b?m@rfVFb9gmM:u;PNF`iVR4K|tn6|0BC|hlJWwpJB0+29AaMV.vJq"/>
-           <General>
-              <Name value="Menu"/> set to the application name you applied for.
-              <StartPage value="file://%INSTALLDIR%\HTML\Menu.htm" />
-           </General>
-
-	       ...
-	    </Application >
-	  </Applications>
-
-**NOTE: Android is a case-sensitive operating system, as such be sure the case matches on all parameters. Otherwise the application will not launch.**
-
-## Device Licensing
-
-A device license allows you to run multiple RhoElements applications on the same device and places no limits on the number of applications allowed. 
-
-A device license consists of:
-
-* The company name.
-* A hexadecimal key.
-
-There are two types of device license, both of which are applied in the same way.
-
-* Device specific licenses are tied to the specific device and only apply to that device, trying to apply a device specific license to another device will fail.
-
-* Deployment licenses are not tied to a specific device, a single deployment license will work across an entire deployment and is most useful when including the license file in your device deployment or licensing non-Motorola Solutions devices.
-
-Once your device is licensed, a splash screen will be displayed briefly each time the application is run saying who RhoElements has been licensed to.
-
-## Applying a Device License via the Wizard
-
-Devices running Windows Mobile and Windows CE as well as Motorola Solutions Android devices present the user with a licensing Wizard to guide the user through licensing.
-
-<img src="http://rhodocs.s3.amazonaws.com/rhoelements/rhoe-license.png">
-
-The first page of the licensing wizard has a "Cancel" button. Clicking it allows you to evaluate the software. While you are evaluating the software, the functionality is not restricted.
-
-The licensing wizard assumes you have already obtained a license via the [Motorola Solutions software licensing website](https://softwarelicensing.motorolasolutions.com). The wizard will guide you through applying your license. There are two options available.
-
-* Internet Licensing.  This only requires you to know the order number associated with your RhoElements licenses order.  Provided your device has an internet connection not obstructed by a proxy and can contact the licensing server your device will be licensed automatically.
-
-* Manual Licensing.  You can also print off the license from the licensing website and manually key in your company name and license number. If you are using a Motorola Solutions device you will be able to scan the information rather than keying it in manually.
-
-More verbose instructions on licensing your device and how to interact with the licensing server are available [within the Motorola Solutions software licensing website](https://softwarelicensing.motorolasolutions.com/documentation/index.html#licensingRuntime).
-
-## Applying a Device License via a File
-
-There are three ways to apply a device license via a file.
-
-Via a Registry key: From the Motorola Solutions Software licensing site, after you have applied for your license you are able to download a registry key file (.reg) containing the company name and license key.  On Windows Mobile and Windows CE devices, you can license the device via this registry key.
-
-Via a file on Android devices when developing hybrid applications: Create the file `/mnt/sdcard/keys/rhoelements`. On its first line, enter your company name associated with the license. On its second line, enter the hexadecimal license key. The easiest way to do this is to manually license one device and then the use the file `/mnt/sdcard/keys/rhoelements` that was created.
-
-NOTE: Currently this is the recommended approach for deploying a license on the Motorola Solutions ET1 and MC40 without manual intervention.
-
-Via build.yml for Native Applications (iOS and Non-MSI Android): If you are developing native applications for iOS or Android hardware that is not Motorola Solutions, you can provide the deployment license information in the build.yml file.
-
-	:::term
-	motorola_license_company: 'Deployment License Company name'
-	motorola_license: 'Deployment License Number'
-
-Note that since the build.yml is included in the application at build time, it only makes sense to use deployment licenses in this file when deploying your application. 
-
-For hybrid applications, you can define your device license and company name in your config.xml file as follows:
-
-	  <Applications>
-	    <Application> 
-	       <LicenseKeyCompany value="Deployment License Company name"/>
-	       <LicenseKey value="Deployment License Number"/>
-
-	       ...
-	    </Application> 
-	  </Applications>
+### Done!
+Once you have applied your license you are free to build apps. It's **that** easy!

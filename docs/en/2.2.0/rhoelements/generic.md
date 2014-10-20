@@ -67,8 +67,6 @@ Flags are as follows:
              sound, call PlayWave with strSound set to null.
 0x00000002 = No default sound event is used. If the sound cannot be found, PlayWave returns 
              silently without playing the default sound. (Not applicable on ET1)
-0x00000004 = A sound event's file is loaded in RAM. The parameter specified by strSound must point 
-             to an image of a sound in memory. (Not applicable on ET1)
 0x00000008 = The sound plays repeatedly until PlayWave is called again with the strSound parameter 
              set to null. You must also specify the 0x00000001 flag to indicate an asynchronous 
              sound event.

@@ -3,6 +3,9 @@
 ## Setup
 Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-ios) for building iOS applications.
 
+### Building Remotely
+Alternatively, you can create the device builds remotely with RhoMobile hosted builds. Refer to our [remote build guide](../../hosted/guide/remote-build-guide) for more info.
+
 ### SDK locations
 The iOS SDK that is specified in your build.yml will need to be in the default XCode folder or the build process will not be able to find it.
 
@@ -30,18 +33,6 @@ The iphoneos and iphonesimulator SDKs go in two different folders:
 
 NOTE: These paths are solely for your information, they do not need to be copied into any files to be used. These are simply the directories in which you need to store your SDKs for them to work with the RhoMobile build process.
 
-### Using RhoHub
-
-Alternatively, you can create the device builds with RhoHub. RhoHub is a cloud based service that integrates with RhoStudio to allow building and packaging apps for all platforms.
-
-You can use it:
-
-* to avoid installing SDKs locally
-* to quickly get you up and running
-* for building and packaging for platforms that are not supported by your development computer, for example building iPhone apps from your Windows PC.
-
-See the [RhoHub tutorial](rhohubtutorial) for more details.
-
 ## Building and Running Your iOS Application with RhoStudio
 
 To start the build process, create a Run Configuration: select your project in the Project Explorer, and do one of the following actions.
@@ -58,7 +49,6 @@ To run on the iOS simulator, select iPhone in Platform, Simulator in Simulator t
 <img style="height:500px" src="http://rhodocs.s3.amazonaws.com/build-rhodes-app/run-configurations-ios-4.0.png"/>
 
 ## Build an iOS App with Xcode
-
 ### Generating the XCode Project
 If you wish to run your RhoMobile application on an iOS device, you need to build and run it using an Xcode project. There are two
 ways to do this:
@@ -81,7 +71,6 @@ If you want to create the XCode project without running your app in the simulato
 After the app has built, it will create an XCode project and place it in your project folder in the app's root directory. e.g. `<path to app>/project/iphone/<name of app>.xcodeproject`.
 
 ### Starting the Project in XCode
-
 Then in XCode open the  `<path to app>/project/iphone/<name of app>.xcodeproject` project.
 
 In the Xcode Scheme menu, select the proper scheme before you build and run your project. Click on the Scheme menu.
@@ -270,9 +259,28 @@ Here is an example of the iPhone settings in build.yml for distribution:
         BundleIdentifier: com.johnsmithcompany.jsapp
         BundleURLScheme: jsapp                
         
-### Setting your application name, icon and loading screen
+### Setting your application name, icons and loading screen
 
 You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](app_icon_splash) guide for detailed information.
+
+You must also include the following icon sizes for your app in order for it to pass App Store requirements:
+
+* icon57
+* icon60
+* icon76
+* icon72
+* icon114
+* icon120
+* icon144
+* icon152
+* icon180
+
+In addition to these, you need to also add icons for iTunes artwork images to be shown in iTunes and the AppStore application. Rhodes now generates iOS apps with the following image files:
+
+* "iTunesArtwork"    - 512x512 PNG
+* "iTunesArtwork@2x" - 1024x1024 PNG
+
+Simply put your images in place of these with the same names to customize the images.
 
 ### Turn off developer options
 
@@ -362,7 +370,7 @@ Once your application is submitted successfully you can view its review status b
 
 ### Fullscreen Mode
 
-We do not currently support fullscreen mode on iOS7. We are working to solve this by the RhoElements 4.1 release.
+We do not currently support fullscreen mode on iOS7. We are working to solve this by the RhoElements 5.0 release.
 
 ### Native Toolbar
 

@@ -1,6 +1,6 @@
 # Using Rhom in JavaScript with Angular.js
 
-In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but a key new addition in RhoMobile 4.0 is that all the features of the platform can now be accessed from JavaScript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% JavaScript
+In past versions of RhoMobile, applications were developed with a combination of HTML and JavaScript for the view plus Ruby for the controllers. That approach is still supported but in RhoMobile 5.0 all the features of the platform can be accessed using JavaScript. Anything you can do in Ruby, can be done in JavaScript and it is now possible to build applications without writing any Ruby code at all. In this guide we will see an example of building an application in 100% JavaScript
 
 ## Why Angular.js
 
@@ -380,7 +380,7 @@ The code for `ProductHelper` is below:
 					}
 				}
 			},
-			update: function(rhoProduct, hash) {
+			update: function(rhoProduct, hash) {
 					rhoProduct.updateAttributes(hash);
 
 					for (var i=0; i<this.products.length; i++) {
@@ -512,7 +512,7 @@ Angular.js takes care of two-way data binding throughout the whole application, 
 
 ## Word of warning
 
-At the time of this writing, there is a known incompatibility with Angular.js 1.2.0 and an internal component of RhoMobile 4. The issue is documented [here](https://github.com/angular/angular.js/issues/2653) and the workaround proposed [here](https://github.com/angular/angular.js/issues/2653#issuecomment-20582266) solves the issue.
+At the time of this writing, there is a known incompatibility with Angular.js 1.2.0 and an internal component of RhoMobile 5.0 The issue is documented [here](https://github.com/angular/angular.js/issues/2653) and the workaround proposed [here](https://github.com/angular/angular.js/issues/2653#issuecomment-20582266) solves the issue.
 
 ## Conclusions and highlights
 

@@ -135,8 +135,12 @@ A complete image source adapter model that stores files in S3 might look like:
 
       def store_blob(obj,field_name,blob)
         # ... custom code to store the blob file ... 
-        my_stored_filename = do_custom_store[blob[:filename]]
+        my_stored_filename = do_custom_store(blob)
         obj['filename'] = my_stored_filename
+      end
+
+      def do_custom_store(blob)
+        S3Object.store(blob[:filename], blob[:tempfile], @bucket)
       end
     end
 

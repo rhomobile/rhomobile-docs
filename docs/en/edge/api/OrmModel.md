@@ -33,11 +33,11 @@ product.get('name'); // iPhone5
 extensions: ["coreapi"]
 </code></pre>
 
-<h2>JavaScript Usage</h2>
+<h3>JavaScript Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h2>Ruby Usage</h2>
+<h3>Ruby Usage</h3>
 
 <p>For Ruby access to the RHOM database please see the <a href="/api/rhom-api">Rhom Ruby API guide</a>.</p>
 
@@ -55,7 +55,7 @@ extensions: ["coreapi"]
 </dt><dt>first</dt><dd><p>returns first object matching :conditions.</p>
 </dt><dt>count</dt><dd><p>returns the number of objects matching these :conditions.</p>
 </dt></dl></li><li>queryOptions : <span class='text-info'>HASH</span><p><p>An object of selection options</p>
- </p></li><ul><li>conditions : <span class='text-info'>HASH</span><p><p>A name:value object that you want to find. Ex: conditions { name:&lsquo;Motorola&rsquo;}.</p>
+ </p></li><ul><li>conditions : <span class='text-info'>HASH</span><p><p>A name:value object that you want to find. Ex: conditions { name:&lsquo;Symbol&rsquo;}.</p>
  </p></li><ul><li>propertyName : <span class='text-info'></span><p> </p></li><li>propertyValue : <span class='text-info'></span><p> </p></li></ul><li>order : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p><p>Attribute(s) to order the list. This cannot be used when using a select parameter and you must pass a conditions hash.</p>
  </p></li><li>orderdir : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p><p>Order direction. This cannot be used when using a select parameter and you must pass a conditions hash</p>
  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>ASC</dt><dd><p>Ascending order. (Default)</p>

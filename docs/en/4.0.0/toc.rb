@@ -12,52 +12,37 @@ section 'getting-started',                'Introduction', 'Mobile Guides' do
   topic 'en/4.0.0/guide/licensing',       'Licensing'
 end
 
-section 'rhodescommonapi-reference',      '4.0 API Reference',  'Mobile API Docs' do
-  topic 'en/4.0.0/guide/apisummary',      'RhoMobile API Summary'
-  topic 'en/4.0.0/api/Application',       'Application'
-  topic 'en/4.0.0/api/barcode',           'Barcode'
-  topic 'en/4.0.0/api/battery',           'Battery'
-  topic 'en/4.0.0/api/cardreader',        'CardReader'
-  topic 'en/4.0.0/api/Database',          'Database'
-  topic 'en/4.0.0/api/keycapture',        'KeyCapture'
-  topic 'en/4.0.0/api/keystate',          'KeyState'
-  topic 'en/4.0.0/api/Log',               'Log'
-  topic 'en/4.0.0/api/mediaplayer',       'Mediaplayer'
-  topic 'en/4.0.0/api/NativeMenubar',     'NativeMenubar'
-  topic 'en/4.0.0/api/NativeTabbar',      'NativeTabbar'
-  topic 'en/4.0.0/api/NativeToolbar',     'NativeToolbar'
-  topic 'en/4.0.0/api/Navbar',            'Navbar'
-  topic 'en/4.0.0/api/Network',           'Network'
-  topic 'en/4.0.0/api/Notification',      'Notification'
-  topic 'en/4.0.0/api/Orm',               'ORM JavaScript'
-  topic 'en/4.0.0/api/rhom-api',          'ORM Ruby'
-  topic 'en/4.0.0/api/OrmModel',          'ORM Model JavaScript'
-  topic 'en/4.0.0/api/push',              'Push'
-  topic 'en/4.0.0/api/RhoConnectClient',  'RhoConnectClient'
-  topic 'en/4.0.0/api/File',              'RhoFile'
-  topic 'en/4.0.0/api/screenorientation', 'ScreenOrientation'
-  topic 'en/4.0.0/api/sensor',            'Sensor'
-  topic 'en/4.0.0/api/signalindicators',  'SignalIndicators'
-  topic 'en/4.0.0/api/system',            'System'
-  topic 'en/4.0.0/api/webview',           'WebView'
-end
-
-section 'rhodescommonapi-22reference',                              '2.x API Reference',  'Mobile API Docs' do
+section 'rhodescommonapi-reference',                                'API Reference',  'Mobile API Docs' do
+  topic 'en/4.0.0/guide/apisummary',                                'RhoMobile API Summary'
   topic 'en/2.2.0/rhoelements/alarm',                               'Alarm'
   topic 'en/2.2.0/rhoelements/apd',                                 'Apd'
+  topic 'en/4.0.0/api/Application',                                 'Application'
   topic 'en/2.2.0/rhoelements/AudioCapture',                        'AudioCapture'
+  topic 'en/4.0.0/api/barcode',                                     'Barcode'
+  topic 'en/4.0.0/api/battery',                                     'Battery'
   topic 'en/2.2.0/rhodesapi/bluetoothmanager-api',                  'BluetoothManager'
   topic 'en/2.2.0/rhodesapi/bluetoothsession-api',                  'BluetoothSession'
   topic 'en/2.2.0/rhodesapi/camera-api',                            'Camera'
+  topic 'en/4.0.0/api/cardreader',                                  'CardReader'
   topic 'en/2.2.0/rhoelements/comm',                                'Comm'
+  topic 'en/4.0.0/api/Database',                                    'Database'
   topic 'en/2.2.0/rhodesapi/geolocation-api',                       'GeoLocation'
   topic 'en/2.2.0/rhoelements/Gesture',                             'Gesture'
   topic 'en/2.2.0/rhoelements/hourglass',                           'Hourglass'
+  topic 'en/4.0.0/api/keycapture',                                  'KeyCapture'
   topic 'en/2.2.0/rhoelements/Keylight',                            'Key Light'
+  topic 'en/4.0.0/api/keystate',                                    'KeyState'
+  topic 'en/4.0.0/api/Log',                                         'Log'
   topic 'en/2.2.0/rhodesapi/mapview-api',                           'MapView'
+  topic 'en/4.0.0/api/mediaplayer',                                 'Mediaplayer'
   topic 'en/2.2.0/rhoelements/memory',                              'Memory'
+  topic 'en/4.0.0/api/NativeMenubar',                               'NativeMenubar'
+  topic 'en/4.0.0/api/NativeTabbar',                                'NativeTabbar'
+  topic 'en/4.0.0/api/NativeToolbar',                               'NativeToolbar'
+  topic 'en/4.0.0/api/Navbar',                                      'Navbar'
   topic 'en/2.2.0/rhodesapi/NdefMessage-api',                       'NdefMessage'
   topic 'en/2.2.0/rhodesapi/NdefRecord-api',                        'NdefRecord'
+  topic 'en/4.0.0/api/Network',                                     'Network'
   topic 'en/2.2.0/rhodesapi/NFCManager-api',                        'NFCManager'
   topic 'en/2.2.0/rhodesapi/NFCTag-api',                            'NFCTag'
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology_IsoDep-api',           'NFCTagTechnology_IsoDep'
@@ -70,35 +55,48 @@ section 'rhodescommonapi-22reference',                              '2.x API Ref
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology_NfcF-api',             'NFCTagTechnology_NfcF'
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology_NfcV-api',             'NFCTagTechnology_NfcV'
   topic 'en/2.2.0/rhodesapi/NFCTagTechnology-api',                  'NFCTagTechnology'
+  topic 'en/4.0.0/api/Notification',                                'Notification'
+  topic 'en/4.0.0/api/Notification.Led',                            'Notification.Led'
+  topic 'en/4.0.0/api/Orm',                                         'ORM JavaScript'
+  topic 'en/4.0.0/api/rhom-api',                                    'ORM Ruby'
+  topic 'en/4.0.0/api/OrmModel',                                    'ORM Model JavaScript'
+  topic 'en/4.0.0/api/push',                                        'Push'
   topic 'en/2.2.0/rhoelements/registry',                            'Registry'
   topic 'en/2.2.0/rhoelements/reboot',                              'Reboot'
   topic 'en/2.2.0/rhoelements/rfid',                                'Rfid'
   topic 'en/2.2.0/rhodesapi/rhoconfig-api',                         'RhoConfig'
+  topic 'en/4.0.0/api/RhoConnectClient',                            'RhoConnectClient'
   topic 'en/2.2.0/rhodesapi/rhocontact-api',                        'RhoContact'
   topic 'en/2.2.0/rhodesapi/rhocontroller-api',                     'RhoController'
   topic 'en/2.2.0/rhodesapi/rhoerror-api',                          'RhoError'
   topic 'en/2.2.0/rhodesapi/rhoevent-api',                          'RhoEvent'
-  topic 'en/2.2.0/rhodesapi/rhoprofiler-api',                       'RhoProfiler'
+  topic 'en/4.0.0/api/File',                                        'RhoFile'
   topic 'en/2.2.0/rhodesapi/rhomsource-api',                        'RhomSource'
+  topic 'en/2.2.0/rhodesapi/rhoprofiler-api',                       'RhoProfiler'
   topic 'en/2.2.0/rhodesapi/rhoutils-api',                          'RhoUtils'
+  topic 'en/4.0.0/api/screenorientation',                           'ScreenOrientation'
+  topic 'en/4.0.0/api/sensor',                                      'Sensor'
+  topic 'en/4.0.0/api/signalindicators',                            'SignalIndicators'
   topic 'en/2.2.0/rhoelements/SignatureCapture',                    'SignatureCapture'
   topic 'en/2.2.0/rhodesapi/signaturecapture-api',                  'SignatureCapture (Inline)'
   topic 'en/2.2.0/rhoelements/stylus',                              'Stylus'
+  topic 'en/4.0.0/api/system',                                      'System'
   topic 'en/2.2.0/rhoelements/systemTime',                          'SystemTime'
   topic 'en/2.2.0/rhodesapi/timer-api',                             'Timer API'
   topic 'en/2.2.0/rhoelements/timer',                               'Timer'
   topic 'en/2.2.0/rhoelements/VideoCapture',                        'VideoCapture'
   topic 'en/2.2.0/rhoelements/volume',                              'Volume'
   topic 'en/2.2.0/rhoelements/wake',                                'Wake'
+  topic 'en/4.0.0/api/webview',                                     'WebView'
 end
 
-section 'rhomob-setup',                     'Dev Environment Setup',  'Mobile Guides' do
-  topic 'en/4.0.0/guide/rhomobile-install', 'RhoMobile Suite Install'
-  topic 'en/4.0.0/guide/nativesdksetup',    'Native SDK Setup'
-  topic 'en/4.0.0/guide/nonrhostudio',      'Developing Without RhoStudio'
-  topic 'en/4.0.0/guide/visualstudio',      'Developing with Visual Studio'
-  topic 'en/4.0.0/guide/rhohubtutorial',    'Build In The Cloud With RhoHub'
-  topic 'en/4.0.0/rhostudio-rhohub',        'Using RhoStudio with RhoHub'
+section 'rhomob-setup',                          'Dev Environment Setup',  'Mobile Guides' do
+  topic 'en/4.0.0/guide/rhomobile-install',      'RhoMobile Suite Install'
+  topic 'en/4.0.0/guide/nativesdksetup',         'Native SDK Setup'
+  topic 'en/4.0.0/guide/nonrhostudio',           'Developing Without RhoStudio'
+  topic 'en/4.0.0/guide/visualstudio',           'Developing with Visual Studio'
+  topic 'en/hosted/guide/remote-build-guide',    'Build In The Cloud'
+  # topic 'en/4.0.0/rhostudio-rhohub',             'Using RhoStudio with RhoHub'
 end
 
 section 'rhomob-apps',                        'Developing Apps','Mobile Guides' do
@@ -125,7 +123,7 @@ section 'rhomob-data',                      'Data Handling','Mobile Guides' do
   topic 'en/4.0.0/guide/rhom_js',           'Using Rhom with JavaScript'
   topic 'en/4.0.0/guide/rhom_backbone',     'Using Rhom with Backbone.JS'
   topic 'en/4.0.0/guide/rhom_angular',      'Using Rhom with Angular JS'
-  topic 'en/4.0.0/guide/using_rhoconnect',  'Synchronization'
+  topic 'en/4.0.0/guide/Synchronization',   'Synchronization'
   topic 'en/4.0.0/guide/web_services',      'Web Services & AJAX'
 end
 
@@ -191,7 +189,6 @@ section 'rhoconnect-source-adapter-reference',        'Source Adapters','RhoConn
 end
 
 section 'rhoconnect-ruby-api-reference',                              'Source Adapter Ruby APIs','RhoConnect Guides' do
-  topic 'en/4.0.0/rhoconnect/rest-api',                               'RhoConnect REST API'
   topic 'en/4.0.0/rhoconnectapi/source-adapter-controller-api-ruby',  'Source Adapter Controller API'
   topic 'en/4.0.0/rhoconnectapi/source-adapter-model-api-ruby',       'Source Adapter Model API'
   topic 'en/4.0.0/rhoconnectapi/source-adapter-store-api-ruby',       'Source Adapter Store API'
@@ -199,7 +196,6 @@ section 'rhoconnect-ruby-api-reference',                              'Source Ad
 end
 
 section 'rhoconnect-js-api-reference',                              'Source Adapter JS APIs','RhoConnect Guides' do
-  topic 'en/4.0.0/rhoconnect/rest-api',                             'RhoConnect REST API'
   topic 'en/4.0.0/rhoconnectapi/source-adapter-controller-api-js',  'Source Adapter Controller API'
   topic 'en/4.0.0/rhoconnectapi/source-adapter-model-api-js',       'Source Adapter Model API'
   topic 'en/4.0.0/rhoconnectapi/source-adapter-request-api-js',     'Source Request API'
@@ -237,7 +233,7 @@ end
 
 section 'rhoconnect-deployment',                      'Deployment','RhoConnect Guides' do
   topic 'en/4.0.0/rhoconnect/preparing-production',   'Preparing for Production'
-  topic 'en/4.0.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
+  # topic 'en/4.0.0/rhoconnect/hosting-rhohub',         'Hosting on RhoHub'
   topic 'en/4.0.0/rhoconnect/deploying',              'Deploying RhoConnect'
   topic 'en/4.0.0/rhoconnect/rhoconnect-redis-stack', 'High Availability Deployment on AWS'
 end
@@ -250,6 +246,7 @@ end
 
 section 'rhoconnect-nonrhodes-client-reference',  'Clients','RhoConnect Guides' do
   topic 'en/4.0.0/rhoconnect/client',             'Using RhoConnect without Rhodes'
+  topic 'en/4.0.0/rhoconnect/rest-api',           'RhoConnect REST API'
   topic 'en/4.0.0/rhoconnect/client-objc',        'RhoConnect Client for iOS'
   topic 'en/4.0.0/rhoconnect/client-java',        'RhoConnect without Rhodes: Android Java'
   topic 'rhoconnectjs/introduction',              'RhoConnect.JS Client'

@@ -66,7 +66,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     // get the list of LEDs available on the device
-    var leds = Rho::Notification::Led.enumerate();
+    var leds = Rho.Notification.Led.enumerate();
     
     // turn one of the LEDs on
     var led = leds[0];
@@ -87,7 +87,7 @@ Ruby syntax:
 JavaScript syntax:
     :::javascript
     // get the list of LEDs available on the device
-    var leds = Rho::Notification::Led.enumerate();
+    var leds = Rho.Notification.Led.enumerate();
     
     // flash one of the LEDs
     leds[0].flash({ onDuration: 1000, offDuration: 500, numberOfCycles: 10 });

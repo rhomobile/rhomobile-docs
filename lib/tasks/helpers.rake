@@ -1,3 +1,5 @@
+require_relative '../../version.rb'
+
 def get_lp_content url,category
   rest_result = RestClient.get("#{url}").body
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
@@ -144,7 +146,7 @@ end
 
 def process_xml
   puts 'rebuilding API docs'
-  apiXML = File.join(AppConfig['api'],"**","*.xml")
+  apiXML = File.join(AppConfig['api'],"**","*.{xml,_xml}")
   
   apiFiles = Dir.glob(apiXML)
 
@@ -262,7 +264,7 @@ end
 def update_xml
  apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|
-   apiSourceFolder = File.join(s,"**","*.xml")
+   apiSourceFolder = File.join(s,"**","*.{xml,_xml}")
     puts apiSourceFolder
    Dir.glob(apiSourceFolder).each do|f|
     filename = File.basename(f)
@@ -350,7 +352,7 @@ def version_for(doc)
   if !version.nil? && !version.captures.nil?
     return version.captures[0]
   else
-    return '4.0.0'
+    return Version::CURR_VERSION
   end
 end
 
@@ -369,16 +371,28 @@ def category_for(doc)
 end
 
 def index_variable_for(version)
+  # this function is used for seacrchify to 
+  # put the most recent versions of docs in search results first
+  # the return of this function should be a decimal number
+  # the higher the number the more relevant it will be in search
+  # when new releases are created this needs to be updated
+
+  index_version = 0
+  if version == 'hosted'
+    version =  Version::CURR_VERSION
+  end
   if version == 'edge'
-    return 0
+    version =  '0.0.0'
   end
-  if version == '2.2.0'
-    return 2.2
+  begin
+    parts = version.split('.')
+    newversion = parts[0]+'.'+parts[1]+parts[2]
+    index_version = newversion.to_f
+    # puts "variable#{index_version}"
+  rescue Exception => e
+
   end
-  if version == '4.0.0'
-    return 4.0
-  end
-  if version == '4.1.0'
-    return 4.1
-  end
+  
+  
+  return index_version
 end
