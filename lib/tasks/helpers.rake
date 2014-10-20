@@ -146,7 +146,7 @@ end
 
 def process_xml
   puts 'rebuilding API docs'
-  apiXML = File.join(AppConfig['api'],"**","*.{xml,_xml}")
+  apiXML = File.join(AppConfig['api'],"**","*.{xml}")
   
   apiFiles = Dir.glob(apiXML)
 
