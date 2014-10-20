@@ -4,6 +4,9 @@ require 'rubygems'
 require 'date'
 require 'bundler'
 require './api'
+require './api-eb'
+require './launchpad'
+require './offline'
 
 Bundler.setup
 

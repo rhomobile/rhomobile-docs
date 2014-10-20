@@ -12,33 +12,27 @@ class Api
   		return desc
   	end
   end
-
   def self.getElementName(element)
   	if !element["docNameOverride"].nil?
   		return element["docNameOverride"]
   	else
   		return element["name"]
-  	end
-  end
-
-	#returns markdown for the name of the API 
+  	end 
+  end	
+#returns markdown for the name of the API 
   def self.getApiName(doc,lang,allowoverride)
   	md=""
-  	docName = doc["MODULE"][0]["name"]
-  	if !doc["MODULE"][0]["parent"].nil? && doc["MODULE"][0]["parent"] !="Rho"
-  		docName = doc["MODULE"][0]["parent"].gsub('Rho.','') + '.' + doc["MODULE"][0]["name"]
-  	end
-  	md = docName 
+  	md = doc["MODULE"][0]["name"]
   	if allowoverride
 	  	if !doc["MODULE"][0]["docNameOverride"].nil?
 	  		md = doc["MODULE"][0]["docNameOverride"]
 	  	else
 	  		if lang == 'RUBY'
-	  			md = 'Rho::' + docName
+	  			md = 'Rho::' + doc["MODULE"][0]["name"]
 	  		elsif lang =='JS'
-	  			md = 'Rho.' + docName
+	  			md = 'Rho.' + doc["MODULE"][0]["name"]
 	  		else
-	  			md = docName
+	  			md = doc["MODULE"][0]["name"]
 
 	  		end
 	  	end
@@ -574,11 +568,12 @@ def self.getconstantlinks(doc)
   	end
   	indicators = ""
   	if javascript
-			indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">'
-		end
-		if ruby
-			indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
-		end 
+		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">'
+	end
+	if ruby
+	
+	indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
+	end 
 	if !platforms.is_a?(Hash)
 		if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
 			indicators += '<img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
@@ -655,12 +650,11 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
 	  	# puts a
 		s.each() { |element|
-			element["name"] = getElementName(element)
-
+			element["name"] = getElementName(element) 
 			if !element.nil? && !element["generateAccessors"].nil? && element["generateAccessors"] == "true"
-				generateAccessors = true
-			end
-
+		  		generateAccessors = true
+		  	end
+		
 			if element["generateDoc"].nil? || element["generateDoc"] == "true"
  
 			propname = element["name"]
@@ -1263,7 +1257,7 @@ end
 		msionly = false
 		ruby = true
 		javascript = true
-		methnote = ""
+		methnote = ""		
 		if !element["APPLIES"].nil? 
 
 				appliescontent = ""
@@ -1888,8 +1882,7 @@ end
 		    md += "</div>"
 
 	  	# puts md
-	  	file_extension = File.extname(topic)
-	  	File.open("#{topic.gsub!(file_extension,'.md')}", 'w') {|f| f.write(md) }
+	  	File.open("#{topic.gsub!('.xml','.md')}", 'w') {|f| f.write(md) }
 	else
 		puts ('Skipping Undocumented API: ' + doc["MODULE"][0]["name"] )
 	end

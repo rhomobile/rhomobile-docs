@@ -162,6 +162,105 @@ def process_xml
   end
 end
 
+def process_xml_eb
+  puts 'rebuilding EB API docs'
+  apiXML = File.join(AppConfig['api_eb'],"**","*.xml")
+  
+  apiFiles = Dir.glob(apiXML)
+
+  # Links that go to 127.0.0.1:9393 (where no server is running) get styled dark red
+  # Links that go to external sites (may not be reachable if user is truly offline) get italics
+  apiFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['api_eb'],'')
+    if basename != 'callback.xml' && basename != 'default_instance.xml' && basename != 'singleton_instances.xml' && basename != 'property_bag.xml' 
+      puts "Processing " + basename
+    
+      Apieb.markdown(fileName)
+    end
+  end
+end
+
+def lp_generate_html
+  puts "Getting MD in #{AppConfig['api_eb']}"
+  puts "Generating Launchpad Docs in: #{AppConfig['api_eb']}"
+  apiMD = File.join(AppConfig['api_eb'],"**","*.md")
+  apiFiles = Dir.glob(apiMD)
+  apiFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['api_eb'],'')
+      puts "Processing " + basename
+      Launchpad.generate_html(fileName,AppConfig['api_eb'])
+    
+  end
+  guidesMD = File.join(AppConfig['guides_eb'],"**","*.md")
+  guidesFiles = Dir.glob(guidesMD)
+  guidesFiles.each do |fileName|
+    basename = fileName.gsub(AppConfig['guides_eb'],'')
+      puts "Processing " + basename
+      Launchpad.generate_html(fileName,AppConfig['guides_eb'])
+    
+  end
+end
+
+def lp_publish_html
+  $stdout.sync = true
+  # Get Mapping File
+  if File.file?("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}")
+    # Open mapping file that has a string in Ruby hash format
+    # this object will be used to hold id/urls of documents created
+    url_map = eval(File.read("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"))
+    # puts url_map
+
+    puts "Getting HTML in #{AppConfig['launchpad_eb']}"
+    apiMD = File.join(AppConfig['launchpad_eb'],"**","*.html")
+    
+    apiFiles = Dir.glob(apiMD)
+    apiFiles.each do |fileName|
+      basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+        print "."
+        html = File.read(fileName)
+    
+         Launchpad.publish_html(fileName,html,url_map,ENV['server'])
+      
+    end
+    # Edit document with updated links
+    apiFiles.each do |fileName|
+      basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+        Launchpad.replace_url fileName,url_map,ENV['server']
+      
+    end
+    
+    
+  else
+    puts 'ERROR No Mapping File Exists - run rake lp_generate_mapping_index to generate a baseline'
+  end
+end
+
+def lp_delete_docs
+  $stdout.sync = true
+  # Get Mapping File
+  if File.file?("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}")
+    # Open mapping file that has a string in Ruby hash format
+    # this object will be used to hold id/urls of documents created
+    url_map = eval(File.read("#{AppConfig['launchpad_eb']}#{AppConfig['launchpad_eb_mapping']}"))
+    # puts url_map
+
+    puts "Getting HTML in #{AppConfig['launchpad_eb']}"
+    apiMD = File.join(AppConfig['launchpad_eb'],"**","*.html")
+    
+    apiFiles = Dir.glob(apiMD)
+    apiFiles.each do |fileName|
+      basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+        print "."
+        Launchpad.delete_doc(fileName,url_map,ENV['server'])
+      
+    end
+  else
+    puts 'ERROR No Mapping File Exists - run rake lp_generate_mapping_index to generate a baseline'
+  end
+end
+
+
+
 def update_xml
  apiSources = AppConfig['api_sources'] || []
  apiSources.each do |s|
@@ -183,6 +282,42 @@ def update_xml
       if (gendoc.nil? || gendoc == "true") && filename !='AndroidManifest_rhomobile.xml'
     
         dest = File.join(AppConfig['api'],filename)
+        if !File.exists?(dest)
+          puts "New: #{filename}"
+        end
+        # puts filename
+        fileContents = IO.read(f)
+        File.open(dest,"w") do |fd|
+          fd.write(fileContents)
+        end
+      else
+      end
+    end
+   end
+ end
+end
+
+def update_xml_eb
+ apiSources = AppConfig['api_sources'] || []
+ apiSources.each do |s|
+   apiSourceFolder = File.join(s,"**","*.xml")
+    puts apiSourceFolder
+   Dir.glob(apiSourceFolder).each do|f|
+    filename = File.basename(f)
+      puts filename
+    doc = XmlSimple.xml_in(f)
+    if !doc["MODULE"].nil?
+      gendoc = "true"
+      if filename !='AndroidManifest_rhomobile.xml' && filename != 'callback.xml' && filename != 'default_instance.xml' && filename != 'singleton_instances.xml' && filename != 'property_bag.xml' 
+        # puts f
+        # puts doc
+        # puts "*****************************************"
+        gendoc = doc["MODULE"][0]["generateDoc"]
+      end
+      # puts gendoc
+      if (gendoc.nil? || gendoc == "true") && filename !='AndroidManifest_rhomobile.xml'
+    
+        dest = File.join(AppConfig['api_eb'],filename)
         if !File.exists?(dest)
           puts "New: #{filename}"
         end
