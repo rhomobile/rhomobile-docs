@@ -1,6 +1,6 @@
 #NativeTabbar
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;6</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mcreate" data-target="cMethodcreate" class="autouncollapse">create</a></li><li><a href="#mcurrentTabIndex" data-target="cMethodcurrentTabIndex" class="autouncollapse">&nbsp;<span class='text-info'>currentTabIndex</span></a></li><li><a href="#mremove" data-target="cMethodremove" class="autouncollapse">remove</a></li><li><a href="#mremoveTab" data-target="cMethodremoveTab" class="autouncollapse">removeTab</a></li><li><a href="#msetTabBadge" data-target="cMethodsetTabBadge" class="autouncollapse">setTabBadge</a></li><li><a href="#mswitchTab" data-target="cMethodswitchTab" class="autouncollapse">switchTab</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;3</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Create native tabbar</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Switch tab</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Remove tabbar</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<p>The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs.</p>
+<p>The NativeTabbar methods let you use multiple instances of the application&rsquo;s webview in separate tabs.</p>
 <p>On Android, iOS and WIndows Phone 8 the tabs are true Native Tabbar controls to give your application a native look and feel.No more than 4 tabs can be created in the Windows Phone 8 tabbar. A tabbar separator doesn&rsquo;t exist in Windows Phone 8. On Windows Mobile/CE there are no visible tabs. At one time only Toolbar or Tabbar can present in application &ndash; Toolbar and Tabbar can not be used both in one time.</p>
 
 <h2>Enabling the API</h2>
@@ -11,11 +11,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h2>JavaScript Usage</h2>
+<h3>JavaScript Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h2>Ruby Usage</h2>
+<h3>Ruby Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -34,13 +34,13 @@ extensions: ["coreapi"]
  Platforms:Win32, Android, iOS, WP8 </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Tab will be displayed as disabled.</p>
  Platforms:Win32, Android, iOS, WP8 </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p><p> Background color for tab. Use when your application background color is not white for removing blink during switch tabs.</p>
  Platforms:Win32, Android, iOS, WP8 </p></li><li>useCurrentViewForTab : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Gives a smooth transfer to a newly opened tab from the current view into this Tab and make this Tab active. Only one Tab can have this parameter.</p>
- Platforms:WM, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile)</p>
- Platforms:WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to.</p>
+ Platforms:WM, CE, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile)</p>
+ Platforms:WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Don&rsquo;t use this parameter on the devices with a small amount of RAM.</p>
  Platforms:WM </p></li></ul></ul><li>tabBarProperties : <span class='text-info'>HASH</span><p><p>Properties of TabBar.</p>
  </p></li><ul><li>verticalOrientation : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Creates a vertical tabbar on the iPad.</p>
  Platforms:iOS </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p><p>Background color of the tabbar.</p>
  Platforms:Win32, Android, iOS, WP8 </p></li><li>hiddenTabs : <span class='text-info'>BOOLEAN</span><span class='label '> Default: true</span><p><p>Do not display Tabs with labels.Only hiddenTab=true is currently supported.</p>
- Platforms:WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Create tabs immediately when TabBar is created. Action also will be executed. If false, then each tab will be created when first switch to the tab is executed.</p>
+ Platforms:WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p><p>Create tabs immediately when TabBar is created. Action also will be executed. If false, then each tab will be created when first switch to the tab is executed. Don&rsquo;t use this parameter on the devices with a small amount of RAM.</p>
  Platforms:WM </p></li><li>placeTabsBottom : <span class='text-info'>BOOLEAN</span><p><p>Place TabBar to bottom instead of default top &ndash; only for Android.</p>
  Platforms:Android </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span> <span class='label label-info'>Optional</span> </li></ul></div></div><div class="tab-pane fade" id="mcreate3"><div><p><strong>Async Callback Returning Parameters: <span class='text-info'>HASH</span></strong></p><ul><ul><li>tab_index : <span class='text-info'>INTEGER</span><p><p>New tab index.</p>
  </p></li><li>newTabIndex : <span class='text-info'>INTEGER</span><p><p>New tab index.</p>

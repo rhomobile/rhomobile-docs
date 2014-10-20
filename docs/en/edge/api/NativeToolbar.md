@@ -11,11 +11,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h2>JavaScript Usage</h2>
+<h3>JavaScript Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h2>Ruby Usage</h2>
+<h3>Ruby Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -29,7 +29,7 @@ extensions: ["coreapi"]
  </p></li><ul><li>label : <span class='text-info'>STRING</span><p><p>Visible label to display instead of an icon.For predefined actions, icon will be displayed.Android,iOS note: for predefined actions no label will be displayed.</p>
  </p></li><li>action : <span class='text-info'>STRING</span><p><p>URL to call when button is pressed or special value.It may be path to Ruby controller action; i.e. &lsquo;/app/Account&rsquo; would load the Account index action. For ruby callback use &lsquo;callback:/app/Account&rsquo; Or javascript method to call: &lsquo;javascript: methodOnButton();&rsquo;.</p>
  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>separator</dt><dd><p>Add a separator to the toolbar. If only one separator is specified, then elements after separator will be right-aligned. If more then one separator is added: on WM/CE, platform dependent separator will be displayed, on Android/iOS center-aligned groups will be created.</p>
- Platforms: <p>WM, Win32, iOS, Android</p>
+ Platforms: <p>WM, CE, Win32, iOS, Android</p>
 </dt><dt>exit</dt><dd><p>Exit the application.</p>
 </dt><dt>close</dt><dd><p>Exit the application.</p>
 </dt><dt>options</dt><dd><p>Navigate to Settings page, defined in configuration file.</p>
@@ -37,12 +37,12 @@ extensions: ["coreapi"]
 </dt><dt>refresh</dt><dd><p>Refresh current page.</p>
 </dt><dt>back</dt><dd><p>Perform back action or execute browser back.</p>
 </dt><dt>log</dt><dd><p>Display Log View window.</p>
- Platforms: <p>WM, Win32, iOS, Android</p>
+ Platforms: <p>WM, CE, Win32, iOS, Android</p>
 </dt><dt>fullscreen</dt><dd><p>Expand application window to full screen.</p>
- Platforms: <p>WM, Win32, Android, WP8</p>
+ Platforms: <p>WM, CE, Win32, Android, WP8</p>
 </dt><dt>sync</dt><dd><p>Run full sync command.</p>
 </dt><dt>minimize</dt><dd><p>Minimize application window.</p>
- Platforms: <p>WM, Win32</p>
+ Platforms: <p>WM, CE</p>
 </dt><dt>SIP</dt><dd><p>Display software keyboard window.Set <code>Rho.System.keyboardState</code> to <code>Rho.System.KEYBOARD_AUTOMATIC</code> to use this element.</p>
  Platforms: <p>WM</p>
 </dt></dl></li><li>icon : <span class='text-info'>STRING</span><p><p>Relative path to toolbar item icon in your rhodes app (typically located in &lsquo;/public/images/&rsquo;). Icon is ignored for predefined actions, icon will be displayed even if no icon specified. iPhone and Android: Icons must be no more than 30x30 pixels and must be in .png format. Windows Mobile: Icons can be any size, but all icons should have same size (default &ndash; 48x48). .png and .bmp formats are supported.</p>
@@ -51,8 +51,8 @@ extensions: ["coreapi"]
  Platforms:WM </p></li></ul></ul><li>toolBarProperties : <span class='text-info'>HASH</span><p><p>Properties of TabBar.</p>
  </p></li><ul><li>backgroundColor : <span class='text-info'>INTEGER</span><p><p>Background color of the toolbar.</p>
  </p></li><li>maskColor : <span class='text-info'>INTEGER</span><span class='label '> Default: 0xFFFFFF</span><p><p>Image mask color(transparent color).</p>
- Platforms:WM, Win32 </p></li><li>viewHeight : <span class='text-info'>INTEGER</span><p><p>Toolbar height in pixels.</p>
- Platforms:WM, Win32 </p></li></ul></ul></div></div><div class="tab-pane fade" id="mcreate3"></div><div class="tab-pane fade" id="mcreate4"><div><p><strong>Synchronous Return:</strong></p><ul><li>Void</li></ul></div></div><div class="tab-pane fade" id="mcreate6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>JavaScript: <code>Rho.NativeToolbar.create(<span class="text-info">ARRAY</span> toolbarElements, <span class="text-info">HASH</span> toolBarProperties)</code> </li><li>Ruby: <code>Rho::NativeToolbar.create(<span class="text-info">ARRAY</span> toolbarElements, <span class="text-info">HASH</span> toolBarProperties)</code></li></ul></li></ul></div></div></div>  </div><a name ='mremove'/><div class=' method  js ruby android ios wp8' id='mremove'><h3><strong  >remove</strong><span style='font-size:.7em;font-weight:normal;'>()</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mremove1" data-toggle="tab">Description</a></li><li ><a href="#mremove4" data-toggle="tab">Return</a></li><li ><a href="#mremove6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-remove'><div class="tab-pane fade active in" id="mremove1"><p>Removes the current toolbar. Does nothing if there is no active toolbar.</p>
+ Platforms:WM, CE </p></li><li>viewHeight : <span class='text-info'>INTEGER</span><p><p>Toolbar height in pixels.</p>
+ Platforms:WM, CE </p></li></ul></ul></div></div><div class="tab-pane fade" id="mcreate3"></div><div class="tab-pane fade" id="mcreate4"><div><p><strong>Synchronous Return:</strong></p><ul><li>Void</li></ul></div></div><div class="tab-pane fade" id="mcreate6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>JavaScript: <code>Rho.NativeToolbar.create(<span class="text-info">ARRAY</span> toolbarElements, <span class="text-info">HASH</span> toolBarProperties)</code> </li><li>Ruby: <code>Rho::NativeToolbar.create(<span class="text-info">ARRAY</span> toolbarElements, <span class="text-info">HASH</span> toolBarProperties)</code></li></ul></li></ul></div></div></div>  </div><a name ='mremove'/><div class=' method  js ruby android ios wp8' id='mremove'><h3><strong  >remove</strong><span style='font-size:.7em;font-weight:normal;'>()</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mremove1" data-toggle="tab">Description</a></li><li ><a href="#mremove4" data-toggle="tab">Return</a></li><li ><a href="#mremove6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-remove'><div class="tab-pane fade active in" id="mremove1"><p>Removes the current toolbar. Does nothing if there is no active toolbar.</p>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"><img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop"></p></div></p></div><div class="tab-pane fade" id="mremove2"></div><div class="tab-pane fade" id="mremove3"></div><div class="tab-pane fade" id="mremove4"><div><p><strong>Synchronous Return:</strong></p><ul><li>Void</li></ul></div></div><div class="tab-pane fade" id="mremove6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>JavaScript: <code>Rho.NativeToolbar.remove()</code> </li><li>Ruby: <code>Rho::NativeToolbar.remove()</code></li></ul></li></ul></div></div></div>  </div></div>
 <a name='Examples'></a>
 <h2><i class='icon-edit'></i>Examples</h2>

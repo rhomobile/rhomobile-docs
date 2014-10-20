@@ -126,37 +126,44 @@ The ebapi.js file is necessary for all single API inclusions.
             <DESC>General properties for Printer.</DESC>
             <PROPERTY name="ID" type="STRING" readOnly="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Unique printer ID during application lifetime.</DESC>
             </PROPERTY>
             <PROPERTY name="deviceName" type="STRING" readOnly="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Bluetooth/Network name of printer.</DESC>
             </PROPERTY>
             <PROPERTY name="printerType" type="STRING" readOnly="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Type of printer - see PRINTER_TYPE_... constants.</DESC>
             </PROPERTY>
             <PROPERTY name="deviceAddress" type="STRING" readOnly="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Bluetooth mac/TCP IP address.</DESC>
             </PROPERTY>
             <PROPERTY name="devicePort" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Default port when connecting using TCP/IP.</DESC>
             </PROPERTY>
             <PROPERTY name="connectionType" type="STRING" readOnly="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Type of connection to printer.</DESC>
             </PROPERTY>
             <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want to real physical connection - use requestState() method with receive result in the callback. Only this way process real request to device and analyze answer from device.</DESC>
             </PROPERTY>
         </PROPERTIES>
@@ -164,7 +171,8 @@ The ebapi.js file is necessary for all single API inclusions.
         <METHODS access="INSTANCE">
             <METHOD name="enumerateSupportedTypes" access="STATIC" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Returns array with supported printer types immediately. The result depends on your build configuration. Each extension is linked to application during build. If you want to add or remove support of any printer type please update extension list in the build.yml. </DESC>
                 <RETURN type="ARRAY">
                     <DESC>Array of currently supported printer types. Depends on build settings. May contain PRINTER_TYPE_ZEBRA, PRINTER_TYPE_EPSON, PRINTER_TYPE_APD, PRINTER_TYPE_NATIVE or any combination of them.</DESC>
@@ -176,7 +184,8 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="searchPrinters" access="STATIC" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Search printers connected to the device, available Bluetooth(R), or Network printers. It is highly recommended to search for a particular Bluetooth(R) address or IP address for Network connections. Also this method could be used to get printerID for known network / bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. The callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note that discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
 
 NOTE: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
@@ -232,13 +241,15 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
 
             <METHOD name="stopSearch" access="STATIC">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>Android, iOS</PLATFORM> 
+                <PLATFORM>Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android</PLATFORM_EB>
                 <DESC>Stop all active and pending search requests. Function does not return any results. All running search requests are canceled immediately.</DESC>
             </METHOD>
             
             <METHOD name="getPrinterByID" access="STATIC">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Return printer instance specified by printerId. If there is no printers with this ID null is returned. To get valid printerId please use searchPrinters function.</DESC>
                 <PARAMS>
                     <PARAM name="printerId" type="STRING">
@@ -250,7 +261,8 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
 
             <METHOD name="connect" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Connect to a printer using default options. Works asynchronously; use callback to check the result. If connection is successful printer state and properties are automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices.</DESC>
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND.</DESC>
@@ -259,7 +271,8 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
 
             <METHOD name="connectWithOptions" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Connect to a printer using user options. Works asynchronously; use callback to check the result. After this function call  the printer state is automatically updated.</DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
@@ -267,7 +280,8 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                         <PARAMS>
                             <PARAM name="timeout" type="INTEGER" default="15000">
                                 <DESC>Connection timeout in milliseconds. Must be larger than 0!</DESC>
-                                <PLATFORM>WM, iOS, Android</PLATFORM>
+                                <PLATFORM>WM, CE, iOS, Android</PLATFORM>
+                                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="additionalStringOption" type="STRING" generateDoc="false">
@@ -285,7 +299,8 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
 
             <METHOD name="requestState" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Requests printer state with a list of parameters.
 
 * Works asynchronously and uses the callback to check the result. 
@@ -320,7 +335,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
 
             <METHOD name="disconnect" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Disconnect from a printer and release OS resources. Works asynchronously; use callback to check the result.</DESC>
                 <CALLBACK type="STRING">
                     <DESC>Returns the result of a disconnection. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR.</DESC>
@@ -329,7 +345,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
 
             <METHOD name="printFile" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Prints file. Works asynchronously; use callback to check the result. File extension is used to determine its type. Supported image types: JPEG and PNG.</DESC>
                 <PARAMS>
                     <PARAM name="filePathOnDevice" type="STRING">
@@ -359,7 +376,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
 
             <METHOD name="printImageFromFile" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Prints an image from mobile digital device's file system to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly.</DESC>
                 <PARAMS>
                     <PARAM name="filePathOnDevice" type="STRING">
@@ -394,7 +412,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
 
             <METHOD name="printRawString" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Send raw string to printer. Works asynchronously, use callback to check the result. NOTE that on Windows Mobile/CE using Zebra printers, this will not print ZPL commands, but just line mode (or raw text).</DESC>
                 <PARAMS>
                     <PARAM name="command" type="STRING">
@@ -444,7 +463,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
 
             <METHOD name="enumerateSupportedControlLanguages" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-                <PLATFORM>WM, Android, iOS</PLATFORM> 
+                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Return array with languages supported by this printer.</DESC>
                 <RETURN type="ARRAY">
                     <DESC>Array of supported printer control languages.</DESC>
@@ -458,7 +478,8 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
         <USER_OVERVIEW>
         </USER_OVERVIEW>
         <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
-        <PLATFORM>WM, Android, iOS</PLATFORM>
+        <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+        <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
         <REMARKS>
             <REMARK title="iOS Notes" productException="eb">
                 <DESC>

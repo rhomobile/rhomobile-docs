@@ -1,10 +1,6 @@
 #KeyState
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;2</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mhideStates" data-target="cMethodhideStates" class="autouncollapse">hideStates</a></li><li><a href="#mshowStates" data-target="cMethodshowStates" class="autouncollapse">showStates</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;1</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Show the Keystate Indicators</a></li></ul></div><div class="btn-group"><a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;2</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#r0" data-target="rRemark0" class="autouncollapse">Devices lacking support</a></li><li><a href="#r1" data-target="rRemark1" class="autouncollapse">Rotating the Screen</a></li></ul></div><div class="btn-group"><a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<<<<<<< HEAD
-<p>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Zebra Technologies' Windows Mobile / CE / Embedded handheld devices (see remarks).</p>
-=======
 <p>The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Symbol Technologies' Windows Mobile / CE / Embedded handheld devices (see remarks).</p>
->>>>>>> master
 <h2>Enabling the API</h2>
 
 <p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>
@@ -63,11 +59,7 @@ end
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
-<<<<<<< HEAD
-<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Devices lacking support</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>Due to platform limitations this API is not available on the following Zebra Technologies' devices:</p>
-=======
 <a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Devices lacking support</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>Due to platform limitations this API is not available on the following Symbol Technologies' devices:</p>
->>>>>>> master
 
 <ul>
 <li>ES400</li>

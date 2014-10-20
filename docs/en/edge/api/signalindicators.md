@@ -51,38 +51,22 @@ app_type: "rhoelements"
  </p></li><li>macAddress : <span class='text-info'>STRING</span><p><p>The Device&rsquo;s MAC address</p>
  </p></li><li>adapterName : <span class='text-info'>STRING</span><p><p>The Device&rsquo;s adapter name</p>
  </p></li><li>dhcpServer : <span class='text-info'>STRING</span><p><p>The current DHCP server&rsquo;s address. Always populated on Android, even on static IP configurations. Not supported on iOS</p>
-<<<<<<< HEAD
- Platforms:WM, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p><p>Whether the unit has a static or DHCP address. Not available on Android and iOS.</p>
- Platforms:WM </p></li><li>gateway : <span class='text-info'>STRING</span><p><p>The current gateway IP address</p>
- </p></li><li>ipAddress : <span class='text-info'>STRING</span><p><p>The device&rsquo;s IP address</p>
- </p></li><li>rssi : <span class='text-info'>STRING</span><p><p>Signal strength in RSSI terms. Not supported on iOS.</p>
- Platforms:WM, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p><p>The current subnet mask</p>
-=======
  Platforms:WM, CE, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p><p>Whether the unit has a static or DHCP address. Not available on Android and iOS.</p>
  Platforms:WM </p></li><li>gateway : <span class='text-info'>STRING</span><p><p>The current gateway IP address</p>
  </p></li><li>ipAddress : <span class='text-info'>STRING</span><p><p>The device&rsquo;s IP address</p>
  </p></li><li>rssi : <span class='text-info'>STRING</span><p><p>Signal strength in RSSI terms. Not supported on iOS.</p>
  Platforms:WM, CE, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p><p>The current subnet mask</p>
->>>>>>> master
  </p></li><li>wins : <span class='text-info'>STRING</span><p><p>The current WINs server IP address. Not available on Android and iOS.</p>
  Platforms:WM </p></li></ul></ul></div></div><div class="tab-pane fade" id="mwlanStatus4"><div><p><strong>Synchronous Return:</strong></p><ul><li>HASH : this method also supports async callbacks - check the Callback tab for callback return parameters.<ul><li>signalStrength : <span class='text-info'>INTEGER</span><p><p>The signal strength as a value between 0 and 100. Not supported on iOS</p>
  Platforms:WM, CE, Android </p></li><li>essid : <span class='text-info'>STRING</span><p><p>The current ESSID</p>
  </p></li><li>macAddress : <span class='text-info'>STRING</span><p><p>The Device&rsquo;s MAC address</p>
  </p></li><li>adapterName : <span class='text-info'>STRING</span><p><p>The Device&rsquo;s adapter name</p>
  </p></li><li>dhcpServer : <span class='text-info'>STRING</span><p><p>The current DHCP server&rsquo;s address. Always populated on Android, even on static IP configurations. Not supported on iOS</p>
-<<<<<<< HEAD
- Platforms:WM, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p><p>Whether the unit has a static or DHCP address. Not available on Android and iOS.</p>
- Platforms:WM </p></li><li>gateway : <span class='text-info'>STRING</span><p><p>The current gateway IP address</p>
- </p></li><li>ipAddress : <span class='text-info'>STRING</span><p><p>The device&rsquo;s IP address</p>
- </p></li><li>rssi : <span class='text-info'>STRING</span><p><p>Signal strength in RSSI terms. Not supported on iOS.</p>
- Platforms:WM, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p><p>The current subnet mask</p>
-=======
  Platforms:WM, CE, Android </p></li><li>dhcpStatic : <span class='text-info'>STRING</span><p><p>Whether the unit has a static or DHCP address. Not available on Android and iOS.</p>
  Platforms:WM </p></li><li>gateway : <span class='text-info'>STRING</span><p><p>The current gateway IP address</p>
  </p></li><li>ipAddress : <span class='text-info'>STRING</span><p><p>The device&rsquo;s IP address</p>
  </p></li><li>rssi : <span class='text-info'>STRING</span><p><p>Signal strength in RSSI terms. Not supported on iOS.</p>
  Platforms:WM, CE, Android </p></li><li>subnetMask : <span class='text-info'>STRING</span><p><p>The current subnet mask</p>
->>>>>>> master
  </p></li><li>wins : <span class='text-info'>STRING</span><p><p>The current WINs server IP address. Not available on Android and iOS.</p>
  Platforms:WM </p></li></ul></li></ul></div></div><div class="tab-pane fade" id="mwlanStatus6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>JavaScript: <code>Rho.SignalIndicators.wlanStatus(<span class='text-info'>CallBackHandler</span> callback)</code> </li><li>Ruby: <code>Rho::SignalIndicators.wlanStatus(<span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li></ul></div></div></div>  </div></div>
 <a name='Properties'></a>
