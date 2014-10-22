@@ -7,22 +7,24 @@ For those who would rather see it in action, this guide is modeled after a [webi
 
 ## Installing Weinre
 
-NOTE: You must have admin/sudo privileges to install weinre and your device must be on the same WiFi network as your laptop.
+> Note: You must have admin/sudo privileges to install weinre and your device must be on the same WiFi network as your laptop.
 
 Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running the command:
 
     :::term
     $ npm -g install weinre
 
-NOTE: Mac users you may have to include the 'sudo' command
+> Note: Mac users you may have to include the 'sudo' command
 
 More details around the installation process and configuration of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html). If you did not install RhoMobile Suite, you can still use Weinre, but you will have to install Node.JS separately.
 
 ##Starting Weinre
-Open a command prompt and start Weinre with your local machine's local IP address using the `--boundhost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be unaccessible from your device's application.
+Open a command prompt and start Weinre with your local machine's local IP address using the `--boundHost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be unaccessible from your device's application.
 
     :::term
-    $ weinre --boundhost <your local IP address>
+    $ weinre --boundHost <your local IP address>
+
+> Note: Note the capital 'H' in boundHost. If you instead use the option boundhost, it will not launch properly.
 
 Weinre will print out the address and port that you will use in order to continue.
 
@@ -128,6 +130,4 @@ This tab is great for inspecting front-end UI or DOM performance. Each action in
 #### Resources Tab
 The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
 
-NOTE: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers.
-
-
+> Note: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers.
