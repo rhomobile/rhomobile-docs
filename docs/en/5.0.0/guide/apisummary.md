@@ -152,8 +152,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "></td>
     </tr>
 
     <!-- <tr>
