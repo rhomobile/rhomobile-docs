@@ -35,9 +35,9 @@ On Macintosh and Linux, navigate to and run `<Android SDK>/tools/android sdk`. O
 
 ** NOTE: To use Google Map View you need to install latest Google API from Android SDK Manager **
 
-2) Download and unzip the [latest Android NDK](http://developer.android.com/sdk/ndk/index.html) to the location of your choice.
+2) Download and unzip [Android NDK r9d](http://developer.android.com/sdk/ndk/index.html) to the location of your choice.
 
-** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new versions of Rhodes. Android NDK version r8e is required as a minimum. **
+** NOTE: You need to update Android SDK platforms and Android NDK to latest ones as you update to new versions of Rhodes. Android NDK version r8e is required as a minimum. NDK version 10.x currently is causing build issues so it is recommended that r9d is used. **
 
 
 3) The Android Support Library must be installed using the latest version. (Minimum Rev 14). This can be installed using the Android SDK Manager under the `Extras` folder.
