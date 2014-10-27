@@ -30,6 +30,8 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 
 The ebapi.js file is necessary for all single API inclusions.
 
+## Persistence
+With the old PocketBrowser APIs, any events, such as `screenOrientationEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 

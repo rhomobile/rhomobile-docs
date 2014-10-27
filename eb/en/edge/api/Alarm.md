@@ -112,3 +112,38 @@ You must specify the time in GMT and then the device's timezone offset from that
 >* Day: 27th
 >* Time: 13:30 exactly (GMT)
 >* Timezone: -5 (Eastern Time, 8:30am local time)
+
+## Example
+
+	:::js
+	function setAlarm(){
+		alarm.interval = "00-00-30";
+		alarm.repeat = false;
+		alarm.alarmTriggered = "alert('ALARM!!')";
+		alarm.set();
+		timerOut.innerHTML = "Alarm set!!";
+		countdown();
+	}
+
+	function clearAlarm(){
+		clearInterval(myCD);
+		timerOut.innerHTML = "";
+		alarm.clear();
+		alert("Alarm Cleared");
+	}
+
+	function clearDiv(){
+		timerOut.innerHTML = "";
+	}
+
+	function countdown(){
+		var count = 29;
+		myCD = setInterval(function(){
+			timerOut.innerHTML = "Time to Alarm Fire: " + count;
+			--count;
+			if(count < 0){
+				clearInterval(myCD);
+				timerOut.innerHTML = "";
+			}
+		}, 1000);
+	}

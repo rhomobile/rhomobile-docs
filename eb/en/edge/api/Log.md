@@ -481,7 +481,7 @@ Enables the logging of memory usage in the system; specifies the time interval i
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Turn on local http server traces. Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of remote server app (and / or shared runtime). Default value can be overridden by the setting in Config.xml
+Turn on remote network traces regardless of log level set (e.g. Network, asyncHttp). Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of local server app. Default value can be overridden by the setting in Config.xml. To get local server trace, use `Rho.Log.LEVEL_TRACE`.
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access
