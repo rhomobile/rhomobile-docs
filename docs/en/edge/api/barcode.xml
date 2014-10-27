@@ -2171,5 +2171,39 @@ Rho.Barcode.take({}, scan_received_callback);
                </SECTIONS>
             </EXAMPLE>
         </EXAMPLES>
+        <EXAMPLES_EB>
+            <EXAMPLE_EB title="Enable barcode scanner and scan a bacrode">
+                <DESC_EB>This example shows how to enable your device's barcode scanner and access the data gathered by the scanner.</DESC_EB>
+                <CODE>
+                    <JAVASCRIPT><![CDATA[
+<script type="text/javascript" charset="utf-8" src="../apis/EnterpriseBrowser/ebapi-modules.js"></script>
+
+<script type="text/javascript">
+    function scanReceived(params){
+        // No data or no timestamp, scan failed.
+        if(params['data']== "" || params['time']==""){
+            document.getElementById('display').innerHTML = "Failed!";
+            return;
+        }
+        // Data and timestamp exist, barcode successful, show results
+        var displayStr = "Barcode Data: " + params['data']+"<br>Time: "+params['time'];
+        document.getElementById("display").innerHTML = displayStr;
+    }
+
+    function enableScanners(){
+        EB.Barcode.enable({}, scanReceived);
+        // Empty property hash, '{}' loads default values for the scanner.
+    }
+
+    function unloadEvent(){
+        EB.Barcode.disable();
+        // Disable Barcode on unload of page to free it up for other operations.
+    }
+</script>
+                        ]]>
+                    </JAVASCRIPT>
+                </CODE>
+            </EXAMPLE_EB>
+        </EXAMPLES_EB>
     </MODULE>
 </API>
