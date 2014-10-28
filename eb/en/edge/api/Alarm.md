@@ -114,36 +114,49 @@ You must specify the time in GMT and then the device's timezone offset from that
 >* Timezone: -5 (Eastern Time, 8:30am local time)
 
 ## Example
+### Set an Alarm
+In this example, we will show you how to set an alarm that will go off in 30 sec. You can set the time for any HH-MM-SS seconds you wish but with this you'll be able to see the results quickly. Since this API is originally from RhoElements version 2.2, we must include the elements.js library from the BackwardCompatibility directory.
+
+> Note: 30 seconds is the lower limit for the alarm interval.
 
 	:::js
-	function setAlarm(){
-		alarm.interval = "00-00-30";
-		alarm.repeat = false;
-		alarm.alarmTriggered = "alert('ALARM!!')";
-		alarm.set();
-		timerOut.innerHTML = "Alarm set!!";
-		countdown();
-	}
+	<script type="text/javascript" charset="utf-8" src="elements.js"></script>
 
-	function clearAlarm(){
-		clearInterval(myCD);
-		timerOut.innerHTML = "";
-		alarm.clear();
-		alert("Alarm Cleared");
-	}
+	<script>
+		function setAlarm(){
+			alarm.interval = "00-00-30";
+			alarm.repeat = false;
+			alarm.alarmTriggered = "alert('ALARM!!')";
+			alarm.set();
+			timerOut.innerHTML = "Alarm set!!";
+			countdown();
+		}
 
-	function clearDiv(){
-		timerOut.innerHTML = "";
-	}
+		function clearAlarm(){
+			clearInterval(myCD);
+			timerOut.innerHTML = "";
+			alarm.clear();
+			alert("Alarm Cleared");
+		}
 
-	function countdown(){
-		var count = 29;
-		myCD = setInterval(function(){
-			timerOut.innerHTML = "Time to Alarm Fire: " + count;
-			--count;
-			if(count < 0){
-				clearInterval(myCD);
-				timerOut.innerHTML = "";
-			}
-		}, 1000);
-	}
+		function clearDiv(){
+			timerOut.innerHTML = "";
+		}
+	</script>
+
+For reference, this is the HTML used to invoke the above JavaScript:
+
+	:::html
+	</head>
+		<body>
+		<P>
+		<h1>Alarm API Test</h1>
+		<P>
+			<div id="timerOut"></div>
+			<br/>
+			<h3>Methods</h3>
+			<button onclick="setAlarm()">Set Alarm</button></br>
+			<button onclick="clearAlarm()">Clear Alarm</button></br>
+			<button onclick="clearDiv()">Clear Output</button></br>
+		</body>
+	</html>
