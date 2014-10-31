@@ -138,6 +138,11 @@ To uninstall your application from the device, run:
 	:::term
 	$ rake uninstall:android:device
 
+To clean your application build, run:
+
+	:::term
+	$ rake clean:android
+
 ## Building an Android Production Version
 ### Modifying the build.yml
 To build a production version of your application, edit your application's build.yml as below:

@@ -88,6 +88,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
     # open rhodes app in full screen mode
     # default 1 for Android up to Rhodes 2.2.5.
     # on all other platforms and on Android from Rhodes > 2.2.5 default 0
+    # Note: Need to do a clean before changing full screen mode
     full_screen = 0
     
     # show top menu on Windows desktop in full screen mode (default is 0=don't show top menu)
