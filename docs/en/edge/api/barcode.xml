@@ -2172,11 +2172,13 @@ Rho.Barcode.take({}, scan_received_callback);
             </EXAMPLE>
         </EXAMPLES>
         <EXAMPLES_EB>
-            <EXAMPLE_EB title="Enable barcode scanner and scan a bacrode">
-                <DESC_EB>This example shows how to enable your device's barcode scanner and access the data gathered by the scanner.</DESC_EB>
-                <CODE>
-                    <JAVASCRIPT><![CDATA[
-<script type="text/javascript" charset="utf-8" src="../apis/EnterpriseBrowser/ebapi-modules.js"></script>
+            <EXAMPLE title="Enable barcode scanner and scan a bacrode">
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>This example shows how to enable your device's barcode scanner and access the data gathered by the scanner. Note that this example assumes that your ebapi-modules.js file is in the same folder as the HTML invoking it.</DESC>
+                        <CODE>
+                            <JAVASCRIPT><![CDATA[
+<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
 <script type="text/javascript">
     function scanReceived(params){
@@ -2201,9 +2203,11 @@ Rho.Barcode.take({}, scan_received_callback);
     }
 </script>
                         ]]>
-                    </JAVASCRIPT>
-                </CODE>
-            </EXAMPLE_EB>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
         </EXAMPLES_EB>
     </MODULE>
 </API>
