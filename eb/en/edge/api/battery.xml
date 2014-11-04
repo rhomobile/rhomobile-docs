@@ -317,13 +317,14 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             </EXAMPLE>
         </EXAMPLES>
         <EXAMPLES_EB>
-            <EXAMPLE title="Show battery icon">
+            <EXAMPLE_EB title="Show battery icon">
                 <SECTIONS>
                     <SECTION>
-                        <DESC>This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing.</DESC>
-                        <CODE>
-                            <JAVASCRIPT><![CDATA[
-<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+                        <DESC_EB>This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing.</DESC_EB>
+                    </SECTION>
+                    <CODE>
+                        <JAVASCRIPT><![CDATA[
+<script type="text/javascript" charset="utf-8" src="../apis/EnterpriseBrowser/ebapi-modules.js"></script>
 
 <script>
     function showBatteryIcon(){
@@ -365,12 +366,11 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
     // If the screen orientation changes, adjust the battery Icon.
     EB.ScreenOrientation.setScreenOrientationEvent(adjustIcon);
 </script>
-                                ]]>
-                            </JAVASCRIPT>
-                        </CODE>
-                    </SECTION>
+                            ]]>
+                        </JAVASCRIPT>
+                    </CODE>
                 </SECTIONS>
-            </EXAMPLE>
+            </EXAMPLE_EB>
         </EXAMPLES_EB>
 
         <REMARKS>

@@ -214,13 +214,33 @@ def lp_publish_html
     apiMD = File.join(AppConfig['launchpad_eb'],"**","*.html")
     
     apiFiles = Dir.glob(apiMD)
-    apiFiles.each do |fileName|
-      basename = fileName.gsub(AppConfig['launchpad_eb'],'')
-        print "."
+    limitFiles = false
+    limitArray = []
+    if !ENV['filelimit'].nil? && ENV['filelimit']=='true'
+      limitFiles=true
+      if File.file?("lpfilelimit")
+        limitArray = File.readlines('lpfilelimit').each {|l| l.chomp!}
+      end
+    end
+    if limitFiles && limitArray.empty?
+      puts "Missing lpfilelimit file"
+    else
+      apiFiles.each do |fileName|
+        basename = fileName.gsub(AppConfig['launchpad_eb'],'')
+        # print "."
         html = File.read(fileName)
-    
-         Launchpad.publish_html(fileName,html,url_map,ENV['server'])
+        publish = true
+        if limitFiles
+          if !limitArray.include? fileName
+            publish=false
+          end
+        end
+        if publish
+           puts "\nPublishing " + basename    
+           Launchpad.publish_html(fileName,html,url_map,ENV['server'])
+        end
       
+      end
     end
     # Edit document with updated links
     apiFiles.each do |fileName|

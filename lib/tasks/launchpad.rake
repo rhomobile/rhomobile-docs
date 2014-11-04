@@ -1,9 +1,9 @@
-desc 'generate Launchpad HTMl from MD for EB'
+desc 'imageVersion= location of images generate Launchpad HTMl from MD for EB'
 task :lp_generate_html do
   lp_generate_html
 end
 
-desc 'publish Launchpad HTMl pass in user= password= ex: rake lp_publish_html user=abc password=abc123 '
+desc 'publish Launchpad HTMl pass in user= password= ex: rake lp_publish_html user=abc password=abc123 [filelimit=true]'
 task :lp_publish_html do
   if ENV['user'].nil? || ENV['password'].nil? || ENV['server'].nil?
   	puts "Wrong format: rake lp_publish_html user=abc password=abc123 server=uat or prod"
