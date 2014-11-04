@@ -228,50 +228,63 @@ The indicator positions are absolute and so when rotating the screen you should 
 
 
 ###Show battery icon
-This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing.
+This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing. This example assumes that the ebapi-modules.js file is in the same folder as the html file invoking it.
 <pre><code>:::javascript
-&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+&lt;head&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 
-&lt;script&gt;
-    function showBatteryIcon(){
-        EB.Battery.showIcon(defineIconProperties(), batteryCallback);
-        EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
-        // The batteryStatus() is used to tell the icon when to refresh. 
-        // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
-    }
+    &lt;title&gt;Battery API Test&lt;/title&gt;
 
-    function hideBatteryIcon(){
-        EB.Battery.hideIcon();
-        EB.Battery.stopBatteryStatus();
-    }
-
-    function batteryCallback(params){
-        // Most of these methods have callbacks but null 'params' sent.
-        if(params){
-            console.log(params);
+    &lt;script&gt;
+        function showBatteryIcon(){
+            EB.Battery.showIcon(defineIconProperties(), batteryCallback);
+            EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
+            // The batteryStatus() is used to tell the icon when to refresh. 
+            // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
         }
-        else
-            console.log("No Params");
-    }
 
-    function defineIconProperties(){
-        var props = {
-            color:  "#66CD00",
-            layout: EB.Battery.BATTERY_LAYOUT_UP,
-            top:    0,                            // Top of screen
-            left:   EB.System.screenWidth - 25    // Far right of screen, accounting for actual viewable area.
+        function hideBatteryIcon(){
+            EB.Battery.hideIcon();
+            EB.Battery.stopBatteryStatus();
         }
-        return props;
-    }
 
-    function adjustIcon(){
-        EB.Battery.hideIcon();
-        EB.Battery.showIcon(defineIconProperties(), batteryCallback);
-    }
+        function batteryCallback(params){
+            if(params){     // Most of these methods have callbacks but null 'params' sent.
+                console.log(params);
+            }
+            else
+                console.log("No Params");
+        }
 
-    // If the screen orientation changes, adjust the battery Icon.
-    EB.ScreenOrientation.setScreenOrientationEvent(adjustIcon);
-&lt;/script&gt;
+        function defineIconProperties(){
+            var props = {
+                color:  "#66CD00",
+                layout: EB.Battery.BATTERY_LAYOUT_UP,
+                top:        0,                                                      // Top of screen
+                left:   EB.System.screenWidth - 25      // Far right of screen, accounting for actual viewable area.
+            }
+            return props;
+        }
+
+        function adjustIcon(){
+            EB.Battery.hideIcon();
+            EB.Battery.showIcon(defineIconProperties(), batteryCallback);
+        }
+
+        // If the screen orientation changes, adjust the battery Icon.
+        EB.ScreenOrientation.setScreenOrientationEvent(adjustIcon);
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Battery API Test&lt;/h1&gt;
+    &lt;div id="display"&gt;
+    &lt;/div&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+    &lt;button onclick="showBatteryIcon()"&gt;Show Battery Status Icon&lt;/button&gt;&lt;br/&gt;
+    &lt;button onclick="hideBatteryIcon()"&gt;Hide Battery Status Icon&lt;/button&gt;
+&lt;/body&gt;
                                 
                             
 </code></pre>

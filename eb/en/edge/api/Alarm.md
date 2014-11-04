@@ -115,14 +115,17 @@ You must specify the time in GMT and then the device's timezone offset from that
 
 ## Example
 ### Set an Alarm
-In this example, we will show you how to set an alarm that will go off in 30 sec. You can set the time for any HH-MM-SS seconds you wish but with this you'll be able to see the results quickly. Since this API is originally from RhoElements version 2.2, we must include the elements.js library from the BackwardCompatibility directory.
+In this example, we will show you how to set an alarm that will go off in 30 sec. You can set the time for any HH-MM-SS seconds you wish but with this you'll be able to see the results quickly. Since this API is originally from RhoElements version 2.2, we must include the elements.js library from the BackwardCompatibility directory. This example assumes that the elements.js file is in the same directory as the html invoking it.
 
 > Note: 30 seconds is the lower limit for the alarm interval.
 
-	:::js
-	<script type="text/javascript" charset="utf-8" src="elements.js"></script>
+	:::html
+	<head>
+		<script type="text/javascript" charset="utf-8" src="elements.js"></script>
 
-	<script>
+		<title>Alarm API Test</title>
+
+		<script>
 		function setAlarm(){
 			alarm.interval = "00-00-30";
 			alarm.repeat = false;
@@ -130,6 +133,18 @@ In this example, we will show you how to set an alarm that will go off in 30 sec
 			alarm.set();
 			timerOut.innerHTML = "Alarm set!!";
 			countdown();
+		}
+
+		function countdown(){
+			var count = 29;
+			myCD = setInterval(function(){
+				timerOut.innerHTML = "Time to Alarm Fire: " + count;
+				--count;
+				if(count < 0){
+					clearInterval(myCD);
+					timerOut.innerHTML = "";
+				}
+			}, 1000);
 		}
 
 		function clearAlarm(){
@@ -142,21 +157,18 @@ In this example, we will show you how to set an alarm that will go off in 30 sec
 		function clearDiv(){
 			timerOut.innerHTML = "";
 		}
-	</script>
 
-For reference, this is the HTML used to invoke the above JavaScript:
-
-	:::html
+		</script>
 	</head>
-		<body>
-		<P>
+	<body>
 		<h1>Alarm API Test</h1>
-		<P>
-			<div id="timerOut"></div>
-			<br/>
-			<h3>Methods</h3>
-			<button onclick="setAlarm()">Set Alarm</button></br>
-			<button onclick="clearAlarm()">Clear Alarm</button></br>
-			<button onclick="clearDiv()">Clear Output</button></br>
-		</body>
-	</html>
+		<br/>
+		<br/>
+		<div id="timerOut"></div>
+		<br/>
+		<br/>
+		<h3>Methods</h3>
+		<button onclick="setAlarm()">Set Alarm</button></br>
+		<button onclick="clearAlarm()">Clear Alarm</button></br>
+		<button onclick="clearDiv()">Clear Output</button></br>
+	</body>

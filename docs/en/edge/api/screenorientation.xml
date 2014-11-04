@@ -203,72 +203,70 @@ Rho.ScreenOrientation.autoRotate=false;
             <EXAMPLE title="Screen Orientation Manipulation">
                 <SECTIONS>
                     <SECTION>
-                        <DESC>This example will show how each of the methods and properties of the ScreenOrientation API work in your EB app. Note: This example assumes that the ebapi-modules.js file is in the same folder as this JavaScript code.</DESC>
+                        <DESC>This example will show how each of the methods and properties of the ScreenOrientation API work in your EB app. Note: This example assumes that the ebapi-modules.js file is in the same folder as html file invoking it.</DESC>
                         <CODE>
                             <JAVASCRIPT><![CDATA[
-<html>
-    <head>
-        <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+<head>
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-        <title>ScreenOrientation API Test</title>
+    <title>ScreenOrientation API Test</title>
 
-        <script>
-            function orientationEventCallback(params){
-                display.innerHTML = "Orientation: " + params;
+    <script>
+        function orientationEventCallback(params){
+            display.innerHTML = "Orientation: " + params;
+        }
+
+        function changeOrientation(direction){
+            switch(direction){
+                case "left":
+                    EB.ScreenOrientation.leftHanded();
+                    break;
+                case "right":
+                    EB.ScreenOrientation.rightHanded();
+                    break;
+                case "normal":
+                    EB.ScreenOrientation.normal();
+                    break;
+                case "upsideDown":
+                    EB.ScreenOrientation.upsideDown();
+                    break;
+                default:
+                    alert('Incorrect Orientation!!');
             }
+        }
 
-            function changeOrientation(direction){
-                switch(direction){
-                    case "left":
-                        EB.ScreenOrientation.leftHanded();
-                        break;
-                    case "right":
-                        EB.ScreenOrientation.rightHanded();
-                        break;
-                    case "normal":
-                        EB.ScreenOrientation.normal();
-                        break;
-                    case "upsideDown":
-                        EB.ScreenOrientation.upsideDown();
-                        break;
-                    default:
-                        alert('Incorrect Orientation!!');
-                }
+        function toggleAutoRotate(){
+            if(EB.ScreenOrientation.autoRotate){
+                EB.ScreenOrientation.autoRotate = false;
+                autoRotate.innerHTML = 'Auto Rotate: Disabled';
             }
-
-            function toggleAutoRotate(){
-                if(EB.ScreenOrientation.autoRotate){
-                    EB.ScreenOrientation.autoRotate = false;
-                    autoRotate.innerHTML = 'Auto Rotate: Disabled';
-                }
-                else{
-                    EB.ScreenOrientation.autoRotate = true;
-                    autoRotate.innerHTML = 'Auto Rotate: Enabled';
-                }
+            else{
+                EB.ScreenOrientation.autoRotate = true;
+                autoRotate.innerHTML = 'Auto Rotate: Enabled';
             }
+        }
 
-            EB.ScreenOrientation.setScreenOrientationEvent(orientationEventCallback);
-        </script>
-    </head>
+        EB.ScreenOrientation.setScreenOrientationEvent(orientationEventCallback);
+    </script>
+</head>
 
-    <body>
-        <h1>ScreenOrientation API Test</h1>
-        <div id="display">
-            Orientation: 
-        </div>
-        <div id="autoRotate">
-            Auto Rotate: Enabled
-        </div>
-        <div>
-            <button onclick="toggleAutoRotate()">Toggle Auto Rotate</button>
-            </br></br>
-            <button onclick="changeOrientation('normal')">Upright Portrait</button></br>
-            <button onclick="changeOrientation('right')">Counter-Clockwise</button>
-            <button onclick="changeOrientation('left')">Clockwise</button></br>
-            <button onclick="changeOrientation('upsideDown')">Upside-Down</button></br>
-        </div>
-    </body>
-</html>
+<body>
+    <h1>ScreenOrientation API Test</h1>
+    <div id="display">
+        Orientation: 
+    </div>
+    <div id="autoRotate">
+        Auto Rotate: Enabled
+    </div>
+    <div>
+        <button onclick="toggleAutoRotate()">Toggle Auto Rotate</button>
+        </br></br>
+        <button onclick="changeOrientation('normal')">Upright Portrait</button></br>
+        <button onclick="changeOrientation('right')">Counter-Clockwise</button>
+        <button onclick="changeOrientation('left')">Clockwise</button></br>
+        <button onclick="changeOrientation('upsideDown')">Upside-Down</button></br>
+    </div>
+</body>
                                 ]]>
                             </JAVASCRIPT>
                         </CODE>

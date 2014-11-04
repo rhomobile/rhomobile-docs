@@ -438,53 +438,51 @@ On Quitting of the Application, Android will save the data in the file and grace
 ###Capturing and Playing Audio
 This example will show how to capture audio from your device to a file and then play that audio file. Note that this example assumes that your ebapi-modules.js file is located in the same folder as the HTML that is evoking it.
 <pre><code>:::javascript
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;script src="http://192.168.1.28:8080/target/target-script-min.js#anonymous"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" charset="utf-8" src="../apis/EnterpriseBrowser/ebapi-modules.js"&gt;&lt;/script&gt;
+&lt;head&gt;
+    &lt;script src="http://192.168.1.28:8080/target/target-script-min.js#anonymous"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="../apis/EnterpriseBrowser/ebapi-modules.js"&gt;&lt;/script&gt;
 
-        &lt;title&gt;Audio Capture API Example&lt;/title&gt;
+    &lt;title&gt;Audio Capture API Example&lt;/title&gt;
 
-        &lt;script&gt;
-            audioFile = null;
+    &lt;script&gt;
+        audioFile = null;
 
-            function captureAudio(){
-                display.innerHTML = 'Capturing...'
-                EB.AudioCapture.start({fileName:   'testCap',
-                                                             maxDuration: 5000}, captureCallback);
+        function captureAudio(){
+            display.innerHTML = 'Capturing...'
+            EB.AudioCapture.start({fileName:   'testCap',
+                                                         maxDuration: 5000}, captureCallback);
+        }
+
+        function captureCallback(params){
+            if (params['status'] == 'ok'){
+                display.innerHTML = 'Captured Audio File: ' + params['fileName'];
+                audioFile = params['fileName'];
+                audioFile = audioFile.substr(7); // Remove 'file://' from the beginning of the fileName
             }
-
-            function captureCallback(params){
-                if (params['status'] == 'ok'){
-                    display.innerHTML = 'Captured Audio File: ' + params['fileName'];
-                    audioFile = params['fileName'];
-                    audioFile = audioFile.substr(7); // Remove 'file://' from the beginning of the fileName
-                }
-                else{
-                    display.innerHTML = 'Audio Not Captured';
-                }
+            else{
+                display.innerHTML = 'Audio Not Captured';
             }
+        }
 
-            function playCapturedAudio(){
-                if(audioFile){
-                    EB.Mediaplayer.start(audioFile);
-                }
-                else{
-                    alert("No audio captured yet.");
-                }
+        function playCapturedAudio(){
+            if(audioFile){
+                EB.Mediaplayer.start(audioFile);
             }
+            else{
+                alert("No audio captured yet.");
+            }
+        }
 
-        &lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;AudioCapture API Example&lt;/h1&gt;
-        &lt;div id="display"&gt;&lt;/div&gt;
-        &lt;/br&gt;
-        &lt;/br&gt;
-        &lt;button onclick="captureAudio()"&gt;Capture Audio&lt;/button&gt;
-        &lt;button onclick="playCapturedAudio()"&gt;Play Captured Audio&lt;/button&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;AudioCapture API Example&lt;/h1&gt;
+    &lt;div id="display"&gt;&lt;/div&gt;
+    &lt;/br&gt;
+    &lt;/br&gt;
+    &lt;button onclick="captureAudio()"&gt;Capture Audio&lt;/button&gt;
+    &lt;button onclick="playCapturedAudio()"&gt;Play Captured Audio&lt;/button&gt;
+&lt;/body&gt;
                                 
                             
 </code></pre>
