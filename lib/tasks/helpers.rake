@@ -227,7 +227,7 @@ def lp_publish_html
     else
       apiFiles.each do |fileName|
         basename = fileName.gsub(AppConfig['launchpad_eb'],'')
-        print "."
+        # print "."
         html = File.read(fileName)
         publish = true
         if limitFiles
@@ -236,7 +236,7 @@ def lp_publish_html
           end
         end
         if publish
-           puts "Publishing " + basename    
+           puts "\nPublishing " + basename    
            Launchpad.publish_html(fileName,html,url_map,ENV['server'])
         end
       
