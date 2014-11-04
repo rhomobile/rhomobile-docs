@@ -1,6 +1,6 @@
 # Starting Your Application
 ## Overview
-In order for Enterprise Browser work with your application, it needs to be configured into what we refer to as *Runtime configuration*. This is managed through an XML file called **Config.xml**. This file is mandatory for proper Enterprise Browser execution: not every setting has a default and if the configuration file cannot be found, Enterprise Browser *will not start*. 
+In order for Enterprise Browser to work with your application, it needs to be configured into what we refer to as *Runtime configuration*. This is managed through an XML file called **Config.xml**. This file is mandatory for proper Enterprise Browser execution: not every setting has a default and if the configuration file cannot be found, Enterprise Browser *will not start*. 
 
 An example configuration file is provided as part of the installation and contains sensible defaults. Please refer to [Configuration Settings](../guide/configreference) page for more details on the meanings and utilization of each of the settings and their possible values.
 

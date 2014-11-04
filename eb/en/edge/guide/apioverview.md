@@ -29,19 +29,21 @@ For example if you placed your html and JS files in `<device-root>\myApp` then i
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them. In the following example we want to save a reference to the front facing camera of the device so that we can manipulate the front facing camera properties separate from the rear-facing camera:
 
 	:::javascript
-	var frontCamera;
-	EB.Camera.enumerate(function (e){
-		if (e.type == EB.Camera.FRONT_TYPE){
-			frontCamera = e;
+	var laserScanner;
+	EB.Barcode.enumerate(function (e){
+		if (e.scannerType == 'Laser'){
+			laserScanner = e;
 		}
 	};);
 
 We can then reference instance methods on that object
 
 	:::javascript
-	var cameraProperties = {desiredWidth:1024, desiredHeight:768};
+	var laserScannerProperties = {beamWidth:EB.Barcode.BEAM_NARROW, decodeVolume:5};
 
-	frontCamera.take_picture(cameraProperties, fnHandlePicture(e));
+	laserScanner.enable(laserScannerProperties, function(e){
+			barcodeData = e.data;
+		});
 
 ## Setting Properties
 There are a few different ways you can set properties. 
@@ -135,21 +137,21 @@ Some methods support a callback for returning information in an unblocking, asyn
 The callback parameter will either be marked as <span class="label label-info">Optional</span> or <span class="label label-warning">Mandatory</span>. Be sure to check the type of object the callback will be returning as well as the list of available callback parameters for each method. Typically the callback will return an object with a pre-defined set of objects that can be accessed for information.
 
 ### Callback as anonymous function
-The following code snippet takes a picture from the device's camera and will run the anonymous function:
+The following code snippet enables the hardware barcode button. Upon scanning a barcode the anonymous function will be executed:
 
 	:::javascript
 	// The documentation will list the callback type as well as callback parameters that are available
-	EB.Camera.takePicture(...,function(params){
-		alert(params.status);
+	EB.Barcode.enable({},function(params){
+		alert(params.data);
 	};);
 
 ### Callback as a JavaScript function
-The following code snippet takes a picture from the device's camera and then calls another JavaScript function `mycallbackhandler`:
+The following code snippet enables the hardware barcode button. Upon scanning a barcode it then calls another JavaScript function `mycallbackhandler`:
 
 	:::javascript
-	EB.Camera.takePicture(..., mycallbackHandler());
+	EB.Barcode.enable({}, mycallbackHandler);
 
 	function mycallbackHandler(params){
 	// The documentation will list the callback type as well as callback parameters that are available
-		alert(params.status);
+		alert(params.data);
 	}
