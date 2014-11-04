@@ -120,6 +120,62 @@ Sets the image to be displayed when the button is in the down state. See Remarks
 * Android
 * Windows Mobile/CE
 
+## Examples
+### Using the Back Button
+In this example, you will see how to enable the back button as well as set many of its properties. This example assumes that the elements and ebapi-modules.js files reside in the same file as the html file including them.
+
+> Note: The ebapi-modiles.js library here is only included because it is needed for the System API.
+
+	:::html
+	<html>
+		<head>
+			<script type="text/javascript" charset="utf-8" src="elements.js"></script>
+			<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+			<title>Back Button Example</title>
+
+			<script>
+			var visibility   = false;
+			var screenWidth  = EB.System.realScreenWidth;
+			var screenHeight = EB.System.realScreenHeight;
+
+			function toggleBackButton(){
+				print.innerHTML = visibility
+				if(visibility){
+					backButton.visibility = 'hidden';
+					visibility = false;
+				}
+				else{
+					showButton();
+					visibility = true;
+				}
+			}
+
+			function showButton(){
+				backButton.width = 50;
+				backButton.height = 50;
+				// When aligning the icon with the right side, we need to account for the icon width.
+				backButton.left = screenWidth - 50;
+				// When aligning the icon with the bottom, we need to account for the icon height.
+				backButton.top = screenHeight - 50;
+				backButton.visibility = 'visible';
+			}
+
+			function hideBackButton(){
+				backButton.visibility = 'hidden';
+			}
+
+			</script>
+		</head>
+		<body onunload='hideBackButton()'>
+			<h1>BackButton API Example</h1>
+			</br>
+			</br>
+			<div>
+				<button onclick="toggleBackButton()">Toggle Back Button</button></br>
+			</div>
+		</body>
+	</html>
 
 ## Remarks
 ###Use of Images on Buttons.
