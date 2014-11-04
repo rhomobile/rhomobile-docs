@@ -30,6 +30,8 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 
 The ebapi.js file is necessary for all single API inclusions.
 
+## Persistence
+With the old PocketBrowser APIs, any events, such as `screenOrientationEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 
@@ -174,3 +176,77 @@ Enables or Disables auto-rotation of the screen orientation when the device is r
 
 * Android
 * Windows Mobile
+
+##Examples
+
+
+
+###Screen Orientation Manipulation
+This example will show how each of the methods and properties of the ScreenOrientation API work in your EB app. Note: This example assumes that the ebapi-modules.js file is in the same folder as this JavaScript code.
+<pre><code>:::javascript
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+        &lt;title&gt;ScreenOrientation API Test&lt;/title&gt;
+
+        &lt;script&gt;
+            function orientationEventCallback(params){
+                display.innerHTML = "Orientation: " + params;
+            }
+
+            function changeOrientation(direction){
+                switch(direction){
+                    case "left":
+                        EB.ScreenOrientation.leftHanded();
+                        break;
+                    case "right":
+                        EB.ScreenOrientation.rightHanded();
+                        break;
+                    case "normal":
+                        EB.ScreenOrientation.normal();
+                        break;
+                    case "upsideDown":
+                        EB.ScreenOrientation.upsideDown();
+                        break;
+                    default:
+                        alert('Incorrect Orientation!!');
+                }
+            }
+
+            function toggleAutoRotate(){
+                if(EB.ScreenOrientation.autoRotate){
+                    EB.ScreenOrientation.autoRotate = false;
+                    autoRotate.innerHTML = 'Auto Rotate: Disabled';
+                }
+                else{
+                    EB.ScreenOrientation.autoRotate = true;
+                    autoRotate.innerHTML = 'Auto Rotate: Enabled';
+                }
+            }
+
+            EB.ScreenOrientation.setScreenOrientationEvent(orientationEventCallback);
+        &lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;ScreenOrientation API Test&lt;/h1&gt;
+        &lt;div id="display"&gt;
+            Orientation: 
+        &lt;/div&gt;
+        &lt;div id="autoRotate"&gt;
+            Auto Rotate: Enabled
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;button onclick="toggleAutoRotate()"&gt;Toggle Auto Rotate&lt;/button&gt;
+            &lt;/br&gt;&lt;/br&gt;
+            &lt;button onclick="changeOrientation('normal')"&gt;Upright Portrait&lt;/button&gt;&lt;/br&gt;
+            &lt;button onclick="changeOrientation('right')"&gt;Counter-Clockwise&lt;/button&gt;
+            &lt;button onclick="changeOrientation('left')"&gt;Clockwise&lt;/button&gt;&lt;/br&gt;
+            &lt;button onclick="changeOrientation('upsideDown')"&gt;Upside-Down&lt;/button&gt;&lt;/br&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                                
+                            
+</code></pre>
