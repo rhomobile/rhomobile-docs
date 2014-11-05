@@ -32,9 +32,9 @@ Triggered after executing the `getBacklightSettings` method. Make sure to includ
 
 #### Usage  
 	:::javascript
-	backlight.on();
 	backlight.backlightSettingsEvent = "backlightCallback(%json)";
-	
+	backlight.getBacklightSettings();
+
 	function backlightCallback(params){
 		alert('The backlight is' + params['state'] + ' with intensity of' + params['intensity']);
 	}
