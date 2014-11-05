@@ -32,10 +32,10 @@ This event is used to read data from the COM port and is triggered in response t
 #### Usage  
 	:::javascript
 	comm.endChar = 35;
-  	comm.commEvent = url("JavaScript:DisplayData('%json');");
-  	comm.open();
+	comm.commEvent = "url('JavaScript:commCallback(%json);')";
+	comm.open();
 	
-	function DisplayData(params){
+	function commCallback(params){
 		alert('Received the following data on the Comm port:' + params['data']);
 	}
 

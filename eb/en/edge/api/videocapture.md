@@ -19,7 +19,7 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 
 	:::javascript
 	videoCapture.duration = '60000';
-	videocapture.videoSaveEvent = url("JavaScript:videoSaveHandler('%json');");
+	videocapture.videoSaveEvent = "url('JavaScript:videoSaveHandler(%json);')";
     videoCapture.start();
 
 
@@ -35,7 +35,7 @@ The videoSaveEvent is called when the captured video has been successfully trans
 
 #### Usage  
 	:::javascript
-	videocapture.videoSaveEvent = url("JavaScript:videoSaveHandler('%json');");
+	videocapture.videoSaveEvent = "url('JavaScript:videoSaveHandler(%json);')";
   	videocapture.start();
 	
 	function videoSaveHandler(params){
@@ -168,9 +168,6 @@ The password for the HTTP or FTP server if required.
 * Windows Mobile
 * Windows CE
 
-
-
-
 ##Remarks
 
 ###Buffer full
@@ -184,4 +181,3 @@ A Video Capture will fail if there is not sufficient space on the device's files
 
 ###Setting up a Transfer to a remote HTTP or FTP location
 Video Capture is designed to be configured before any transfer is made to a remote location. If the 'Destination' parameter is specified as either HTTP or an FTP location the 'destination' / 'username' / 'password' parameters can not be guaranteed to stay the same after the capture has completed, therefore configure your destination for each capture.
-

@@ -32,7 +32,7 @@ None
 	
 	// this function does not have callback return parameters
 	// if it did, we would use the %json notation
-	alarm.alarmTriggered = "doFunction(%json)";
+	alarm.alarmTriggered = "url('JavaScript:doFunction(%json);')";
 
 ## Methods
 ### clear()

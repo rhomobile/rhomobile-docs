@@ -1,6 +1,4 @@
-#Device
-
-
+# Device
 ## Overview
 The Device Module controls device functions like suspend and wake.
 

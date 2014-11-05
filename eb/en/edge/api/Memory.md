@@ -34,7 +34,7 @@ The memoryEvent event is triggered when the available Memory drops below the set
 
 ####Usage  
 	:::javascript
-	memory.memoryEvent = url("JavaScript:getMemory('%json');");
+	memory.memoryEvent = "url('JavaScript:getMemory(%json);')";
   	
   	function getMemory(params)
     {

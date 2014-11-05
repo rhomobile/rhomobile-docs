@@ -33,9 +33,9 @@ Triggered after executing the `getBacklightSettings` method. Make sure to includ
 #### Usage  
 	:::javascript
 	backlight.on();
-	backlight.getBacklightSettings = "handleBacklight(%json)";
+	backlight.backlightSettingsEvent = "backlightCallback(%json)";
 	
-	function handleBacklight(params){
+	function backlightCallback(params){
 		alert('The backlight is' + params['state'] + ' with intensity of' + params['intensity']);
 	}
 
@@ -92,81 +92,79 @@ Sets the screen backlight to the specified intensity.
 In this example, you'll see how to use the backlight API to manipulate the state and intensity of the backlight on your device. This example assumes that your elements.js file is in the same folder as the html invoking it.
 
 	:::html
-	<html>
-		<head>
-			<script type="text/javascript" charset="utf-8" src="elements.js"></script>
+	<head>
+		<script type="text/javascript" charset="utf-8" src="elements.js"></script>
 
-			<title>Backlight API Example</title>
+		<title>Backlight API Example</title>
 
-			<script>
-			var backlightOn = false;
-			var intensity = 100;
+		<script>
+		var backlightOn = false;
+		var intensity = 100;
 
-			backlight.backlightSettingsEvent = "url('JavaScript:backlightCallback(%json)')";
-			backlight.intensity = intensity;
-			getSettings();
+		backlight.backlightSettingsEvent = "url('JavaScript:backlightCallback(%json)')";
+		backlight.intensity = intensity;
+		getSettings();
 
-			function toggleBacklight(){
-				if(backlightOn){
-					backlight.off();
-					backlightOn = false;
-				}
-				else{
-					backlight.on();
-					backlightOn = true;
-				}
+		function toggleBacklight(){
+			if(backlightOn){
+				backlight.off();
+				backlightOn = false;
 			}
-
-			function backlightCallback(params){
-				info.innerHTML = "Brightness: " + params['intensity'];
+			else{
+				backlight.on();
+				backlightOn = true;
 			}
+		}
 
-			function changeIntensity(){
-				if(intensity == 100){
-					intensity = 75;
-					backlight.intensity = intensity;
-					getSettings();
-				}
-				else if(intensity == 75){
-					intensity = 50;
-					backlight.intensity = intensity;
-					getSettings();
-				}
-				else if(intensity == 50){
-					intensity = 25;
-					backlight.intensity = intensity;
-					getSettings();
-				}
-				else if(intensity == 25){
-					intensity = 100;
-					backlight.intensity = intensity;
-					getSettings();
-				}
+		function backlightCallback(params){
+			info.innerHTML = "Brightness: " + params['intensity'];
+		}
+
+		function changeIntensity(){
+			if(intensity == 100){
+				intensity = 75;
+				backlight.intensity = intensity;
+				getSettings();
 			}
-
-			function getSettings(){
-				backlight.getBacklightSettings();
+			else if(intensity == 75){
+				intensity = 50;
+				backlight.intensity = intensity;
+				getSettings();
 			}
+			else if(intensity == 50){
+				intensity = 25;
+				backlight.intensity = intensity;
+				getSettings();
+			}
+			else if(intensity == 25){
+				intensity = 100;
+				backlight.intensity = intensity;
+				getSettings();
+			}
+		}
 
-			</script>
-		</head>
-		<h1>Backlight API</h1>
-		<div id='info'>
+		function getSettings(){
+			backlight.getBacklightSettings();
+		}
+
+		</script>
+	</head>
+	<h1>Backlight API</h1>
+	<div id='info'>
+	</div>
+	<body>
+		<div>
+			<button onclick='toggleBacklight()'>Toggle Backlight</button>
+			</br>
+			</br>
+			<button onclick='getSettings()'>Get Backlight Intensity</button>
+			</br>
+			</br>
+			<p>Note: If your device is set to automatically set the brightness, you will not be able to change the intensity through this API.</p>
+			</br>
+			<button onclick='changeIntensity()'>Change Intensity</button>
 		</div>
-		<body>
-			<div>
-				<button onclick='toggleBacklight()'>Toggle Backlight</button>
-				</br>
-				</br>
-				<button onclick='getSettings()'>Get Backlight Intensity</button>
-				</br>
-				</br>
-				<p>Note: If your device is set to automatically set the brightness, you will not be able to change the intensity through this API.</p>
-				</br>
-				<button onclick='changeIntensity()'>Change Intensity</button>
-			</div>
-		</body>
-	</html>
+	</body>
 
 ## Remarks
 ### Multi Instance

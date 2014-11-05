@@ -56,7 +56,7 @@ Using the FTP protocol:
    	{
       fileTransfer.source = "url('http://myserver/myfile.txt')";
       fileTransfer.destination = "url('file://\\myfile.txt')";
-      fileTransfer.transferEvent = url("JavaScript:handleResult('%json');");
+      fileTransfer.transferEvent = "url('JavaScript:handleResult(%json);')";
   	
       fileTransfer.transfer();     
    	}
