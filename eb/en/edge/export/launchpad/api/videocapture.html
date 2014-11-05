@@ -21,7 +21,7 @@
 <p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
 
 <pre name="code" class="javascript">videoCapture.duration = '60000';
-videocapture.videoSaveEvent = url("JavaScript:videoSaveHandler('%json');");
+videocapture.videoSaveEvent = "url('JavaScript:videoSaveHandler(%json);')";
 videoCapture.start();
 </pre>
 
@@ -42,7 +42,7 @@ videoCapture.start();
 
 <h4>Usage</h4>
 
-<pre name="code" class="javascript">videocapture.videoSaveEvent = url("JavaScript:videoSaveHandler('%json');");
+<pre name="code" class="javascript">videocapture.videoSaveEvent = "url('JavaScript:videoSaveHandler(%json);')";
 videocapture.start();
 
 function videoSaveHandler(params){

@@ -175,6 +175,63 @@
 </ul>
 
 
+<h2>Examples</h2>
+
+<h3>Using the Back Button</h3>
+
+<p>In this example, you will see how to enable the back button as well as set many of its properties. This example assumes that the elements and ebapi-modules.js files reside in the same file as the html file invoking them.</p>
+
+<blockquote><p>Note: The ebapi-modiles.js library here is only included because it is needed for the System API.</p></blockquote>
+
+<pre name="code" class="html">&lt;head&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+    &lt;title&gt;Back Button Example&lt;/title&gt;
+
+    &lt;script&gt;
+    var visibility   = false;
+    var screenWidth  = EB.System.realScreenWidth;
+    var screenHeight = EB.System.realScreenHeight;
+
+    function toggleBackButton(){
+        print.innerHTML = visibility
+        if(visibility){
+            backButton.visibility = 'hidden';
+            visibility = false;
+        }
+        else{
+            showButton();
+            visibility = true;
+        }
+    }
+
+    function showButton(){
+        backButton.width = 50;
+        backButton.height = 50;
+        // When aligning the icon with the right side, we need to account for the icon width.
+        backButton.left = screenWidth - 50;
+        // When aligning the icon with the bottom, we need to account for the icon height.
+        backButton.top = screenHeight - 50;
+        backButton.visibility = 'visible';
+    }
+
+    function hideBackButton(){
+        backButton.visibility = 'hidden';
+    }
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body onunload='hideBackButton()'&gt;
+    &lt;h1&gt;BackButton API Example&lt;/h1&gt;
+    &lt;/br&gt;
+    &lt;/br&gt;
+    &lt;div&gt;
+        &lt;button onclick="toggleBackButton()"&gt;Toggle Back Button&lt;/button&gt;&lt;/br&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</pre>
+
 <h2>Remarks</h2>
 
 <h3>Use of Images on Buttons.</h3>

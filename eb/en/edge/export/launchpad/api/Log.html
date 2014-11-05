@@ -741,7 +741,7 @@ cleanLogFile: removes all logged messages</p>
 
 <h4>Description</h4>
 
-<p>Turn on local http server traces. Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of remote server app (and / or shared runtime). Default value can be overridden by the setting in Config.xml</p>
+<p>Turn on remote network traces regardless of log level set (e.g. Network, asyncHttp). Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of local server app. Default value can be overridden by the setting in Config.xml. To get local server trace, use <code>Rho.Log.LEVEL_TRACE</code>.</p>
 
 <h4>Params</h4>
 

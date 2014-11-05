@@ -41,7 +41,7 @@
 
 // this function does not have callback return parameters
 // if it did, we would use the %json notation
-alarm.alarmTriggered = "doFunction(%json)";
+alarm.alarmTriggered = "url('JavaScript:doFunction(%json);')";
 </pre>
 
 <h2>Methods</h2>
@@ -165,3 +165,65 @@ This alarm will fire at 8:30am (local time) on 27th July 2012</p>
 <li>Timezone: -5 (Eastern Time, 8:30am local time)</li>
 </ul>
 </blockquote>
+
+<h2>Example</h2>
+
+<h3>Set an Alarm</h3>
+
+<p>In this example, we will show you how to set an alarm that will go off in 30 sec. You can set the time for any HH-MM-SS seconds you wish but with this you&rsquo;ll be able to see the results quickly. Since this API is originally from RhoElements version 2.2, we must include the elements.js library from the BackwardCompatibility directory. This example assumes that the elements.js file is in the same directory as the html invoking it.</p>
+
+<blockquote><p>Note: 30 seconds is the lower limit for the alarm interval.</p></blockquote>
+
+<pre name="code" class="html">&lt;head&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;
+
+    &lt;title&gt;Alarm API Test&lt;/title&gt;
+
+    &lt;script&gt;
+    function setAlarm(){
+        alarm.interval = "00-00-30";
+        alarm.repeat = false;
+        alarm.alarmTriggered = "alert('ALARM!!')";
+        alarm.set();
+        timerOut.innerHTML = "Alarm set!!";
+        countdown();
+    }
+
+    function countdown(){
+        var count = 29;
+        myCD = setInterval(function(){
+            timerOut.innerHTML = "Time to Alarm Fire: " + count;
+            --count;
+            if(count &lt; 0){
+                clearInterval(myCD);
+                timerOut.innerHTML = "";
+            }
+        }, 1000);
+    }
+
+    function clearAlarm(){
+        clearInterval(myCD);
+        timerOut.innerHTML = "";
+        alarm.clear();
+        alert("Alarm Cleared");
+    }
+
+    function clearDiv(){
+        timerOut.innerHTML = "";
+    }
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Alarm API Test&lt;/h1&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+    &lt;div id="timerOut"&gt;&lt;/div&gt;
+    &lt;br/&gt;
+    &lt;br/&gt;
+    &lt;h3&gt;Methods&lt;/h3&gt;
+    &lt;button onclick="setAlarm()"&gt;Set Alarm&lt;/button&gt;&lt;/br&gt;
+    &lt;button onclick="clearAlarm()"&gt;Clear Alarm&lt;/button&gt;&lt;/br&gt;
+    &lt;button onclick="clearDiv()"&gt;Clear Output&lt;/button&gt;&lt;/br&gt;
+&lt;/body&gt;
+</pre>

@@ -40,7 +40,7 @@
 
 <h4>Usage</h4>
 
-<pre name="code" class="javascript">imager.imagerEvent = url("JavaScript:imageSaveHandler('%json');");
+<pre name="code" class="javascript">imager.imagerEvent = "url('JavaScript:imageSaveHandler(%json);')";
 imager.capture();
 
 function imageSaveHandler(params){
@@ -61,7 +61,7 @@ function imageSaveHandler(params){
 
 <h4>Usage</h4>
 
-<pre name="code" class="javascript">imager.imagerCaptureEvent = url("JavaScript:imageUriHandler('%json');");
+<pre name="code" class="javascript">imager.imagerCaptureEvent = "url('JavaScript:imageUriHandler(%json);')";
 imager.capture();
 
 function imageUriHandler(params){
@@ -98,7 +98,7 @@ function imageUriHandler(params){
 
 <h4>Usage</h4>
 
-<pre name="code" class="javascript">imager.imagerEnumEvent = url("JavaScript:imageEnumHandler('%json');");
+<pre name="code" class="javascript">imager.imagerEnumEvent = "url('JavaScript:imageEnumHandler(%json);')";
 imager.enumerate();
 
 function imageEnumHandler(params)

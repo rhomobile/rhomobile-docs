@@ -173,8 +173,8 @@ When multiple Enterprise Browser applications are running the following consider
 ### Device Limits
 The levels of supported screen backlight intensity are device dependent. You can determine the levels on your device using the backlightSettingsEvent and getBacklightSettings method.
 
-### ‘Auto’ and ‘Manual’ Backlight Intensity
-Windows Mobile 6.5 Devices with a light sensor, such as the ES400 will support two modes for the Backlight: Auto Mode (default) where the light sensor input affects the backlight intensity and Manual Mode where the user sets the backlight manually. In order to use the Intensity setting in Enterprise Browser, the device must be put into Manual Mode, most easily achieved via the ‘Backlight & Keylight’ applet accessed via Start->Settings->System.
+### 'Auto' and 'Manual' Backlight Intensity
+Windows Mobile 6.5 Devices with a light sensor, such as the ES400 will support two modes for the Backlight: Auto Mode (default) where the light sensor input affects the backlight intensity and Manual Mode where the user sets the backlight manually. In order to use the Intensity setting in Enterprise Browser, the device must be put into Manual Mode, most easily achieved via the 'Backlight & Keylight' applet accessed via Start->Settings->System.
 
 ### Android
-Unlike all other devices, changes made to the backlight intensity are made only to Enterprise Browser. Switching native applications or quitting Enterprise Browser will revert the backlight intensity to the system’s default level until Enterprise Browser is resumed. Also the method `on` does not work as the backlight settings are application specific, please use the [Wake API](../api/Wake) to keep the screen on.
+Unlike all other devices, changes made to the backlight intensity are made only to Enterprise Browser. Switching native applications or quitting Enterprise Browser will revert the backlight intensity to the system's default level until Enterprise Browser is resumed. Also the method `on` does not work as the backlight settings are application specific, please use the [Wake API](../api/Wake) to keep the screen on.
