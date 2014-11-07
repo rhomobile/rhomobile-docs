@@ -17,7 +17,7 @@ In order to use this API you must include reference to the following JavaScript 
 This API does not use the `EB` namespace. It is simply referenced using the API name:
 
 	:::javascript
-	powerOn.powerOnEvent = 'doFunction(%json)';
+	powerOn.powerOnEvent = "url('JavaScript:powerOnCallback(%json)';)";
 
 ## Events
 To handle events, you assign a string value to the event name that represents a function name or JavaScript statement to execute.
