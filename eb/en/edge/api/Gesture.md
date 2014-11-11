@@ -91,13 +91,12 @@ This event will be triggered each time an gesture event is detected for created 
 	:::javascript
 	gesture.type = 'Shake';
 	gesture.id = "Device_Shake"
-		gesture.detected = "url('JavaScript:handleGesture(%json);')";
-		gesture.create();
-	
+	gesture.detected = "url('JavaScript:handleGesture(%json);')";
+	gesture.create();
+
 	function handleGesture(params){
 		alert('Received the following gesture' + params['id']);
 	}
-
 
 ## Methods
 ### create()
