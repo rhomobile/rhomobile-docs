@@ -1,179 +1,401 @@
-# Push
+#Push
+
+
 ## Overview
-The Push Module is used to receive data over an HTTP connection.
-
+The Push API provides access to Push messaging functionality. Use this API to give your application the ability to receive server initiated messages.
 ## Enabling the API
-In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
+There are two methods of enabling the Push API: 
 
-* elements.js 
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
-> Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
-	:::html
-    <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
 
-### API Usage
-This API does not use the `EB` namespace. It is simply referenced using the API name:
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-	:::javascript
-	push.port = '8081';
-	push.detected = "url('JavaScript:pushDetected(%json);')";
-	push.start;
+> Note: that the pathing for this file is relative to the current page.
 
-## Requirements
-* Enterprise Browser Version - 1.0+
-* Supported Devices - Symbol enterprise Android, Windows Mobile, and Windows CE devices.
-* Minimum HW requirements - None.
-* Persistence - Persistent, i.e. changes to this module will persist when navigating to a new page.
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
 
-## Events
-Values are returned to the caller in the Enterprise Browser via Events. Most modules contain events and those returned from this module are given below along with the event parameters. Events can cause a navigation to a new URL or invoke a JavaScript function on the page. Each event will in most cases have a number of parameters associated with it which will either be strings or JavaScript arrays. Event parameters can be accessed either directly or via JSON objects.
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Push API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
 
-### detected
-One value is returned for each name=value pair in the HTTP request, you access this in JSON using the names you provided in the request. An example is provided in the examples section below.
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.push.js"></script>
 
-#### Callback Parameters
-* jsonObject
+The ebapi.js file is necessary for all single API inclusions.
 
-## Methods
-### start()
-Starts the push server. Must be after the &lt;port&gt; tag.
+        
 
-#### Returns
+
+##Methods
+
+
+
+### enumerate()
+Returns the push API objects configured within the application.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul></ul>
+
+####Returns
+Synchronous Return:
+
+* ARRAY : Array of available push engines.<ul><li><i>Object</i> : <span class='text-info'>SELF_INSTANCE: Push</span><p> </p></li></ul>
+
+####Platforms
+
+* Android
+* Windows Mobile
+* Windows CE
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Push.enumerate()</code> 
+
+
+### getAllProperties()
+This method will return all of object/value pairs for the propertyNames of the API class.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
+
+####Returns
+Synchronous Return:
+
+* HASH : Map of all available properties<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+
+####Platforms
+
+* Android
+* Windows Mobile
+* Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getAllProperties()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getAllProperties()</code> 
+
+
+### getDefault()
+This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul>
+
+####Returns
+Synchronous Return:
+
+* SELF_INSTANCE : Default object of Module.
+
+####Platforms
+
+* Android
+* Windows Mobile
+* Windows CE
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Push.getDefault()</code> 
+
+
+### getDeviceId()
+Returns push token used to identify particular device.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
+
+####Returns
+Synchronous Return:
+
+* STRING
+
+####Platforms
+
+* Android
+* Windows Mobile
+* Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getDeviceId()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getDeviceId()</code> 
+
+
+### getProperties(<span class="text-info">ARRAY</span> arrayofNames)
+This method will return a set of object/value pairs for the list of the propertyName that is passed in. The propertyNames must be a valid property of the API class.
+
+####Parameters
+<ul><li>arrayofNames : <span class='text-info'>ARRAY</span><p>List of properties I want to know about </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul></ul>
+
+####Returns
+Synchronous Return:
+
+* HASH : Map of properties I want to know about<ul><li> : <span class='text-info'>STRING</span><p> </p></li></ul>
+
+####Platforms
+
+* Android
+* Windows Mobile
+* Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getProperties(<span class="text-info">ARRAY</span> arrayofNames)</code> 
+
+
+### getProperty(<span class="text-info">STRING</span> propertyName)
+This method will return the value of the propertyName that is passed in. The propertyName must be a valid property of the API class.
+
+####Parameters
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The property to return info about. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul>
+
+####Returns
+Synchronous Return:
+
+* STRING : The property to return info about.
+
+####Platforms
+
+* Android
+* Windows Mobile
+* Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.getProperty(<span class="text-info">STRING</span> propertyName)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.getProperty(<span class="text-info">STRING</span> propertyName)</code> 
+
+
+### setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)
+This method allows you to set the attributes of the default object instance by passing in an object of the same class.
+
+####Parameters
+<ul><li>defaultInstance : <span class='text-info'>SELF_INSTANCE: EB.Push</span><p>An instance object that is of the same class. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
 * Void
 
-#### Platforms
+####Platforms
+
+* Android
 * Windows Mobile
 * Windows CE
-* Android
 
-### stop()
-Stops the push server.
+####Method Access:
 
-#### Returns
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Push.setDefault(<span class="text-info">SELF_INSTANCE: EB.Push</span> defaultInstance)</code> 
+
+
+### setProperties(<span class="text-info">HASH</span> propertyMap)
+This method will set the values of a list of properties for the API class. The propertyName must be a valid property for the class and must also not be read only.
+
+####Parameters
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Map of properties I want to set </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
 * Void
 
-#### Platforms
+####Platforms
+
+* Android
 * Windows Mobile
 * Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.setProperties(<span class="text-info">HASH</span> propertyMap)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.setProperties(<span class="text-info">HASH</span> propertyMap)</code> 
+
+
+### setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)
+This method will set the value of a property for the API class. The propertyName must be a valid property for the class and must also not be read only.
+
+####Parameters
+<ul><li>propertyName : <span class='text-info'>STRING</span><p>The one property name that I want to set </p></li><li>propertyValue : <span class='text-info'>STRING</span><p>The one property value that I want to set </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
 * Android
-
-## Parameters
-Items listed in this section indicate parameters, or attributes which can be set.
-
-### port
-Port number to listen on.
-
-#### Possible Values
-
-#### Default Value
-
-#### Platforms
 * Windows Mobile
 * Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> 
+
+
+### startNotifications()
+Start listening for push messages, errors or other push related events.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>doSync : <span class='text-info'>STRING</span><p>List of sources to sync separated by comma or 'all'. </p></li><li>alertText : <span class='text-info'>STRING</span><p>Alert message to show to user. </p></li><li>vibrateDuration : <span class='text-info'>INTEGER</span><p>Vibrate duration in milliseconds. </p></li><li>alertSound : <span class='text-info'>STRING</span><p>Path to sound file to play when push message is received. </p></li></ul></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
 * Android
-
-### passKey
-If specified then the client must include passkey=value in the passed parameters. Case sensitive.
-
-#### Possible Values
-Any String
-
-#### Default Value
-Empty (no passkey required)
-
-#### Platforms
 * Windows Mobile
 * Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.startNotifications()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.startNotifications()</code> 
+
+
+### stopNotifications()
+Stop listening push events.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
 * Android
-
-### response
-Name of the HTML file to return to the client after a successful request.
-
-#### Possible Values
-Filename
-
-#### Default Value
-Empty (a short default HTML response is sent)
-
-#### Platforms
 * Windows Mobile
 * Windows CE
+
+####Method Access:
+
+* Instance Method: This method can be accessed via an instance object of this class: 
+	* <code>myObject.stopNotifications()</code>
+* Default Instance: This method can be accessed via the default instance object of this class. 
+	* <code>EB.Push.stopNotifications()</code> 
+
+
+##Properties
+
+
+
+###pushAppName
+
+####Type
+<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+####Description
+Application name used by RhoConnect Push server to identify application.
+####Access
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.pushAppName</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Push.pushAppName</code> 
+
+
+
+####Platforms
+
 * Android
-
-### path
-The client must include this in the HTTP request (after the address and before the parameters). The forward slash '/' should be used as the directory delimiter.
-
-#### Possible Values
-Virtual path
-
-#### Default Value
-Empty (any path is accepted)
-
-#### Platforms
 * Windows Mobile
 * Windows CE
+
+###pushServer
+
+####Type
+<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+####Description
+URL of RhoConnect Push server.
+####Access
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.pushServer</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Push.pushServer</code> 
+
+
+
+####Platforms
+
 * Android
-
-### unattended
-Enables or disables unattended mode - see Remarks for details.
-
-#### Possible Values
-enabled or disabled
-
-#### Default Value
-disabled
-
-#### Platforms
 * Windows Mobile
 * Windows CE
+
+###type
+
+####Type
+<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+####Description
+Push engine type.
+####Values
+
+<strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
+ 
+* Constant: EB.Push.PUSH_TYPE_RHOCONNECT - String: rhoconnect-push RhoConnect push engine.
+* Constant: EB.Push.PUSH_TYPE_NATIVE - String: native-push Native push engine (like GCM on Android).
+####Access
+
+
+* Instance: This property can be accessed via an instance object of this class: <code>myObject.type</code>
+* Default Instance: This property can be accessed via the default instance object of this class. 
+	* <code>EB.Push.type</code> 
+
+
+
+####Platforms
+
 * Android
-
-## Remarks
-### HTTP request format
-The push server accepts both GET and POST requests. For GET requests the parameters and values are specified in the URL, while for POST requests the request body should hold the parameters and values in url encoded form. The virtual path in the URL must be as specified by the &lt;path&gt; tag, or can be anything if the tag isn't present. The parameters must include 'passkey' with the correct value if the &lt;passkey&gt; tag is present.
-
-### Accessing Returned values via %s / %[number]
-When a valid request is received the specified destination URL is called with one '%s' per parameter/value pair in the request. Only the values are returned; the parameter names are discarded. The 'passkey' parameter and value are ignored if present. Parameter names are only applicable if you are accessing your return values via JSON.
-
-### Allowed characters
-Only alphanumeric characters and the characters $-_.!*'(), are allowed in a URL (see RFC 1738). Any other characters will cause undefined behaviour. Ensure that the passkey uses only valid characters.
-
-### Unattended mode
-Normally when a device enters suspend mode, either because it has been idle for a certain time or because the power key was pressed, all the device subsystems are switched off, including the wireless network. When unattended mode is enabled however the device keeps enough subsystems powered that applications continue to run, and it can still respond to Push requests. Note that unattended mode uses significantly more battery power.
-
-### Windows Mobile / CE Backwards compatibility
-In version 2.2 of RhoElements for WM / CE the default push port was changed from '80' to '8081' to match RhoElements for Android. Applications developed for RhoElements 2.1 and previous which rely on the default port number being 80 should add the default meta tag &lt;MetaTag VALUE="Push~port:80"&gt; to their configuration.
-
-## HTML/JavaScript Examples
-The code below configures the server to listen on port 8081, to accept only requests to the virtual path \push and to require a passkey of 'secret'. Assuming the device has IP address 1.2.3.4 then browsing to the following URL will cause the JavaScript function onPush() to be called with the parameters 'hello' and 'world': http://1.2.3.4:8081/push?name1=hello&amp;name2=world&amp;passkey=secret. The browser will receive the contents of the file \ok.html as response.
-
-	:::html
-	<META HTTP-Equiv="Push" Content="Port:8081">
-	<META HTTP-Equiv="Push" Content="Passkey:secret">
-	<META HTTP-Equiv="Push" Content="Path:/push">
-	<META HTTP-Equiv="Push" Content="Response:/ok.html">
-	<META HTTP-Equiv="Push-detected" Content="url('JavaScript:onPush('%s','%s');')">
-	<META HTTP-Equiv="Push" Content="Start">
-	      
-The following code shows a very simple push server which just responds by executing a JavaScript function, but does show how to process the push request in JSON. Similarly to the previous example the following URL has been browsed to: http://1.2.3.4:8081/push?name1=hello&amp;myname=world
-
-	:::html
-	<HEAD>
-	<META HTTP-Equiv="Push" Content="Port:1234">
-	<META HTTP-Equiv="Push-detected" Content="url('JavaScript:pushDetectJSON(%json);')">
-	<META HTTP-Equiv="Push" Content="Start">
-	<TITLE>Push Tests</TITLE>
-	  <script type="text/javascript">
-	  function pushDetectJSON(jsonObject)
-	  {
-	    //  The following will show an Alert box with 'hello - world'
-	    alert('Push Via JSON: ' + jsonObject.name1 + ' - ' + jsonObject.myname);
-	  }
-	  </script>
-	</HEAD>
-
-To enable unattended mode:
-
-	:::html
-	<META HTTP-Equiv="push" Content="unattended:enable">
+* Windows Mobile
+* Windows CE

@@ -38,7 +38,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 ### beep(<span class="text-info">HASH</span> propertyMap)
-If the device is equipped with a beeper then a beep will be emitted.
+If the device is equipped with a beeper then a beep will be emitted. Not supported on iOS devices.
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the beep. </p></li><ul><li>frequency : <span class='text-info'>Integer</span><span class='label '> Default: 2000</span><p>The frequency of the beep, in Hz. </p></li><li>volume : <span class='text-info'>Integer</span><span class='label '> Default: 1</span><p>A number between 0 and 3. 0 represents minimum volume and 3 is maximum volume, the decibels each volume level represents is device dependant. </p></li><li>duration : <span class='text-info'>Integer</span><span class='label '> Default: 1000</span><p>The duration of the beep, in milliseconds. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -105,7 +105,7 @@ Synchronous Return:
 
 
 ### showPopup(<span class="text-info">HASH</span> propertyMap)
-Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on one of the buttons in the `button` array.
+Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on one of the buttons in the `button` array. Icon is not supported on iOS devices.
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the popup. </p></li><ul><li>message : <span class='text-info'>String</span><span class='label '> Default: </span><p>Text displayed in the popup window. </p></li><li>title : <span class='text-info'>String</span><span class='label '> Default: </span><p>Title of the popup window. </p></li><li>icon : <span class='text-info'>String</span><span class='label '> Default: </span><p>Icon to be displayed in the popup window. path to an image, or :alert for ! icon, :question for ? icon, :info for information icon. On Windows Mobile/CE only predefined icons are supported. Platforms:
@@ -172,7 +172,7 @@ Synchronous Return:
 Vibrate the device's pager hardware. Need 'vibrate' capability set at build.yml for Android.
 
 ####Parameters
-<ul><li>duration : <span class='text-info'>Integer</span> <span class='label label-info'>Optional</span><span class='label '> Default: 1000</span><p>The duration of the vibration, in milliseconds. Note you may also need to add the vibration capability to your build.yml file. See remarks for maximum duration. Android and Windows devices have default vibration time 1000 ms. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>duration : <span class='text-info'>Integer</span> <span class='label label-info'>Optional</span><span class='label '> Default: 1000</span><p>The duration of the vibration, in milliseconds. Note you may also need to add the vibration capability to your build.yml file. See remarks for maximum duration. iOS devices have fixed system vibration time. It could not be changed. Android and Windows devices have default vibration time 1000 ms. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:

@@ -86,7 +86,7 @@ Synchronous Return:
 Play the audio file using the supplied filename. On WM/CE devices, the API supports only wav file format.
 
 ####Parameters
-<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the audio media to be played - absolute filepath. The formats supported depends on what support is built into the platform. Typically on WM/CE this will be wav and on Android mp3. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the audio media to be played - absolute filepath. On iOS when you post URL to remote server (except https), then we open a standard browser (another application) for playing it. On iOS we support: mp3, mp4, wav formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wav and on Android mp3. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -109,7 +109,7 @@ Synchronous Return:
 Play the media file using the supplied filename. On WM/CE devices, it launches a media player process to play the supplied filename.
 
 ####Parameters
-<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the video media to be played - full filepath. The formats supported depends on what support is built into the platform. Typically on WM/CE this will be wmv and on Android mp4. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the video media to be played - full filepath. On iOS when you post URL to remote server  (except https), then we open a standard browser (another application) for playing it. On iOS we support: mov, mp4, 3gp formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wmv and on Android mp4. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -129,7 +129,7 @@ Synchronous Return:
 
 
 ### stop()
-Stop playing the media file. 
+Stop playing the media file. Not applicable on iOS, because on iOS the special UI is opened for playback audio / video - user can stop / close player by UI.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -173,7 +173,7 @@ Synchronous Return:
 
 
 ### stopvideo()
-Stop the playback of a currently playing video file. 
+Stop the playback of a currently playing video file. Not applicable on iOS, because on iOS the special UI is opened for playback audio / video - user can stop / close player by UI.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>

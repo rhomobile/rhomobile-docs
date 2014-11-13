@@ -454,11 +454,11 @@ Synchronous Return:
 	* <code>EB.System.setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</code> 
 
 
-### setNetworkStatusNotify(<span class="text-info">STRING</span> url)
+### setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)
 Use Network.setStatusNotify: set network notification callback.
 
 ####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>IOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -473,7 +473,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url)</code> 
+	* <code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code> 
 
 
 ### setProperties(<span class="text-info">HASH</span> propertyMap)
@@ -639,6 +639,23 @@ Synchronous Return:
 	* <code>EB.System.setWindowSize(<span class="text-info">INTEGER</span> width, <span class="text-info">INTEGER</span> height)</code> 
 
 
+### set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)
+Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.
+
+####Parameters
+<ul><li>badgeNumber : <span class='text-info'>INTEGER</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.System.set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</code> 
+
+
 ### set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)
 Use System.httpProxyURI property: To use client with the HTTP proxy.
 
@@ -771,11 +788,11 @@ Synchronous Return:
 	* <code>EB.System.unset_http_proxy()</code> 
 
 
-### unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)
+### unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)
 Unzip file.
 
 ####Parameters
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>outputFileName : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Output file name. Used when decompressing gzip streams. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -790,7 +807,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)</code> 
+	* <code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code> 
 
 
 ### updateBlobAttribs(<span class="text-info">STRING</span> partition, <span class="text-info">INTEGER</span> sourceID)
@@ -861,6 +878,19 @@ Synchronous Return:
 
 ##Properties
 
+
+
+###applicationIconBadge
+
+####Type
+<span class='text-info'>INTEGER</span> 
+####Description
+Set the application icon to have this badge number. Set to 0 (zero) to remove badge.
+####Access
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.System.applicationIconBadge</code>
 
 
 ###country
@@ -1320,6 +1350,8 @@ Platform where application is running.
  
 * Constant: EB.System.PLATFORM_WM_CE - String: WINDOWS 
 * Constant: EB.System.PLATFORM_ANDROID - String: ANDROID 
+* Constant: EB.System.PLATFORM_IOS - String: APPLE 
+* Constant: EB.System.PLATFORM_WP8 - String: WP8 
 * Constant: EB.System.PLATFORM_WINDOWS_DESKTOP - String: WINDOWS_DESKTOP 
 ####Access
 
@@ -1333,7 +1365,6 @@ Platform where application is running.
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ###ppiX
 

@@ -29,9 +29,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.battery.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
-## Persistence
-With the old PocketBrowser APIs, any events, such as `batteryEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 
@@ -39,11 +36,36 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
 
 
 
+### batteryDiagnostics()
+The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul></ul>
+
+####Returns
+Synchronous Return:
+
+* HASH<ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul>
+
+####Platforms
+
+* Windows Mobile
+* Symbol Devices Only
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Battery.batteryDiagnostics()</code> 
+
+
 ### batteryStatus(<span class="text-info">HASH</span> propertyMap)
 Retrieve the current battery level. If a callback is provided to retrieve the battery then it will be called periodically at a frequency determined by the trigger property.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with accessing the battery status. </p></li><ul><li>trigger : <span class='text-info'>STRING</span><span class='label '> Default: Platform Dependant</span><p>What will cause the batteryStatus callback to fire. It is recommended to use system events to conserve battery life. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Battery.BATTERY_TRIGGER_PERIODIC <br/> String:periodic</dt><dd>The batteryStatus callback will fire periodically at the specified refresh interval. This is the default setting on Windows Mobile / CE / Embedded but those platforms do also support the system trigger. Not supported on Android.</dd><dt>Constant: Battery.BATTERY_TRIGGER_SYSTEM <br/> String:system</dt><dd>The batteryStatus callback will fire when the underlying operating system notifies that there has been a change to the battery level. The resolution of this change will vary depending on operating system, for example on Windows Mobile the notifications only occur when 'critical', 'full' etc.</dd></dl></li><li>refreshInterval : <span class='text-info'>INTEGER</span><p>Alternative way of specifying the refreshInterval parameter. If you are using a system trigger then this parameter will be ignored. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with accessing the battery status. </p></li><ul><li>trigger : <span class='text-info'>STRING</span><span class='label '> Default: Platform Dependant</span><p>What will cause the batteryStatus callback to fire. It is recommended to use system events to conserve battery life. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Battery.BATTERY_TRIGGER_PERIODIC <br/> String:periodic</dt><dd>The batteryStatus callback will fire periodically at the specified refresh interval. This is the default setting on Windows Mobile / CE / Embedded but those platforms do also support the system trigger. Not supported on Android.</dd><dt>Constant: EB.Battery.BATTERY_TRIGGER_SYSTEM <br/> String:system</dt><dd>The batteryStatus callback will fire when the underlying operating system notifies that there has been a change to the battery level. The resolution of this change will vary depending on operating system, for example on Windows Mobile the notifications only occur when 'critical', 'full' etc.</dd></dl></li><li>refreshInterval : <span class='text-info'>INTEGER</span><p>Alternative way of specifying the refreshInterval parameter. If you are using a system trigger then this parameter will be ignored. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>acLineStatus : <span class='text-info'>BOOLEAN</span><p>Whether or not the device is connected to external power. </p></li><li>batteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining battery power as a value between 0 and 100. </p></li><li>backupBatteryLifePercent : <span class='text-info'>INTEGER</span><p>The remaining backup battery power as a percentage between 0 and 100. Only supported on Symbol Technologies Windows Mobile / CE / Embedded devices. Platforms:
@@ -173,6 +195,24 @@ Synchronous Return:
 
 
 
+###averageCurrentConsumption
+
+####Type
+<span class='text-info'>INTEGER</span> 
+####Description
+Only supported by the MC18 device.  Sets an average current consumption in mA that is used in subsequent power related calculations. If set to 0, the value will be provided by the device driver based on the running average.
+####Access
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Battery.averageCurrentConsumption</code>
+
+
+
+####Platforms
+
+* Windows Mobile
+
 ###refreshInterval
 
 ####Type
@@ -193,6 +233,24 @@ A callback to retrieve the battery strength can be specified to occur periodical
 
 * Windows Mobile
 * Windows CE
+
+###tripDuration
+
+####Type
+<span class='text-info'>INTEGER</span> 
+####Description
+Only supported by the MC18 device.  Sets the desired working time (in minutes) out of the cradle, which is used in subsequent power related calculations. If set to 0, the driver default value of 45 minutes will be used.
+####Access
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.Battery.tripDuration</code>
+
+
+
+####Platforms
+
+* Windows Mobile
 
 ##Remarks
 
@@ -222,69 +280,3 @@ The position of the signal and battery indicators should not be set to overlap.
 
 ###Screen Orientation
 The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.
-
-##Examples
-
-
-
-###Show battery icon
-This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing. This example assumes that the ebapi-modules.js file is in the same folder as the html file invoking it.
-<pre><code>:::javascript
-&lt;head&gt;
-    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
-
-    &lt;title&gt;Battery API Test&lt;/title&gt;
-
-    &lt;script&gt;
-        function showBatteryIcon(){
-            EB.Battery.showIcon(defineIconProperties(), batteryCallback);
-            EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
-            // The batteryStatus() is used to tell the icon when to refresh. 
-            // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
-        }
-
-        function hideBatteryIcon(){
-            EB.Battery.hideIcon();
-            EB.Battery.stopBatteryStatus();
-        }
-
-        function batteryCallback(params){
-            if(params){     // Most of these methods have callbacks but null 'params' sent.
-                console.log(params);
-            }
-            else
-                console.log("No Params");
-        }
-
-        function defineIconProperties(){
-            var props = {
-                color:  "#66CD00",
-                layout: EB.Battery.BATTERY_LAYOUT_UP,
-                top:        0,                                                      // Top of screen
-                left:   EB.System.screenWidth - 25      // Far right of screen, accounting for actual viewable area.
-            }
-            return props;
-        }
-
-        function adjustIcon(){
-            EB.Battery.hideIcon();
-            EB.Battery.showIcon(defineIconProperties(), batteryCallback);
-        }
-
-        // If the screen orientation changes, adjust the battery Icon.
-        EB.ScreenOrientation.setScreenOrientationEvent(adjustIcon);
-    &lt;/script&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-    &lt;h1&gt;Battery API Test&lt;/h1&gt;
-    &lt;div id="display"&gt;
-    &lt;/div&gt;
-    &lt;br/&gt;
-    &lt;br/&gt;
-    &lt;button onclick="showBatteryIcon()"&gt;Show Battery Status Icon&lt;/button&gt;&lt;br/&gt;
-    &lt;button onclick="hideBatteryIcon()"&gt;Hide Battery Status Icon&lt;/button&gt;
-&lt;/body&gt;
-                                
-                            
-</code></pre>

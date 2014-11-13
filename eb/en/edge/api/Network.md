@@ -201,6 +201,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -226,6 +227,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -251,6 +253,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -284,11 +287,11 @@ Synchronous Return:
 	* <code>EB.Network.post(<span class="text-info">HASH</span> propertyMap)</code> 
 
 
-### startStatusNotify()
+### startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)
 Start network status notifications. Notifications are sent when WiFi or Cell network appear/disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.
 
 ####Parameters
-<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>pollInterval : <span class='text-info'>INTEGER</span><span class='label '> Default: 20</span><p>The network status polling period for systems that can not notify network status change immediately. In seconds. Currently applies to iOS only as immediate status notification is not available on this platform. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>current_status : <span class='text-info'>STRING</span><p>Current status of network connection. Can be "connected" or "disconnected". </p></li><li>prev_status : <span class='text-info'>STRING</span><p>Previous status of network connection. Can be "connected", "disconnected" or "unknown"." </p></li></ul></ul>
@@ -306,7 +309,7 @@ Synchronous Return:
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Network.startStatusNotify()</code> 
+	* <code>EB.Network.startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)</code> 
 
 
 ### stopDetectingConnection()

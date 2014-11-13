@@ -2,7 +2,7 @@
 
 
 ## Overview
- Use this API to control the behavior of the log as well as access it.
+ Use this API to control the behavior of the RhoMobile Log API as well as access it.
           This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.
 
 Accessing Log File:
@@ -24,7 +24,7 @@ Log destinations (any combinations of them):
 * debug console (stdio), 
 * device filesystem (file)
 * remote sever (url)
-        
+
 ## Enabling the API
 There are two methods of enabling the Log API: 
 
@@ -284,7 +284,7 @@ List of log destinations that are being used. Destination could be set to empty 
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Log.DEST_FILE - String: file Log is written to a local file on the device (typically Log.txt)
+* Constant: EB.Log.DEST_FILE - String: file Log is written to a local file on the device (typically rholog.txt)
 * Constant: EB.Log.DEST_OUTPUT - String: stdio Log is written to the standard output (ex: Android ADB)
 * Constant: EB.Log.DEST_URI - String: uri Log is written to a remote logger.
 ####Access
@@ -306,7 +306,7 @@ List of log destinations that are being used. Destination could be set to empty 
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Log server URI where log will be posted by using EB.Log.sendLogFile or from the log view. Log server source code is open and available at http://github.com/rhomobile/rhologs, so you can deploy your own logserver. URI format: 'http://host:port[/path][?log_name=appName]'. Default value is set in Config.xml in the LogURI setting under the Logger section.
+Log server URI where log will be posted by using EB.Log.sendLogFile or from the log view. Log server source code is open and available at http://github.com/rhomobile/rhologs, so you can deploy your own logserver. URI format: 'http://host:port[/path][?log_name=appName]'. Default value is set in Config.xml
 ####Access
 
 
@@ -366,7 +366,7 @@ Define exclude parameters log filter(for security reasons) - parameter names sep
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Path to the log file including file name. The path is relative to the platform specific application root or start if from '/' if you wish to store elsewhere ('/mnt/sdcard/myapp.log').  Default file path is Log.txt
+Path to the log file including file name. The path is relative to the platform specific application root or start if from '/' if you wish to store elsewhere ('/mnt/sdcard/myapp.log').  Default file path is Config.xml
 ####Access
 
 
@@ -481,7 +481,7 @@ Enables the logging of memory usage in the system; specifies the time interval i
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Turn on remote network traces regardless of log level set (e.g. Network, asyncHttp). Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of local server app. Default value can be overridden by the setting in Config.xml. To get local server trace, use `Rho.Log.LEVEL_TRACE`.
+Turn on local http server traces. Traces contain information about connection process, sent and received headers and data. Please note that this parameter will not take an effect in case of remote server app (and / or shared runtime). Default value can be overridden by the setting in Config.xml
 ####Params
 <p><strong>Default:</strong> false</p>
 ####Access

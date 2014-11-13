@@ -2,7 +2,7 @@
 
 
 ## Overview
-The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Symbol devices are supported and it is also possible to display a small indicator showing the available signal.  
+The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Symbol devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.
 ## Enabling the API
 There are two methods of enabling the SignalIndicators API: 
 
@@ -29,9 +29,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.signalindicators.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
-## Persistence
-With the old PocketBrowser APIs, any events, such as `signalEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 

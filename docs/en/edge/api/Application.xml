@@ -9,10 +9,10 @@ This API is part of the `coreapi` extension that is included automatically.
     :::ruby
     extensions: ["coreapi"]
 
-### JavaScript Usage
+## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
 
-### Ruby Usage
+## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
 </MORE_HELP>
         <MORE_HELP_EB>
@@ -117,7 +117,6 @@ The ebapi.js file is necessary for all single API inclusions.
                 </PARAM>
                 <DESC>Native Menu items.</DESC>
                 <PLATFORM>WM, CE, Android, Win32, WP8</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android, Win32</PLATFORM_EB>
             </PROPERTY>
             <PROPERTY name="defaultNativeMenu" type="ARRAY" readOnly="true" generateAPI="false">
                 <DESC>Native Menu items.</DESC>
@@ -125,7 +124,6 @@ The ebapi.js file is necessary for all single API inclusions.
                     <DESC>Same values as nativeMenu.</DESC>
                 </PARAM>
                 <PLATFORM>WM, CE, Android, Win32, WP8</PLATFORM>
-                <PLATFORM_EB>WM, CE, Android, Win32</PLATFORM_EB>
             </PROPERTY>
             <PROPERTY name="securityTokenNotPassed" type="BOOLEAN" readOnly="true">
                 <DESC>Indicates if the security token check was failed. Security token can be set in build.yml: security_token. Same security token should be passed as command line parameter '-security_token=token_value' to application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.</DESC>
@@ -239,12 +237,10 @@ The ebapi.js file is necessary for all single API inclusions.
                                     <DESC>Device screen was turned off when power button was pressed or due to idle timeout. Note: On iOS application is also deactivated (APP_EVENT_DEACTIVATED is fired). On Android the application is not deactivated.Not supported on Windows CE.</DESC>
                                     <DESC_EB>Device screen was turned off when power button was pressed or due to idle timeout. On Android the application is not deactivated.Not supported on Windows CE.</DESC_EB>
                                     <PLATFORM>Android, iOS, WM</PLATFORM>
-                                    <PLATFORM_EB>Android, WM</PLATFORM_EB>
                                 </VALUE>
                                 <VALUE constName="APP_EVENT_SCREEN_ON" value ="ScreenOn">
                                     <DESC>Device screen was turned on and unlocked.Not supported on Windows CE.</DESC>
                                     <PLATFORM>Android, iOS, WM</PLATFORM>
-                                    <PLATFORM_EB>Android, WM</PLATFORM_EB>
                                 </VALUE>
                                 <VALUE constName="APP_EVENT_SYNCUSERCHANGED" value ="SyncUserChanged" productException="eb">
                                     <DESC>Event when the current RhoConnect user has changed. This is available under Ruby Only.</DESC>
@@ -295,7 +291,6 @@ The ebapi.js file is necessary for all single API inclusions.
         </USER_OVERVIEW>
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>WM, CE, Win32, Android, iOS, WP8</PLATFORM>
-        <PLATFORM_EB>WM, CE, Win32, Android</PLATFORM_EB>
         <EXAMPLES>
             <!-- This example commented out because setLocale is not exposed in docs. -->
             <!-- <EXAMPLE title="Set the locale">
