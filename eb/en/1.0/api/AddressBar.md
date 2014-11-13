@@ -105,13 +105,14 @@ The address bar is not compatible with named anchors (page bookmarks) eg. <a nam
 ### Use in Production
 This API is designed for debugging your application only and should not be used in production
 
-## Example File
-The following file can be used to test all the APIs listed above.
+## Examples
+### Using the Address Bar
+In the following example you'll see how to show the address bar as well as manipulate its appearance. This example assumes that the elements.js and the ebapi-modules.js files reside in the same folder as the HTML file invoking them.
 
 	:::html
 	<head>
-		<script type="text/javascript" charset="utf-8" src="apis/BackwardCompatibility/elements.js"></script>
-		<script type="text/javascript" charset="utf-8" src="apis/EnterpriseBrowser/ebapi-modules.js"></script>
+		<script type="text/javascript" charset="utf-8" src="elements.js"></script>
+		<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
 		<script>
 			function onLoad(){
@@ -155,7 +156,7 @@ The following file can be used to test all the APIs listed above.
 
 	<!-- Changing the body color to see that the BG of the address bar is white -->
 	<body onload="onLoad()" bgcolor="#C8C8C8">
-		<br/> <!-- Add break at the top of the screen to account for addressBar -->
+		<br/>
 		<h3>Toggle the Address Bar</h3>
 		<button onclick="toggleAddressBar()">Toggle address bar</button>
 

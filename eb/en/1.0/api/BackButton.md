@@ -117,6 +117,22 @@ Sets the image to be displayed when the button is in the down state. See Remarks
 * Android
 * Windows Mobile/CE
 
+## Remarks
+### Use of Images on Buttons.
+Images can be specified as local to the device or on an HTTP / FTP server, just specify the required protocol as part of your URL (ex: file://\, HTTP:// ). Image will be scaled to the size of the button. JPEG and GIF images are only supported on WM devices. Both CE and WM support BMP files.
+
+### Default Positions
+By default this control will be placed a the top of the screen. On Windows Mobile if the ‘FullScreen’ configuration setting is disabled the control will need to be moved, otherwise it will appear beneath the task bar.
+
+### Switching to Other Applications
+All controls are designed to be shown on top of Enterprise Browser. If you require to switch to an application other than Enterprise Browser you should minimize Enterprise Browser to ensure the buttons do not remain shown. (Not applicable to Android)
+
+### Screen Orientation
+When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
+
+### Use in Production
+This API is designed for debugging your application only and should not be used in production
+
 ## Examples
 ### Using the Back Button
 In this example, you will see how to enable the back button as well as set many of its properties. This example assumes that the elements and ebapi-modules.js files reside in the same file as the html file invoking them.
@@ -171,19 +187,3 @@ In this example, you will see how to enable the back button as well as set many 
 			<button onclick="toggleBackButton()">Toggle Back Button</button></br>
 		</div>
 	</body>
-
-## Remarks
-### Use of Images on Buttons.
-Images can be specified as local to the device or on an HTTP / FTP server, just specify the required protocol as part of your URL (ex: file://\, HTTP:// ). Image will be scaled to the size of the button. JPEG and GIF images are only supported on WM devices. Both CE and WM support BMP files.
-
-### Default Positions
-By default this control will be placed a the top of the screen. On Windows Mobile if the ‘FullScreen’ configuration setting is disabled the control will need to be moved, otherwise it will appear beneath the task bar.
-
-### Switching to Other Applications
-All controls are designed to be shown on top of Enterprise Browser. If you require to switch to an application other than Enterprise Browser you should minimize Enterprise Browser to ensure the buttons do not remain shown. (Not applicable to Android)
-
-### Screen Orientation
-When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
-
-### Use in Production
-This API is designed for debugging your application only and should not be used in production

@@ -621,6 +621,22 @@ Shake Gestures: Time (in milliseconds) that the device must be still before anot
 * Android
 * Windows Mobile
 
+## Remarks
+### Maximum Gesture Size
+There is no formal maximum size for a gesture, for example a circle gesture could require the user to move several times round the circle. However if the user draws such a gesture very slowly it’s possible that too many stylus move points could be generated, and the gesture wouldn't be detected. The Gesture API has been tested with a circle gesture from 0 to 720 degrees and taking approximately 6 seconds to draw without problem.
+
+### Finger Scrolling
+Gestures are not compatible with when the rendering engine has finger scrolling capabilities enabled.
+
+### Common Pitfalls
+Do not use alert boxes within the Gesture-Detected Callback, doing so will steal focus from the gesture region.
+
+### Out-of-range Values
+Any parameter values out of the allowed range will be limited to the nearest allowed value. E.g. giving a sensitivity greater than 100 will use 100. Numeric parameters given as text will be treated as zero.
+
+### Diagnostics
+Note that diagnostics exist only for the purpose of understanding and evaluating the various parameters. They should not be enabled in the release version of the code. They may also not display correctly in every circumstance, e.g. when scrolling, or for certain sets of parameters, e.g. for nearly vertical linear gestures. Diagnostics are not available for Tilt and Shake gestures.
+
 ## Examples
 ### Creating Gestures
 In this example, you'll see how to set the properties for and create a gesture using the gesture API. Once the gesture is created, you'll see an alert showing the ID of the gesture. This example assumes that the elements.js files resides in the same folder as the HTML file that is invoking it.
@@ -724,19 +740,3 @@ In this example, you'll see how to set the properties for and create a gesture u
 		<button onclick="setProperties('tilt')">Tilt</button>
 		<button onclick="setProperties('hold')">Hold</button>
 	</body>
-
-## Remarks
-### Maximum Gesture Size
-There is no formal maximum size for a gesture, for example a circle gesture could require the user to move several times round the circle. However if the user draws such a gesture very slowly it’s possible that too many stylus move points could be generated, and the gesture wouldn't be detected. The Gesture API has been tested with a circle gesture from 0 to 720 degrees and taking approximately 6 seconds to draw without problem.
-
-### Finger Scrolling
-Gestures are not compatible with when the rendering engine has finger scrolling capabilities enabled.
-
-### Common Pitfalls
-Do not use alert boxes within the Gesture-Detected Callback, doing so will steal focus from the gesture region.
-
-### Out-of-range Values
-Any parameter values out of the allowed range will be limited to the nearest allowed value. E.g. giving a sensitivity greater than 100 will use 100. Numeric parameters given as text will be treated as zero.
-
-### Diagnostics
-Note that diagnostics exist only for the purpose of understanding and evaluating the various parameters. They should not be enabled in the release version of the code. They may also not display correctly in every circumstance, e.g. when scrolling, or for certain sets of parameters, e.g. for nearly vertical linear gestures. Diagnostics are not available for Tilt and Shake gestures.

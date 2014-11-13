@@ -5305,3 +5305,52 @@ On WM/CE, it is first necessary to enable the scanner before most of the propert
 
 ###Set Scanner Properties
 On WM/CE, for some properties, it is first necessary to apply those properties before enabling the scanner.
+
+##Examples
+
+
+
+###Scanning a Barcode
+In this example you'll see how to enable your device's barcode scanner and scan a barcode with said scanner. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+<pre><code>:::javascript
+&lt;head&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+    &lt;title&gt;Barcode API Test&lt;/title&gt;
+
+    &lt;script&gt;
+        function scanReceived(params){
+            // No data or no timestamp, scan failed.
+            if(params['data']== "" || params['time']==""){
+                document.getElementById('display').innerHTML = "Failed!";
+                return;
+            }
+            // Data and timestamp exist, barcode successful, show results
+            var displayStr = "Barcode Data: " + params['data']+"&lt;br&gt;Time: "+params['time'];
+            document.getElementById("display").innerHTML = displayStr;
+        }
+
+        function enableScanners(){
+            EB.Barcode.enable({}, scanReceived);
+            // Empty property hash, '{}' loads default values for the scanner.
+        }
+
+        function unloadEvent(){
+            EB.Barcode.disable();
+            // Disable Barcode on unload of page to free it up for other operations.
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body onunload='unloadEvent()'&gt;
+    &lt;h1&gt;Barcode API Test&lt;/h1&gt;
+    &lt;/br&gt;
+    &lt;div id="display"&gt;
+        Barcode Data: &lt;br&gt;
+        Time: &lt;br&gt;
+    &lt;/div&gt;
+    &lt;button onclick="enableScanners()"&gt;Enable Barcode Scanners&lt;/button&gt;
+&lt;/body&gt;
+                                
+                            
+</code></pre>

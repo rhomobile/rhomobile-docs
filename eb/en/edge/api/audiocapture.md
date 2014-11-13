@@ -430,3 +430,58 @@ In Windows, 'getProperty' or 'getProperties' for fileName will return the comple
 On Quitting of the Application, Android will save the data in the file and gracefully exit. In Android, during suspend/resume or screen timeout the audio will keep on recording.
                     
                 
+
+##Examples
+
+
+
+###Capturing Audio
+In the following example you'll see how to capture and play back audio on your device. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+<pre><code>:::javascript
+&lt;head&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+    &lt;title&gt;Audio Capture API Example&lt;/title&gt;
+
+    &lt;script&gt;
+        audioFile = null;
+
+        function captureAudio(){
+            display.innerHTML = 'Capturing...'
+            EB.AudioCapture.start({fileName:   'testCap',
+                                                         maxDuration: 5000}, captureCallback);
+        }
+
+        function captureCallback(params){
+            if (params['status'] == 'ok'){
+                display.innerHTML = 'Captured Audio File: ' + params['fileName'];
+                audioFile = params['fileName'];
+                audioFile = audioFile.substr(7); // Remove 'file://' from the beginning of the fileName
+            }
+            else{
+                display.innerHTML = 'Audio Not Captured';
+            }
+        }
+
+        function playCapturedAudio(){
+            if(audioFile){
+                EB.Mediaplayer.start(audioFile);
+            }
+            else{
+                alert("No audio captured yet.");
+            }
+        }
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;AudioCapture API Example&lt;/h1&gt;
+    &lt;div id="display"&gt;&lt;/div&gt;
+    &lt;/br&gt;
+    &lt;/br&gt;
+    &lt;button onclick="captureAudio()"&gt;Capture Audio&lt;/button&gt;
+    &lt;button onclick="playCapturedAudio()"&gt;Play Captured Audio&lt;/button&gt;
+&lt;/body&gt;
+                                
+                            
+</code></pre>
