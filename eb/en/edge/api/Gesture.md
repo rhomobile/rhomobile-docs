@@ -91,11 +91,11 @@ This event will be triggered each time an gesture event is detected for created 
 	:::javascript
 	gesture.type = 'Shake';
 	gesture.id = "Device_Shake"
-	gesture.detected = "url('JavaScript:handleGesture(%json);')";
+	gesture.detected = "url('JavaScript:gestureCallback(%json);')";
 	gesture.create();
 
-	function handleGesture(params){
-		alert('Received the following gesture' + params['id']);
+	function gestureCallback(params){
+		alert('Received the following gesture:\n' + params['id']);
 	}
 
 ## Methods
@@ -167,25 +167,26 @@ Depends on gesture type and preset used, if any. See remarks.
 The ‘preset’ tag is used to specify one of the preset values below. When a gesture definition is started using the ‘type’ tag its parameters are initially set to the preset shown as default. When a preset is specified for a gesture, including when it is first created, its ID is set to [gesture name]–[default preset name]. E.g. a new linear gesture will have the ID ‘linear-left-right’. This can be replaced (as can any preset value) by a subsequent parameter tag.
 
 #### Possible Values
-Dependant on the Gesture Type, the following present names are available
-* Linear
-	***left-right**
-	*right-left
-	*top-bottom
-	*bottom-top
-* Circle
-	***happy** :  a 180 degree semi-circle, clockwise from the 3 o'clock position. 
-	*sad : a 180 degree semi-circle, clockwise from the 9 o'clock position.
-* Hold
-	***center**
-* Tilt
+Dependant on the Gesture Type, the following present names are available, default values are in bold.
+
+* linear
+	* **left-right**
+	* right-left
+	* top-bottom
+	* bottom-top
+* circle
+	* **happy** : a 180 degree semi-circle, clockwise from the 3 o'clock position. 
+	* sad : a 180 degree semi-circle, clockwise from the 9 o'clock position.
+* hold
+	* **center**
+* tilt
 	* **face-up**  : (0, 0, 90)
 	* face-down : (0, 0, -90)
 	* upright : (0, 90, 0)
 	* turn-down : (0, -90, 0)
-    * turn-left : (90, 0, 0)
-    * turn-right : (-90, 0, 0)
-* Shake
+  * turn-left : (90, 0, 0)
+  * turn-right : (-90, 0, 0)
+* shake
 	* **normal**
 
 #### Platforms
@@ -620,9 +621,113 @@ Shake Gestures: Time (in milliseconds) that the device must be still before anot
 * Android
 * Windows Mobile
 
+## Examples
+### Creating Gestures
+In this example, you'll see how to set the properties for and create a gesture using the gesture API. Once the gesture is created, you'll see an alert showing the ID of the gesture. This example assumes that the elements.js files resides in the same folder as the HTML file that is invoking it.
+
+	:::html
+	<head>
+		<script type="text/javascript" charset="utf-8" src="elements.js"></script>
+
+		<title>Gesture API Example</title>
+
+		<script>
+			var gestureProps = null;
+
+			// Set the 'detected' event callback.
+			gesture.detected = "url('JavaScript:gestureCallback(%json);')";
+
+			function gestureCallback(params){
+				alert('Received the following gesture:\n' + params['id']);
+
+				// Remove gesture and clear gesture properties.
+				gesture.delete();
+				clearGesture();
+			}
+
+			function linearGesture(){
+				// Setting the preset will override any id that may have been set, therefore to have a custom id, the id must be set AFTER the preset.
+				gesture.type        = 'linear';
+				gesture.preset      = 'right-left';
+				gesture.id          = 'Swipe Left';
+				gesture.diagnostics = true;
+				gesture.create();
+			}
+
+			function halfCircularGesture(){
+				gesture.type        = 'circle';
+				gesture.preset      = 'sad';
+				gesture.id          = 'Upsidedown Semi-Circle';
+				gesture.diagnostics = true;
+				gesture.create();
+			}
+
+			function tiltGesture(){
+				gesture.type          = 'tilt';
+				gesture.preset        = 'face-up';
+				gesture.TiltTolerance = 90;
+				gesture.id            = 'Tilt Back';
+				gesture.diagnostics   = true;
+				gesture.create();
+			}
+
+			function holdGesture(){
+				gesture.type        = 'hold';
+				gesture.preset      = 'center';
+				gesture.delay       = 3000;
+				gesture.id          = 'Long Tap';
+				gesture.diagnostics = true;
+				gesture.create();
+			}
+
+			function clearGesture(){
+				gesture.type        = '';
+				gesture.preset      = '';
+				gesture.id          = '';
+				gesture.diagnostics = false;
+				gesture.create();
+			}
+
+			function setProperties(gestureType){
+				// This function will set properties to a pre-determined set to make the example easier to understand
+				switch(gestureType){
+					case 'linear':
+						linearGesture();
+						break;
+					case 'half-circular':
+						halfCircularGesture();
+						break;
+					case 'tilt':
+						tiltGesture();
+						break;
+					case 'hold':
+						holdGesture();
+						break;
+					default:
+						console.log("No such type!");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Gestures</h1>
+		<p>Choose a gesture type below to create a gesture.</p><br/>
+		<br/><br/>
+		<br/><br/>
+		<br/><br/>
+		<br/><br/>
+		<br/><br/>
+		<br/><br/>
+		<br/><br/>
+		<button onclick="setProperties('linear')">Linear</button>
+		<button onclick="setProperties('half-circular')">Half-Circular</button>
+		<button onclick="setProperties('tilt')">Tilt</button>
+		<button onclick="setProperties('hold')">Hold</button>
+	</body>
+
 ## Remarks
 ### Maximum Gesture Size
-There is no formal maximum size for a gesture, for example a circle gesture could require the user to move several times round the circle. However if the user draws such a gesture very slowly it’s possible that too many stylus move points could be generated, and the gesture wouldn’t be detected. The Gesture API has been tested with a circle gesture from 0 to 720 degrees and taking approximately 6 seconds to draw without problem.
+There is no formal maximum size for a gesture, for example a circle gesture could require the user to move several times round the circle. However if the user draws such a gesture very slowly it’s possible that too many stylus move points could be generated, and the gesture wouldn't be detected. The Gesture API has been tested with a circle gesture from 0 to 720 degrees and taking approximately 6 seconds to draw without problem.
 
 ### Finger Scrolling
 Gestures are not compatible with when the rendering engine has finger scrolling capabilities enabled.
