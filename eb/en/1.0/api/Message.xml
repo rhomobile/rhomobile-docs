@@ -1,0 +1,139 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Message" parent="Rho.NFC" productException='eb'>
+        <HELP_OVERVIEW>NFC Message</HELP_OVERVIEW>
+        <MORE_HELP>This class representative NFC Message object
+    # Enabling the API
+    In order to use this API you must include the following extension in your `build.yml`
+        :::ruby
+        extensions: ["nfc"]
+
+    NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+        </MORE_HELP>
+
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the Message API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Message API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.message.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+
+        </MORE_HELP_EB>
+
+        <TEMPLATES>
+        </TEMPLATES>
+
+    <PROPERTIES access="INSTANCE" generateAccessors="true">
+
+      <DESC>List of properties supported by class.</DESC>
+
+      <PROPERTY name="ID" type="STRING" readOnly="true">
+        <DESC>Object ID.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+    </PROPERTIES>
+
+    <METHODS>
+      <METHOD name="getMessageById" access="STATIC">
+        <DESC>This function returns Message object.</DESC>
+        <PARAMS>
+          <PARAM name="id" type="STRING">
+            <DESC>Message object ID.</DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="SELF_INSTANCE">
+          <DESC>"self" instance of the Message object.</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="create" access="STATIC">
+        <DESC>Creates message object.</DESC>
+        <RETURN type="Rho.NFC.Message">
+          <DESC>Created Message object.</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getRecords">
+        <DESC>Return array of Record objects.</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="Rho.NFC.Record"/>
+          <DESC>Array of Rho.NFC.Record objects.</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getMessages">
+        <DESC>Return array of Smart Poster Message objects.</DESC>
+        <RETURN type="ARRAY">
+          <PARAM type="Rho.NFC.Message"/>
+          <DESC>Array of Rho.NFC.Message objects.</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="addRecord">
+        <DESC>Add new Record to Message.</DESC>
+        <PARAMS>
+          <PARAM name="recordID" type="STRING">
+            <DESC>Added Record object ID.</DESC>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="addMessage">
+        <DESC>Add new Smart Poster message to the message.</DESC>
+        <PARAMS>
+          <PARAM name="messageID" type="STRING">
+            <DESC>Added Message object ID.</DESC>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="getContent">
+        <DESC>Returns Message as byte array.</DESC>
+        <RETURN type="STRING">
+          <DESC>Message to get.</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="close">
+        <DESC>Release NFC resources.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+    </METHODS>
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+    </PLATFORM>
+  </MODULE>
+</API>
