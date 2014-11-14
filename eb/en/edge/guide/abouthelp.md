@@ -32,7 +32,7 @@ At the bottom right hand side of the page you will see next and previous buttons
 After searching, if you browse to another page the search terms will automatically be used to bring you to the first found entry. Clearing the search results field will prevent this behavior.
 
 ### In This Document:
-In This document is a list of the main sections in the current document. When Selecting a link the document the document will scroll to the selected section, and show any sub sections. 
+In This document is a list of the main sections in the current document. When Selecting a link the document the document will scroll to the selected section, and show any sub sections.
 
 ![img](images/about/itd1.jpg)
 
