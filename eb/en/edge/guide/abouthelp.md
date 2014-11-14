@@ -32,7 +32,7 @@ At the bottom right hand side of the page you will see next and previous buttons
 After searching, if you browse to another page the search terms will automatically be used to bring you to the first found entry. Clearing the search results field will prevent this behavior.
 
 ### In This Document:
-In This document is a list of the main sections in the current document. When Selecting a link the document the document will scroll to the selected section, and show any sub sections. 
+In This document is a list of the main sections in the current document. When Selecting a link the document the document will scroll to the selected section, and show any sub sections.
 
 ![img](images/about/itd1.jpg)
 
@@ -49,3 +49,16 @@ When clicking on a link that is an external website, the url will be opened in a
 * Firefox 29 or newer
 * Google Chrome 35 or newer 
 * Internet Explore 9 or newer
+
+## Updating Offline Help Docs
+Use the guide below to update your offline version of the documentation for Enterprise Browser.
+
+### Help Version
+You can check your current help version by looking at the menu on the left hand side of the page (offline version only). This indicates the version of the help documentation. If the number corresponds with the version of the Enterprise Browser (Noted in the page header), then it is the same as what has been released with the software. Updates to the documentation after release will be denoted by an extra version number. For example, say the Enterprise Browser release was 1.1, a documentation update post release may be indicated with a Help version of 1.1-1.
+
+### Downloading Updated Documentation
+Follow these instructions for updating your local documentation to be the latest.
+
+1. [Download the latest documentation](https://s3.amazonaws.com/enterprise-browser/eb.docs.latest.zip)
+2. Unzip the contents of the download
+3. Copy the contents of the zip folder to the `<EB Installation Path>\Documentation\HelpFile` folder. For example `C:\Program Files\Enterprise Browser\Documentation\HelpFile.`

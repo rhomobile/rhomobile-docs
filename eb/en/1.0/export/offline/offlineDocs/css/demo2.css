@@ -1,0 +1,81 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	padding: 50px 0 0 0;
+}
+
+.navbar-toggle {
+	float: left;
+	margin-left: 15px;
+}
+
+@media (min-width: 0) {
+	.navbar-toggle {
+	display: block; /* force showing the toggle */
+	}
+}
+
+@media (min-width: 3000px) {
+	body {
+		padding: 0;
+	}
+	.navbar {
+		right: auto;
+		background: none;
+		border: none;
+	}
+}
+		
+.table-layout {
+	display:table;
+	width:100%;
+}
+
+.table-layout .table-cell {
+	display:table-cell;
+	border:solid 0px #ccc;
+}
+
+.fixed-width-280 {
+	width:280px;
+}
+		
+.fixed-width-270 {
+	width:270px;
+}
+		
+#markdownDoc{
+	padding-left:25px;
+	padding-right:25px;
+}
+		
+@media (min-width: 270px) {
+	#sidebar.affix-top {
+		position: static;
+		margin-top:0px;
+		width:260px;
+	}
+		  
+	#sidebar.affix {
+		position: fixed;
+		top:76px;
+		width:260;
+	}
+}
+
+.affix,.affix-top {
+	 position:static;
+}
+		
+.highlight {
+	background-color: #eeee00;
+}		
+		
+#searchRes{
+	height:300px;
+	max-height:300px;
+	overflow:auto;
+	padding-top:15px;
+}

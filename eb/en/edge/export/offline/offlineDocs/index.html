@@ -4,76 +4,81 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Enterprise Browser 1.0</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-		<link rel="shortcut icon" href="images/favicon.ico" >
-        <link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">
-        <link rel="stylesheet" href="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu_grey.css">
-		<link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="jquery.tocify.js-master/libs/jquery.ui.all.css" rel="stylesheet">
-		<link rel="stylesheet" href="jquery.tocify.js-master/src/stylesheets/jquery.tocify.css" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="css/prettify.css"/>
-		<link rel="stylesheet" href="css/docs.css">
-	
-		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="js/Markdown.Converter.js"></script>
-		<script type="text/javascript" src="js/jquery.highlight.js"></script>
-		<script type="text/javascript" src="js/fuse.js"></script>
-		<script type="text/javascript" src="docs/docs.js"></script>
-		<script type="text/javascript" src="docs/menu.js"></script>
-		<script type="text/javascript" src="docs/versions.js"></script>
-		<script type="text/javascript" src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu.js"></script>
-        <script type="text/javascript" src="js/modernizr.min.js"></script>
-		<script type="text/javascript" src="jquery.tocify.js-master/libs/jquery-ui-1.9.1.custom.min.js"></script>
-		<script type="text/javascript" src="jquery.tocify.js-master/src/javascripts/jquery.tocify.js"></script>
-		<script type="text/javascript" src="js/prettify.js"></script>
-		<script type="text/javascript" src="js/docs.js"></script>		
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Enterprise Browser</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="description" content="">
+			<link rel="shortcut icon" href="images/favicon.ico" >
+			<link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css" media="screen">
+			<link rel="stylesheet" href="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu_grey.css">
+			<link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="jquery.tocify.js-master/libs/jquery.ui.all.css" rel="stylesheet">
+			<link rel="stylesheet" href="jquery.tocify.js-master/src/stylesheets/jquery.tocify.css" rel="stylesheet">
+			<link type="text/css" rel="stylesheet" href="css/prettify.css"/>
+			<link rel="stylesheet" href="css/docs.css">
+
+			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+			<script type="text/javascript" src="js/Markdown.Converter.js"></script>
+			<script type="text/javascript" src="js/jquery.highlight.js"></script>
+			<script type="text/javascript" src="js/fuse.js"></script>
+			<script type="text/javascript" src="docs/versions.js"></script>
+			<script type="text/javascript" src="docs/docs.js"></script>
+			<script type="text/javascript" src="docs/menu.js"></script>
+			<script type="text/javascript" src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu.js"></script>
+			<script type="text/javascript" src="js/modernizr.min.js"></script>
+			<script type="text/javascript" src="jquery.tocify.js-master/libs/jquery-ui-1.9.1.custom.min.js"></script>
+			<script type="text/javascript" src="jquery.tocify.js-master/src/javascripts/jquery.tocify.js"></script>
+			<script type="text/javascript" src="js/prettify.js"></script>
+			<script type="text/javascript" src="js/docs.js"></script>
+			<script>
+				// Using the versions.js file to make the versions change programmatically
+				ebVersion = "Enterprise Browser " + versionsList.version;
+				window.document.title = ebVersion;
+			</script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-		
-		<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-					</div>
-					<div class="modal-body">
-						<div id="modalImg">
-						
+			<!--[if lt IE 7]>
+				<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+			<![endif]-->
+			<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+						</div>
+						<div class="modal-body">
+							<div id="modalImg"></div>
 						</div>
 					</div>
+				</div>
 			</div>
-		  </div>
-		</div>
-		
-		<div id="docsHeader">
-			<div id="headerText"><img src="images/logo.png" ><a href="#" >Enterprise Browser 1.0</a></div><div id="versions" data-placement="bottom" data-html="true" data-original-title="Versions" ><i class="fa fa-code-fork"></i></div>
-			<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search" data-placement="bottom" data-html="true" data-original-title=" Search Results &nbsp;<i class='pull-right cursorPointer fa fa-minus-square'></i>" data-trigger="manual">
-		</div>
-		
-		<div id="pushobj">	
-			<div id="markdownDoc">
-			</div>			
-		</div>
-		
-        <div id="menu">         
-        </div>
-		
-		
-		<script>
-		  !function ($) {
-			$(function(){
-			  window.prettyPrint && prettyPrint()
-			})
-		  }(window.jQuery)
-		</script>        
+
+			<div id="docsHeader">
+				<div id="headerText">
+					<img src="images/logo.png"><a id='banner' href="#">Enterprise Browser</a>
+				</div>
+				<div id="versions" data-placement="bottom" data-html="true" data-original-title="Versions" >
+					<i class="fa fa-code-fork"></i>
+				</div>
+				<input type="text" id="searchBox" class="form-control fixed-width-270" placeholder="Search" data-placement="bottom" data-html="true" data-original-title=" Search Results &nbsp;<i class='pull-right cursorPointer fa fa-minus-square'></i>" data-trigger="manual">
+			</div>
+
+			<div id="pushobj">
+				<div id="markdownDoc">
+				</div>
+			</div>
+      <div id="menu"></div>
+
+			<script>
+				banner.innerHTML = ebVersion;
+
+				!function ($) {
+					$(function(){
+						window.prettyPrint && prettyPrint()
+					})
+					}(window.jQuery)
+			</script>
     </body>
 </html>
