@@ -1,6 +1,6 @@
 var menuStrcture = [
 	{
-		title: 'Help',
+		title: 'Help v' + versionsList.version + '-' + versionsList.helpVersion,
 		icon: 'fa fa-reorder',
 		items: [
 			{
@@ -146,6 +146,7 @@ var menuStrcture = [
 							{"name":"Signature","link":"#api-signature"},
 							{"name":"Sip","link":"#api-Sip"},
 							{"name":"SipButton","link":"#api-SipButton"},
+							{"name":"SmartCradle","link":"#api-smartcradle"},
 							{"name":"StopButton","link":"#api-StopButton"},
 							{"name":"Stylus","link":"#api-Stylus"},
 							{"name":"System","link":"#api-system"},
