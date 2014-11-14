@@ -352,6 +352,75 @@ The ebapi.js file is necessary for all single API inclusions.
                 </SECTIONS>
             </EXAMPLE>
         </EXAMPLES>
+        <EXAMPLES_EB>
+            <EXAMPLE title='Using the Battery Indicator'>
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>In this example you'll see how to use the battery indicator and manipulate its appearance. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.</DESC>
+                        <CODE>
+                            <JAVASCRIPT><![CDATA[
+<head>
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+    <title>Battery API Test</title>
+
+    <script>
+        function showBatteryIcon(){
+            EB.Battery.showIcon(defineIconProperties(), batteryCallback);
+            EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
+            // The batteryStatus() is used to tell the icon when to refresh. 
+            // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
+        }
+
+        function hideBatteryIcon(){
+            EB.Battery.hideIcon();
+            EB.Battery.stopBatteryStatus();
+        }
+
+        function batteryCallback(params){
+            if(params){
+                console.log(params);
+            }
+            else
+                console.log("No Params");
+        }
+
+        function defineIconProperties(){
+            var props = {
+                color:  "#66CD00",
+                layout: EB.Battery.BATTERY_LAYOUT_UP,
+                top:    0,                              // Top of screen
+                left:   EB.System.screenWidth - 25      // Far right of screen, accounting for actual viewable area.
+            }
+            return props;
+        }
+
+        function adjustIcon(){
+            EB.Battery.hideIcon();
+            EB.Battery.showIcon(defineIconProperties(), batteryCallback);
+        }
+
+        // If the screen orientation changes, adjust the battery Icon.
+        EB.ScreenOrientation.setScreenOrientationEvent(adjustIcon);
+    </script>
+</head>
+
+<body>
+    <h1>Battery API Test</h1>
+    <div id="display">
+    </div>
+    <br/>
+    <br/>
+    <button onclick="showBatteryIcon()">Show Battery Status Icon</button><br/>
+    <button onclick="hideBatteryIcon()">Hide Battery Status Icon</button>
+</body>
+                                ]]>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+        </EXAMPLES_EB>
 
         <REMARKS>
             <REMARK title="Icon Layout">
