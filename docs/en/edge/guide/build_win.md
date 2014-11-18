@@ -18,7 +18,7 @@ To optimize Win32 app installer file size by exclusion of Qt DLLs and/or Visual 
       deployqt: 0
       deploymsvc: 0
 
-If you excluded Qt DLLs or VC runtime from app installer, you need to install them separately on every PC before running your app. It is recommended to use our build of the Qt binaries (see [below](#build-for-windows-https)) for development. By doing so you'll be able to use our [Qt runtime installer](#coming-soon). Alternatively you may put Qt5 DLLs to any folder and add its full path to `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
+If you excluded Qt DLLs or VC runtime from app installer, you need to install them separately on every PC before running your app. It is recommended to use our build of the Qt binaries (see [below](#build-for-windows-https)) for development. By doing so you'll be able to use our [RhoRuntimeQt installer](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe) to install all required Qt and Visual Studio Redistributable DLLs. Alternatively you may put Qt5 DLLs to any folder and add its full path to `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
 
 ## Build application from the command line
 
