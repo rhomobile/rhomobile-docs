@@ -10,7 +10,7 @@
 				<b><i>Methods - Class</i></b>
 			</a>
 			<li><a href="#mMethodOne" data-target="cMethodMethodOne" class="autouncollapse">MethodOne</a></li>
-			<li><a href="#MethodTwo" data-target="cMethodMethodTwo" class="autouncollapse">MethodTwo</a></li>
+			<li><a href="#mMethodTwo" data-target="cMethodMethodTwo" class="autouncollapse">MethodTwo</a></li>
 		</li>
 	</ul>
 </div>
@@ -323,7 +323,7 @@ app_type: "rhoelements"
 		<li class='active'>
 			<a href="#pPropertyTwo1" data-toggle="tab">Description</a>
 		</li>
-		<li><a href="#pPropertyTwo2" data-toggle="tab">Params</a></li>
+		<li><a href="#pPropertyTwo2" data-toggle="tab">Parameters</a></li>
 		<li><a href="#pPropertyTwo6" data-toggle="tab">Access</a></li>
 	</ul>
 	<div class='tab-content' style='padding-left:8px' id='tc-PropertyTwo'>
