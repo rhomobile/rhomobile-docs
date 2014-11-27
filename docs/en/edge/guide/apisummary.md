@@ -43,7 +43,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/addressbar">Addressbar *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -56,7 +56,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/alarm">Alarm *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -95,7 +95,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/backlight">Backlight *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -134,7 +134,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/bluetoothmanager-api">BluetoothManager *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -147,7 +147,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/bluetoothsession-api">BluetoothSession *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -173,7 +173,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/camera-api">Camera *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -199,7 +199,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/comm">Comm *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -212,7 +212,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/ConfigurationSettings">Config *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -329,7 +329,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/Keylight">Keylight *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -368,7 +368,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/mapview-api">Mapview *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -394,7 +394,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/memory">Memory *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -459,7 +459,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NdefMessage-api">NdefMessage *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -472,7 +472,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NdefRecord-api">NdefRecord *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -550,7 +550,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCManager-api">NFCManager *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -563,7 +563,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTag-api">NFCTag *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -576,7 +576,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_IsoDep-api">NFCTagTechnology_IsoDep *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -589,7 +589,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_MifareClassic-api">NFCTagTechnology_MifareClassic *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -602,7 +602,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_MifareUltralight-api">NFCTagTechnology_MifareUltralight *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -615,7 +615,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_Ndef-api">NFCTagTechnology_Ndef *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -628,7 +628,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_NdefFormatable-api">NFCTagTechnology_NdefFormatable *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -641,7 +641,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_NfcA-api">NFCTagTechnology_NfcA *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -654,7 +654,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_NfcB-api">NFCTagTechnology_NfcB *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -667,7 +667,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_NfcF-api">NFCTagTechnology_NfcF *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -680,7 +680,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology_NfcV-api">NFCTagTechnology_NfcV *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -693,7 +693,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/NFCTagTechnology-api">NFCTagTechnology *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -771,7 +771,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/reboot">Reboot *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -784,7 +784,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/registry">Registry *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -797,7 +797,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/rfid">RFID *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -810,7 +810,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhoconfig-api">RhoConfig *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -836,7 +836,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhocontact-api">RhoContact *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -849,7 +849,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhocontroller-api">RhoController *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -862,7 +862,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhoerror-api">RhoError *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -875,7 +875,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhoevent-api">RhoEvent *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -901,7 +901,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhomsource-api">RhomSource *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -914,7 +914,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhoprofiler-api">RhoProfiler *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -927,7 +927,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/rhoutils-api">RhoUtils *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -992,7 +992,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/signaturecapture-api">SignatureCapture (inline) *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -1005,7 +1005,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/stylus">Stylus *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -1031,7 +1031,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/systemTime">SystemTime *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -1044,7 +1044,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhodesapi/timer-api">Timer *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -1070,7 +1070,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/VideoCapture">VideoCapture *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -1083,7 +1083,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/volume">Volume *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -1096,7 +1096,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
       <td>
         <a href="../../2.2.0/rhoelements/wake">Wake *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -1120,7 +1120,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
   </tbody>
 </table>
 
-Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.0, here these APIs are marked with an asterisk (*). However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in future versions of RhoMobile Suite 5.x in order to supply both a Common API format in both JavaScript and Ruby.
+Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.0, here these APIs are marked with an asterisk (*). However these APIs are still available in the 2.2 format but only in Ruby. The following API classes will soon be incorporated in future versions of RhoMobile Suite 5.x in order to supply both a Common API format in both JavaScript and Ruby.
 
 **NOTE: When using 2.2 API's in RhoMobile 5.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 
