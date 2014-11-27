@@ -607,14 +607,14 @@ The following is an example of a typical configuration file
     <tr>
     <td>HTTP_Proxy</td>
     <td>HTTPPROXY</td>
-    <td>Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.</td>
+    <td>Specifies the HTTP Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Note that this setting only applies to the Motorola WebKit engine.</td>
     <td>URL:PortNo</td>
     </tr>
 
     <tr>
     <td class="clsEvenRow">HTTPS_Proxy</td>
     <td class="clsEvenRow">N/A</td>
-    <td class="clsEvenRow">Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</td>
+    <td class="clsEvenRow">Specifies the HTTPS Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager. Leave this field blank to not use a proxy. Note that this setting only applies to the Motorola WebKit engine.</td>
     <td class="clsEvenRow">URL:PortNo</td>
     </tr>
 

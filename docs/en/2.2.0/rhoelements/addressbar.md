@@ -1,8 +1,7 @@
 # AddressBar Module
-**The AddressBar Module is used to set the parameters of the address bar. The address bar should only be used for debugging Hybrid applications and is not designed to be used as a replacement for a web browser address bar. Press the 'Go' button or enter key to navigate to the typed URI.**
+<p>The AddressBar Module is used to set the parameters of the address bar. The address bar should only be used for debugging Hybrid applications and is not designed to be used as a replacement for a web browser address bar. Press the 'Go' button or enter key to navigate to the typed URI.</p>
 
 ## Syntax
-
 <table class="re-table">
 	<tr>
 		<th class="tableHeading">addressBar (Module) &lt;META&gt; Syntax</th>

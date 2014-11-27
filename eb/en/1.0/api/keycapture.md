@@ -183,7 +183,7 @@ The ES400 has a hardware messaging key with an envelope icon on it that does not
 In Internet Explorer the F5 key is used to refresh the current page. It is not recommended to rely on this functionality on Windows Mobile and it is not supported.
 
 ###Accelerator Keys
-The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when the app is run with the Internet Explorer engine on a Windows CE device.
+The following keys will be affected by the 'AccelerateKeys' tag. Accelerator Keys are only applicable when the app is run with the Internet Explorer engine on a Windows CE device.
 
 * Key (Code)
     * Usual - Usual Behavior

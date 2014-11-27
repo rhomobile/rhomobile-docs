@@ -160,6 +160,8 @@ Synchronous Return:
 ### get(<span class="text-info">HASH</span> propertyMap)
 Perform a HTTP GET request.
 
+> Note: This method will perform a POST if you send a body with it. If performing a GET, do not add a body to the call.
+
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 

@@ -2,7 +2,7 @@
 This guide will assist you in building your apps using the remote build capabilities of [rhomobile.com](http://rhomobile.com/index.html). Using this tool you will be able to build for any of the platforms that we support regardless of your computer hardware. That means you will be able to build iOS apps even if you are using a Windows computer and build Windows Mobile apps even if you are using an Apple computer. There are however, a few limitations to this build process and we have listed them [below](#remote-build-limitations).
 
 ## Support Matrix
-The following is a table showing the versions of Rhodes that are supported for which platforms concerning cloud builds. Note that the end of life date is simply an estimate and will not necessarily be exact to the day.
+The following is a table showing the versions of Rhodes that are supported for which platforms concerning cloud builds. Note that the end of life date is simply an estimate and will not necessarily be exact to the day. Note that dates for estimated End of Life are subject to change as release dates of next versions change.
 
 <table class="table table-condensed table-striped">
 	<thead>
@@ -73,7 +73,7 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="width:20%;text-align:center;">Q1 - Q2, 2016</th>
 			<td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
@@ -81,7 +81,7 @@ The following is a table showing the versions of Rhodes that are supported for w
 	</tbody>
 </table>
 
-NOTE: Dates for estimated End of Life are subject to change as release dates of next versions change.
+> Note: Micro Kiosk devices (MKxxxx) are not supported for cloud built apps. For these devices, [Enterprise Browser](http://goo.gl/V9zMxD) is also available as an app building solution alternative.
 
 ## Setup
 Before building remotely, you'll need to sign up for a [subscription plan](http://rhomobile.com/rhopricing.html) of either silver or gold; only paid subscription plans allow the use of the remote build feature. Refer to the [licensing](../../latest/guide/licensing) doc for assistance on signing up and applying your remote build token.

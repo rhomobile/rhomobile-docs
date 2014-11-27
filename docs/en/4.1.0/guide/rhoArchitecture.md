@@ -1,5 +1,4 @@
-#Supported Platforms
-
+# Supported Platforms
 ## Supported Operating Systems
 
 * iOS 6.0 or greater (iPhone, iPod Touch, iPad)
@@ -27,11 +26,12 @@ VC5090, VC6000, VC6096, VC70
 ### Micro Kiosks
 MK3000, MK3090, MK3100, MK3190, MK4000, MK4090
 
+> Note: While we support building apps for MK devices locally, using [cloud build](../../hosted/guide/remote-build-guide) for MK device apps is not supported. For these devices, [Enterprise Browser](http://goo.gl/V9zMxD) is also available as an app building solution alternative.
+
 ### Wearable
 WT4070, WT4090, WT41N0
 
-##Memory Considerations
-
+## Memory Considerations
 RhoElements 4.0 introduces support for our older device families such as the MC9000 and MK4000. The devices supported by RhoElements span the entire range of the performance spectrum and therefore care should be taken when developing applications, especially for these older devices. Please have the capabilities of your target device in mind when developing your application, the following points will help with this.
 
 * Devices must have a minimum of 128MB of physical RAM to support RhoElements

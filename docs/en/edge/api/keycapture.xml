@@ -382,7 +382,7 @@ When the specified key is pressed, the event will fire but the homeKey event wil
             </REMARK>
 
              <REMARK title="Accelerator Keys">
-                <DESC>The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when RhoElements is run with the Internet Explorer engine on a Windows CE device.
+                <DESC>The following keys will be affected by the 'AccelerateKey' tag. Accelerator Keys are only applicable when RhoElements is run with the Internet Explorer engine on a Windows CE device.
 
 Key           Code    Usual Behavior               Special behavior in Internet Explorer
 
@@ -393,7 +393,7 @@ Down Arrow    0x28    Cursor down                   Scroll window down
 Backspace     0x08    Delete previous character.   Navigate to previous page
 Enter         0x0D    Cursor line feed              Submit form
 Tab           0x09    Advance to next control       Advance to next control</DESC>
-                <DESC_EB>The following keys will be affected by the 'AccelerateKeys' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when the app is run with the Internet Explorer engine on a Windows CE device.
+                <DESC_EB>The following keys will be affected by the 'AccelerateKey' tag, see the Key Capture Overview for a more detailed explanation of Accelerator Keys. Accelerator Keys are only applicable when the app is run with the Internet Explorer engine on a Windows CE device.
 
 * Key (Code)
     * Usual - Usual Behavior
