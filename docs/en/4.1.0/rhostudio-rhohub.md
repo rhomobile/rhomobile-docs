@@ -2,7 +2,7 @@
 
 RhoStudio lets you build your apps on RhoHub without leaving the RhoStudio IDE.  Just select the remote build option when building in RhoStudio and RhoHub will perform the build for you.
 
-You will need a [RhoHub](../guide/rhohubtutorial) account. You will also use the [RhoStudio IDE](../guide/creating_a_project).
+You will need a [RhoHub](../hosted/guide/remote-build-guide) account. You will also use the [RhoStudio IDE](guide/creating_a_project).
 
 ## Setting Up Connection from RhoHub to RhoStudio
 
@@ -125,7 +125,7 @@ Right-click again to open the context menu and select "Push...". The git reposit
 
 You will get the Push Results window when the push to RhoHub is complete.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-rhohub/pushed-git-4.0add-git-repository-to-view-4.0.png"/>
+<img src="http://rhodocs.s3.amazonaws.com/rhostudio-rhohub/pushed-git-4.0.png"/>
 
 Your changes in your RhoStudio app will now be in your RhoHub app.
 
