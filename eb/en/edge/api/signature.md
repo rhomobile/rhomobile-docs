@@ -365,7 +365,7 @@ RGB or ARGB value that sets the color of the stylus pen ink using HTML web color
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-Sets the width of the pen line in pixels. Advised to keep this to 5 or less.
+Sets the width of the pen line in pixels when using the device's stylus. On Android this setting will also be applied to any previously drawn signature currently displayed. It is advised that you keep this at 5 or less.
 ####Params
 <p><strong>Default:</strong> 3</p>
 ####Access

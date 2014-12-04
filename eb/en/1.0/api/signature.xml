@@ -115,7 +115,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <PROPERTY name="penWidth" type="INTEGER" default="3">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <DESC>Sets the width of the pen line in pixels. Advised to keep this to 5 or less.</DESC>
+                <DESC>Sets the width of the pen line in pixels when using the device's stylus. On Android this setting will also be applied to any previously drawn signature currently displayed.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
             </PROPERTY>
 
