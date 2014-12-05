@@ -142,3 +142,5 @@ If your IDE or Text-Editor provides a means to launch an external executable, yo
 	rake run:wp:rhosimulator                 # Run application on RhoSimulator
 	rake uninstall:android                   # uninstall from emulator
 	rake uninstall:android:device            # uninstall from device
+
+> Note: Windows Mobile and Windows CE apps that use the webkit will not be able to run in the RhoSimulator because of the limitations of the memory in the simulator.
