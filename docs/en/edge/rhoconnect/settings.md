@@ -1,24 +1,21 @@
-RhoConnect settings
-===
-
-All Rhoconnect application and source settings located in the *`settings/settings.yml`* file.
+# RhoConnect settings
+All RhoConnect application and source settings located in the `settings/settings.yml` file.
 There are two main categories: application environment settings and source settings.
 
 ## Application settings
-
 Application-wide settings are specified per deployment environment (`:test`, `:development`, `:production`).
 Each of the environment categories must have the following entries:
-	
+
 	:::yaml
 	:syncserver: <url>
 	:redis: <url|array_of_urls>
 	:licensefile: <filename>
 
-`:syncserver`: application's base url.
+`:licensefile`: application's license file.
 
 `:redis`: Redis url. Can be specified as an Array of URLs. In that case, RhoConnect will use several Redis servers (this can be used in case of high-volume data)
 
-`:licensefile`: application's license file.
+`:syncserver`: application's base url.
 
 In addition, you can specify the following settings:
 
@@ -29,6 +26,7 @@ In addition, you can specify the following settings:
 	:poll_interval_default: <secs>
 	:bulk_sync_poll_interval: <secs>
 	:gcm_api_key: your_gcm_api_key_here
+	:node_channel_timeout: <secs>
 
 `:connection_pool_size`: By default, RhoConnect maintains multiple concurrent connections to Redis organized in Connection Pool. This setting allows you to specify the size of the pool. By default, RhoConnect starts with five (5) Redis connections.
 
@@ -41,6 +39,8 @@ In addition, you can specify the following settings:
 `:bulk_sync_poll_interval`: poll interval setting for bulk data sync, in seconds.
 
 `:gcm_api_key`: The [API key for Google Cloud Messaging](push-client-setup-android#setting-up-android-google-cloud-messaging).
+
+`:node_channel_timeout`: The timeout, in seconds, for requests made from ruby framework to node.js. The default value is __30 seconds__ and is usually fine but it can be modified using this setting if the network requires more time to respond.
 
 ## Source settings
 
@@ -59,8 +59,4 @@ Typical source settings include:
 
 `:partition_type`: app or user. default partition type for the source.
 
-`:priority:` A priority number used to determine the order in which the models are processed and synchronized. This is useful when there are a set of linked together sources and the client needs to know in which order to process them.  Priority starts from lower value 1. If priorities are not specified, then there is no guarantee that models will be listed and processed in natural order.  
-
-
-
-
+`:priority:` A priority number used to determine the order in which the models are processed and synchronized. This is useful when there are a set of linked together sources and the client needs to know in which order to process them.  Priority starts from lower value 1. If priorities are not specified, then there is no guarantee that models will be listed and processed in natural order.
