@@ -25,10 +25,10 @@ Follow operating specific instructions for your development machine:
 
 [Windows 64-bit](rhomobile-install#windows-64-bit)
 
-
 ### 4) Setup RhoStudio Mobile SDK Paths
 Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. 
 
+	:::term
 	C:\> rhodes-setup
 
 This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](#prerequisites).
@@ -36,54 +36,52 @@ This will prompt you for where you installed the SDKs for the various platforms.
 ### 5) Sign Up For a Subscription Plan at rhomobile.com
 Building any app using Rhodes or RhoElements requires a license, even if it's a free license. Refer to our [licensing doc](licensing) for more information on which plan is right for you.
 
-
 ## Creating a project with RhoStudio
 To create your first Rhodes project using RhoStudio, select File -> New -> Project
 
 The New Project window opens. Select the Rhodes application wizard and click the Next button.
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-project-4.0.png"/>
+![img](http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-project-4.0.png)
 
 Enter the name of your new application in Project name; in this example, we will use "storemanager". If you need to save the project in a particular location on your computer, uncheck "Create application in default workspace" and specify where you want the new files to be stored, otherwise you can accept the defaults and click "Finish".
 
-<img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard-4.0.png"/>
+![img](http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard-4.0.png)
 
 ## Creating a project from the command line
 If you prefer to use the command line or another development environment instead of RhoStudio, the `rhodes` tool can be invoked manually.
 
 	:::term
 	Usage: rhodes generator_name [options] [args]
-	
+
 	Generate rhodes application
-	
+
 	Available generators
-	    api                              Generate API sources from XML API file
-	    api_test                         Generate megatest XML for API generator
-	    app                              Generates a new rhodes application.
-	    extension                        Adds native extension to Rhodes based application.
-	    model                            Generates a new model for a rhodes application.
-	    spec                             Adds spec framework to rhodes application.
-	
+		api                              Generate API sources from XML API file
+		api_test                         Generate megatest XML for API generator
+		app                              Generates a new rhodes application.
+		extension                        Adds native extension to Rhodes based application.
+		model                            Generates a new model for a rhodes application.
+		spec                             Adds spec framework to rhodes application.
+
 	General options:
-	    -p, --pretend                    Run, but do not make any changes.
-	    -f, --force                      Overwrite files that already exist.
-	    -s, --skip                       Skip files that already exist.
-	    -d, --delete                     Delete files that have previously been generated with this generator.
-		--no-color                   	 Don't colorize the output
-	    -h, --help                       Show this message
-		--debug                      	 Do not catch errors
-		--norhoconnect 					 Don't include rhoconnect-client in application
-		
+		-p, --pretend                    Run, but do not make any changes.
+		-f, --force                      Overwrite files that already exist.
+		-s, --skip                       Skip files that already exist.
+		-d, --delete                     Delete files that have previously been generated with this generator.
+		--no-color                       Don't colorize the output
+		-h, --help                       Show this message
+		--debug                          Do not catch errors
+		--norhoconnect                   Don't include rhoconnect-client in application
+
 To create a new application called `storemanager`, switch to the directory where you want it to be saved and run:
 
 	:::term
 	$ rhodes app storemanager
-		
 
 ## Project structure
 The generated application has the following structure:
 
-<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/project-structure-4.0.png"/>
+![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/project-structure-4.0.png)
 
 Here is an overview of what each file and folder contains.
 
@@ -100,7 +98,6 @@ Runtime settings of the application are configured here, such as which page to l
 
 A standard Ruby rakefile, designed to find the appropriate Rhodes SDK and compile your application with it.
 
-
 ### app
 `app` contains all the Ruby code for your application, as well as its views. In a newly-created application, there are two other folders inside:
 
@@ -109,14 +106,10 @@ A standard Ruby rakefile, designed to find the appropriate Rhodes SDK and compil
 
 Apart from these folders, there are several other files in `app`:
 
-* **`application.rb` is the entry point of your application**. Any startup initialization code should be place here.
-
-* **`index.erb` is the first page that will load when the application starts** (unless changed in `build.yml`).
-
+* `application.rb` **is the entry point of your application**. Any startup initialization code should be place here.
+* `index.erb` **is the first page that will load when the application starts** (unless changed in `build.yml`).
 * `layout.erb` contains elements present in all or most pages. Because normally all the pages of an applications have a similar structure and layout, it is recommended to extract common elements into a single file to make maintenance easier. Rhodes acknowledges this best practice and provides you with a default template so that your pages (views) do not need to contain duplicated HTML code. Instead, each view will only contain the code specific to that view, which will be merged with the layout when the page is rendered.
-
 * `loading*.png` - these are splashscreen images for several device orientations and platforms. You will swap these files with your own at some point before deployment
-
 * models / controllers - when you [add a model to your application](local_database), each model will be created in its own folder within `app`. For example, a model called `Product` will produce `app/Product`
 
 ### framework
@@ -134,24 +127,24 @@ Any file linked from a view (or that must be reachable by the embedded web brows
 * `jquery` - [JQuery](http://jquery.com), a JavaScript library to manipulate HTML with an easy to use, cross browser syntax
 * `js` - general JavaScript files. Your application-specific JavaScript code should be stored in this folder
 
-You can create any other folders and organize your files following any structure you prefer, but it is recommended to stay as close as possible to the default, as this will make things easier when working with a team or asking for help.  
+You can create any other folders and organize your files following any structure you prefer, but it is recommended to stay as close as possible to the default, as this will make things easier when working with a team or asking for help.
 
 ## Running your application
 ### Running from RhoStudio
-**NOTE: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.**
+> Note: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.
 
 To start your application for the first time, right click your project, then click Run As -> Run Configurations...
 
-<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/running-application-context-menu-4.0.png"/>
+![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/running-application-context-menu-4.0.png)
 
 Select "RhoMobile Application" and click the "New" button, then click "Run"
 
-<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-configurations-4.0.png"/>
+![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-configurations-4.0.png)
 
 After a brief compilation period, the application will start in [RhoSimulator](debugging_with_rhosimulator)
 
 ### Running from the command line
-**NOTE: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.**
+> Note: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.
 
 To start a Rhodes application from the command line, switch to the folder that contains the application and run
 
@@ -165,13 +158,15 @@ where `<platform to be simulated>` can be one of
 * `iphone`
 * `win32` for desktop Windows
 * `wm` for Windows Mobile 6
-* `wp8` for Windows Phone 8, 	
+* `wp8` for Windows Phone 8
+
+> Note: Windows Mobile and Windows CE apps that use the webkit will not be able to run in the RhoSimulator because of the limitations of the memory in the simulator.
 
 The application will start inside RhoSimulator with a different look depending on the selected platform
 
-<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-rhosimulator-iphone-4.0.png"/>
+![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-rhosimulator-iphone-4.0.png)
 
-<img src="http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/rhosimulator-web-inspector-4.0.png"/>
+![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/rhosimulator-web-inspector-4.0.png)
 
 ## Related reading
 Now that your first application is ready to run, there are some other topics you should become familiar with:

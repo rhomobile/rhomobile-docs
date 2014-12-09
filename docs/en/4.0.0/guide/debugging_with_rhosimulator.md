@@ -18,7 +18,7 @@ Once your application is running under RhoSimulator, you can make changes to you
 * You can run your application under RhoSimulator even without installing the simulated platform's SDK (for example, you can simulate iOS under Windows, or Windows Mobile under OSX). However, RhoSimulator does not attempt to replicate all features of a real device. For example: certain hardware features like the camera or barcode scanner are not replicated.
 * RhoSimulator is currently only available for Windows and Mac OS X.
 
-**NOTE: As the name implies, RhoSimulator *simulates* not *emulates* different platforms. This difference is significant, it means that, while your application will generally act as if it was running on the selected platform, you should not expect all features to work exactly as they will on a real device. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect**
+> Note: As the name implies, RhoSimulator *simulates* not *emulates* different platforms. This difference is significant, it means that, while your application will generally act as if it was running on the selected platform, you should not expect all features to work exactly as they will on a real device. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect
 
 ## Prerequisites
 
@@ -36,6 +36,8 @@ Ensure that your application is configured properly and successfully runs in [Rh
 * Select the required platform.
 * Select RhoSimulator for the Simulator type.
 * Click 'Run' to start the RhoSimulator.
+
+> Note: Windows Mobile and Windows CE apps that use the webkit will not be able to run in the RhoSimulator because of the limitations of the memory in the simulator.
 
 The below screenshot shows run configuration for RhoSimulator for the iPhone platform
 
@@ -89,7 +91,7 @@ You can also navigate directly to the required HTML element by expanding/collaps
 
 The Web Inspector lets you modify your page and styles live. This provides a quick way to try out HTML and CSS changes to see how they look without having to go back to RhoStudio (or other IDE), providing you with very fast feedback and avoiding the tedious edit-save-refresh cycle.
 
-NOTE: These changes are only temporarily applied to the page inside RhoSimulator. To make them permanent you must actually update your HTML/CSS files.
+> Note: These changes are only temporarily applied to the page inside RhoSimulator. To make them permanent you must actually update your HTML/CSS files.
 
 The following changes can be made live:
 

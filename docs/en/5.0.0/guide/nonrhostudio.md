@@ -1,7 +1,5 @@
-#Developing Without RhoStudio
-
-Although installing RhoMobile Suite provides everything you need to build RhoMobile applications through the included RhoStudio IDE, you may wish to use your own IDE to build your RhoMobile applications. This guide describes how to setup your environment as well as how to use the Rhomobile command line options.   
-
+# Developing Without RhoStudio
+Although installing RhoMobile Suite provides everything you need to build RhoMobile applications through the included RhoStudio IDE, you may wish to use your own IDE to build your RhoMobile applications. This guide describes how to setup your environment as well as how to use the Rhomobile command line options.
 
 ## What are Gems?
 A RubyGem is a software package, commonly called a “gem”. Gems contain a packaged Ruby application or library. The RubyGems software itself allows you to easily download, install, and manipulate gems on your system. There are three gems included with RhoMobile Suite: `rhodes`, `rhoelements` and `rhoconnect-client`.
@@ -17,11 +15,11 @@ Before installing the needed Rho Gems, you must:
 Then, run this command to install the Rho Gems.
 
 	:::term
-  	$ [sudo] gem install rhodes
-  	$ [sudo] gem install --local path_to_gem/rhoelements_gem_name.gem
-  	$ [sudo] gem install --local path_to_gem/rhoconnect-client_gem_name.gem
+	$ [sudo] gem install rhodes
+	$ [sudo] gem install --local path_to_gem/rhoelements_gem_name.gem
+	$ [sudo] gem install --local path_to_gem/rhoconnect-client_gem_name.gem
 
-NOTE: Installing RhoMobile Suite will install these gems automatically. You can have multiple versions of these gems installed on your system. By default when building your application the most recent version # is used. Please consult the guide on building for a specific version of RhoMobile.
+> Note: Installing RhoMobile Suite will install these gems automatically. You can have multiple versions of these gems installed on your system. By default when building your application the most recent version # is used. Please consult the guide on building for a specific version of RhoMobile.
 
 * The `rhodes` gem is distrubuted to publically availableRuby repositories. The command above will install the latest version available. If you are testing a beta release, you can also use the local syntax for installing a local copy of the gem file
 
@@ -40,15 +38,16 @@ After you install the gem and your desired SDKs, you need to run:
 
 This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. 
 
-##Generating A Rhodes Application
+## Generating A Rhodes Application
 The first step is to generate the application and base files.  First we will generate an application called StoreManager with the following command:
 
-    :::term
-    $ rhodes app storemanager http://localhost:9292/application
+	:::term
+	$ rhodes app storemanager http://localhost:9292/application
 
 This will generate an application directory called "storemanager" with several files.  Note also that the third argument above is the URL to the RhoConnect server data source (required if you want to do synchronized data as we describe in the next section).  Specifically it will set the rhoconfig.txt file to have the following option:
 
-    syncserver = 'http://localhost:9292/application'
+	:::txt
+	syncserver = 'http://localhost:9292/application'
 
 If you do not need synchronized offline data, you can leave the third argument out.
 
@@ -60,45 +59,48 @@ You can also use the command line to add models and controllers. When the model 
 
 Let's generate a model called "product" and give it some attributes.
 
-    :::term
-    $ cd storemanager
-    $ rhodes model product brand,name,price,quantity,sku
-      Generating with model generator:
-        [ADDED]  app/Product/index.erb
-        [ADDED]  app/Product/edit.erb
-        [ADDED]  app/Product/new.erb
-        [ADDED]  app/Product/show.erb
-        [ADDED]  app/Product/index.bb.erb
-        [ADDED]  app/Product/edit.bb.erb
-        [ADDED]  app/Product/new.bb.erb
-        [ADDED]  app/Product/show.bb.erb
-        [ADDED]  app/Product/product_controller.rb
-        [ADDED]  app/Product/product.rb
-        [ADDED]  app/test/product_spec.rb
+	:::term
+	$ cd storemanager
+	$ rhodes model product brand,name,price,quantity,sku
+	Generating with model generator:
+		[ADDED]  app/Product/index.erb
+		[ADDED]  app/Product/edit.erb
+		[ADDED]  app/Product/new.erb
+		[ADDED]  app/Product/show.erb
+		[ADDED]  app/Product/index.bb.erb
+		[ADDED]  app/Product/edit.bb.erb
+		[ADDED]  app/Product/new.bb.erb
+		[ADDED]  app/Product/show.bb.erb
+		[ADDED]  app/Product/product_controller.rb
+		[ADDED]  app/Product/product.rb
+		[ADDED]  app/test/product_spec.rb
 
 ## Building and Running
 You build and run for individual platforms using command line options 
 
 Running on iphone simulator
-    :::term
-    rake run:iphone
+
+	:::term
+	rake run:iphone
 
 Running for iOS on RhoSimulator
-    :::term
-    rake build:iphone:rhosimulator
+
+	:::term
+	rake build:iphone:rhosimulator
 
 Running on WM device
-    :::term
-    rake run:wm:device
 
-NOTE: Starting in version 4.1 of RhoElements, no .cab file will be generated within the project when running rake run:wm:device
+	:::term
+	rake run:wm:device
+
+> Note: Starting in version 4.1 of RhoElements, no .cab file will be generated within the project when running rake run:wm:device
 
 ## Command Line Options
 If your IDE or Text-Editor provides a means to launch an external executable, you can integrate RhoMobile development tasks by using command line options. You execute these by the appropriate rake tasks, such as "rake run:android" to run it on the Android emulator. To see all possible rake tasks do the following from your `application project folder`:
 
-    :::term
-    $ rake -T
-	
+	:::term
+	$ rake -T
+
 	rake build:android:eclipsebundle         # Build RhoBundle for Eclipse project
 	rake build:android:extensions            # Building native extensions
 	rake build:android:rhobundle             # Build RhoBundle for android
@@ -146,3 +148,5 @@ If your IDE or Text-Editor provides a means to launch an external executable, yo
 	rake run:wp:rhosimulator                 # Run application on RhoSimulator
 	rake uninstall:android                   # uninstall from emulator
 	rake uninstall:android:device            # uninstall from device
+
+> Note: Windows Mobile and Windows CE apps that use the webkit will not be able to run in the RhoSimulator because of the limitations of the memory in the simulator.
