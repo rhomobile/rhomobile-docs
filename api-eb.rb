@@ -108,11 +108,11 @@ class Apieb
 	appliescontent = ""
 	# puts element["APPLIES"]
 	if element[0].is_a?(Hash) && element[0].key?("content")
-		appliescontent = element[0]["content"]	
-	end	
+		appliescontent = element[0]["content"]
+	end
 	if element[0].is_a?(String)
-		appliescontent = element[0]	
-	end	
+		appliescontent = element[0]
+	end
 	if appliescontent.size >0
 		
 		return "(" + appliescontent + ")"
@@ -121,26 +121,25 @@ class Apieb
   end
 
 #returns markdown for the name of the API 
-  def self.getApiName(doc,lang,allowoverride)
-  	md=""
-  	md = doc["MODULE"][0]["name"]
-  	if allowoverride
-	  	if !doc["MODULE"][0]["docNameOverride"].nil?
-	  		md = doc["MODULE"][0]["docNameOverride"]
-	  	else
-	  		if lang == 'RUBY'
-	  			md = 'Rho::' + doc["MODULE"][0]["name"]
-	  		elsif lang =='JS'
-	  			md = 'EB.' + doc["MODULE"][0]["name"]
-	  		else
-	  			md = doc["MODULE"][0]["name"]
-
-	  		end
-	  	end
+def self.getApiName(doc,lang,allowoverride)
+	md=""
+	md = doc["MODULE"][0]["name"]
+	if allowoverride
+		if !doc["MODULE"][0]["docNameOverride"].nil?
+			md = doc["MODULE"][0]["docNameOverride"]
+		else
+			if lang == 'RUBY'
+				md = 'Rho::' + doc["MODULE"][0]["name"]
+			elsif lang =='JS'
+				md = 'EB.' + doc["MODULE"][0]["name"]
+			else
+				md = doc["MODULE"][0]["name"]
+			end
+		end
 	end
-  	@@apiName = md
-  	return md
-  end
+	@@apiName = md
+	return md
+end
  
   def self.getshortcut(e)
   	s = e["name"]
@@ -311,7 +310,7 @@ class Apieb
 	if indicators !=""
 		indicators = "\n\n####Platforms\n" + indicators
 	end
-  	return indicators		
+  	return indicators
   end
 
 
@@ -325,7 +324,7 @@ def self.getparams(element,toplevel)
 
 	methparamsdetails = ""
 	methsectionparams = ""
-	#EB show only if no exception
+	# EB show only if no exception
 	if noproductException(element)
 		if !element["PARAMS"].nil?
 			if !toplevel
@@ -357,7 +356,7 @@ def self.getparams(element,toplevel)
 						end
 						
 						if !param["propertyHash"].nil? && param["propertyHash"] == "true" && param["PARAMS"].nil?
-							methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
+							methparamsdetailsdesc += " Valid `properties` for this parameter are the properties available to this API module. Check the <a href='#api-#{@@moduleName}?Properties'>property section</a> for applicable properties."
 						end
 						methparamsnil=""
 						methparamsnildesc=""
@@ -700,64 +699,59 @@ end
 				@usemoduleplatforms = useModulePlatformOverride(element)
 
 			else
-				puts "      #{methname} no platform indicators"
+				# puts "      #{methname} no platform indicators"
 				@usemoduleplatforms = true
-				
-			end			
+			end
 			@methplatforms = getplatformindicators(@methplatforms,msionly,ruby,javascript,@usemoduleplatforms,doc)
-		
 
 			# *** ACCESS SECTION
 
 			templateDefault = false
-			  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
-			  		templateDefault = true
-			  	end
+			if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+				templateDefault = true
+			end
 			if element["access"].nil? && element["scopeOverride"].nil?
-					#use global PROPERTIES field
-					masterAccess = doc["MODULE"][0]["METHODS"][0]["access"]
+				#use global PROPERTIES field
+				masterAccess = doc["MODULE"][0]["METHODS"][0]["access"]
 			else
-					if !element["scopeOverride"].nil?
-						masterAccess = element["scopeOverride"]
-					else
-						masterAccess = element["access"]
-					end
-
-			end			
+				if !element["scopeOverride"].nil?
+					masterAccess = element["scopeOverride"]
+				else
+					masterAccess = element["access"]
+				end
+			end
 			constructor = false
-		  	constructorLabel = ''
-		  	if !element["constructor"].nil?
+			constructorLabel = ''
+			if !element["constructor"].nil?
 				if element["constructor"] == "true"
-				    constructor = true
-				    constructorLabel = '<span class="label label-inverse"> Constructor</span> '
+					constructor = true
+					constructorLabel = '<span class="label label-inverse"> Constructor</span> '
 				end
-		  	end
-		  	destructor = false
-		  	destructorLabel = ''
-		  	if !element["destructor"].nil?
+			end
+			destructor = false
+			destructorLabel = ''
+			if !element["destructor"].nil?
 				if element["destructor"] == "true"
-				    destructor = true
-				    destructorLabel = '<span class="label label-inverse"> Destructor</span> '
+					destructor = true
+					destructorLabel = '<span class="label label-inverse"> Destructor</span> '
 				end
-		  	end
+			end
 			if masterAccess.nil? || masterAccess == 'INSTANCE' || masterAccess == ''
 				accesstype = "\n* Instance Method: This method can be accessed via an instance object of this class: \n\t* <code>myObject." + element["name"] + "(#{@methparams})</code>"
 				if templateDefault
-				accesstype += "\n* Default Instance: This method can be accessed via the default instance object of this class. "
+					accesstype += "\n* Default Instance: This method can be accessed via the default instance object of this class. "
 				if javascript 
 					accesstype += "\n\t* <code>" + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> "
 				end
 				accesstype += "\n"
-
-				end 
+			end 
 			else
 				accesstype = "\n* Class Method: This method can only be accessed via the API class object. "
 				if javascript 
 					accesstype += "\n\t* <code>" + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> "
 				end
 				accesstype += "\n"
-
-			end	
+			end
 			if constructor
 				accesstype = "\n* Class Method: This method is a constructor and can only be accessed via the `new` construct. "
 				if javascript 
@@ -772,7 +766,7 @@ end
 				end
 				accesstype += "\n"
 			end
-			@methsectionaccess = "\n\n####Method Access:\n#{accesstype}"			
+			@methsectionaccess = "\n\n####Method Access:\n#{accesstype}"
 
 			#EB : Do not show if not supporting javascript
 			if javascript
@@ -855,7 +849,7 @@ def self.getproperties(doc)
 					@propplatforms = getPlatformDesc(element)
 					@usemoduleplatforms = useModulePlatformOverride(element)
 				else
-					puts "      #{propname} no platform indicators"
+					# puts "      #{propname} no platform indicators"
 					@usemoduleplatforms = true
 				end
 				@propplatforms = getplatformindicators(@propplatforms,msionly,ruby,javascript,@usemoduleplatforms,doc)
@@ -1028,10 +1022,10 @@ def self.getproperties(doc)
 					puts "JS not supported"
 				end
 			else
-				"Puts product exception"
+				puts "product exception"
 			end
-	  	}
-	end
+			}
+		end
 	return md
 end
 
@@ -1057,7 +1051,7 @@ def self.getexamples(doc)
 				end
 			# end
 			exampleid = "exI#{index.to_s}-S#{si.to_s}"
-  			
+
 			codelang = 'ruby'
   			codesnip = section["CODE"]
   			codejs = ''
@@ -1098,83 +1092,68 @@ def self.getexamples(doc)
 	  			cleanCode = cleanCode.gsub('>','&gt;')
 	  			codejs += cleanCode
 				codejs += "\n</code></pre>"
-  			 end
-
-  			end
-  			examplesections += codejs
-
-  		}
-  	
-	    md += "\n\n###" + element["title"]
-	  	md += examplesections
-  	}
-
-end
-return md
-end
-
-
-
-  def self.markdown(topic)
-    md = ''
-
-  	# xml = File.read(topic)
-  	# doc = REXML::Document.new xml
-  	
-  	# puts topic
-  	doc = XmlSimple.xml_in(topic)
-	getApiName(doc,'',true)
-  	#EB don't process if module has productException
-  	if !noproductException doc["MODULE"][0]
-		puts "API Not Supported in EB"
-	else
-	  	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"  
-		  	templatePropBag = false
-		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
-		  		templatePropBag = true
-		  	end
-		  	templateDefault = false
-		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
-		  		templateDefault = true
-		  	end
-		  	templateSingleton = false
-		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
-		  		templateSingleton = true
-		  	end
-		  	# Add template methods,properties,constants
-		  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
-		  		
-		  		puts 'Has a template' 
-		  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
-		  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
-		  		w = templateFileString.split("/")
-		  		templateFile = w[w.length() - 1]
-		  		templatedoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],templateFile))
-				templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m|
-					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-				}
-				# puts(doc)
-				if doc["MODULE"][0]["PROPERTIES"].nil?
-					doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
-				else
-					templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m|
-						doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m)
-					}
-
 				end
-				puts (doc["MODULE"][0]["PROPERTIES"])
-				templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m|
-					doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m)
-				}
-		  	end
-		  	if templateDefault
-		  		#get xml from file and put it in main array so it is handled like other methods
-		  		defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'default_instance.xml'))
-				defaultdoc["METHODS"][0]["METHOD"].each { |m|
-					doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m)
-				}
-		  	end
-		  	if templateSingleton
+				end
+				examplesections += codejs
+			}
+			md += "\n\n###" + element["title"]
+			md += examplesections
+		}
+		end
+	return md
+end
+
+	def self.markdown(topic)
+		# Grab just the file name
+		@@moduleName = File.basename(topic, File.extname(topic))
+
+		md = ''
+		# xml = File.read(topic)
+		# doc = REXML::Document.new xml
+
+		# puts "=====" + topic + "====="
+		doc = XmlSimple.xml_in(topic)
+		getApiName(doc,'',true)
+		#EB don't process if module has productException
+		if !noproductException doc["MODULE"][0]
+			puts "#{@@moduleName} API Not Supported in EB"
+		else
+			if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
+				templatePropBag = false
+				if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["PROPERTY_BAG"].nil?
+					templatePropBag = true
+				end
+				templateDefault = false
+				if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
+					templateDefault = true
+				end
+				templateSingleton = false
+				if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["SINGLETON_INSTANCES"].nil?
+					templateSingleton = true
+				end
+				# Add template methods,properties,constants
+				if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
+					puts "Has a template: #{doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]}"
+					templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
+					w = templateFileString.split("/")
+					templateFile = w[w.length() - 1]
+					templatedoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],templateFile))
+					templatedoc["MODULE"][0]["METHODS"][0]["METHOD"].each { |m| doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m) }
+					# puts(doc)
+					if doc["MODULE"][0]["PROPERTIES"].nil?
+						doc["MODULE"][0]["PROPERTIES"] = templatedoc["MODULE"][0]["PROPERTIES"]
+					else
+						templatedoc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].each { |m| doc["MODULE"][0]["PROPERTIES"][0]["PROPERTY"].push(m) }
+					end
+					# puts (doc["MODULE"][0]["PROPERTIES"])
+					templatedoc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].each { |m| doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].push(m) }
+				end
+				if templateDefault
+					#get xml from file and put it in main array so it is handled like other methods
+					defaultdoc = XmlSimple.xml_in(File.join(AppConfig['api_eb'],'default_instance.xml'))
+					defaultdoc["METHODS"][0]["METHOD"].each { |m| doc["MODULE"][0]["METHODS"][0]["METHOD"].push(m) }
+				end
+				if templateSingleton
 		  		#get xml from file and put it in main array so it is handled like other methods
 		  		puts topic + 'trying to use singleton'
 		  		# This was commented out as engineering changed their minds on singleton usage no longer used
@@ -1232,7 +1211,7 @@ end
 		else
 			puts ('Skipping API: ' + doc["MODULE"][0]["name"] )
 		end
-	end  		
+	end
   return md
   end
 
