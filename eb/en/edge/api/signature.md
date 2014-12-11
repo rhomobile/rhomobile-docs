@@ -134,7 +134,7 @@ Synchronous Return:
 Show in-line signature window. This function works with a non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect the capture area shown in takeFullScreen (modal full screen capture area).
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Map of signature properties to be set Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Use already set properties</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Map of signature properties to be set. Valid `properties` for this parameter are the properties available to this API module. Check the <a href='#api-signature?Properties'>property section</a> for applicable properties. Use existing properties from this API.</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -156,7 +156,7 @@ Synchronous Return:
 Shows a modal window with signature capture area and UI (toolbar with buttons) for cancel / capture and return to main application window. The callback is fired when the signature window is closed (when in full-screen) or when capture is called. On WM/CE, the signature area has visible buttons for 'clear', 'capture' and 'cancel'. On Android, the signature area has images which will behave as buttons for 'clear', 'capture' and 'cancel'. This function opens a modal full screen window therefore, other functions related to in-line signature capture (work with inside browser window area) do not affect the capture window shown by this function.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Map of signature properties to be set Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> Use already set properties</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Map of signature properties to be set Valid `properties` for this parameter are the properties available to this API module. Check the <a href='#api-signature?Properties'>property section</a> for applicable properties. Use already set properties</p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>Whether a signature was captured or the signature capture area was dismissed (Fullscreen version only). Possible values:'ok' or 'cancel' </p></li><li>imageUri : <span class='text-info'>STRING</span><p>If the outputFormat is "image", this will be the URI of the captured signature image. If the outputFormat is "dataUri", this will be the DataURI representation of the captured signature image. </p></li><li>signature_uri : <span class='text-info'>STRING</span><p>If the outputFormat is "image", this will be the URI of the captured signature image. If the outputFormat is "dataUri", this will be the DataURI representation of the captured signature image. </p></li></ul></ul>

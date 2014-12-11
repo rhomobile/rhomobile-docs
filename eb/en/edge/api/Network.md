@@ -163,7 +163,7 @@ Perform a HTTP GET request.
 > Note: This method will perform a POST if you send a body with it. If performing a GET, do not add a body to the call.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. Valid `properties` for this parameter are the properties available to this API module. Check the <a href='#api-Network?Properties'>property section</a> for applicable properties. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>body : <span class='text-info'>STRING</span><p>The body of the HTTP response. </p></li><li>headers : <span class='text-info'>HASH</span><p>A hash containing the response headers. </p></li><li>cookies : <span class='text-info'>STRING</span><p>The server cookies, parsed and usable for subsequent requests. </p></li><li>http_error : <span class='text-info'>INTEGER</span><p>HTTP error code if response code was not 200. </p></li></ul></ul>

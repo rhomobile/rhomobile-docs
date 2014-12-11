@@ -185,9 +185,9 @@ The ebapi.js file is necessary for all single API inclusions.
                 <PLATFORM>iOS, Android, WM</PLATFORM>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
-                        <DESC>Map of signature properties to be set</DESC>
+                        <DESC>Map of signature properties to be set.</DESC>
                         <CAN_BE_NIL>
-                            <DESC>Use already set properties</DESC>
+                            <DESC>Use existing properties from this API.</DESC>
                         </CAN_BE_NIL>
                     </PARAM>
                 </PARAMS>
