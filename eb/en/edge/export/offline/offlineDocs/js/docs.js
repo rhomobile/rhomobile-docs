@@ -174,7 +174,7 @@ function shouldSync()
 {
 	if(shouldOpen)
 	{
-		if($('#menu').multilevelpushmenu('comparepaths', $('#menu').multilevelpushmenu('activemenu'), $('#menu').multilevelpushmenu('findmenusbytitle', 'Help'), false).length == 0)
+		if($('#menu').multilevelpushmenu('comparepaths', $('#menu').multilevelpushmenu('activemenu'), $('#menu').multilevelpushmenu('findmenusbytitle', menuStrcture[0].title), false).length == 0)
 		{
 			shouldOpen = false;
 			
@@ -203,7 +203,7 @@ function findHash()
 	if(hash == "")
 	{
 		//Load root
-		$('#menu').multilevelpushmenu('expand' , $('#menu').multilevelpushmenu('findmenusbytitle', 'Help'));
+		$('#menu').multilevelpushmenu('expand' , $('#menu').multilevelpushmenu('findmenusbytitle', menuStrcture[0].title));
 	}
 	else
 	{	
@@ -301,9 +301,9 @@ function syncMenu(hash){
 			//console.log("Got Parent Item");
 			
 			//Check if we need to go to root
-			if($('#menu').multilevelpushmenu('comparepaths', $(parentItem), $('#menu').multilevelpushmenu('findmenusbytitle', 'Help'), false).length == 0){
+			if($('#menu').multilevelpushmenu('comparepaths', $(parentItem), $('#menu').multilevelpushmenu('findmenusbytitle', menuStrcture[0].title), false).length == 0){
 				//Load root
-				$('#menu').multilevelpushmenu('expand' , $('#menu').multilevelpushmenu('findmenusbytitle', 'Help'));
+				$('#menu').multilevelpushmenu('expand' , $('#menu').multilevelpushmenu('findmenusbytitle', menuStrcture[0].title));
 			}
 			//Check if we are here already
 			else if($('#menu').multilevelpushmenu('menuexpanded', $(parentItem))){
