@@ -2,7 +2,7 @@
 
 
 ## Overview
-The PrinterZebra API provides Zebra specific API access Zebra Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](printing)
+The PrinterZebra API provides Zebra specific API access Zebra Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](#api-printing)
 ## Enabling the API
 There are two methods of enabling the Zebra Printing API: 
 

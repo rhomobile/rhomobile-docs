@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="PrinterZebra" parent="Rho">
-        <HELP_OVERVIEW>The PrinterZebra API provides Zebra specific API access Zebra Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](printing)</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The PrinterZebra API provides Zebra specific API access Zebra Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](#api-printing)</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`.
