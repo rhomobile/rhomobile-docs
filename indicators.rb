@@ -383,7 +383,7 @@ The following table shows the compatibility for each Mobile API.
    </tbody></table>"
 
     md = md + '
-##API Matrix (MSI Devices)
+##API Matrix (Symbol Devices)
 <table class="table table-striped table-bordered table-condensed apicompat" width="130%" id="matrixmsi">
 <thead>
   <tr>

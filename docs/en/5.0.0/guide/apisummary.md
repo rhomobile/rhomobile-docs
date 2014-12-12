@@ -13,8 +13,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
     : Indicates this API/Platform requires a license for production use.
   </p>
   <p>
-    <img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"> 
-    : Indicates this API is only available on Motorola Solutions devices
+    <img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"> 
+    : Indicates this API is only available on Symbol devices.
   </p>
 </div>
 
@@ -184,7 +184,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/cardreader">CardReader<img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">
+        <a href="../api/cardreader">CardReader<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -340,7 +340,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0. Please consult 
 
     <tr>
       <td>
-        <a href="../api/keystate">KeyState<img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"></a>
+        <a href="../api/keystate">KeyState<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"></a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>

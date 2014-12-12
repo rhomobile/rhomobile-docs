@@ -3,7 +3,7 @@
 Below is a list of the new common api's for RhoMobile Suite 4.0. Please consult the [2.x migration guide](apiusage) if you are moving a 2.x application to 4.0. If you are starting a new project, it is advised to the use 4.x API's going forward, however the 2.x APIs are still currently supported.
 
 ## 4.0 API's
-<div class="alert alert-warning"><p><span class="icon-check icon-primary icon-inverse"  rel="tooltip" title="Supported and does NOT requires a license"></span> : Indicates this API/Platform is supported and does not require a license.</p><p><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span> : Indicates this API/Platform requires a license for production use.</p><p><img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">: Indicates this API is only available on Motorola Solutions devices</p></div>
+<div class="alert alert-warning"><p><span class="icon-check icon-primary icon-inverse"  rel="tooltip" title="Supported and does NOT requires a license"></span> : Indicates this API/Platform is supported and does not require a license.</p><p><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span> : Indicates this API/Platform requires a license for production use.</p><p><img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">: Indicates this API is only available on Symbol devices.</p></div>
 
 <table class="table table-condensed table-striped">
 <thead>
@@ -64,7 +64,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.0. Please consult 
 
 <tr>
 <td>
-<a href="../api/cardreader">CardReader<img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">
+<a href="../api/cardreader">CardReader<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">
 </td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -101,7 +101,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.0. Please consult 
 </tr>
 <tr>
 <td>
-<a href="../api/keystate">KeyState<img src="/img/motowebkit.png" style="width: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"></a>
+<a href="../api/keystate">KeyState<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"></a>
 </td>
 <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
 <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
