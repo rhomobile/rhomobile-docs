@@ -964,7 +964,7 @@ Type of printer - see PRINTER_TYPE_... constants.
 ###Windows Mobile/CE Notes
 
 
-* Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
+* Requires a Printing Service application to be running.
    
 * You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:
 
