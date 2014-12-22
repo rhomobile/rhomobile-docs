@@ -377,7 +377,7 @@ Sets the Enterprise Browser to fullscreen mode, locking out the OS to the user u
 **Possible Values**
 
 * 0 - Disabled
-* 1 - Enabled
+* **1 - Enabled**
 
 #### Example
 	:::xml

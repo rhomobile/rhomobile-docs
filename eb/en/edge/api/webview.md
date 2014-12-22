@@ -37,55 +37,6 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 
-### active_tab()
-Use NativeTabbar.currentTab property: returns the current tab index.
-
-####Parameters
-<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Callback
-Async Callback Returning Parameters: <span class='text-info'>INTEGER</span></p><ul></ul>
-
-####Returns
-Synchronous Return:
-
-* INTEGER
-
-####Platforms
-
-* Android
-* Windows Mobile
-* Windows CE
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.WebView.active_tab()</code> 
-
-
-### full_screen_mode(<span class="text-info">BOOLEAN</span> enable)
-Use WebView.fullScreen property: Switch to / from full screen mode.
-
-####Parameters
-<ul><li>enable : <span class='text-info'>BOOLEAN</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Platforms
-
-* Android
-* Windows Mobile
-* Windows CE
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.WebView.full_screen_mode(<span class="text-info">BOOLEAN</span> enable)</code> 
-
-
 ### navigate(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> tabIndex)
 Force WebView to navigate to a URL. White page flickering during transition may happen if a controller action method doesn't return any rendered value, but instead performs a WebView.navigate(someUrl) call. It is important to avoid using WebView.navigate in Ruby action methods because WebView.navigate is intended to be used in callback methods asynchronously.
 
@@ -174,29 +125,6 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.WebView.save(<span class="text-info">STRING</span> format, <span class="text-info">STRING</span> path, <span class="text-info">INTEGER</span> tabIndex)</code> 
-
-
-### set_menu_items(<span class="text-info">HASH</span> menuItems)
-Use Application.nativeMenu property: set native menu items.
-
-####Parameters
-<ul><li>menuItems : <span class='text-info'>HASH</span><p>Map of menu items: name to action. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Platforms
-
-* Android
-* Windows Mobile
-* Windows CE
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.WebView.set_menu_items(<span class="text-info">HASH</span> menuItems)</code> 
 
 
 ##Properties
@@ -368,7 +296,7 @@ Same as System.webViewFramework.
 ####Description
 Use full screen mode.
 ####Params
-<p><strong>Default:</strong> false</p>
+<p><strong>Default:</strong> true</p>
 ####Access
 
 
