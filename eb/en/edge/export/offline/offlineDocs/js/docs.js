@@ -73,7 +73,7 @@ $(document).ready(function(){
 	
 	for(var i = 0; i<versionsList.length; i++)
 	{
-		html += '<li><div class="versionLink" data-link="' + versionsList[i].page + '">' + versionsList[i].Number + '</div></li>';
+		html += '<li><div class="versionLink" data-link="' + versionsList[i].page + '">' + versionsList[i].version + '</div></li>';
 	}
 	
 	popover.options.content = '<div><ul class="nav nav-list">' + html + '</ul></div>';

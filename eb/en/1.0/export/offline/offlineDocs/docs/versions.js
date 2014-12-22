@@ -1,7 +1,4 @@
-var versionsList = [
-	{
-		Number:"1.0",
-		page:"index.html"
-	}
-	
-]
+var versionsList = {
+		version:     "1.1",
+		helpVersion: "0",
+		page:        "index.html"}
