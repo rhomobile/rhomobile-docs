@@ -1,25 +1,21 @@
 # Debugging JavaScript
-
 ## Debugging with RhoSimulator
 ### What is RhoSimulator
-
 RhoSimulator lets you run your RhoMobile applications on a simulated device, so that you can see how it looks, test and debug it. RhoSimulator builds and runs your application much faster than other emulators, making it useful for rapid testing and debugging.
 
 Once your application is running under RhoSimulator, you can make changes to your source files and just press ‘Refresh’ to see your changes live, i.e. generally no RhoSimulator restart is required. The restart of RhoSimulator is required only if a model was added/modified or some code was changed in the `AppApplication` class.
 
 ### Uses
-
 * Debug Ruby code by using RhoStudio.
 * Debug JavaScript.
 * Live edit HTML and CSS.
 * Diagnose network activity and AJAX calls.
 
 ### Limitations
-
 * You can run your application under RhoSimulator even without installing the simulated platform's SDK (for example, you can simulate iOS under Windows, or Windows Mobile under OSX). However, RhoSimulator does not attempt to replicate all features of a real device. For example: certain hardware features like the camera or barcode scanner are not replicated.
 * RhoSimulator is currently only available for Windows and Mac OS X.
 
-**NOTE: As the name implies, RhoSimulator *simulates* not *emulates* different platforms. This difference is significant, it means that, while your application will generally act as if it was running on the selected platform, you should not expect all features to work exactly as they will on a real device. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect**
+> Note: As the name implies, RhoSimulator *simulates* not *emulates* different platforms. The RhoSimulator uses QT Webkit internally to render the view portion of your application.  Whilst the view will be a very close approximation to how your application will appear on your device please bear in mind that different rendering engines will render pages slightly differently, depending on the actual page content.  For example, on Android we use the stock Webview control (Webkit or Blink, depending on the Android version) and on Windows Mobile / CE we use our custom developed Webkit based rendering engine. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect
 
 ## Prerequisites
 

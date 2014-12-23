@@ -27,6 +27,8 @@ RhoStudio will, by default, switch to the 'Debug' perspective, and it will estab
 
 ![RhoSimulator Debugging](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/rhostudio-debug-ruby.png)
 
+> Note: As the name implies, RhoSimulator *simulates* not *emulates* different platforms. The RhoSimulator uses QT Webkit internally to render the view portion of your application.  Whilst the view will be a very close approximation to how your application will appear on your device please bear in mind that different rendering engines will render pages slightly differently, depending on the actual page content.  For example, on Android we use the stock Webview control (Webkit or Blink, depending on the Android version) and on Windows Mobile / CE we use our custom developed Webkit based rendering engine. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect
+
 ## Debugging an App on an Android Device
 To use RhoStudio to debug a RhoMobile application running on your Android device you'll want to make sure that your computer can "see" your android device using the adb command. So make sure your device's USB debugging is on and run the adb command in your terminal or command prompt and confirm that your device shows up. Once you have ensured that your computer recognizes your device, follow these steps:
 
