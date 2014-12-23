@@ -1,7 +1,18 @@
-#ForwardButton
-
+# ForwardButton
 ## Overview
 The ForwardButton Module is used to set the parameters of the Forward Button. When clicked, the Forward button will navigate to the previously loaded page, if any.
+
+> Note: When using the forwardButton on a VC50 device, there is the possibility that the display will be slightly distorted while the forwardButton is displayed. This only occurs when the forwardButton or other similar overlays are on set to be visible.
+Other overlays consist of, but are not necessarily limited to:
+* addressBar
+* backbutton
+* keystate indicator
+* gobutton
+* minimizebutton
+* quitbutton
+* reloadButton
+* sipbutton
+* stopbutton
 
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:

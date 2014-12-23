@@ -3,6 +3,19 @@
 
 ## Overview
 The KeyState API is used to display small icons to the user indicating the current shifted state of the hardware keyboard. The KeyState indicator will display icons for Shift, Alt, Control, Function, Caps, Num lock and Orange key states, growing from the right as necessary if more than one key state is set at once. This API is only supported on a subset of Symbol Technologies' Windows Mobile / CE / Embedded handheld devices (see remarks).
+
+> Note: When using the keyState indicator on a VC50 device, there is the possibility that the display will be slightly distorted while the keyState indicator is displayed. This only occurs when the keyState indicator or other similar overlays are on set to be visible.
+Other overlays consist of, but are not necessarily limited to:
+* addressBar
+* backbutton
+* forwardbutton
+* gobutton
+* minimizebutton
+* quitbutton
+* reloadButton
+* sipbutton
+* stopbutton
+        
 ## Enabling the API
 There are two methods of enabling the KeyState API: 
 

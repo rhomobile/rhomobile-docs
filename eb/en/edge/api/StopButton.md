@@ -1,7 +1,18 @@
-#StopButton
-
+# StopButton
 ## Overview
 The StopButton Module is used to set the parameters of the Stop Button. The Stop Button will only be displayed whilst a page is loading and when clicked will cease the current navigation and navigate to the badlink page (if defined), this prevents partially rendered pages being displayed in the browser.
+
+> Note: When using the stopButton on a VC50 device, there is the possibility that the display will be slightly distorted while the stopButton is displayed. This only occurs when the stopButton or other similar overlays are on set to be visible.
+Other overlays consist of, but are not necessarily limited to:
+* addressBar
+* backbutton
+* keystate indicator
+* forwardbutton
+* gobutton
+* minimizebutton
+* quitbutton
+* reloadButton
+* sipbutton
 
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:

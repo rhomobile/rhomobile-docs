@@ -3,6 +3,18 @@
 ## Overview
 The GoButton Module is used to set the parameters of the GoButton. When clicked, the Go button shall navigate to the page shown in the Address Bar. The Go button will not be visible when the browser is navigating as it is replaced by the stop button (if visible), in line with all major browsers.
 
+> Note: When using the gobutton on a VC50 device, there is the possibility that the display will be slightly distorted while the gobutton is displayed. This only occurs when the gobutton or other similar overlays are on set to be visible.
+Other overlays consist of, but are not necessarily limited to:
+* addressBar
+* backbutton
+* keystate indicator
+* forwardbutton
+* minimizebutton
+* quitbutton
+* reloadButton
+* sipbutton
+* stopbutton
+
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
 

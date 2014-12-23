@@ -1,7 +1,18 @@
-#ReloadButton
-
+# ReloadButton
 ## Overview
 The ReloadButton Module is used to set the parameters of the Reload Button. When clicked, the current page is reloaded.
+
+> Note: When using the reloadButton on a VC50 device, there is the possibility that the display will be slightly distorted while the reloadButton is displayed. This only occurs when the reloadButton or other similar overlays are on set to be visible.
+Other overlays consist of, but are not necessarily limited to:
+* addressBar
+* backbutton
+* keystate indicator
+* forwardbutton
+* gobutton
+* minimizebutton
+* quitbutton
+* sipbutton
+* stopbutton
 
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:

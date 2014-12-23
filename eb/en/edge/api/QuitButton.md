@@ -1,7 +1,18 @@
-#QuitButton
-
+# QuitButton
 ## Overview
 The QuitButton Module is used to set the parameters of the quit button. When clicked, the Quit button will exit the Enterprise Browser application.
+
+> Note: When using the quitButton on a VC50 device, there is the possibility that the display will be slightly distorted while the quitButton is displayed. This only occurs when the quitButton or other similar overlays are on set to be visible.
+Other overlays consist of, but are not necessarily limited to:
+* addressBar 
+* backbutton
+* keystate indicator
+* forwardbutton
+* gobutton
+* minimizebutton
+* reloadButton
+* sipbutton
+* stopbutton
 
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:

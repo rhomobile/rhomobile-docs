@@ -2,12 +2,24 @@
 ## Overview
 The AddressBar API is used to set the parameters of the address bar. The address bar should only be used for debugging and is not designed to be used as a replacement for a web browser address bar. Press the ‘Go’ button or enter key to navigate to the typed URI.
 
+> Note: When using the addressBar on a VC50 device, there is the possibility that the display will be slightly distorted while the addressBar is displayed. This only occurs when the addressBar or other similar overlays are on set to be visible.
+Other overlays consist of, but are not necessarily limited to:
+* backbutton
+* keystate indicator
+* forwardbutton
+* gobutton
+* minimizebutton
+* quitbutton
+* reloadButton
+* sipbutton
+* stopbutton
+
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
 
 * elements.js 
 
-> Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
+> Note: this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
 
 	:::html
     <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
