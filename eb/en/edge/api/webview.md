@@ -3,6 +3,9 @@
 
 ## Overview
 The `Webview` is the core container used for rendering your application code. You can control certain behaviors of the webview by using this API class.
+
+> Note: There is currently an issue with hyperlinks on CE devices using the IE Engine: if you are attempting to click a link while holding the shift hardware key on the device, the link will not work properly. This is a known issue and is being worked on currently.
+        
 ## Enabling the API
 There are two methods of enabling the Webview API: 
 
