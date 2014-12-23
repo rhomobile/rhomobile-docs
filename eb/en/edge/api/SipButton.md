@@ -2,7 +2,7 @@
 ## Overview
 The SipButton Module is used to set the parameters of the SIP Button. The SIPButton will toggle the display of the soft input panel allowing keyboard input via a stylus.
 
-> Note: When using the sipbutton on a VC50 device, there is the possibility that the display will be slightly distorted while the sipbutton is displayed. This only occurs when the sipbutton or other similar overlays are on set to be visible.
+> Note: When using the sipbutton on a VC5090 device, there is the possibility that the display will be slightly distorted while the sipbutton is displayed. This only occurs when the sipbutton or other similar overlays are on set to be visible.
 Other overlays consist of, but are not necessarily limited to:
 * addressBar
 * backbutton

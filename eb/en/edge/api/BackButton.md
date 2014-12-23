@@ -2,7 +2,7 @@
 ## Overview
 The BackButton Module is used to set the parameters of the Back Button. When clicked, the Back button will navigate to the previously loaded page, if any.
 
-> Note: When using the backbutton on a VC50 device, there is the possibility that the display will be slightly distorted while the backbutton is displayed. This only occurs when the backbutton or other similar overlays are on set to be visible.
+> Note: When using the backbutton on a VC5090 device, there is the possibility that the display will be slightly distorted while the backbutton is displayed. This only occurs when the backbutton or other similar overlays are on set to be visible.
 Other overlays consist of, but are not necessarily limited to:
 * addressBar
 * keystate indicator

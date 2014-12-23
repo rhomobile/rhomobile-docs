@@ -2,7 +2,7 @@
 ## Overview
 The ReloadButton Module is used to set the parameters of the Reload Button. When clicked, the current page is reloaded.
 
-> Note: When using the reloadButton on a VC50 device, there is the possibility that the display will be slightly distorted while the reloadButton is displayed. This only occurs when the reloadButton or other similar overlays are on set to be visible.
+> Note: When using the reloadButton on a VC5090 device, there is the possibility that the display will be slightly distorted while the reloadButton is displayed. This only occurs when the reloadButton or other similar overlays are on set to be visible.
 Other overlays consist of, but are not necessarily limited to:
 * addressBar
 * backbutton

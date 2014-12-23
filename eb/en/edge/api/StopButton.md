@@ -2,7 +2,7 @@
 ## Overview
 The StopButton Module is used to set the parameters of the Stop Button. The Stop Button will only be displayed whilst a page is loading and when clicked will cease the current navigation and navigate to the badlink page (if defined), this prevents partially rendered pages being displayed in the browser.
 
-> Note: When using the stopButton on a VC50 device, there is the possibility that the display will be slightly distorted while the stopButton is displayed. This only occurs when the stopButton or other similar overlays are on set to be visible.
+> Note: When using the stopButton on a VC5090 device, there is the possibility that the display will be slightly distorted while the stopButton is displayed. This only occurs when the stopButton or other similar overlays are on set to be visible.
 Other overlays consist of, but are not necessarily limited to:
 * addressBar
 * backbutton

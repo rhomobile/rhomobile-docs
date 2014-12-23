@@ -2,7 +2,7 @@
 ## Overview
 The AddressBar API is used to set the parameters of the address bar. The address bar should only be used for debugging and is not designed to be used as a replacement for a web browser address bar. Press the ‘Go’ button or enter key to navigate to the typed URI.
 
-> Note: When using the addressBar on a VC50 device, there is the possibility that the display will be slightly distorted while the addressBar is displayed. This only occurs when the addressBar or other similar overlays are on set to be visible.
+> Note: When using the addressBar on a VC5090 device, there is the possibility that the display will be slightly distorted while the addressBar is displayed. This only occurs when the addressBar or other similar overlays are on set to be visible.
 Other overlays consist of, but are not necessarily limited to:
 * backbutton
 * keystate indicator
