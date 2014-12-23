@@ -2,7 +2,7 @@
 
 
 ## Overview
-The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Symbol devices are supported and it is also possible to display a small indicator showing the available signal.  The WLAN signal strength is not available on Windows Phone 8 and therefore this API is not supported on that platform.
+The Signal API is used to notify the user of the strength of the WLAN signal.  For Windows Mobile / CE, only Symbol devices are supported and it is also possible to display a small indicator showing the available signal.
 ## Enabling the API
 There are two methods of enabling the SignalIndicators API: 
 
