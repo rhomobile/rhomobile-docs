@@ -211,26 +211,6 @@ Show page loading indication. On Windows Mobile/CE this property can be set only
 * Windows Mobile
 * Windows CE(WebKit on Windows Mobile/CE)
 
-###enableWebPlugins
-
-####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
-####Description
-Enable / disable web plug-ins. Use 'enable_web_plugins' parameter in Config.xml to configure this value. This option only has effect on Android versions before 4.0 (ICS). It mainly affects if Flash content is displayed.
-####Params
-<p><strong>Default:</strong> true</p>
-####Access
-
-
-* Class: This property can only be accessed via the API class object.
-	* <code>EB.WebView.enableWebPlugins</code>
-
-
-
-####Platforms
-
-* Android
-
 ###enableZoom
 
 ####Type
