@@ -15,13 +15,13 @@ Use RhoStudio to:
 
 ## Installing RhoStudio
 
-### Installing on Macintosh
+### Installing on Mac
 
-If you're running Macintosh install Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://support.apple.com/kb/DL1421) and install it.
+If you're using a Mac install Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://support.apple.com/kb/DL1421) and install it.
 
 Although Mac OS has [Ruby](http://www.ruby-lang.org/en/) installed, this version is outdated and isn't compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io//) and then install Ruby version 1.9.3.
 
-Download the latest [RhoStudio for Macintosh](http://rhomobile.com/rhostudio-mac).
+Download the latest [RhoStudio for Mac](http://rhomobile.com/rhostudio-mac).
 
 When the download finishes, click on the RMS_&lt;version&gt;.dmg file to open it. You will get a window similar to this:<br>
 <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
@@ -314,7 +314,7 @@ To create a device build with RhoStudio, you need to do the following:
 
 ### Installing the SDK
 
-On Macintosh computers, once you have installed Xcode, RhoStudio will know the location of the iOS SDK. You do not set any locations.
+On Mac OS, once you have installed Xcode, RhoStudio will know the location of the iOS SDK. You do not set any locations.
 
 On other platforms, such as Android, you need to install the SDK, and then set RhoStudio Preferences for that platform's SDK. For example, on an Android device, you must download and install:
 
