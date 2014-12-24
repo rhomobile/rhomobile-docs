@@ -76,6 +76,10 @@ The following is an example of a typical configuration file
 			<GeolocationEnabled value="1"/>
 		</Geolocation>
 
+		<Engine>
+			<EngineInUse value="IE"/>
+		</Engine>
+
 		<Applications>
 			<Application>
 				<General>
@@ -1316,6 +1320,19 @@ Enables / disables HTML5 Geolocation. When enabled on a device supporting geoloc
 #### Example
 	:::xml
 	<GeolocationEnabled value="1"/>
+
+## Engine
+### EngineInUse
+If you are deploying a Webkit installation of EB to Windows CE6 or Windows Mobile 6.5 and above, you can select which engine to use (IE or Webkit) by editing this field in your `Config.xml` file. If you are deploying an IE only installation, Webkit will **not** be available as an option.
+
+**Possible Values**
+
+* IE - Use the IE engine
+* Webkit - Use the webkit engine (webkit installation only)
+
+#### Example
+	:::xml
+	<EngineInUse value="IE"/>
 
 ## TabInstance
 ### NewTabPhysicalMemLimit
