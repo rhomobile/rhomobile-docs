@@ -1165,6 +1165,8 @@ Use the UserAgent setting to spoof your device to the server, e.g. to view conte
 
 From PB 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to PB 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"
 
+> Note: This attribute cannot be set to a custom value for apps using Internet Explorer as their rendering engine. If using IE, please leave this value as the default value.
+
 **Possible Values**
 
 * String
