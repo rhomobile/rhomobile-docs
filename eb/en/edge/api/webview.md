@@ -192,28 +192,6 @@ Enable / disable Browser cache. Use 'WebView.enableCache' parameter in rhoconfig
 
 * Android
 
-###enablePageLoadingIndication
-
-####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
-####Description
-Show page loading indication. On Windows Mobile/CE this property can be set only in config.xml: GUI\\HourglassEnabled. At Android  use 'disable_loading_indication' parameter in Config.xml to configure this value.
-####Params
-<p><strong>Default:</strong> true</p>
-####Access
-
-
-* Class: This property can only be accessed via the API class object.
-	* <code>EB.WebView.enablePageLoadingIndication</code>
-
-
-
-####Platforms
-
-* Android
-* Windows Mobile
-* Windows CE(WebKit on Windows Mobile/CE)
-
 ###enableZoom
 
 ####Type
