@@ -406,7 +406,7 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 ####Type
 <span class='text-info'>FLOAT</span> 
 ####Description
-Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.
+Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. In Windows, it is recommended to not to use the zoom value less than 1.0 because the page doesn't look in readable format.
 ####Access
 
 
