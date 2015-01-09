@@ -86,7 +86,7 @@ Synchronous Return:
 Play an audio file if that media type is supported by the device.
 
 ####Parameters
-<ul><li>path : <span class='text-info'>STRING</span><p>The full path to the file, ending in the file name and extension. </p></li><li>media_type : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: </span><p>Media type can be specified explicitly, or can be recognized from the file extension. The known file extensions are ".mp3" - "audio/mpeg" and ".wav" - "audio/x-wav". </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>path : <span class='text-info'>STRING</span><p>The full absolute path to the file, ending in the file name and extension. </p></li><li>media_type : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: </span><p>Media type can be specified explicitly, or can be recognized from the file extension. The known file extensions are ".mp3" - "audio/mpeg" and ".wav" - "audio/x-wav". </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -105,7 +105,7 @@ Synchronous Return:
 
 
 ### showPopup(<span class="text-info">HASH</span> propertyMap)
-Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on one of the buttons in the 'button' array.
+Bring the application up front and show a message in a popup window. The message can be passed as a string or a hash. The popup window closes after you click on one of the buttons in the 'button' array. All custom icons' paths must be absolute paths to the icon file.
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the popup. </p></li><ul><li>message : <span class='text-info'>String</span><span class='label '> Default: </span><p>Text displayed in the popup window. </p></li><li>title : <span class='text-info'>String</span><span class='label '> Default: </span><p>Title of the popup window. </p></li><li>icon : <span class='text-info'>String</span><span class='label '> Default: </span><p>Icon to be displayed in the popup window. path to an image, or :alert for ! icon, :question for ? icon, :info for information icon. On Windows Mobile/CE only predefined icons are supported.Local file system path is only supported for notification icons. Platforms:
