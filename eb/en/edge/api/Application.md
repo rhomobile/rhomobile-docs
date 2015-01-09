@@ -539,7 +539,6 @@ Define Window caption text. If missed - caption from page used. Not supported on
 ####Platforms
 
 * Windows Mobile
-* Windows CE
 
 ###userFolder
 
