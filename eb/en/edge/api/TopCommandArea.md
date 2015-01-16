@@ -1,6 +1,9 @@
 # TopCommandArea
+
 ## Overview
 The TopCommandArea API is used to set the parameters of the Top Command Area. The top command area is a region at the top of the screen designed to hold Enterprise Browser controls such as the address bar or Go button to separate them from the rest of the user application.
+
+> Note: Not supported for use with the I.E. engine. When using the I.E. engine, the debug elements are covered by other elements of the app on the page, therefore we recommend not using the I.E. engine while using this API.
 
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
