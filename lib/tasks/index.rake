@@ -4,10 +4,9 @@ task :index do
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   # client = IndexTank::Client.new('http://:LsiLZl48xLtVxp@8todr.api.searchify.com')
   index = client.indexes(AppConfig['index'])
-  
 
-   # index.delete rescue nil
-   # index.add rescue nil
+  # index.delete rescue nil
+  # index.add rescue nil
   print "Waiting to initialize #{AppConfig['index']}..."
   while not index.running?
     print "."
@@ -24,9 +23,9 @@ task :index do
           'version' => version,
           'chunknum' => '0'
       }
-      variables = { 
-              0 => index_variable_for(version)
-            }
+      variables = {
+          0 => index_variable_for(version)
+      }
       puts "...indexing #{name},#{version},#{category}"
       source = File.read(doc)
       puts "#{File.size(doc)}"
@@ -37,7 +36,7 @@ task :index do
       rest_result = RestClient.get("https://api.github.com/repos/rhomobile/rhomobile-docs/commits?path=#{doc}", :Authorization => 'token ea72876766af0098ab690afc067c315107b5019f').body
     
       if rest_result.code != 200
-        puts ('Error communication with site')
+        puts ('Error communicating with site')
         parsed = JSON.parse(rest_result)
         puts parsed["message"]
       else

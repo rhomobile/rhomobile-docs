@@ -39,7 +39,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 ### create(<span class="text-info">ARRAY</span> toolbarElements, <span class="text-info">HASH</span> toolBarProperties)
-Creates a new toolbar and Removes the current toolbar / tabbar and replaces it with this one.
+Creates a new toolbar and Removes the current toolbar / tabbar and replaces it with this one. Any images used for UI elements should be specified by either an absolute path. i.e. '/sdcard/nmt/blabla.com.bla./data/public/img/button.png'
 
 ####Parameters
 <ul><li>toolbarElements : <span class='text-info'>ARRAY</span><p>Array of Toolbar elements. Do not create more than five elements for maximum portability.Toolbar elements are not scrollable, so if some buttons will not fit into the screen dimensions, they will be invisible. </p></li><ul><li>toolbarElement : <span class='text-info'>HASH</span><p>Properties of Toolbar elements. Either :icon or :label must be specified. If both are specified, :icon is drawn and :label is discarded. </p></li><ul><li>label : <span class='text-info'>STRING</span><p>Visible label to display instead of an icon.For predefined actions, icon will be displayed. Android note: for predefined actions no label will be displayed. </p></li><li>action : <span class='text-info'>STRING</span><p>URL to call when button is pressed or special value.It may be a JavaScript method to call: 'javascript: methodOnButton();'. </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>separator</dt><dd>Add a separator to the toolbar. If only one separator is specified, then elements after separator will be right-aligned. If more then one separator is added: on WM/CE, platform dependent separator will be displayed, on Android center-aligned groups will be created. Platforms: 
