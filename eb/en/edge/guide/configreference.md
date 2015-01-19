@@ -1209,19 +1209,6 @@ A file of CA certificates in PEM format. See <a href="http://www.openssl.org/doc
 	:::xml
 	<CaFile value="cert-file-name"/>
 
-### CaPath
-A directory containing CA certificates in PEM format (one certificate per file). The OpenSSL `c_rehash` utility must be used to generate appropriately named links to the certificate files. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for more information.
-
-**Possible Values**
-
-* Local File path on the device.
-
-> Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
-
-#### Example
-	:::xml
-	<CaPath value="/path-to-cert-file"/>
-
 ### VerifyPeerCertificate
 Verify the server certificate against the internal certificates. It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development. A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.
 
