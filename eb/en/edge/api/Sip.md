@@ -7,11 +7,10 @@ In order to use this API you must include reference to the following JavaScript 
 
 * elements.js 
 
-> Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
+> Note: this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
 
 	:::html
     <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
-
 
 ### API Usage
 This API does not use the `EB` namespace. It is simply referenced using the API name:
@@ -47,7 +46,7 @@ Shows and hides the SIP when editable fields have focus.
 #### Type
 <span class='text-info'>INTEGER</span>
 
-####Description
+#### Description
 Sets the horizontal position of the SIP in pixels. 
 
 > Note: Note compatible with Finger Scrolling on Windows devices
@@ -56,14 +55,14 @@ Sets the horizontal position of the SIP in pixels.
 
 * Horizontal position, in pixels - Default: Center of Screen
 
-####Platforms
+#### Platforms
 
 * Windows Mobile/CE
 
 ### top
 #### Type
 <span class='text-info'>INTEGER</span> 
-####Description
+#### Description
 Sets the vertical position of the SIP in pixels. 
 
 > Note: Note compatible with Finger Scrolling on Windows devices
@@ -75,7 +74,6 @@ Sets the vertical position of the SIP in pixels.
 ####Platforms
 
 * Windows Mobile/CE
-
 
 ## Remarks
 ### Multi Instance
@@ -97,5 +95,5 @@ The SIP behavior have slightly different behavior when using Internet Explorer a
 * Automatic: Shows and hides when text boxes have focus. Applying SIP control Automatic will prevent SIP control Manual being applied in the same application. To return to Manual SIP control you can press a hardware key. 
 * Manual and Automatic do not apply for Windows CE, only Windows Mobile.
 
-
-
+### Webkit Rendering Engine
+When using the webkit rendering engine, the SIP is by default, manually controlled, not automatic. Keep this in mind when using the SIP on devices which use the webkit rendering engine.
