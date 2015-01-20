@@ -212,7 +212,9 @@ Sets the sites that should be accessed directly. This should be a comma-separate
 ### DebugButtonsEnabled
 When enabled, a set of controls useful for development and debugging purposes will be present in the interface.
 
->Note: When debug buttons are enabled, [Gestures](../api/Gesture) will not function as expected.
+> Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling
+
+> Note: When debug buttons are enabled, [Gestures](../api/Gesture) will not function as expected.
 
 **Possible Values**
 

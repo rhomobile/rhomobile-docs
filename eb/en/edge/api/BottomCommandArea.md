@@ -1,9 +1,6 @@
 # BottomCommandArea
-
 ## Overview
 The BottomCommandArea Module is used to set the parameters of the Bottom Command Area. The bottom command area is a region at the bottom of the screen designed to hold Enteprise Browser controls such as the SIP button or Zoom button to separate them from the rest of the user application.
-
-> Note: Not supported for use with the I.E. engine. When using the I.E. engine, the debug elements are covered by other elements of the app on the page, therefore we recommend not using the I.E. engine while using this API.
 
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
@@ -15,13 +12,11 @@ In order to use this API you must include reference to the following JavaScript 
 	:::html
     <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
 
-
 ### API Usage
 This API does not use the `EB` namespace. It is simply referenced using the API name:
 
 	:::javascript
 	bottomCommandArea.visibility = 'visible';
-
 
 ##Properties
 
@@ -86,7 +81,6 @@ The color to set the bottom command area to.
 * Android
 * Windows Mobile/CE
 
-
 ## Remarks
 ###Use of Images.
 Images can be specified as local to the device or on an HTTP / FTP server, just specify the required protocol as part of your URL (file://\, HTTP:// and FTP://). Image will be scaled to the size of the command area. JPEG and GIF images are only supported on WM devices. Both CE and WM support BMP files.
@@ -96,3 +90,12 @@ All controls are designed to be shown on top of Enterprise Browser. If you requi
 
 ###Screen Orientation
 When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
+
+### Internet Explorer (IE) Rendering Engine
+When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
+
+* Not using debug buttons - If your app must use the IE engine, do not use debug buttons in the app.
+* If you need to use the signal or battery indicators either:
+	* Don't scroll the page.
+	* Don't use the signal / battery indicators
+	* Use the Webkit engine.

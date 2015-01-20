@@ -148,4 +148,13 @@ All controls are designed to be shown on top of Enterprise Browser. If you requi
 When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
 
 ###Use in Production
-This API is designed for debugging your application only and should not be used in production
+This API is designed for debugging your application only and should not be used in production.
+
+### Internet Explorer (IE) Rendering Engine
+When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
+
+* Not using debug buttons - If your app must use the IE engine, do not use debug buttons in the app.
+* If you need to use the signal or battery indicators either:
+	* Don't scroll the page.
+	* Don't use the signal / battery indicators
+	* Use the Webkit engine.

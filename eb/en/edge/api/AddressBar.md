@@ -117,6 +117,15 @@ The address bar is not compatible with named anchors (page bookmarks) eg. <a nam
 ### Use in Production
 This API is designed for debugging your application only and should not be used in production
 
+### Internet Explorer (IE) Rendering Engine
+When using the addressBar on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
+
+* Not using debug buttons - If your app must use the IE engine, do not use debug buttons in the app.
+* If you need to use the signal or battery indicators either:
+	* Don't scroll the page.
+	* Don't use the signal / battery indicators
+	* Use the Webkit engine.
+
 ## Example File
 The following file can be used to test all the APIs listed above.
 
