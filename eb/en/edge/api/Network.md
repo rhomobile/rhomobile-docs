@@ -203,7 +203,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -229,7 +228,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -255,7 +253,6 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
-* Windows CE
 
 ####Method Access:
 
@@ -290,7 +287,7 @@ Synchronous Return:
 
 
 ### startStatusNotify(<span class="text-info">INTEGER</span> pollInterval)
-Start network status notifications. Notifications are sent when WiFi or Cell network appear/disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.
+Start network status notifications. Notifications are sent when WiFi or Cell network appear / disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.
 
 ####Parameters
 <ul><li>pollInterval : <span class='text-info'>INTEGER</span><span class='label '> Default: 20</span><p>The network status polling period for systems that can not notify network status change immediately. In seconds. Currently applies to iOS only as immediate status notification is not available on this platform. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
