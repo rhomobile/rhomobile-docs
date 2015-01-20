@@ -142,7 +142,11 @@ $(document).ready(function(){
 function loadHash()
 {
 	var hash = location.hash.replace("#","");
+	console.log(hash);
 	loadDoc(hash);
+	if(hash =="guide-compatibility")
+		displayMatrix();
+
 }
 
 //Custom function for resizing TOC to allow for scrollable list
