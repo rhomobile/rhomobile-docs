@@ -17,6 +17,8 @@
 			<link rel="stylesheet" href="jquery.tocify.js-master/src/stylesheets/jquery.tocify.css" rel="stylesheet">
 			<link type="text/css" rel="stylesheet" href="css/prettify.css"/>
 			<link rel="stylesheet" href="css/docs.css">
+			<link rel="stylesheet" href="css/bootstrap-table.min.css">
+			<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
 
 			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 			<script type="text/javascript" src="js/Markdown.Converter.js"></script>
@@ -24,6 +26,7 @@
 			<script type="text/javascript" src="js/fuse.js"></script>
 			<script type="text/javascript" src="docs/versions.js"></script>
 			<script type="text/javascript" src="docs/docs.js"></script>
+			<script type="text/javascript" src="docs/matrix.js"></script>
 			<script type="text/javascript" src="docs/menu.js"></script>
 			<script type="text/javascript" src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
 			<script type="text/javascript" src="MultiLevelPushMenu_v2.1.4/jquery.multilevelpushmenu.js"></script>
@@ -32,11 +35,181 @@
 			<script type="text/javascript" src="jquery.tocify.js-master/src/javascripts/jquery.tocify.js"></script>
 			<script type="text/javascript" src="js/prettify.js"></script>
 			<script type="text/javascript" src="js/docs.js"></script>
+			<script src="js/bootstrap-table.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+
 			<script>
 				// Using the versions.js file to make the versions change programmatically
 				ebVersion = "Enterprise Browser " + versionsList.version;
 				window.document.title = ebVersion;
 			</script>
+<script type="text/javascript">
+
+
+var lookups = {
+	engines: {
+		cluttered: [],
+		unique: []
+	},
+	os: {
+		cluttered: [],
+		unique: []
+	},
+	devices: {
+		cluttered: [],
+		unique: []
+	}
+};
+
+
+
+
+function pushArray(obj,ar)
+{
+	for (var i = 0; i < ar.length; i++) {
+		obj.push(ar[i]);
+	};
+}
+
+function arrayContains(match, search){
+	// console.log("checking match")
+	// console.log(match);
+	// console.log(search);
+	var found=false;
+	if(match != null)
+	{
+		for (var i = 0; i < match.length; i++) {
+			if($.inArray(match[i],search)>-1){
+				found=true;
+			}
+		};
+	}
+	// console.log(found)
+	return found;
+}
+
+function sameArray(arr1,arr2){
+	if($(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0)
+		return true
+	else
+		return false
+}
+
+function getFilteredMatrix(){
+	var newMatrix = [];
+	// console.log($('#devices').val())
+	if($('#engines').val()==null && $('#os').val()==null && $('#devices').val()==null)
+	{
+		newMatrix = matrix;
+	}
+		else
+		{
+		for (var i = 0; i < matrix.length; i++) {
+			// console.log(matrix[i].api);
+			var found = {
+				os: false,
+				devices: false,
+				engines: false
+			};
+			
+			if(arrayContains($('#engines').val(),matrix[i].engines.split(','))){
+				found.engines=true;
+				// console.log('Found Engine');
+			}
+			if(arrayContains($('#os').val(),matrix[i].os.split(','))){
+				found.os=true;
+				// console.log('Found OS');
+			}
+			if(arrayContains($('#devices').val(),matrix[i].devices.split(','))){
+				found.devices=true;
+				// console.log('Found Device');
+			}
+			// console.log(found);
+			if(($('#condition').html() =='All') && (found.os && found.devices && found.engines)){
+				newMatrix.push(matrix[i]);
+			}
+			if(($('#condition').html() =='Any') && (found.os || found.devices || found.engines)){
+				newMatrix.push(matrix[i]);
+			}
+		};
+
+	}
+	$('#table').bootstrapTable("load",newMatrix);
+	return newMatrix;
+}
+
+function displayMatrix() {
+
+        for (var i = 0; i < matrix.length; i++) {
+        	pushArray(lookups.engines.cluttered,matrix[i].engines.split(','));
+        	pushArray(lookups.os.cluttered,matrix[i].os.split(','));
+        	pushArray(lookups.devices.cluttered,matrix[i].devices.split(','));
+        };
+        lookups.engines.unique = $.unique(lookups.engines.cluttered).sort();
+        lookups.os.unique = $.unique(lookups.os.cluttered).sort();
+        lookups.devices.unique = $.unique(lookups.devices.cluttered).sort();
+        
+		$.each(lookups.devices.unique, function(key, value) {   
+		     $('#devices')
+		         .append($("<option selected></option>")
+		         .attr("value",value)
+		         .text(value)); 
+		});
+		$.each(lookups.os.unique, function(key, value) {   
+		     $('#os')
+		         .append($("<option selected></option>")
+		         .attr("value",value)
+		         .text(value)); 
+		});
+		$.each(lookups.engines.unique, function(key, value) {   
+		     $('#engines')
+		         .append($("<option selected></option>")
+		         .attr("value",value)
+		         .text(value)); 
+		});
+
+        $('#devices').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            allSelectedText: 'All Devices',
+            nonSelectedText: 'Select Devices',
+            onChange: function(option, checked, select) {
+               getFilteredMatrix();
+            }
+        });        
+        $('#os').multiselect({
+            includeSelectAllOption: true,
+            allSelectedText: 'All Operating Systems',
+            nonSelectedText: 'Select Operating Systems',
+            onChange: function(option, checked, select) {
+               getFilteredMatrix();
+            }
+        });        
+        $('#engines').multiselect({
+            includeSelectAllOption: true,
+            allSelectedText: 'All Engines',
+            nonSelectedText: 'Select Engines',
+            onChange: function(option, checked, select) {
+               getFilteredMatrix();
+            }
+        });  
+
+      $('#table').bootstrapTable({
+        data: matrix
+    	});  
+
+    	$('#btnFilter').click(function(){
+    		if($('#condition').html() =='All')
+    			$('#condition').html('Any');
+    		else
+    			$('#condition').html('All');
+    		getFilteredMatrix();
+    	})    
+    };
+</script>
+
+
+
     </head>
     <body>
 			<!--[if lt IE 7]>
@@ -66,7 +239,11 @@
 			</div>
 
 			<div id="pushobj">
-				<div id="markdownDoc">
+				<div id="markdownDoc" >
+				</div>
+				<div id="matrix">
+
+
 				</div>
 			</div>
       <div id="menu"></div>

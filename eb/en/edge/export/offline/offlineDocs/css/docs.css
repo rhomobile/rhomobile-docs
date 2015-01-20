@@ -54,6 +54,17 @@ body {
 	min-width:920px;
 }
 
+#matrix{
+	font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	position: absolute;
+	top:52px;
+	left:0px;
+	right:0px;
+	margin-left:20px;
+	margin-right:300px;
+	z-index:5000;
+}
+
 #markdownDoc{
 	font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 	position: absolute;

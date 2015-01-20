@@ -227,6 +227,17 @@ class Apieb
 				end
 			}
 		end
+		if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK_EB"].nil?
+			s=doc["MODULE"][0]["REMARKS"][0]["REMARK_EB"]
+			s.each_with_index() { |element,index|
+			#EB only show if no exception
+				if noproductException(element)
+					md += "\n\n###" + element["title"]
+					html = getMDDesc(element)
+					md += "\n"+html
+				end
+			}
+		end
 		return md
 	end
 
