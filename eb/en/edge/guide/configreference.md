@@ -53,6 +53,7 @@ The following is an example of a typical configuration file
 
 		<Screen>
 			<FullScreen value="1"/>
+			<EnableZoom value="1"/>
 		</Screen>
 
 		<WebServer>
@@ -386,6 +387,18 @@ Sets the Enterprise Browser to fullscreen mode, locking out the OS to the user u
 #### Example
 	:::xml
 	<FullScreen value="0"/>
+
+### EnableZoom
+Sets whether the WebView should use its built-in zoom mechanisms. Only supported on Android.
+
+**Possible Values**
+
+*	0 - Disable Zoom
+* **1 - Enable Zoom**
+
+#### Example
+	:::xml
+	<EnableZoom value="1"/>
 
 ### PageZoom
 Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.* (see remark)
