@@ -303,6 +303,15 @@ Layout:Down
             <REMARK title="Screen Orientation">
                 <DESC>The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.</DESC>
             </REMARK>
+            <REMARK_EB title="Internet Explorer (IE) Rendering Engine">
+                <DESC>When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
+
+* Not using debug buttons - If your app must use the IE engine, do not use debug buttons in the app.
+* If you need to use the signal or battery indicators either:
+    * Don't scroll the page.
+    * Don't use the signal / battery indicators
+    * Use the Webkit engine.</DESC>
+            </REMARK_EB>
         </REMARKS>
     </MODULE>
 </API>

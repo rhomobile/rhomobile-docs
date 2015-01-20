@@ -193,3 +193,12 @@ The position of the signal and battery indicators should not be set to overlap
 
 ###Screen Orientation
 The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.
+
+###Internet Explorer (IE) Rendering Engine
+When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
+
+* Not using debug buttons - If your app must use the IE engine, do not use debug buttons in the app.
+* If you need to use the signal or battery indicators either:
+    * Don't scroll the page.
+    * Don't use the signal / battery indicators
+    * Use the Webkit engine.
