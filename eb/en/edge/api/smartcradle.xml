@@ -78,7 +78,8 @@
         <PLATFORM>WM</PLATFORM>
         <REMARKS>
             <REMARK title="Flashing the Cradle LEDs">
-                <DESC>There is a hardware imposed limit to how quickly the cradle LEDs can be flashed for a quickly flashing LED it is recommended to set the on / off duration to 500ms.
+                <DESC>
+					There is a hardware imposed limit to how quickly the cradle LEDs can be flashed for a quickly flashing LED it is recommended to set the on / off duration to 500ms.
                 </DESC>
             </REMARK>
 		</REMARKS>
