@@ -2,7 +2,7 @@
 To use the Enterprise Browser, you must have a License issued to you by Symbol Technologies for each device being used. Below are steps that you should take in order to get a license from Symbol Technologies and apply that license to your device.
 
 ## Obtaining a License
-To obtain a license for Enterprise Browser, you should contact us or your local Symbol Technologies reseller. You can find our contact details on the [product page](http://www.motorola.com/Business/US-EN/Business+Product+and+Services/Software+and+Applications/RhoMobile+Suite/RhoElements).
+To obtain a license for Enterprise Browser, you should contact us or your local Symbol Technologies reseller. You can find our contact details on the [product page](http://www.motorolasolutions.com/US-EN/Business+Product+and+Services/Software+and+Applications/Mobility+Software/Mobile+Application+Utilities/Enterprise+Browser).
 
 When you've purchased your license(s), you will be sent an email with a username and password to access the licensing system, log in using these details and, once logged in, there are options to view your orders, where you can monitor how many licenses remain unassigned, and also to your licenses.
 
