@@ -98,7 +98,7 @@ function sameArray(arr1,arr2){
 function getFilteredMatrix(){
 	var newMatrix = [];
 	// console.log($('#devices').val())
-	if($('#engines').val()==null && $('#os').val()==null && $('#devices').val()==null)
+	if($('#engines').val()==null && $('#os').val()==null)
 	{
 		newMatrix = matrix;
 	}
@@ -108,7 +108,6 @@ function getFilteredMatrix(){
 			// console.log(matrix[i].api);
 			var found = {
 				os: false,
-				devices: false,
 				engines: false
 			};
 			
@@ -120,15 +119,12 @@ function getFilteredMatrix(){
 				found.os=true;
 				// console.log('Found OS');
 			}
-			if(arrayContains($('#devices').val(),matrix[i].devices.split(','))){
-				found.devices=true;
-				// console.log('Found Device');
-			}
+			
 			// console.log(found);
-			if(($('#condition').html() =='All') && (found.os && found.devices && found.engines)){
+			if(($('#condition').html() =='All') && (found.os && found.engines)){
 				newMatrix.push(matrix[i]);
 			}
-			if(($('#condition').html() =='Any') && (found.os || found.devices || found.engines)){
+			if(($('#condition').html() =='Any') && (found.os || found.engines)){
 				newMatrix.push(matrix[i]);
 			}
 		};
@@ -143,18 +139,10 @@ function displayMatrix() {
         for (var i = 0; i < matrix.length; i++) {
         	pushArray(lookups.engines.cluttered,matrix[i].engines.split(','));
         	pushArray(lookups.os.cluttered,matrix[i].os.split(','));
-        	pushArray(lookups.devices.cluttered,matrix[i].devices.split(','));
         };
         lookups.engines.unique = $.unique(lookups.engines.cluttered).sort();
         lookups.os.unique = $.unique(lookups.os.cluttered).sort();
-        lookups.devices.unique = $.unique(lookups.devices.cluttered).sort();
         
-		$.each(lookups.devices.unique, function(key, value) {   
-		     $('#devices')
-		         .append($("<option selected></option>")
-		         .attr("value",value)
-		         .text(value)); 
-		});
 		$.each(lookups.os.unique, function(key, value) {   
 		     $('#os')
 		         .append($("<option selected></option>")
@@ -168,15 +156,6 @@ function displayMatrix() {
 		         .text(value)); 
 		});
 
-        $('#devices').multiselect({
-            includeSelectAllOption: true,
-            enableFiltering: true,
-            allSelectedText: 'All Devices',
-            nonSelectedText: 'Select Devices',
-            onChange: function(option, checked, select) {
-               getFilteredMatrix();
-            }
-        });        
         $('#os').multiselect({
             includeSelectAllOption: true,
             allSelectedText: 'All Operating Systems',

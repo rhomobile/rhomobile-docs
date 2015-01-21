@@ -5,8 +5,6 @@
 	</select>
 	<select id="os" multiple="multiple">
 	</select>
-	<select id="devices" multiple="multiple">
-	</select>
 </div>
 <table id="table" 
 	data-search="true"
@@ -17,7 +15,6 @@
         <th data-field="api">Api</th>
         <th data-field="engines">Engines</th>
         <th data-field="os">Operating System</th>
-        <th data-field="devices">Devices</th>
     </tr>
     </thead>
 </table>
