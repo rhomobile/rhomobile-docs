@@ -357,6 +357,5 @@ The current Wall ID of the cradle in the matrix
 
 
 ###Flashing the Cradle LEDs
-
-					There is a hardware imposed limit to how quickly the cradle LEDs can be flashed for a quickly flashing LED it is recommended to set the on / off duration to 500ms.
+There is a hardware imposed limit to how quickly the cradle LEDs can be flashed for a quickly flashing LED it is recommended to set the on / off duration to 500ms.
                 
