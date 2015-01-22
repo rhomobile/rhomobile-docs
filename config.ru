@@ -5,8 +5,6 @@ require './version'
 require './environment'
 
 use Rack::Rewrite do
-	r301  %r{^/home$}, "/en/#{Version::CURR_VERSION}/home"
-
 	# Edgedocs redirect
 	r301  %r{^(.*)},								"http://docs.rhomobile.com/en/edge/home", :host => "edgedocs.rhomobile.com"
 	r301  %r{^/v/2.2$},							"/en/2.2.0/home"
@@ -21,7 +19,8 @@ use Rack::Rewrite do
 	r301  %r{^/rhoconnectapi/(.*)}, "/en/#{Version::CURR_VERSION}/rhoconnectapi/$1"
 	r301  %r{^/rhoconnectjs/(.*)},  "/en/#{Version::CURR_VERSION}/rhoconnectjs/$1"
 	r301  %r{^/tutorial/(.*)}, 			"/en/#{Version::CURR_VERSION}/tutorial/$1"
-	r301  %r{^/$},									"/en/#{Version::CURR_VERSION}/home"
+	r301  %r{^/$},									"/home"
+	r301  %r{^/home$},							"/en/#{Version::CURR_VERSION}/home"
 
 	# Static link redirects for latest version docs
 	r301  %r{^/en/latest$},					 "/en/#{Version::CURR_VERSION}/home"
