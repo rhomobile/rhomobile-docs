@@ -71,7 +71,7 @@ Sets the vertical position of the SIP in pixels.
 
 * Vertical position, in pixels - Default: Bottom of Screen
 
-####Platforms
+#### Platforms
 
 * Windows Mobile/CE
 
@@ -82,18 +82,19 @@ When multiple Enterprise Browser applications are running the following consider
 ### Disabling the SIP
 If you want to completely disable to the use of the SIP, set it to appear off the visible area of the screen by setting the Left and Top coordinates to be off the device's display size. Alternatively on Android, call the manual method.
 
-###Interaction with Hardware Keyboard
+### Interaction with Hardware Keyboard
 The SIP used is the standard keyboard input panel supplied with Windows. Certain incompatibilities exist when using the software keyboard on a device which also has a hardware keyboard though this will have no impact on the average user. For example moving the SIP will reset the alpha or function key (orange or blue key) lock and using the orange or blue keys may reset the position of the SIP on certain devices. Also note that if you press a hardware key the SIP will disappear if you are using the Internet Explorer engine and you will need to press the SIP button again or return focus to an editable field to get it to appear
 
-###Interaction with Screen Rotation
+### Interaction with Screen Rotation
 Depending on the underlying operating system the SIP position may change following screen rotation. The SIP left and top parameters can be applied in a ScreenOrientationEvent to bypass this feature if required.
 
-###IE Rendering Engine
+### IE Rendering Engine
 The SIP behavior have slightly different behavior when using Internet Explorer as the rendering engine:
 
 * Manual: When shown by the SIP Button, will show and hide when text boxes have focus.
 * Automatic: Shows and hides when text boxes have focus. Applying SIP control Automatic will prevent SIP control Manual being applied in the same application. To return to Manual SIP control you can press a hardware key. 
 * Manual and Automatic do not apply for Windows CE, only Windows Mobile.
+* On Windows CE devices which do not have a physical keyboard, the SIP is set to automatic and is not configurable. Some examples of these devices are MK4000, MK3100, MK3000, and MC18.
 
 ### Webkit Rendering Engine
 When using the webkit rendering engine, the SIP is by default, manually controlled, not automatic. Keep this in mind when using the SIP on devices which use the webkit rendering engine.
