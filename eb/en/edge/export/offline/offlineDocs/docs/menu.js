@@ -81,10 +81,6 @@ var menuStrcture = [
 							{
 								name: 'Viewport',
 								link: '#guide-viewport',
-							},
-							{
-								name: 'SAP ITS Mobile',
-								link: '#guide-sap',
 							}
 						]
 					}
@@ -230,7 +226,7 @@ var menuStrcture = [
 				link: '#guide-abouthelp',
 				icon: 'fa fa-question-circle'
 			},
-			
+
 		]
 	}
 ];
