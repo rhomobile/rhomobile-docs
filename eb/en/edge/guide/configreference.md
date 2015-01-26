@@ -53,6 +53,7 @@ The following is an example of a typical configuration file
 
 		<Screen>
 			<FullScreen value="1"/>
+			<ShowLicenseConfirmation value="1"/>
 			<EnableZoom value="1"/>
 		</Screen>
 
@@ -389,6 +390,18 @@ Sets the Enterprise Browser to fullscreen mode, locking out the OS to the user u
 #### Example
 	:::xml
 	<FullScreen value="0"/>
+
+### ShowLicenseConfirmation
+On a licensed device, this setting will enable or disable the display of the "licensed to..." dialog on launch. On unlicensed devices there will be no effect.
+
+**Possible Values**
+
+* **0 - Do not show license confirmation**
+* 1 - Show license confirmation
+
+#### Example
+	:::xml
+	<ShowLicenseConfirmation value="1"/>
 
 ### EnableZoom
 Sets whether the WebView should use its built-in zoom mechanisms. Only supported on Android.
