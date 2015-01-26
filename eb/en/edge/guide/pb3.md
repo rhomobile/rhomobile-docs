@@ -12,7 +12,7 @@ Since you have chosen Webkit to run a PocketBrowser v3 application, you should e
 ### Installation
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  If deploying to a Windows CE device, a persistent installation for Webkit should be selected so that Enterprise Browser persists over a cold boot.
 
-> Note: Do not forget to cold boot the device to complete the installation.	 
+> Note: Do not forget to cold boot the device to complete the installation.
 
 ### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
@@ -28,7 +28,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
 		            </General>
 
-	     
+
 2. Switch backwards compatibility on. The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.
 
 		:::xml
@@ -40,14 +40,14 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
 		                <UseRegularExpressions value='1'/>
 		            </General>
- 
+
 3. Verify that Webkit is the rendering engine to use.
 
 		:::xml
 		<Configuration>
 		    <Engine>
                 <EngineInUse value='Webkit'/>
- 
+
 4. Move any offline files to the device.
 
 >If you have any BadLink pages or offline resources (on the device), copy them over now.
@@ -63,7 +63,7 @@ When using IE as the rendering engine only PocketBrowser API's and funtioanlity 
 ### Installation
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  If deploying to a Windows CE device, a persistent installation for IE should be selected so that Enterprise Browser persists over a cold boot.
 
-> Note: Do not forget to cold boot the device to complete the installation.	 
+> Note: Do not forget to cold boot the device to complete the installation.
 
 ### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
@@ -79,7 +79,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
 		            </General>
 
-	     
+
 2. Switch backwards compatibility on.The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.
 
 		:::xml
@@ -91,14 +91,14 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
 		                <UseRegularExpressions value='1'/>
 		            </General>
- 
+
 3. Verify that Webkit is the rendering engine to use.
 
 		:::xml
 		<Configuration>
 		    <Engine>
                 <EngineInUse value='IE'/>
- 
+
 4. Move any offline files to the device.
 
 >If you have any BadLink pages or offline resources (on the device), copy them over now.
@@ -106,6 +106,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 ### Usage Notes
 * Generic methods RasConnect & RasDisconnect are not supported.
 * [PageZoom](../guide/configreference?PageZoom) is not supported on IE. This web view supports text zoom only.
+* Javascript events onkeydown, onkeypress, onkeyup are not supported in Windows mobile devices running Internet explorer. Use EnterpriseBrowser [Keycapture APIs](../api/keycapture) instead to capture the hardware keypresses.
 
 #### Scrollbars/Fingerscrolling
 In order to support backwards compatibility, PocketBrowser was forced to use PIE (IE4) for WM6.5 devices even though IE6 was available. This was because developers at the time were reliant on the scrollbars, which Microsoft dropped in IE6 on Windows Mobile. As a result of that decision, PIE is still used on WM today, rather than IE6. IE6 on CE supports scrollbars and is more capable web view.The Scroll options have changed in the configuration file to accommodate more options since CE7 has introduced Finger Scrolling.
@@ -130,7 +131,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
 		            </General>
 
-	     
+
 2. Switch backwards compatibility on.The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.
 
 		:::xml
@@ -146,7 +147,7 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 >If you have any BadLink pages or offline resources (on the device), copy them over now.
 
 4. Copy the `elements.js` file that comes with the installation to the location of your HTML pages and reference it appropriately in your application
-		
+
 		:::html
 		<html>
 			<head>

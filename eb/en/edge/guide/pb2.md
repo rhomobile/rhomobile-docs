@@ -9,45 +9,45 @@ Since you have chosen Webkit to run a PocketBrowser v2 application, you should e
 
 > Note: If you switch from CE to WM or vice versa, the rendering may be different as these systems have variant browser controls.
 
-### Installation	
+### Installation
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  If deploying to a Windows CE device, a persistent installation for Webkit should be selected so that Enterprise Browser persists over a cold boot.
 
-> Note: Do not forget to cold boot the device to complete the installation.	 
+> Note: Do not forget to cold boot the device to complete the installation.
 
 ### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
 
 1. Set the [StartPage](../guide/configreference?StartPage).
 
-		:::xml
-		<Configuration>
-		    <Applications>
-		        <Application>
-		            <General>
-		                <Name value="Menu"/>
-		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-		            </General>
+	:::xml
+	<Configuration>
+			<Applications>
+					<Application>
+							<General>
+									<Name value="Menu"/>
+									<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
+							</General>
 
-	     
+
 2. Switch backwards compatibility on. Enterprise Browser supports PocketBrowser 2.x (EMML 1.0) through the use of a regular expressions engine. The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.EMML 1.0 syntax is translated based on an XML file. After a default installation this file can be located: `\Program Files\\EnterpriseBrowser\Config\RegEx.xml`
 
-		:::xml
-		<Configuration>
-		    <Applications>
-		        <Application>
-		            <General>
-		                <Name value="Menu"/>
-		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-		                <UseRegularExpressions value='1'/>
-		            </General>
- 
+	:::xml
+	<Configuration>
+			<Applications>
+					<Application>
+							<General>
+									<Name value="Menu"/>
+									<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
+									<UseRegularExpressions value='1'/>
+							</General>
+
 3. Verify that Webkit is the rendering engine to use.
 
-		:::xml
-		<Configuration>
-		    <Engine>
-                <EngineInUse value='Webkit'/>
- 
+	:::xml
+	<Configuration>
+			<Engine>
+					<EngineInUse value='Webkit'/>
+
 4. Move any offline files to the device.
 
 >If you have any BadLink pages or offline resources (on the device), copy them over now.
@@ -60,45 +60,44 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 ## Windows Mobile/CE using IE
 When using IE as the rendering engine only PocketBrowser API's and funtioanlity will be available. API's listed in this help document will not be supported. You may wish to choose to use this option if you are not looking to take advantage of Webkit abilities and/or other functionality that Enterprise Browser provides. This may be an only option for very low memory/CPU devices.
 
-### Installation	
+### Installation
 To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  If deploying to a Windows CE device, a persistent installation for IE should be selected so that Enterprise Browser persists over a cold boot.
 
-> Note: Do not forget to cold boot the device to complete the installation.	 
+> Note: Do not forget to cold boot the device to complete the installation.
 
 ### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
 
 1. Set the [StartPage](../guide/configreference?StartPage).
 
-		:::xml
-		<Configuration>
-		    <Applications>
-		        <Application>
-		            <General>
-		                <Name value="Menu"/>
-		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-		            </General>
+	:::xml
+	<Configuration>
+			<Applications>
+					<Application>
+							<General>
+									<Name value="Menu"/>
+									<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
+							</General>
 
-	     
 2. Switch backwards compatibility on. Enterprise Browser supports PocketBrowser 2.x (EMML 1.0) through the use of a regular expressions engine. The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.EMML 1.0 syntax is translated based on an XML file. After a default installation this file can be located: `\Program Files\\EnterpriseBrowser\Config\RegEx.xml`
 
-		:::xml
-		<Configuration>
-		    <Applications>
-		        <Application>
-		            <General>
-		                <Name value="Menu"/>
-		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-		                <UseRegularExpressions value='1'/>
-		            </General>
- 
+	:::xml
+	<Configuration>
+			<Applications>
+					<Application>
+							<General>
+									<Name value="Menu"/>
+									<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
+									<UseRegularExpressions value='1'/>
+							</General>
+
 3. Verify that Webkit is the rendering engine to use.
 
 		:::xml
 		<Configuration>
-		    <Engine>
-                <EngineInUse value='IE'/>
- 
+				<Engine>
+								<EngineInUse value='IE'/>
+
 4. Move any offline files to the device.
 
 >If you have any BadLink pages or offline resources (on the device), copy them over now.
@@ -106,12 +105,13 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 ### Usage Notes
 * Generic methods RasConnect & RasDisconnect are not supported.
 * [PageZoom](../guide/configreference?PageZoom) is not supported on IE. This web view supports text zoom only.
+* Javascript events onkeydown, onkeypress, onkeyup are not supported in Windows mobile devices running Internet explorer. Use EnterpriseBrowser [Keycapture APIs](../api/keycapture) instead to capture the hardware keypresses.
 
 ## Android
 Since you have chosen Android to run a PocketBrowser v2 application, you should expect some major differences with regard to rendering. The rendering that is used on Android is the stock Webview that comes with the Android SDK.
 
-### Installation	
-To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).  
+### Installation
+To install Enterprise Browser please take a look at the [installation section](../guide/setup?Device Deployment).
 
 ### Configuration Settings
 The [Config.xml](../guide/configreference) file needs to be updated:
@@ -120,31 +120,31 @@ The [Config.xml](../guide/configreference) file needs to be updated:
 
 		:::xml
 		<Configuration>
-		    <Applications>
-		        <Application>
-		            <General>
-		                <Name value="Menu"/>
-		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-		            </General>
+				<Applications>
+						<Application>
+								<General>
+										<Name value="Menu"/>
+										<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
+								</General>
 
-	     
+
 2. Switch backwards compatibility on. Enterprise Browser supports PocketBrowser 2.x (EMML 1.0) through the use of a regular expressions engine. The regular expressions engine can be activated from within the configuration file by setting the value of [UseRegularExpressions](../guide/configreference?UseRegularExpressions) to 1.EMML 1.0 syntax is translated based on an XML file. After a default installation this file can be located: `\Program Files\\EnterpriseBrowser\Config\RegEx.xml`
 
 		:::xml
 		<Configuration>
-		    <Applications>
-		        <Application>
-		            <General>
-		                <Name value="Menu"/>
-		                <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-		                <UseRegularExpressions value='1'/>
-		            </General>
+				<Applications>
+						<Application>
+								<General>
+										<Name value="Menu"/>
+										<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
+										<UseRegularExpressions value='1'/>
+								</General>
 
 3. Move any offline files to the device.
 >If you have any BadLink pages or offline resources (on the device), copy them over now.
 
 4. Copy the `elements.js` file that comes with the installation to the location of your HTML pages and reference it appropriately in your application
-		
+
 		:::html
 		<html>
 			<head>
