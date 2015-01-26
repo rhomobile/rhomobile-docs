@@ -1170,9 +1170,12 @@ Navigates to the specified badlink uri when one of the following occurs:
 * The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
 * The user presses the stop button.
 
-The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the `file://` protocol, this way the browser can always access the file.
+The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be an offline file using the `file://` protocol, this way the browser can always access the file.
 
-> Note: On Windows mobile devices when using IE engine, if device has no network connection, navigation may timeout.
+There are some platform and engine exclusive issues you may encounter that are known issues. These include:
+
+* On Windows mobile devices when using IE engine, if device has no network connection, navigation may timeout.
+* IE engine in CE5 & CE6 you'll need to truncate the request variables when a navigation to badlink occurs, so badlink page will be navigated to, but the reason for the failure may not be displayed.
 
 **Possible Values**
 
