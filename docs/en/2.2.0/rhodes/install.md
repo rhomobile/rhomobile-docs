@@ -1,20 +1,17 @@
 # Install Rhodes
-
 ## Installing Rhodes with RhoStudio
-
 To install Rhodes on a Windows or Macintosh platform, install RhoMobile Suite. The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio. RhoStudio is an Eclipse installation that facilitates development of native smartphone applications.
 
-[Click here for the RhoMobile Suite installation instructions](../rhomobile-install). 
+[Click here for the RhoMobile Suite installation instructions](../rhomobile-install).
 
 NOTE: The rest of this chapter consists of instructions for installing Rhodes from the command line, without using the RhoMobile Suite installer. You do not need to perform those instructions if you installed using the RhoMobile Suite installer.
 
 ## Installing Rhodes on Linux
-
 To install Rhodes on Linux, you need to install the Rhodes gem. Download and install:
 
-1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/).
+1. [Ruby v1.9.3](http://www.ruby-lang.org/en/downloads/). (Later versions of Ruby will not work with this version of Rhodes).
 
-2. Install the Rhodes Gem. 
+2. Install the Rhodes Gem.
 
 Run this command to install the Rhodes Gem.
 
@@ -26,7 +23,6 @@ NOTE: If you get any `no such file to load -- something` messages while running 
 NOTE: Do not install Ruby as a standalone if you also use Ruby Version Manager (rvm) to install Ruby. If you need only one version of Ruby, you can install Ruby as a standalone. If you need more than one version of Ruby, you should uninstall standalone Ruby and then install Ruby with Ruby Version Manager. Mixed standalone Ruby and rvm-controlled Ruby installations can conflict and cause runtime issues in RhoConnect applications.
 
 ## Setup Rhodes SDKs
-
 Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. These instructions are found [here](build).
 
 After you install the gem and your desired SDKs, you need to run:
@@ -37,5 +33,4 @@ After you install the gem and your desired SDKs, you need to run:
 This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](build#all-platforms-prerequisites).
 
 ## Setting the JDK Path in Command Line Installations
-
 For Linux and for Rhodes installs from the command line, set the JDK path in JAVA_HOME and PATH.
