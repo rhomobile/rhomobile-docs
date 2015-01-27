@@ -99,10 +99,6 @@ var menuStrcture = [
 								name: 'Using The APIs',
 								link: '#guide-apioverview',
 							},
-							{
-								name: 'Compatibility',
-								link: '#guide-compatibility',
-							},
 							{"name":"AddressBar","link":"#api-AddressBar"},
 							{"name":"AirBeam","link":"#api-AirBeam"},
 							{"name":"Alarm","link":"#api-Alarm"},
