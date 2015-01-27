@@ -9,7 +9,7 @@ var matrix=[
     {
         "api":"AirBeam",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "WM,CE",
         "devices": "All"
     },
 
@@ -22,14 +22,14 @@ var matrix=[
 
     {
         "api":"Application",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"AudioCapture",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -50,13 +50,13 @@ var matrix=[
 
     {
         "api":"Barcode",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
     {
         "api":"Battery",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -70,7 +70,7 @@ var matrix=[
 
     {
         "api":"CardReader",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -78,20 +78,14 @@ var matrix=[
     {
         "api":"Comm",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "WM,CE",
         "devices": "All"
     },
 
-    {
-        "api":"Device",
-        "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
-        "devices": "All"
-    },
 
     {
         "api":"File",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -147,42 +141,42 @@ var matrix=[
 
     {
         "api":"Intent",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"KeyCapture",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"KeyState",
-        "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "engines": "Webkit",
+        "os": "WM,CE",
         "devices": "All"
     },
 
     {
         "api":"KeyLight",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Log",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Mediaplayer",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -190,41 +184,41 @@ var matrix=[
     {
         "api":"Memory",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "WM,CE",
         "devices": "All"
     },
 
     {
         "api":"NativeMenubar",
-        "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "engines": "Webkit",
+        "os": "WM,CE",
         "devices": "All"
     },
 
     {
         "api":"NativeTabbar",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"NativeToolbar",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Network",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Notification",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -232,34 +226,34 @@ var matrix=[
     {
         "api":"PowerOn",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Printer",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"PrinterZebra",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Process",
-        "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "engines": "Webkit",
+        "os": "WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Push",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -281,7 +275,7 @@ var matrix=[
     {
         "api":"Registry",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "WM,CE",
         "devices": "All"
     },
 
@@ -294,28 +288,28 @@ var matrix=[
 
     {
         "api":"ScreenOrientation",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Sensor",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"SignalIndicators",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
 
     {
         "api":"Signature",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -336,8 +330,8 @@ var matrix=[
 
     {
         "api":"SmartCradle",
-        "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "engines": "Webkit",
+        "os": "CE",
         "devices": "All"
     },
 
@@ -357,7 +351,7 @@ var matrix=[
 
     {
         "api":"System",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -365,7 +359,7 @@ var matrix=[
     {
         "api":"SystemTime",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "WM,CE",
         "devices": "All"
     },
 
@@ -378,7 +372,7 @@ var matrix=[
 
     {
         "api":"Videocapture",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },
@@ -393,20 +387,14 @@ var matrix=[
     {
         "api":"Wake",
         "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
+        "os": "Android",
         "devices": "All"
     },
 
-    {
-        "api":"Websocket",
-        "engines": "Webkit,IE",
-        "os": "Android,WM,CE",
-        "devices": "All"
-    },
 
     {
         "api":"WebView",
-        "engines": "Webkit,IE",
+        "engines": "Webkit",
         "os": "Android,WM,CE",
         "devices": "All"
     },

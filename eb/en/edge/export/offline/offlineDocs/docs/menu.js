@@ -99,6 +99,7 @@ var menuStrcture = [
 								name: 'Using The APIs',
 								link: '#guide-apioverview',
 							},
+							{"name":"Compatibility Matrix","link":"#guide-compatibility"},
 							{"name":"AddressBar","link":"#api-AddressBar"},
 							{"name":"AirBeam","link":"#api-AirBeam"},
 							{"name":"Alarm","link":"#api-Alarm"},
@@ -155,7 +156,6 @@ var menuStrcture = [
 							{"name":"Videocapture","link":"#api-videocapture"},
 							{"name":"Volume","link":"#api-Volume"},
 							{"name":"Wake","link":"#api-Wake"},
-							{"name":"Websocket","link":"#api-websocket"},
 							{"name":"WebView","link":"#api-webview"},
 							{"name":"Zoom","link":"#api-Zoom"},
 							{"name":"ZoomTextButton","link":"#api-ZoomTextButton"}
