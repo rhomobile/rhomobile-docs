@@ -392,7 +392,7 @@ Sets the Enterprise Browser to fullscreen mode, locking out the OS to the user u
 	<FullScreen value="0"/>
 
 ### ShowLicenseConfirmation
-On a licensed device, this setting will enable or disable the display of the "licensed to..." dialog on launch. On unlicensed devices there will be no effect.
+On a licensed device, this setting will enable or disable the display of the "licensed to..." dialog on launch. On unlicensed devices there will be no effect. This option is only applicable on Windows Mobile and Windows CE, not Android.
 
 **Possible Values**
 
