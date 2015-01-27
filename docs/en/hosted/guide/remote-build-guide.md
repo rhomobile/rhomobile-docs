@@ -15,7 +15,7 @@ The following is a table showing the versions of Rhodes that are supported for w
 		<tr>
 			<th style="width:20%;text-align:center;" colspan="2"></th>
 			<th style="text-align:center"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile"></th>
-			<th style="text-align:center"><img src="/img/windows.jpg"       style="height: 20px;padding-top: 8px" rel="tooltip" title="Win 32 Desktop" style="height: 30px"></th>
+			<th style="text-align:center"><img src="/img/win32.png"         style="height: 20px;padding-top: 8px" rel="tooltip" title="Win 32 Desktop" style="height: 30px"></th>
 			<th style="text-align:center"><img src="/img/wince.png"         style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows CE" style="height: 30px"></th>
 			<th style="text-align:center"><img src="/img/wp8.png"           style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"></th>
 			<th style="text-align:center"><img src="/img/android.png"       style="height: 20px;padding-top: 8px" rel="tooltip" title="Android"></th>
@@ -25,20 +25,9 @@ The following is a table showing the versions of Rhodes that are supported for w
 
 	<tbody>
 		<tr>
-			<td><a href="/en/2.2.0/rhodes/introduction">3.4.2.1</a></td>
-			<td style="width:20%;text-align:center;">June 31, 2014</th>
-			<td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
-			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-		</tr>
-
-		<tr>
 			<td><a href="/en/2.2.0/rhodes/introduction">3.5.1.14</a></td>
-			<td style="width:20%;text-align:center;">July 7, 2014</th>
-			<td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
+			<td style="width:20%;text-align:center;">TBD</th>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -48,8 +37,8 @@ The following is a table showing the versions of Rhodes that are supported for w
 
 		<tr>
 			<td><a href="/en/4.0.0/guide/welcome">4.0.9</a></td>
-			<td style="width:20%;text-align:center;">Q1 - Q2 2015</th>
-			<td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
+			<td style="width:20%;text-align:center;">TBD</th>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -59,8 +48,8 @@ The following is a table showing the versions of Rhodes that are supported for w
 
 		<tr>
 			<td><a href="/en/4.1.0/guide/welcome">4.1.6</a></td>
-			<td style="width:20%;text-align:center;">Q3 - Q4, 2015</th>
-			<td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
+			<td style="width:20%;text-align:center;">TBD</th>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -69,9 +58,20 @@ The following is a table showing the versions of Rhodes that are supported for w
 		</tr>
 
 		<tr>
-			<td><a href="/en/4.1.0/guide/welcome">5.0.x</a></td>
-			<td style="width:20%;text-align:center;">Q1 - Q2, 2016</th>
-			<td style="text-align:center"><span class="icon-shopping-cart icon-primary" rel="tooltip" title="Requires License"></span></td>
+			<td><a href="/en/4.1.0/guide/welcome">5.0.2</a></td>
+			<td style="width:20%;text-align:center;">TBD</th>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
+			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+		</tr>
+
+		<tr>
+			<td><a href="/en/4.1.0/guide/welcome">5.0.25</a></td>
+			<td style="width:20%;text-align:center;">TBD</th>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
@@ -109,7 +109,7 @@ To generate the app's structure using RhoStudio, follow these steps:
 
 At this point, you can actually build the app for the platform of your choice and you'll have a fully functioning, bare-bones app. It currently does nothing but you have created the structure of a running app in just about a minute, with no coding necessary on your part. but how do we get this app to build in the cloud?
 
-## Setting Up Your Remote Repo
+## Using a Public GitHub Repository
 <div class="row-fluid">
 	<div class="span6">
 		<p>Once you've set up your account and generated an app it's time to build that app for a device. To build locally using RhoStudio or the command line interface follow our guide on <a href="../../latest/guide/creating_a_project">running your app locally</a>. To build your app remotely, start by logging into your <a href="https://rms.rhomobile.com/">rhomobile.com account</a> and add an app to your account that has the same name as the app that you just created in RhoStudio or with the CLI. The name of the remote project does not need to be the same but it aids in reducing confusion. If you experience trouble during any of the steps below, please see our <a href="#troubleshooting">troubleshooting</a> section below.</p>
@@ -124,15 +124,15 @@ At this point, you can actually build the app for the platform of your choice an
 ### Online Interface
 <div class="row-fluid">
 	<div class="span6">
-		<p>Once you have created the remote end of the app you will see a screen like this. On this screen you can either build your app remotely from inside your browser or you can copy the git URL to build from RhoStudio or the command line. For the purposes of this guide, let's copy the git URL by clicking the copy icon next to the Git URL field. Once you have done that, you'll need to associate your local project with your remote project.</p>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/app-details.png">
 	</div>
 	<div class="span6">
-		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/app-details.png">
+		<p>Once you have created the remote end of the app you will see a screen like this. On this screen you can either build your app remotely from inside your browser or you can copy the git URL to build from RhoStudio or the command line. For the purposes of this guide, let's copy the git URL by clicking the copy icon next to the Git URL field. Once you have done that, you'll need to associate your local project with your remote project.</p>
 	</div>
 </div>
 
-<a name="git-integration"></a>
-### Git Integration
+<a name="local-git-association"></a>
+### Local Git Association
 Open you command line utility (terminal on Mac and cmd on Windows), navigate to your projects root folder and run the following commands:
 
 	:::term
@@ -153,6 +153,43 @@ Let's walk through these commands to understand what's going on.
 * `git push -u origin master`						 - This will upload the files you have committed to the remote repo. The `-u` option is used to set the upstream endpoint so that in the future, all you need to use is `git push` to upload to origin/master. In this case, "origin" is the name of our remote endpoint and "master" is the name of the branch we are pushing code up to. If you wanted to push to a different branch you would use `git push -u origin <your_branch>`.
 
 That's all there is to it! You can now build your app remotely on rhomobile.com.
+
+## Using a Private GitHub Repository
+You may wish to perform a remote build using an app inside of a private GitHub repository. To do so, there is a bit of setup that must be done first.
+> Note: If you've already accepted the 'rhohubbuild' user into your organization, you do not need to re-invite the user( aka: the private repository setup applies across rhomobile applications in your GitHub organization). If you are unsure, see the optional step at the bottom of this section to check if the user is already invited.
+
+### Step One: Invite
+Inside of Github, invite the user 'rhohubbuild' to a team in your organization. Steps for adding members to your organization can be found in [GitHub's documentationn](https://help.github.com/articles/adding-or-inviting-members-to-a-team-in-an-organization/). This user will need access to your repository before it can clone your private repository for the purposes of building.
+
+### Step Two: Accept Invitation
+<div class="row-fluid">
+	<div class="span6">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/online-accept-invite.png">
+	</div>
+	<div class="span6">
+		<p>In your Rhomobile.com account profile, click the GitHub tab on the left to access the GitHub integration info. You'll need to add your organization's GitHub name in the first text box. This name needs to be EXACTLY the same as what's on GitHub or the connection will not work. Then push the 'Accept Invite' button. This will use GitHub's API V3 to accept the 'rhohubbuild' user invitation.</p>
+	</div>
+</div>
+
+### Step Three: Build
+<div class="row-fluid">
+	<div class="span6">
+		<p>First click the "Change Git Source" button and then enter your SSH GitHub clone address in the main build page and hit save. This is the address that starts with `git@github.com`. Now you're ready to build using your private GitHub repository.</p>
+	</div>
+	<div class="span6">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/online-private-git.png">
+	</div>
+</div>
+
+### Optional Step: Confirm Acceptance of Invite
+<div class="row-fluid">
+	<div class="span6">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/online-check-invite.png">
+	</div>
+	<div class="span6">
+		<p>If you would like to confirm that your organization has fully accepted the 'rhohubbuild' user, and that you are set to clone from a private repository, please enter your organization name below and click the 'Check Invite' button.</p>
+	</div>
+</div>
 
 ## Building Your App
 <div class="row-fluid" style="text-align:center">
@@ -189,33 +226,33 @@ That's all there is to it! You can now build your app remotely on rhomobile.com.
 ### Rhomobile.com Build
 <div class="row-fluid">
 	<div class="span6">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/build-app-online.png">
+	</div>
+	<div class="span6">
 		<p>Building on rhomobile.com is fairly straight forward, once you have completed the steps above, you'll see a screen similar to this one once you sign into <a href="https://rms.rhomobile.com/">rhomobile.com</a>. From here, all you need to do is select the parameters you want to build with from the drop-down boxes shown and click build.</p>
 		<p>NOTE: When building for iOS you will need to provide your developer certificate, the password for that certificate, your provisioning profile file, and your bundle identifier. These items are not necessary when building for other platforms but Apple is very strict on it's policy for building apps.</p>
 	</div>
-	<div class="span6">
-		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/build-app-online.png">
-	</div>
 </div>
 
 ---
 
 <div class="row-fluid">
-	<div class="span6">
-		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/online-build-success-and-failure.png">
-	</div>
 	<div class="span6">
 		<p>Once you have built your app through the online console, you will be able to  click the download icon to download the app package (.apk for android, .cab for Windows Mobile, etc), put the package on your device, and install it. If the build failed, you'll be able to download the logs of the build to debug the reason for the failed build.</p>
 	</div>
+	<div class="span6">
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/online-build-success-and-failure.png">
+	</div>
 </div>
 
 ---
 
 <div class="row-fluid">
 	<div class="span6">
-		<p>In addition to the clickable link download your app's package, you can also hover over the QR icon and it will expand, showing a QR you can use to download the app directly to your device. Alternatively, if you click the QR icon it will download the app to your machine.</p>
+		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/qr-code-example.png">
 	</div>
 	<div class="span6">
-		<img src="https://s3.amazonaws.com/rhodocs/cloud/remote-build-guide/qr-code-example.png">
+		<p>In addition to the clickable link download your app's package, you can also hover over the QR icon and it will expand, showing a QR you can use to download the app directly to your device. Alternatively, if you click the QR icon it will download the app to your machine.</p>
 	</div>
 </div>
 

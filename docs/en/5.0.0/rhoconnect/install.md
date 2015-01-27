@@ -130,3 +130,25 @@ If you're using MacOS / Linux, install [dtach](http://dtach.sourceforge.net/) on
     $ rhoconnect dtach-install
 
 Now you're ready to create a rhoconnect and start app from the command line. See [App Generator and Command Line](command-line) for instructions on this.# Installing RhoConnect.
+
+## Upgrading From RhoConnect v.4.x to RhoConnect v.5.x
+Upgrading from RhoConnect version 4.x is quite simple. All that is needed is to update the version of RhoConnect in your RC app's gemfile.
+
+For Example:
+
+    :::txt
+    source 'http://rubygems.org'
+
+    gem 'rhoconnect', '5.0.0'
+
+    gemfile_path = File.join(File.dirname(__FILE__), ".rcgemfile")
+    begin
+      eval(IO.read(gemfile_path))
+    rescue Exception => e
+      puts "ERROR: Couldn't read RhoConnect .rcgemfile"
+      exit 1
+    end
+
+    # Add your application specific gems after this line ...
+
+Note that the RhoConnect gem version is '5.0.0'. Change your RhoConnect gem version to 5.0.0 here and then run bundle install in your app's directory to install the newly specified RhoConnect gem.

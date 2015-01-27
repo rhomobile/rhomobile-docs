@@ -53,7 +53,8 @@ The following is an example of a typical configuration file
 
 		<Screen>
 			<FullScreen value="1"/>
-			<enable_screen_zoom value="1"/>
+			<ShowLicenseConfirmation value="1"/>
+			<EnableZoom value="1"/>
 		</Screen>
 
 		<WebServer>
@@ -231,7 +232,7 @@ Sets the protocol over which the logging data will be sent
 
 **Possible Values**
 
-* File or 
+* File or
 * HTTP
 
 #### Example
@@ -390,8 +391,20 @@ Sets the Enterprise Browser to fullscreen mode, locking out the OS to the user u
 	:::xml
 	<FullScreen value="0"/>
 
-### enable_screen_zoom
-Sets whether the WebView should use it's built-in zoom mechanisms. Only supported on Android.
+### ShowLicenseConfirmation
+On a licensed device, this setting will enable or disable the display of the "licensed to..." dialog on launch. On unlicensed devices there will be no effect.
+
+**Possible Values**
+
+* 0 - Do not show license confirmation
+* **1 - Show license confirmation**
+
+#### Example
+	:::xml
+	<ShowLicenseConfirmation value="1"/>
+
+### EnableZoom
+Sets whether the WebView should use its built-in zoom mechanisms. Only supported on Android.
 
 **Possible Values**
 
@@ -400,7 +413,7 @@ Sets whether the WebView should use it's built-in zoom mechanisms. Only supporte
 
 #### Example
 	:::xml
-	<enable_screen_zoom value="1"/>
+	<EnableZoom value="1"/>
 
 ### PageZoom
 Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.* (see remark)
@@ -457,7 +470,7 @@ Message is the customized Message to be shown in the pop up window.
 	<Message value="Connection message!"/>
 
 ### Timeout
-This value indicates for how many milliseconds the application should try to connect to the URL before navigating to badlink page. The minimum value is 30000. If specified less than 30000, it will take 30000. The value of this parameter should be at least 3 times bigger than PollInterval, else both will take default  values. 
+This value indicates for how many milliseconds the application should try to connect to the URL before navigating to badlink page. The minimum value is 30000. If specified less than 30000, it will take 30000. The value of this parameter should be at least 3 times bigger than PollInterval, else both will take default  values.
 
 **Possible Values**
 
@@ -1157,7 +1170,12 @@ Navigates to the specified badlink uri when one of the following occurs:
 * The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
 * The user presses the stop button.
 
-The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the `file://` protocol, this way the browser can always access the file.
+The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be an offline file using the `file://` protocol, this way the browser can always access the file.
+
+There are some platform and engine exclusive issues you may encounter that are known issues. These include:
+
+* On Windows mobile devices when using IE engine, if device has no network connection, navigation timeout message may be displayed.
+* IE engine, CE5 & CE6 truncate the request variables when a navigation to badlink occurs so, badlink page will be navigated to, but the reason for the failure may not be displayed.
 
 **Possible Values**
 
@@ -1384,7 +1402,7 @@ The table below shows the behavior of the Enterprise Browser when Function Keys 
 		<th>Function Keys Capturable = TRUE</th>
 		<th>Function Keys Capturable = FALSE</th>
 	</tr>
-	
+
 	<tr>
 		<th>Enable Function Key = TRUE</th>
 		<td valign="top">
@@ -1401,7 +1419,7 @@ The table below shows the behavior of the Enterprise Browser when Function Keys 
 			</ul>
 		</td>
 	</tr>
-	
+
 	<tr>
 		<th>Enable Function Key = FALSE</th>
 		<td valign="top">
