@@ -396,8 +396,8 @@ On a licensed device, this setting will enable or disable the display of the "li
 
 **Possible Values**
 
-* **0 - Do not show license confirmation**
-* 1 - Show license confirmation
+* 0 - Do not show license confirmation
+* **1 - Show license confirmation**
 
 #### Example
 	:::xml
@@ -1174,8 +1174,8 @@ The browser will automatically append the querystring value "badlink" containing
 
 There are some platform and engine exclusive issues you may encounter that are known issues. These include:
 
-* On Windows mobile devices when using IE engine, if device has no network connection, navigation may timeout.
-* IE engine in CE5 & CE6 you'll need to truncate the request variables when a navigation to badlink occurs, so badlink page will be navigated to, but the reason for the failure may not be displayed.
+* On Windows mobile devices when using IE engine, if device has no network connection, navigation timeout message may be displayed.
+* IE engine, CE5 & CE6 truncate the request variables when a navigation to badlink occurs so, badlink page will be navigated to, but the reason for the failure may not be displayed.
 
 **Possible Values**
 
