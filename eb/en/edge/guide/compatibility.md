@@ -12,7 +12,7 @@ The filter option below allows you to change between:
 	* All : both Engine and Operating System selections must be matched
 	* Any : either the Engine or the Operating System selection may be matched
 * Engine:
-	* IE : Internet Explorer Engine (Windows Mobile / CE)
+	* IE : Internet Explorer Engine (Windows Mobile / CE). API access is via Pocket Browser EMML 1.0, EMML 1.1, and ActiveX objects only - Please refer to Pocket Browser documentation for syntax. 
 	* Webkit:
 		* Android devices use the stock webkit provided by Android
 		* Windows Mobile/CE devices use the Zebra Technologies Webkit
