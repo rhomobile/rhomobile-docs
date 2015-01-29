@@ -1,14 +1,11 @@
-Setting Up for RhoConnect Push Service on Client Application
-===
-
+# Setting Up for RhoConnect Push Service on Client Application
 RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered Android and Windows Mobile/CE devices.
 
 This chapter contains the steps you need to set up your registered Android or Windows Mobile/CE client and RhoConnect server for RhoConnect Push Service. After you perform the steps in this chapter, you will finish by performing the [client setup that is needed for all platforms](push-client-setup).
 
-**NOTE: If you are setting up standard RhoConnect Push on Android, you do not perform the steps in this chapter. Perform the steps in [RhoConnect Push for Android setup](push-client-setup-android) instead.**
+> Note: If you are setting up standard RhoConnect Push on Android, you do not perform the steps in this chapter. Perform the steps in [RhoConnect Push for Android setup](push-client-setup-android) instead.
 
 ## Setting up RhoConnect Push Service on the Server
-
 RhoConnect v3.3 introduces the RhoConnect Push Service (RPS) which supports efficient messaging for both Android and Windows Mobile. This service can be used instead of Google GCM on Android.
 
 The typical flow of a message using RPS:
@@ -25,12 +22,10 @@ The typical flow of a message using RPS:
 	|           |            |                 |
 	+           +            +                 +
 
-### Download and Install Node`s
-
+### Download and Install Node.js
 If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile Suite for Windows includes Node.js in its installation.)
 
 ### Starting the Push Service
-
 RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.
 
 Assuming you've installed the latest [RhoMobile Suite](http://www.motorola.com/Business/US-EN/RhoMobile%20Suite/Downloads), start redis by runing the following command:
@@ -56,12 +51,11 @@ Next, make sure you have the following option in your RhoConnect application's `
 
 Where you edit `someappname` to be a shared secret name between your RhoConnect application and your mobile application.
 
-**NOTE: This shared secret name ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this shared secret name in your [mobile app's 'rhoconnect_push_appname' setting](push-client-setup-rps#configuring-rhoconfigtxt).**
+> Note: This shared secret name ensures that only your RhoConnect application can send push messages to the RPS instance you started up in the previous step.  Use this shared secret name in your [mobile app's 'rhoconnect_push_appname' setting](push-client-setup-rps#configuring-rhoconfigtxt).
 
 Now setup [push notifications](push-client-setup#configuring-a-rhodes-application-to-receive-push-with-rhoconnect-push-service) in your Android or Windows Mobile RhoElements application, then start up your RhoConnect application.
 
 ### Configuring RhoConnect Push
-
 You can control basic settings for RhoConnect push using command line arguments.
 
 	:::term
@@ -84,7 +78,6 @@ You can control basic settings for RhoConnect push using command line arguments.
 	  -v, --version               Display server version
 
 ### Configuring and Running with config.json Advanced Options
-
 You can also configure more advanced settings in RhoConnect push by creating a config.json file.
 
 	:::json
@@ -136,7 +129,6 @@ The JSON file has the following parameters.
   * 3 - print everything
 
 ## Installing the rhoconnect-push-service Runtime Apps on the Mobile Device
-
 To use the RhoConnect Push Service in your client application, you must install the rhoconnect-push-service runtime app(s) on your mobile device.
 
 On the Macintosh, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation package, in a folder called rhoconnect-push-service.
@@ -144,8 +136,10 @@ On the Macintosh, the rhoconnect-push-service runtime apps for Android and for W
 On Windows, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation, in a directory called rhoconnect-push-service.
 
 ### Installing Runtime Apps on Android Device
+If you are using an Android device, install `rhoconnect_push_service.apk` to your device.
 
-If you are using an Android device, install `rhoconnect_push_service.apk` to your device. One way to do this is to connect your Android to your computer with a USB cable and use `adb install`. You can verify that your device is connected by executing:
+#### Using ADB
+One way to do this is to connect your Android to your computer with a USB cable and use `adb install`. You can verify that your device is connected by executing:
 
 	$ adb devices
 
@@ -157,8 +151,10 @@ Then navigate to the directory containing the runtime file and run `adb install`
 
 	$ adb install <filename>.apk
 
-### Installing Runtime Apps for Windows Mobile/CE Devices
+#### Other Installation Methods
+You can also use any other method to get the apk file onto your device such as RhoGallery, App Gallery, or even just connecting through USB and dragging the file onto your device and clicking the file itself to install it. The last option of those though, will not work if you do not have access to the file system.
 
+### Installing Runtime Apps for Windows Mobile/CE Devices
 If you are using a Windows Mobile or CE device, install the following runtime apps on your device. If you already have the [.NET Compact Framework](http://msdn.microsoft.com/en-us/library/bb788171\(v=vs.90\).aspx) on your device, make sure it is v3.5 or higher.
 
 * `rhoconnect-push-service.CAB`
@@ -173,7 +169,6 @@ Manually copy the .cab files to the device. For example, you can use the device 
 
 
 ### Installing Runtime Apps for Windows XP Embedded
-
 Windows XPE installation requires that you have the following items installed on your XPE device.
 
 * .NET 3.5 Compact framework
@@ -188,11 +183,9 @@ Connect your device to your Windows computer. You can use USB-cable, bluetooth o
 NOTE: The RhoConnect push service on Windows XP Embedded is a separate program on your device and will not be uninstalled when uninstalling other apps or programs.
 
 ## Setting up the Rhodes Client for RhoConnect Push Service
-
 To set up your Rhodes client application for RhoConnect Push Service, you configure rhoconfig.txt and build.yml.
 
 ### Configuring rhoconfig.txt
-
 In your client application `rhoconfig.txt` file, set the following options to configure your RhoConnect Push Service.
 
     syncserver = 'http://<hostname>:<port>'
@@ -208,11 +201,9 @@ Here is an example of setting `rhoconfig.txt` for the RhoConnect Push Service. T
     Push.rhoconnect.pushAppName = 'someappname'
 
 ### Configuring build.yml
-
 When you configure your application `build.yml` file for RhoConnect Push Service, do not add `push` under `capabilities`. Instead, add rhoconnect-push to extensions.
 
 	extensions: ["rhoconnect-push"]
 
 ## Finishing Client Setup
-
 Once you have completed the above steps for setting up for RhoConnect Push Service on Android or Windows Mobile/CE client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](push-client-setup).
