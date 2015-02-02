@@ -134,12 +134,12 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
     function status_notify_callback(params) {
       alert("Network status changed from "+params["prev_status"]+" to "+params["current_status"]);
     }
-  
+
     function start_status_notify() {
       # Request the system to check every 3 seconds and call us back if there is a change in network connectivity
       Rho.Network.startStatusNotify(3000, status_notify_callback);
     }
-    
+
     function stop_status_notify() {
       // Stop network status notifications
       Rho.Network.stopStatusNotify();
@@ -180,7 +180,7 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
       var wifi_network = Rho.Network.hasWifiNetwork()
       // Any network
       var network = Rho.Network.hasNetwork()
-      
+
       alert("Cell network: "+cell_network+"\nWi-Fi network: "+wifi_network+"\nNetwork: "+network);
     }
                    
@@ -229,7 +229,7 @@ function download_file() {
       downloadfileProps["overwriteFile"] = true
       Rho::Network.downloadFile(downloadfileProps, url_for(:action =&gt; :download_file_callback))
   end
-  
+
   def download_file_callback
     if @params["status"] == "ok"
         Alert.show_popup "Download Success,path is /public/images/sample.png "
