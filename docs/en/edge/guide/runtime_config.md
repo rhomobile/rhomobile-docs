@@ -155,8 +155,16 @@ The `rhoconfig.txt` file generated with a new application contains the following
     http_proxy_port = port
 
     # Login and password for access to proxy server. Only basic authentication is supported
-    http_proxy_login = 'user'
+    http_proxy_login    = 'user'
     http_proxy_password = 'password'
+
+    # CLient SSL Configuration. The path to the p12 formatted certificate file and the password used with the client certificate.
+    # The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL
+    # connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled.
+    # Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.
+    # These two settings are only supported for use on Android devices.
+    clientSSLCertificate         = 'certificate path'
+    clientSSLCertificatePassword = 'password'
 
 ## Config.xml
 ### What it affects
@@ -330,15 +338,17 @@ The following is an example of a typical configuration file
             <HourglassTop       value="" />
           </GUI>
           <Navigation>
-            <BadLinkURI               value=""/>
-            <UserAgent                value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
-            <ViewportEnabled          value="0"/>
-            <ViewportWidth            value="640"/>
-            <CaFile                   value="%INSTALLDIR%\server.pem"/>
-            <CaPath                   value=""/>
-            <VerifyPeerCertificate    value="1"/>
-            <NetworkCookieDatabase    value="file://\Program Files\RhoElements\cookies.db" />
-            <Cache                    value="5MB" />
+            <BadLinkURI                   value=""/>
+            <UserAgent                    value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
+            <ViewportEnabled              value="0"/>
+            <ViewportWidth                value="640"/>
+            <CaFile                       value="%INSTALLDIR%\server.pem"/>
+            <CaPath                       value=""/>
+            <VerifyPeerCertificate        value="1"/>
+            <ClientSSLCertificate         value=""/>
+            <ClientSSLCertificatePassword value=""/>
+            <NetworkCookieDatabase        value="file://\Program Files\RhoElements\cookies.db" />
+            <Cache                        value="5MB" />
           </Navigation>
           <DeviceKeys>
             <EnableCtrlKey_C          value="0"/>
@@ -1035,6 +1045,22 @@ The following is an example of a typical configuration file
     <td class="clsEvenRow">Verify the server certificate against the internal certificates.  It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development.  A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.</td>
     <td class="clsEvenRow">Boolean</td>
     <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
+    </tr>
+
+    <tr>
+    <td>Navigation\\clientSSLCertificate</td>
+    <td>CLIENTSSLCERTIFICATE</td>
+    <td>The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
+    <td>Fully qualified local path.<a href="#_caseSensitivity">&dagger;</a></td>
+    <td>Android</td>
+    </tr>
+
+    <tr>
+    <td class="clsEvenRow">Navigation\\clientSSLCertificatePassword</td>
+    <td class="clsEvenRow">CLIENTSSLCERTIFICATEPASSWORD</td>
+    <td class="clsEvenRow">The password used with client certificate. This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
+    <td class="clsEvenRow">Password</td>
+    <td class="clsEvenRow">Android</td>
     </tr>
 
     <tr>
