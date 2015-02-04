@@ -39,10 +39,17 @@ You can also edit the build.yml file directly with a text editor. Here is a list
 
 
 ## Customizing application's AndroidManifest.xml
-If you have an urgent need to put changes in AndroidManifest.xml that are not supported by build settings, you may edit a manifest template located at <Rhodes>/platform/android/Rhodes/AndroidManifest.xml.erb.
-Please note that this template does not relate to a particular application: it is used for every Android application build.
+If you have an urgent need to put changes in AndroidManifest.xml that are not supported by build settings, you may edit a manifest template located at <Rhodes>/platform/android/Rhodes/AndroidManifest.xml.erb. Please note that **this** template does not relate to a particular application: it is used for every Android application build.
 
-** NOTE: To see how to change AndroidManifest.xml at extension build, see [Extending the Rhodes Framework](native_extensions#platform-specific-notes). **
+> Note: To see how to change AndroidManifest.xml at extension build, see [Extending the Rhodes Framework](native_extensions#platform-specific-notes).
+
+You can also specify an android manifest file for your app in particular by specifying a path to the template in your build.yml file.
+
+For Example:
+
+	:::yml
+	android:
+		manifest_template: path/to/template.erb
 
 ## Building and Running Your Android Application with RhoStudio
 To start the build process, create a Run Configuration: select your project in the Project Explorer, and either:
@@ -71,7 +78,7 @@ You must have the 4.4.2 emulator installed or the app will not run properly or m
 ### Running on an Android Device with RhoStudio
 To run on an Android device, first set up your device as shown in the Android documentation for [Using Hardware Devices](http://developer.android.com/guide/developing/device.html).
 
-Then connect your Android device to your computer with a USB cable. 
+Then connect your Android device to your computer with a USB cable.
 
 In the Run Configurations window, select Android in Platform, and Device in Simulator type.
 
@@ -79,7 +86,7 @@ In the Run Configurations window, select Android in Platform, and Device in Simu
 After you run your application in RhoStudio, your application log file, rholog.txt, is stored in your application directory. You can open and read rholog.txt in RhoStudio by double-clicking on it in the Project Explorer.
 
 ## Building and Running Your Android Application from the Command Line
-From the command line, navigate to your application directory. 
+From the command line, navigate to your application directory.
 
 To run your application in the Android emulator, run the following command:
 
@@ -119,7 +126,7 @@ Connect your Android to your computer with a USB cable. You can verify that your
 
 	:::term
 	$ adb devices
-	
+
 If connected, you'll see the device name listed. If your computer doesn't see the device, try killing the adb process first:
 
 	:::term
@@ -128,7 +135,7 @@ If connected, you'll see the device name listed. If your computer doesn't see th
 
 After you have your device connected, navigate to your application directory and run:
 
-	:::term 
+	:::term
 	$ rake run:android:device
 
 This will build your application and sign it with auto-generated self-signed certificate.
@@ -171,7 +178,7 @@ The below values can be used as a guide for `rhoconfig.txt`, skip any setting wh
 	LogToOutput = 0
 	net_trace = 0
 	log_skip_post = 0
-    
+
 The below values can be used as a guide for `build.yml`, skip any setting which is not already present.
 
 	:::yml
@@ -183,7 +190,7 @@ Once your configuration is set up, you can run:
 	:::term
 	$ rake device:android:production
 
-The signed APK will be located in `<rhodes-app-dir>/bin/target`. 
+The signed APK will be located in `<rhodes-app-dir>/bin/target`.
 
 ## Installing Your Application Package to Your Android Device
 To install the application on the device run:
@@ -199,10 +206,10 @@ To publish your application on Google Play you need a publisher account. Visit t
 If you want to sell your application on Google Play, you will also need to set up a Merchant Account.
 
 To setup a merchant account:
-    
+
 * Login to the [Developer Console](https://play.google.com/apps/publish/)
 * Goto 'Financial reports' and then click on 'Setup a Merchant Account now'.
-    
+
 ### Uploading and Publishing your application
 The Google Play [Launch Checklist](http://developer.android.com/distribute/googleplay/publish/preparing.html) has detailed steps needed to publish your application.
 

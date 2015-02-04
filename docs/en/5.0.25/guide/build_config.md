@@ -5,9 +5,9 @@ Build time settings are dictated by a file in your app directory called `build.y
 When you create your app, a default version of the build.yml file will be generated and it will look like this:
 
 	:::yaml
-	#sdk: "<Path to Rhodes Gem>"
-	sdkversion: <Rhodes Gem Version>
-	name: <App Name>
+	#sdk: "/path/to/rhodes_gem"
+	sdkversion: 5.0.0
+	name: My RhoMobile App
 	version: 1.0
 	vendor: rhomobile
 	build: debug
@@ -18,178 +18,202 @@ When you create your app, a default version of the build.yml file will be genera
 		provisionprofile:
 		codesignidentity: iPhone Developer
 		entitlements: ""
-		BundleIdentifier: com.rhomobile.<App Name>
-		BundleURLScheme: <App Name>
-	wp:
-		productid: '17d460b0-701f-0131-ea62-482a14303cd5'
-	symbian:
-		uid: '0xe4ceb9bc'
+		BundleIdentifier: com.rhoappbuildersinc.myrhodesapp
+		BundleURLScheme: buildymltest
+	wp8:
+		productid: '4ff21ee0-8ef1-0132-ec69-7831c1c374dc'
 	android:
+		manifest_template: 'AndroidManifest.erb'
 		version: 2.3.3
+
+	wm:
+		#sdk: "MC3000c50b (ARMV4I)"
+		#sdk: "Windows Mobile 6.5.3 Professional DTK (ARMV4I)"
 
 	extensions: ["rhoconnect-client"]
 
 ### Settings Details
-
 <table class="table table-striped table-bordered table-condensed">
 	<tr>
 		<th>Group\\Setting</th>
 		<th>Description</th>
 		<th width="12%">Possible Values</th>
+		<th>Example</th>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">sdk</td>
 		<td class="clsEvenRow">Path to your rhodes gem. This is commented out by default to let rhodes determine the latest gem and use that. If you have multiple rhodes gems and you wish to use one that is not the latest one, specify that here.</td>
 		<td class="clsEvenRow">String</td>
+		<td class="clsEvenRow">"/path/to/rhodes_gem"</td>
 	</tr>
 	<tr>
 		<td>sdkversion</td>
 		<td>The version of your Rhodes gem.</td>
 		<td>Rhodes Version</td>
+		<td>5.0.25</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">name</td>
 		<td class="clsEvenRow">The name of your app.</td>
 		<td class="clsEvenRow">String</td>
+		<td class="clsEvenRow">My RhoMobile App</td>
 	</tr>
 	<tr>
 		<td>version</td>
 		<td>The version of your app.</td>
 		<td>App Version</td>
+		<td>1.0.5</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">vendor</td>
 		<td class="clsEvenRow">The name that will be set as the vendor of your app. Usually this will be your Company's name.</td>
 		<td class="clsEvenRow">String</td>
+		<td class="clsEvenRow">RhoApp Builders, Inc.</td>
 	</tr>
 	<tr>
 		<td>build</td>
 		<td>Build configuration of this version of your app.</td>
 		<td>Debug<br>development<br>release</td>
+		<td>development</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">applog</td>
 		<td class="clsEvenRow">Name of app log file on the device.</td>
 		<td class="clsEvenRow">Log file name</td>
+		<td class="clsEvenRow">/path/to/log_file.txt</td>
 	</tr>
 	<tr>
 		<td>iphone\\configuration</td>
 		<td>Build configuration to pass to XCode.</td>
 		<td>Debug<br>Distribution<br>Release</td>
+		<td>Distribution</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">iphone\\sdk</td>
 		<td class="clsEvenRow">The version of the sdk used to build. Typically, iphonesimulatorX.X or iphoneosX.X.</td>
 		<td class="clsEvenRow">iPhone SDK Version</td>
+		<td class="clsEvenRow">iphoneos8.0</td>
 	</tr>
 	<tr>
 		<td>iphone\\provisionprofile</td>
 		<td>The UUID of your provisioning profile to use when signing.</td>
 		<td>UUID</td>
+		<td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">iphone\\codesignidentity</td>
 		<td class="clsEvenRow">The name of the code signing identity to use when signing for device.</td>
 		<td class="clsEvenRow">Code Sign Identity, String</td>
+		<td class="clsEvenRow">rhoAppDevIdentity</td>
 	</tr>
 	<tr>
 		<td>iphone\\entitlements</td>
 		<td>Property list file for entitlements for your build. Typically, Entitlements.plist.</td>
 		<td>.plist file</td>
+		<td>myAppEntitlements.plist</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">iphone\\BundleIdentifier</td>
 		<td class="clsEvenRow">Bundle identifier – used in provisioning profile.</td>
 		<td class="clsEvenRow">String</td>
-	</tr> 
+		<td class="clsEvenRow">com.rhoappbuildersinc.myrhodesapp</td>
+	</tr>
 	<tr>
 		<td>iphone\\BundleURLScheme</td>
 		<td>Bundle URL scheme of your app (used for opening your application from another application by using custom URL scheme).</td>
 		<td>String</td>
+		<td>My Rhodes App</td>
 	</tr>
 	<tr>
-		<td class="clsEvenRow">wp\\productid</td>
+		<td class="clsEvenRow">wp8\\productid</td>
 		<td class="clsEvenRow">A productid GUID to application build.yml.</td>
 		<td class="clsEvenRow">GUID</td>
+		<td class="clsEvenRow">'17d460b0-701f-0131-ea62-482a14303cd5'</td>
 	</tr>
 	<tr>
-		<td>symbian\\uid</td>
-		<td>The UID of your Symbian app</td>
-		<td>Varying Hex value</td>
+		<td>android\\Manifest Template</td>
+		<td>It is possible to specify manifest erb template file at build.yml.</td>
+		<td>Manifest Template File</td>
+		<td>manifest_template: 'AndroidManifest.erb</td>
 	</tr>
 	<tr>
 		<td class="clsEvenRow">android\\version</td>
 		<td class="clsEvenRow">The version of Android for which you will be building.</td>
 		<td class="clsEvenRow">Android version</td>
+		<td class="clsEvenRow">2.3.3</td>
 	</tr>
 	<tr>
-	<td>extensions</td>
-	<td>Comma-separated list of extensions your app will be using.</td>
-	<td>Comma-separated list</td>
+		<td>extensions</td>
+		<td>Comma-separated list of extensions your app will be using.</td>
+		<td>Comma-separated list</td>
+		<td>["rhoconnect-client"]</td>
 	</tr>
 </table>
 
 ## Other Build-time Settings
-
-### App Type
-If you are building an app for Windows Mobile or Windows CE you must specify the app_type as RhoElements in your build.yml as follows:
-
-	:::yaml
-	app_type: "rhoelements"
-
-### Android Title
-If you want your app to hide the default android title bar, you need to set `android_title` to '0' as follows:
-
-	:::yaml
-	android_title: 0
-
-### JS API Bridge
-This option is typically only used for debugging purposes. If your AJAX-based app is not working properly, you can set this to true. If your application code resides on a remote server (as opposed to running locally), the Rhomobile Javascript APIs will not be available when this settings = `true`
-
-	:::yaml
-	ajax_api_bridge: true
-
-***NOTE: When you have this option set to `true`, the [File API](../api/File) will not work on Android or iOS. It will work on Windows mobile/CE***
-
-### JavaScript and CSS Obfuscation
-To enable JavaScript and/or CSS code obfuscation of the files in the `public` folder of your app, just add the following lines to the build.yml:
-
-	:::yaml
-	obfuscate:
-		js: yes
-		css: yes
-		exclude_dirs: ["jqmobile", "jqtouch", "jquery"]
-
-If JavaScript or CSS code obfuscation is not required, then just omit `js` or `css` line accordingly.
-**NOTE: The `jqmobile`, `jqtouch`, and `jquery` folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already.**
-
-### Building for Intel-Based Processors on Android
-By default, the build process will build only for ARM-based processors but, Rhodes can be configured to build for Intel-based processors instead. To build for such a device, you must set a flag in your build.yml file.
-
-	:::yaml
-	android:
-		abis: [x86]
-
-You can also elect to build for both arm AND Intel-based processor by specifying `abis: [arm, x86]`.
-
-### Production iOS
-To build iOS for production, there are a few settings that need to be added to your build.yml file in order to allow Rhodes correctly configure the build. You'll need to add the `mobileprovision` file, the `certificate_file`, and the `certificate_password` in a production sub-heading in the iphone section of the build.yml as shown below.
-
-	:::yaml
-	iphone:
-		configuration: Release
-		sdk: iphonesimulator7.1
-		provisionprofile: profile_name
-		codesignidentity: iPhone Developer
-		entitlements: ""
-		BundleIdentifier: com.rhomobile.mytestapp
-		BundleURLScheme: mytestapp
-		production:
-			mobileprovision_file: "./production/PROVISION.mobileprovision"
-			certificate_file: "./production/CERTS.p12"
-			certificate_password: "PASSWORD"
-
-Of course you'll need to add your custom information into the appropriate fields here.
+The following are some non-default settings that you may add to the build.yml in certain circumstances.
+<table class="table table-striped table-bordered table-condensed">
+	<tr>
+		<th>Group\\Setting</th>
+		<th>Description</th>
+		<th width="12%">Possible Values</th>
+		<th>Example</th>
+	</tr>
+	<tr>
+		<td class="clsEvenRow">App Type</td>
+		<td class="clsEvenRow">If you are building an app for Windows Mobile or Windows CE you must specify the app_type as "rhoelements" in your build.yml file. By default, this value does not exist in the build.yml and is only necessary to specify a RhoElements licensed app.</td>
+		<td class="clsEvenRow">"rhoelements"</td>
+		<td class="clsEvenRow">app_type: "rhoelements"</td>
+	</tr>
+	<tr>
+		<td>Android Title</td>
+		<td>If you want your app to hide the default android title bar, you need to set <code>android_title</code> to '0' in your build.yml file.</td>
+		<td>0 - Hidden</br>1 - Visible</td>
+		<td>android_title: 0</td>
+	</tr>
+	<tr>
+		<td class="clsEvenRow">JS API Bridge</td>
+		<td class="clsEvenRow">This option is typically only used for debugging purposes. If your AJAX-based app is not working properly, you can set this to true. If your application code resides on a remote server (as opposed to running locally), the Rhomobile Javascript APIs will not be available when this settings = <code>true</code>.</td>
+		<td class="clsEvenRow">true - Enabled</br>false - Disabled</td>
+		<td class="clsEvenRow">ajax_api_bridge: true</td>
+	</tr>
+	<tr>
+		<td>JavaScript and CSS Obfuscation</td>
+		<td>To enable JavaScript and/or CSS code obfuscation of the files in the <code>public</code> folder of your app, just add the following lines to the build.yml:
+			<br/>
+				<code>obfuscate:<br/>
+				&nbsp;&nbsp;js: yes<br/>
+				&nbsp;&nbsp;css: yes<br/>
+				&nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
+				NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already.</td>
+		<td>If JavaScript or CSS code obfuscation is not required, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
+		<td>
+			obfuscate:<br/>
+			&nbsp;&nbsp;js: yes<br/>
+			&nbsp;&nbsp;css: yes</td>
+	</tr>
+	<tr>
+		<td class="clsEvenRow">Building for Intel-Based Processors on Android</td>
+		<td class="clsEvenRow">By default, the build process will build only for ARM-based processors but, Rhodes can be configured to build for Intel-based processors instead. To build for such a device, you must set a flag in your build.yml file. You can also elect to build for both arm AND Intel-based processor by specifying <code>abis: [arm, x86]</code>.</td>
+		<td class="clsEvenRow">x86 - Build for Intel Processors<br/>arm - Build for arm-based processors</td>
+		<td class="clsEvenRow">android:<br/>&nbsp;&nbsp;abis: [x86]</td>
+	</tr>
+	<tr>
+		<td>Production iOS</td>
+		<td>To build iOS for production, there are a few settings that need to be added to your build.yml file in order to allow Rhodes correctly configure the build. You'll need to add the <code>mobileprovision</code> file, the <code>certificate_file</code>, and the <code>certificate_password</code> in a production sub-heading in the iphone section of the build.yml as shown below.
+			<code><br/>
+				iphone:<br/>
+				...<br/>
+				&nbsp;&nbsp;production:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;mobileprovision_file: "./production/PROVISION.mobileprovision"<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;certificate_file: "./production/CERTS.p12"<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;certificate_password: "PASSWORD"
+			</code>
+		</td>
+		<td>you'll need to add your custom information into the appropriate fields here.</td>
+		<td>mobileprovision_file: "./production/PROVISION.mobileprovision"<br/>certificate_file: "./production/CERTS.p12"<br/>certificate_password: "PASSWORD"</td>
+	</tr>
+</table>
 
 ## Capabilities
 There are two ways of modifying your app's capabilities:
@@ -304,7 +328,7 @@ After installing the RhoMobile Suite, you must tell the software where you have 
 		wp8path: "platform/wp8"
 		androidpath: "platform/android"
 		iphonepath: "platform/iphone"
-	android: 
+	android:
 	excludedirs:
 		all:
 	# Google API key obtained from http://code.google.com/intl/en/android/add-ons/google-apis/mapkey.html
