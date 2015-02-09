@@ -1,11 +1,8 @@
 # Runtime Application Configuration
-
 Apart from your source code, there are other important files that control how your application behaves at runtime: `rhoconfig.txt` and `Config.xml`
 
 ## rhoconfig.txt
-
 ### What it affects
-
 The values in `rhoconfig.txt` control different aspects of your application, such as what page is loaded when the application starts or the address of the `RhoConnect` synchronization server, while those in `Config.xml` refer to features of the RhoElements runtime itself like what keys can be intercepted by the application or whether to preload modules on startup.
 
 Apart from the settings recognized by the platform, you can add arbitrary values that are specific to your application:
@@ -34,95 +31,95 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
     # path to the options page (in this case handled by JavaScript)
     options_path = '/app/Settings'
-    
+
     # location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
     rhobundle_zip_url = ''
-    
-    # optional password to access bundle (usually not required); used by desktop win32 simulator 
+
+    # optional password to access bundle (usually not required); used by desktop win32 simulator
     rhobundle_zip_pwd = nil
-    
+
     # Rhodes log properties
     # log level
     # 0-trace, 1-info(app level), 3-warnings, 4-errors
     # for production set to 3
-    MinSeverity  = 1 
-    
+    MinSeverity  = 1
+
     # enable copy log messages to standard output, useful for debugging
     LogToOutput = 1
-    
-    # '*' means all categories, otherwise list them : Cat1, Cat2 
+
+    # '*' means all categories, otherwise list them : Cat1, Cat2
     LogCategories = *
-    
+
     # what categories to exclude
-    ExcludeLogCategories = 
-    
+    ExcludeLogCategories =
+
     # max log file size in Bytes, set 0 to unlimited size; when limit is reached, log wraps to beginning of file
     MaxLogFileSize=50000
-    
+
     # turn on local http server traces, off by default
     #net_trace = 0
-    
+
     # timeout of network requests in seconds (30 by default)
     #net_timeout = 60
-    
-    # where log will be posted by RhoConf.send_log or from the log menu  
+
+    # where log will be posted by RhoConf.send_log or from the log menu
     # source is also open and up on http://github.com/rhomobile/rhologs, so you can deploy your own logserver
-    logserver = 'http://rhologs.heroku.com' 
-    
+    logserver = 'http://rhologs.heroku.com'
+
     # log file prefix - contain human-readable text
     logname='rhodes-app'
-    
+
     # Keep track of the last visited page
-    KeepTrackOfLastVisitedPage = 0 
+    KeepTrackOfLastVisitedPage = 0
     LastVisitedPage = ''
-    
+
     # sync server url, typically this will look like 'http://<hostname>:<port>/application'
     # for example: 'http://localhost:9292/application'
     syncserver = ''
-    
-    # 0 will disable auto sync 
+
+    # 0 will disable auto sync
     sync_poll_interval=0
-    
+
     # geo location inactivity timeout (in seconds)
     #geo_location_inactivity_timeout = 30
-    
+
     # open rhodes app in full screen mode
     # default 1 for Android up to Rhodes 2.2.5.
     # on all other platforms and on Android from Rhodes > 2.2.5 default 0
     full_screen = 0
-    
+
     # show top menu on Windows desktop in full screen mode (default is 0=don't show top menu)
     #w32_fullscreen_menu = 1
-    
+
     # disable the Android page loading progress bar
     disable_loading_indication = 1
-    
+
     # Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes.
     # If not specified, application will use dynamically selected one.
     # WARNING!!! Remove this parameter before put application to production.
     #local_server_port = 8080
-    
+
     # show status bar on windows mobile. default 1
     #wm_show_statusbar = 1
-    
+
     # disable screen rotation (enabled by default) - disable possible for ANDROID and iPhone ONLY
     #disable_screen_rotation = 1
-    
+
     # disable close app when pressing back on home screen on blackberry
     #bb_disable_closebyback = 0
-    
+
     # load images in background, this improve reaction speed on user actions, 0 by default
     #bb_loadimages_async = 0
-    
+
     # set to 0 to reset the bulksync_state and trigger a bulk sync the next time rhodes synchronizes
     #bulksync_state = 1
-    
+
     # hides forward button and animates back button transition
     jqtouch_mode=1
-    
+
     splash_screen='zoom'
-    
-    use_bb_full_browser=6 
+
+    use_bb_full_browser=6
 
     esri_map_url_roadmap: type: string
 
@@ -130,22 +127,22 @@ The `rhoconfig.txt` file generated with a new application contains the following
         iOS             - supported in esri extension.
         Android      - supported with ESRI map type.
         WM             - supported with WM mapview.
-        WP8           - mapping is not supported.     
+        WP8           - mapping is not supported.
 
     esri_map_url_satellite: type: string
         ESRI server url with satellite map tiles.
             iOS             - supported in esri extension.
             Android      - supported with ESRI map type.
             WM             - supported with WM mapview.
-            WP8           - mapping is not supported.     
-     
+            WP8           - mapping is not supported.
+
     OSM_map_url_roadmap: type: string
         OSM server url with road map tiles.
             iOS            - not supported as only Google and ESRI maps are supported.
             Android     - supported with OSM map type.
             WM             - supported with WM mapview.
-            WP8           - mapping is not supported.     
-     
+            WP8           - mapping is not supported.
+
     disable_loading_indication:type - Bool
         If enabled, blocks loading indication in webview
             Supported only on Android.
@@ -162,10 +159,8 @@ The `rhoconfig.txt` file generated with a new application contains the following
     http_proxy_password = 'password'
 
 ## Config.xml
-
 ### What it affects
-
-** NOTE: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser **
+> Note: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser.
 
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
@@ -228,14 +223,14 @@ The following is an example of a typical configuration file
         <EnableFunctionKey_F10    VALUE="0"/>
         <EnableFunctionKey_F11    VALUE="0"/>
         <EnableFunctionKey_F12    VALUE="0"/>
-        <EnableApplicationKey_A1  VALUE="0"/> 
-        <EnableApplicationKey_A2  VALUE="0"/> 
-        <EnableApplicationKey_A3  VALUE="0"/> 
-        <EnableApplicationKey_A4  VALUE="0"/> 
-        <EnableApplicationKey_A5  VALUE="0"/> 
-        <EnableApplicationKey_A6  VALUE="0"/> 
-        <EnableApplicationKey_A7  VALUE="0"/> 
-        <EnableApplicationKey_A8  VALUE="0"/> 
+        <EnableApplicationKey_A1  VALUE="0"/>
+        <EnableApplicationKey_A2  VALUE="0"/>
+        <EnableApplicationKey_A3  VALUE="0"/>
+        <EnableApplicationKey_A4  VALUE="0"/>
+        <EnableApplicationKey_A5  VALUE="0"/>
+        <EnableApplicationKey_A6  VALUE="0"/>
+        <EnableApplicationKey_A7  VALUE="0"/>
+        <EnableApplicationKey_A8  VALUE="0"/>
       </DeviceKeys>
       <Navigation>
         <NavTimeout VALUE="45000"/>
@@ -351,9 +346,10 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
+> Note: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser
 
-** NOTE: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc. **
+> Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
+
 <div style="width:100%">
   <table class="table table-striped table-bordered table-condensed configxml" style="table-layout: fixed !important;">
     <tr>
@@ -452,7 +448,7 @@ The following is an example of a typical configuration file
     <td class="clsEvenRow">PLUGINFILE</td>
     <td class="clsEvenRow">Not applicable to the Enterprise Tablet:<br>RhoElements has a plugin based architecture so functionality can be tailored to the individual application, lessening the memory footprint on the device.  It is necessary for RhoElements to have a mapping between modules, plugins and the physical location of the Plugin DLL on the device; this mapping is stored in the Plug-in file and the location of that file is defined by this setting.</td>
     <td class="clsEvenRow">Fully qualified path to file defining the plugins.<a href="#_caseSensitivity">&dagger;</a></td>
-    </tr> 
+    </tr>
 
     <tr>
     <td>Screen\\FullScreen</td>
@@ -494,7 +490,7 @@ The following is an example of a typical configuration file
     <td class="clsEvenRow">FUNCTIONKEYSCAPTURABLE</td>
     <td class="clsEvenRow">This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behavior (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/api/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown <a href="#_fnbehavior">here</a>.  This setting is not specific to the current application and will be applied globally on the device.</td>
     <td class="clsEvenRow">0 - F keys not capturable<BR>1 - F keys capturable</td>
-    </tr> 
+    </tr>
 
     <tr>
     <td>DeviceKeys\\<BR>EnableFunctionKey_X</td>
@@ -504,7 +500,7 @@ The following is an example of a typical configuration file
     <P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehavior">the end of this document</a>
     </td>
     <td>0 - Disabled<BR>1 - Enabled</td>
-    </tr> 
+    </tr>
 
     <tr>
     <td class="clsEvenRow">DeviceKeys\\<BR>EnableApplicationKey_X</td>
@@ -701,7 +697,7 @@ The following is an example of a typical configuration file
     <td>HTMLStyles\\CaretWidth</td>
     <td>CARETWIDTH</td>
     <td>This setting is a number which specifies the width of the textbox / text area caret, in pixels. The default value if you don't specify anything is '1'.  Prior to this release the width was fixed at '1' and you could not change it. This setting only applies to the Webkit on Windows Mobile or Windows CE.</td>
-    <td>Integer values for caret width in pixels</td>
+    <td>Integer values for caret width in pixels from 1 to 5, inclusively</td>
     </tr>
 
     <tr>
@@ -966,8 +962,7 @@ The following is an example of a typical configuration file
 </table>
 </div>
 
-<a name="_configIndentifiers">*</a> The configuration identifiers are used in the ReadConfigSetting and Write Config Setting methods of <a href="/v/2.2/rhoelements/generic">Generic</a> 
-
+<a name="_configIndentifiers">*</a> The configuration identifiers are used in the ReadConfigSetting and Write Config Setting methods of <a href="/v/2.2/rhoelements/generic">Generic</a>
 
 ## Substitution Variables
 The following substitution variables are available in the configuration file
@@ -981,7 +976,6 @@ The following substitution variables are available in the configuration file
 <td>The directory into which RhoElements.exe has been installed</td>
 </tr>
 </table>
-
 
 ## Remarks
 ###<a name="_caseSensitivity">&dagger;</a>Case Sensitivity
@@ -1001,9 +995,9 @@ The table below shows the behavior of RhoElements when Function Keys are pressed
     <th>Function Keys Capturable = TRUE</th>
     <th>Function Keys Capturable = FALSE</th>
   </tr>
-  
+
   <tr>
-    <th>Enable Function Key = TRUE</th>     
+    <th>Enable Function Key = TRUE</th>
     <td valign="top">
       <ul>
         <li>All Function Keys <b>can</b> be captured by the <a href="../rhoelements/keycapture">Key Capture Module</a>
@@ -1018,7 +1012,7 @@ The table below shows the behavior of RhoElements when Function Keys are pressed
       </ul>
     </td>
   </tr>
-  
+
   <tr>
     <th>Enable Function Key = FALSE</th>
     <td valign="top">

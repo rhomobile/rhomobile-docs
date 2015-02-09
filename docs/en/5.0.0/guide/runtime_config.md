@@ -820,7 +820,7 @@ The following is an example of a typical configuration file
     <td class="clsEvenRow">HTMLStyles\\CaretWidth</td>
     <td class="clsEvenRow">CARETWIDTH</td>
     <td class="clsEvenRow">This setting is a number which specifies the width of the textbox / text area caret, in pixels. The default value if you don't specify anything is '1'.  Prior to this release the width was fixed at '1' and you could not change it. This setting only applies to the Webkit on Windows Mobile or Windows CE.</td>
-    <td class="clsEvenRow">Integer values for caret width in pixels</td>
+    <td>Integer values for caret width in pixels from 1 to 5, inclusively</td>
     <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
