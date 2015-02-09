@@ -13,6 +13,8 @@ The RhoMobile Visual Studio Plugin allows you to build applications that are tar
 * Visual Studio 2012 Professional
 * Windows Phone 8 SDK
 * RhoMobile Suite 4.0+
+* Only available to Silver and Gold level subscriptions
+* There is no dialog to log in or sign up to RhoMobile.com from within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
 
 ## Installing
 1. Download the extension's [VSIX file](https://github.com/rhomobile/vsplugin/tree/master/Installer) and double-click it in Windows Explorer
@@ -40,10 +42,10 @@ This generates a set of files and folders to define an application structure. Th
 5. In the `Add new RhoMobile Model` dial enter the `Model Name` an then a list of `Model Attributes` separated by a comma
 6. Click Finish
 
-This automatically generates a folder and a corresponding set files that provide CRUD operations for that model. [Read more details](models) about data models. 
+This automatically generates a folder and a corresponding set files that provide CRUD operations for that model. [Read more details](models) about data models.
 
 ## Application changes
-    
+
 * Add to application build.yml productid GUID. For example:
 
         wp:
@@ -58,7 +60,7 @@ Recall that RhoMobile applications utilize web languages like CSS, JavaScript an
 * [Metro-Bootstrap](http://talkslab.github.com/metro-bootstrap/)
 * [jqMetro](http://jqmetro.codeplex.com/)
 
-[Follow the instructions]() for replacing the default application generation with your own framework. 
+[Follow the instructions]() for replacing the default application generation with your own framework.
 
 ## Launch and Run
 You are now ready to build and launch your application by selecting a build configuration option:
