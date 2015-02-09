@@ -332,7 +332,7 @@ Inside of Github, invite the user 'rhohubbuild' to a team in your organization. 
 There are a few limitations that our remote build service must adhere to in order to function properly and efficiently:
 
 1. The number of concurrent builds on the remote build service is limited to two. If you attempt to build a third, the app will not build and you must re-attempt the build once there are less than two builds running.
-2. Rhomobile apps support writing your own, custom native extensions however, these custom extensions are not supported by the remote build service. If you must include a custom native extension, you must build the app locally.
+2. RhoMobile supports writing your own, custom native extensions however, these custom extensions are not supported by the remote build service. If you must include a custom native extension, you must build the app locally.
 
 ## Troubleshooting
 Here are a few issues that may come up while you are attempting to build remotely:
