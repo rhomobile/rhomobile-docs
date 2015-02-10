@@ -75,7 +75,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 ## Remarks
 ### Suggested Use
 The Reboot tag can be used to apply new settings after downloading files (eg. .REG) or applications from a server.
-
+#
 ### Windows Mobile
 Note that in WM5.0 and up there is no software difference between a warm and a cold boot as the device uses persistent storage; both the file and registry will remain the same after boot.
 
