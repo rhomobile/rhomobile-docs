@@ -78,7 +78,7 @@ NOTE: Pay attention to spelling of the model and attributes, as the sample code 
 1) Open the folder `app\Product` and edit the file `product.rb`
 
 2) Uncomment the line `enable :sync` line.
-        
+
 
     :::ruby
     # The model has already been created by the framework, and extends Rhom::RhomObject
@@ -96,7 +96,7 @@ NOTE: Pay attention to spelling of the model and attributes, as the sample code 
 
 1) Open the file `app\index.erb`
 
-2) Replace the line: 
+2) Replace the line:
 
     :::html
     <li><a href="#">Add link here...</a></li>
@@ -145,7 +145,7 @@ To sync with the RhoConnect server, the Rhodes client must log in. The Rhodes ge
 <div class="row-fluid">
   <div class="span4">
     <p>
-      3. If login is successful, you will see a Client ID in the settings screen. The ClientID is generated the first time you log in and is stored in the client database. It serves as a unique identifier which is required for rhoconnect. (Note: this value will persist across logins, but if you reset the client database or the user re-installs the app, a new ClientID will be generated.)      
+      3. If login is successful, you will see a Client ID in the settings screen. The ClientID is generated the first time you log in and is stored in the client database. It serves as a unique identifier which is required for rhoconnect. (Note: this value will persist across logins, but if you reset the client database or the user re-installs the app, a new ClientID will be generated.)
     </p>
     <p>
       4. Sync is triggered automatically. Click on the home icon and then select “Products” and you should see the list of product records from the server.
@@ -189,9 +189,9 @@ To sync with the RhoConnect server, the Rhodes client must log in. The Rhodes ge
   </div>
 </div>
 
-<p>6. You can also simulate changes that occur on the backend, by using the <a href="http://rhostore.herokuapp.com/products">CRUD operations from your browser</a>. These changes will not appear on the device for at least 5 minutes. This is due to the default setting for the RhoConnect application to query the backend for updates. You can modify this by changing the `poll_interval` setting in the `settings\setting.yml` file in the RhoConnect application.
+<p>6. You can also simulate changes that occur on the backend, by using the <a href="http://rhostore.herokuapp.com">CRUD operations from your browser</a>. These changes will not appear on the device for at least 5 minutes. This is due to the default setting for the RhoConnect application to query the backend for updates. You can modify this by changing the `poll_interval` setting in the `settings\setting.yml` file in the RhoConnect application.
 </p>
 
-Now that you have your RhoConnect server successfully syncing to your back-end application, you're ready to move on to more advanced topics using RhoConnect such as PUSH notifications, RhoConnect plug-ins, and sync conflict resolution to name a few. For more information on these and other topics, refer to our [RhoConnect Guides](../../rhoconnect/introduction).
+Now that you have your RhoConnect server successfully syncing to your back-end application, you're ready to move on to more advanced topics using RhoConnect such as PUSH notifications, RhoConnect plug-ins, and sync conflict resolution to name a few. For more information on these and other topics, refer to our [RhoConnect Guides](../../../5.0.25/rhoconnect/introduction).
 
 For a tutorial on deploying your RhoConnect app in the cloud, continue on to the next page.

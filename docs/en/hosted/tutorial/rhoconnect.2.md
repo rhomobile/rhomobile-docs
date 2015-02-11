@@ -1,6 +1,5 @@
 # RhoConnect Tutorial
-
-Once RhoConnect is installed we’re ready to build a RhoConnect source adapter to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. If you generated a JavaScript RhoConnect application then you will need to generate [JavaScript Source adapters](../../rhoconnect/source-adapters). Likewise, if you generated a Ruby RhoConnect application, you will need to generate [Ruby Source Adapters](../../rhoconnect/source-adapters-js).
+Once RhoConnect is installed we’re ready to build a RhoConnect [source adapter](../../../5.0.25/rhoconnect/source-adapters-intro) to integrate with our backend application. To define a RhoConnect source you just need to identify a handful of operations to interact with your backend data source: login, query, sync, create, update, delete and logoff. If you generated a JavaScript RhoConnect application then you will need to generate [JavaScript Source adapters](../../../5.0.25/rhoconnect/source-adapters-js). Likewise, if you generated a Ruby RhoConnect application, you will need to generate [Ruby Source Adapters](../../../5.0.25/rhoconnect/source-adapters).
 
 To demonstrate how this works we have setup a [dummy backend](http://rhostore.herokuapp.com) for a `Product` model. This backend will allow you to perform all CRUD operations, however the data will be reset every hour.
 
@@ -70,8 +69,8 @@ var Product = function(){
       host: host,
       path: '/products.json',
       method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json', 
+      headers: {
+        'Content-Type': 'application/json',
         'Content-Length': postData.length
       }
     };
@@ -97,7 +96,7 @@ var Product = function(){
       host: host,
       path: '/products/' + objId + '.json',
       method: 'PUT',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         'Content-Length': putData.length
       }
@@ -148,12 +147,12 @@ var Product = function(){
   };
 };
 
-module.exports = new Product();       
+module.exports = new Product();
       </code></pre>
 
   </div>
   <div class="tab-pane fade" id="ruby_modify_adapter">
-      <pre><code class="ruby"> 
+      <pre><code class="ruby">
 require 'json'
 require 'rest_client'
 
@@ -205,9 +204,7 @@ end
   </div>
 </div>
 
-The above example will work with our test backend, if you are attempting to connect to your own backend data, you should read more about [Source Adapters](source-adapters-intro) and the corresponding methods:
+The above example will work with our test backend, if you are attempting to connect to your own backend data, you should read more about [Source Adapters](../../../5.0.25/rhoconnect/source-adapters-intro) and the corresponding methods:
 
-* [JavaScript Source Adapters](../../rhoconnect/source-adapters-js)
-* [Ruby Source Adapters](../../rhoconnect/source-adapters)
-
-
+* [JavaScript Source Adapters](../../../5.0.25/rhoconnect/source-adapters-js)
+* [Ruby Source Adapters](../../../5.0.25/rhoconnect/source-adapters)

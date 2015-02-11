@@ -1,5 +1,4 @@
 # RhoConnect Tutorial
-
 Currently there are two different types of RhoConnect apps that can be generated, Ruby and JavaScript:
 
 <div>
@@ -19,16 +18,14 @@ Currently there are two different types of RhoConnect apps that can be generated
   </div>
 </div>
 
-
-Ruby RhoConnect apps can also be generated using RhoStudio. To use this method, see [Generating a RhoConnect app with RhoStudio](../../rhoconnect/command-line#generating-a-rhoconnect-app-with-rhostudio)
+Ruby RhoConnect apps can also be generated using RhoStudio. To use this method, see [Generating a RhoConnect app with RhoStudio](../../../5.0.25/rhoconnect/command-line#generating-a-rhoconnect-app-with-rhostudio)
 
 After code generation, the bundle install command will be run for the first time automatically.
 
-NOTE: It is required to have a connection to the internet to create an application. There are certain Ruby gems that RhoConnect is dependent on.
+> Note: It is required to have a connection to the internet to create an application. There are certain Ruby gems that RhoConnect is dependent on.
 
 ## Starting Your RhoConnect App
-
-Once you have generated your app code, you'll need to start your redis server and the RhoConnect app in order to ensure that everything is working properly. 
+Once you have generated your app code, you'll need to start your redis server and the RhoConnect app in order to ensure that everything is working properly.
 
 <div>
   <ul class="nav nav-tabs" style="margin-bottom:0">
@@ -67,4 +64,3 @@ If all went well, you should see:
 This means that your RhoConnect app is up and running on localhost:9292. If you go to this address in your browser you will see the RhoConnect Console, pictured below.
 
 <img src="https://s3.amazonaws.com/rhodocs/rhoconnect-tutorial/rhoconnect-console-4.0.png">
-
