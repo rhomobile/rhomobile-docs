@@ -5,12 +5,12 @@ The Alarm API is used to set an alarm and register an action to perform when tha
 ## Enabling the API
 In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:
 
-* elements.js 
+* elements.js
 
 > Note - this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.
 
 	:::html
-    <script type="text/javascript" charset="utf-8" src="elements.js"></script>;
+	<script type="text/javascript" charset="utf-8" src="elements.js"></script>;
 
 ### API Usage
 This API does not use the `EB` namespace. It is simply referenced using the API name:
@@ -21,15 +21,15 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 ## Events
 To handle events, you assign a string value to the event name that represents a function name or javascript statement to execute.
 
-### alarmTriggered 
-The alarm triggered event will be fired when either the alarm time reaches that specified in the ‘Time’ parameter or the period specified in ‘Interval’ expires. There are no parameters associated with the AlarmTriggered event..
+### alarmTriggered
+The alarm triggered event will be fired when either the alarm time reaches that specified in the 'Time' parameter or the period specified in 'Interval' expires. There are no parameters associated with the AlarmTriggered event..
 
 #### Callback Parameters
 None
 
 	:::javascript
 	alarm.alarmTriggered = "alert('Alarm Fired')";
-	
+
 	// this function does not have callback return parameters
 	// if it did, we would use the %json notation
 	alarm.alarmTriggered = "url('JavaScript:doFunction(%json);')";
@@ -99,7 +99,7 @@ Sets the alarm to trigger at the specified time.
 Uniquely for an Enterprise Browser event the registered action for the AlarmTriggered event does not get cleared when you navigate away from the current page. If using a JavaScript function, you must ensure the script is still valid when the alarm fires or alternatively you can clear the alarm.
 
 ### Minimum Time Interval
-The Alarm is not designed to be triggered for intervals less than 30 seconds, if you require a shorter delay then consider using the JavaScript function ‘SetTimeout’.
+The Alarm is not designed to be triggered for intervals less than 30 seconds, if you require a shorter delay then consider using the JavaScript function 'SetTimeout'.
 
 ### Explanation of Time Format
 You must specify the time in GMT and then the device's timezone offset from that. E.g. a time expressed as 2012-07-27t08-30-00-05-00 breaks down as follows:
