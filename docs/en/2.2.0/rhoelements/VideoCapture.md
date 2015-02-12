@@ -15,43 +15,69 @@ By default the JavaScript Object <b>'videoCapture'</b> will exist on the current
 To Invoke videoCapture methods via JavaScript use the following syntax: videocapture.method();
 <P />e.g. <b>videoCapture</b>.start();
 </td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set videoCapture parameters via JavaScript use the following syntax: videocapture.parameter = 'value'; remembering to enclose your value in quotes where appropriate.  
+To Set videoCapture parameters via JavaScript use the following syntax: videocapture.parameter = 'value'; remembering to enclose your value in quotes where appropriate.
 <P />e.g. <b>videoCapture</b>.duration = 'value';
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Set videoCapture return events via JavaScript use the following syntax: videocapture.event = JavaScript Function;
 <P />e.g. <b>videoCapture</b>.videoSaveEvent = 'doFunction(%json)';
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents">Retrieval Events</a> page.
 
-</td></tr><tr><td class="clsSyntaxCells clsOddRow">							
+</td></tr><tr><td class="clsSyntaxCells clsOddRow">
 To set multiple <a href="/rhoelements/EMMLOverview">EMML</a> parameters / events on a single line use the following syntax: videocapture.setEMML("[Your EMML Tags]");
 <P />
-e.g. <b>videoCapture</b>.setEMML("duration:<i>value</i>;videoSaveEvent:url('JavaScript:doFunction(%json)');start");							
+e.g. <b>videoCapture</b>.setEMML("duration:<i>value</i>;videoSaveEvent:url('JavaScript:doFunction(%json)');start");
 </td></tr></table>
 
 <table class="re-table"><tr><th class="tableHeading">VideoCapture Ruby Object Syntax:</th></tr><tr><td class="clsSyntaxCells clsOddRow">
 By default the Ruby Object <b>'VideoCapture'</b> will exist on the current page and can be used to interact directly with the VideoCapture. All Methods, Parameters and Events are the same as JavaScript, however, notice <b>'VideoCapture'</b> needs to start with an uppercase letter. Another difference in Ruby is that methods do not end in <b>'()'</b></td></tr><tr><td class="clsSyntaxCells clsEvenRow">
 To Invoke VideoCapture methods via Ruby use the following syntax: VideoCapture.method()
 <P />e.g. <b>VideoCapture</b>.start</td></tr><tr><td class="clsSyntaxCells clsOddRow">
-To Set VideoCapture parameters via Ruby use the following syntax: VideoCapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.  
+To Set VideoCapture parameters via Ruby use the following syntax: VideoCapture.parameter = 'value' remembering to enclose your value in quotes where appropriate.
 <P />e.g. <b>VideoCapture</b>.duration = 'value'
-</td></tr><tr><td class="clsSyntaxCells clsEvenRow">						
-To Set VideoCapture return events via Ruby use the following syntax: VideoCapture.event = url_for(:action =&gt; :event_callback) 
+</td></tr><tr><td class="clsSyntaxCells clsEvenRow">
+To Set VideoCapture return events via Ruby use the following syntax: VideoCapture.event = url_for(:action =&gt; :event_callback)
 <P />e.g. <b>VideoCapture</b>.videoSaveEvent = url_for(:action =&gt; :videocapture_event_callback)
 <P />
 For more details on the event syntax and parameters see the <a href="/rhoelements/RetrievalEvents#params-object">Retrieval Events</a> page.
 <p>To access the event parameters in a Ruby callback function, you reference the @params object within the callback function. This object is simply a ruby hash {"parameter1 name" =&gt; "parameter1 value", "parameter2 name" =&gt; "parameter2 value", ...}</p></td></tr><tr><td class="clsSyntaxCells clsOddRow" /></tr></table>
 
-
-	
-
-##Methods
-
-
+## Methods
 Items listed in this section indicate methods or, in some cases, indicate parameters which will be retrieved.
 
-<table class="re-table"><col width="10%" /><col width="68%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>start</b></td><td class="clsSyntaxCells clsOddRow">Starts capturing video until either 'stop' is received, or 'duration' is reached. NOTE: On Android this meta tag wouldn't immediately start recording and presents a preview window with controls (Start, stop and cancel) for recording. </td><td class="clsSyntaxCells clsOddRow">N/A</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>stop</b></td><td class="clsSyntaxCells clsEvenRow">Stops capturing video and either saves the file locally, or transfers it to a remote server. NOTE: This is not applicable for Android as the video capture window is full screen and displays a stop button. Please note that the file transfer happens as specified even if we dont use the stop meta tag.</td><td class="clsSyntaxCells clsEvenRow">N/A</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>cancel</b></td><td class="clsSyntaxCells clsOddRow">Stops capturing video and discards any captured video data. NOTE: This is not applicable for Android as the video capture window is full screen and displays a cancel button.</td><td class="clsSyntaxCells clsOddRow">N/A</td></tr></table>
+> NOTE: On Android the operating System presents a preview window with controls (Start, stop and cancel) for recording. The file transfer will happen as specified even if the stop  is not sent by this API.
 
+<table class="re-table">
+	<col width="10%"/>
+	<col width="68%"/>
+	<col width="22%"/>
+	<tr>
+		<th class="tableHeading">Name</th>
+		<th class="tableHeading">Description</th>
+		<th class="tableHeading">Default Value</th>
+	</tr>
+	<tr>
+		<td class="clsSyntaxCells clsOddRow"><b>start</b></td>
+		<td class="clsSyntaxCells clsOddRow">
+			Starts capturing video until either 'stop' is received, or 'duration' is reached.
+		</td>
+		<td class="clsSyntaxCells clsOddRow">N/A</td>
+	</tr>
+	<tr>
+		<td class="clsSyntaxCells clsEvenRow"><b>stop</b></td>
+		<td class="clsSyntaxCells clsEvenRow">
+			Stops capturing video and either saves the file locally, or transfers it to a remote server.
+		</td>
+		<td class="clsSyntaxCells clsEvenRow">N/A</td>
+	</tr>
+	<tr>
+		<td class="clsSyntaxCells clsOddRow"><b>cancel</b></td>
+		<td class="clsSyntaxCells clsOddRow">
+			Stops capturing video and discards any captured video data.
+		</td>
+		<td class="clsSyntaxCells clsOddRow">N/A</td>
+	</tr>
+</table>
 
 ##Parameters
 
@@ -65,7 +91,7 @@ N/A
 </b></td><td class="clsSyntaxCells clsOddRow">String</td><td class="clsSyntaxCells clsOddRow">The username for the HTTP or FTP server if required</td><td class="clsSyntaxCells clsOddRow">No username</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>password:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">String</td><td class="clsSyntaxCells clsEvenRow">The password for the HTTP or FTP server if required</td><td class="clsSyntaxCells clsEvenRow">No password</td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>name:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">String compliant with Windows Naming restrictions</td><td class="clsSyntaxCells clsOddRow">When the video capture completes a video file is saved in the root directory of the device (package directory in case of Android).  This parameter is used to specify the filename when storing the file locally. </td><td class="clsSyntaxCells clsOddRow">VideoCapture</td></tr></table>
-<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>	
+<table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 ##Events
 
@@ -122,7 +148,7 @@ The following META Tag example performs a 30 second capture. The resulting video
 	<META HTTP-Equiv="VideoCapture" Content="Destination:url('HTTP://192.168.1.1:80/Uploaded/upload.aspx')">
 	<META HTTP-Equiv="VideoCapture" Content="VideoSaveEvent:url('javascript:alert('%s');')">
 	<META HTTP-Equiv="VideoCapture" Content="start">
-	
+
 The following JavaScript will start and stop a video capture respectively when onStart and onStop are called with a 60 second limit:
 
 	<script>
@@ -131,13 +157,13 @@ The following JavaScript will start and stop a video capture respectively when o
 	      videoCapture.duration = '60000';
 	      videoCapture.start();
 	   }
-	   
+
 	   function onStop()
 	   {
 	      videoCapture.stop();
 	   }
 	</script>
-	
+
 The following JavaScript will start a 30 second video capture when onStart is called:
 
 	<script>
@@ -147,6 +173,6 @@ The following JavaScript will start a 30 second video capture when onStart is ca
 	      videoCapture.start();
 	   }
 	</script>
-	
+
 
 
