@@ -4,10 +4,10 @@
 ## Overview
 The Battery API is used to notify the user of the remaining power in the battery. Windows Mobile / CE devices also support displaying a small indicator to show the available power.
 ## Enabling the API
-There are two methods of enabling the Battery API: 
+There are two methods of enabling the Battery API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -306,7 +306,7 @@ In this example you'll see how to use the battery indicator and manipulate its a
         function showBatteryIcon(){
             EB.Battery.showIcon(defineIconProperties(), batteryCallback);
             EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
-            // The batteryStatus() is used to tell the icon when to refresh. 
+            // The batteryStatus() is used to tell the icon when to refresh.
             // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
         }
 

@@ -1,14 +1,12 @@
-#Mediaplayer
-
-
+# Mediaplayer
 ## Overview
-The MediaPlayer extension is used to playback different types of audio files. It also allows the playback of Ringtones for the respective platform.
-        
-## Enabling the API
-There are two methods of enabling the MediaPlayer API: 
+The MediaPlayer extension is used to playback different types of audio files. It also allows the playback of ring-tones for the respective platform.
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+## Enabling the API
+There are two methods of enabling the MediaPlayer API:
+
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -31,190 +29,163 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 
 The ebapi.js file is necessary for all single API inclusions.
 
-
-
-##Methods
-
-
+## Methods
 
 ### getAllRingtones()
-Getting all ringtones on the device - result is array of hashes , each HASH contains name, fullname pairs of info about ringtone.
+Getting all ring-tones on the device - result is array of hashes , each HASH contains name, full-name pairs of info about ring-tone.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Callback
+#### Callback
 Async Callback Returning Parameters: <span class='text-info'>ARRAY</span></p><ul><ul><li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>name : <span class='text-info'>STRING</span><p> </p></li><li>fullname : <span class='text-info'>STRING</span><p> </p></li></ul></ul></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 
-####Method Access:
+#### Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Mediaplayer.getAllRingtones()</code> 
-
-
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.Mediaplayer.getAllRingtones()</code>
 ### playRingTone(<span class="text-info">STRING</span> name)
-Play a ringtone with the name supplied being used to designate which one. You cannot supply a location for the ringtone. They are built in. To get a full list of all ringtones available on the system use the method getAllRintones.
+Play a ring-tone with the name supplied being used to designate which one. You cannot supply a location for the ring-tone. They are built in. To get a full list of all ring-tones available on the system use the method getAllRintones.
 
-####Parameters
-<ul><li>name : <span class='text-info'>STRING</span><p>Name of the ringtone to be played. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+#### Parameters
+<ul><li>name : <span class='text-info'>STRING</span><p>Name of the ring-tone to be played. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 
-####Method Access:
+#### Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Mediaplayer.playRingTone(<span class="text-info">STRING</span> name)</code> 
-
-
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.Mediaplayer.playRingTone(<span class="text-info">STRING</span> name)</code>
 ### start(<span class="text-info">STRING</span> filename)
 Play the audio file using the supplied filename. On WM/CE devices, the API supports only wav file format.
 
-####Parameters
-<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the audio media to be played - absolute filepath. On iOS when you post URL to remote server (except https), then we open a standard browser (another application) for playing it. On iOS we support: mp3, mp4, wav formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wav and on Android mp3. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+#### Parameters
+<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the audio media to be played - absolute filepath. The formats supported depend on what support is built into the platform; typically on WM/CE this will be .wav and on Android .mp3. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 * Windows CE
 
-####Method Access:
+#### Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Mediaplayer.start(<span class="text-info">STRING</span> filename)</code> 
-
-
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.Mediaplayer.start(<span class="text-info">STRING</span> filename)</code>
 ### startvideo(<span class="text-info">STRING</span> filename)
 Play the media file using the supplied filename. On WM/CE devices, it launches a media player process to play the supplied filename.
 
-####Parameters
-<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the video media to be played - full filepath. On iOS when you post URL to remote server  (except https), then we open a standard browser (another application) for playing it. On iOS we support: mov, mp4, 3gp formats. On other platforms the formats supported depend on what support is built into the platform. Typically on WM/CE this will be wmv and on Android mp4. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+#### Parameters
+<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the video media to be played - full filepath. The formats supported depend on what support is built into the platform; typically on WM/CE this will be .wmv and on Android .mp4. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 * Windows CE
 
-####Method Access:
+#### Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Mediaplayer.startvideo(<span class="text-info">STRING</span> filename)</code> 
-
-
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.Mediaplayer.startvideo(<span class="text-info">STRING</span> filename)</code>
 ### stop()
-Stop playing the media file. Not applicable on iOS, because on iOS the special UI is opened for playback audio / video - user can stop / close player by UI.
+Stop playing the media file.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 * Windows CE
 
-####Method Access:
+#### Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Mediaplayer.stop()</code> 
-
-
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.Mediaplayer.stop()</code>
 ### stopRingTone()
-Stop the currently playing ringtone.
+Stop the currently playing ring-tone.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 
-####Method Access:
+#### Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Mediaplayer.stopRingTone()</code> 
-
-
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.Mediaplayer.stopRingTone()</code>
 ### stopvideo()
-Stop the playback of a currently playing video file. Not applicable on iOS, because on iOS the special UI is opened for playback audio / video - user can stop / close player by UI.
+Stop the playback of a currently playing video file.
 
-####Parameters
+#### Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
-####Returns
+#### Returns
 Synchronous Return:
 
 * Void
 
-####Platforms
+#### Platforms
 
 * Android
 * Windows Mobile
 * Windows CE
 
-####Method Access:
+#### Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.Mediaplayer.stopvideo()</code> 
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.Mediaplayer.stopvideo()</code>
+## Remarks
 
-
-##Remarks
-
-
-
-###Availbility of Operating System
+### Availability of Operating System
 
 Because the MediaPlayer extension uses the operating system's built-in player for some media types, it may be possible for the user to access operating system features while media is playing.
-                
-
-###Playback Controls
+### Playback Controls
 
 Because the MediaPlayer extension uses the operating system's built-in player for some media types, the playback controls available to the user are outside the control of RhoElements. Some players may have no playback controls in which the user will have to wait for the media to finish playing.
-                
-
-###Android Support
+### Android Support
 
 On Android devices, HTTPS is supported only on Android versions 4.0 (Ice Cream Sandwich) or newer.
-                
-
-###Using File Transfer
+### Using File Transfer
 
 When more flexible file transfer is required than is provided by MediaPlayer itself it is recommended to use the Network API to fetch the media file, and then to play the local file using MediaPlayer. For example, if playing a file from an FTP server, or an HTTP server requiring authentication. This can also be more efficient if the same file is to be played multiple times, especially on Windows Mobile/CE, where there is no streaming support and therefore the file is completely downloaded before being played. On Windows Mobile/CE devices, HTTPS file transfer is not supported.
-                

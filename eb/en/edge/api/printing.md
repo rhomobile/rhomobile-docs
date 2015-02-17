@@ -4,10 +4,10 @@
 ## Overview
 The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.
 ## Enabling the API
-There are two methods of enabling the Printing API: 
+There are two methods of enabling the Printing API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -400,7 +400,7 @@ Synchronous Return:
 ### requestState(<span class="text-info">ARRAY</span> listOfParameters)
 Requests printer state with a list of parameters.
 
-* Works asynchronously and uses the callback to check the result. 
+* Works asynchronously and uses the callback to check the result.
 * Returns hash with status, and parameters as keys.
 
 NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.
@@ -442,7 +442,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>Status of network discovery, can be following:
 * PRINTER_STATUS_SUCCESS - when printer is discovered or operation is finished;
-* PRINTER_STATUS_ERROR - general error 
+* PRINTER_STATUS_ERROR - general error
 * PRINTER_STATUS_ERR_UNSUPPORTED - in case if printer type is not supported
 * PRINTER_STATUS_ERR_NOT_CONNECTED - in case if deviceAddress was specified in options and device was unable to connect to printer. </p></li><li>printerID : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Printer ID, valid only if status equals to 'PRINTER_STATUS_SUCCESS'. If there are no more printers available printerID will not be defined. </p></li><li>message : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Error message, only if status = ERROR. </p></li></ul></ul>
 

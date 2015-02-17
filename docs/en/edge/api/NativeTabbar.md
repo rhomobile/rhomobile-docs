@@ -83,7 +83,7 @@ function tabbar_callback(params) {
                  </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
            
-def create_tabbar           
+def create_tabbar
     Rho::NativeTabbar.create([{
       :label =&gt; "Home",
       :action =&gt; url_for(Rho::Application.startURI)

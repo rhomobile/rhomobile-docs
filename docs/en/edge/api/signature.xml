@@ -24,10 +24,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Signature API: 
+There are two methods of enabling the Signature API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -52,6 +52,7 @@ The ebapi.js file is necessary for all single API inclusions.
         </MORE_HELP_EB>
 
         <PLATFORM>iOS, Android, WM</PLATFORM>
+        <PLATFORM_EB>WM, Android</PLATFORM_EB>
         <TEMPLATES>
         </TEMPLATES>
 
@@ -66,6 +67,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <DESC>Compression format of the image file for the captured signature. On WM/CE, irrespective of setting any format, the output format will be of bitmap type. On WM/CE, when compressionFormat is queried, it will be of bitmap type always.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
                 <VALUES>
                     <VALUE constName="COMPRESSION_FORMAT_JPG" value ="jpg">
                         <DESC>JPEG file format (Not available on WM/CE).</DESC>
@@ -84,6 +86,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <DESC>The return type of the saved signature capture image.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
                 <VALUES>
                     <VALUE constName="OUTPUT_FORMAT_IMAGE" value="image">
                         <DESC>Outputs the signature capture image into an image file. The compression method and extension of the image file can be specified in compressionFormat.</DESC>
@@ -94,11 +97,12 @@ The ebapi.js file is necessary for all single API inclusions.
                     </VALUE>
                 </VALUES>
             </PROPERTY>
-            
+
             <PROPERTY name="fileName" type="STRING" default="signature">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>The filename in which to store the signature image, if "image" is used as the outputFormat. The file extension is determined by the compressionFormat used.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
 
             <PROPERTY name="border" type="BOOLEAN" default="true">
@@ -111,42 +115,49 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>RGB or ARGB value that sets the color of the stylus pen ink using HTML web colors.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
 
             <PROPERTY name="penWidth" type="INTEGER" default="3">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Sets the width of the pen line in pixels when using the device's stylus. On Android this setting will also be applied to any previously drawn signature currently displayed. It is advised that you keep this at 5 or less.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
 
             <PROPERTY name="bgColor" type="STRING" default="#FFFFFFFF">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>RGB or ARGB value that sets the background color of the signature capture area.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
 
             <PROPERTY name="left" type="INTEGER" default="15">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>The coordinates in pixels of the left side of the signature capture area. Not applicable to full-screen signature capture area.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
 
             <PROPERTY name="top" type="INTEGER" default="60">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>The coordinates in pixels of the top side of the signature capture area. Not applicable to full-screen signature capture area.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
 
             <PROPERTY name="width" type="INTEGER" default="200">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>The width of the signature capture area in pixels. Not applicable to full-screen signature capture area.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
 
             <PROPERTY name="height" type="INTEGER" default="150">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>The height of the signature capture area in pixels. Not applicable to full-screen signature capture area.</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </PROPERTY>
         </PROPERTIES>
 
@@ -156,6 +167,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <DESC>Shows a modal window with signature capture area and UI (toolbar with buttons) for cancel / capture and return to main application window. The callback is fired when the signature window is closed (when in full-screen) or when capture is called. On WM/CE, the signature area has visible buttons for 'clear', 'capture' and 'cancel'. In Android / iOS, the signature area has images which will behave as buttons for 'clear', 'capture' and 'cancel'. This function open modal full screen window therefore, other functions related to in-line signature capture (work with inside browser window area) do not affect the capture window shown by this function.</DESC>
                 <DESC_EB>Shows a modal window with signature capture area and UI (toolbar with buttons) for cancel / capture and return to main application window. The callback is fired when the signature window is closed (when in full-screen) or when capture is called. On WM/CE, the signature area has visible buttons for 'clear', 'capture' and 'cancel'. On Android, the signature area has images which will behave as buttons for 'clear', 'capture' and 'cancel'. This function opens a modal full screen window therefore, other functions related to in-line signature capture (work with inside browser window area) do not affect the capture window shown by this function.</DESC_EB>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Map of signature properties to be set</DESC>
@@ -183,6 +195,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>2.0.0</VER_INTRODUCED>
                 <DESC>Show in-line signature window. This function works with a non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect the capture area shown in takeFullScreen (modal full screen capture area).</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Map of signature properties to be set.</DESC>
@@ -192,11 +205,12 @@ The ebapi.js file is necessary for all single API inclusions.
                     </PARAM>
                 </PARAMS>
             </METHOD>
-        
+
             <METHOD name="capture" hasCallback="mandatory" runInThread="ui">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Captures the in-line signature area as an image. This function works with a non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect the capture area shown in takeFullScreen (modal full screen capture area).</DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
                 <CALLBACK  type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">
@@ -216,12 +230,14 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Clears an in-line capture area. This function works with a non-modal signature capture area shown inside browser window. All in-line signature capture functions (like this) do not has affect to capture area shown in takeFullScreen (modal full screen capture area) </DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </METHOD>
 
             <METHOD name="hide" runInThread="ui">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <DESC>Hides an in-line capture area from view. It clears the inputed signature for in-line signature areas. In a hidden state, a user cannot interact with the signature capture area. This function work with non-modal signature capture area showed inside browser window. All in-line signature capture functions (like this) do not has affect to capture area showed in takeFullScreen (modal full screen capture area) </DESC>
                 <PLATFORM>iOS, Android, WM</PLATFORM>
+                <PLATFORM_EB>WM, Android</PLATFORM_EB>
             </METHOD>
 
             <METHOD name="setVectorCallback" hasCallback="mandatory" runInThread="ui">
@@ -238,7 +254,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 </CALLBACK>
             </METHOD>
         </METHODS>
-        
+
         <USER_OVERVIEW>
             <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
 Full-screen and In-line
@@ -249,8 +265,9 @@ Parameters which clear the signature
 ====================================
 The signature capture area is designed to be set up prior to capturing the signature, as such the following parameters will clear any current signature: "width", "height", "penColor", "bgColor".
         </USER_OVERVIEW>
-        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>  
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>iOS, Android, WM</PLATFORM>
+        <PLATFORM_EB>WM, Android</PLATFORM_EB>
 
         <REMARKS>
             <REMARK title="Fullscreen and In-line">
@@ -280,26 +297,26 @@ The signature capture area is designed to be set up prior to capturing the signa
   def capture_fullscreen
     # Invoke signature capture screen and assign callback
     Rho::Signature.takeFullScreen({}, url_for(:action => :signature_callback))
-    
+
     render :action => :show_signature
   end
 
   def signature_callback
     # If status is not 'ok', the capture was canceled
     if @params['status'] == 'ok'
-    
+
       # By default, the output format is "image", so the imageUri parameter will contain the relative filename of an image
       # We must convert that relative filename to an absolute path in order to access the file
       signature = Rho::Application.expandDatabaseBlobFilePath(@params["imageUri"])
 
       # In our example, we will display the signature as soon as it is captured.
       # We have a JavaScript function in our page to set the src attribute of an img element and we will call it now
-      # 
+      #
       WebView.executeJavascript("updateSignature('#{signature}')")
     else
       # if we did not really capture a signature, there is nothing else to do here
-      WebView.navigate(url_for(:action => :index )) 
-    end  
+      WebView.navigate(url_for(:action => :index ))
+    end
   end
                    ]]>
                </CODE>
@@ -310,7 +327,7 @@ The signature capture area is designed to be set up prior to capturing the signa
            <![CDATA[
 <div data-role="page">
 
-    
+
   <div data-role="header" data-position="in-line">
     <h1>Captured signature</h1>
   </div>
@@ -360,7 +377,7 @@ Rho.Signature.show ({"fullScreen" : false, "bgColor" : "#000000", "penColor" : "
 
            <EXAMPLE title="Capture as DataURI">
             <SECTIONS>
-               
+
               <SECTION>
                <DESC>By default, the Signature API returns the capture as an image. If you prefer a DataURI representation of the signature, use the "outputFormat" property</DESC>
                <CODE>

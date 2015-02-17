@@ -4,10 +4,10 @@
 ## Overview
 The System API is used to control and modify core aspects of the device such as the screen, OS and device capabilities.
 ## Enabling the API
-There are two methods of enabling the System API: 
+There are two methods of enabling the System API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -878,19 +878,6 @@ Synchronous Return:
 
 ##Properties
 
-
-
-###applicationIconBadge
-
-####Type
-<span class='text-info'>INTEGER</span> 
-####Description
-Set the application icon to have this badge number. Set to 0 (zero) to remove badge.
-####Access
-
-
-* Class: This property can only be accessed via the API class object.
-	* <code>EB.System.applicationIconBadge</code>
 
 
 ###country

@@ -42,9 +42,9 @@ extensions: ["screenorientation"]
 function start_detecting_orientation_changes(){
   ScreenOrientation.setScreenOrientationEvent(orientation_callback)
 }
- 
+
 function orientation_callback(){
-    
+
   Alert.show_popup("The screen changed orientation")
 }
                    
@@ -53,7 +53,7 @@ function orientation_callback(){
 def start_detecting_orientation_changes
   Rho::ScreenOrientation.setScreenOrientationEvent(url_for(:action =&gt; :orientation_callback))
 end
- 
+
 def orientation_callback
   Alert.show_popup("The screen changed orientation")
 end
@@ -67,9 +67,9 @@ function capture_signature_with_attention_to_details() {
     Rho.ScreenOrientation.upsideDown();
 
     // At this point, offer the device to the user. You just saved the user the hassle of rotating the tablet
-    // and there's less potential for the device to be dropped along the way  
+    // and there's less potential for the device to be dropped along the way
     Rho.Signature.takeFullScreen({}, signature_callback);
-}           
+}
 
 function signature_callback(params) {
     // do whatever we need to do with the signature
@@ -84,7 +84,7 @@ def capture_signature_with_attention_to_details
     # Set screen orientation to upside down
     Rho::ScreenOrientation.upsideDown
     # At this point, offer the device to the user. You just saved the user the hassle of rotating the tablet
-    # and there's less potential for the device to be dropped along the way  
+    # and there's less potential for the device to be dropped along the way
     Rho::Signature.takeFullScreen({}, url_for(:action =&gt; :signature_callback))
 end
 

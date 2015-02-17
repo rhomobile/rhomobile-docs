@@ -200,7 +200,7 @@ var has_sqlite = Rho.System.hasSqlite;
 var has_touchscreen = Rho.System.hasTouchscreen;
 
 message = "Motorola device: "+is_motorola_device+"\n"+
-  "Calendar: "+has_calendar+"\n"+ 
+  "Calendar: "+has_calendar+"\n"+
   "Camera: "+has_camera+"\n"+
   "Cell network: "+has_cell_network+"\n"+
   "WiFi: "+has_wifi_network+"\n"+
@@ -214,7 +214,7 @@ alert(message);
 
 # Returns true if device supports Motorola device capabilities, such as barcode scanner, etc.
 is_motorola_device = Rho::System.isMotorolaDevice
-    
+
 has_calendar = Rho::System.hasCalendar
 has_camera = Rho::System.hasCamera
 has_cell_network = Rho::System.hasCellNetwork
@@ -253,7 +253,7 @@ Alert.show_popup(version_info)
 
 // install an application from given url
 Rho.System.applicationInstall("/bin/target/android/rhodes-app-debug.apk");
-  
+
 // uninstall the application
 Rho.System.applicationUninstall("rhodes-app");
 
@@ -283,15 +283,15 @@ Alert.show_popup(local_port)
 <p>If you ever need to build or extract zip archives, RhoMobile includes easy-to-use APIs for this task.</p>
 <ul class='nav nav-tabs' id='exI4-S0Tab'><li class='active'><a href='#exI4-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI4-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI4-S0JS'><pre class='CodeRay'><code>:::javascript
 
-// unzip file 
+// unzip file
 Rho.System.unzipFile("/app/public/sample.zip");
-  
+
 // zip file
 Rho.System.zipFile("/app/public/zipfile.zip", "/app/public/sample.txt");
 
                                 </code></pre></div><div class='tab-pane' id='exI4-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-# unzip a file 
+# unzip a file
 Rho::System.unzipFile("/app/public/sample.zip")
 
 # zip a file
@@ -309,12 +309,12 @@ def get_registry_sync
     puts "Registry Setting retrieved: #{theRegSetting}"
 end
 
-#  Set a value in the registry which will persist across a clean boot of the device  
+#  Set a value in the registry which will persist across a clean boot of the device
 def set_registry_sync
     theRegSetting = Rho::System.setRegistrySetting({hive:'HKLM', type:'String', key:'Software', setting:'RhoElementsTest', value:'MVC ftw', persistent:true})
     puts "Registry Setting Success?: #{theRegSetting}"
 end
-      
+
 #  Delete a value from the registry
 def delete_registry_sync
     theRegSetting = Rho::System.deleteRegistrySetting({hive:'HKLM', key:'Software', setting:'RhoElementsTest', persistent:true})

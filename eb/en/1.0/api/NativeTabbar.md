@@ -2,12 +2,12 @@
 
 
 ## Overview
-The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, the tabs are true Native Tabbar controls to give your application a native look and feel. On Windows Mobile/CE there are no visible tabs, but can be used in conjunction with shortcuts to run multiple 'applications' from a single instance. At one time only Toolbar or Tabbar can present in application - Toolbar and Tabbar can not be used both in one time. 
+The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, the tabs are true Native Tabbar controls to give your application a native look and feel. On Windows Mobile/CE there are no visible tabs, but can be used in conjunction with shortcuts to run multiple 'applications' from a single instance. At one time only Toolbar or Tabbar can present in application - Toolbar and Tabbar can not be used both in one time.
 ## Enabling the API
-There are two methods of enabling the NativeTabbar API: 
+There are two methods of enabling the NativeTabbar API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -31,7 +31,7 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 The ebapi.js file is necessary for all single API inclusions.
 
 
-        
+
 
 
 ##Methods
@@ -47,7 +47,7 @@ Win32, Android </p></li><li>reload : <span class='text-info'>BOOLEAN</span><span
 Win32, Android </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Tab will be displayed as disabled. Platforms:
 Win32, Android </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p> Background color for tab. Use when your application background color is not white for removing blink during switch tabs. Platforms:
 Win32, Android </p></li><li>useCurrentViewForTab : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Gives a smooth transfer to a newly opened tab from the current view into this Tab and make this Tab active. Only one Tab can have this parameter. Platforms:
-WM, CE, Win32, Android, iOS </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
+WM, CE, Win32, Android</p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
 WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Platforms:
 WM </p></li></ul></ul><li>tabBarProperties : <span class='text-info'>HASH</span><p>Properties of TabBar. </p></li><ul><li>verticalOrientation : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Creates a vertical tabbar on the iPad. Platforms:
 iOS </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p>Background color of the tabbar. Platforms:
@@ -75,8 +75,8 @@ Synchronous Return:
 
 ####Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.NativeTabbar.create(<span class="text-info">ARRAY</span> tabElements, <span class="text-info">HASH</span> tabBarProperties)</code> 
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.NativeTabbar.create(<span class="text-info">ARRAY</span> tabElements, <span class="text-info">HASH</span> tabBarProperties)</code>
 
 
 ### currentTabIndex()
@@ -101,8 +101,8 @@ Synchronous Return:
 
 ####Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.NativeTabbar.currentTabIndex()</code> 
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.NativeTabbar.currentTabIndex()</code>
 
 
 ### remove()
@@ -124,8 +124,8 @@ Synchronous Return:
 
 ####Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.NativeTabbar.remove()</code> 
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.NativeTabbar.remove()</code>
 
 
 ### removeTab(<span class="text-info">INTEGER</span> tabIndex)
@@ -145,8 +145,8 @@ Synchronous Return:
 
 ####Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.NativeTabbar.removeTab(<span class="text-info">INTEGER</span> tabIndex)</code> 
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.NativeTabbar.removeTab(<span class="text-info">INTEGER</span> tabIndex)</code>
 
 
 ### setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)
@@ -162,8 +162,8 @@ Synchronous Return:
 
 ####Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.NativeTabbar.setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)</code> 
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.NativeTabbar.setTabBadge(<span class="text-info">INTEGER</span> tabIndex, <span class="text-info">STRING</span> badge)</code>
 
 
 ### switchTab(<span class="text-info">INTEGER</span> tabIndex)
@@ -185,5 +185,5 @@ Synchronous Return:
 
 ####Method Access:
 
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.NativeTabbar.switchTab(<span class="text-info">INTEGER</span> tabIndex)</code> 
+* Class Method: This method can only be accessed via the API class object.
+	* <code>EB.NativeTabbar.switchTab(<span class="text-info">INTEGER</span> tabIndex)</code>

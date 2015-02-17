@@ -58,13 +58,13 @@ try
   for (var index in items) {
     // create hash of attribute/value pairs
     data = {
-      field1 : item[index].value1, 
+      field1 : item[index].value1,
       field2 : item[index].value2
-    }; 
+    };
     // Creates a new itemModel object and saves it
     new_item = itemModel.create(data);
   }
-  
+
  db.commitTransaction();
 }
 catch
@@ -79,9 +79,9 @@ begin
   items.each do |item|
     # create hash of attribute/value pairs
     data = {
-      :field1 =&gt; item['value1'], 
-      :field2 =&gt; item['value2'] 
-    } 
+      :field1 =&gt; item['value1'],
+      :field2 =&gt; item['value2']
+    }
     # Creates a new itemModel object and saves it
     new_item = itemModel.create(data)
   end

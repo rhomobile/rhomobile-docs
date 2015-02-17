@@ -93,13 +93,13 @@ extensions: ["coreapi"]
      var databaseBlobFolder = Rho.Application.databaseBlobFolder;
      var publicFolder = Rho.Application.publicFolder;
      var userFolder = Rho.Application.userFolder;
-     
+
      var message = "App bundle folder: "+appFolder+"\n"+
-     "Apps bundle folder: "+appsBundleFolder+"\n"+ 
-     "Database blob folder: "+databaseBlobFolder+"\n"+ 
-     "Public folder: "+publicFolder+"\n"+ 
+     "Apps bundle folder: "+appsBundleFolder+"\n"+
+     "Database blob folder: "+databaseBlobFolder+"\n"+
+     "Public folder: "+publicFolder+"\n"+
      "User folder: "+userFolder;
-     
+
      alert(message);
                    
                  </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
@@ -113,11 +113,11 @@ publicFolder = Rho::Application.publicFolder
 userFolder = Rho::Application.userFolder
 
 message = "App bundle folder: "+appFolder+"\n"+
-"Apps bundle folder: "+appsBundleFolder+"\n"+ 
-"Database blob folder: "+databaseBlobFolder+"\n"+ 
-"Public folder: "+publicFolder+"\n"+ 
+"Apps bundle folder: "+appsBundleFolder+"\n"+
+"Database blob folder: "+databaseBlobFolder+"\n"+
+"Public folder: "+publicFolder+"\n"+
 "User folder: "+userFolder
-    
+
 Alert.show_popup(message)
                    
                  </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Minimize your application</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">

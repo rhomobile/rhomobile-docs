@@ -23,10 +23,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Battery API: 
+There are two methods of enabling the Battery API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -67,8 +67,8 @@ The ebapi.js file is necessary for all single API inclusions.
                 <PLATFORM>WM</PLATFORM>
                 <DESC>Only supported by the MC18 device.  Sets an average current consumption in mA that is used in subsequent power related calculations. If set to 0, the value will be provided by the device driver based on the running average.</DESC>
             </PROPERTY>
-        </PROPERTIES>   
-        
+        </PROPERTIES>
+
         <METHODS access="STATIC">
             <METHOD name="batteryStatus" hasCallback="optional">
                 <DESC>Retrieve the current battery level. If a callback is provided to retrieve the battery then it will be called periodically at a frequency determined by the trigger property.</DESC>
@@ -169,7 +169,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     </PARAMS>
                 </RETURN>
             </METHOD>
-			
+
             <METHOD name="batteryDiagnostics" hasCallback="optional">
                 <DESC>The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'</DESC>
                 <PLATFORM>WM</PLATFORM>
@@ -202,7 +202,7 @@ The ebapi.js file is necessary for all single API inclusions.
                         </PARAM>
                     </PARAMS>
                 </RETURN>
-            </METHOD>			
+            </METHOD>
 
             <METHOD name="showIcon" hasCallback="none" runInThread="ui">
                 <DESC>Overlays a small battery icon on top of the view indicating the remaining battery strength. This is particularly useful in full screen applications which cover the system battery level indicator.</DESC>
@@ -290,7 +290,7 @@ The ebapi.js file is necessary for all single API inclusions.
    def batteryEvent
     puts "Battery Event Fired: #{@params}"
     puts "Battery Event (Asynchronous). AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
-  end  
+  end
   ]]>
                     </RUBY>
                     <JAVASCRIPT>
@@ -303,7 +303,7 @@ The ebapi.js file is necessary for all single API inclusions.
    function batteryEvent(params){
     console.log("Battery Event Fired:");
     console.log("Battery Event (Asynchronous). AC Line Status: " + params["acLineStatus"] + " Battery Life Percent: " + params["batteryLifePercent"] + " Backup Battery Life Percent: " + params["backupBatteryLifePercent"] + " Status: " + params["batteryStatus"] + " Battery Life Known: " + params["batteryLifeKnown"] + " Backup Battery Life Known: " + params["backupBatteryLifeKnown"]);
-  }  
+  }
   ]]>
                     </JAVASCRIPT>
                 </CODE>
@@ -343,7 +343,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <JAVASCRIPT>
             <![CDATA[
   function show_battery_icon(){
-    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  
+    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });
   }
   ]]>
                     </JAVASCRIPT>
@@ -368,7 +368,7 @@ The ebapi.js file is necessary for all single API inclusions.
         function showBatteryIcon(){
             EB.Battery.showIcon(defineIconProperties(), batteryCallback);
             EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
-            // The batteryStatus() is used to tell the icon when to refresh. 
+            // The batteryStatus() is used to tell the icon when to refresh.
             // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
         }
 

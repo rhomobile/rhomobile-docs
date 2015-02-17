@@ -198,8 +198,8 @@ extensions: ["printing","printing_zebra"]
 
 var printers = [];
 
-Rho.Printer.searchPrinters({ 
-    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
+Rho.Printer.searchPrinters({
+    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,
     printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
     }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
@@ -251,11 +251,11 @@ var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 // Let's try connecting
 myPrinter.connect(function (cb){
     console.log(cb);
-    // This will be the Zebra's `Friendly Name` 
+    // This will be the Zebra's `Friendly Name`
     // by default it is the serial number
     console.log(myPrinter.deviceName);
 
-    // This will be the BT MC Address 
+    // This will be the BT MC Address
     since we are connecting via BlueTooth
     console.log(myPrinter.deviceAddress);
 });
@@ -270,7 +270,7 @@ myPrinter.connect(function (cb){
 def printer_connect_callback
   puts @params.to_s
 
-  # This will be the Zebra's `Friendly Name` 
+  # This will be the Zebra's `Friendly Name`
   # by default it is the serial number
   puts @my_printer['deviceName']
 

@@ -402,7 +402,7 @@ function scan_using_default_scanner(){
   // Scan with default options
   Rho.Barcode.take({}, scan_received);
 }
-  
+
 function scan_received(params)
   // Did we actually find a barcode ?
   // If status is not 'ok', the scan was canceled
@@ -422,7 +422,7 @@ def scan_using_default_scanner
   # Scan with default options
   Rho::Barcode.take({}, url_for(:action =&gt; :scan_received))
 end
-  
+
 def scan_received
   # Did we actually find a barcode ?
   # If status is not 'ok', the scan was canceled
@@ -439,11 +439,11 @@ end
 
            
 var scanners;
-             
+
 function choose_scanner(){
-    
-  // Enumerate returns an array of scanner objects 
-  // Devices without a hardware scanner will return a software-based recognizer 
+
+  // Enumerate returns an array of scanner objects
+  // Devices without a hardware scanner will return a software-based recognizer
   scanners = Rho.Barcode.enumerate();
 }
 
@@ -468,11 +468,11 @@ function scan_received_callback(params)
 
            
 # ---------------
-# controller.rb  
+# controller.rb
 # ---------------
-         
+
 def choose_scanner
-  # Obtain list of available scanners on the system. Devices without a hardware scanner will return a software-based recognizer 
+  # Obtain list of available scanners on the system. Devices without a hardware scanner will return a software-based recognizer
   $scanners = Rho::Barcode.enumerate
   render
 end
@@ -499,7 +499,7 @@ end
 # ---------------
 &lt;ul data-role="listview"&gt;
   &lt;% $scanners.each_with_index do |scanner, index| %&gt;
-    &lt;li&gt;&lt;a href="&lt;%= url_for(:action =&gt; :scan_using_chosen_scanner, :query =&gt; {:scanner_index =&gt; index}) %&gt;"&gt;&lt;%= scanner.friendlyName %&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;a href="&lt;%= url_for(:action =&gt; :scan_using_chosen_scanner, :query =&gt; {:scanner_index =&gt; index}) %&gt;"&gt;&lt;%= scanner.friendlyName %&gt;&lt;/li&gt;
   &lt;% end %&gt;
 &lt;/ul&gt;
                    
@@ -526,7 +526,7 @@ Rho::Barcode.allDecoders = false
 Rho::Barcode.upca = true
 # All other barcode symbologies will be ignored
 Rho::Barcode.take({}, url_for(:action =&gt; :scan_received_callback))
- 
+
                    
                  </code></pre></div></div>  </div></div></div></div><a name='e3'></a><div class=' example' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample3"><strong>Control scanner properties</strong></div><div id="cExample3" class="accordion-body">  <div class="accordion-inner">
 <p>Examples of setting barcode scanner properties.</p>
@@ -539,7 +539,7 @@ Rho::Barcode.take({}, url_for(:action =&gt; :scan_received_callback))
 
 // Here are examples of setting some of the properties. The documentation lists the acceptable values for each of them
 
-// Aiming mode (visual cue):  
+// Aiming mode (visual cue):
 Rho.Barcode.aimMode = "none";
 Rho.Barcode.aimMode = "dot";
 Rho.Barcode.aimMode = "slab";
@@ -570,7 +570,7 @@ Rho.Barcode.beamWidth = "wide";
 
 # Here are examples of setting some of the properties. The documentation lists the acceptable values for each of them
 
-# Aiming mode (visual cue):  
+# Aiming mode (visual cue):
 Rho::Barcode.aimMode = "none"
 Rho::Barcode.aimMode = "dot"
 Rho::Barcode.aimMode = "slab"
@@ -603,7 +603,7 @@ Rho.Barcode.decodeVolume = 5;
 Rho.Barcode.decodeFrequency = 1000;
 // One-second long
 Rho.Barcode.decodeDuration = 1000;
-  
+
 Rho.Barcode.take({}, scan_received_callback);
                    
                  </code></pre></div><div class='tab-pane' id='exI4-S0RUBY'><pre class='CodeRay'><code>:::ruby
@@ -615,7 +615,7 @@ Rho::Barcode.decodeVolume = 5
 Rho::Barcode.decodeFrequency = 1000
 # One-second long
 Rho::Barcode.decodeDuration = 1000
-  
+
 Rho::Barcode.take({}, url_for(:action =&gt; :scan_received_callback))
                    
                  </code></pre></div></div>  </div></div></div></div>

@@ -4,10 +4,10 @@
 ## Overview
 The Notification API allows you to provide feedback to the user, either auditory, tactile or visual. Use this API to give a visual popup window, sound the device beeper or illuminate the device LEDs (hardware permitting).
 ## Enabling the API
-There are two methods of enabling the Notification API: 
+There are two methods of enabling the Notification API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the '/Enterprise Browser/JavaScript Files/Enterprise Browser' directory on the computer that you installed the Enterprise Browser.
 
@@ -110,7 +110,7 @@ Bring the application up front and show a message in a popup window. The message
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the popup. </p></li><ul><li>message : <span class='text-info'>String</span><span class='label '> Default: </span><p>Text displayed in the popup window. </p></li><li>title : <span class='text-info'>String</span><span class='label '> Default: </span><p>Title of the popup window. </p></li><li>icon : <span class='text-info'>String</span><span class='label '> Default: </span><p>Icon to be displayed in the popup window. path to an image, or :alert for ! icon, :question for ? icon, :info for information icon. On Windows Mobile/CE only predefined icons are supported. The file that you are playing must be located on the device or the icon may not display properly. Platforms:
 Android </p></li><li>buttons : <span class='text-info'>Array</span><span class='label '> Default: </span><p>Array of buttons. Specify each button either by hash with :id and :title keys or string.When using strings, the 'id' and 'title' will have the same value.
-For example: 
+For example:
 
     :::javascript
     buttonHash = [{id:'yes',title:'Ok to Delete'},{id:'no',title:'No'}];
@@ -121,7 +121,7 @@ For example:
 Example:
 
     :::javascript
-    typeToast = [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_TOAST]; </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Notification.TYPE_DIALOG <br/> String:dialog</dt><dd>Show common dialog window with buttons visible if application is active.</dd><dt>Constant: EB.Notification.TYPE_NOTIFICATION <br/> String:notification</dt><dd>Show message in Android notification bar if application is at background. Touch the message opens the application.</dd><dt>Constant: EB.Notification.TYPE_NOTIFICATION_DIALOG <br/> String:notificationDialog</dt><dd>This is the same as 'TYPE_DIALOG' + 'TYPE_NOTIFICATION'. 
+    typeToast = [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_TOAST]; </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: EB.Notification.TYPE_DIALOG <br/> String:dialog</dt><dd>Show common dialog window with buttons visible if application is active.</dd><dt>Constant: EB.Notification.TYPE_NOTIFICATION <br/> String:notification</dt><dd>Show message in Android notification bar if application is at background. Touch the message opens the application.</dd><dt>Constant: EB.Notification.TYPE_NOTIFICATION_DIALOG <br/> String:notificationDialog</dt><dd>This is the same as 'TYPE_DIALOG' + 'TYPE_NOTIFICATION'.
 
 >NOTE: In Android 4.1 and above, buttons are also added to the notification message so the user can interact with the application without application activation (dialog window is not shown if user pressed button in notification). Buttons are not always displayed in the notification area - this depends on screen size and layout and system decides whether to show buttons. You need to drag notification to make buttons appear.</dd><dt>Constant: EB.Notification.TYPE_TOAST <br/> String:toast</dt><dd>Show toast window with message at foreground for a short time. The toast is visible nevertheless the application is at background or foreground but is not shown same time with any foreground pop-up.</dd></dl></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 

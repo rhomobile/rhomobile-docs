@@ -75,11 +75,11 @@ typeToast = [Rho.Notification.TYPE_DIALOG, Rho.Notification.TYPE_TOAST];
 
            
 # ---------------
-# controller.rb  
+# controller.rb
 # ---------------
-         
+
 def sound_beeper
-  # Obtain list of available leds on the device. 
+  # Obtain list of available leds on the device.
   beeperProps = Hash.new
   beeperProps['frequency'] = 3000;
   beeperProps['volume'] = 2;
