@@ -81,7 +81,11 @@ var menuStrcture = [
 							{
 								name: 'Viewport',
 								link: '#guide-viewport',
-							}
+							},
+							{
+								name: 'Using Certificates',
+								link: '#guide-certificates',
+							},
 						]
 					}
 				]

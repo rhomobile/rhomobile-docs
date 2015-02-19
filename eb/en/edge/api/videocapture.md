@@ -42,8 +42,8 @@ Using the FTP protocol:
 
 #### Usage
 	:::javascript
-	videocapture.videoSaveEvent = "url('JavaScript:videoSaveHandler(%json);')";
-	videocapture.start();
+	videoCapture.videoSaveEvent = "url('JavaScript:videoSaveHandler(%json);')";
+	videoCapture.start();
 
 	function videoSaveHandler(params){
 		alert('Status' + params['transferResult']);
