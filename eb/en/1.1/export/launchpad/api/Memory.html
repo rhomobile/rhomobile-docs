@@ -1,0 +1,105 @@
+<div class='tableofcontents'> </div><h1>Memory</h1>
+
+<h2>Overview</h2>
+
+<p>The Memory Module is used to to retrieve the current available memory or notification of memory dropping below a user defined value.</p>
+
+<h2>Enabling the API</h2>
+
+<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
+
+<ul>
+<li>elements.js</li>
+</ul>
+
+
+<blockquote><p>Note &ndash; this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
+</pre>
+
+<h3>API Usage</h3>
+
+<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
+
+<pre name="code" class="javascript">memory.getMemoryStats();
+</pre>
+
+<h2>Events</h2>
+
+<p>To handle events, you assign a string value to the event name that represents a function name or javascript statement to execute.</p>
+
+<h3>memoryEvent</h3>
+
+<p>The memoryEvent event is triggered when the available Memory drops below the set value.</p>
+
+<h4>Callback Parameters</h4>
+
+<ul>
+<li>totalMemory &ndash; The total memory in the device, specified in KB.</li>
+<li>availMemory &ndash; The available memory in the device, specified in KB</li>
+</ul>
+
+
+<h4>Usage</h4>
+
+<pre name="code" class="javascript">memory.memoryEvent = "url('JavaScript:getMemory(%json);')";
+
+function getMemory(params)
+{
+    alert("Total Memory: " + params.totalMemory + "KB, Avail Memory: " + params.availMemory + "KB");        
+    memory.lowMemThreshold  = params.totalMemory / 10;
+    memory.memoryEvent = "onLowMemory(%json);";     
+} 
+
+function onLowMemory(params)
+{
+    alert("The device is running low on memory, only " + params.availMemory + "KB is left on the device");          
+}
+</pre>
+
+<h2>Methods</h2>
+
+<h3>getMemoryStats()</h3>
+
+<p>This returns the current status of the device such as total memory and available memory via memoryEvent definition.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h2>Properties</h2>
+
+<h3>lowMemThreshold</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span></p>
+
+<h4>Description</h4>
+
+<p>The minimum amount of available memory, specified in KB.</p>
+
+<h3>Possible Values</h3>
+
+<ul>
+<li>Values in KB &ndash; Default: 10% of the total memory</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+

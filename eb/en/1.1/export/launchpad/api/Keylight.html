@@ -1,0 +1,91 @@
+<div class='tableofcontents'> </div><h1>Keylight</h1>
+
+<h2>Overview</h2>
+
+<p>The Keylight Module is used to illuminate / extinguish the keyboard backlight as well as setting the intensity of the keylight.</p>
+
+<h2>Enabling the API</h2>
+
+<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
+
+<ul>
+<li>elements.js</li>
+</ul>
+
+
+<blockquote><p>Note &ndash; this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
+</pre>
+
+<h3>API Usage</h3>
+
+<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
+
+<pre name="code" class="javascript">keylight.on();
+</pre>
+
+<h2>Methods</h2>
+
+<h3>on()</h3>
+
+<p>Turns the keyboard backlight on.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h3>off()</h3>
+
+<p>Turn off the keyboard backlight.</p>
+
+<h4>Returns</h4>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h2>Properties</h2>
+
+<h3>intensity</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>INTEGER</span> &ndash; Positive Number, see remarks for range</p>
+
+<h4>Description</h4>
+
+<p>Sets the keyboard backlight to the specified intensity.</p>
+
+<blockquote><p>Note: The intensity tag will only have an observable effect if the keyboard backlight is turned on, setting the intensity by its self is insufficient to illuminate the backlight.</p></blockquote>
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile/CE</li>
+</ul>
+
+
+<h2>Remarks</h2>
+
+<h3>Device Limits</h3>
+
+<p>The levels of supported keylight intensity is device dependent. When the Keylight module is first loaded it writes the supported levels to the log file as INFORMATION so you can determine the maximum setting from the log file.</p>
