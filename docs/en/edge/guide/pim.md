@@ -105,6 +105,9 @@ Update event in the calendar:
 Delete event from the calendar:
 	Rho::RhoEvent.destroy(@params['id']))
 
+### Remarks
+In Android Device's, Calendar Event will only be created if the calendar is synced with atleast one mail account.
+
 ### Sample
 For examples on how to use the API provided by this class, see the view and controller in the /app/Calendar folder in the [System API Samples application](http://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/Calendar/controller.rb).
 
