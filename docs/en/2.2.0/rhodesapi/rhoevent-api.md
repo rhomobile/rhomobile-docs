@@ -2,6 +2,9 @@
 
 Access a device's calendar and events.
 
+Note:
+In Android Device's, Calendar event will only be created if the calendar is synced with atleast one mail account.
+
 For examples on how to use the RhoEvent API, see the view and controller in the /app/Calendar folder in the [System API Samples application](https://github.com/rhomobile/rhodes-system-api-samples/blob/master/app/Calendar/controller.rb).
 
 ## Enabling the Calendar
