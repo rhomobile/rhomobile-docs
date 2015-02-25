@@ -2,8 +2,8 @@
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
     <MODULE name="Log" parent="Rho">
-        <HELP_OVERVIEW> Use this API to control the behavior of the RhoMobile Log API as well as access it.
-          This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.
+        <HELP_OVERVIEW>Use this API to control the behavior of the RhoMobile Log API as well as access it.
+This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.
 
 Accessing Log File:
 sendLogFile: will sent all the log to server

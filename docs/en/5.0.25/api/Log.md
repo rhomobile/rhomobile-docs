@@ -1,9 +1,7 @@
 #Log
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;9</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mcleanLogFile" data-target="cMethodcleanLogFile" class="autouncollapse">cleanLogFile</a></li><li><a href="#merror" data-target="cMethoderror" class="autouncollapse">error</a></li><li><a href="#mfatalError" data-target="cMethodfatalError" class="autouncollapse">fatalError</a></li><li><a href="#minfo" data-target="cMethodinfo" class="autouncollapse">info</a></li><li><a href="#mreadLogFile" data-target="cMethodreadLogFile" class="autouncollapse">readLogFile</a></li><li><a href="#msendLogFile" data-target="cMethodsendLogFile" class="autouncollapse">sendLogFile</a></li><li><a href="#mshowLog" data-target="cMethodshowLog" class="autouncollapse">showLog</a></li><li><a href="#mtrace" data-target="cMethodtrace" class="autouncollapse">trace</a></li><li><a href="#mwarning" data-target="cMethodwarning" class="autouncollapse">warning</a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;11</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pdestination" data-target="cPropertydestination" class="autouncollapse">destination</a></li><li><a href="#pdestinationURI" data-target="cPropertydestinationURI" class="autouncollapse">destinationURI</a></li><li><a href="#pexcludeCategories" data-target="cPropertyexcludeCategories" class="autouncollapse">excludeCategories</a></li><li><a href="#pexcludeFilter" data-target="cPropertyexcludeFilter" class="autouncollapse">excludeFilter</a></li><li><a href="#pfilePath" data-target="cPropertyfilePath" class="autouncollapse">filePath</a></li><li><a href="#pfileSize" data-target="cPropertyfileSize" class="autouncollapse">fileSize</a></li><li><a href="#pincludeCategories" data-target="cPropertyincludeCategories" class="autouncollapse">includeCategories</a></li><li><a href="#plevel" data-target="cPropertylevel" class="autouncollapse">level</a></li><li><a href="#pmemoryPeriod" data-target="cPropertymemoryPeriod" class="autouncollapse">memoryPeriod</a></li><li><a href="#pnetTrace" data-target="cPropertynetTrace" class="autouncollapse">netTrace</a></li><li><a href="#pskipPost" data-target="cPropertyskipPost" class="autouncollapse">skipPost</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Show log file</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Read log file content</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Clean log file</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Logging categories</a></li><li><a href="#e4" data-target="eExample4" class="autouncollapse">Memory Usage</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<p> Use this API to control the behavior of the RhoMobile Log API as well as access it.</p>
-
-<pre><code>      This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.
-</code></pre>
+<p>Use this API to control the behavior of the RhoMobile Log API as well as access it.
+This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.</p>
 
 <p>Accessing Log File:
 sendLogFile: will sent all the log to server
@@ -99,29 +97,29 @@ extensions: ["coreapi"]
 <p>Show the contents of the log file in a window with controls to refresh, clear and send. Useful for debugging and when asking users to report error messages.</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
 Rho.Log.showLog();
                 </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
 Rho::Log.showLog
                 </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Read log file content</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>Retrieve the contents of the log file as a string.</p>
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
 //Read at most 16384 symbols
 logFileContent = Rho.Log.readLogFile(16384);
                 </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
 # Read at most 16384 symbols
 logFileContent = Rho::Log.readLogFile 16384
                 </code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class=' example' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample2"><strong>Clean log file</strong></div><div id="cExample2" class="accordion-body">  <div class="accordion-inner">
 <p>Clear the contents of the log file. In this example, logFileContentBefore will contain the log up until that point, while logFileContentAfter will be empty.</p>
 <ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
 // Read log file
 logFileContentBefore = Rho.Log.readLogFile(16384);
 
@@ -132,7 +130,7 @@ Rho.Log.cleanLogFile();
 logFileContentAfter = Rho.Log.readLogFile(16384);
                 </code></pre></div><div class='tab-pane' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
 # Read log file
 logFileContentBefore = Rho::Log.readLogFile 16384
 
@@ -145,7 +143,7 @@ logFileContentAfter = Rho::Log.readLogFile(16384
 <p>Categories help you organize your logging messages and find related statements using tools like grep or a text editor&rsquo;s &ldquo;search&rdquo; function.</p>
 <ul class='nav nav-tabs' id='exI3-S0Tab'><li class='active'><a href='#exI3-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI3-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
 Rho.Log.info("Consectetuer adipiscing elit", "Lorem Ipsum");
 Rho.Log.info("Foo acquired value Bar in method Baz", "Miscellaneous");
 
@@ -155,7 +153,7 @@ Miscellaneous Foo acquired value Bar in method Baz
 
                 </code></pre></div><div class='tab-pane' id='exI3-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
 Rho::Log.info("Consectetuer adipiscing elit", "Lorem Ipsum")
 Rho::Log.info("Foo acquired value Bar in method Baz", "Miscellaneous")
 
@@ -167,14 +165,14 @@ Miscellaneous Foo acquired value Bar in method Baz
 <p>You can ask the system to automatically log memory usage information on a set interval. This can be used to debug potential memory leaks in operations where a high number of objects are touched in memory.</p>
 <ul class='nav nav-tabs' id='exI4-S0Tab'><li class='active'><a href='#exI4-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI4-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI4-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
 Rho.Log.memoryPeriod = 1000;
 // Perform memory-intensive operations here. Examining the log will tell us if we have a memory leak
 // Once our task finishes, disable automatic memory logging
 Rho.Log.memoryPeriod = 0;
                </code></pre></div><div class='tab-pane' id='exI4-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
 # Request that memory usage be logged automatically by the system every second.
 Rho::Log.memoryPeriod = 1000
 # Perform memory-intensive operations here. Examining the log will tell us if we have a memory leak
