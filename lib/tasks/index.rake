@@ -1,5 +1,5 @@
 desc 'Index documentation'
-task :index do
+task :index => :remove_index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   # client = IndexTank::Client.new('http://:LsiLZl48xLtVxp@8todr.api.searchify.com')
@@ -16,9 +16,9 @@ task :index do
   Topic.all_topics.each do |doc|
     if File.exist?(doc) and File.basename(doc) != 'credits.md'
       name = name_for(doc)
-      version = version_for(doc)   #right now uses directory scheme and hardcoded current version 
+      version = version_for(doc)   #right now uses directory scheme and hardcoded current version
       category = category_for(name) #right now uses directory scheme need to add multi category and other methods
-      categories = { 
+      categories = {
           'category' => category,
           'version' => version,
           'chunknum' => '0'
@@ -34,7 +34,7 @@ task :index do
       maxsize = 100000
       last_commit = '1293911429'
       rest_result = RestClient.get("https://api.github.com/repos/rhomobile/rhomobile-docs/commits?path=#{doc}", :Authorization => 'token ea72876766af0098ab690afc067c315107b5019f').body
-    
+
       if rest_result.code != 200
         puts ('Error communicating with site')
         parsed = JSON.parse(rest_result)
@@ -43,7 +43,7 @@ task :index do
          parsed = JSON.parse(rest_result)
          last_commit = DateTime.parse(parsed[0]['commit']['committer']['date']).strftime('%s')
          puts last_commit
-      end 
+      end
 
       if topic.body.size() > maxsize
         puts "Needs to be chunked #{topic.body.size()}"
@@ -56,17 +56,19 @@ task :index do
           end
           chunk = topic.body[startPos,endPos]
           categories["chunknum"] = chunknum.to_s
-            
+
           chunknum +=1
-          puts "Indexing chunk[#{chunknum}]: #{startPos},#{endPos}:#{chunk.size}" 
-          if chunk.size > maxsize       
-            puts "chunk size over limit WTF? - ognoring for now"
+          puts "Indexing chunk[#{chunknum}]: #{startPos},#{endPos}:#{chunk.size}"
+          if chunk.size > maxsize
+            puts "chunk size over limit WTF? - ignoring for now"
           else
             index.document(name+chunknum.to_s).delete()
             result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :docexternal => false, :category => category, :version => version, :timestamp => last_commit})
-            
-            index.document(name+chunknum.to_s).update_categories(categories)
-            index.document(name+chunknum.to_s).update_variables(variables)             
+
+            # index.document(name+chunknum.to_s).update_categories(categories)
+            # index.document(name+chunknum.to_s).update_variables(variables)
+            update index.document(name+chunknum.to_s), "categories", categories
+            update index.document(name+chunknum.to_s), "variables", variables
           end
           puts "=> #{result}"
           startPos = endPos + 1
@@ -75,13 +77,25 @@ task :index do
       else
         index.document(name).delete()
         result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :docexternal => false, :category => category, :version => version, :timestamp => last_commit})
-        index.document(name).update_categories(categories)
-        index.document(name).update_variables(variables)             
+
+        # index.document(name).update_categories(categories)
+        # index.document(name).update_variables(variables)
+        update index.document(name), "categories", categories
+        update index.document(name), "variables", variables
+
         puts "=> #{result}"
       end
-
-
     end
   end
   puts "finished indexing"
+end
+
+def update (name, type, item)
+  method = "index.document(#{name}).update_#{type}(#{item})"
+  puts method
+  begin
+    send method
+  rescue
+    puts "Failed to update #{} for #{doc}"
+  end
 end
