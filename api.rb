@@ -17,9 +17,9 @@ class Api
   		return element["docNameOverride"]
   	else
   		return element["name"]
-  	end 
-  end	
-#returns markdown for the name of the API 
+  	end
+  end
+#returns markdown for the name of the API
   def self.getApiName(doc,lang,allowoverride)
   	md=""
   	md = doc["MODULE"][0]["name"]
@@ -46,13 +46,13 @@ class Api
   	# if md == 'SignalIndicators'
   		# md = 'Signal'
   	# end
-  	# doc.elements.each("//MODULE") { |element| 
-  	# 	md = element.attributes["name"] 
+  	# doc.elements.each("//MODULE") { |element|
+  	# 	md = element.attributes["name"]
   	# }
   	@@apiName = md
   	return md
   end
- 
+
   def self.getshortcut(e)
   	s = e["name"]
   	if !e["access"].nil?
@@ -67,18 +67,18 @@ class Api
 
 	  	md = RDiscount.new(doc["MODULE"][0]["HELP_OVERVIEW"][0], :smart).to_html
 	  	if !doc["MODULE"][0]["MORE_HELP"].nil? && !doc["MODULE"][0]["MORE_HELP"][0].nil? && doc["MODULE"][0]["MORE_HELP"][0].length >0
-	  		
+
 	  		md +=RDiscount.new(doc["MODULE"][0]["MORE_HELP"][0], :smart).to_html
 	  	end
   	end
   	#md += "\n\n" + doc["MODULE"][0]["MORE_HELP"][0]
-  	# doc.elements.each("//MODULE") { |element| 
-  	# 	md = element.attributes["name"] 
+  	# doc.elements.each("//MODULE") { |element|
+  	# 	md = element.attributes["name"]
   	# }
   	#puts md
   	return md
   end
- 
+
   def self.getpropusagetext(model,property,type,ro,propbag)
   	defval = ''
   	if type == 'STRING'
@@ -122,7 +122,7 @@ class Api
 		  	md += "\n"
 		  	md += "Rho.#{model}.setProperties({ " + "'#{property}':#{defval} , 'another_property':#{defval}});"
 		end
-  	end 
+  	end
   	if propbag
 	  	md += "\n\n// Getting one property"
 	  	md += "\n"
@@ -132,11 +132,11 @@ class Api
 	  	md += "myvar = Rho.#{model}.getProperties([" + "'#{property}' , 'another_property']);"
 	else
 		md += "\n\n// Getting "
-	  	
+
 	  	md += "\nmyvar = Rho.#{model}.#{property};"
 
 	end
-	md += "</code></pre>" 
+	md += "</code></pre>"
   	md += "\n\n<strong>Ruby Usage</strong>"
   	md += "\n\n<pre class='CodeRay'><code>:::ruby\n"
   	if !ro
@@ -161,17 +161,17 @@ class Api
 	  	md += "myvar = Rho::#{model}.getProperties([" + "'#{property}' , 'another_property'])"
  	else
  		md += "\n\n# Getting "
-	  	
+
   		md += "\nmyvar = Rho::#{model}.#{property}"
-	
+
   	end
-  	md += "</code></pre>" 
+  	md += "</code></pre>"
 # md+='  </div>'
 # md+='  <div class="modal-footer">'
 # md+='    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>'
 # md+='  </div>'
 # md+='</div>'
-  	
+
   	return md
   end
 
@@ -182,7 +182,7 @@ class Api
 	  	s=doc["MODULE"][0]["EXAMPLES"][0]["EXAMPLE"]
 	  	ctr = s.count()
 	  	s.each_with_index() { |element,index|
-	  	md += '<li><a href="#e' + index.to_s + '" data-target="eExample' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>" 
+	  	md += '<li><a href="#e' + index.to_s + '" data-target="eExample' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>"
 		}
   	end
   	return { "md" => md, "count" => ctr}
@@ -190,12 +190,12 @@ class Api
 
   def self.getremarklinks(doc)
   	md = ""
-  	ctr = 0 
+  	ctr = 0
   	if !doc["MODULE"][0]["REMARKS"].nil? && !doc["MODULE"][0]["REMARKS"][0]["REMARK"].nil?
 	  	s=doc["MODULE"][0]["REMARKS"][0]["REMARK"]
 	  	ctr = s.count()
 	  	s.each_with_index() { |element,index|
-	  	md += '<li><a href="#r' + index.to_s + '" data-target="rRemark' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>" 
+	  	md += '<li><a href="#r' + index.to_s + '" data-target="rRemark' + index.to_s + '" class="autouncollapse">' + element['title'] + "</a></li>"
 		}
   	end
   	return {"md" => md, "count" => ctr}
@@ -203,12 +203,12 @@ class Api
 
 def self.getconstantlinks(doc)
   	md = ""
-  	ctr = 0 
+  	ctr = 0
   	if !doc["MODULE"][0]["CONSTANTS"].nil? && !doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"].nil?
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
 	  	ctr = s.count()
 	  	s.each_with_index() { |element,index|
-	  	md += '<li><a href="#c' + index.to_s + '" data-target="rConstant' + index.to_s + '" class="autouncollapse">' + element['name'] + "</a></li>" 
+	  	md += '<li><a href="#c' + index.to_s + '" data-target="rConstant' + index.to_s + '" class="autouncollapse">' + element['name'] + "</a></li>"
 		}
   	end
   	return {"md" => md, "count" => ctr}
@@ -226,8 +226,8 @@ def self.getconstantlinks(doc)
 	  	# ctr = s.count()
 	  	# md += "<ul>"
 	  	s.each() { |element|
-	  		element["name"] = getElementName(element) 
-		
+	  		element["name"] = getElementName(element)
+
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	  			ctr+=1
 				propreplaces = ""
@@ -245,7 +245,7 @@ def self.getconstantlinks(doc)
 						end
 					}
 				end
-				
+
 		  		propdisplayname = element["name"]
 			  	if propreplaces != ""
 						#methname = methname + " <span class='pull-right label label-info'>Replaces:#{methreplaces}</span>"
@@ -256,7 +256,7 @@ def self.getconstantlinks(doc)
 				if deprecated == "true"
 		  			propdisplayname = "<span class='text-error'>" + element["name"] + "</span>"
 				end
-			  	
+
 					groupctr +=1
 					if groupctr == 36
 						# md+="</ul><ul>"
@@ -280,14 +280,14 @@ def self.getconstantlinks(doc)
 				else
 					accesstype = '<i class="icon-book pull-right"></i>'
 					menuGroupName = "Class Properties"
-				end	
-				
-			  	md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "#{accesstype}</a></li>" 
+				end
+
+			  	md += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "#{accesstype}</a></li>"
 			  	if mdgroups[menuGroupName].nil?
 			  		mdgroups[menuGroupName] = '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>"
 			  	else
 			  		mdgroups[menuGroupName] += '<li><a href="#p' + element["name"] + '" data-target="cProperty' + element["name"] + '" class="autouncollapse">' + propdisplayname + "</a></li>"
-			  	end 
+			  	end
 	  		end
 		}
 		# md += "</ul>"
@@ -295,26 +295,26 @@ def self.getconstantlinks(doc)
 
   	submenus = ""
   	divider = ""
-  	mdgroups.sort_by { |key, value| key }.each { |k,v| 
+  	mdgroups.sort_by { |key, value| key }.each { |k,v|
   		submenus += divider
   		submenus += '<li class="disabled"><a tabindex="-1" href="#"><b><i>' + k + '</i></b></a>' + v + '</li>'
   		divider = '<li class="divider"></li>'
   		 }
-  	
+
   	return { "md" => submenus, "count" => ctr}
   end
 
   def self.getmethodslinks(doc)
   	md = ""
   	mdgroups = {}
-  	
-  	ctr = 0 
+
+  	ctr = 0
   	if !doc["MODULE"][0]["METHODS"].nil?
 	  	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
-	  	
+
 	  	s.each() { |element|
-	  		element["name"] = getElementName(element) 
-		
+	  		element["name"] = getElementName(element)
+
 	  		if element["generateDoc"].nil? || element["generateDoc"] == "true"
 	 			ctr+=1
 	  			methname = element["name"]
@@ -348,7 +348,7 @@ def self.getconstantlinks(doc)
 				if methodsAccess.nil? || methodsAccess == 'INSTANCE' || methodsAccess == ''
 					methtype = '<i class="icon-file pull-right"></i>'
 					menuGroupName = "Methods - Instance"
-					
+
 				else
 					methtype = '<i class="icon-book pull-right"></i>'
 					menuGroupName = "Methods - Class"
@@ -368,11 +368,11 @@ def self.getconstantlinks(doc)
 						methname = "Destructor"
 					end
 			  	end
-		  		md += '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "#{methtype}</a></li>" 
+		  		md += '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "#{methtype}</a></li>"
 				if mdgroups[menuGroupName].nil?
-			  		mdgroups[menuGroupName] = '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
+			  		mdgroups[menuGroupName] = '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>"
 			  	else
-			  		mdgroups[menuGroupName] += '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>" 
+			  		mdgroups[menuGroupName] += '<li><a href="#m' + getshortcut(element) + '" data-target="cMethod' + element["name"] + '" class="autouncollapse">' + methname + "</a></li>"
 			  	end
 			end
 		}
@@ -380,7 +380,7 @@ def self.getconstantlinks(doc)
   	submenus = ""
   	divider = ""
 
-  	mdgroups.sort_by { |key, value| key }.each { |k,v| 
+  	mdgroups.sort_by { |key, value| key }.each { |k,v|
   		submenus += divider
   		submenus += '<li class="disabled"><a tabindex="-1" href="#"><b><i>' + k + '</i></b></a>' + v + '</li>'
   		divider = '<li class="divider"></li>'
@@ -410,7 +410,7 @@ def self.getconstantlinks(doc)
 					end
 				# end
 				exampleid = "exI#{index.to_s}-S#{si.to_s}"
-	  			
+
 				codelang = 'ruby'
 	  			codesnip = section["CODE"]
 	  			codejs = ''
@@ -454,7 +454,7 @@ def self.getconstantlinks(doc)
 	  			 end
 
 	  			end
-	  			
+
 				exampletabs = "<ul class='nav nav-tabs' id='#{exampleid}Tab'>"
 				activeindicator = "class='active'"
 				if codejs != ''
@@ -467,7 +467,7 @@ def self.getconstantlinks(doc)
 				exampletabs += "</ul>"
 
 				activeindicator = "class='tab-pane active'"
-				
+
 				extabcontent = "<div class='tab-content'>"
 				exJSTabcontent = ''
 				exRubyTabcontent = ''
@@ -478,19 +478,19 @@ def self.getconstantlinks(doc)
 				if coderuby != ''
 					exRubyTabcontent = "<div #{activeindicator} id='#{exampleid}RUBY'>#{coderuby}</div>"
 				end
-				
+
 
 				extabcontent += exJSTabcontent + exRubyTabcontent + "</div>"
-				
+
 				examplesections += exampletabs
 	  			examplesections += extabcontent
 
 	  		}
-	  	
+
 			md += "<a name='e#{index.to_s}'></a><div class=' example' id='e"+ index.to_s + "'>"
 		    md += '<div class="accordion-group">'
 		    md += '<div class="accordion-heading">'
-		    
+
 		    md += '<span class="accordion-toggle"   href="#cExample' + index.to_s + '">'
 		    md += '<strong>' + element["title"]  + '</strong>'
 			# md += '<i class="icon-chevron-down pull-left"></i></span>'
@@ -517,7 +517,7 @@ def self.getconstantlinks(doc)
 	  		md += "<a name='r#{index.to_s}'></a><div class=' remarks' id='r"+ index.to_s + "'>"
 		    md += '<div class="accordion-group">'
 		    md += '<div class="accordion-heading">'
-		    
+
 		    md += '<span class="accordion-toggle"  href="#cRemark' + index.to_s + '">'
 		    md += '<strong>' + element["title"]  + '</strong>'
 			# md += '<i class="icon-chevron-down pull-left"></i></span>'
@@ -525,7 +525,7 @@ def self.getconstantlinks(doc)
 		    md += '<div id="cRemark' + index.to_s + '" class="accordion-body">'
 		    md +='  <div class="accordion-inner">'
 		    html = getMDDesc(element["DESC"][0])
-		
+
 		  	md += html
 		  	md += '  </div>'
 		    md += '</div>'
@@ -543,8 +543,8 @@ def self.getconstantlinks(doc)
 	  	s=doc["MODULE"][0]["CONSTANTS"][0]["CONSTANT"]
 	  	md += '<div><dl  >'
 	  	s.each_with_index() { |element,index|
-	  		element["name"] = getElementName(element) 
-		
+	  		element["name"] = getElementName(element)
+
 	  		md += "<a name='c#{index.to_s}'></a>"
 			md +=  "<dt>" + element["name"] + "</dt>"
 			if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
@@ -571,9 +571,9 @@ def self.getconstantlinks(doc)
 		indicators += '<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">'
 	end
 	if ruby
-	
+
 	indicators += '<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">'
-	end 
+	end
 	if !platforms.is_a?(Hash)
 		if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
 			indicators += '<img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android">'
@@ -593,8 +593,8 @@ def self.getconstantlinks(doc)
 	  	if msionly
 			indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
 		end
-	end	
-  	return indicators		
+	end
+  	return indicators
   end
 
 def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
@@ -603,9 +603,9 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		indicators += ' js'
 	end
 	if ruby
-	
+
 	indicators += ' ruby'
-	end 
+	end
 	if !platforms.downcase.index('android').nil? || !platforms.downcase.index('all').nil?
 		indicators += ' android'
   	end
@@ -624,8 +624,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
   	if msionly
 		indicators += ' msi'
 	end
-	
-  	return indicators		
+
+  	return indicators
   end
 
   #returns Markdown for the <Properties section
@@ -650,13 +650,13 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 	  	# a = doc.elements.each("//PROPERTIES/PROPERTY").to_a.sort {|x,y| x["name"].to_s y["name"].to_s}
 	  	# puts a
 		s.each() { |element|
-			element["name"] = getElementName(element) 
+			element["name"] = getElementName(element)
 			if !element.nil? && !element["generateAccessors"].nil? && element["generateAccessors"] == "true"
 		  		generateAccessors = true
 		  	end
-		
+
 			if element["generateDoc"].nil? || element["generateDoc"] == "true"
- 
+
 			propname = element["name"]
 			propusage = ""
 			propver = ""
@@ -665,13 +665,13 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			 #puts element
 			if !element["VER_INTRODUCED"].nil?
 				propver= "<span class='muted pull-right'>" + element["VER_INTRODUCED"][0] + "</span>"
-				
+
 			end
 			msionly = false
 			ruby = true
 			javascript = true
-		
-			if !element["APPLIES"].nil? 
+
+			if !element["APPLIES"].nil?
 
 				appliescontent = ""
 				# puts element["APPLIES"]
@@ -691,8 +691,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 					end
 				end
 				if !element["APPLIES"][0]["content"].nil?
-					appliescontent = element["APPLIES"][0]["content"]	
-				end	
+					appliescontent = element["APPLIES"][0]["content"]
+				end
 				# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
 				# puts appliescontent
 				if appliescontent.size >0
@@ -714,8 +714,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			@propplatformsfilter = getplatformindicatorsfilter(@propplatforms,msionly,ruby,javascript)
 			@propsectionplatforms = "<div>"
 			@propsectionplatforms += "<p>#{@propplatforms} #{propnote}</p></div>"
-			
-			
+
+
 			if element["type"].nil?
 				proptype= " : <span class='text-info'>STRING</span>"
 				propusage=getpropusagetext(getApiName(doc,'JS',true),element["name"],'STRING',element["readOnly"],templatePropBag)
@@ -734,18 +734,18 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 					propreadOnly=""
 				end
 			end
-			
-			if element["default"].nil? 
+
+			if element["default"].nil?
 				propdefault= ""
 			else
-				
+
 				propdefault= "<p><strong>Default:</strong> " + element["default"] + "</p>"
 				if propdefault == "<p><strong>Default:</strong> </p>"
 					propdefault=""
 				end
-				
+
 			end
-			
+
 			@propdesc = getMDDesc(element["DESC"][0])
 			if @propdesc.nil?
 				RDiscount.new(@propdesc, :smart).to_html
@@ -764,13 +764,13 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 								@propvaldesc = getMDDesc(vaelement["DESC"][0].to_s)
 							else
 								@propvaldesc = ""
-							end 
-						end	
+							end
+						end
 						if !vaelement["PLATFORM"].nil?
 							if !vaelement["PLATFORM"][0].empty?
 								@propvaldesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
-							
-							end 
+
+							end
 						end
 						@seperator = ', '
 						if !vaelement["type"].nil?
@@ -780,15 +780,15 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 							vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
 
 						end
-						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}</dt>" 
-						
+						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}</dt>"
+
 					}
 				@propvalues += "</dl>"
 
 				}
 			end
 			if @propvalues != ""
-				@propvalues = "<p><strong>Possible Values</strong> (<span class='text-info'>#{@propvaluetype}</span>):</p> " + @propvalues 
+				@propvalues = "<p><strong>Possible Values</strong> (<span class='text-info'>#{@propvaluetype}</span>):</p> " + @propvalues
 			end
 		propreplaces = ""
 		#puts doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
@@ -805,8 +805,8 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			# md += "\n" + '<h3 data-h2="properties">' + "#{propname}</h3>\n"
 	  		# md += "<table width='100%'><tr>"
 	  		# md += "<td width='75%'><b>" + getApiName(doc) + ".#{propname}</b><br/><i>#{@propdesc}</i>"
-	  		# md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>" 
-	  		# md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n" 
+	  		# md += "<td><span class='pull-right'>#{proptype}<br/>#{propreadOnly}<br/>#{propdefault}</span></td>"
+	  		# md += "</tr><tr><td colspan='2'>#{@propvalues}</td></tr></table>\n\n"
   	propdisplayname = propname
   	deprecated = ""
 		if !element["deprecated"].nil?
@@ -846,7 +846,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		accesstype = '<li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + '</code></li></ul></li>'
 		if templateDefault
 			accesstype += '<li><i class="icon-file"></i>Default Instance: This property can be accessed via the default instance object of this class. <ul>'
-			if javascript 
+			if javascript
 				accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + '</code> </li>'
 			end
 			if ruby
@@ -854,7 +854,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 			end
 			accesstype += '</ul></li>'
 
-		end 
+		end
 	else
 		accesstype = '<li><i class="icon-book"></i>Class: This property can only be accessed via the API class object. <ul>'
 		if javascript
@@ -865,7 +865,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		end
 		accesstype +='</ul></li>'
 
-	end	
+	end
 	@propsectionaccess = "<div><p><strong>Property Access:</strong></p><ul>#{accesstype}</ul></div>"
 
 
@@ -873,7 +873,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
  #  	md += "<div class='accordion property #{@propplatformsfilter}' id='p"+ propname + "'>"
  #    md += '<div class="accordion-group">'
  #    md += '<div class="accordion-heading">'
-    
+
  #    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cProperty' + propname + '">'
  #    md += '<strong>' + propdisplayname  + '</strong>' + "#{proptype} #{propreadOnly} #{propver}"
 	# md += '<i class="icon-chevron-down pull-left"></i></span>'
@@ -911,7 +911,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
     	md += "<li >"  + '<a href="#p' + propname + '2" data-toggle="tab">Params</a>' + "</li>"
     end
   	if @propvalues != ''
-    
+
 		md += "<li >"  + '<a href="#p' + propname + '5" data-toggle="tab">Values</a>' + "</li>"
   	end
   	md += "<li >"  + '<a href="#p' + propname + '6" data-toggle="tab">Access</a>' + "</li>"
@@ -938,7 +938,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 
 def self.getparams(element,toplevel)
 	# @seperator = ""
-		
+
 	# puts '***** IN GETPARAMS'
 	# puts element
 
@@ -950,10 +950,10 @@ def self.getparams(element,toplevel)
 			end
 			element["PARAMS"].each { |params|
 				params["PARAM"].each { |param|
-					param["name"] = getElementName(param) 
-		
+					param["name"] = getElementName(param)
+
 					methparamsdetailsdesc = ''
-			
+
 					# puts param
 					if !param["DESC"].nil?
 						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
@@ -969,9 +969,9 @@ def self.getparams(element,toplevel)
 							pdesc = ' Platforms:' + pdesc
 						end
 						methparamsdetailsdesc+=pdesc
-						
+
 					end
-					
+
 					if !param["propertyHash"].nil? && param["propertyHash"] == "true" && param["PARAMS"].nil?
 						methparamsdetailsdesc += " Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a>"
 					end
@@ -983,13 +983,13 @@ def self.getparams(element,toplevel)
 							if !paramsnil["DESC"].nil?
 								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
 							end
-							
+
 						}
 					end
-					
+
 					if !param["default"].nil?
 						methparamsnil += "<span class='label '> Default: " + param["default"] + "</span>"
-				
+
 					end
 
 					if param["type"].nil?
@@ -999,10 +999,10 @@ def self.getparams(element,toplevel)
 						param["type"] = "SELF_INSTANCE: " + @@apiName
 					end
 					if toplevel
-						
+
 						@methparams += @seperator + '<span class="text-info">' + param["type"] + "</span> " + param["name"]
 						@seperator =  ', '
-					end 
+					end
 					# puts param
 					if param["name"].nil?
 						param["name"] = ""
@@ -1010,10 +1010,10 @@ def self.getparams(element,toplevel)
 					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
 					values = ""
 					valuetype = param["type"]
-								
+
 					if !param["VALUES"].nil?
 						values = "<dl  >"
-								
+
 						param["VALUES"].each() { |velement|
 							velement["VALUE"].each() { |vaelement|
 								if !vaelement["DESC"].nil?
@@ -1021,13 +1021,13 @@ def self.getparams(element,toplevel)
 										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
 									else
 										valdesc = ""
-									end 
-								end	
+									end
+								end
 								if !vaelement["PLATFORM"].nil?
 									if !vaelement["PLATFORM"][0].empty?
 										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
-									
-									end 
+
+									end
 								end
 
 								@seperator = ', '
@@ -1038,18 +1038,18 @@ def self.getparams(element,toplevel)
 									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String:' + vaelement["value"] + ''
 								end
 
-								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
-								
+								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>"
+
 							}
-						
+
 
 						}
 						values += "</dl>"
 					end
 					if values != ""
-						values = "<p><strong>Possible Values</strong> :</p> " + values 
+						values = "<p><strong>Possible Values</strong> :</p> " + values
 					end
-					
+
 					methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
 					methsectionparams += getparams(param,false)
 				}
@@ -1062,8 +1062,8 @@ def self.getparams(element,toplevel)
 			if !toplevel
 				methsectionparams += "</ul>"
 			end
-			
-			
+
+
 		end
 
 if !element["PARAM"].nil?
@@ -1071,10 +1071,10 @@ if !element["PARAM"].nil?
 				methsectionparams += "<ul>"
 			end
 				element["PARAM"].each { |param|
-					param["name"] = getElementName(param) 
-		
+					param["name"] = getElementName(param)
+
 					methparamsdetailsdesc = ''
-			
+
 					# puts param
 					if !param["DESC"].nil?
 						methparamsdetailsdesc=getMDDesc(param["DESC"][0])
@@ -1082,9 +1082,9 @@ if !element["PARAM"].nil?
 							methparamsdetailsdesc= ''
 						end
 					end
-					
 
-					
+
+
 
 					methparamsnil=""
 					methparamsnildesc=""
@@ -1094,14 +1094,14 @@ if !element["PARAM"].nil?
 							if !paramsnil["DESC"].nil?
 								methparamsnildesc =  getMDDesc(paramsnil["DESC"][0])
 							end
-							
+
 						}
 					end
 					if !param["default"].nil?
 						methparamsnil += " <span class='label '> Default: " + param["default"] + "</span>"
-				
+
 					end
-					
+
 					if param["type"].nil?
 						param["type"] = "STRING"
 					end
@@ -1120,7 +1120,7 @@ if !element["PARAM"].nil?
 					methparamsdetails += "<table><tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + methparamsdetailsdesc + "</td><td>" + methparamsnil + "</td></tr></table>"
 					values = ""
 					valuetype = param["type"]
-								
+
 					if !param["VALUES"].nil?
 						param["VALUES"].each() { |velement|
 							velement["VALUE"].each() { |vaelement|
@@ -1130,14 +1130,14 @@ if !element["PARAM"].nil?
 										valdesc = getMDDesc(vaelement["DESC"][0].to_s)
 									else
 										valdesc = ""
-									end 
-								end	
+									end
+								end
 								if !vaelement["PLATFORM"].nil?
 									if !vaelement["PLATFORM"][0].empty?
 										valdesc += " Platforms: " + getMDDesc(vaelement["PLATFORM"][0].to_s)
-									
-									end 
-								end								
+
+									end
+								end
 								@seperator = ', '
 								if !vaelement["type"].nil?
 									valuetype = vaelement["type"]
@@ -1146,31 +1146,31 @@ if !element["PARAM"].nil?
 									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
 								end
 
-								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
-								
+								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>"
+
 							}
 						values += "</dl>"
 
 						}
 					end
 					if values != ""
-						values = "<p><strong>Possible Values</strong> :</p> " + values 
+						values = "<p><strong>Possible Values</strong> :</p> " + values
 					end
-					
+
 					methsectionparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span>#{methparamsnil}<p>" + methparamsdetailsdesc + " " + methparamsnildesc + "</p>#{values}</li>"
 					methsectionparams += getparams(param,false)
 				}
 
-			
 
 
 
-			
+
+
 			if !toplevel
 				methsectionparams += "</ul>"
 			end
-			
-			
+
+
 		end
 
 	return methsectionparams
@@ -1182,16 +1182,16 @@ end
 	#puts doc["MODULE"][0]["METHODS"][0]
   	md = ""
 
-  	
+
   	@methsectionparams= ""
   	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
-    
+
     #puts methodaliases
-		
+
 	s.each() { |element|
-		element["name"] = getElementName(element) 
+		element["name"] = getElementName(element)
 		if element["generateDoc"].nil? || element["generateDoc"] == "true"
-	
+
 		 #puts element["name"]
 		#puts "\n\n"
 		methname = element["name"]
@@ -1201,13 +1201,13 @@ end
 		end
 		@methhascallback = ""
 		if !element["hasCallback"].nil?
-		
+
 			@methhascallback = element["hasCallback"]
-		end 
-		
-		if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash) 
+		end
+
+		if !element["DESC"].nil? && !element["DESC"][0].is_a?(Hash)
 			@methdesc = getMDDesc(element["DESC"][0])
-			
+
 		else
 			@methdesc = ""
 		end
@@ -1221,7 +1221,7 @@ end
 				end
 			}
 		end
-		
+
 		@methreturn = "Void"
 		@methreturndesc=""
 		methreturnparams = ""
@@ -1231,10 +1231,10 @@ end
 					@methreturn="Void"
 				else
 					@methreturn = relement["type"]
-				end	
-				
+				end
+
 				# puts relement
-		
+
 				if !relement["DESC"].nil? && !relement["DESC"][0].is_a?(Hash)
 					@methreturndesc=" : " + getMDDesc(relement["DESC"][0])
 				end
@@ -1252,13 +1252,13 @@ end
 		else
 			puts "      #{methname} no platform indicators"
 			@usemoduleplatforms = true
-			
+
 		end
 		msionly = false
 		ruby = true
 		javascript = true
-		methnote = ""		
-		if !element["APPLIES"].nil? 
+		methnote = ""
+		if !element["APPLIES"].nil?
 
 				appliescontent = ""
 				# puts element["APPLIES"]
@@ -1278,14 +1278,14 @@ end
 					end
 				end
 				if !element["APPLIES"][0]["content"].nil?
-					appliescontent = element["APPLIES"][0]["content"]	
-				end	
+					appliescontent = element["APPLIES"][0]["content"]
+				end
 
 
 			# propnote= "\n<table class='note'>\n<td class='icon'></td><td class='content'>Applies to: " + element["APPLIES"][0] + "</td>\n</table>\n\n"
 			# puts appliescontent
 			if appliescontent.size >0
-				
+
 				methnote= "(" + appliescontent + ")"
 			end
 
@@ -1294,17 +1294,17 @@ end
 
 		@methplatforms = getplatformindicators(@methplatforms,msionly,ruby,javascript,@usemoduleplatforms,doc)
 		@methplatformsfilter = getplatformindicatorsfilter(@methplatforms,msionly,ruby,javascript)
-			
+
 		@methsectionplatforms = "<div>"
 		@methsectionplatforms += "<p>#{@methplatforms}#{methnote}</p></div>"
-		
+
 		@methsectionreturns = "<div>"
 		@methsectionreturns += "<p><strong>Synchronous Return:</strong></p><ul>"
 		if  (@methhascallback !="" && @methhascallback != "none")
 			@methreturndesc += " : this method also supports async callbacks - check the Callback tab for callback return parameters."
 		end
 		@methsectionreturns += "<li>#{@methreturn}#{@methreturndesc}#{methreturnparams}</li></ul></div>"
-			
+
 		@methparams = ""
 		@methparamsdetails = ""
 		@methsectionparams = ""
@@ -1312,12 +1312,12 @@ end
 		if !element["PARAMS"].nil? || (@methhascallback !="" && @methhascallback != "none")
 			@methsectionparams = "<div>"
 			@methsectionparams += "<p><strong>Parameters</strong></p><ul>"
-		
+
 			@methsectionparams += getparams(element,true)
 		#add generic syntax for callback param
 			if @methhascallback !="" && @methhascallback != "none"
 				 # puts element["CALLBACK"]
-				
+
 				@methcallbackoptional= ""
 				if @methhascallback == "optional"
 					@methcallbackoptional = " <span class='label label-info'>Optional</span> "
@@ -1328,7 +1328,7 @@ end
 				firstcallbackreturnparam = "calbackreturnparamname"
 				callbacktype = "CallBackHandler"
 				callbackreturntype = ""
-				
+
 				if !element["CALLBACK"].nil?
 					@theCallbackElement = element["CALLBACK"]
 				else
@@ -1336,9 +1336,9 @@ end
 				end
 
 				 # puts @theCallbackElement
-				
+
 				if !@theCallbackElement.nil? && !@theCallbackElement[0]["type"].nil?
-				
+
 					callbackreturntype = @theCallbackElement[0]["type"]
 				else
 					callbackreturntype = "OBJECT"
@@ -1353,7 +1353,7 @@ end
 					prevparams = ""
 				end
 				@methcallbackparamdesc = '<p><a href="#' + methname + 'Usage" class="btn" data-toggle="modal" title="View Usage">View Usage</a></p>'
-	
+
 				@methcallbackparamdesc +='<div id="' + methname + 'Usage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
 				@methcallbackparamdesc+='  <div class="modal-header">'
 				@methcallbackparamdesc+='    <h3 id="myModalLabel">' + methname + ' Callback</h3>'
@@ -1385,7 +1385,7 @@ end
 
   			end
   			@methsectionparams += "</ul></div>"
-			
+
   		end
 		@seperator = ""
 		@methsample = "<b>" + getApiName(doc,'JS',true) + ".#{methname}(#{@methparams})</b><br/>"
@@ -1406,7 +1406,7 @@ end
 			if @methhascallback == "optional"
 				@methsample += "Callback function is optional.<br/><br/>"
 			end
-			
+
   		end
   		if methdeprecated == "true"
 			#methname = methname + ' <span class="pull-right label label-important">deprecated</span>'
@@ -1424,7 +1424,7 @@ end
 
   		# md += "<table class='table  table-condensed'><tr>"
   		# md += "<td>#{@methsample}#{@methdesc}"
-  		# md += "</td><td><span class='pull-right'>#{@methreturn}<br/>#{@methreturndesc}</span></td>" 
+  		# md += "</td><td><span class='pull-right'>#{@methreturn}<br/>#{@methreturndesc}</span></td>"
   		if @methparamsdetails != ""
   			# md += "<tr><td colspan='2'><b>Parameters</b><br/><table class='table table-bordered'>"
   			# md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td><td>Can Be Nil</td></tr></thead>"
@@ -1432,16 +1432,16 @@ end
   			# md += "</table></td></tr>"
   		end
   		@methsectioncallbackparams = ""
-		
+
   		if @methhascallback !="" && @methhascallback != "none"
   			# md += "<tr><td colspan='2'><b>Callback Return Values</b><br/><table class='table table-bordered'>"
   			# md += "<thead><tr><td>Name</td><td>Type</td><td>Description</td></tr></thead>"
 			@methcallbackdetails = ""
-			
+
 			if !@theCallbackElement.nil? && !@theCallbackElement[0].nil?
 				@methsectioncallbackparams = "<div>"
 				@methsectioncallbackparams += "<p><strong>Async Callback Returning Parameters: <span class='text-info'>#{callbackreturntype}</span></strong></p><ul>"
-			
+
 				# element["CALLBACK"][0]["PARAMS"].each { |params|
 				# 	params["PARAM"].each { |param|
 
@@ -1454,26 +1454,26 @@ end
 				# 			@methcallbackdetailsdesc = ''
 				# 		end
 
-						
-						
+
+
 				# 		if param["type"].nil?
 				# 			param["type"] = "STRING"
 				# 		end
 				# 		if !param["deprecated"].nil?  && param["deprecated"]== "true"
 				# 			param["name"] = '<span class="text-error">' + param["name"] + '</span>'
-			
+
 				# 			param["type"] += " <span class='label label-important'>deprecated</span> "
 				# 		end
 				# 		# puts param
 				# 		# puts param["name"]
 				# 		# puts param["type"]
 				# 		# puts @methcallbackdetailsdesc
-						
+
 				# 		@methcallbackdetails += "<tr><td>" + param["name"] + "</td><td>" + param["type"] + "</td><td>" + @methcallbackdetailsdesc + "</td></tr>"
 				# 		@methsectioncallbackparams += "<li>" + param["name"] + " : <span class='text-info'>" + param["type"] + "</span><p>" + @methcallbackdetailsdesc + "</p></li>"
 				# 	values = ""
 				# 	valuetype = param["type"]
-								
+
 				# 	if !param["VALUES"].nil?
 				# 		param["VALUES"].each() { |velement|
 				# 			velement["VALUE"].each() { |vaelement|
@@ -1483,21 +1483,21 @@ end
 				# 						valdesc = vaelement["DESC"][0].to_s
 				# 					else
 				# 						valdesc = ""
-				# 					end 
-				# 				end	
+				# 					end
+				# 				end
 				# 				@seperator = ', '
 				# 				if !vaelement["type"].nil?
 				# 					valuetype = !vaelement["type"]
 				# 				end
-				# 				values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>" 
-								
+				# 				values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>"
+
 				# 			}
 				# 		values += "</dl>"
 
 				# 		}
 				# 	end
 				# 	if values != ""
-				# 		values = "<p><strong>Possible Values</strong> :</p> " + values 
+				# 		values = "<p><strong>Possible Values</strong> :</p> " + values
 				# 	end
 				# 	@methsectioncallbackparams += values
 
@@ -1507,17 +1507,17 @@ end
 				# puts @theCallbackElement
 				@methsectioncallbackparams += getparams(@theCallbackElement[0],false)
 				@methsectioncallbackparams += "</ul></div>"
-			end  			
+			end
   			# md += @methcallbackdetails
   			# md += "</table></td></tr>"
 
   		end
-  		# md += "</tr></table>\n\n" 
-  		
+  		# md += "</tr></table>\n\n"
+
   	if !element["BACKWARDS_COMPATIBILITY"].nil?
   		@methdesc += "\n\nNOTE: #{getMDDesc(element["BACKWARDS_COMPATIBILITY"][0]["DESC"][0])}\n\n"
-	end		
-	
+	end
+
 	templateDefault = false
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["DEFAULT_INSTANCE"].nil?
 	  		templateDefault = true
@@ -1553,42 +1553,42 @@ end
 		accesstype = '<li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.' + element["name"] + "(#{@methparams})</code></li></ul></li>"
 		if templateDefault
 		accesstype += '<li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul>'
-		if javascript 
+		if javascript
 			accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
-		if ruby 
+		if ruby
 			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
-		end 
+		end
 	else
 		accesstype = '<li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul>'
-		if javascript 
+		if javascript
 			accesstype += '<li>JavaScript: <code>' + getApiName(doc,'JS',true) + '.' + element["name"] + "(#{@methparams})</code> </li>"
 		end
-		if ruby 
+		if ruby
 			accesstype += '<li>Ruby: <code>' + getApiName(doc,'RUBY',true) + '.' + element["name"] + "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 
-	end	
+	end
 	if constructor
 		accesstype = '<li>Class Method: This method is a constructor and can only be accessed via the `new` construct. <ul>'
-		if javascript 
+		if javascript
 			accesstype += '<li>JavaScript: <code>var myObj = new ' + getApiName(doc,'JS',true) + "(#{@methparams})</code> </li>"
 		end
-		if ruby 
+		if ruby
 			accesstype += '<li>Ruby: <code>@myObj = ' + getApiName(doc,'RUBY',true) + ".new(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
 	end
 	if destructor
 		accesstype = '<li>Class Method: This method is a destructor and can only be accessed via the object that was created by the `new` constructor. <ul>'
-		if javascript 
+		if javascript
 			accesstype += '<li>JavaScript: <code>myObj.' +  element["name"]  +  "(#{@methparams})</code> </li>"
 		end
-		if ruby 
+		if ruby
 			accesstype += '<li>Ruby: <code>@myObj.' +  element["name"]  +  "(#{@methparams})</code></li>"
 		end
 		accesstype += '</ul></li>'
@@ -1599,7 +1599,7 @@ end
  #  	md += "<div class='accordion method #{@methplatformsfilter}' id='m"+ element["name"] + "'>"
  #    md += '<div class="accordion-group">'
  #    md += '<div class="accordion-heading">'
-    
+
  #    md += '<span class="accordion-toggle" data-toggle="collapse"  href="#cMethod' + element["name"] + '">'
 
  #    md += '<strong  >' + methname + '</strong>' + "(#{@methparams})"
@@ -1620,7 +1620,7 @@ end
 	# md += '</div>'
 	md += "<a name ='m" + getshortcut(element) + "'/>"
   	md += "<div class=' method #{@methplatformsfilter}' id='m"+ getshortcut(element) + "'>"
-  	
+
   	if constructor
 	    md += "<h3>#{constructorLabel} <strong  > new " + @@apiName + '</strong>' + "<span style='font-size:.7em;font-weight:normal;'>(#{@methparams})</span></h3>"
   	else
@@ -1650,13 +1650,13 @@ end
   	md += '</div>'
 
   	md += '  </div>'
-  
 
 
 
 
 
-		end 
+
+		end
   	}
 
   	return md
@@ -1668,7 +1668,7 @@ end
 
   	# xml = File.read(topic)
   	# doc = REXML::Document.new xml
-  	
+
   	# puts topic
   	doc = XmlSimple.xml_in(topic)
   	if doc["MODULE"][0]["generateDoc"].nil? || doc["MODULE"][0]["generateDoc"] == "true"
@@ -1686,8 +1686,8 @@ end
 	  	end
 	  	# Add template methods,properties,constants
 	  	if !doc["MODULE"][0]["TEMPLATES"].nil? && !doc["MODULE"][0]["TEMPLATES"][0].nil? && !doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"].nil?
-	  		
-	  		puts 'Has a template' 
+
+	  		puts 'Has a template'
 	  		puts doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"]
 	  		templateFileString = doc["MODULE"][0]["TEMPLATES"][0]["INCLUDE"][0]["path"]
 	  		w = templateFileString.split("/")
@@ -1748,7 +1748,7 @@ end
 	  	constantlinks = getconstantlinks(doc)
 	  	proplinks = getpropertieslinks(doc)
 	  	methlinks = getmethodslinks(doc)
-	  	md += "#" + getApiName(doc,'',true) + "\n" 
+	  	md += "#" + getApiName(doc,'',true) + "\n"
 	  	if methlinks["count"]>0
 		  	md += '<div class="btn-group">'
 		    md += '<a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;' + methlinks["count"].to_s + '</sub></a>'
@@ -1790,7 +1790,7 @@ end
 		    md += proplinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
-	  	end 
+	  	end
 	  	if constantlinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
@@ -1802,7 +1802,7 @@ end
 		    md += constantlinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
-	  	end 
+	  	end
 	  	if examplelinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
@@ -1814,7 +1814,7 @@ end
 		    md += examplelinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
-	  	end 
+	  	end
 	  	if remarklinks["count"]>0
 		  	md += '<div class="btn-group">'
 		  	md += ''
@@ -1826,7 +1826,7 @@ end
 		    md += remarklinks["md"]
 		    md += '</ul>'
 		  	md += '</div>'
-	  	end 
+	  	end
 		if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
 			md += '<div class="btn-group">'
 		    md += '<a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a>'
@@ -1842,41 +1842,41 @@ end
 		  	md += '</div>'
 	  	md += '<div  id="apibody" style="overflow:auto;padding-right: 5px;">'
 
-	  	md += "\n" + getApiDesc(doc) + "\n" 
+	  	md += "\n" + getApiDesc(doc) + "\n"
 	  	if methlinks["count"]>0
-		  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n" 
-			
+		  	md += "\n<a name='Methods'></a>\n" + "<h2><i class='icon-cog'></i>Methods</h2>" + "\n\n"
+
 		  	md += '<div class="accordion" id="accordion">'
-		    
+
 		  	md += "" + getmethods(doc) + ""
 		    md += "</div>"
 		end
 			if docproperties !=""
-				 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n" 
+				 md += "\n<a name='Properties'></a>\n<h2><i class='icon-list'></i>Properties</h2>" + "\n\n"
 				if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"].nil? && doc["MODULE"][0]["PROPERTIES"][0]["generateAccessors"] == "false"
 						md += "\n\nNOTE: The properties of this API Class cannot be accessed via setter or getter methods (unless otherwise noted). However they can be used in methods that allow a HASH or Array of properties to be passed in.\n\n"
 				end
 		  	 md += "" + docproperties + ""
-	  	end 
+	  	end
   	    if docconstants !=""
-		  	 md += "\n<a name='Constants'></a>\n<h2><i class='icon-tag'></i>Constants</h2>" + "\n\n" 
+		  	 md += "\n<a name='Constants'></a>\n<h2><i class='icon-tag'></i>Constants</h2>" + "\n\n"
 		  	 md += "" + docconstants + ""
-	  	end 
+	  	end
 		if docexamples !=""
-		  	 md += "\n<a name='Examples'></a>\n<h2><i class='icon-edit'></i>Examples</h2>" + "\n\n" 
+		  	 md += "\n<a name='Examples'></a>\n<h2><i class='icon-edit'></i>Examples</h2>" + "\n\n"
 		  	 md += "" + docexamples + ""
-	  	end 
+	  	end
 	  	    if docremarks !=""
-			  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n" 
+			  	 md += "\n<a name='Remarks'></a>\n<h2><i class='icon-warning-sign'></i>Remarks</h2>" + "\n\n"
 			  	 md += "" + docremarks + ""
-		  	end 
-		  	
+		  	end
+
 		if !doc["MODULE"][0]["license"].nil? && doc["MODULE"][0]["license"]="Required"
-			md += "\n<a name='License'></a>\n" + "<h2><i class='icon-shopping-cart'></i>Licensing</h2>" + "\n\n" 
-			
+			md += "\n<a name='License'></a>\n" + "<h2><i class='icon-shopping-cart'></i>Licensing</h2>" + "\n\n"
+
 		  	md += '<div class="accordion" id="accordion">'
-		    
-		  	md += "You can fully use all features of this API during evaluation, development or testing without obtaining a license. A message will be displayed on application startup and will also display a nag screen periodically. Before deploying an application to a production environment, you must obtain a license key. <a href='/guide/licensing'>Read more about licensing</a>."
+
+		  	md += "This API is considered a RhoElements API and therefore requires a paid subscription to use (either Silver or Gold level). You can review the subscription plans on our licensing page <a href='/guide/licensing'>here</a> or on <a href='http://rhomobile.com/pricing/'>rhomobile.com/pricing</a>."
 		    md += "</div>"
 	  	end
 		    md += "</div>"
@@ -1895,23 +1895,23 @@ def self.analyze(topic)
 
   	# xml = File.read(topic)
   	# doc = REXML::Document.new xml
-  	
+
   	doc = XmlSimple.xml_in(topic)
   	# puts 'Analyzing: ' + doc["MODULE"][0]["name"]
   	apiname = doc["MODULE"][0]["name"]
   	# puts '    Checking Methods'
   	s=doc["MODULE"][0]["METHODS"][0]["METHOD"].sort {|x,y| x["name"] <=> y["name"]} rescue {}
-    
+
     #puts methodaliases
-		
+
 	s.each() { |element|
 		methodname = element["name"]
 		# puts '        ' + element["name"]
 		if !element["hasCallback"].nil? && element["hasCallback"] != "none"
-		
+
 			# puts '            callback: ' + element["hasCallback"]
 			if !element["CALLBACK"].nil? && !element["CALLBACK"][0]["PARAMS"].nil?
-				
+
 				element["CALLBACK"][0]["PARAMS"].each { |params|
 				}
 			else
@@ -1924,10 +1924,10 @@ def self.analyze(topic)
 				puts "#{apiname}.#{methodname}: NO CALLBACK PARAMS - Callback:#{element['hasCallback']} #{hasReturn}"
 
 			end
-		end 
+		end
 	}
   end
-	
 
-	
+
+
 end

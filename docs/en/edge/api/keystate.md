@@ -74,4 +74,4 @@ end
 <a name='License'></a>
 <h2><i class='icon-shopping-cart'></i>Licensing</h2>
 
-<div class="accordion" id="accordion">You can fully use all features of this API during evaluation, development or testing without obtaining a license. A message will be displayed on application startup and will also display a nag screen periodically. Before deploying an application to a production environment, you must obtain a license key. <a href='/guide/licensing'>Read more about licensing</a>.</div></div>
+<div class="accordion" id="accordion">This API is considered a RhoElements API and therefore requires a paid subscription to use (either Silver or Gold level). You can review the subscription plans on our licensing page <a href='/guide/licensing'>here</a> or on <a href='http://rhomobile.com/pricing/'>rhomobile.com/pricing</a>.</div></div>
