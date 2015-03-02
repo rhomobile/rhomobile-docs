@@ -2,9 +2,8 @@ desc 'Index documentation'
 task :index => :remove_index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
-  # client = IndexTank::Client.new('http://:LsiLZl48xLtVxp@8todr.api.searchify.com')
   index = client.indexes(AppConfig['index'])
-
+  
   # index.delete rescue nil
   # index.add rescue nil
   print "Waiting to initialize #{AppConfig['index']}..."
@@ -33,16 +32,21 @@ task :index => :remove_index do
       topic.text_only
       maxsize = 100000
       last_commit = '1293911429'
-      rest_result = RestClient.get("https://api.github.com/repos/rhomobile/rhomobile-docs/commits?path=#{doc}", :Authorization => 'token ea72876766af0098ab690afc067c315107b5019f').body
+      begin
+        rest_result = RestClient.get("https://api.github.com/repos/rhomobile/rhomobile-docs/commits?path=#{doc}", :Authorization => "token #{ENV['SEARCHIFY_API_URL']}").body
 
-      if rest_result.code != 200
-        puts ('Error communicating with site')
-        parsed = JSON.parse(rest_result)
-        puts parsed["message"]
-      else
-         parsed = JSON.parse(rest_result)
-         last_commit = DateTime.parse(parsed[0]['commit']['committer']['date']).strftime('%s')
-         puts last_commit
+        if rest_result.code != 200
+          puts ('Error communicating with site')
+          parsed = JSON.parse(rest_result)
+          puts parsed["message"]
+        else
+           parsed = JSON.parse(rest_result)
+           last_commit = DateTime.parse(parsed[0]['commit']['committer']['date']).strftime('%s')
+           puts last_commit
+        end
+        
+      rescue Exception => e
+        puts "Failed to get last commit date"       
       end
 
       if topic.body.size() > maxsize
@@ -62,7 +66,7 @@ task :index => :remove_index do
           if chunk.size > maxsize
             puts "chunk size over limit WTF? - ignoring for now"
           else
-            index.document(name+chunknum.to_s).delete()
+            # index.document(name+chunknum.to_s).delete()
             result = indextank_document = index.document(name+chunknum.to_s).add({:title => topic.title, :text => chunk, :dockey => name, :docexternal => false, :category => category, :version => version, :timestamp => last_commit})
 
             # index.document(name+chunknum.to_s).update_categories(categories)
@@ -75,13 +79,14 @@ task :index => :remove_index do
           break if endPos == topic.body.size()
         end
       else
-        index.document(name).delete()
+        # index.document(name).delete()
+        # puts 'going to index'
         result = indextank_document = index.document(name).add({:title => topic.title, :text => topic.body, :dockey => name, :docexternal => false, :category => category, :version => version, :timestamp => last_commit})
 
-        # index.document(name).update_categories(categories)
-        # index.document(name).update_variables(variables)
-        update index.document(name), "categories", categories
-        update index.document(name), "variables", variables
+        index.document(name).update_categories(categories)
+        index.document(name).update_variables(variables)
+        # update index.document(name), "categories", categories
+        # update index.document(name), "variables", variables
 
         puts "=> #{result}"
       end
@@ -96,6 +101,6 @@ def update (name, type, item)
   begin
     send method
   rescue
-    puts "Failed to update #{} for #{doc}"
+    puts "Failed to update #{} for #{name}"
   end
 end
