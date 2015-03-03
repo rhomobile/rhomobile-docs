@@ -2,7 +2,7 @@
 ## Windows Mobile and CE
 When using Enterprise Browser with webkit, any required certificates beyond the pre-loaded ones can be specified using the `CaFile` configuration setting in Config.xml. This points to a file containing the certificate data. The certificate(s) specified are treated by webkit as trusted authorities. Note this only applies to HTTPS requests made by webkit.
 
-For example, to use certificates in the file 'mycert.crt' the file should be copied to the device and the appropriate entry made in Config.xml, e.g. if the file is in the root directory of the device:
+For example, to use certificates in the file 'mycert.pem' the file should be copied to the device and the appropriate entry made in Config.xml, e.g. if the file is in the root directory of the device:
 
 	:::xml
 	<CaFile Value=”\\mycert.pem”>
@@ -23,26 +23,22 @@ Some typical usages are shown below:
 ### Generating a self-signed certificate:
 1. You need to have a private key in order to encrypt to the certificate. Either use an existing private key, or generate one for the purpose. The easiest way to generate a basic, no passphrase, one is to use:
 
-        :::term
-        openssl genrsa -out privkey.pem
+> openssl genrsa -out privkey.pem
 
 2. A self-signed certificate can then be generated from the key using:
 
-        :::term
-        openssl req -new -x509 -key privkey.pem -out capturableacert.pem -days 365
+> openssl req -new -x509 -key privkey.pem -out capturableacert.pem -days 365
 
 3. You will be asked a series of questions. For all _but_ Common Name you can press return to leave the field blank, but for Common Name enter the domain name which will serve the certificate. Add the private key to your web server according to the server's documentation, and add the certificate to the web client as described above.
 
 ### Inspecting a certificate
 1. To decode the contents of a certificate use:
 
-				::term
-				openssl x509 -in cacert.pem -text -noout
+> openssl x509 -in cacert.pem -text -noout
 
 2. The Common Name is shown as Subject: CN=. The signing authority is shown as Issuer: CN=, which will be the same as Subject for a self-signed certificate.
 
 ### Converting a certificate
 To convert a .der format certificate to a .pem one use:
 
-	:::term
-	openssl x509 -inform der -in cacert.der -out cacert.pem
+> openssl x509 -inform der -in cacert.der -out cacert.pem
