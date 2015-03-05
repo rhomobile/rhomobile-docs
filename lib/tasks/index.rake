@@ -1,5 +1,5 @@
 desc 'Index documentation'
-task :index => :remove_index do
+task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   index = client.indexes(AppConfig['index'])
@@ -75,8 +75,8 @@ task :index => :remove_index do
             end
 
             puts "Updating categories and variables..."
-            index.document(name+chunknum.to_s).update_categories(categories) rescue "Failed to update categories of #{name}!"
-            index.document(name+chunknum.to_s).update_variables(variables) rescue "Failed to update variables of #{name}!"
+            index.document(name+chunknum.to_s).update_categories(categories) rescue puts "Failed to update categories of #{name}!"
+            index.document(name+chunknum.to_s).update_variables(variables) rescue puts "Failed to update variables of #{name}!"
           end
 
           startPos = endPos + 1
@@ -93,8 +93,8 @@ task :index => :remove_index do
         end
 
         puts "Updating categories and variables..."
-        index.document(name).update_categories(categories) rescue "Failed to update categories of #{name}!"
-        index.document(name).update_variables(variables) rescue "Failed to update variables of #{name}!"
+        index.document(name).update_categories(categories) rescue puts "Failed to update categories of #{name}!"
+        index.document(name).update_variables(variables) rescue puts "Failed to update variables of #{name}!"
       end
     end
   end
