@@ -1,5 +1,5 @@
 desc 'Index documentation'
-task :index => do
+task :index do
   puts "indexing now:"
   client = IndexTank::Client.new(ENV['SEARCHIFY_API_URL'])
   index = client.indexes(AppConfig['index'])
