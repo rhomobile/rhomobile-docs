@@ -39,14 +39,14 @@
 
     <!-- Set DocVersion and Paths -->
     <% sectionGroup  = TOC.findGroup(request.path_info)
-    if @docversion.nil? 
+    if @docversion.nil?
       @docversion = Version::CURR_VERSION
     end
     if @docversion  == 'hosted'
       vpath = "/en/#{Version::CURR_VERSION}"
     else
       vpath = "/en/#{@docversion}"
-    end 
+    end
     # puts "version #{@docversion}"
     if @docversion != '2.2.0' # needs to stay hard-coded because we did not have folder scheme implemented
       homepath    = "#{vpath}/home"
@@ -100,6 +100,8 @@
               <optgroup label="Previous Releases">
                 <option value=<%= Version::PREV_VERSION %> <%=@docversion == Version::PREV_VERSION ? 'SELECTED' : ''%>><%= Version::PREV_VERSION %></option>
                 <!-- Keep all previous versions hard-coded -->
+                <option value='5.0.0' <%=@docversion=='5.0.0' ? 'SELECTED' : ''%>>5.0.0</option>
+                <option value='4.1.0' <%=@docversion=='4.1.0' ? 'SELECTED' : ''%>>4.1.0</option>
                 <option value='4.0.0' <%=@docversion=='4.0.0' ? 'SELECTED' : ''%>>4.0.0</option>
                 <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>2.2.0</option>
               </optgroup>
@@ -122,7 +124,7 @@
     <% collapsed = true
        first = true
     %>
-    <% 
+    <%
       if !@steps.nil?
     %>
     <div class='well'>
@@ -143,7 +145,7 @@
       <% end %>
       </ul>
     </div>
-     
+
   <% else
     sections.each do |slug, title, sectgroup, topics|
   %>
@@ -165,7 +167,7 @@
         </li>
       </div>
       <ul class="nav nav-list  <%=collapsed ? 'collapse' : 'in'%>" id="<%=slug%>" >
-    
+
       <% topics.each do |slug, title, _|
          %>
         <% if topic_path == slug %>
@@ -192,7 +194,7 @@
     <% end %>
     <% end %>
   <% end %>
-    </ul> 
+    </ul>
   <% end %>
   </div>
 
@@ -209,7 +211,7 @@
             <strong><i class="icon icon-warning-sign icon-large"></i> Warning Older Docs! - You are viewing documentation for a previous released version of RhoMobile Suite.</strong>
           </div>
       <% end%>
-      <% end %>   
+      <% end %>
     <div id="t_content" class="topic_content">
       <%= yield %>
     </div>
