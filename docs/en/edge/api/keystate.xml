@@ -38,10 +38,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the KeyState API: 
+There are two methods of enabling the KeyState API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -131,13 +131,14 @@ function show_keystates(){
 
         <REMARKS>
             <REMARK title="Devices lacking support">
-                <DESC>Due to platform limitations this API is not available on the following Symbol Technologies' devices:
+                <DESC>Due to platform limitations this API is not available on the following Zebra Technologies devices:
 
 * ES400
 * MC45
 * MC65
 * VC70
-* MC45</DESC>
+* MC45
+* Workabout Pro 4</DESC>
             </REMARK>
 
             <REMARK title="Rotating the Screen">

@@ -17,10 +17,10 @@ Other overlays consist of, but are not necessarily limited to:
 * stopbutton
         
 ## Enabling the API
-There are two methods of enabling the KeyState API: 
+There are two methods of enabling the KeyState API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -98,13 +98,14 @@ Synchronous Return:
 
 
 ###Devices lacking support
-Due to platform limitations this API is not available on the following Symbol Technologies' devices:
+Due to platform limitations this API is not available on the following Zebra Technologies devices:
 
 * ES400
 * MC45
 * MC65
 * VC70
 * MC45
+* Workabout Pro 4
 
 ###Rotating the Screen
 The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.
