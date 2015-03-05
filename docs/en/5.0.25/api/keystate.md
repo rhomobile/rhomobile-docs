@@ -45,13 +45,13 @@ app_type: "rhoelements"
 <p>If you just want to display the keystate indicators in their default positions with size 25x25 pixels then call as follows.</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-                            
+
 function show_keystates(){
     Rho.Keystate.showStates({width:25;height:25});
 }
                         </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-                
+
 def show_keystates
     Rho::Keystate.showStates({width:25;height:25})
 end
@@ -59,7 +59,7 @@ end
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
-<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Devices lacking support</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>Due to platform limitations this API is not available on the following Symbol Technologies' devices:</p>
+<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Devices lacking support</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>Due to platform limitations this API is not available on the following Zebra Technologies devices:</p>
 
 <ul>
 <li>ES400</li>
@@ -67,6 +67,7 @@ end
 <li>MC65</li>
 <li>VC70</li>
 <li>MC45</li>
+<li>Workabout Pro 4</li>
 </ul>
 
   </div></div></div></div><a name='r1'></a><div class=' remarks' id='r1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark1"><strong>Rotating the Screen</strong></div><div id="cRemark1" class="accordion-body">  <div class="accordion-inner"><p>The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.</p>
@@ -74,4 +75,4 @@ end
 <a name='License'></a>
 <h2><i class='icon-shopping-cart'></i>Licensing</h2>
 
-<div class="accordion" id="accordion">You can fully use all features of this API during evaluation, development or testing without obtaining a license. A message will be displayed on application startup and will also display a nag screen periodically. Before deploying an application to a production environment, you must obtain a license key. <a href='/guide/licensing'>Read more about licensing</a>.</div></div>
+<div class="accordion" id="accordion">This API is considered a RhoElements API and therefore requires a paid subscription to use (either Silver or Gold level). You can review the subscription plans on our licensing page <a href='/guide/licensing'>here</a> or on <a href='http://rhomobile.com/pricing/'>rhomobile.com/pricing</a>.</div></div>
