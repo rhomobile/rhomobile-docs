@@ -1,22 +1,30 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-  <MODULE name="Tag" parent="Rho.NFC" productException='eb'>
-    <HELP_OVERVIEW>NFC Tag</HELP_OVERVIEW>
-    <MORE_HELP>This class representative NFC Tag object
-# Enabling the API
+    <MODULE name="Tag" parent="Rho.NFC" productException='eb'>
+        <HELP_OVERVIEW>This class is representative of the NFC Tag object.</HELP_OVERVIEW>
+        <MORE_HELP>
+## Enabling the API
 In order to use this API you must include the following extension in your `build.yml`
+
     :::ruby
     extensions: ["nfc"]
 
 NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
-    </MORE_HELP>
+
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
+
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        </MORE_HELP>
+
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Tag API: 
+There are two methods of enabling the Tag API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 

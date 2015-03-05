@@ -1,9 +1,7 @@
 #Record
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;2</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mcreateSTATIC" data-target="cMethodcreate" class="autouncollapse">create</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Instance</i></b></a><li><a href="#mclose" data-target="cMethodclose" class="autouncollapse">close</a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;9</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Instance Properties</i></b></a><li><a href="#pID" data-target="cPropertyID" class="autouncollapse">ID</a></li><li><a href="#ppayload" data-target="cPropertypayload" class="autouncollapse">payload</a></li><li><a href="#precordId" data-target="cPropertyrecordId" class="autouncollapse">recordId</a></li><li><a href="#ptextCharEncoding" data-target="cPropertytextCharEncoding" class="autouncollapse">textCharEncoding</a></li><li><a href="#ptextLanguage" data-target="cPropertytextLanguage" class="autouncollapse">textLanguage</a></li><li><a href="#ptnf" data-target="cPropertytnf" class="autouncollapse">tnf</a></li><li><a href="#ptype" data-target="cPropertytype" class="autouncollapse">type</a></li><li><a href="#ptypeName" data-target="cPropertytypeName" class="autouncollapse">typeName</a></li><li><a href="#puriProtocol" data-target="cPropertyuriProtocol" class="autouncollapse">uriProtocol</a></li></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<p>NFC Record</p>
-<p>This class representative Record object</p>
-
-<h1>Enabling the API</h1>
+<p>This class is representative of the NFC Record object.</p>
+<h2>Enabling the API</h2>
 
 <p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
 
@@ -11,7 +9,15 @@
 extensions: ["nfc"]
 </code></pre>
 
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+<blockquote><p>Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p></blockquote>
+
+<h2>JavaScript Usage</h2>
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+<h2>Ruby Usage</h2>
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
 
 <a name='Methods'></a>

@@ -9,17 +9,13 @@
 extensions: ["screenorientation"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
-
-<h2>Persistence</h2>
-
-<p>With the old PocketBrowser / RhoElements 1 APIs, any events, such as <code>screenOrientationEvent</code> were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.</p>
 
 
 <a name='Methods'></a>
@@ -34,7 +30,7 @@ extensions: ["screenorientation"]
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
 
-<a name='pautoRotate'></a><div class=' method  js ruby android ios' id='pautoRotate'><h3><strong  >autoRotate</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>BOOLEAN</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pautoRotate1" data-toggle="tab">Description</a></li><li ><a href="#pautoRotate2" data-toggle="tab">Params</a></li><li ><a href="#pautoRotate6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-autoRotate'><div class="tab-pane fade active in" id="pautoRotate1"><p>Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Symbol Technologies devices with IST Sensor support.</p>
+<a name='pautoRotate'></a><div class=' method  js ruby android ios' id='pautoRotate'><h3><strong  >autoRotate</strong><span style='font-size:.7em;font-weight:normal;'> : <span class='text-info'>BOOLEAN</span>  </span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#pautoRotate1" data-toggle="tab">Description</a></li><li ><a href="#pautoRotate2" data-toggle="tab">Params</a></li><li ><a href="#pautoRotate6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-autoRotate'><div class="tab-pane fade active in" id="pautoRotate1"><p>Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Zebra Technologies devices with IST Sensor support.</p>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"> </p></div></p></div><div class="tab-pane fade" id="pautoRotate2"><p><strong>Default:</strong> true</p></div><div class="tab-pane fade" id="pautoRotate5"></div><div class="tab-pane fade" id="pautoRotate6"><div><p><strong>Property Access:</strong></p><ul><li><i class="icon-file"></i>Instance: This property can be accessed via an instance object of this class: <ul><li><code>myObject.autoRotate</code></li></ul></li></ul></div></div></div>  </div>
 <a name='Examples'></a>
 <h2><i class='icon-edit'></i>Examples</h2>
@@ -46,9 +42,9 @@ extensions: ["screenorientation"]
 function start_detecting_orientation_changes(){
   ScreenOrientation.setScreenOrientationEvent(orientation_callback)
 }
- 
+
 function orientation_callback(){
-    
+
   Alert.show_popup("The screen changed orientation")
 }
                    
@@ -57,7 +53,7 @@ function orientation_callback(){
 def start_detecting_orientation_changes
   Rho::ScreenOrientation.setScreenOrientationEvent(url_for(:action =&gt; :orientation_callback))
 end
- 
+
 def orientation_callback
   Alert.show_popup("The screen changed orientation")
 end
@@ -71,9 +67,9 @@ function capture_signature_with_attention_to_details() {
     Rho.ScreenOrientation.upsideDown();
 
     // At this point, offer the device to the user. You just saved the user the hassle of rotating the tablet
-    // and there's less potential for the device to be dropped along the way  
+    // and there's less potential for the device to be dropped along the way
     Rho.Signature.takeFullScreen({}, signature_callback);
-}           
+}
 
 function signature_callback(params) {
     // do whatever we need to do with the signature
@@ -88,7 +84,7 @@ def capture_signature_with_attention_to_details
     # Set screen orientation to upside down
     Rho::ScreenOrientation.upsideDown
     # At this point, offer the device to the user. You just saved the user the hassle of rotating the tablet
-    # and there's less potential for the device to be dropped along the way  
+    # and there's less potential for the device to be dropped along the way
     Rho::Signature.takeFullScreen({}, url_for(:action =&gt; :signature_callback))
 end
 

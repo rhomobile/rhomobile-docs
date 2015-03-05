@@ -1,5 +1,5 @@
 #Device
-<div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;5</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mcalibrate" data-target="cMethodcalibrate" class="autouncollapse">calibrate</a></li><li><a href="#midle" data-target="cMethodidle" class="autouncollapse">idle</a></li><li><a href="#mreboot" data-target="cMethodreboot" class="autouncollapse">reboot</a></li><li><a href="#msuspend" data-target="cMethodsuspend" class="autouncollapse">suspend</a></li><li><a href="#mwake" data-target="cMethodwake" class="autouncollapse">wake</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;7</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Setting callback</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Calibrating the device</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Suspending the device</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Power Off the device</a></li><li><a href="#e4" data-target="eExample4" class="autouncollapse">Switching device to idle mode</a></li><li><a href="#e5" data-target="eExample5" class="autouncollapse">Wake the device</a></li><li><a href="#e6" data-target="eExample6" class="autouncollapse">Rebooting the device</a></li></ul></div><div class="btn-group"><a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#r0" data-target="rRemark0" class="autouncollapse">General</a></li><li><a href="#r1" data-target="rRemark1" class="autouncollapse">Power Off</a></li><li><a href="#r2" data-target="rRemark2" class="autouncollapse">Reboot</a></li><li><a href="#r3" data-target="rRemark3" class="autouncollapse">Interaction with Unattended Method of the Push Module</a></li><li><a href="#r4" data-target="rRemark4" class="autouncollapse">wake Method</a></li></ul></div><div class="btn-group"><a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
+<div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;5</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mcalibrate" data-target="cMethodcalibrate" class="autouncollapse">calibrate</a></li><li><a href="#midle" data-target="cMethodidle" class="autouncollapse">idle</a></li><li><a href="#mreboot" data-target="cMethodreboot" class="autouncollapse">reboot</a></li><li><a href="#msuspend" data-target="cMethodsuspend" class="autouncollapse">suspend</a></li><li><a href="#mwake" data-target="cMethodwake" class="autouncollapse">wake</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;7</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Callback Example</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Calibrating the device</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Suspending the device</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Power Off the device</a></li><li><a href="#e4" data-target="eExample4" class="autouncollapse">Switching device to idle mode</a></li><li><a href="#e5" data-target="eExample5" class="autouncollapse">Wake the device</a></li><li><a href="#e6" data-target="eExample6" class="autouncollapse">Rebooting the device</a></li></ul></div><div class="btn-group"><a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#r0" data-target="rRemark0" class="autouncollapse">General</a></li><li><a href="#r1" data-target="rRemark1" class="autouncollapse">Power Off</a></li><li><a href="#r2" data-target="rRemark2" class="autouncollapse">Reboot</a></li><li><a href="#r3" data-target="rRemark3" class="autouncollapse">Interaction with Unattended Method of the Push Module</a></li><li><a href="#r4" data-target="rRemark4" class="autouncollapse">wake Method</a></li></ul></div><div class="btn-group"><a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
 <p>The Device API provides access to some device level functionality that is only available on Symbol devices such as suspend, calibrate, powerOff, wake, reboot etc.</p>
 <h2>Enabling the API</h2>
 
@@ -48,12 +48,13 @@ app_type: "rhoelements"
 <a name='Examples'></a>
 <h2><i class='icon-edit'></i>Examples</h2>
 
-<a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Setting callback</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
-<p>Setting a callback</p>
+<a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Callback Example</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
+<p>In this example you&rsquo;ll see an example of what your callback may look like should you choose to define one.</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
-	
-//Callback is optional, user can call the API with or without callback.
-//User can set the callback in the below manner.							
+
+// Callback is optional, user can call the API with or without callback.
+// User can set the callback in the below manner.
+
 function mycallback(data){
 	var myMessage = "Status:" + data.status + "\n";
 	if(data.message != ""){
@@ -64,223 +65,232 @@ function mycallback(data){
 
 							</code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-#Callback is optional, user can call the API with or without callback.
-#User can set the callback in the below manner.							
+# Callback is optional, user can call the API with or without callback.
+# User can set the callback in the below manner.
+
 def mycallback
 	myMessage = "Status:" + @params['status'] + "\n";
 		if(@params['message'] != "")
 			myMessage += "Message:" + @params['message']
-		end		
+		end
 	Alert.show_popup(myMessage)
-end							
+end
 
 							</code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Calibrating the device</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
-<p>Calibrating the device</p>
+<p>In this example, you&rsquo;ll see how to calibrate the device with, or without a callback handler.</p>
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
-			
-//Calibrating the device with callback
-Rho.Device.calibrate(mycallback);	
-//On successful calibration, callback will update the 'status' as 'success' and 'message' as 'Calibration was done succesfully.'.
-//On unsuccessful calibration, callback will update the 'status' as 'failed' and 'message' as 'Calibration was failed.'.
-							
-//Calibrating the device without callback
-Rho.Device.calibrate();							
+]
+// Calibrating the device with callback
+Rho.Device.calibrate(mycallback);
+
+// On successful calibration, callback will update the 'status' as 'success' and 'message' as 'Calibration was done successfully.'.
+// On unsuccessful calibration, callback will update the 'status' as 'failed' and 'message' as 'Calibration was failed.'.
+
+// Calibrating the device without callback
+Rho.Device.calibrate();
 
 							</code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-#Calibrating the device with callback
-Rho::Device.calibrate(mycallback);	
-#On successful calibration, callback will update the 'status' as 'success' and 'message' as 'Calibration was done succesfully.'.
-#On unsuccessful calibration, callback will update the 'status' as 'failed' and 'message' as 'Calibration was failed.'.
+# Calibrating the device with callback
+Rho::Device.calibrate(mycallback);
 
-#Calibrating the device without callback
-Rho::Device.calibrate();							
+# On successful calibration, callback will update the 'status' as 'success' and 'message' as 'Calibration was done successfully.'.
+# On unsuccessful calibration, callback will update the 'status' as 'failed' and 'message' as 'Calibration was failed.'.
+
+# Calibrating the device without callback
+Rho::Device.calibrate();
 
 							</code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class=' example' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample2"><strong>Suspending the device</strong></div><div id="cExample2" class="accordion-body">  <div class="accordion-inner">
-<p>Suspending the device</p>
+<p>In this example, you&rsquo;ll see how to suspend the device with, or without a callback handler.</p>
 <ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0JS'><pre class='CodeRay'><code>:::javascript
 
-//Suspending the device with callback
+// Suspending the device with callback
 Rho.Device.suspend(mycallback);
-//On successful suspend, callback will not be updated.
-//On unsuccessful suspend, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-//Suspending the device without callback
-Rho.Device.suspend();							
+
+// On successful suspend, callback will not be updated.
+// On unsuccessful suspend, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+// Suspending the device without callback
+Rho.Device.suspend();
 
 							</code></pre></div><div class='tab-pane' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-#Suspending the device with callback
+# Suspending the device with callback
 Rho::Device.suspend(mycallback);
-#On successful suspend, callback will not be updated.
-#On unsuccessful suspend, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-#Suspending the device without callback
-Rho::Device.suspend();							
+
+# On successful suspend, callback will not be updated.
+# On unsuccessful suspend, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+# Suspending the device without callback
+Rho::Device.suspend();
 
 							</code></pre></div></div>  </div></div></div></div><a name='e3'></a><div class=' example' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample3"><strong>Power Off the device</strong></div><div id="cExample3" class="accordion-body">  <div class="accordion-inner">
-<p>Power Off the device</p>
+<p>In this example you&rsquo;ll see how to power the device off with, or without a callback handler.</p>
 <ul class='nav nav-tabs' id='exI3-S0Tab'><li class='active'><a href='#exI3-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI3-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S0JS'><pre class='CodeRay'><code>:::javascript
 
-//Power Off the device with callback
-Rho.Device.powerOff(mycallback);	
-//On successful powerOff, callback will not be updated.
-//On unsuccessful powerOff, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-//Power Off the device without callback
-Rho.Device.powerOff();							
+// Power Off the device with callback
+Rho.Device.powerOff(mycallback);
+
+// On successful powerOff, callback will not be updated.
+// On unsuccessful powerOff, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+// Power Off the device without callback
+Rho.Device.powerOff();
 
 							</code></pre></div><div class='tab-pane' id='exI3-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-#Power Off the device with callback
-Rho::Device.powerOff(mycallback);	
-#On successful powerOff, callback will not be updated.
-#On unsuccessful powerOff, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-#Power Off the device without callback
-Rho::Device.powerOff();							
+# Power Off the device with callback
+Rho::Device.powerOff(mycallback);
+
+# On successful powerOff, callback will not be updated.
+# On unsuccessful powerOff, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+# Power Off the device without callback
+Rho::Device.powerOff();
 
 							</code></pre></div></div>  </div></div></div></div><a name='e4'></a><div class=' example' id='e4'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample4"><strong>Switching device to idle mode</strong></div><div id="cExample4" class="accordion-body">  <div class="accordion-inner">
-<p>Switching device to idle mode</p>
+<p>In this example you&rsquo;ll see how to put the device into idle mode with, or without a callback handler.</p>
 <ul class='nav nav-tabs' id='exI4-S0Tab'><li class='active'><a href='#exI4-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI4-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI4-S0JS'><pre class='CodeRay'><code>:::javascript
 
-//Switching device to idle mode with callback
-Rho.Device.idle(mycallback);	
-//On successful idle, callback will not be updated.
-//On unsuccessful idle, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-//Switching device to idle mode without callback
-Rho.Device.idle();							
+// Switching device to idle mode with callback
+Rho.Device.idle(mycallback);
+
+// On successful idle, callback will not be updated.
+// On unsuccessful idle, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+// Switching device to idle mode without callback
+Rho.Device.idle();
 
 							</code></pre></div><div class='tab-pane' id='exI4-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-#Switching device to idle mode with callback
-Rho::Device.idle(mycallback);	
-#On successful idle, callback will not be updated.
-#On unsuccessful idle, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-#Switching device to idle mode without callback
-Rho::Device.idle();							
+# Switching device to idle mode with callback
+Rho::Device.idle(mycallback);
+
+# On successful idle, callback will not be updated.
+# On unsuccessful idle, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+# Switching device to idle mode without callback
+Rho::Device.idle();
 
 							</code></pre></div></div>  </div></div></div></div><a name='e5'></a><div class=' example' id='e5'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample5"><strong>Wake the device</strong></div><div id="cExample5" class="accordion-body">  <div class="accordion-inner">
-<p>Wake the device</p>
+<p>In this example you&rsquo;ll see how to wake the device with, or without a callback handler.</p>
 <ul class='nav nav-tabs' id='exI5-S0Tab'><li class='active'><a href='#exI5-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI5-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI5-S0JS'><pre class='CodeRay'><code>:::javascript
 
-//Wake the device with callback
-//Note: callback is ignored in Android platform. Hence no update will be retrieved on Android platform.
-Rho.Device.wake(mycallback);	
-//On successful wake, callback will not be updated.
-//On unsuccessful wake, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-//Wake the device without callback
-Rho.Device.wake();							
+// Wake the device with callback
+// Note: callback is ignored on Android. Hence no update will be retrieved on Android.
+Rho.Device.wake(mycallback);
+
+// On successful wake, callback will not be updated.
+// On unsuccessful wake, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+// Wake the device without callback
+Rho.Device.wake();
 
 							</code></pre></div><div class='tab-pane' id='exI5-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-#Wake the device with callback
-#Note: callback is ignored in Android platform. Hence no update will be retrieved on Android platform.
-Rho::Device.wake(mycallback);	
-#On successful wake, callback will not be updated.
-#On unsuccessful wake, callback will update the 'status' as 'failed' and 'message' will contain the error message.
-							
-#Wake the device without callback
-Rho::Device.wake();							
+# Wake the device with callback
+# Note: callback is ignored on Android. Hence no update will be retrieved on Android.
+Rho::Device.wake(mycallback);
+
+# On successful wake, callback will not be updated.
+# On unsuccessful wake, callback will update the 'status' as 'failed' and 'message' will contain the error message.
+
+# Wake the device without callback
+Rho::Device.wake();
 
 							</code></pre></div></div>  </div></div></div></div><a name='e6'></a><div class=' example' id='e6'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample6"><strong>Rebooting the device</strong></div><div id="cExample6" class="accordion-body">  <div class="accordion-inner">
-<p>Rebooting the device</p>
+<p>In this example you&rsquo;ll see how to reboot the device with, or without a callback handler.</p>
 <ul class='nav nav-tabs' id='exI6-S0Tab'><li class='active'><a href='#exI6-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI6-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI6-S0JS'><pre class='CodeRay'><code>:::javascript
 
-//With callback
+// With callback
+// The callback is updated only for failed cases as mentioned below:-
+// For 'Warm' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
+// For 'Cold' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Cold booting.'.
+// For 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do ColdCAD booting.'.
+// Other than 'Warm' or 'Cold' or 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
 
-//The callback is updated only for failed cases as mentioned below:-
-//For 'Warm' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
-//For 'Cold' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Cold booting.'.
-//For 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do ColdCAD booting.'.
-//Other than 'Warm' or 'Cold' or 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
-
-//Rebooting the device using the string value as 'Warm'. 
+// Rebooting the device using the string value as 'Warm'. 
 Rho.Device.reboot("Warm",mycallback);
 
-//Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
+// Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
 Rho.Device.reboot("Cold",mycallback);
-							
-//Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
-Rho.Device.reboot("ColdCAD",mycallback);	
 
-//Rebooting the device with an empty string, results in warm booting of the device. 
-Rho.Device.reboot("",mycallback);	
+// Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
+Rho.Device.reboot("ColdCAD",mycallback);
 
-//Rebooting the device without passing any argument and only with callback, results in warm booting of the device.
-Rho.Device.reboot(mycallback);	
+// Rebooting the device with an empty string, results in warm booting of the device. 
+Rho.Device.reboot("",mycallback);
 
-//Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
+// Rebooting the device without passing any argument and only with callback, results in warm booting of the device.
+Rho.Device.reboot(mycallback);
+
+// Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
 Rho.Device.reboot("XYZ",mycallback);
-							
-//Without callback
-//Rebooting the device using the string value as 'Warm'. 
+
+// Without callback
+// Rebooting the device using the string value as 'Warm'. 
 Rho.Device.reboot("Warm");
 
-//Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
+// Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
 Rho.Device.reboot("Cold");
-							
-//Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
-Rho.Device.reboot("ColdCAD");	
 
-//Rebooting the device with an empty string, results in warm booting of the device. 
-Rho.Device.reboot("");	
+// Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
+Rho.Device.reboot("ColdCAD");
 
-//Rebooting the device without passing any argument, results in warm booting of the device.
-Rho.Device.reboot();	
+// Rebooting the device with an empty string, results in warm booting of the device. 
+Rho.Device.reboot("");
 
-//Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
-Rho.Device.reboot("XYZ");								
+// Rebooting the device without passing any argument, results in warm booting of the device.
+Rho.Device.reboot();
+
+// Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
+Rho.Device.reboot("XYZ");
 
 							</code></pre></div><div class='tab-pane' id='exI6-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-#With callback
+# With callback
+# The callback is updated only for failed cases as mentioned below:-
+# For 'Warm' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
+# For 'Cold' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Cold booting.'.
+# For 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do ColdCAD booting.'.
+# Other than 'Warm' or 'Cold' or 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
 
-#The callback is updated only for failed cases as mentioned below:-
-#For 'Warm' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
-#For 'Cold' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Cold booting.'.
-#For 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do ColdCAD booting.'.
-#Other than 'Warm' or 'Cold' or 'ColdCAD' boot, the callback contains 'status' as 'failed' and 'message' as 'Failed to do Warm booting.'.
-
-#Rebooting the device using the string value as 'Warm'. 
+# Rebooting the device using the string value as 'Warm'. 
 Rho::Device.reboot("Warm",mycallback);
 
-#Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
+# Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
 Rho::Device.reboot("Cold",mycallback);
-							
-#Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
-Rho::Device.reboot("ColdCAD",mycallback);		
 
-#Rebooting the device with an empty string, results in warm booting of the device. 
-Rho::Device.reboot("",mycallback);	
+# Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
+Rho::Device.reboot("ColdCAD",mycallback);
 
-#Rebooting the device without passing any argument and only with callback, results in warm booting of the device.
-Rho::Device.reboot(mycallback);	
+# Rebooting the device with an empty string, results in warm booting of the device. 
+Rho::Device.reboot("",mycallback);
 
-#Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
-Rho::Device.reboot("XYZ",mycallback);	
-							
-#Without callback							
-#Rebooting the device using the string value as 'Warm'. 
+# Rebooting the device without passing any argument and only with callback, results in warm booting of the device.
+Rho::Device.reboot(mycallback);
+
+# Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
+Rho::Device.reboot("XYZ",mycallback);
+
+# Without callback
+# Rebooting the device using the string value as 'Warm'. 
 Rho::Device.reboot("Warm");
 
-#Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
+# Rebooting the device using the string value as 'Cold'. Note this feature may not be supported on all devices.
 Rho::Device.reboot("Cold");
-							
-#Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
-Rho::Device.reboot("ColdCAD");		
 
-#Rebooting the device with an empty string, results in warm booting of the device. 
-Rho::Device.reboot("");	
+# Rebooting the device using the string value as 'ColdCAD'. Note this feature may not be supported on all devices.
+Rho::Device.reboot("ColdCAD");
 
-#Rebooting the device without passing any argument, results in warm booting of the device.
-Rho::Device.reboot();	
+# Rebooting the device with an empty string, results in warm booting of the device. 
+Rho::Device.reboot("");
 
-#Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
-Rho::Device.reboot("XYZ");						
+# Rebooting the device without passing any argument, results in warm booting of the device.
+Rho::Device.reboot();
+
+# Rebooting the device with any string other than 'Warm' or 'Cold' or 'ColdCAD', results in warm booting of the device.
+Rho::Device.reboot("XYZ");
 
 							</code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>

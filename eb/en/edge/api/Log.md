@@ -2,10 +2,9 @@
 
 
 ## Overview
-Use this API to control the behavior of the RhoMobile Log API as well as access it.
-This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.
+Use this API to control the behavior of the RhoMobile Log API as well as access it. This API gives access to the Logging functionality. There are five functions to add messages to the log with different severity (from lowest to highest) : trace, info, warning, error and fatal. Each of those functions gets two parameters: message and category. Category is an user defined group that helps with used  searching and filtering.
 
-Accessing Log File:
+### Accessing Log File:
 sendLogFile: will sent all the log to server
 showLog: brings up popup with log,
 readLogFile: returns the full log file,
@@ -24,7 +23,7 @@ Log destinations (any combinations of them):
 * debug console (stdio),
 * device filesystem (file)
 * remote sever (url)
-
+        
 ## Enabling the API
 There are two methods of enabling the Log API:
 

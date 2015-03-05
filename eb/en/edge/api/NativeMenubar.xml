@@ -42,8 +42,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     &lt;script type="text/javascript" charset="utf-8" src="eb.nativemenubar.js"&gt;&lt;/script&gt;
 
 The ebapi.js file is necessary for all single API inclusions.
-
-
         </MORE_HELP_EB>
 
         <PLATFORM>WM</PLATFORM>

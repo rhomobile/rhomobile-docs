@@ -59,7 +59,7 @@ end
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
-<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Devices lacking support</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>Due to platform limitations this API is not available on the following Zebra Technologies devices:</p>
+<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Devices lacking support</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>Due to platform limitations this API is not available on the following Symbol Technologies' devices:</p>
 
 <ul>
 <li>ES400</li>
@@ -67,7 +67,6 @@ end
 <li>MC65</li>
 <li>VC70</li>
 <li>MC45</li>
-<li>Workabout Pro 4</li>
 </ul>
 
   </div></div></div></div><a name='r1'></a><div class=' remarks' id='r1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark1"><strong>Rotating the Screen</strong></div><div id="cRemark1" class="accordion-body">  <div class="accordion-inner"><p>The keystate indicator positions are absolute and so when rotating the screen you should also reposition the keystate accordingly to accommodate the new screen layout.</p>

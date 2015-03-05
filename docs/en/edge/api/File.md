@@ -1,8 +1,6 @@
 #RhoFile
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;25</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Constructs</i></b></a><li><a href="#mclose" data-target="cMethodclose" class="autouncollapse">Destructor</a></li><li><a href="#mopen" data-target="cMethodopen" class="autouncollapse">Constructor</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mbasenameSTATIC" data-target="cMethodbasename" class="autouncollapse">basename</a></li><li><a href="#mcopySTATIC" data-target="cMethodcopy" class="autouncollapse">copy</a></li><li><a href="#mdeleteDirSTATIC" data-target="cMethoddeleteDir" class="autouncollapse">deleteDir</a></li><li><a href="#mdeleteFileSTATIC" data-target="cMethoddeleteFile" class="autouncollapse">deleteFile</a></li><li><a href="#mdeleteRecursiveSTATIC" data-target="cMethoddeleteRecursive" class="autouncollapse">deleteRecursive</a></li><li><a href="#mdirnameSTATIC" data-target="cMethoddirname" class="autouncollapse">dirname</a></li><li><a href="#mexistsSTATIC" data-target="cMethodexists" class="autouncollapse">exists</a></li><li><a href="#mgetFileSizeSTATIC" data-target="cMethodgetFileSize" class="autouncollapse">getFileSize</a></li><li><a href="#misDirSTATIC" data-target="cMethodisDir" class="autouncollapse">isDir</a></li><li><a href="#misFileSTATIC" data-target="cMethodisFile" class="autouncollapse">isFile</a></li><li><a href="#mjoinSTATIC" data-target="cMethodjoin" class="autouncollapse">join</a></li><li><a href="#mlistDirSTATIC" data-target="cMethodlistDir" class="autouncollapse">listDir</a></li><li><a href="#mmakeDirSTATIC" data-target="cMethodmakeDir" class="autouncollapse">makeDir</a></li><li><a href="#mmakeDirsSTATIC" data-target="cMethodmakeDirs" class="autouncollapse">makeDirs</a></li><li><a href="#mreadSTATIC" data-target="cMethodread" class="autouncollapse">read</a></li><li><a href="#mrenameSTATIC" data-target="cMethodrename" class="autouncollapse">rename</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Instance</i></b></a><li><a href="#mflush" data-target="cMethodflush" class="autouncollapse">flush</a></li><li><a href="#misOpened" data-target="cMethodisOpened" class="autouncollapse">isOpened</a></li><li><a href="#mread" data-target="cMethodread" class="autouncollapse">read</a></li><li><a href="#mreadAll" data-target="cMethodreadAll" class="autouncollapse">readAll</a></li><li><a href="#mseek" data-target="cMethodseek" class="autouncollapse">seek</a></li><li><a href="#msize" data-target="cMethodsize" class="autouncollapse">size</a></li><li><a href="#mwrite" data-target="cMethodwrite" class="autouncollapse">write</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;1</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">List contents of a folder</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<p>This API provides several methods for access to files and folders found on the device&rsquo;s local file system.</p>
-<p>Use this API to access local files for reading and writing. Only string data can be read and written with this API. Please note that binary files are not supported. Strings filled with \0 will be truncated to the last non \0 character.</p>
-
+<p>This API provides several methods for access to files and folders found on the device&rsquo;s local file system. Use this API to access local files for reading and writing. Only string data can be read and written with this API. Please note that binary files are not supported. Strings filled with \0 will be truncated to the last non \0 character.</p>
 <h2>Enabling the API</h2>
 
 <p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
@@ -11,11 +9,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -125,11 +123,11 @@ folders = []
 files = []
 
 root_path = "/arbitrary/path"
-entries = Rho::RhoFile.listDir(root_path)
+entries = Rho::File.listDir(root_path)
 
 entries.each do |entry|
   unless (entry == "." || entry == "..")
-    (Rho::RhoFile.isDir(Rho::RhoFile.join(root_path,entry)) ? folders : files) &lt;&lt; entry
+    (Rho::File.isDir(Rho::File.join(root_path,entry)) ? folders : files) &lt;&lt; entry
   end
 end
                    

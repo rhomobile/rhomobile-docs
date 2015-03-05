@@ -33,10 +33,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Barcode API: 
+There are two methods of enabling the Barcode API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -93,7 +93,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <DESC>Describes the linear security level used during decoding. This determines the number of times a barcode must be read before it is decoded. If the successive reads of the barcode do not match, it will not be decoded.</DESC>
                 <VALUES>
                     <VALUE constName="REDUNDANCY_AND_LENGTH" value="redundancyAndLength">
-                        <DESC>Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners. Not supported on Android with EMDK version 3.1 and above.</DESC>
+                        <DESC>Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.</DESC>
                     </VALUE>
                     <VALUE constName="SHORT_OR_CODABAR" value="shortOrCodabar">
                         <DESC>Double redundancy if short barcode or Codabar.</DESC>
@@ -113,7 +113,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners. Scan timeout is extent to hardware capabilities and limitations.</DESC>
+                <DESC>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.</DESC>
             </PROPERTY>
             <PROPERTY name="rasterMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -271,7 +271,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Camera Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given. Not supported on Android with EMDK version 3.1 and above.</DESC>
+                <DESC>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.</DESC>
                 <VALUES>
                     <VALUE constName="VF_FEEDBACK_ENABLED" value="enabled">
                         <DESC>The last image that was successfully decoded is displayed. The time for which the image is displayed can be configured by the viewfinderFeedbackTime parameter.</DESC>
@@ -288,7 +288,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Camera Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds. Not supported on Android with EMDK version 3.1 and above.</DESC>
+                <DESC>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.</DESC>
             </PROPERTY>
             <PROPERTY name="focusMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -365,7 +365,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="BEAM_NARROW" value="narrow">
                         <DESC>Laser beam width is narrow.</DESC>
                     </VALUE>
-                </VALUES>            
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="dbpMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -379,7 +379,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="DBP_COMPOSITE" value="composite">
                         <DESC>Tells the scan engine to produce composite DBP, which is 2 different sets of DBP data multiplexed together for better decode performance. In order to enable this mode it must be supported by the scanner.</DESC>
                     </VALUE>
-                </VALUES>            
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="klasseEins" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -709,7 +709,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="UCC_AUTO" value="auto">
                         <DESC>Auto-discriminate whether Composite AB barcodes are linked.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="compositeAbUseUpcPreambleCheckDigitRules" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>2.0.0</VER_INTRODUCED>
@@ -906,7 +906,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="I2OF5_VERIFY_OPCC" value="opcc">
                         <DESC>Enables the OPCC format for the check digit.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="korean3of5" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>2.0.0</VER_INTRODUCED>
@@ -1052,7 +1052,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="MSI_CHECKDIGITS_TWO" value="two">
                         <DESC>Use two check digits for MSI barcodes.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="msiCheckDigitScheme" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1066,7 +1066,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="MSI_CHECKDIGITS_MOD10" value="mod10">
                         <DESC>Both check digits are MOD 10.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="msiMaxLength" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1254,7 +1254,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="BOOKLAND_ISBN13" value="isbn13">
                         <DESC>Causes 978/979 bookland barcodes to be transmitted as EAN13 as per 2007 ISBN-13 protocol.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="upcEanConvertGs1dataBarToUpcEan" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>2.1.0</VER_INTRODUCED>
@@ -1331,7 +1331,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="UPCEAN_439" value="414or419or434or439">
                         <DESC>Auto-discriminates supplemental for upc/ean codes starting with 414 or 419 or 434 or 439. Will disable reading of supplementals for any other upc/ean barcodes not starting with these values. The supplemental will be scanned if present but if scanning fails then the main barcode will be returned.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="upca" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1354,7 +1354,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="UPCA_PREAMBLE_COUNTRY" value="countryAndSystemChars">
                         <DESC>Applies both system and country code preamble to the bar code.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="upcaReportCheckDigit" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1389,7 +1389,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="UPCE0_PREAMBLE_COUNTRY" value="countryAndSystemChars">
                         <DESC>Applies both system and country code preamble to the bar code.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="upce0reportCheckDigit" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1424,7 +1424,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="UPCE1_PREAMBLE_COUNTRY" value="countryAndSystemChars">
                         <DESC>Applies both system and country code preamble to the bar code.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="upce1reportCheckDigit" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
@@ -1578,7 +1578,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <VALUE constName="RSM_AUTORECONNECT_ON_POWER_OUT_OF_RANGE" value="onPowerOutOfRange">
                         <DESC>When powered on or when the device goes out of range.</DESC>
                     </VALUE>
-                </VALUES> 
+                </VALUES>
             </PROPERTY>
             <PROPERTY name="rsmForceSavePairingBarcode" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1674,6 +1674,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <DESC_EB>Returns an array of objects which can be used to control the specific scanner instance whereas previously, it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC_EB>
                 </BACKWARDS_COMPATIBILITY>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <CALLBACK type="ARRAY">
                     <DESC>Array of Barcode objects, one for each hardware scanner on the device. Methods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
                     <PARAM type="SELF_INSTANCE"/>
@@ -1720,7 +1721,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     </PARAMS>
                 </CALLBACK>
             </METHOD>
-            
+
             <METHOD name="registerBluetoothStatus" hasCallback="mandatory">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
@@ -1759,6 +1760,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="barcode_recognize" hasCallback="none" deprecated="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <PLATFORM>iOS,Android</PLATFORM>
+                <PLATFORM_EB>Android</PLATFORM_EB>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
                 <DESC>Recognizes a barcode on an image. Returns a string with recognized code, or empty string if the barcode is not recognized.</DESC>
                 <PARAMS>
@@ -1784,6 +1786,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <DESC>Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC>
                 <DESC_EB>Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC_EB>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>Provide a set of properties to configure the scanner, for example enable specific symbologies or check digits.</DESC>
@@ -1833,11 +1836,12 @@ The ebapi.js file is necessary for all single API inclusions.
                     </PARAM>
                 </PARAMS>
             </METHOD>
-            
+
         </METHODS>
-        
+
         <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
         <PLATFORM>Android, iOS, WM</PLATFORM>
+        <PLATFORM_EB>WM, Android</PLATFORM_EB>
         <REMARKS>
             <REMARK title="Bluetooth Scanner Overview">
                 <DESC>
@@ -1847,8 +1851,8 @@ The following messages will be received from the Bluetooth Scanner in the blueto
 
 **'BTScanAssociationBarcode'**
 
-Means the device is ready to be associated with a BT scanner. You must scan the 
-association barcode. It is only necessary to scan the association 
+Means the device is ready to be associated with a BT scanner. You must scan the
+association barcode. It is only necessary to scan the association
 barcode when you first associate a scanner with the device, this pairing will be remembered until
 you scan the unpairing barcode.
 
@@ -1889,7 +1893,7 @@ On Symbol Technologies' scanners the scanner viewfinder window is not infinitely
 **Disabling Datawedge**
 
 1. Start the DataWedge app
-2. Click the menu button > "Settings" and untick "DataWedge enabled". 
+2. Click the menu button > "Settings" and untick "DataWedge enabled".
 
 **RhoElements Datawedge Profile**
 
@@ -1921,7 +1925,7 @@ def scan_using_default_scanner
   # Scan with default options
   Rho::Barcode.take({}, url_for(:action => :scan_received))
 end
-  
+
 def scan_received
   # Did we actually find a barcode ?
   # If status is not 'ok', the scan was canceled
@@ -1939,7 +1943,7 @@ function scan_using_default_scanner(){
   // Scan with default options
   Rho.Barcode.take({}, scan_received);
 }
-  
+
 function scan_received(params)
   // Did we actually find a barcode ?
   // If status is not 'ok', the scan was canceled
@@ -1965,11 +1969,11 @@ function scan_received(params)
                 <RUBY>
            <![CDATA[
 # ---------------
-# controller.rb  
+# controller.rb
 # ---------------
-         
+
 def choose_scanner
-  # Obtain list of available scanners on the system. Devices without a hardware scanner will return a software-based recognizer 
+  # Obtain list of available scanners on the system. Devices without a hardware scanner will return a software-based recognizer
   $scanners = Rho::Barcode.enumerate
   render
 end
@@ -1996,7 +2000,7 @@ end
 # ---------------
 <ul data-role="listview">
   <% $scanners.each_with_index do |scanner, index| %>
-    <li><a href="<%= url_for(:action => :scan_using_chosen_scanner, :query => {:scanner_index => index}) %>"><%= scanner.friendlyName %></li> 
+    <li><a href="<%= url_for(:action => :scan_using_chosen_scanner, :query => {:scanner_index => index}) %>"><%= scanner.friendlyName %></li>
   <% end %>
 </ul>
                    ]]>
@@ -2004,11 +2008,11 @@ end
                 <JAVASCRIPT>
            <![CDATA[
 var scanners;
-             
+
 function choose_scanner(){
-    
-  // Enumerate returns an array of scanner objects 
-  // Devices without a hardware scanner will return a software-based recognizer 
+
+  // Enumerate returns an array of scanner objects
+  // Devices without a hardware scanner will return a software-based recognizer
   scanners = Rho.Barcode.enumerate();
 }
 
@@ -2048,7 +2052,7 @@ Rho::Barcode.allDecoders = false
 Rho::Barcode.upca = true
 # All other barcode symbologies will be ignored
 Rho::Barcode.take({}, url_for(:action => :scan_received_callback))
- 
+
                    ]]>
                  </RUBY>
                 <JAVASCRIPT>
@@ -2079,7 +2083,7 @@ Rho.Barcode.take({}, scan_received_callback);
 
 # Here are examples of setting some of the properties. The documentation lists the acceptable values for each of them
 
-# Aiming mode (visual cue):  
+# Aiming mode (visual cue):
 Rho::Barcode.aimMode = "none"
 Rho::Barcode.aimMode = "dot"
 Rho::Barcode.aimMode = "slab"
@@ -2110,7 +2114,7 @@ Rho::Barcode.beamWidth = "wide"
 
 // Here are examples of setting some of the properties. The documentation lists the acceptable values for each of them
 
-// Aiming mode (visual cue):  
+// Aiming mode (visual cue):
 Rho.Barcode.aimMode = "none";
 Rho.Barcode.aimMode = "dot";
 Rho.Barcode.aimMode = "slab";
@@ -2150,7 +2154,7 @@ Rho::Barcode.decodeVolume = 5
 Rho::Barcode.decodeFrequency = 1000
 # One-second long
 Rho::Barcode.decodeDuration = 1000
-  
+
 Rho::Barcode.take({}, url_for(:action => :scan_received_callback))
                    ]]>
                  </RUBY>
@@ -2162,7 +2166,7 @@ Rho.Barcode.decodeVolume = 5;
 Rho.Barcode.decodeFrequency = 1000;
 // One-second long
 Rho.Barcode.decodeDuration = 1000;
-  
+
 Rho.Barcode.take({}, scan_received_callback);
                    ]]>
                  </JAVASCRIPT>
@@ -2172,17 +2176,18 @@ Rho.Barcode.take({}, scan_received_callback);
             </EXAMPLE>
         </EXAMPLES>
         <EXAMPLES_EB>
-            <EXAMPLE title="Enable barcode scanner and scan a bacrode">
+            <EXAMPLE title='Scanning a Barcode'>
                 <SECTIONS>
                     <SECTION>
-                        <DESC>This example shows how to enable your device's barcode scanner and access the data gathered by the scanner. Note that this example assumes that your ebapi-modules.js file is in the same folder as the HTML invoking it. On symbol devices, data wedge needs to be disabled or the Enterprise Browser will not be able to claim any of the scanners.</DESC>
+                        <DESC>In this example you'll see how to enable your device's barcode scanner and scan a barcode with said scanner. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.</DESC>
                         <CODE>
                             <JAVASCRIPT><![CDATA[
 <head>
-    <title>Barcode API Test</title>
     <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-    <script type="text/javascript">
+    <title>Barcode API Test</title>
+
+    <script>
         function scanReceived(params){
             // No data or no timestamp, scan failed.
             if(params['data']== "" || params['time']==""){
@@ -2208,6 +2213,7 @@ Rho.Barcode.take({}, scan_received_callback);
 
 <body onunload='unloadEvent()'>
     <h1>Barcode API Test</h1>
+    </br>
     <div id="display">
         Barcode Data: <br>
         Time: <br>

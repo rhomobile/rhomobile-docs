@@ -9,7 +9,7 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
@@ -109,10 +109,10 @@ product.get('name'); // iPhone5
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
    
-// The model 'Product' must have been defined in JavaScript execution earlier 
-// in order for 'getModel' to work properly. 
+// The model 'Product' must have been defined in JavaScript execution earlier
+// in order for 'getModel' to work properly.
 
-// The models generated in RhoStudio, are not accessible in JavaScript unless 
+// The models generated in RhoStudio, are not accessible in JavaScript unless
 // the classes are defined via the  Rho.ORM.addModel api
 
 

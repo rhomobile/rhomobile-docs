@@ -1,45 +1,32 @@
 <?xml version = "1.0"?>
 <API>
     <MODULE name="SimulScan" parent="Rho" productException="eb">
-        <HELP_OVERVIEW>The SimulScan is a software solution that enables customers to extract and
-    process various types of information from documents. A single document may contain barcodes, text, image data and
-    forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
-    example, a driver's license can be thought of as a template containing regions such as name and address, signature
-    and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
-    Recognition captures the owners name and address whilst their photo is captured separately. These regions are
-    defined by a template which maps the various regions of the document to the data they contain and can be created
-    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
+        <HELP_OVERVIEW>The SimulScan is a software solution that enables customers to extract and process various types of information from documents. A single document may contain barcodes, text, image data and forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For example, a driver's license can be thought of as a template containing regions such as name and address, signature and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character Recognition captures the owners name and address whilst their photo is captured separately. These regions are defined by a template which maps the various regions of the document to the data they contain and can be created devices with firmware supporting SimulScan.
         </HELP_OVERVIEW>
-        <HELP_OVERVIEW_EB>The SimulScan is a software solution that enables customers to extract and
-    process various types of information from documents. A single document may contain barcodes, text, image data and
-    forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For
-    example, a driver's license can be thought of as a template containing regions such as name and address, signature
-    and photo, each of these regions are processed and returned to the app separately by SimulScan so Optical Character
-    Recognition captures the owners name and address whilst their photo is captured separately. These regions are
-    defined by a template which maps the various regions of the document to the data they contain and can be created
-    on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
+        <HELP_OVERVIEW_EB>The SimulScan is a software solution that enables customers to extract and process various types of information from documents. A single document may contain barcodes, text, image data and forms, using SimulScan this data can be extracted programmatically using OCR, barcode decoding and image capture. For example, a driver's license can be thought of as a template containing regions such as name and address, signature and photo, each of these regions are processed and returned to the app separately by SimulScan so Optical Character Recognition captures the owners name and address whilst their photo is captured separately. These regions are defined by a template which maps the various regions of the document to the data they contain and can be created on-line at [The SimulScan template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan.
         </HELP_OVERVIEW_EB>
         <MORE_HELP>
-    ## Enabling the API
-    In order to use this API you must include the following extension in your `build.yml`.
-        :::ruby
-        extensions: ["simulscan"]
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
 
-    ## JavaScript Usage
-    Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API
-    in JavaScript.
+    :::ruby
+    extensions: ["simulscan"]
 
-    ## Ruby Usage
-    Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
-    Ruby.
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API
+in JavaScript.
+
+### Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in
+Ruby.
         </MORE_HELP>
 
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the SimulScan API: 
+There are two methods of enabling the SimulScan API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -362,17 +349,17 @@ Rho.SimulScan.captureDocument(function(params){
       // This means it could not identify the label based on the template used
       // Possible reasons
       //    -label is the wrong label
-      //    -Template is poorly defined 
+      //    -Template is poorly defined
       //      maybe scanned in image for defining was not high enough resolution
       //    -camera cannot focus
 
-      // This may trigger multiple times and may not warrant display information 
+      // This may trigger multiple times and may not warrant display information
       // in your app - the SimulScan engine will prompt the user in most cases
     }
     if(params.failureReason == Rho.SimulScan.FAILURE_PROCESSING_TIMEOUT){
       // This means it identified the form but could not process it
       // Possible reasons
-      //    -Template is poorly defined 
+      //    -Template is poorly defined
       //      maybe scanned in image for defining was not high enough resolution
       //    -Camera cannot focus or poorly lit
 

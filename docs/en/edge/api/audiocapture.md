@@ -9,11 +9,11 @@
 extensions: ["audiocapture"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -40,7 +40,7 @@ extensions: ["audiocapture"]
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></p></div></p></div><div class="tab-pane fade" id="msetProperty2"><div><p><strong>Parameters</strong></p><ul><li>propertyName : <span class='text-info'>STRING</span><p><p>The one property name that I want to set</p>
  </p></li><li>propertyValue : <span class='text-info'>STRING</span><p><p>The one property value that I want to set</p>
  </p></li></ul></div></div><div class="tab-pane fade" id="msetProperty3"></div><div class="tab-pane fade" id="msetProperty4"><div><p><strong>Synchronous Return:</strong></p><ul><li>Void</li></ul></div></div><div class="tab-pane fade" id="msetProperty6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li>JavaScript: <code>Rho.AudioCapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code> </li><li>Ruby: <code>Rho::AudioCapture.setProperty(<span class="text-info">STRING</span> propertyName, <span class="text-info">STRING</span> propertyValue)</code></li></ul></li></ul></div></div></div>  </div><a name ='mstart'/><div class=' method  js ruby android ios' id='mstart'><h3><strong  >start</strong><span style='font-size:.7em;font-weight:normal;'>(<span class="text-info">HASH</span> props, <span class='text-info'>CallBackHandler</span> callback)</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mstart1" data-toggle="tab">Description</a></li><li ><a href="#mstart2" data-toggle="tab">Parameters</a></li><li ><a href="#mstart3" data-toggle="tab">Callback</a></li><li ><a href="#mstart4" data-toggle="tab">Return</a></li><li ><a href="#mstart6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-start'><div class="tab-pane fade active in" id="mstart1"><p>Starts capturing audio until either &lsquo;stop&rsquo; is received, or &lsquo;maxDuration&rsquo; is reached. The successful recording will set &lsquo;ok&rsquo; as the status. An unsuccessful recording will set &lsquo;cancel&rsquo; or &lsquo;error&rsquo; as the status in the callback returning parameters. If &lsquo;cancel&rsquo; method is called during recording, &lsquo;cancel&rsquo; status will be set in the callback returning parameters. In order to restart the audio capture, if the audio capturing is already in process, it is mandatory to call &lsquo;stop&rsquo; or &lsquo;cancel&rsquo; method before calling &lsquo;start&rsquo; method again.</p>
-<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></p></div></p></div><div class="tab-pane fade" id="mstart2"><div><p><strong>Parameters</strong></p><ul><li>props : <span class='text-info'>HASH</span><p><p>Map of Audio Capture properties to be set. For iOS 22kHz 16bit Mono WAV file will be created. In Android, ruby callbacks are taking 20secs to fire.</p>
+<p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></p></div></p></div><div class="tab-pane fade" id="mstart2"><div><p><strong>Parameters</strong></p><ul><li>props : <span class='text-info'>HASH</span><p><p>Map of Audio Capture properties to be set. For iOS 22kHz 16bit Mono WAV file will be created.In Android, ruby callbacks are taking 20secs to fire.</p>
  Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> </p></li><li>callback : <span class='text-info'>CallBackHandler</span> <span class='label label-warning'>Mandatory</span> </li></ul></div></div><div class="tab-pane fade" id="mstart3"><div><p><strong>Async Callback Returning Parameters: <span class='text-info'>HASH</span></strong></p><ul><ul><li>status : <span class='text-info'>STRING</span><p><p>Whether or not the audio recording was successfully captured, status will be &lsquo;ok&rsquo; or &lsquo;cancel&rsquo; or &lsquo;error&rsquo;.</p>
  </p></li><li>message : <span class='text-info'>STRING</span><p><p>If &lsquo;status&rsquo; == &lsquo;error&rsquo;, then message contains error message. In all other cases, it will remain empty.</p>
  </p></li><li>fileName : <span class='text-info'>STRING</span><p><p>If &lsquo;status&rsquo; == &lsquo;ok&rsquo;, then contain full file path with the file name of recorded audiofile. In all other cases, it will remain empty.</p>
@@ -60,13 +60,13 @@ extensions: ["audiocapture"]
 <h2><i class='icon-edit'></i>Examples</h2>
 
 <a name='e0'></a><div class=' example' id='e0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample0"><strong>Starting, Stopping And Cancelling Audio Capture</strong></div><div id="cExample0" class="accordion-body">  <div class="accordion-inner">
-<p>Starting, Stopping and Cancelling audio capture is same across all platforms.</p>
+<p>Starting, Stopping and Canceling audio capture is same across all platforms.</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
 // Starting Audio Capture without settings. Callback is mandatory. Setting the file name at least once is also mandatory before invoking 'start' method.
 Rho.AudioCapture.start({},mycallback);
 
-// Starting Audio Capture with settings. Callback is mandatory. 
+// Starting Audio Capture with settings. Callback is mandatory.
 // On successful recording the hash property  for fileName' in callback will return the complete file path with the filename.
 // In Windows, for the below settings, it will return "file://\AudioCapture.wav".
 Rho.AudioCapture.start({'fileName':"AudioCapture",'maxDuration':'15000'},mycallback);
@@ -77,7 +77,7 @@ Rho.AudioCapture.stop();
 // Cancelling Audio Capture
 Rho.AudioCapture.cancel();
 
-                                </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
+								</code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
 #Starting Audio Capture without settings. Callback is mandatory. Setting the file name at least once is also mandatory before invoking 'start' method.
 Rho::AudioCapture.start({},mycallback);
@@ -85,7 +85,7 @@ Rho::AudioCapture.start({},mycallback);
 #Starting Audio Capture with settings. Callback is mandatory.
 #On successful recording the hash property  for fileName' in callback will return the complete file path with the filename.
 #In Windows, for the below settings, it will return "file://\AudioCapture.wav".
-Rho::AudioCapture.start({'fileName'=&gt;"AudioCapture",'maxDuration'=&gt;'15000'},mycallback);
+Rho::AudioCapture.start({'fileName':"AudioCapture",'maxDuration':'15000'},mycallback);
 
 #Stopping Audio Capture
 Rho::AudioCapture.stop();
@@ -93,7 +93,7 @@ Rho::AudioCapture.stop();
 #Cancelling Audio Capture
 Rho::AudioCapture.cancel();
 
-                                </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Setting And Getting File Name</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
+								</code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Setting And Getting File Name</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>In WM/WinCE, one can set the fileName with or without extensions. On retrieving, the fileName property will return the complete path with the extension name.</p>
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
@@ -109,7 +109,7 @@ Rho.AudioCapture.fileName = "Audio2.wav";
 // The returned value is "\Audio2.wav"
 alert(Rho.AudioCapture.fileName);
 
-                                </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
+								</code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
 #Setting fileName without extension
 Rho::AudioCapture.fileName = "\\Application\\Audio1";
@@ -123,7 +123,7 @@ Rho::AudioCapture.fileName = "Audio2.wav";
 #The returned value is "\Audio2.wav"
 Alert.show_popup(Rho::AudioCapture.fileName);
 
-                                </code></pre></div></div>
+								</code></pre></div></div>
 <p>In Android, one can set the fileName with or without extensions. The extension depends on encoder. The directory should be present.</p>
 <ul class='nav nav-tabs' id='exI1-S1Tab'><li class='active'><a href='#exI1-S1JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S1RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S1JS'><pre class='CodeRay'><code>:::javascript
 
@@ -139,7 +139,7 @@ Rho.AudioCapture.fileName = "/sdcard/Audio/sample.mp4";
 // The returned value is "/sdcard/Audio/sample.mp4";
 alert(Rho.AudioCapture.fileName);
 
-                                </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
+								</code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
 #Setting fileName without extension
 Rho::AudioCapture.fileName = "/sdcard/Audio/sample";
@@ -153,7 +153,7 @@ Rho::AudioCapture.fileName = "/sdcard/Audio/sample.mp4";
 #The returned value is "/sdcard/Audio/sample.mp4"
 Alert.show_popup(Rho::AudioCapture.fileName);
 
-                                </code></pre></div></div>
+								</code></pre></div></div>
 <p>In iOS, one can set the fileName without extensions. The extension depends on encoder and will be automatically added. Currently supported WAV (16kHz, 16 bit, mono) IF you do not specify fullpath filename, then file will be placed to default folder. You can receive result fullpath filename in callback.</p>
 <ul class='nav nav-tabs' id='exI1-S2Tab'><li class='active'><a href='#exI1-S2JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S2RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S2JS'><pre class='CodeRay'><code>:::javascript
 
@@ -170,7 +170,7 @@ Rho.AudioCapture.fileName = Rho.Application.userFolder + 'mysound';
 alert(Rho.AudioCapture.fileName);
 
 
-                                </code></pre></div><div class='tab-pane' id='exI1-S2RUBY'><pre class='CodeRay'><code>:::ruby
+								</code></pre></div><div class='tab-pane' id='exI1-S2RUBY'><pre class='CodeRay'><code>:::ruby
 
 #Setting fileName without extension
 Rho::AudioCapture.fileName = 'sample'
@@ -185,7 +185,7 @@ Rho::AudioCapture.fileName = File.join(Rho::Application.userFolder,'mysound')
 Alert.show_popup(Rho.AudioCapture.fileName)
 
 
-                                </code></pre></div></div>  </div></div></div></div>
+								</code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 

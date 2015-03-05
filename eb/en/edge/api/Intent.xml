@@ -6,6 +6,7 @@
         <MORE_HELP>
 ## Enabling the API
 This API is part of the `coreapi` extension that is included automatically.
+
     :::ruby
     extensions: ["coreapi"]
 
@@ -14,8 +15,8 @@ Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important 
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
-    </MORE_HELP>
-         <MORE_HELP_EB>
+        </MORE_HELP>
+        <MORE_HELP_EB>
 ## Enabling the API
 There are two methods of enabling the Intent API:
 

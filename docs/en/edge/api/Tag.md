@@ -1,9 +1,7 @@
 #Tag
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;6</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mgetTagByIdSTATIC" data-target="cMethodgetTagById" class="autouncollapse">getTagById</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Instance</i></b></a><li><a href="#mclose" data-target="cMethodclose" class="autouncollapse">close</a></li><li><a href="#mexchangeData" data-target="cMethodexchangeData" class="autouncollapse">exchangeData</a></li><li><a href="#mformatNDEF" data-target="cMethodformatNDEF" class="autouncollapse">formatNDEF</a></li><li><a href="#mmakeReadOnly" data-target="cMethodmakeReadOnly" class="autouncollapse">makeReadOnly</a></li><li><a href="#mwriteMessage" data-target="cMethodwriteMessage" class="autouncollapse">writeMessage</a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;8</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Instance Properties</i></b></a><li><a href="#pID" data-target="cPropertyID" class="autouncollapse">ID</a></li><li><a href="#pfreeSize" data-target="cPropertyfreeSize" class="autouncollapse">freeSize</a></li><li><a href="#pisConnected" data-target="cPropertyisConnected" class="autouncollapse">isConnected</a></li><li><a href="#pisNdef" data-target="cPropertyisNdef" class="autouncollapse">isNdef</a></li><li><a href="#pisReadOnly" data-target="cPropertyisReadOnly" class="autouncollapse">isReadOnly</a></li><li><a href="#pserialNumber" data-target="cPropertyserialNumber" class="autouncollapse">serialNumber</a></li><li><a href="#psize" data-target="cPropertysize" class="autouncollapse">size</a></li><li><a href="#ptype" data-target="cPropertytype" class="autouncollapse">type</a></li></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<p>NFC Tag</p>
-<p>This class representative NFC Tag object</p>
-
-<h1>Enabling the API</h1>
+<p>This class is representative of the NFC Tag object.</p>
+<h2>Enabling the API</h2>
 
 <p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
 
@@ -12,6 +10,14 @@ extensions: ["nfc"]
 </code></pre>
 
 <p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+
+<h2>JavaScript Usage</h2>
+
+<p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
+
+<h2>Ruby Usage</h2>
+
+<p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
 
 <a name='Methods'></a>

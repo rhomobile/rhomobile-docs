@@ -1,8 +1,6 @@
 #Database
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;10</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Constructs</i></b></a><li><a href="#mclose" data-target="cMethodclose" class="autouncollapse">Destructor</a></li><li><a href="#minitialize" data-target="cMethodinitialize" class="autouncollapse">Constructor</a></li></li><li class="divider"></li><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Instance</i></b></a><li><a href="#mcommitTransaction" data-target="cMethodcommitTransaction" class="autouncollapse">&nbsp;<span class='text-info'>commitTransaction</span></a></li><li><a href="#mdestroyTable" data-target="cMethoddestroyTable" class="autouncollapse">destroyTable</a></li><li><a href="#mdestroyTables" data-target="cMethoddestroyTables" class="autouncollapse">destroyTables</a></li><li><a href="#mexecuteBatchSql" data-target="cMethodexecuteBatchSql" class="autouncollapse">executeBatchSql</a></li><li><a href="#mexecuteSql" data-target="cMethodexecuteSql" class="autouncollapse">executeSql</a></li><li><a href="#misTableExist" data-target="cMethodisTableExist" class="autouncollapse">&nbsp;<span class='text-info'>isTableExist</span></a></li><li><a href="#mrollbackTransaction" data-target="cMethodrollbackTransaction" class="autouncollapse">&nbsp;<span class='text-info'>rollbackTransaction</span></a></li><li><a href="#mstartTransaction" data-target="cMethodstartTransaction" class="autouncollapse">startTransaction</a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;3</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Using Transactions</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Open and close database</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">destroyTables</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
-<p>Database is low-level API to access SQLite local database.</p>
-<p>This API used internally by RHOM. To use RHOM, just define your models and partition databases will be created automatically.</p>
-
+<p>Database is low-level API to access SQLite local database. This API used internally by RHOM. To use RHOM, just define your models and partition databases will be created automatically.</p>
 <h2>Enabling the API</h2>
 
 <p>This API is part of the <code>coreapi</code> extension that is included automatically.</p>
@@ -11,11 +9,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -51,7 +49,6 @@ extensions: ["coreapi"]
 <p>To insert/update multiple object/models use database transactions. This is the most performant method to initialize your application with a large set of data.</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-                
 var db = Rho.Database;
 db.startTransaction();
 try
@@ -59,32 +56,30 @@ try
   for (var index in items) {
     // create hash of attribute/value pairs
     data = {
-      field1 : item[index].value1, 
+      field1 : item[index].value1,
       field2 : item[index].value2
-    }; 
+    };
     // Creates a new itemModel object and saves it
     new_item = itemModel.create(data);
   }
-  
+
  db.commitTransaction();
 }
 catch
 {
  db.rollbackTransaction();
 }
-
               </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-                
-db = Rho::Database.new
+db = Rho::Database
 db.startTransaction
 begin
   items.each do |item|
     # create hash of attribute/value pairs
     data = {
-      :field1 =&gt; item['value1'], 
-      :field2 =&gt; item['value2'] 
-    } 
+      :field1 =&gt; item['value1'],
+      :field2 =&gt; item['value2']
+    }
     # Creates a new itemModel object and saves it
     new_item = itemModel.create(data)
   end
@@ -92,7 +87,6 @@ begin
 rescue
   db.rollbackTransaction
 end
-
               </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Open and close database</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>The following example opens the database using the <code>constructor</code> method: .initialize. It then closes the database using the destructor method <code>.close()</code></p>
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
