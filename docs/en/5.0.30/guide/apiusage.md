@@ -1,7 +1,5 @@
 # Migrating your RhoMobile application to 5.X
-
-RhoMobile Suite 5.0 and up offers a set of common API's to access device,system and framework capabilities across JavaScript and Ruby. 
-
+RhoMobile Suite 5.0 and up offers a set of common API's to access device,system and framework capabilities across JavaScript and Ruby.
 
 ## RhoConnect Client
 In RhoMobile Suite 5.0 and up, the RhoConnect Client is available via an extension. In order to use the RhoConnect Client, you must specify `rhoconnect-client` in your applications `build.yml` `extensions` section. If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
@@ -22,7 +20,7 @@ In RhoMobile Suite 5.0 and up, more API's have JavaScript access that did not ha
 It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 5.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [API Summary](apisummary) for an overview.
 
 ## Replaced APIs
-In the API reference documentation, new APIs that have replaced previously available API's will be highlighted in the menu as well as the description. 
+In the API reference documentation, new APIs that have replaced previously available API's will be highlighted in the menu as well as the description.
 
 For example [System.applicationInstall](../api/system#mapplicationInstall)
 
@@ -40,7 +38,7 @@ For example [System.hasNetwork](../api/system#phasNetwork)
 The following shows you a summary of these new API's and how any previous API relates to it.
 
 <table class="table">
-<thead>	
+<thead>
 <tr>
 <th>
 Class
@@ -84,7 +82,7 @@ Scan bar codes using device's camera, laser or 2d imager
 Displays a battery signal icon in a native window without requiring users to draw their own icon
 </td>
 <td>
-Previously existed in 2.2 <a href="/v/2.2/rhoelements/battery">Battery</a> 
+Previously existed in 2.2 <a href="/v/2.2/rhoelements/battery">Battery</a>
 </td>
 </tr>
 
@@ -229,7 +227,7 @@ Provides visual, audio and tactile alerts to the user.
 Api's for user defined Data models
 </td>
 <td>
-Previously Rhomobile Data Models were accessible only through the<a href="/v/2.2/rhodesapi/rhom-api/"> Rhom API via Ruby</a> 
+Previously Rhomobile Data Models were accessible only through the<a href="/v/2.2/rhodesapi/rhom-api/"> Rhom API via Ruby</a>
 </td>
 </tr>
 <tr>
@@ -237,7 +235,7 @@ Previously Rhomobile Data Models were accessible only through the<a href="/v/2.2
 <a href="/api/push">Push</a>
 </td>
 <td>
-HTTP based push messaging 
+HTTP based push messaging
 </td>
 <td>
 RhoElemnents <a href="/v/2.2/rhoelements/push/">Push</a> API
@@ -295,7 +293,7 @@ Rename of  2.2 <a href="/v/2.2/rhoelements/RawSensors">RawSensors</a> class and 
 Graphical indicator of WiFi strength
 </td>
 <td>
-Previous 2.2 API: <a href="/v/2.2/rhoelements/signal">Signal</a> 
+Previous 2.2 API: <a href="/v/2.2/rhoelements/signal">Signal</a>
 </td>
 </tr>
 
@@ -310,7 +308,7 @@ Control and modify core aspects of the device such as the screen, OS and device 
 </td>
 <td>
 Amalgamation of <a href="/v/2.2/rhodesapi/system-api/">System</a> and <a href="/v/2.2/rhoelements/generic/">Generic</a>
-</td>	
+</td>
 </tr>
 <tr>
 <td>
