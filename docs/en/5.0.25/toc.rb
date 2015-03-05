@@ -265,10 +265,10 @@ section 'rhoconnect-nonrhodes-client-reference',  'Clients','RhoConnect Guides' 
   topic 'en/5.0.25/rhoconnect/rest-api',            'RhoConnect REST API'
   topic 'en/5.0.25/rhoconnect/client-objc',         'RhoConnect Client for iOS'
   topic 'en/5.0.25/rhoconnect/client-java',         'RhoConnect without Rhodes: Android Java'
-  topic 'en/5.0.0/rhoconnectjs/introduction',     'RhoConnect.JS Client'
-  topic 'en/5.0.0/rhoconnectjs/getting-started',  'RhoConnect.JS Getting Started'
-  topic 'en/5.0.0/rhoconnectjs/reference',        'RhoConnect.JS API Reference'
-  topic 'en/5.0.0/rhoconnectjs/creating-app',     'RhoConnect.JS Creating an App'
+  topic 'en/5.0.25/rhoconnectjs/introduction',     'RhoConnect.JS Client'
+  topic 'en/5.0.25/rhoconnectjs/getting-started',  'RhoConnect.JS Getting Started'
+  topic 'en/5.0.25/rhoconnectjs/reference',        'RhoConnect.JS API Reference'
+  topic 'en/5.0.25/rhoconnectjs/creating-app',     'RhoConnect.JS Creating an App'
 end
 
 section 'rhoconnect-service-reference',     'Hosted Services','RhoConnect Guides' do
