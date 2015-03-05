@@ -361,6 +361,7 @@ end
         catArray = []
         catArray = category.split(",")
         categories["category"] = catArray
+         categories["chunknum"] = '0'
       end
       if !version.nil? && version != ''
         verArray = []
@@ -368,7 +369,8 @@ end
         categories["version"] = verArray
       end
       
-      categories["chunknum"] = '0'
+     
+      
       search = index.search(query, :start => page * 10, :len => 10, 
         :fetch => 'title,dockey,version,category,docexternal', 
         :snippet => 'text', :category_filters => categories)
