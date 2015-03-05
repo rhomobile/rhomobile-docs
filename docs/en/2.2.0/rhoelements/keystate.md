@@ -55,7 +55,10 @@ All controls are designed to be shown on top of RhoElements. If you require to s
 ###Screen Orientation
 When the screen orientation changes, either using the ScreenOrientation tag or by rotating a device with hardware support, the command areas will automatically move and resize to fit the new layout. However the buttons themselves are not moved and in some cases this may result in them being off the screen or not in the expected position. If so they must be moved manually by detecting the ScreenOrientationEvent.
 
+###Devices lacking support
+Due to platform limitations this API is not available on the following Zebra Technologies devices:
 
+* Workabout Pro 4
 
 
 ##Requirements

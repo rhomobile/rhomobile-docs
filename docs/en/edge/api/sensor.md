@@ -9,11 +9,11 @@
 extensions: ["sensor"]
 </code></pre>
 
-<h2>JavaScript Usage</h2>
+<h3>JavaScript Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h2>Ruby Usage</h2>
+<h3>Ruby Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -124,21 +124,21 @@ def index
         @accelerometer_sensor.start(url_for(:action =&gt; :myevent))
     else
        puts "Warning: This device has not Accelerometer sensor !"
-    end
+    end    
 end
 
 def stop_listening_accelerator
     if @accelerometer_sensor != nil
         @accelerometer_sensor.stop
-    end
+    end    
 end
 
-def myevent
+def myevent       
     puts "Accelerometer params: #{@params}"
     puts "X is #{@params['accelerometer_x']}"
-    puts "Y is #{@params['accelerometer_y']}"
-    puts "Z is #{@params['accelerometer_z']}"
-end
+    puts "Y is #{@params['accelerometer_y']}"  
+    puts "Z is #{@params['accelerometer_z']}"      
+end 
                     
                             </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>

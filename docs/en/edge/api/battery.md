@@ -17,13 +17,17 @@ app_type: "rhoelements"
 
 <p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
 
-<h2>JavaScript Usage</h2>
+<h3>JavaScript Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h2>Ruby Usage</h2>
+<h3>Ruby Usage</h3>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
+
+<h2>Persistence</h2>
+
+<p>With the old PocketBrowser / RhoElements 1 APIs, any events, such as <code>batteryEvent</code> were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.</p>
 
 
 <a name='Methods'></a>
@@ -137,7 +141,7 @@ app_type: "rhoelements"
    function batteryEvent(params){
     console.log("Battery Event Fired:");
     console.log("Battery Event (Asynchronous). AC Line Status: " + params["acLineStatus"] + " Battery Life Percent: " + params["batteryLifePercent"] + " Backup Battery Life Percent: " + params["backupBatteryLifePercent"] + " Status: " + params["batteryStatus"] + " Battery Life Known: " + params["batteryLifeKnown"] + " Backup Battery Life Known: " + params["backupBatteryLifeKnown"]);
-  }
+  }  
   
                     </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
@@ -150,7 +154,7 @@ app_type: "rhoelements"
    def batteryEvent
     puts "Battery Event Fired: #{@params}"
     puts "Battery Event (Asynchronous). AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
-  end
+  end  
   
                     </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Working with the Battery indicator</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>If you just want to display the battery indicator in the default position and default color then call as follows.</p>
@@ -174,7 +178,7 @@ app_type: "rhoelements"
 
             
   function show_battery_icon(){
-    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });
+    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  
   }
   
                     </code></pre></div><div class='tab-pane' id='exI1-S1RUBY'><pre class='CodeRay'><code>:::ruby

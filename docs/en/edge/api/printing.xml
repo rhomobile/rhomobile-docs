@@ -24,10 +24,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </MORE_HELP>
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Printing API:
+There are two methods of enabling the Printing API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -88,6 +88,9 @@ The ebapi.js file is necessary for all single API inclusions.
             <CONSTANT name="CONNECTION_TYPE_ON_BOARD" value="CONNECTION_TYPE_ON_BOARD" type="STRING">
                 <DESC>Not supported in 4.1</DESC>
             </CONSTANT>
+            <CONSTANT name="CONNECTION_TYPE_USB" value="CONNECTION_TYPE_USB" type="STRING">
+                <DESC>Not supported in 4.1</DESC>
+            </CONSTANT>
             <CONSTANT name="CONNECTION_TYPE_BLUETOOTH" value="CONNECTION_TYPE_BLUETOOTH" type="STRING"/>
             <CONSTANT name="CONNECTION_TYPE_TCP" value="CONNECTION_TYPE_TCP" type="STRING"/>
             <!-- Printer Status result -->
@@ -121,7 +124,7 @@ The ebapi.js file is necessary for all single API inclusions.
             </CONSTANT>
         </CONSTANTS>
 
-        <PROPERTIES>
+        <PROPERTIES> 
             <!-- Common properties -->
             <DESC>General properties for Printer.</DESC>
             <PROPERTY name="ID" type="STRING" readOnly="true">
@@ -146,7 +149,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
                 <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
-                <DESC>Bluetooth mac/TCP IP address.</DESC>
+                <DESC>IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. Note: iOS uses device serial number instead of mac address. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" </DESC>
             </PROPERTY>
             <PROPERTY name="devicePort" type="INTEGER" generateAccessors="true">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
@@ -189,6 +192,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <DESC>Search printers connected to the device, available Bluetooth(R), or Network printers. It is highly recommended to search for a particular Bluetooth(R) address or IP address for Network connections. Also this method could be used to get printerID for known network / bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. The callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note that discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
 
 NOTE: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
+NOTE: on iOS device adress returns device serial that is used for connection, not the device mac address.
                 </DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
@@ -208,7 +212,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="deviceAddress" type="STRING">
-                                <DESC>Printer address (mac or ip) can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search. </DESC>
+                                <DESC>Printer address (mac, device serial or ip) can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search. </DESC>
                                 <CAN_BE_NIL/>
                             </PARAM>
                             <PARAM name="devicePort" type="INTEGER" default="6101">
@@ -223,7 +227,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                         <PARAM name="status" type="STRING">
                             <DESC>Status of network discovery, can be following:
 * PRINTER_STATUS_SUCCESS - when printer is discovered or operation is finished;
-* PRINTER_STATUS_ERROR - general error
+* PRINTER_STATUS_ERROR - general error 
 * PRINTER_STATUS_ERR_UNSUPPORTED - in case if printer type is not supported
 * PRINTER_STATUS_ERR_NOT_CONNECTED - in case if deviceAddress was specified in options and device was unable to connect to printer.</DESC>
                         </PARAM>
@@ -245,7 +249,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                 <PLATFORM_EB>Android</PLATFORM_EB>
                 <DESC>Stop all active and pending search requests. Function does not return any results. All running search requests are canceled immediately.</DESC>
             </METHOD>
-
+            
             <METHOD name="getPrinterByID" access="STATIC">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
@@ -266,7 +270,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                 <DESC>Connect to a printer using default options. Works asynchronously; use callback to check the result. If connection is successful printer state and properties are automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices.</DESC>
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a connection attempt to printer. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_TIMEOUT, PRINTER_STATUS_ERROR, PRINTER_STATUS_NOT_FOUND.</DESC>
-                </CALLBACK>
+                </CALLBACK> 
             </METHOD>
 
             <METHOD name="connectWithOptions" hasCallback="optional">
@@ -303,7 +307,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
                 <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Requests printer state with a list of parameters.
 
-* Works asynchronously and uses the callback to check the result.
+* Works asynchronously and uses the callback to check the result. 
 * Returns hash with status, and parameters as keys.
 
 NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.</DESC>
@@ -421,7 +425,7 @@ NOTE: On the Windows Mobile / Windows CE platform, this method does not work in 
                     </PARAM>
                     <PARAM name="options" type="HASH" generateDoc="false">
                         <CAN_BE_NIL>
-                            <DESC>Not providing properties to this function will print with default settings.</DESC>
+                            <DESC>Not providing properties to this function will print with default settings.</DESC>                    
                         </CAN_BE_NIL>
                         <PARAMS>
                             <DESC>Provide a set of properties to configure the printer.</DESC>
@@ -514,7 +518,9 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
             printer.disconnect();
         }
 
-* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then **all** Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we cannot detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.</DESC>
+* When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then **all** Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we cannot detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
+* When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on QLn320 printer. 
+              </DESC>
             </REMARK>
         </REMARKS>
 
@@ -527,8 +533,8 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
                             <JAVASCRIPT><![CDATA[
 var printers = [];
 
-Rho.Printer.searchPrinters({
-    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,
+Rho.Printer.searchPrinters({ 
+    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
     printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
     }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
@@ -587,7 +593,7 @@ myPrinter.connect(function (cb){
     // by default it is the serial number
     console.log(myPrinter.deviceName);
 
-    // This will be the BT MC Address
+    // This will be the BT MC Address 
     since we are connecting via BlueTooth
     console.log(myPrinter.deviceAddress);
 });
@@ -602,7 +608,7 @@ myPrinter.connect(function (cb){
 def printer_connect_callback
   puts @params.to_s
 
-  # This will be the Zebra's `Friendly Name`
+  # This will be the Zebra's `Friendly Name` 
   # by default it is the serial number
   puts @my_printer['deviceName']
 

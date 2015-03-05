@@ -131,13 +131,14 @@ function show_keystates(){
 
         <REMARKS>
             <REMARK title="Devices lacking support">
-                <DESC>Due to platform limitations this API is not available on the following Symbol Technologies' devices:
+                <DESC>Due to platform limitations this API is not available on the following Zebra Technologies devices:
 
 * ES400
 * MC45
 * MC65
 * VC70
-* MC45</DESC>
+* MC45
+* Workabout Pro 4</DESC>
             </REMARK>
 
             <REMARK title="Rotating the Screen">

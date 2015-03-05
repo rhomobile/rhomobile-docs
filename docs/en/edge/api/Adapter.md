@@ -1,17 +1,16 @@
 #Adapter
 <div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;9</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mactivateSTATIC" data-target="cMethodactivate" class="autouncollapse">activate</a></li><li><a href="#mbtConnectSTATIC" data-target="cMethodbtConnect" class="autouncollapse">btConnect</a></li><li><a href="#mbtDisconnectSTATIC" data-target="cMethodbtDisconnect" class="autouncollapse">btDisconnect</a></li><li><a href="#mgetDeviceInfoSTATIC" data-target="cMethodgetDeviceInfo" class="autouncollapse">getDeviceInfo</a></li><li><a href="#mresetSTATIC" data-target="cMethodreset" class="autouncollapse">reset</a></li><li><a href="#msetConfigChangeHandlerSTATIC" data-target="cMethodsetConfigChangeHandler" class="autouncollapse">setConfigChangeHandler</a></li><li><a href="#msetMessageHandlerSTATIC" data-target="cMethodsetMessageHandler" class="autouncollapse">setMessageHandler</a></li><li><a href="#msetTagDetectionHandlerSTATIC" data-target="cMethodsetTagDetectionHandler" class="autouncollapse">setTagDetectionHandler</a></li><li><a href="#mstopSTATIC" data-target="cMethodstop" class="autouncollapse">stop</a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pisActive" data-target="cPropertyisActive" class="autouncollapse">isActive</a></li><li><a href="#ppasskey" data-target="cPropertypasskey" class="autouncollapse">passkey</a></li><li><a href="#ppollingTimeout" data-target="cPropertypollingTimeout" class="autouncollapse">pollingTimeout</a></li><li><a href="#psupported" data-target="cPropertysupported" class="autouncollapse">supported</a></li><li><a href="#pversion" data-target="cPropertyversion" class="autouncollapse">version</a></li></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
 <p>NFC Adapter</p>
-<p>NFC Adapter provides access to the NFC device to perform device related operations. All properties and methods should be used after activate, except for supported and isActive.</p>
+<p>NFC Adapter provides access to the NFC device to perform device related operations.</p>
 
-<h2>Enabling the API</h2>
+<pre><code>    All properties and methods should be used after activate. Besides supported and isActive.
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code></p>
-
-<pre><code>:::ruby
-extensions: ["nfc"]
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 </code></pre>
-
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
 
 
 <a name='Methods'></a>
