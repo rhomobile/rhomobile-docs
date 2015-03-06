@@ -5,7 +5,6 @@
         <MORE_HELP>
 ## Enabling the API
 This API is part of the 'coreapi' extension that is included automatically.
-
     :::ruby
     extensions: ["coreapi"]
 

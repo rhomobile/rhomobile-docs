@@ -2,7 +2,7 @@
 
 
 ## Overview
-This API provides several methods for access to files and folders found on the device's local file system. Use this API to access local files for reading and writing. Only string data can be read and written with this API. Please note that binary files are not supported. Strings filled with \0 will be truncated to the last non \0 character.
+This API provides several methods for access to files and folders found on the device's local file system.
 ## Enabling the API
 There are two methods of enabling the RhoFile API:
 
@@ -29,7 +29,8 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.file.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-    
+
+        
 
 
 ##Methods

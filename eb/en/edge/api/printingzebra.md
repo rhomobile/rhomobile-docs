@@ -460,7 +460,7 @@ Requests printer state with a list of parameters.
 * Works asynchronously and uses the callback to check the result.
 * Returns hash with status, and parameters as keys.
 
-NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.
+> Note: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.
 
 ####Parameters
 <ul><li>listOfParameters : <span class='text-info'>ARRAY</span><p>List of parameters for request from printer device. </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>Parameter name - see constants with PRINTER_STATE_... </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -546,7 +546,7 @@ Synchronous Return:
 ### searchPrinters(<span class="text-info">HASH</span> options)
 Search printers connected to the device, available Bluetooth(R), or Network printers. It is highly recommended to search for a particular Bluetooth(R) address or IP address for Network connections. Also this method could be used to get printerID for known network / bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. The callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note that discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
 
-NOTE: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
+> Note: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
                 
 
 ####Parameters

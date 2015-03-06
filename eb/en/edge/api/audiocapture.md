@@ -3,31 +3,7 @@
 
 ## Overview
 Audio capture API allows you to capture audio from the device's built in microphone or input source.
-## Enabling the API
-There are two methods of enabling the AudioCapture API:
-
-* Include all ebapi modules or
-* Include only the API modules you need.
-
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
-
-### Include all JS API modules To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
-
-    :::html
-    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
-
-> Note: that the pathing for this file is relative to the current page.
-
-This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
-
-### Include only the modules you need
-To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the AudioCapture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
-
-    :::html
-    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
-    <script type="text/javascript" charset="utf-8" src="eb.audiocapture.js"></script>
-
-The ebapi.js file is necessary for all single API inclusions.
+                ## Enabling the API There are two methods of enabling the AudioCapture API: * Include all ebapi modules or * Include only the API modules you need For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser. ### Include all JS API modules To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html: :::html <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script> > Note: that the pathing for this file is relative to the current page. This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion. ### Include only the modules you need To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the AudioCapture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML. :::html <script type="text/javascript" charset="utf-8" src="ebapi.js"></script> <script type="text/javascript" charset="utf-8" src="eb.audiocapture.js"></script> The ebapi.js file is necessary for all single API inclusions.
             
 
 
@@ -378,56 +354,56 @@ Specifies the number of milliseconds of audio to capture, defining the size of t
 
                         
 In Windows, to store the file in a particular location, specify the path with the file name. Mentioning the extension name with the file name is optional. Only *.wav files are supported. If the path is not specified with the file name, the captured file is stored in the root directory of the device. In Windows and Android, if the folder is not present, it should be created manually for storing the file in that location. In Android, the file extension depends on encoder value. If it is AAC, the extension should be '.mp4'. In all other cases, it is of '.3gpp'. If only filename is specified, it will be saved in the root directory of external storage.
-					
+                    
                     
 
 ###Audio Capture
 
                         
 In Windows & Android, Audio capture will not be started, if the file name is set to null. File will not be saved for invaild file name. It will return error in the callback returning parameters with the valid reason.
-			
+            
                     
 
 ###Restarting of Audio Capture
 
                         
 Audio recording will not be restarted, if the audio recording is already in process. In order to restart the audio capture, stop or cancel method need to be invoked before invoking start method.
-					
+                    
                     
 
 ###Page Refresh
 
                         
 If the page is to be refreshed, the audio recording should be canceled. In Android, the state will be persisted.
-					
+                    
                     
 
 ###Page Navigation
 
                         
 Upon page navigation, the audio recording should be canceled.
-					
+                    
                     
 
 ###Duration And File Name Settings
 
                         
 The default values will be applied for duration if no values are provided by the user. If values are provided then it will apply the user provided values. Later if values are not provided then it will apply the last provided values for the same. The settings for duration and file name will not be applied if the audio capture is already started and in progress. In android, there might be slight omit of recording data initially.
-					
+                    
                     
 
 ###Get Property Or Get Properties
 
                         
 In Windows, 'getProperty' or 'getProperties' for fileName will return the complete path along with the extension name. For example: If file name was set to '\\Application\\AudioCapture', then 'getProperty' or 'getProperties' will return '\Application\AudioCapture.wav'. If file name was set to 'AudioCapture', then 'getProperty' or 'getProperties' will return '\AudioCapture.wav'. In Android, the fileName will return whatever is set with or without extension.
-					
+                    
                     
 
 ###General
 
                         
 On Quitting of the Application, Android will save the data in the file and gracefully exit. In Android, during suspend/resume or screen timeout the audio will keep on recording.
-					
+                    
                     
 
 ##Examples
@@ -438,49 +414,49 @@ On Quitting of the Application, Android will save the data in the file and grace
 In the following example you'll see how to capture and play back audio on your device. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
 <pre><code>:::javascript
 &lt;head&gt;
-	&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 
-	&lt;title&gt;Audio Capture API Example&lt;/title&gt;
+    &lt;title&gt;Audio Capture API Example&lt;/title&gt;
 
-	&lt;script&gt;
-		audioFile = null;
+    &lt;script&gt;
+        audioFile = null;
 
-		function captureAudio(){
-			display.innerHTML = 'Capturing...'
-			EB.AudioCapture.start({fileName:   'testCap',
-														 maxDuration: 5000}, captureCallback);
-		}
+        function captureAudio(){
+            display.innerHTML = 'Capturing...'
+            EB.AudioCapture.start({fileName:   'testCap',
+                                                         maxDuration: 5000}, captureCallback);
+        }
 
-		function captureCallback(params){
-			if (params['status'] == 'ok'){
-				display.innerHTML = 'Captured Audio File: ' + params['fileName'];
-				audioFile = params['fileName'];
-				audioFile = audioFile.substr(7); // Remove 'file://' from the beginning of the fileName
-			}
-			else{
-				display.innerHTML = 'Audio Not Captured';
-			}
-		}
+        function captureCallback(params){
+            if (params['status'] == 'ok'){
+                display.innerHTML = 'Captured Audio File: ' + params['fileName'];
+                audioFile = params['fileName'];
+                audioFile = audioFile.substr(7); // Remove 'file://' from the beginning of the fileName
+            }
+            else{
+                display.innerHTML = 'Audio Not Captured';
+            }
+        }
 
-		function playCapturedAudio(){
-			if(audioFile){
-				EB.Mediaplayer.start(audioFile);
-			}
-			else{
-				alert("No audio captured yet.");
-			}
-		}
+        function playCapturedAudio(){
+            if(audioFile){
+                EB.Mediaplayer.start(audioFile);
+            }
+            else{
+                alert("No audio captured yet.");
+            }
+        }
 
-	&lt;/script&gt;
+    &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;h1&gt;AudioCapture API Example&lt;/h1&gt;
-	&lt;div id="display"&gt;&lt;/div&gt;
-	&lt;/br&gt;
-	&lt;/br&gt;
-	&lt;button onclick="captureAudio()"&gt;Capture Audio&lt;/button&gt;
-	&lt;button onclick="playCapturedAudio()"&gt;Play Captured Audio&lt;/button&gt;
+    &lt;h1&gt;AudioCapture API Example&lt;/h1&gt;
+    &lt;div id="display"&gt;&lt;/div&gt;
+    &lt;/br&gt;
+    &lt;/br&gt;
+    &lt;button onclick="captureAudio()"&gt;Capture Audio&lt;/button&gt;
+    &lt;button onclick="playCapturedAudio()"&gt;Play Captured Audio&lt;/button&gt;
 &lt;/body&gt;
-								
-							
+                                
+                            
 </code></pre>

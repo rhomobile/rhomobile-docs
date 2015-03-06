@@ -4,10 +4,8 @@
     <MODULE name="NativeToolbar" parent="Rho" generateUnderscoreRubyNames="true">
         <HELP_OVERVIEW>The NativeToolbar method let you create and remove a toolbar at runtime.</HELP_OVERVIEW>
         <MORE_HELP> Only a Toolbar or a Tabbar can present in application - both can not be used at the same time.
-
 ## Enabling the API
 This API is part of the `coreapi` extension that is included automatically.
-
     :::ruby
     extensions: ["coreapi"]
 

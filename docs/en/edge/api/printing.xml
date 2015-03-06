@@ -6,7 +6,7 @@
         <MORE_HELP>
 This is general API that does not provide access to specific manufacturer's features. The interfaces described here will automatically be included in manufacturer specific printer classes like [PrintingZebra](printingzebra). If you wish to have access to manufacturer specific features you would have to add both extensions to your build.yml file.
 
-NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
+> Note: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
 
 
 ## Enabling the API
@@ -14,7 +14,7 @@ In order to use this API you must include the following extension in your `build
     :::ruby
     extensions: ["printing"]
 
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+> Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
@@ -188,7 +188,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>Search printers connected to the device, available Bluetooth(R), or Network printers. It is highly recommended to search for a particular Bluetooth(R) address or IP address for Network connections. Also this method could be used to get printerID for known network / bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. The callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note that discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
 
-NOTE: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
+> Note: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
                 </DESC>
                 <PARAMS>
                     <PARAM name="options" type="HASH">
@@ -306,7 +306,7 @@ NOTE: on Android platform due to HW specific, when you call searchPrinters() for
 * Works asynchronously and uses the callback to check the result.
 * Returns hash with status, and parameters as keys.
 
-NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.</DESC>
+> Note: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.</DESC>
                 <PARAMS>
                     <PARAM name="listOfParameters" type="ARRAY">
                         <DESC>List of parameters for request from printer device.</DESC>

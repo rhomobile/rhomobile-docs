@@ -471,9 +471,10 @@ The encrypted data is supported only on the card readers that are configured for
 
 
 
-###Using the Card Reader
-In this example you'll see how to use your device to read cards. This example is done using a magstriped credit card. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+###Accepting Card Swipes
+This example shows how to enable the card reader and accept a card swipe. It then, displays the data in a human readable way. This example assumes that the ebapi-modules.js file is in the same directory as the html file invoking it.
 <pre><code>:::javascript
+                                
 &lt;head&gt;
     &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 
