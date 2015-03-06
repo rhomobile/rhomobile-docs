@@ -170,7 +170,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.1. Please consult 
 
     <tr>
       <td>
-        <a href="../api/Camera">Camera </a>
+        <a href="../api/camera">Camera </a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
