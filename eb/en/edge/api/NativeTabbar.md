@@ -2,12 +2,12 @@
 
 
 ## Overview
-The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, the tabs are true Native Tabbar controls to give your application a native look and feel. On Windows Mobile/CE there are no visible tabs, but can be used in conjunction with shortcuts to run multiple 'applications' from a single instance. At one time only Toolbar or Tabbar can present in application - Toolbar and Tabbar can not be used both in one time.
+The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, the tabs are true Native Tabbar controls to give your application a native look and feel. On Windows Mobile/CE there are no visible tabs, but can be used in conjunction with shortcuts to run multiple 'applications' from a single instance. At one time only Toolbar or Tabbar can present in application - Toolbar and Tabbar can not be used both in one time. 
 ## Enabling the API
-There are two methods of enabling the NativeTabbar API:
+There are two methods of enabling the NativeTabbar API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -48,10 +48,10 @@ Win32, Android </p></li><li>disabled : <span class='text-info'>BOOLEAN</span><sp
 Win32, Android </p></li><li>backgroundColor : <span class='text-info'>INTEGER</span><p> Background color for tab. Use when your application background color is not white for removing blink during switch tabs. Platforms:
 Win32, Android </p></li><li>useCurrentViewForTab : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Gives a smooth transfer to a newly opened tab from the current view into this Tab and make this Tab active. Only one Tab can have this parameter. Platforms:
 WM, CE, Win32, Android </p></li><li>perishable : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Sets whether this tab is allowed to be destroyed when a memory limit is reached (Windows Mobile) Platforms:
-WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Platforms:
+WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Create tab immediately when TabBar is created. Action also will be executed. If false, the tab will be created when it is switched to. Don't use this parameter on the devices with a small amount of RAM. Platforms:
 WM </p></li></ul></ul><li>tabBarProperties : <span class='text-info'>HASH</span><p>Properties of TabBar. </p></li><ul><li>backgroundColor : <span class='text-info'>INTEGER</span><p>Background color of the tabbar. Platforms:
 Win32, Android </p></li><li>hiddenTabs : <span class='text-info'>BOOLEAN</span><span class='label '> Default: true</span><p>Do not display Tabs with labels.Only hiddenTab=true is currently supported. Platforms:
-WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Create tabs immediately when TabBar is created. Action also will be executed. If false, then each tab will be created when first switch to the tab is executed. Platforms:
+WM </p></li><li>createOnInit : <span class='text-info'>BOOLEAN</span><span class='label '> Default: false</span><p>Create tabs immediately when TabBar is created. Action also will be executed. If false, then each tab will be created when first switch to the tab is executed. Don't use this parameter on the devices with a small amount of RAM. Platforms:
 WM </p></li><li>placeTabsBottom : <span class='text-info'>BOOLEAN</span><p>Place TabBar to bottom instead of default top - only for Android. Platforms:
 Android </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 

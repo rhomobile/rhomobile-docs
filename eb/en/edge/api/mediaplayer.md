@@ -5,10 +5,10 @@
 The MediaPlayer extension is used to playback different types of audio files. It also allows the playback of Ringtones for the respective platform.
         
 ## Enabling the API
-There are two methods of enabling the MediaPlayer API:
+There are two methods of enabling the MediaPlayer API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -86,7 +86,7 @@ Synchronous Return:
 Play the audio file using the supplied filename. On WM/CE devices, the API supports only wav file format.
 
 ####Parameters
-<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the audio media to be played - absolute filepath. The formats supported depend on what support is built into the platform; typically on WM/CE this will be .wav and on Android .mp3. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the audio media to be played - absolute filepath. The formats supported depends on what support is built into the platform. Typically on WM/CE this will be wav and on Android mp3. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -109,7 +109,7 @@ Synchronous Return:
 Play the media file using the supplied filename. On WM/CE devices, it launches a media player process to play the supplied filename.
 
 ####Parameters
-<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the video media to be played - full filepath. The formats supported depend on what support is built into the platform; typically on WM/CE this will be .wmv and on Android .mp4. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>filename : <span class='text-info'>STRING</span><p>File name of the video media to be played - full filepath. The formats supported depends on what support is built into the platform. Typically on WM/CE this will be wmv and on Android mp4. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -129,7 +129,7 @@ Synchronous Return:
 
 
 ### stop()
-Stop playing the media file.
+Stop playing the media file. 
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -173,7 +173,7 @@ Synchronous Return:
 
 
 ### stopvideo()
-Stop the playback of a currently playing video file.
+Stop the playback of a currently playing video file. 
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>

@@ -7,7 +7,7 @@
 
         var timerCallback = function() {
             alert("callback called");
-        }
+        }                                              
 
         var timer = Rho.Timer.create();
         timer.start(5000, timerCallback);
@@ -15,7 +15,7 @@
         Create a timer, start and stop:
         var timerCallback = function() {
             alert("callback called");
-        }
+        }                                              
 
         var timer = Rho.Timer.create();
         timer.start(5000, timerCallback);

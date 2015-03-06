@@ -4,10 +4,10 @@
 ## Overview
 The NativeMenubar API lets you customize the Windows Mobile/CE native menu buttons.
 ## Enabling the API
-There are two methods of enabling the NativeMenubar API:
+There are two methods of enabling the NativeMenubar API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 

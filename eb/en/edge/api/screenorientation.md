@@ -4,10 +4,10 @@
 ## Overview
 The ScreenOrientation Module is used to control the screen orientation / layout and register to receive an event when it changes.
 ## Enabling the API
-There are two methods of enabling the ScreenOrientation API:
+There are two methods of enabling the ScreenOrientation API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -30,6 +30,8 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
 
 The ebapi.js file is necessary for all single API inclusions.
 
+## Persistence
+With the old PocketBrowser APIs, any events, such as `screenOrientationEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 
@@ -159,7 +161,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>BOOLEAN</span> 
 ####Description
-Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Zebra Technologies devices with IST Sensor support.
+Enables or Disables auto-rotation of the screen orientation when the device is rotated. For Windows Mobile/CE devices, support is limited to only Symbol Technologies devices with IST Sensor support.
 ####Params
 <p><strong>Default:</strong> true</p>
 ####Access
@@ -229,7 +231,7 @@ In this example you'll see how to manipulate the screen orientation and how to r
 &lt;body&gt;
     &lt;h1&gt;ScreenOrientation API Test&lt;/h1&gt;
     &lt;div id="display"&gt;
-        Orientation:
+        Orientation: 
     &lt;/div&gt;
     &lt;div id="autoRotate"&gt;
         Auto Rotate: Enabled

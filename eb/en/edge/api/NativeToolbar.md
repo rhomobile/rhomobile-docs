@@ -4,10 +4,10 @@
 ## Overview
 The NativeToolbar method let you create and remove a toolbar at runtime.
 ## Enabling the API
-There are two methods of enabling the Nativetoolbar API:
+There are two methods of enabling the Nativetoolbar API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
