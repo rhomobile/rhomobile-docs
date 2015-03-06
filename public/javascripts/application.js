@@ -151,5 +151,5 @@ $(window).resize(sizeContent);
 //Dynamically assign height
 function sizeContent() {
     var newHeight = $("html").height() - $("#top_navbar").height() - 130;
-    $("#apibody").css("height", newHeight);
+    // $("#apibody").css("height", newHeight);
 }
