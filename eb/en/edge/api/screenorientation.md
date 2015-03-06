@@ -4,10 +4,10 @@
 ## Overview
 The ScreenOrientation Module is used to control the screen orientation / layout and register to receive an event when it changes.
 ## Enabling the API
-There are two methods of enabling the ScreenOrientation API: 
+There are two methods of enabling the ScreenOrientation API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -231,7 +231,7 @@ In this example you'll see how to manipulate the screen orientation and how to r
 &lt;body&gt;
     &lt;h1&gt;ScreenOrientation API Test&lt;/h1&gt;
     &lt;div id="display"&gt;
-        Orientation: 
+        Orientation:
     &lt;/div&gt;
     &lt;div id="autoRotate"&gt;
         Auto Rotate: Enabled

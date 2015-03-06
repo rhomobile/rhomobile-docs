@@ -4,10 +4,10 @@
 ## Overview
 The Intent API provides an inter-application broadcast message-passing framework.
 ## Enabling the API
-There are two methods of enabling the Intent API: 
+There are two methods of enabling the Intent API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -29,7 +29,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.intent.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
         
 
 
@@ -38,7 +37,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 ### send(<span class="text-info">HASH</span> params)
-Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method. 
+Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.
 
 > Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI.
             
@@ -56,7 +55,7 @@ Android </p></li><li>categories : <span class='text-info'>ARRAY</span><p>List of
 > NOTE: Use the Constant Value instead of the actual Constant Name. Ex: For the Constant [CATEGORY_HOME](http://developer.android.com/reference/android/content/Intent.html#CATEGORY_HOME) use 'android.intent.category.HOME'
 
  Platforms:
-Android </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>appName : <span class='text-info'>STRING</span><p>Explicit name of the application on the device to run. The platform will determine what value to use. 
+Android </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>appName : <span class='text-info'>STRING</span><p>Explicit name of the application on the device to run. The platform will determine what value to use.
 
 * Android it is application package name.
 * Windows it is the application/executable name. For shared runtime based applications, the application name is taken from the "Name" attribute from the Config.xml file. Hence use the application name which is mentioned in config.xml.
@@ -65,7 +64,7 @@ Android </p></li><li>uri : <span class='text-info'>STRING</span><p>Open the appl
 >NOTE: For Android, this is similar to [Intent.setData()](http://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri\)). For example, if you were sending a [Map Intent](http://developer.android.com/guide/components/intents-common.html#Maps) you would set this value to something like `geo:47.6,-122.3`
  </p></li><li>mimeType : <span class='text-info'>STRING</span><p>MIME type of data defined in the intent. For example, for Plain Text I would use `text/plain`
 >NOTE: For Android, this is similar to [Intent.setType()](http://developer.android.com/reference/android/content/Intent.html#setType(java.lang.String\))
- </p></li><li>data : <span class='text-info'>HASH</span><p>Data which will be sent within the intent. 
+ </p></li><li>data : <span class='text-info'>HASH</span><p>Data which will be sent within the intent.
 
 For Android, this is similar to [Intent.putExtra()](http://developer.android.com/reference/android/content/Intent.html#putExtra(java.lang.String, java.lang.String\)). `data` should contain a HASH of Extra-String,Value pairs. The `Value` type of the `Extra` must be a string. Other object types are not supported at this time. For example:
 

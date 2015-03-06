@@ -4,10 +4,10 @@
 ## Overview
 Audio capture API allows you to capture audio from the device's built in microphone or input source.
 ## Enabling the API
-There are two methods of enabling the AudioCapture API: 
+There are two methods of enabling the AudioCapture API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -379,7 +379,7 @@ Specifies the number of milliseconds of audio to capture, defining the size of t
 
                     
 In Windows, to store the file in a particular location, specify the path with the file name. Mentioning the extension name with the file name is optional. Only *.wav files are supported. If the path is not specified with the file name, the captured file is stored in the root directory of the device. In Windows and Android, if the folder is not present, it should be created manually for storing the file in that location. In Android, the file extension depends on encoder value. If it is AAC, the extension should be '.mp4'. In all other cases, it is of '.3gpp'. If only filename is specified, it will be saved in the root directory of external storage.
-                     
+                    
                 
 
 ###Audio Capture

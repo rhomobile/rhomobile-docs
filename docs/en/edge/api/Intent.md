@@ -9,11 +9,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -40,7 +40,7 @@ var params = {
     action: "ACTION_VIEW",
     uri: "content://com.rhomobile.sample/rhodata/apps/public/sample.pdf"
 }
-Rho.Intent.send(params);    
+Rho.Intent.send(params);
 </code></pre>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></p></div></p></div><div class="tab-pane fade" id="msend2"><div><p><strong>Parameters</strong></p><ul><li>params : <span class='text-info'>HASH</span><p><p>A hash-map with intent parameters.</p>
  </p></li><ul><li>intentType : <span class='text-info'>STRING</span><p><p>Type of Intent to send.</p>
@@ -100,7 +100,7 @@ var data = {"android.intent.extra.TEXT":"Here is the text I am passing to the In
   &lt;intent-filter&gt;
     &lt;action android:name="Intent.ACTION_BATTERY_CHANGED" /&gt;
   &lt;/intent-filter&gt;
-&lt;/receiver&gt; 
+&lt;/receiver&gt;
 </code></pre>
 
 <p>Notice that this looks very similar to a standard AndroidManifest.XML file section except the <code>receiver</code> is the common RhoMobile intent receiver. The <code>intent-filter</code> tags within this section are standard AndroidManifest.XML notation that you would put in for the Intent-Filters that you want to listen for. Consult the <a href="http://developer.android.com/guide/components/intents-filters.html#Receiving">Android Docs</a> for more information about Intent Filters. From your Android application, you would use the <a href="http://developer.android.com/reference/android/content/Context.html#sendBroadcast(android.content.Intent)">sendBroadcast() method</a> with the appropriate parameters for this filter.</p>

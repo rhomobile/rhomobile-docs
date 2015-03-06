@@ -7,10 +7,10 @@ The `Webview` is the core container used for rendering your application code. Yo
 > Note: There is currently an issue with hyperlinks on CE devices using the IE Engine: if you are attempting to click a link while holding the shift hardware key on the device, the link will not work properly. This is a known issue and is being worked on currently.
         
 ## Enabling the API
-There are two methods of enabling the Webview API: 
+There are two methods of enabling the Webview API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -32,7 +32,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.webview.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
         
 
 

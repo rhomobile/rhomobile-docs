@@ -9,11 +9,11 @@
 extensions: ["mediacapture"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby</p>
 
@@ -36,12 +36,12 @@ extensions: ["mediacapture"]
  Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> <p>Not providing properties to this function will use the Camera&rsquo;s default properties, or those previously set on the Camera instance.</p>
 </p></li><li>callback : <span class='text-info'>CallBackHandler</span> <span class='label label-warning'>Mandatory</span> </li></ul></div></div><div class="tab-pane fade" id="mchoosePicturestatic3"><div><p><strong>Async Callback Returning Parameters: <span class='text-info'>HASH</span></strong></p><ul><ul><li>status : <span class='text-info'>STRING</span><p><p>Whether or not the image was successfully chosen from the gallery. The returned string will be one of &lsquo;ok&rsquo;, &lsquo;cancel&rsquo; or &lsquo;error&rsquo;.</p>
  </p></li><li>imageUri : <span class='text-info'>STRING</span><p><p>The URI to the chosen image.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>imageHeight : <span class='text-info'>INTEGER</span><p><p>The height of the image.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>imageHeight : <span class='text-info'>INTEGER</span><p><p>The height of the image.</p>
  </p></li><li>imageWidth : <span class='text-info'>INTEGER</span><p><p>The width of the image.</p>
  </p></li><li>imageFormat : <span class='text-info'>STRING</span><p><p>The format of the image, either &lsquo;png&rsquo; or &lsquo;jpg&rsquo;.</p>
  </p></li><li>message : <span class='text-info'>STRING</span><p><p>If the returned status is &lsquo;error&rsquo; then this field will contain more information on the error.</p>
  </p></li><li>image_uri : <span class='text-info'>STRING</span><p><p>It is recommended to use imageUri in preference to this parameter.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>image_height : <span class='text-info'>INTEGER</span><p><p>It is recommended to use imageHeight in preference to this parameter.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>image_height : <span class='text-info'>INTEGER</span><p><p>It is recommended to use imageHeight in preference to this parameter.</p>
  </p></li><li>image_width : <span class='text-info'>INTEGER</span><p><p>It is recommended to use imageWidth in preference to this parameter.</p>
  </p></li><li>image_format : <span class='text-info'>STRING</span><p><p>It is recommended to use imageFormat in preference to this parameter.</p>
  </p></li></ul></ul></div></div><div class="tab-pane fade" id="mchoosePicturestatic4"><div><p><strong>Synchronous Return:</strong></p><ul><li>Void : this method also supports async callbacks - check the Callback tab for callback return parameters.</li></ul></div></div><div class="tab-pane fade" id="mchoosePicturestatic6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>JavaScript: <code>Rho.Camera.choosePicture(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code> </li><li>Ruby: <code>Rho::Camera.choosePicture(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li></ul></div></div></div>  </div><a name ='mcopyImageToDeviceGallerystatic'/><div class=' method  js ruby android ios' id='mcopyImageToDeviceGallerystatic'><h3><strong  ><span class="text-info">copyImageToDeviceGallery</span></strong><span style='font-size:.7em;font-weight:normal;'>(<span class="text-info">STRING</span> pathToImage)</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mcopyImageToDeviceGallerystatic1" data-toggle="tab">Description</a></li><li ><a href="#mcopyImageToDeviceGallerystatic2" data-toggle="tab">Parameters</a></li><li ><a href="#mcopyImageToDeviceGallerystatic4" data-toggle="tab">Return</a></li><li ><a href="#mcopyImageToDeviceGallerystatic6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-copyImageToDeviceGallerystatic'><div class="tab-pane fade active in" id="mcopyImageToDeviceGallerystatic1"><span class='label label-info'>Replaces:</span> <span class='label label-info'>save_image_to_device_gallery</span>  <p>Save an image to the device gallery.</p>
@@ -90,15 +90,15 @@ Rho.RhoApplication.expandDatabaseBlobFilePath(x.image_uri)
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"><img src="/img/wp8.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"></p></div></p></div><div class="tab-pane fade" id="mtakePicture2"><div><p><strong>Parameters</strong></p><ul><li>propertyMap : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p><p>Provide a set of properties to configure the camera, for example to specify the flashMode or compressionFormat.</p>
  Valid `properties` for this parameter are the properties avaliable to this API module. <a href='#Properties'>Check the property section</a> <p>Not providing properties to this function will use the Camera&rsquo;s default properties, or those previously set on the Camera instance.</p>
 </p></li><li>callback : <span class='text-info'>CallBackHandler</span> <span class='label label-warning'>Mandatory</span> </li></ul></div></div><div class="tab-pane fade" id="mtakePicture3"><div><p><strong>Async Callback Returning Parameters: <span class='text-info'>HASH</span></strong></p><ul><ul><li>status : <span class='text-info'>STRING</span><p><p>Whether or not the image was successfully captured. The returned string will be one of &lsquo;ok&rsquo;, &lsquo;cancel&rsquo; or &lsquo;error&rsquo;.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>imageUri : <span class='text-info'>STRING</span><p><p>If the specified &lsquo;outputFormat&rsquo; was &lsquo;image&rsquo; then this field is the URI to the taken image stored on the device, this image will have an auto-generated name. If the specified &lsquo;outputFormat&rsquo; was &lsquo;dataUri&rsquo; then this field will be the image encoded as a Data URI.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>imageHeight : <span class='text-info'>INTEGER</span><p><p>The actual height of the image that was captured, this may differ from the requested height as the Camera will only support a finite resolutions.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>imageWidth : <span class='text-info'>INTEGER</span><p><p>The actual width of the image that was captured, this may differ from the requested width as the Camera will only support a finite resolutions.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>imageFormat : <span class='text-info'>STRING</span><p><p>The format in which the image was captured, either &lsquo;png&rsquo; or &lsquo;jpg&rsquo;.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>imageUri : <span class='text-info'>STRING</span><p><p>If the specified &lsquo;outputFormat&rsquo; was &lsquo;image&rsquo; then this field is the URI to the taken image stored on the device, this image will have an auto-generated name. If the specified &lsquo;outputFormat&rsquo; was &lsquo;dataUri&rsquo; then this field will be the image encoded as a Data URI.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>imageHeight : <span class='text-info'>INTEGER</span><p><p>The actual height of the image that was captured, this may differ from the requested height as the Camera will only support a finite resolutions.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>imageWidth : <span class='text-info'>INTEGER</span><p><p>The actual width of the image that was captured, this may differ from the requested width as the Camera will only support a finite resolutions.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>imageFormat : <span class='text-info'>STRING</span><p><p>The format in which the image was captured, either &lsquo;png&rsquo; or &lsquo;jpg&rsquo;.</p>
  Platforms:Android, WM, CE, iOS </p></li><li>message : <span class='text-info'>STRING</span><p><p>If the returned status is &lsquo;error&rsquo; then this field will contain more information on the error.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>image_uri : <span class='text-info'>STRING</span><p><p>It is recommended to use imageUri in preference to this parameter.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>image_height : <span class='text-info'>INTEGER</span><p><p>It is recommended to use imageHeight in preference to this parameter.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>image_width : <span class='text-info'>INTEGER</span><p><p>It is recommended to use imageWidth in preference to this parameter.</p>
- Platforms:Android, WM, CE, iOS,WP8 </p></li><li>image_format : <span class='text-info'>STRING</span><p><p>It is recommended to use imageFormat in preference to this parameter.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>image_uri : <span class='text-info'>STRING</span><p><p>It is recommended to use imageUri in preference to this parameter.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>image_height : <span class='text-info'>INTEGER</span><p><p>It is recommended to use imageHeight in preference to this parameter.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>image_width : <span class='text-info'>INTEGER</span><p><p>It is recommended to use imageWidth in preference to this parameter.</p>
+ Platforms:Android, WM, CE, iOS, WP8 </p></li><li>image_format : <span class='text-info'>STRING</span><p><p>It is recommended to use imageFormat in preference to this parameter.</p>
  Platforms:Android, WM, CE, iOS </p></li></ul></ul></div></div><div class="tab-pane fade" id="mtakePicture4"><div><p><strong>Synchronous Return:</strong></p><ul><li>Void : this method also supports async callbacks - check the Callback tab for callback return parameters.</li></ul></div></div><div class="tab-pane fade" id="mtakePicture6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-file"></i>Instance Method: This method can be accessed via an instance object of this class: <ul><li><code>myObject.takePicture(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li><li><i class="icon-file"></i>Default Instance: This method can be accessed via the default instance object of this class. <ul><li>JavaScript: <code>Rho.Camera.takePicture(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code> </li><li>Ruby: <code>Rho::Camera.takePicture(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li></ul></div></div></div>  </div></div>
 <a name='Properties'></a>
 <h2><i class='icon-list'></i>Properties</h2>
@@ -177,7 +177,7 @@ def take_picture_with_default_camera
   # Capture an image from the default camera on the device, using the default image settings
   Rho::Camera.takePicture({}, :picture_taken_callback)
 end
-  
+
 def picture_taken_callback
   # Did we really take a picture?
   if (@params["status"]=="ok")
@@ -206,15 +206,15 @@ function choose_camera() {
 
   // build an HTML list
   var cameraList = "&lt;ul&gt;";
-       
+
   for (var cameraIndex=0; cameraIndex&lt;cameras.length; cameraIndex++) {
     var camera = cameras[cameraIndex];
     // Create a link for each camera with an onclick handler
     cameraList = cameraList +'&lt;li&gt;&lt;a href="#" class="take_picture_with_selected_camera" onclick="take_picture_with_camera('+cameraIndex+')"&gt;'+camera.cameraType+'&lt;/a&gt;&lt;/li&gt;';
   }
-  
+
   cameraList = cameraList+"&lt;/ul&gt;";
-  
+
   // make camera list visible to the user
   $("#camera_list").html(cameraList);
 }
@@ -242,7 +242,7 @@ end
 # choose_camera.erb
 &lt;ul data-role="listview"&gt;
   &lt;% $cameras.each_with_index do |camera, index| %&gt;
-    &lt;li&gt;&lt;a href="&lt;%= url_for(:action =&gt; :take_picture_using_chosen_camera, :query =&gt; {:camera_index =&gt; index}) %&gt;"&gt;&lt;%= camera.cameraType %&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;a href="&lt;%= url_for(:action =&gt; :take_picture_using_chosen_camera, :query =&gt; {:camera_index =&gt; index}) %&gt;"&gt;&lt;%= camera.cameraType %&gt;&lt;/li&gt;
   &lt;% end %&gt;
 &lt;/ul&gt;
                    
@@ -258,7 +258,7 @@ function take_picture_and_save_it_to_gallery() {
 function picture_taken_callback_save_to_gallery(params) {
   if (params["status"]=="ok") {
     Rho.Camera.copyImageToDeviceGallery(Rho.Application.expandDatabaseBlobFilePath(params["imageUri"]));
-      
+
     alert("Image saved to gallery");
   }
 }
@@ -267,9 +267,9 @@ function picture_taken_callback_save_to_gallery(params) {
 
            
 def take_picture_and_save_it_to_gallery
-  Rho::Camera.choosePicture({}, url_for(:action =&gt; :picture_taken_callback_save_to_gallery))    
+  Rho::Camera.choosePicture({}, url_for(:action =&gt; :picture_taken_callback_save_to_gallery))
 end
-  
+
 def picture_taken_callback_save_to_gallery
   # Did we really take a picture?
   if (@params["status"]=="ok")
@@ -279,7 +279,7 @@ def picture_taken_callback_save_to_gallery
 
   Rho::WebView.navigate(url_for(:action =&gt; :index))
 
-end  
+end
                    
                  </code></pre></div></div>  </div></div></div></div><a name='e3'></a><div class=' example' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample3"><strong>Control image properties</strong></div><div id="cExample3" class="accordion-body">  <div class="accordion-inner">
 <p>You can tweak multiple options to get an image exactly as you need it</p>
@@ -288,19 +288,19 @@ end
            
 function control_image_properties() {
   // Instead of accepting the defaults, let's set some properties to our liking
-  
+
   // We will ask for a PNG file...
   Rho.Camera.compressionFormat = "png";
-  
+
   // ...a particular image size...
   Rho.Camera.desiredWidth = 1024;
   Rho.Camera.desiredHeight = 768;
-  
+
   // ...and force the flash to be used
   Rho.Camera.flashMode = "on";
-  
+
   // Now, take the picture
-  Rho.Camera.takePicture({}, picture_taken_callback);      
+  Rho.Camera.takePicture({}, picture_taken_callback);
 }
 
 function picture_taken_callback(params) {
@@ -317,19 +317,19 @@ function picture_taken_callback(params) {
            
 def control_image_properties
   # Instead of accepting the defaults, let's set some properties to our liking
-    
+
   # We will ask for a PNG file...
   Rho::Camera.compressionFormat = "png"
-    
+
   # ...a particular image size...
   Rho::Camera.desiredWidth = 1024
   Rho::Camera.desiredHeight = 768
-    
+
   # ...and force the flash to be used
   Rho::Camera.flashMode = "on"
-    
+
   # Now, take the picture
-  Rho::Camera.takePicture({}, :picture_taken_callback)    
+  Rho::Camera.takePicture({}, :picture_taken_callback)
 end
 
 def picture_taken_callback
@@ -349,7 +349,7 @@ end
 
            
 function determine_camera_capabilities() {
-  var capabilitiesList = "&lt;ul&gt;"; 
+  var capabilitiesList = "&lt;ul&gt;";
 
   // Get all capabilities of the camera...
   var capabilities = Rho.Camera.getAllProperties();
@@ -360,7 +360,7 @@ function determine_camera_capabilities() {
   }
 
   capabilitiesList += "&lt;/ul&gt;";
-  
+
   // ... and show it
   $("#camera_capabilities").html(capabilitiesList);
 }
@@ -378,7 +378,7 @@ end
 
 # determine_camera_capabilities.erb
     &lt;ul data-role="listview"&gt;
-    
+
     &lt;% @properties.each_pair do |name,value| %&gt;
       &lt;li&gt;&lt;%= name %&gt; : &lt;%= value %&gt;&lt;/li&gt;
     &lt;% end %&gt;
@@ -405,7 +405,7 @@ function picture_taken_callback(params) {
                  </code></pre></div><div class='tab-pane' id='exI5-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
            
-def select_picture_from_gallery 
+def select_picture_from_gallery
   Rho::Camera.choosePicture({}, url_for(:action =&gt; :picture_taken_callback))
 end
 

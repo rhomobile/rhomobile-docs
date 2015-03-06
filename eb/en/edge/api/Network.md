@@ -4,10 +4,10 @@
 ## Overview
 This API class allows you to interact with either the WAN or WiFI network of the device.
 ## Enabling the API
-There are two methods of enabling the Network API: 
+There are two methods of enabling the Network API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -29,7 +29,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.network.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
         
 
 
@@ -287,7 +286,7 @@ Synchronous Return:
 
 
 ### startStatusNotify()
-Start network status notifications. Notifications are sent when WiFi or Cell network appear/disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.
+Start network status notifications. Notifications are sent when WiFi or Cell network appear / disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>

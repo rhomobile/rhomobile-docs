@@ -4,10 +4,10 @@
 ## Overview
 The System API is used to control and modify core aspects of the device such as the screen, OS and device capabilities.
 ## Enabling the API
-There are two methods of enabling the System API: 
+There are two methods of enabling the System API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -29,7 +29,6 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.system.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
         
 
 
@@ -456,23 +455,6 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.System.runApplication(<span class="text-info">STRING</span> appName, <span class="text-info">STRING</span> params, <span class="text-info">BOOLEAN</span> blockingCall)</code> 
-
-
-### setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)
-Set do not backup attribute for file.
-
-####Parameters
-<ul><li>pathToFile : <span class='text-info'>STRING</span><p>Path to file. </p></li><li>doNotBackup : <span class='text-info'>BOOLEAN</span><p>True set doNotBackup attribute to file (exclude this file from backup), false for remove doNotBackup attribute from file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</code> 
 
 
 ### setNetworkStatusNotify(<span class="text-info">STRING</span> url)
@@ -1513,6 +1495,7 @@ If true, then screen will go to sleep by system inactivity timeout. If false the
 ####Platforms
 
 * Android
+* Windows Mobile
 
 ###screenWidth
 

@@ -5,10 +5,10 @@
 The MediaPlayer extension is used to playback different types of audio files. It also allows the playback of Ringtones for the respective platform.
         
 ## Enabling the API
-There are two methods of enabling the MediaPlayer API: 
+There are two methods of enabling the MediaPlayer API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -30,7 +30,7 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.mediaplayer.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
-
+        
 
 
 ##Methods

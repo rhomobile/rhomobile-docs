@@ -11,11 +11,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -59,13 +59,13 @@ try
   for (var index in items) {
     // create hash of attribute/value pairs
     data = {
-      field1 : item[index].value1, 
+      field1 : item[index].value1,
       field2 : item[index].value2
-    }; 
+    };
     // Creates a new itemModel object and saves it
     new_item = itemModel.create(data);
   }
-  
+
  db.commitTransaction();
 }
 catch
@@ -82,9 +82,9 @@ begin
   items.each do |item|
     # create hash of attribute/value pairs
     data = {
-      :field1 =&gt; item['value1'], 
-      :field2 =&gt; item['value2'] 
-    } 
+      :field1 =&gt; item['value1'],
+      :field2 =&gt; item['value2']
+    }
     # Creates a new itemModel object and saves it
     new_item = itemModel.create(data)
   end

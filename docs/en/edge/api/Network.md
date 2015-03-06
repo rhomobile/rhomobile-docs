@@ -9,11 +9,11 @@
 extensions: ["coreapi"]
 </code></pre>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -80,7 +80,7 @@ extensions: ["coreapi"]
  </p></li><li>headers : <span class='text-info'>HASH</span><p><p>A hash containing the response headers.</p>
  </p></li><li>cookies : <span class='text-info'>STRING</span><p><p>The server cookies, parsed and usable for subsequent requests.</p>
  </p></li><li>http_error : <span class='text-info'>INTEGER</span><p><p>HTTP error code if response code was not 200.</p>
- </p></li></ul></li></ul></div></div><div class="tab-pane fade" id="mpost6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>JavaScript: <code>Rho.Network.post(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code> </li><li>Ruby: <code>Rho::Network.post(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li></ul></div></div></div>  </div><a name ='mstartStatusNotify'/><div class=' method  js ruby android ios' id='mstartStatusNotify'><h3><strong  >startStatusNotify</strong><span style='font-size:.7em;font-weight:normal;'>(<span class="text-info">INTEGER</span> pollInterval, <span class='text-info'>CallBackHandler</span> callback)</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mstartStatusNotify1" data-toggle="tab">Description</a></li><li ><a href="#mstartStatusNotify2" data-toggle="tab">Parameters</a></li><li ><a href="#mstartStatusNotify3" data-toggle="tab">Callback</a></li><li ><a href="#mstartStatusNotify4" data-toggle="tab">Return</a></li><li ><a href="#mstartStatusNotify6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-startStatusNotify'><div class="tab-pane fade active in" id="mstartStatusNotify1"><p>Start network status notifications. Notifications are sent when WiFi or Cell network appear/disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.</p>
+ </p></li></ul></li></ul></div></div><div class="tab-pane fade" id="mpost6"><div><p><strong>Method Access:</strong></p><ul><li><i class="icon-book"></i>Class Method: This method can only be accessed via the API class object. <ul><li>JavaScript: <code>Rho.Network.post(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code> </li><li>Ruby: <code>Rho::Network.post(<span class="text-info">HASH</span> propertyMap, <span class='text-info'>CallBackHandler</span> callback)</code></li></ul></li></ul></div></div></div>  </div><a name ='mstartStatusNotify'/><div class=' method  js ruby android ios' id='mstartStatusNotify'><h3><strong  >startStatusNotify</strong><span style='font-size:.7em;font-weight:normal;'>(<span class="text-info">INTEGER</span> pollInterval, <span class='text-info'>CallBackHandler</span> callback)</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#mstartStatusNotify1" data-toggle="tab">Description</a></li><li ><a href="#mstartStatusNotify2" data-toggle="tab">Parameters</a></li><li ><a href="#mstartStatusNotify3" data-toggle="tab">Callback</a></li><li ><a href="#mstartStatusNotify4" data-toggle="tab">Return</a></li><li ><a href="#mstartStatusNotify6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-startStatusNotify'><div class="tab-pane fade active in" id="mstartStatusNotify1"><p>Start network status notifications. Notifications are sent when WiFi or Cell network appear / disappear. To check real Internet connectivity use detectConnection method. Not supported on Windows CE.</p>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></p></div></p></div><div class="tab-pane fade" id="mstartStatusNotify2"><div><p><strong>Parameters</strong></p><ul><li>pollInterval : <span class='text-info'>INTEGER</span><span class='label '> Default: 20</span><p><p>The network status polling period for systems that can not notify network status change immediately. In seconds. Currently applies to iOS only as immediate status notification is not available on this platform.</p>
  </p></li><li>callback : <span class='text-info'>CallBackHandler</span> <span class='label label-warning'>Mandatory</span> </li></ul></div></div><div class="tab-pane fade" id="mstartStatusNotify3"><div><p><strong>Async Callback Returning Parameters: <span class='text-info'>HASH</span></strong></p><ul><ul><li>current_status : <span class='text-info'>STRING</span><p><p>Current status of network connection. Can be &ldquo;connected&rdquo; or &ldquo;disconnected&rdquo;.</p>
  </p></li><li>prev_status : <span class='text-info'>STRING</span><p><p>Previous status of network connection. Can be &ldquo;connected&rdquo;, &ldquo;disconnected&rdquo; or &ldquo;unknown&rdquo;."</p>
@@ -134,12 +134,12 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
     function status_notify_callback(params) {
       alert("Network status changed from "+params["prev_status"]+" to "+params["current_status"]);
     }
-  
+
     function start_status_notify() {
       # Request the system to check every 3 seconds and call us back if there is a change in network connectivity
       Rho.Network.startStatusNotify(3000, status_notify_callback);
     }
-    
+
     function stop_status_notify() {
       // Stop network status notifications
       Rho.Network.stopStatusNotify();
@@ -180,7 +180,7 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
       var wifi_network = Rho.Network.hasWifiNetwork()
       // Any network
       var network = Rho.Network.hasNetwork()
-      
+
       alert("Cell network: "+cell_network+"\nWi-Fi network: "+wifi_network+"\nNetwork: "+network);
     }
                    
@@ -229,7 +229,7 @@ function download_file() {
       downloadfileProps["overwriteFile"] = true
       Rho::Network.downloadFile(downloadfileProps, url_for(:action =&gt; :download_file_callback))
   end
-  
+
   def download_file_callback
     if @params["status"] == "ok"
         Alert.show_popup "Download Success,path is /public/images/sample.png "
