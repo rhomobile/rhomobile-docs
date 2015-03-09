@@ -15,13 +15,13 @@ extensions: ["signature"]
 app_type: "rhoelements"
 </code></pre>
 
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+<blockquote><p>Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p></blockquote>
 
-<h3>JavaScript Usage</h3>
+<h2>JavaScript Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_js">JavaScript API Usage</a> guide for important information about using this API in JavaScript.</p>
 
-<h3>Ruby Usage</h3>
+<h2>Ruby Usage</h2>
 
 <p>Be sure to review the <a href="/guide/api_ruby">Ruby API Usage</a> guide for important information about using this API in Ruby.</p>
 
@@ -81,26 +81,26 @@ app_type: "rhoelements"
   def capture_fullscreen
     # Invoke signature capture screen and assign callback
     Rho::Signature.takeFullScreen({}, url_for(:action =&gt; :signature_callback))
-    
+
     render :action =&gt; :show_signature
   end
 
   def signature_callback
     # If status is not 'ok', the capture was canceled
     if @params['status'] == 'ok'
-    
+
       # By default, the output format is "image", so the imageUri parameter will contain the relative filename of an image
       # We must convert that relative filename to an absolute path in order to access the file
       signature = Rho::Application.expandDatabaseBlobFilePath(@params["imageUri"])
 
       # In our example, we will display the signature as soon as it is captured.
       # We have a JavaScript function in our page to set the src attribute of an img element and we will call it now
-      # 
+      #
       WebView.executeJavascript("updateSignature('#{signature}')")
     else
       # if we did not really capture a signature, there is nothing else to do here
-      WebView.navigate(url_for(:action =&gt; :index )) 
-    end  
+      WebView.navigate(url_for(:action =&gt; :index ))
+    end
   end
                    
                </code></pre></div></div>
@@ -109,7 +109,7 @@ app_type: "rhoelements"
            
 &lt;div data-role="page"&gt;
 
-    
+
   &lt;div data-role="header" data-position="in-line"&gt;
     &lt;h1&gt;Captured signature&lt;/h1&gt;
   &lt;/div&gt;

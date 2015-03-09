@@ -15,7 +15,7 @@ extensions: ["indicators"]
 app_type: "rhoelements"
 </code></pre>
 
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+<blockquote><p>Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p></blockquote>
 
 <h2>JavaScript Usage</h2>
 
@@ -103,7 +103,7 @@ app_type: "rhoelements"
 
   function signalEvent(params){
     console.log("Signal Event: (Asynchronous).  Strength: " + params["signalStrength"] + ", ESS ID: " + params["essid"] + ", MacAddress: " + params["macAddress"] + ", AdapterName: " + params["adapterName"] + ", DHCP Server: " + params["dhcpServer"] + ", DHCP Static: " + params["dhcpStatic"] + ", Gateway: " + params["gateway"] + ", IP Address: " + params["ipAddress"] + ", RSSI: " + params["rssi"] + ", Subnet Mask: " + params["subnetMask"] + ", Wins: " + params["wins"]);
-  }  
+  }
   
                             </code></pre></div><div class='tab-pane' id='exI0-S1RUBY'><pre class='CodeRay'><code>:::ruby
 
@@ -114,7 +114,7 @@ app_type: "rhoelements"
 
    def signalEvent
     puts "Signal Event: (Asynchronous).  Strength: #{@params["signalStrength"]}, ESS ID: #{@params["essid"]}, MacAddress: #{@params["macAddress"]}, AdapterName: #{@params["adapterName"]}, DHCP Server: #{@params["dhcpServer"]}, DHCP Static: #{@params["dhcpStatic"]}, Gateway: #{@params["gateway"]}, IP Address: #{@params["ipAddress"]}, RSSI: #{@params["rssi"]}, Subnet Mask: #{@params["subnetMask"]}, Wins: #{@params["wins"]}"
-  end  
+  end
   
                             </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Working with the Signal indicator</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>If you just want to display the signal indicator in the default position and default colour then call as follows</p>

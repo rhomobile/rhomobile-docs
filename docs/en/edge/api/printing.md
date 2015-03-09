@@ -3,7 +3,7 @@
 <p>The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.</p>
 <p>This is general API that does not provide access to specific manufacturer&rsquo;s features. The interfaces described here will automatically be included in manufacturer specific printer classes like <a href="printingzebra">PrintingZebra</a>. If you wish to have access to manufacturer specific features you would have to add both extensions to your build.yml file.</p>
 
-<p>NOTE: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></p>
+<blockquote><p>Note: Windows Mobile/CE platforms require a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></p></blockquote>
 
 <h2>Enabling the API</h2>
 
@@ -13,7 +13,7 @@
 extensions: ["printing"]
 </code></pre>
 
-<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
+<blockquote><p>Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p></blockquote>
 
 <h2>JavaScript Usage</h2>
 
@@ -151,8 +151,8 @@ NOTE: on iOS device adress returns device serial that is used for connection, no
 
 var printers = [];
 
-Rho.Printer.searchPrinters({ 
-    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
+Rho.Printer.searchPrinters({
+    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,
     printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
     }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
@@ -208,7 +208,7 @@ myPrinter.connect(function (cb){
     // by default it is the serial number
     console.log(myPrinter.deviceName);
 
-    // This will be the BT MC Address 
+    // This will be the BT MC Address
     since we are connecting via BlueTooth
     console.log(myPrinter.deviceAddress);
 });
@@ -223,7 +223,7 @@ myPrinter.connect(function (cb){
 def printer_connect_callback
   puts @params.to_s
 
-  # This will be the Zebra's `Friendly Name` 
+  # This will be the Zebra's `Friendly Name`
   # by default it is the serial number
   puts @my_printer['deviceName']
 

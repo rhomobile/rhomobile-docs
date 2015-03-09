@@ -12,12 +12,12 @@ The `indicators` extension is also included automatically if you specify the fol
     :::ruby
     app_type: "rhoelements"
 
-NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+> Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
-### JavaScript Usage
+## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
-### Ruby Usage
+## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
 
 ## Persistence
@@ -26,10 +26,10 @@ With the old PocketBrowser / RhoElements 1 APIs, any events, such as `batteryEve
 
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Battery API: 
+There are two methods of enabling the Battery API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -73,8 +73,8 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                 <PLATFORM>WM</PLATFORM>
                 <DESC>Only supported by the MC18 device.  Sets an average current consumption in mA that is used in subsequent power related calculations. If set to 0, the value will be provided by the device driver based on the running average.</DESC>
             </PROPERTY>
-        </PROPERTIES>   
-        
+        </PROPERTIES>
+
         <METHODS access="STATIC">
             <METHOD name="batteryStatus" hasCallback="optional">
                 <DESC>Retrieve the current battery level. If a callback is provided to retrieve the battery then it will be called periodically at a frequency determined by the trigger property.</DESC>
@@ -175,7 +175,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                     </PARAMS>
                 </RETURN>
             </METHOD>
-			
+
             <METHOD name="batteryDiagnostics" hasCallback="optional">
                 <DESC>The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'</DESC>
                 <PLATFORM>WM</PLATFORM>
@@ -208,7 +208,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                         </PARAM>
                     </PARAMS>
                 </RETURN>
-            </METHOD>			
+            </METHOD>
 
             <METHOD name="showIcon" hasCallback="none" runInThread="ui">
                 <DESC>Overlays a small battery icon on top of the view indicating the remaining battery strength. This is particularly useful in full screen applications which cover the system battery level indicator.</DESC>
@@ -296,7 +296,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
    def batteryEvent
     puts "Battery Event Fired: #{@params}"
     puts "Battery Event (Asynchronous). AC Line Status: #{@params["acLineStatus"]}, Battery Life Percent: #{@params["batteryLifePercent"]}, Backup Battery Life Percent: #{@params["backupBatteryLifePercent"]}, Status: #{@params["batteryStatus"]}, Battery Life Known: #{@params["batteryLifeKnown"]}, Backup Battery Life Known: #{@params["backupBatteryLifeKnown"]}"
-  end  
+  end
   ]]>
                     </RUBY>
                     <JAVASCRIPT>
@@ -309,7 +309,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
    function batteryEvent(params){
     console.log("Battery Event Fired:");
     console.log("Battery Event (Asynchronous). AC Line Status: " + params["acLineStatus"] + " Battery Life Percent: " + params["batteryLifePercent"] + " Backup Battery Life Percent: " + params["backupBatteryLifePercent"] + " Status: " + params["batteryStatus"] + " Battery Life Known: " + params["batteryLifeKnown"] + " Backup Battery Life Known: " + params["backupBatteryLifeKnown"]);
-  }  
+  }
   ]]>
                     </JAVASCRIPT>
                 </CODE>
@@ -349,7 +349,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                     <JAVASCRIPT>
             <![CDATA[
   function show_battery_icon(){
-    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });  
+    Rho.Battery.showIcon({ left: 0, top: 40, color: '#FF0000', layout: Rho.Battery.BATTERY_LAYOUT_RIGHT });
   }
   ]]>
                     </JAVASCRIPT>
@@ -374,7 +374,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
         function showBatteryIcon(){
             EB.Battery.showIcon(defineIconProperties(), batteryCallback);
             EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
-            // The batteryStatus() is used to tell the icon when to refresh. 
+            // The batteryStatus() is used to tell the icon when to refresh.
             // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
         }
 

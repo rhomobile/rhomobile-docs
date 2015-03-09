@@ -17,10 +17,10 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </MORE_HELP>
         <MORE_HELP_EB>
 ## Enabling the API
-There are two methods of enabling the Zebra Printing API: 
+There are two methods of enabling the Zebra Printing API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -151,7 +151,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <CONSTANT name="ERROR_INVALID_PRINTER_DRIVE_LETTER" value="ERROR_INVALID_PRINTER_DRIVE_LETTER" type="STRING">
                 <DESC>Invalid drive specified</DESC>
             </CONSTANT>
-            
+
             <CONSTANT name="PRINTER_STATE_IS_HEAD_COLD" value="PRINTER_STATE_IS_HEAD_COLD" type="STRING">
                 <DESC>Use this name for requestState(), true if the head is cold</DESC>
             </CONSTANT>
@@ -191,6 +191,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="retrieveFileNames" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <DESC>Retrieves the names of the files which are stored on the printer. Works asynchronously; use callback to check the result.</DESC>
                 <CALLBACK type="HASH">
                     <PARAMS>
@@ -208,6 +209,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="retrieveFileNamesWithExtensions" hasCallback="mandatory">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <DESC>This method only returns files which have the extensions in "extensions". Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="extensions" type="ARRAY">
@@ -231,6 +233,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="sendFileContents" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <DESC>Sends the contents of a file on the device to the printer. Equals to printing raw string with content of specified file. Should be used to print ZPL and CPCL commands stored inside predefined filed. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="path" type="STRING">
@@ -245,6 +248,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="printStoredFormatWithHash" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <DESC>Prints a stored format on the printer, filling in the fields specified by the Hash. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
@@ -263,6 +267,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="printStoredFormatWithArray" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <DESC>Prints a stored format on the printer, filling in the fields specified by the array. Works asynchronously; use callback to check the result.</DESC>
                 <PARAMS>
                     <PARAM name="formatPathOnPrinter" type="STRING">
@@ -275,12 +280,13 @@ The ebapi.js file is necessary for all single API inclusions.
                 <CALLBACK type="STRING">
                     <DESC>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print format contains invalid data, then only iOS return ERROR, on Android and WM  Zebra SDK not provided that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occurred.</DESC>
                     <DESC_EB>Returns result of a printing attempt. PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. If you try to print formats containing invalid data, on Android and WM Zebra SDK does not provide that info due to Zebra SDK API limitations on Android and WM. So on Android and WM you can receive ERROR only if some connection problem occurred.</DESC_EB>
-                </CALLBACK> 
+                </CALLBACK>
             </METHOD>
 
             <METHOD name="storeImage" hasCallback="optional">
                 <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <DESC>Stores the specified image to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. iOS, Android and WM are supporting only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC>
                 <DESC_EB>Stores the specified image to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. The image will be stored on the printer at printerDriveAndFileName with the extension GRF. If a drive letter is not supplied, E will be used as the default (e.g. FILE becomes E:FILE.GRF). If an extension is supplied, it is ignored (E:FILE.BMP becomes E:FILE.GRF). Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. There are device OS limitations on supported file formats and image sizes. Android and WM support only JPG and PNG files. WM can fail to handle large (>1024x1024 pixel) images.</DESC_EB>
                 <PARAMS>
@@ -308,6 +314,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
         <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
         <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+        <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
         <REMARKS>
             <REMARK title="iOS Notes" productException="eb">
                 <DESC>
@@ -332,7 +339,7 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
 * To use a Bluetooth connection on Android devices you should take into account the following preconditions: Before using the printer you should pair it using the Android system Bluetooth settings.
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
 
-            </DESC>                    
+            </DESC>
             </REMARK>
             <REMARK title="Windows Mobile/CE Notes">
                 <DESC>
@@ -340,7 +347,7 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
 * You must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
 
 * Requires a Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes)
-   
+
 * You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:
 
         window.onunload = function(){
@@ -351,7 +358,7 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
                 <DESC_EB>
 
 * Requires a Printing Service application to be running.
-   
+
 * You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:
 
         :::javascript
@@ -371,8 +378,8 @@ To use a Bluetooth connection on iOS devices you should take into account the fo
                             <JAVASCRIPT><![CDATA[
 var printers = [];
 
-Rho.Printer.searchPrinters({ 
-    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
+Rho.Printer.searchPrinters({
+    connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,
     printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
     }, function (cb){
         if(cb.status == 'PRINTER_STATUS_SUCCESS')
@@ -427,11 +434,11 @@ var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
 // Let's try connecting
 myPrinter.connect(function (cb){
     console.log(cb);
-    // This will be the Zebra's `Friendly Name` 
+    // This will be the Zebra's `Friendly Name`
     // by default it is the serial number
     console.log(myPrinter.deviceName);
 
-    // This will be the BT MC Address 
+    // This will be the BT MC Address
     since we are connecting via BlueTooth
     console.log(myPrinter.deviceAddress);
 });
@@ -446,7 +453,7 @@ myPrinter.connect(function (cb){
 def printer_connect_callback
   puts @params.to_s
 
-  # This will be the Zebra's `Friendly Name` 
+  # This will be the Zebra's `Friendly Name`
   # by default it is the serial number
   puts @my_printer['deviceName']
 

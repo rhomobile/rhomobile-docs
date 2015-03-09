@@ -4,10 +4,10 @@
 ## Overview
 The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.
 ## Enabling the API
-There are two methods of enabling the Printing API: 
+There are two methods of enabling the Printing API:
 
-* Include all ebapi modules or 
-* Include only the API modules you need 
+* Include all ebapi modules or
+* Include only the API modules you need
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -400,7 +400,7 @@ Synchronous Return:
 ### requestState(<span class="text-info">ARRAY</span> listOfParameters)
 Requests printer state with a list of parameters.
 
-* Works asynchronously and uses the callback to check the result. 
+* Works asynchronously and uses the callback to check the result.
 * Returns hash with status, and parameters as keys.
 
 NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.
@@ -434,7 +434,6 @@ Synchronous Return:
 Search printers connected to the device, available Bluetooth(R), or Network printers. It is highly recommended to search for a particular Bluetooth(R) address or IP address for Network connections. Also this method could be used to get printerID for known network / bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. The callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note that discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.
 
 NOTE: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds - if user touch screen Android system can show Alert about "application not responded" - user should select [continue waiting] button.
-NOTE: on iOS device adress returns device serial that is used for connection, not the device mac address.
                 
 
 ####Parameters
@@ -443,7 +442,7 @@ NOTE: on iOS device adress returns device serial that is used for connection, no
 ####Callback
 Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>Status of network discovery, can be following:
 * PRINTER_STATUS_SUCCESS - when printer is discovered or operation is finished;
-* PRINTER_STATUS_ERROR - general error 
+* PRINTER_STATUS_ERROR - general error
 * PRINTER_STATUS_ERR_UNSUPPORTED - in case if printer type is not supported
 * PRINTER_STATUS_ERR_NOT_CONNECTED - in case if deviceAddress was specified in options and device was unable to connect to printer. </p></li><li>printerID : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Printer ID, valid only if status equals to 'PRINTER_STATUS_SUCCESS'. If there are no more printers available printerID will not be defined. </p></li><li>message : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Error message, only if status = ERROR. </p></li></ul></ul>
 
@@ -609,7 +608,7 @@ Type of connection to printer.
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. Note: iOS uses device serial number instead of mac address. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" 
+IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" 
 ####Access
 
 
@@ -761,5 +760,5 @@ Type of printer - see PRINTER_TYPE_... constants.
         }
 
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then **all** Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we cannot detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
-* When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on QLn320 printer. 
+* When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on QLn320 printer.
               
