@@ -16,8 +16,6 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<th style="width:20%;text-align:center;" colspan="2"></th>
 			<th style="text-align:center"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile"></th>
 			<th style="text-align:center"><img src="/img/win32.png"         style="height: 20px;padding-top: 8px" rel="tooltip" title="Win 32 Desktop" style="height: 30px"></th>
-			<th style="text-align:center"><img src="/img/wince.png"         style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows CE" style="height: 30px"></th>
-			<th style="text-align:center"><img src="/img/wp8.png"           style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Phone 8, Windows Embedded 8"></th>
 			<th style="text-align:center"><img src="/img/android.png"       style="height: 20px;padding-top: 8px" rel="tooltip" title="Android"></th>
 			<th style="text-align:center"><img src="/img/ios.png"           style="height: 20px;padding-top: 8px" rel="tooltip" title="iOS"></th>
 		</tr>
@@ -29,8 +27,6 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="width:20%;text-align:center;">TBD</th>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 		</tr>
@@ -40,8 +36,6 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="width:20%;text-align:center;">TBD</th>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 		</tr>
@@ -51,8 +45,6 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="width:20%;text-align:center;">TBD</th>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 		</tr>
@@ -62,8 +54,6 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="width:20%;text-align:center;">TBD</th>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 		</tr>
@@ -73,8 +63,6 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="width:20%;text-align:center;">TBD</th>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 		</tr>
@@ -84,8 +72,6 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="width:20%;text-align:center;">TBD</th>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
-			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 		</tr>
