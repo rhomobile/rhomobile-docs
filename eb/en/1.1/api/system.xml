@@ -529,7 +529,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 </PARAMS>
             </METHOD>
 
-            <METHOD name="setDoNotBackupAttribute" platformException="eb">
+            <METHOD name="setDoNotBackupAttribute" productException="eb">
                 <DESC>Set do not backup attribute for file.</DESC>
                 <PLATFORM>iOS</PLATFORM>
                 <PARAMS>
@@ -663,7 +663,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <DESC>Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url.</DESC>
                 <PLATFORM>WM, CE, WIN32</PLATFORM>
             </METHOD>
-            <METHOD name="set_application_icon_badge" deprecated="true" platformException="eb">
+            <METHOD name="set_application_icon_badge" deprecated="true" productException="eb">
                 <DESC>Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.</DESC>
                 <PLATFORM>iOS</PLATFORM>
                 <PARAMS>
