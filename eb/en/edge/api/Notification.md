@@ -40,7 +40,7 @@ The ebapi.js file is necessary for all single API inclusions.
 If the device is equipped with a beeper then a beep will be emitted.
 
 ####Parameters
-<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the beep. </p></li><ul><li>frequency : <span class='text-info'>Integer</span><span class='label '> Default: 2000</span><p>The frequency of the beep, in Hz. </p></li><li>volume : <span class='text-info'>Integer</span><span class='label '> Default: 1</span><p>A number between 0 and 3. 0 represents minimum volume and 3 is maximum volume, the decibels each volume level represents is device dependant. </p></li><li>duration : <span class='text-info'>Integer</span><span class='label '> Default: 1000</span><p>The duration of the beep, in milliseconds. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with the beep. </p></li><ul><li>frequency : <span class='text-info'>Integer</span><span class='label '> Default: 2000</span><p>The frequency of the beep, in Hz. </p></li><li>volume : <span class='text-info'>Integer</span><span class='label '> Default: 1</span><p>A number between 0 and 3. 0 represents minimum volume and 3 is maximum volume, the decibels each volume level represents is device dependent. </p></li><li>duration : <span class='text-info'>Integer</span><span class='label '> Default: 1000</span><p>The duration of the beep, in milliseconds. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
