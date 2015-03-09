@@ -9,13 +9,11 @@
 In order to use this API you must include the following extension in your `build.yml`.
 :::ruby
 extensions: ["mobile_payment"]
+</code></pre>
 
-The `mobile_payment` extension is also included automatically if you specify the following in your `build.yml`.
-:::ruby
-extensions: ["rhoelements"]
+<p>  ## JavaScript Usage</p>
 
-## JavaScript Usage
-Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
+<pre><code>Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
 ## Ruby Usage
 Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.

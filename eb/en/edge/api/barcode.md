@@ -5,10 +5,10 @@
 The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
         
 ## Enabling the API
-There are two methods of enabling the Barcode API:
+There are two methods of enabling the Barcode API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -2718,7 +2718,7 @@ Describes the linear security level used during decoding. This determines the nu
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
  
-* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH - String: redundancyAndLength Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.
+* Constant: EB.Barcode.REDUNDANCY_AND_LENGTH - String: redundancyAndLength Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners. Not supported on Android with EMDK version 3.1 and above.
 * Constant: EB.Barcode.SHORT_OR_CODABAR - String: shortOrCodabar Double redundancy if short barcode or Codabar.
 * Constant: EB.Barcode.LONG_AND_SHORT - String: longAndShort Double redundancy for long barcodes, triple for short barcodes.
 * Constant: EB.Barcode.ALL_TWICE - String: allTwice Double redundancy for all barcodes.
@@ -4137,7 +4137,7 @@ When the aimType:continuousRead property is applied this value defines the inter
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.
+Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners. Scan timeout is extent to hardware capabilities and limitations.
 ####Access
 
 
@@ -5062,7 +5062,7 @@ When true, the barcode check digit(s) will be reported for scanned US Post Net b
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.
+Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given. Not supported on Android with EMDK version 3.1 and above.
 ####Values
 
 <strong>Possible Values</strong> (<span class='text-info'>STRING</span>):
@@ -5091,7 +5091,7 @@ Configures the feedback given after a successful scan. This value is ignored if 
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.
+If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds. Not supported on Android with EMDK version 3.1 and above.
 ####Access
 
 
@@ -5274,8 +5274,8 @@ The following messages will be received from the Bluetooth Scanner in the blueto
 
 **'BTScanAssociationBarcode'**
 
-Means the device is ready to be associated with a BT scanner. You must scan the
-association barcode. It is only necessary to scan the association
+Means the device is ready to be associated with a BT scanner. You must scan the 
+association barcode. It is only necessary to scan the association 
 barcode when you first associate a scanner with the device, this pairing will be remembered until
 you scan the unpairing barcode.
 
@@ -5310,15 +5310,14 @@ On WM/CE, for some properties, it is first necessary to apply those properties b
 
 
 
-###Scanning a Barcode
-In this example you'll see how to enable your device's barcode scanner and scan a barcode with said scanner. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+###Enable barcode scanner and scan a bacrode
+This example shows how to enable your device's barcode scanner and access the data gathered by the scanner. Note that this example assumes that your ebapi-modules.js file is in the same folder as the HTML invoking it. On symbol devices, data wedge needs to be disabled or the Enterprise Browser will not be able to claim any of the scanners.
 <pre><code>:::javascript
 &lt;head&gt;
+    &lt;title&gt;Barcode API Test&lt;/title&gt;
     &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 
-    &lt;title&gt;Barcode API Test&lt;/title&gt;
-
-    &lt;script&gt;
+    &lt;script type="text/javascript"&gt;
         function scanReceived(params){
             // No data or no timestamp, scan failed.
             if(params['data']== "" || params['time']==""){
@@ -5344,7 +5343,6 @@ In this example you'll see how to enable your device's barcode scanner and scan 
 
 &lt;body onunload='unloadEvent()'&gt;
     &lt;h1&gt;Barcode API Test&lt;/h1&gt;
-    &lt;/br&gt;
     &lt;div id="display"&gt;
         Barcode Data: &lt;br&gt;
         Time: &lt;br&gt;

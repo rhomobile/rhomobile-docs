@@ -4,10 +4,10 @@
 ## Overview
 creates a rectangular box within which the user can draw by using a finger or the device's stylus to record handwritten data. Common usages for this tag include the capture of client/customer signatures and the input of handwritten text/notations.
 ## Enabling the API
-There are two methods of enabling the Signature API:
+There are two methods of enabling the Signature API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -29,6 +29,9 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.signature.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
+
+## Persistence
+With the old PocketBrowser APIs, any events, such as `signatureCaptureEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 

@@ -15,7 +15,7 @@ extensions: ["hardwarekeys"]
 app_type: "rhoelements"
 </code></pre>
 
-<blockquote><p>Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p></blockquote>
+<p>NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as &ldquo;rhoelements&rdquo; in your build.yml as shown <a href="../guide/build_config#other-build-time-settings">here</a>.</p>
 
 <h2>JavaScript Usage</h2>
 
@@ -193,7 +193,7 @@ end
 <li>Depending on the device keyboard driver, some keys may not be easily capturable as they are interpreted as a shifted character by the device.  One example of such a key is the &lsquo;#&rsquo; character on CE7 devices, whilst the character code for this key is 23 it is interpreted as 33.  This applies to both capturing keys and specifying the HomeKeyValue.</li>
 <li>On Android devices, keys reserved for use by the &ldquo;PTT&rdquo; apps (such as the left trigger button), if a &ldquo;PTT&rdquo; app has been enabled.</li>
 <li>On consumer Jelly Bean (Android) devices, the search button cannot be captured, as it has been reserved for the sole use of &ldquo;Google Now&rdquo;.</li>
-<li>On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesn&rsquo;t do anything specific with this key (unlike the menu key which raises the menu).
+<li>On ET1, Search (P3) key is application specific. Dispatching this key within RhoElements wont do anything as it RhoElements doesn&rsquo;t do anything specific with this key (unlike the menu key which raises the menu).                <br/>
 Although on some device configurations pressing the SHIFT key twice generates CAPS LOCK which can be captured with a key value of 16.</li>
 </ol>
 

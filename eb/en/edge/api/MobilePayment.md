@@ -9,12 +9,7 @@ The Mobile Payment module implements the functions required to work with the PD4
     In order to use this API you must include the following extension in your `build.yml`.
     :::ruby
     extensions: ["mobile_payment"]
-
-    The `mobile_payment` extension is also included automatically if you specify the following in your `build.yml`.
-    :::ruby
-    extensions: ["rhoelements"]
-
-    ## JavaScript Usage
+  ## JavaScript Usage
     Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
 
     ## Ruby Usage

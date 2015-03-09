@@ -4,10 +4,10 @@
 ## Overview
 The Battery API is used to notify the user of the remaining power in the battery. Windows Mobile / CE devices also support displaying a small indicator to show the available power.
 ## Enabling the API
-There are two methods of enabling the Battery API:
+There are two methods of enabling the Battery API: 
 
-* Include all ebapi modules or
-* Include only the API modules you need
+* Include all ebapi modules or 
+* Include only the API modules you need 
 
 For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
 
@@ -29,6 +29,9 @@ To include single APIs, you must first include the `ebapi.js` in your HTML as we
     <script type="text/javascript" charset="utf-8" src="eb.battery.js"></script>
 
 The ebapi.js file is necessary for all single API inclusions.
+
+## Persistence
+With the old PocketBrowser APIs, any events, such as `batteryEvent` were canceled when a full navigate was performed. The original reason for this was a limitation of the IE engine on WM5 devices. When moving to the common API this was changed so that callbacks are not canceled.
         
 
 
@@ -294,8 +297,8 @@ When using the this feature on a CE device using the IE engine, screen distortio
 
 
 
-###Using the Battery Indicator
-In this example you'll see how to use the battery indicator and manipulate its appearance. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.
+###Show battery icon
+This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing. This example assumes that the ebapi-modules.js file is in the same folder as the html file invoking it.
 <pre><code>:::javascript
 &lt;head&gt;
     &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
@@ -306,7 +309,7 @@ In this example you'll see how to use the battery indicator and manipulate its a
         function showBatteryIcon(){
             EB.Battery.showIcon(defineIconProperties(), batteryCallback);
             EB.Battery.batteryStatus({trigger:EB.Battery.BATTERY_TRIGGER_SYSTEM}, batteryCallback);
-            // The batteryStatus() is used to tell the icon when to refresh.
+            // The batteryStatus() is used to tell the icon when to refresh. 
             // We are leaving this up to the system events by using the BATTERY_TRIGGER_SYSTEM constant.
         }
 
@@ -316,7 +319,7 @@ In this example you'll see how to use the battery indicator and manipulate its a
         }
 
         function batteryCallback(params){
-            if(params){
+            if(params){     // Most of these methods have callbacks but null 'params' sent.
                 console.log(params);
             }
             else
@@ -327,7 +330,7 @@ In this example you'll see how to use the battery indicator and manipulate its a
             var props = {
                 color:  "#66CD00",
                 layout: EB.Battery.BATTERY_LAYOUT_UP,
-                top:    0,                              // Top of screen
+                top:        0,                                                      // Top of screen
                 left:   EB.System.screenWidth - 25      // Far right of screen, accounting for actual viewable area.
             }
             return props;
