@@ -45,7 +45,7 @@ Ruby:
 
 	    # Global tab properties
 	    {
-	      		:createOnDemand => true
+	      		:createOnInit => true
 	    },
 
 	    # Callback
@@ -89,7 +89,7 @@ JavaScript:
 
 	    // Callback
     	tabbar_callback
-    );	
+    );
 
     function tabbar_callback(params) {
     	Rho.Notification.showPopup("Switching to tab "+params.tab_index);
@@ -144,7 +144,7 @@ Ruby:
     	{
     		:label => "Home",
     		:action => "home"
-    	},        
+    	},
     	{
     		:label => "Refresh",
     		:action => "refresh"
@@ -167,7 +167,7 @@ JavaScript:
     	{
     		label  : "Home",
     		action : "home"
-    	},        
+    	},
     	{
     		label  : "Refresh",
     		action : "refresh"
@@ -213,7 +213,7 @@ Ruby:
       },
       :title => "Hello World"
     })
-	
+
 JavaScript:
 	:::javascript
     Rho.Navbar.create({
@@ -286,17 +286,17 @@ Ruby:
           :message => "This alert was invoked from a NativeMenubar item",
           :buttons => ["OK"]
         })
-        render :action => :menubar_menu    
+        render :action => :menubar_menu
     end
-    
+
     def show_alert_2
       Rho::Notification.showPopup({
         :message => "This is another alert, also called from the NativeMenubar",
         :buttons => ["OK"]
       })
-      render :action => :menubar_menu    
+      render :action => :menubar_menu
     end
-  
+
     def remove_menuitems
         Rho::NativeMenubar.extraMenu = []
         render :action => :menubar_menu
@@ -312,12 +312,12 @@ JavaScript:
     function show_alert_2() {
         alert("This is another alert, also called from the NativeMenubar");
     }
-    
+
     function create_menuitems() {
         Rho.NativeMenubar.extraButton = {
             label : "Extra"
         };
-        
+
         Rho.NativeMenubar.extraMenu = [
         {
           label : "Show alert 1",
@@ -333,7 +333,7 @@ JavaScript:
         }
       ];
     }
-    
+
     function remove_menuitems() {
         Rho.NativeMenubar.mainMenu = [];
         Rho.NativeMenubar.extraMenu = [];
