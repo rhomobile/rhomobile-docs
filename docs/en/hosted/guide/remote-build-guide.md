@@ -78,10 +78,21 @@ The following is a table showing the versions of Rhodes that are supported for w
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
 		</tr>
+
+		<tr>
+			<td><a href="/en/4.1.0/guide/welcome">5.0.30 </a></td>
+			<td style="width:20%;text-align:center;">TBD</th>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
+			<td style="text-align:center"><span class="icon-remove icon-warning"></span></td>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+			<td style="text-align:center"><span class="icon-check icon-primary"></span></td>
+		</tr>
 	</tbody>
 </table>
 
-> Note: Micro Kiosk devices (MKxxxx) are not supported for cloud built apps. For these devices, [Enterprise Browser](http://goo.gl/V9zMxD) is also available as an app building solution alternative.
+> Note: Micro Kiosk devices (MKxxxx) are not supported for cloud-built apps. For these devices, [Enterprise Browser](http://goo.gl/V9zMxD) is also available as an app building solution alternative.
 
 ## Setup
 Before building remotely, you'll need to sign up for a [subscription plan](http://rhomobile.com/rhopricing.html) of either silver or gold; only paid subscription plans allow the use of the remote build feature. Refer to the [licensing](../../latest/guide/licensing) doc for assistance on signing up and applying your remote build token.
