@@ -188,20 +188,39 @@ The following are some non-default settings that you may add to the build.yml in
                 NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already.</td>
         <td>If JavaScript or CSS code obfuscation is not required, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
         <td>
-            obfuscate:<br/>
-            &nbsp;&nbsp;js: yes<br/>
-            &nbsp;&nbsp;css: yes</td>
+          obfuscate:<br/>
+          &nbsp;&nbsp;js: yes<br/>
+          &nbsp;&nbsp;css: yes
+        </td>
     </tr>
     <tr>
-        <td class="clsEvenRow">Building for Intel-Based Processors on Android</td>
-        <td class="clsEvenRow">By default, the build process will build only for ARM-based processors but, Rhodes can be configured to build for Intel-based processors instead. To build for such a device, you must set a flag in your build.yml file. You can also elect to build for both arm AND Intel-based processor by specifying <code>abis: [arm, x86]</code>.</td>
-        <td class="clsEvenRow">x86 - Build for Intel Processors<br/>arm - Build for arm-based processors</td>
-        <td class="clsEvenRow">android:<br/>&nbsp;&nbsp;abis: [x86]</td>
+        <td class="clsEvenRow">JavaScript and CSS Minification</td>
+        <td class="clsEvenRow">To enable JavaScript and/or CSS code minification of the files in the <code>public</code> folder of your app, just add the following lines to the build.yml:
+            <br/>
+                <code class="clsEvenRow">minify:<br/>
+                &nbsp;&nbsp;js: true<br/>
+                &nbsp;&nbsp;css: true<br/>
+                &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
+                NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when minification is enabled.
+        </td>
+        <td class="clsEvenRow">If JavaScript or CSS code minification is not wanted, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
+        <td class="clsEvenRow">
+          minify:<br/>
+          &nbsp;&nbsp;js: false<br/>
+          &nbsp;&nbsp;css: false<br/>
+          &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]
+        </td>
     </tr>
     <tr>
-        <td>Production iOS</td>
-        <td>To build iOS for production, there are a few settings that need to be added to your build.yml file in order to allow Rhodes correctly configure the build. You'll need to add the <code>mobileprovision</code> file, the <code>certificate_file</code>, and the <code>certificate_password</code> in a production sub-heading in the iphone section of the build.yml as shown below.
-            <code><br/>
+        <td>Building for Intel-Based Processors on Android</td>
+        <td>By default, the build process will build only for ARM-based processors but, Rhodes can be configured to build for Intel-based processors instead. To build for such a device, you must set a flag in your build.yml file. You can also elect to build for both arm AND Intel-based processor by specifying <code>abis: [arm, x86]</code>.</td>
+        <td>x86 - Build for Intel Processors<br/>arm - Build for arm-based processors</td>
+        <td>android:<br/>&nbsp;&nbsp;abis: [x86]</td>
+    </tr>
+    <tr>
+        <td class="clsEvenRow">Production iOS</td>
+        <td class="clsEvenRow">To build iOS for production, there are a few settings that need to be added to your build.yml file in order to allow Rhodes correctly configure the build. You'll need to add the <code>mobileprovision</code> file, the <code>certificate_file</code>, and the <code>certificate_password</code> in a production sub-heading in the iphone section of the build.yml as shown below.
+            <code class="clsEvenRow"><br/>
                 iphone:<br/>
                 ...<br/>
                 &nbsp;&nbsp;production:<br/>
@@ -210,8 +229,12 @@ The following are some non-default settings that you may add to the build.yml in
                 &nbsp;&nbsp;&nbsp;&nbsp;certificate_password: "PASSWORD"
             </code>
         </td>
-        <td>you'll need to add your custom information into the appropriate fields here.</td>
-        <td>mobileprovision_file: "./production/PROVISION.mobileprovision"<br/>certificate_file: "./production/CERTS.p12"<br/>certificate_password: "PASSWORD"</td>
+        <td class="clsEvenRow">you'll need to add your custom information into the appropriate fields here.</td>
+        <td class="clsEvenRow">
+          mobileprovision_file: "./production/PROVISION.mobileprovision"<br/>
+          certificate_file: "./production/CERTS.p12"<br/>
+          certificate_password: "PASSWORD"
+        </td>
     </tr>
 </table>
 
