@@ -853,9 +853,9 @@ In Android, while method readCardData is being executed, either we can provide "
                      
                 
 
-###ReadCardData
+###General
 
                     
-In Android, while method readCardData is being executed, either we can provide "messageTitle","message1","message2" all NULL or all filled. When all null, it will invoke the corresponding method ,without having the message. 
+In Android, the behaviour of data returned by various APIS is totally dependent upon the version of binary installed in the PD40 device.
                      
                 

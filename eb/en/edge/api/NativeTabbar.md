@@ -2,7 +2,7 @@
 
 
 ## Overview
-The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, the tabs are true Native Tabbar controls to give your application a native look and feel. On Windows Mobile/CE there are no visible tabs, but can be used in conjunction with shortcuts to run multiple 'applications' from a single instance. At one time only Toolbar or Tabbar can present in application - Toolbar and Tabbar can not be used both in one time.
+The NativeTabbar methods let you use multiple instances of the RhoMobile webview in separate tabs. On Android, the tabs are true Native Tabbar controls to give your application a native look and feel. On Windows Mobile/CE there are no visible tabs, but can be used in conjunction with shortcuts to run multiple 'applications' from a single instance. Either Tabbar or Toolbar should be used in an application - Tabbar and Toolbar shouldnot be used simultaneously.
 ## Enabling the API
 There are two methods of enabling the NativeTabbar API:
 
@@ -37,7 +37,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 ### create(<span class="text-info">ARRAY</span> tabElements, <span class="text-info">HASH</span> tabBarProperties)
-Removes the current tabbar / toolbar and replaces it with this one. Callback will be called when tab is switched.  Whilst the actual number of tabs you can create will depend on the memory available on your device there is an absolute upper limit of 30 tabs in any one application.
+Removes the current tabbar and replaces it with this one. Callback will be called when tab is switched.  Whilst the actual number of tabs you can create will depend on the memory available on your device there is an absolute upper limit of 30 tabs in any one application.
 
 ####Parameters
 <ul><li>tabElements : <span class='text-info'>ARRAY</span><p>Array of Tab elements. </p></li><ul><li>tabElement : <span class='text-info'>HASH</span><p>Properties of Tab elements. </p></li><ul><li>label : <span class='text-info'>STRING</span><p>Visible label to display on the tabbar. </p></li><li>action : <span class='text-info'>STRING</span><p>URL to page which will be loaded into tab. It may be JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li><li>icon : <span class='text-info'>STRING</span><p>Icon Relative path (from Enterprise Browser application) to local files on the device.  Platforms:
