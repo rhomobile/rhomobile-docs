@@ -338,7 +338,7 @@ The following is an example of a typical configuration file
           </GUI>
           <Navigation>
             <BadLinkURI                   value=""/>
-            <UserAgent                    value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w" />
+            <UserAgent                    value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w"/>
             <ViewportEnabled              value="0"/>
             <ViewportWidth                value="640"/>
             <CaFile                       value="%INSTALLDIR%\server.pem"/>
@@ -346,10 +346,11 @@ The following is an example of a typical configuration file
             <VerifyPeerCertificate        value="1"/>
             <ClientSSLCertificate         value=""/>
             <ClientSSLCertificatePassword value=""/>
-            <NetworkCookieDatabase        value="file://\Program Files\RhoElements\cookies.db" />
+            <NetworkCookieDatabase        value="file://\Program Files\RhoElements\cookies.db"/>
             <AcceptLanguage               value="en-GB,en-US;q=0.8,en;q=0.6,af;q=0.4"/>
-            <Cache                        value="5MB" />
-            <Keepalive                    value="true" />
+            <Cache                        value="5MB"/>
+            <Keepalive                    value="true"/>
+            <DisableTLS                   value="0"/>
           </Navigation>
           <DeviceKeys>
             <EnableCtrlKey_C          value="0"/>
@@ -1101,59 +1102,67 @@ The following is an example of a typical configuration file
     </tr>
 
     <tr>
-      <td>DeviceKeys\\<BR>EnableCtrlKey_X</td>
-      <td>Not Configurable</td>
-      <td>CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.</td>
-      <td>0 - Disabled<BR>1 - Enabled</td>
+      <td>Navigation\\DisableTLS</td>
+      <td>DISABLETLS</td>
+      <td>When enabled, the application will request SSLv3 connections instead of TLS. If your server is set to support both SSLv3 and TLS, the protocol for the entire session will be determined by the first interaction the client has with the server. For instance, if the client's first call to the server is TLS (DisableTLS = 0), the server-client communication will commence over TLS until the client application is terminated. However, if the server only supports SSLv3, all communication after the initial transmission will occur over SSLv3, to __and__ from the client, no matter what this option is set to. If you want to communicate without the possibility of using TLS, set this setting to 1 (true).</td>
+      <td>0 - TLS Not disabled<br/>1 - TLS Disabled</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">DeviceKeys\\<BR>EnableVolumeSlider</td>
-      <td class="clsEvenRow">ENABLEVOLUMESLIDER</td>
-      <td class="clsEvenRow">Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.</td>
+      <td class="clsEvenRow">DeviceKeys\\<BR>EnableCtrlKey_X</td>
+      <td class="clsEvenRow">Not Configurable</td>
+      <td class="clsEvenRow">CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.</td>
       <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>DeviceKeys\\<BR>EnableBacklightSlider</td>
-      <td>ENABLEBACKLIGHTSLIDER</td>
-      <td>Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.</td>
+      <td>DeviceKeys\\<BR>EnableVolumeSlider</td>
+      <td>ENABLEVOLUMESLIDER</td>
+      <td>Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.</td>
       <td>0 - Disabled<BR>1 - Enabled</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">DefaultMetaTags\\MetaTag</td>
-      <td class="clsEvenRow">DEFAULTMETATAG</td>
-      <td class="clsEvenRow">All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
-      <td class="clsEvenRow">[Module]~[Contents expressed in EMML1.1]</td>
+      <td class="clsEvenRow">DeviceKeys\\<BR>EnableBacklightSlider</td>
+      <td class="clsEvenRow">ENABLEBACKLIGHTSLIDER</td>
+      <td class="clsEvenRow">Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.</td>
+      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>Geolocation\\GeolocationEnabled</td>
-      <td>Not Configurable</td>
-      <td>Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
-      <td>0 - Disabled<BR>1 - Enabled</td>
+      <td>DefaultMetaTags\\MetaTag</td>
+      <td>DEFAULTMETATAG</td>
+      <td>All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
+      <td>[Module]~[Contents expressed in EMML1.1]</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">TabInstance\\NewTabPhysicalMemLimit</td>
-      <td class="clsEvenRow">NEWTABPHYSICALMEMLIMIT</td>
-      <td class="clsEvenRow">This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%. If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code>.</td>
-      <td class="clsEvenRow">0-100 (100=no limit)</td>
+      <td class="clsEvenRow">Geolocation\\GeolocationEnabled</td>
+      <td class="clsEvenRow">Not Configurable</td>
+      <td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
+      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>TabInstance\\NewTabVirtualMemLimit</td>
-      <td>NEWTABVIRTUALMEMLIMIT</td>
-      <td>This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%.If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code></td>
+      <td>TabInstance\\NewTabPhysicalMemLimit</td>
+      <td>NEWTABPHYSICALMEMLIMIT</td>
+      <td>This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%. If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code>.</td>
       <td>0-100 (100=no limit)</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
+    </tr>
+
+    <tr>
+      <td class="clsEvenRow">TabInstance\\NewTabVirtualMemLimit</td>
+      <td class="clsEvenRow">NEWTABVIRTUALMEMLIMIT</td>
+      <td class="clsEvenRow">This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%.If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code></td>
+      <td class="clsEvenRow">0-100 (100=no limit)</td>
+      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
   </table>
 </div>
