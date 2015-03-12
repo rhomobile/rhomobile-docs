@@ -796,7 +796,11 @@ The following is an example of a typical configuration file
     <tr>
     <td>Scrolling\\ScrollTechnique</td>
     <td>SCROLLTECHNIQUE</td>
-    <td>Specifies the technique used to scroll the viewport:<br/><b>FingerScroll</b> - You can scroll around the page using finger swiping.<br/><b>Scrollbars</b> - When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page (Not available on Android)<br/><b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/><b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element</td>
+    <td>Specifies the technique used to scroll the viewport:<br/>
+      <b>FingerScroll</b> - You can scroll around the page using finger swiping.(Only setting applicable to Android)<br/>
+      <b>Scrollbars</b> - When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<br/>
+      <b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/>
+      <b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element</td>
     <td>See description</td>
     <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>

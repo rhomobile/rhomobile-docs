@@ -22,7 +22,6 @@ You can also check if a configuration property actually exists before accessing 
     :::ruby
     start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
 
-
 The `rhoconfig.txt` file generated with a new application contains the following default values, as well as descriptions of each setting:
 
     :::yaml
@@ -366,7 +365,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-** NOTE: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser **
+> Note: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
@@ -796,7 +795,11 @@ The following is an example of a typical configuration file
     <tr>
     <td>Scrolling\\ScrollTechnique</td>
     <td>SCROLLTECHNIQUE</td>
-    <td>Specifies the technique used to scroll the viewport:<br/><b>FingerScroll</b> - You can scroll around the page using finger swiping.<br/><b>Scrollbars</b> - When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page (Not available on Android)<br/><b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/><b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element</td>
+    <td>Specifies the technique used to scroll the viewport:<br/>
+      <b>FingerScroll</b> - You can scroll around the page using finger swiping.(Only setting applicable to Android)<br/>
+      <b>Scrollbars</b> - When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<br/>
+      <b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/>
+      <b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element</td>
     <td>See description</td>
     <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
