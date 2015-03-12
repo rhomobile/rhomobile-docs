@@ -731,7 +731,7 @@ Synchronous Return:
 
 
 ### stopTimer(<span class="text-info">STRING</span> url)
-Stop timer.
+Stop timer. (It's works only with Ruby)
 
 ####Parameters
 <ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method which identify the timer to stop. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
