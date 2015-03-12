@@ -12,7 +12,7 @@ NOTE: Please review Release notes that accompany the software for further remark
 <a name="_motdevices"></a>
 NOTE: All devices listed below were validated using the latest version of their respective operating systems (BSPs). Functionality on older OS versions may vary.
 
-### Mobile Terminals 
+### Mobile Terminals
 ET1 (Gingerbread/JellyBean), ES400, MC3000, MC3090, MC3190-Z (RFID), MC3100(R/S), MC3190(R/S/G), MC40 (Gingerbread/JellyBean), MC45, MC5574, MC5590, MC55A0, MC55N0, MC659B, MC67, MC7004, MC7090, MC7094, MC7095, MC7506, MC7508, MC7596, MC7598, MC75A0, MC75A6, MC75A8, MC9090, MC9097, MC9094, MC9190-G, MC9190-Z (RFID) MC92N0, MC9590, MC9596, MC9598, MC959B (WM 6.1), TC55.
 
 **NOTE: The TC55 supports [4.0 APIs](apiusage#api-migration-table) and a subset of [2.2 APIs](apiusage#using-22-apirsquos). Applications that have been developed using some 2.2 APIs like [Scanner](../../2.2.0/rhoelements/scanner) will need to be modified to use the 5.0 APIs, for example [Barcode](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.**
@@ -38,7 +38,10 @@ RhoElements 5.0 has support for our older device families such as the MC9000 and
 * Out of the box you will find JQueryMobile will not be included automatically in your views on Windows Mobile / CE devices, this is to give the best possible performance.
 * There are APIs available in the product to monitor the memory including memory logs and a Memory API. You can use these tools to get a handle on the requirements of your application.
 * Resources are available on developer.motorolasolutions.com to help create great looking, streamlined apps including blogs and webinars.
-* Online performance tests for JavaScript and CSS, particularly those involving DOM manipulation will often be written to target desktop computers and may not run on all supported devices.
-* On some of our lower end CE devices you may find you need to increase the program memory available to install RhoElements and you can do this from the Control Panel. Out of the box you will have sufficent memory on your device but if you have already installed a lot of programs you may need to allocate more program memory or delete your existing files.
+* On-line performance tests for JavaScript and CSS, particularly those involving DOM manipulation will often be written to target desktop computers and may not run on all supported devices.
+* On some of our lower end CE devices you may find you need to increase the program memory available to install RhoElements and you can do this from the Control Panel. Out of the box you will have sufficient memory on your device but if you have already installed a lot of programs you may need to allocate more program memory or delete your existing files.
 * The more RhoElements applications you run on your device the greater the required memory will be. Consider using the TabBar in a single application rather than multiple separate applications.
 * Windows Mobile 5.0 is not supported in this release, devices should be updated to Windows Mobile 6.x where possible.
+
+### JQM Transitions
+When using JQM transitions on Windows Mobile or Windows CE devices, you may notice that the transition animations do not occur. Investigation into this shows that the device hardware is just not capable to rendering the animations; the transition jumps from the old page to the new page without any fancy animation, dropping all the frames.
