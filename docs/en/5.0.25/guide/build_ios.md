@@ -13,7 +13,7 @@ Example:
     :::yml
     iphone:
         SDK: iphoneos7.0
-or 
+or
 
     :::yml
     iphone:
@@ -32,7 +32,7 @@ The iphoneos and iphonesimulator SDKs go in two different folders:
 * `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs` - iPhoneOS SDKs, for running apps on your iOS device.
 * `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs` - iPhoneSimulator SDKs, for running apps in your iOS simulator.
 
-NOTE: These paths are solely for your information, they do not need to be copied into any files to be used. These are simply the directories in which you need to store your SDKs for them to work with the RhoMobile build process.
+> Note: These paths are solely for your information, they do not need to be copied into any files to be used. These are simply the directories in which you need to store your SDKs for them to work with the RhoMobile build process.
 
 ## Building and Running Your iOS Application with RhoStudio
 
@@ -62,7 +62,7 @@ This will create the xcode project but will also run the app in the iphone simul
     :::term
     $ rake run:iphone
 
-* run the `build:iphone:setup_xcode_project` rake task: 
+* run the `build:iphone:setup_xcode_project` rake task:
 
 If you want to create the XCode project without running your app in the simulator, use this command instead.
     :::term
@@ -99,6 +99,8 @@ For more information on running on your iOS device from Xcode, go to the [Apple 
 You can edit your RhoMobile code for your RhoMobile application in a text editor, save your changes, do a Clean in Xcode so that your changes will register in Xcode, and then rebuild and run your project from Xcode.
 
 The resulting application package (*.app) is located in your RhoMobile source code folder under /platform/iphone/build/, in a folder named like [Debug/Release]-[iphoneos/iphonesimulator]/rhorunner.app.
+
+> Note: After any modification to the build.yml file, you'll want to regenerate the XCode project using the command `rake build:iphone:setup_xcode_project`.
 
 ### Changing rhorunner to match your app name
 By default, the scheme name, product name, and target name are "rhorunner". This is simply cosmetic at this point but you can change it if you like. To change these items:
@@ -141,7 +143,7 @@ To run your RhoMobile application in the iPhone simulator, run this rake command
 
 ## Building the Application for the iOS Device
 
-After you have modified and debugged your RhoMobile application, you can prepare your application to install to your iOS device. 
+After you have modified and debugged your RhoMobile application, you can prepare your application to install to your iOS device.
 
 ### Modifying the build.yml
 
@@ -159,11 +161,11 @@ The default build.yml settings generated for iphone are:
 
   name: myapp
   version: 1.0
-  iphone: 
-    provisionprofile: 
+  iphone:
+    provisionprofile:
     sdk: iphonesimulator3.0
-    entitlements: 
-    codesignidentity: 
+    entitlements:
+    codesignidentity:
     configuration: Debug
     emulator: 3.0
     emulatortarget: iphone
@@ -175,19 +177,19 @@ The default build.yml settings generated for iphone are:
       app_plist_subtitle: "myapp"
       app_plist_icon_url: "www.yourcompany.com/icon.png"
       app_plist_ipa_url: "www.yourcompany.com/myapp.ipa"
-      ipa_itunesartwork_image: "./production/image.jpg"  
+      ipa_itunesartwork_image: "./production/image.jpg"
 
 
 * name: name of your application. Will show on screen (iPhone application bundle display name)
 * version: version of your application. iPhone application bundle version
-* provisionprofile: The UUID of your provisioning profile to use when signing. 
+* provisionprofile: The UUID of your provisioning profile to use when signing.
 * sdk: The version of sdk used to build. Typically iphonesimulatorX.X or iphoneosX.X
 * entitlements: propertylist file for entitlements for your build. Typically is Entitlements.plist
 * codesignidentity: The name of the code signing identity to use when signing for device.
 * configuration: Debug/Release/Distribution
 * emulator: version of emulator for run application
 * emulatortarget: device family for simulator (iphone/ipad)
-* BundleIdentifier: bundle identifier - used in provisioning profile 
+* BundleIdentifier: bundle identifier - used in provisioning profile
 * BundleURLScheme: bundle URL scheme of your app (used for opening your application from another application by using custom URL scheme)
 * entitlements_file: path of your custom Entitlements.plist (if you want use own instead of default) - you also can just put Entitlements.plist file into root folder of your application and it will be automatically used during build
 * production: section used only for Ad Hoc distribution, contain some specific options for prepare .plist and *.ipa files etc.
@@ -195,17 +197,17 @@ The default build.yml settings generated for iphone are:
 * app_plist_subtitle: subtitle in plist file (application name by default)
 * app_plist_icon_url: icon url written in plist file
 * app_plist_ipa_url: IPA file url written in plist file
-* ipa_itunesartwork_image: path to iTunesArtwork image included into IPA file (must be 512x512 JPG image) 
+* ipa_itunesartwork_image: path to iTunesArtwork image included into IPA file (must be 512x512 JPG image)
 
 
-** NOTE: BundleIdentifier and BundleURLScheme can contain only next symbols : "a"-"z", "A"-"Z", "0"-"9", "-", "." !
+** > Note: BundleIdentifier and BundleURLScheme can contain only next symbols : "a"-"z", "A"-"Z", "0"-"9", "-", "." !
 
 Here is an example of the iPhone settings in build.yml for a finished application:
 
   name: JS App
   version: 1.0
-  iphone: 
-    provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6 
+  iphone:
+    provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6
     sdk: iphoneos4.2
     codesignidentity: "iPhone Developer: John Smith (MF99RW67WY)"
     entitlements: ""
@@ -228,7 +230,7 @@ Result package named <b>rhorunner.app</b> will be placed to `<sdk directory>/pla
 
 ## Installing Your Application Package to Your iOS Device
 Use <b>iTunes</b> for installing your application package (your_application_name.app) to the iOS device:
- 
+
 * Open iTunes.
 * Under Library, select <b>Apps</b>.
 * Drag and drop your application package into the Apps screen.
@@ -251,15 +253,15 @@ Here is an example of the iPhone settings in build.yml for distribution:
     :::yaml
     name: JS App
     version: 1.0
-    iphone: 
-        provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6 
+    iphone:
+        provisionprofile: E5931D39-CA68-48E4-A3AF-BB538E1C8CE6
         sdk: iphoneos4.2
         codesignidentity: "iPhone Developer: John Smith (MF99RW67WY)"
         entitlements: ""
         configuration: Distribution
         BundleIdentifier: com.johnsmithcompany.jsapp
-        BundleURLScheme: jsapp                
-        
+        BundleURLScheme: jsapp
+
 ### Setting your application name, icons and loading screen
 
 You will need to provide a name and icon for the application that the user will see on the device. You can also customize the loading screen that is shown while your application is launching. Refer to the [Application Icon and Splash Screen](app_icon_splash) guide for detailed information.
@@ -293,7 +295,7 @@ The below values can be used as a guide for `rhoconfig.txt`, skip any setting wh
     LogToOutput = 0
     net_trace = 0
     log_skip_post = 0
-    
+
 The below values can be used as a guide for `build.yml`, skip any setting which is not already present.
 
     profiler: 0
@@ -305,7 +307,7 @@ Once you have finished configuration, you can run:
     :::term
     $ rake device:iphone:production
 
-The signed package named `[app-name].app` will be created in `<app-dir>/bin/target/iOS/[sdkname]/Distribution/`. 
+The signed package named `[app-name].app` will be created in `<app-dir>/bin/target/iOS/[sdkname]/Distribution/`.
 
 ## Publishing on the Apple App Store
 
@@ -321,7 +323,7 @@ All options require you to be enrolled in one of [Apple's iOS Developer Programs
 
 For application testing purposes, Apple allows you to designate up to 100 devices that will be able to install your application. When you have the devices signed up in iTunes Connect (Apple's app management portal), create a distribution certificate and ad-hoc provisioning profile. Together, these two files allow you to digitally sign your application and install it on the registered devices.
 
-See the section called [Beta Testing Your iOS App](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/TestingYouriOSApp/TestingYouriOSApp.html#//apple_ref/doc/uid/TP40012582-CH8-SW1) in Apple's documentation for the details. 
+See the section called [Beta Testing Your iOS App](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/TestingYouriOSApp/TestingYouriOSApp.html#//apple_ref/doc/uid/TP40012582-CH8-SW1) in Apple's documentation for the details.
 
 
 ### Getting a distribution provisioning profile
@@ -400,7 +402,7 @@ We do not currently support fullscreen mode on iOS7. We are working to solve thi
     <h4>Colored Icon Flag</h4>
     The colored icon flag is still working as it did in earlier versions RhoElements.
     <div>Example for Ruby hash:`toolbar = {:action => :home, :icon => '/public/images/bar/colored_btn.png', :colored_icon => true}`</div>
-  </div>  
+  </div>
   <div class="span3" style="text-align:center">
     <div><b>:colored_icon => true</b></div>
     <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_true_4.0.png"/>
@@ -408,7 +410,7 @@ We do not currently support fullscreen mode on iOS7. We are working to solve thi
   <div class="span3" style="text-align:center">
     <div><b>:colored_icon => true</b></div>
     <img src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_toolbar_colored_icon_false_4.0.png"/>
-  </div> 
+  </div>
 </div>
 
 ### Native Tabbar
