@@ -167,3 +167,11 @@ Synchronous Return:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.NativeTabbar.switchTab(<span class="text-info">INTEGER</span> tabIndex)</code> 
+
+
+##Remarks
+
+
+
+###Device Limitations With Multiple Tabs
+Please consider the limitations of the device when creating multiple tabs with the Native TabBar. The number of tabs that can be created will depend on the resources of the device and the complexities of the pages displayed in those tabs but, as a general rule, a maximum of 10 tabs on an MC75a should be enforced. Also consider setting the `createOnInit` property to false so that not all tabs are initialized when the TabBar is first created and using the in-process engine for a more responsive experience.
