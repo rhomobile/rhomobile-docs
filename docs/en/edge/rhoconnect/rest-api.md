@@ -368,7 +368,7 @@ If `append` flag is set to `true` , the data is appended to the current doc (if 
 ## Read State - PUT user source_id
 
     :::ruby
-    PUT /rc/v1/read_state/users/:user_id/sources/:source_id
+    PUT /rc/v1/readstate/users/:user_id/sources/:source_id
 
 Sets source poll interval to "current time plus x seconds".
 
