@@ -167,7 +167,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 ## Config.xml
 ### What it affects
-> Note: The Config.xml effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 applications using the stock browser.
+> Note: The Config.xml effects applications that are using Motorola Webkit. However the setting `CAFile` in this file will be used for 4.0 applications using the stock browser.
 
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
@@ -342,7 +342,6 @@ The following is an example of a typical configuration file
             <ViewportEnabled              value="0"/>
             <ViewportWidth                value="640"/>
             <CaFile                       value="%INSTALLDIR%\server.pem"/>
-            <CaPath                       value=""/>
             <VerifyPeerCertificate        value="1"/>
             <ClientSSLCertificate         value=""/>
             <ClientSSLCertificatePassword value=""/>
@@ -367,7 +366,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-> Note: The following settings effects applications that are using Motorola Webkit. However the settings  `CAFile` and `CAPath` in this file will be used for 4.0 native applications using the stock browser
+> Note: The following settings effects applications that are using Motorola Webkit. However the setting `CAFile` in this file will be used for 4.0 native applications using the stock browser
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
@@ -1038,131 +1037,123 @@ The following is an example of a typical configuration file
     </tr>
 
     <tr>
-      <td>Navigation\\CaPath</td>
-      <td>CAPATH</td>
-      <td>A directory containing CA certificates in PEM format (one certificate per file).  The OpenSSL <code>c_rehash</code> utility must be used to generate appropriately named links to the certificate files.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for more information. This setting is supported on Windows Mobile / CE and Android.</td>
-      <td>Local File path on the device.</td>
+      <td>Navigation\\VerifyPeerCertificate</td>
+      <td>VERIFYPEERCERTIFICATE</td>
+      <td>Verify the server certificate against the internal certificates.  It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development.  A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.</td>
+      <td>Boolean</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">Navigation\\VerifyPeerCertificate</td>
-      <td class="clsEvenRow">VERIFYPEERCERTIFICATE</td>
-      <td class="clsEvenRow">Verify the server certificate against the internal certificates.  It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development.  A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.</td>
-      <td class="clsEvenRow">Boolean</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
-
-    <tr>
-      <td>Navigation\\clientSSLCertificate</td>
-      <td>CLIENTSSLCERTIFICATE</td>
-      <td>The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
-      <td>Fully qualified local path.<a href="#_caseSensitivity">&dagger;</a></td>
-      <td>Android</td>
-    </tr>
-
-    <tr>
-      <td class="clsEvenRow">Navigation\\clientSSLCertificatePassword</td>
-      <td class="clsEvenRow">CLIENTSSLCERTIFICATEPASSWORD</td>
-      <td class="clsEvenRow">The password used with client certificate. This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
-      <td class="clsEvenRow">Password</td>
+      <td class="clsEvenRow">Navigation\\clientSSLCertificate</td>
+      <td class="clsEvenRow">CLIENTSSLCERTIFICATE</td>
+      <td class="clsEvenRow">The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
+      <td class="clsEvenRow">Fully qualified local path.<a href="#_caseSensitivity">&dagger;</a></td>
       <td class="clsEvenRow">Android</td>
     </tr>
 
     <tr>
-      <td>Navigation\\NetworkCookieDatabase</td>
-      <td>NETWORKCOOKIEDATABASE</td>
-      <td>If you want your cookies to persist across device boots then specify a file name here for the database used to hold the cookies.  If the specified file does not already exist then one will be created.  The cookies will be loaded in from this file and saved back to it when RhoElements exits, unless the file is read only in which case it will not be overwritten.  If not specified cookies will not persist.</td>
-      <td>Fully qualified local path.<a href="#_caseSensitivity">&dagger;</a></td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
+      <td>Navigation\\clientSSLCertificatePassword</td>
+      <td>CLIENTSSLCERTIFICATEPASSWORD</td>
+      <td>The password used with client certificate. This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
+      <td>Password</td>
+      <td>Android</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">Navigation\\Cache</td>
-      <td class="clsEvenRow">NAVIGATIONCACHE</td>
-      <td class="clsEvenRow">The browser cache size, in whole MBs.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
-      <td class="clsEvenRow">Whole MBs, eg. 5MB</td>
+      <td class="clsEvenRow">Navigation\\NetworkCookieDatabase</td>
+      <td class="clsEvenRow">NETWORKCOOKIEDATABASE</td>
+      <td class="clsEvenRow">If you want your cookies to persist across device boots then specify a file name here for the database used to hold the cookies.  If the specified file does not already exist then one will be created.  The cookies will be loaded in from this file and saved back to it when RhoElements exits, unless the file is read only in which case it will not be overwritten.  If not specified cookies will not persist.</td>
+      <td class="clsEvenRow">Fully qualified local path.<a href="#_caseSensitivity">&dagger;</a></td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>Navigation\\AcceptLanguage</td>
-      <td>ACCEPTLANGUAGE</td>
-      <td>Defines the Accept-Language HTTP header that will be sent from the client, described in more detail in the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFQ documentation</a>.</td>
-      <td>Comma separated list of languages and a list of quality values. The two lists are separated by a semicolon.</td>
+      <td>Navigation\\Cache</td>
+      <td>NAVIGATIONCACHE</td>
+      <td>The browser cache size, in whole MBs.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
+      <td>Whole MBs, eg. 5MB</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">Navigation\\Keepalive</td>
-      <td class="clsEvenRow">KEEPALIVE</td>
-      <td class="clsEvenRow">Support HTTP keep-alive. When set to false, connections are closed when their request completes. By default keep-alive will be true even if this option is not specified. Applies to release 5.0 and greater.</td>
-      <td class="clsEvenRow">Boolean</td>
+      <td class="clsEvenRow">Navigation\\AcceptLanguage</td>
+      <td class="clsEvenRow">ACCEPTLANGUAGE</td>
+      <td class="clsEvenRow">Defines the Accept-Language HTTP header that will be sent from the client, described in more detail in the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFQ documentation</a>.</td>
+      <td class="clsEvenRow">Comma separated list of languages and a list of quality values. The two lists are separated by a semicolon.</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>Navigation\\DisableTLS</td>
-      <td>DISABLETLS</td>
-      <td>When enabled, the application will request SSLv3 connections instead of TLS. If your server is set to support both SSLv3 and TLS, the protocol for the entire session will be determined by the first interaction the client has with the server. For instance, if the client's first call to the server is TLS (DisableTLS = 0), the server-client communication will commence over TLS until the client application is terminated. However, if the server only supports SSLv3, all communication after the initial transmission will occur over SSLv3, to __and__ from the client, no matter what this option is set to. If you want to communicate without the possibility of using TLS, set this setting to 1 (true).</td>
-      <td>0 - TLS Not disabled<br/>1 - TLS Disabled</td>
+      <td>Navigation\\Keepalive</td>
+      <td>KEEPALIVE</td>
+      <td>Support HTTP keep-alive. When set to false, connections are closed when their request completes. By default keep-alive will be true even if this option is not specified. Applies to release 5.0 and greater.</td>
+      <td>Boolean</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">DeviceKeys\\<BR>EnableCtrlKey_X</td>
-      <td class="clsEvenRow">Not Configurable</td>
-      <td class="clsEvenRow">CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
+      <td class="clsEvenRow">Navigation\\DisableTLS</td>
+      <td class="clsEvenRow">DISABLETLS</td>
+      <td class="clsEvenRow">When enabled, the application will request SSLv3 connections instead of TLS. If your server is set to support both SSLv3 and TLS, the protocol for the entire session will be determined by the first interaction the client has with the server. For instance, if the client's first call to the server is TLS (DisableTLS = 0), the server-client communication will commence over TLS until the client application is terminated. However, if the server only supports SSLv3, all communication after the initial transmission will occur over SSLv3, to __and__ from the client, no matter what this option is set to. If you want to communicate without the possibility of using TLS, set this setting to 1 (true).</td>
+      <td class="clsEvenRow">0 - TLS Not disabled<br/>1 - TLS Disabled</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>DeviceKeys\\<BR>EnableVolumeSlider</td>
-      <td>ENABLEVOLUMESLIDER</td>
-      <td>Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.</td>
+      <td>DeviceKeys\\<BR>EnableCtrlKey_X</td>
+      <td>Not Configurable</td>
+      <td>CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.</td>
       <td>0 - Disabled<BR>1 - Enabled</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">DeviceKeys\\<BR>EnableBacklightSlider</td>
-      <td class="clsEvenRow">ENABLEBACKLIGHTSLIDER</td>
-      <td class="clsEvenRow">Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.</td>
+      <td class="clsEvenRow">DeviceKeys\\<BR>EnableVolumeSlider</td>
+      <td class="clsEvenRow">ENABLEVOLUMESLIDER</td>
+      <td class="clsEvenRow">Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.</td>
       <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>DefaultMetaTags\\MetaTag</td>
-      <td>DEFAULTMETATAG</td>
-      <td>All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
-      <td>[Module]~[Contents expressed in EMML1.1]</td>
+      <td>DeviceKeys\\<BR>EnableBacklightSlider</td>
+      <td>ENABLEBACKLIGHTSLIDER</td>
+      <td>Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.</td>
+      <td>0 - Disabled<BR>1 - Enabled</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">Geolocation\\GeolocationEnabled</td>
-      <td class="clsEvenRow">Not Configurable</td>
-      <td class="clsEvenRow">Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
+      <td class="clsEvenRow">DefaultMetaTags\\MetaTag</td>
+      <td class="clsEvenRow">DEFAULTMETATAG</td>
+      <td class="clsEvenRow">All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
+      <td class="clsEvenRow">[Module]~[Contents expressed in EMML1.1]</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td>TabInstance\\NewTabPhysicalMemLimit</td>
-      <td>NEWTABPHYSICALMEMLIMIT</td>
-      <td>This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%. If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code>.</td>
-      <td>0-100 (100=no limit)</td>
+      <td>Geolocation\\GeolocationEnabled</td>
+      <td>Not Configurable</td>
+      <td>Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
+      <td>0 - Disabled<BR>1 - Enabled</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
 
     <tr>
-      <td class="clsEvenRow">TabInstance\\NewTabVirtualMemLimit</td>
-      <td class="clsEvenRow">NEWTABVIRTUALMEMLIMIT</td>
-      <td class="clsEvenRow">This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%.If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code></td>
+      <td class="clsEvenRow">TabInstance\\NewTabPhysicalMemLimit</td>
+      <td class="clsEvenRow">NEWTABPHYSICALMEMLIMIT</td>
+      <td class="clsEvenRow">This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%. If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code>.</td>
       <td class="clsEvenRow">0-100 (100=no limit)</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
+    </tr>
+
+    <tr>
+      <td>TabInstance\\NewTabVirtualMemLimit</td>
+      <td>NEWTABVIRTUALMEMLIMIT</td>
+      <td>This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%.If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code></td>
+      <td>0-100 (100=no limit)</td>
+      <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
   </table>
 </div>
