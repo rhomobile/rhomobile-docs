@@ -708,50 +708,6 @@ Synchronous Return:
 	* <code>EB.System.set_sleeping(<span class="text-info">BOOLEAN</span> enable)</code> 
 
 
-### startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)
-Start timer. (It's works only with Ruby)
-
-####Parameters
-<ul><li>interval : <span class='text-info'>INTEGER</span><p>Timer interval. </p></li><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters which will be added to callback URL. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Platforms
-
-* Android
-* Windows Mobile
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code> 
-
-
-### stopTimer(<span class="text-info">STRING</span> url)
-Stop timer. (It's works only with Ruby)
-
-####Parameters
-<ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method which identify the timer to stop. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-####Returns
-Synchronous Return:
-
-* Void
-
-####Platforms
-
-* Android
-* Windows Mobile
-
-####Method Access:
-
-* Class Method: This method can only be accessed via the API class object. 
-	* <code>EB.System.stopTimer(<span class="text-info">STRING</span> url)</code> 
-
-
 ### unset_http_proxy()
 Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url.
 
