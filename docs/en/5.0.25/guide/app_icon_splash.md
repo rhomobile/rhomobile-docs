@@ -140,4 +140,4 @@ If you are using xCode to build for iPhone, you should add to your project Defau
 * Default-LandscapeLeft.png - size 1024x768 - for iPad in LandscapeLeft orientation on start, if not defined then Default-Landscape.png will be used
 * Default-LandscapeRight.png - size 1024x768 - for iPad in LandscapeRight orientation on start, if not defined then Default-Landscape.png will be used
 
-> Note: Use rake command  "rake build:iphone:setup_xcode_project" for setup XCode project for current application (include loading images, icons, etc.)
+> Note: Use rake command  "rake build:iphone:setup_xcode_project" to setup the XCode project for changes in the current application (include loading images, icons, etc.)

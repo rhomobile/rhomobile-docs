@@ -342,7 +342,7 @@ When you are ready to submit your application, you can do it [using XCode](http:
 
 Once your application is submitted successfully you can view its review status by referring to [these](http://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/UsingiTunesConnect/UsingiTunesConnect.html#//apple_ref/doc/uid/TP40012582-CH22-SW8) steps.
 
-## Differences building for iOS7
+## Differences building for iOS7+
 ### System Status Bar
 <div class="row-fluid">
   <div class="span6">
@@ -430,3 +430,6 @@ We do not currently support fullscreen mode on iOS7. We are working to solve thi
     <img style="height:480px" src="https://s3.amazonaws.com/rhodocs/build-rhodes-app/build_ios_ios7_changes_native_tabbar_bg_color_and_selected_icon_4.0.png"/>
   </div>
 </div>
+
+### Loading Splash Screen
+Newer iPhones (iPhone 5 and up) have larger screen (longer screen), so applications that want to use whole screen should have a special loading splash screen image - `loading-568h@2x.png` with 640 x 1136 size. Only applications with this loading image use the whole screen. Other applications that detect that the device is older that iPhone 5 should start with reduced screen size splash which is appropriate for that device, most likely equal to old phones' resolution, 640x960.
