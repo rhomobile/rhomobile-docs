@@ -276,13 +276,15 @@ List of supported capabilities:
 * calendar: allow access to default device calendar
 * sdcard: allow writing to SD card on Android devices
 
-#### Windows Mobile Specific Settings
+#### Windows Mobile / Windows CE Specific Settings
+You can specify where the `config.xml` file will reside on your device using the `config:` option.
+
     :::yaml
     wm:
       rhoelements:
         config: "/Config/Config.xml"
 
-* config : path to the custom [Config.xml](runtime_config#configxml) file to use. This path is relative to the Rhomobile Project.
+* config : path to the custom [Config.xml](runtime_config#configxml) file to use. This path is relative to the RhoMobile Project.
 
 #### Android Specific Settings
 The capabilities listed above are directly related to the Android device capabilities that your app will require and that the user will be asked to give permission to when installing the app. You can add capabilities to your Android app by adding a capabilities section to your build.yml in the android heading as such:
