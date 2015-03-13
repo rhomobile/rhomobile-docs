@@ -1081,7 +1081,7 @@ The following is an example of a typical configuration file
       <td class="clsEvenRow">ACCEPTLANGUAGE</td>
       <td class="clsEvenRow">Defines the Accept-Language HTTP header that will be sent from the client, described in more detail in the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFQ documentation</a>.</td>
       <td class="clsEvenRow">Comma separated list of languages and a list of quality values. The two lists are separated by a semicolon.</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
+      <td class="clsEvenRow">Windows Mobile, Windows CE</td>
     </tr>
 
     <tr>
