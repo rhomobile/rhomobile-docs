@@ -371,10 +371,6 @@ Once your application is submitted successfully you can view its review status b
   </div>
 </div>
 
-### Fullscreen Mode
-
-We do not currently support fullscreen mode on iOS7. We are working to solve this by the RhoElements 5.0 release.
-
 ### Native Toolbar
 
 <div class="row-fluid">
