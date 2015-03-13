@@ -112,7 +112,7 @@ If the rake command gets stuck, you can kill the command window, open another wi
 	$ adb start-server
 	$ rake run:android
 
-** NOTE: If you didn't run your Android simulator yet or don't have AVD configuration set, you will be asked a few questions about emulator configuration. You should answer "yes" for most questions or use default answers. As a result new AVD configuration will be created. **
+> Note: If you didn't run your Android simulator yet or don't have AVD configuration set, you will be asked a few questions about emulator configuration. You should answer "yes" for most questions or use default answers. As a result new AVD configuration will be created.
 
 To uninstall your application from the emulator, run:
 
@@ -255,4 +255,20 @@ To see all device messages, run 'adb -d logcat' and start application on device.
 ### SDCard Access
 Extensions which came from RhoElements (i.e. AudioCapture) that could possibly write files to external storage will require "write SD card" permissions as part of the extension's AndroidManifest. You cannot remove the ability to write to the SD card as it would cause the extension to malfunction. Therefore, the capability has already been granted on build, and any capability added by you will be ignored. This being the case, the following extensions will always be able to write to the SD card by default:
 
+* AudioCapture
 * MediaCapture
+
+### Supported Icons
+The android build script supports icons for different screen density. To use this feature .png icons with exact size suffix should be added to `<app>/icon` folder.
+
+Next icon file names are supported:
+
+* icon.png    - remains as default icon resource
+* icon36.png  - LDPI screen density icon.
+* icon48.png  - MDPI
+* icon72.png  - HDPI
+* icon96.png  - XHDPI
+* icon144.png - XXHDPI
+* icon192.png - XXXHDPI
+
+The suffix means _recommended_ icon dimension in pixels and it is allowed to have slightly different size. In other words in icon36.png can actually be an image with size 32x32 or even 72x72.
