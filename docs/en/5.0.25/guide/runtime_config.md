@@ -174,7 +174,7 @@ Runtime configuration of RhoElements is managed through an XML file called Confi
 
 * Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
 
-* OS X: ~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml
+* OS X: `~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml`
 
 ### Configuration File Location in a mobile device
 The location of the configuration file loaded by RhoElements is dependant on a number of factors:
