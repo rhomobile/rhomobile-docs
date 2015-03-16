@@ -115,8 +115,8 @@ extensions: ["simulscan"]
 
 			 
 function downloadSimulScanTemplates(user,password){
-	// If you include your SimulScan template files in the applications public folder
-	// the SimulScan engine will not be able to access them due to Android
+	// If you include your SimulScan Document Capture template files in the applications public folder
+	// the SimulScan Document Capture engine will not be able to access them due to Android
 	// security policies
 
 	Rho.SimulScan.templateDirectory = 'file:///sdcard/Templates';
@@ -131,13 +131,13 @@ function downloadSimulScanTemplates(user,password){
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
 			 
-// POSTAL.XML was exported from the SimulScan Template Builder
+// POSTAL.XML was exported from the SimulScan Document Capture Template Builder
 // In the Template Builder there were several fields defined
 
 Rho.SimulScan.template = 'file:///sdcard/Templates/POSTAL.XML';
 
 // Once the captureDocument method is launched,
-// the SimulScan Engine dialog appears instructing the
+// the SimulScan Document Capture Engine dialog appears instructing the
 // user to hold the device steady over the printed label
 // The callback function will be triggered possibly for
 // many reasons
@@ -154,17 +154,17 @@ Rho.SimulScan.captureDocument(function(params){
 			// This means it could not identify the label based on the template used
 			// Possible reasons
 			//    -label is the wrong label
-			//    -Template is poorly defined 
+			//    -Template is poorly defined
 			//      maybe scanned in image for defining was not high enough resolution
 			//    -camera cannot focus
 
-			// This may trigger multiple times and may not warrant display information 
-			// in your app - the SimulScan engine will prompt the user in most cases
+			// This may trigger multiple times and may not warrant display information
+			// in your app - the SimulScan Document Capture engine will prompt the user in most cases
 		}
 		if(params.failureReason == Rho.SimulScan.FAILURE_PROCESSING_TIMEOUT){
 			// This means it identified the form but could not process it
 			// Possible reasons
-			//    -Template is poorly defined 
+			//    -Template is poorly defined
 			//      maybe scanned in image for defining was not high enough resolution
 			//    -Camera cannot focus or poorly lit
 
