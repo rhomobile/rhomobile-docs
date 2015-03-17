@@ -47,6 +47,7 @@ This tag does not affect the behaviour of remote display applications for contro
 
 ###Devices lacking support
 Due to platform limitations this API is not available on the following Symbol Technologies' devices:
+
 1. Workabout Pro 4
 
 
