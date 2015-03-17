@@ -1,5 +1,5 @@
 #Network
-<div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;14</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mcancel" data-target="cMethodcancel" class="autouncollapse">cancel</a></li><li><a href="#mconnectWan" data-target="cMethodconnectWan" class="autouncollapse">connectWan</a></li><li><a href="#mdetectConnection" data-target="cMethoddetectConnection" class="autouncollapse">detectConnection</a></li><li><a href="#mdisconnectWan" data-target="cMethoddisconnectWan" class="autouncollapse">disconnectWan</a></li><li><a href="#mdownloadFile" data-target="cMethoddownloadFile" class="autouncollapse">downloadFile</a></li><li><a href="#mget" data-target="cMethodget" class="autouncollapse">get</a></li><li><a href="#mhasCellNetwork" data-target="cMethodhasCellNetwork" class="autouncollapse">hasCellNetwork</a></li><li><a href="#mhasNetwork" data-target="cMethodhasNetwork" class="autouncollapse">hasNetwork</a></li><li><a href="#mhasWifiNetwork" data-target="cMethodhasWifiNetwork" class="autouncollapse">hasWifiNetwork</a></li><li><a href="#mpost" data-target="cMethodpost" class="autouncollapse">post</a></li><li><a href="#mstartStatusNotify" data-target="cMethodstartStatusNotify" class="autouncollapse">startStatusNotify</a></li><li><a href="#mstopDetectingConnection" data-target="cMethodstopDetectingConnection" class="autouncollapse">stopDetectingConnection</a></li><li><a href="#mstopStatusNotify" data-target="cMethodstopStatusNotify" class="autouncollapse">stopStatusNotify</a></li><li><a href="#muploadFile" data-target="cMethoduploadFile" class="autouncollapse">uploadFile</a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;8</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pauthPassword" data-target="cPropertyauthPassword" class="autouncollapse">authPassword</a></li><li><a href="#pauthType" data-target="cPropertyauthType" class="autouncollapse">authType</a></li><li><a href="#pauthUser" data-target="cPropertyauthUser" class="autouncollapse">authUser</a></li><li><a href="#pheaders" data-target="cPropertyheaders" class="autouncollapse">headers</a></li><li><a href="#phttpVerb" data-target="cPropertyhttpVerb" class="autouncollapse"><span class="text-info">httpVerb</span></a></li><li><a href="#presponseTimeout" data-target="cPropertyresponseTimeout" class="autouncollapse">responseTimeout</a></li><li><a href="#purl" data-target="cPropertyurl" class="autouncollapse">url</a></li><li><a href="#pverifyPeerCertificate" data-target="cPropertyverifyPeerCertificate" class="autouncollapse"><span class="text-info">verifyPeerCertificate</span></a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;4</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Request a notification from the system when network availability changes</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Check whether the network is available</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Download file and save it to permanent storage</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Upload files via HTTP POST</a></li></ul></div><div class="btn-group"><a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;3</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#r0" data-target="rRemark0" class="autouncollapse">Detecting a connection through proxies</a></li><li><a href="#r1" data-target="rRemark1" class="autouncollapse">Detecting a connection over WAN</a></li><li><a href="#r2" data-target="rRemark2" class="autouncollapse">Preventing access to the device (WEH / WM)</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
+<div class="btn-group"><a href="#Methods" class="btn"><i class="icon-cog"></i> Methods<sup>&nbsp;14</sub></a><a class="btn dropdown-toggle" data-toggle="dropdown" data-target="#" href="#Methods" >  <span class="caret"></span>&nbsp;</a><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Methods - Class</i></b></a><li><a href="#mcancel" data-target="cMethodcancel" class="autouncollapse">cancel</a></li><li><a href="#mconnectWan" data-target="cMethodconnectWan" class="autouncollapse">connectWan</a></li><li><a href="#mdetectConnection" data-target="cMethoddetectConnection" class="autouncollapse">detectConnection</a></li><li><a href="#mdisconnectWan" data-target="cMethoddisconnectWan" class="autouncollapse">disconnectWan</a></li><li><a href="#mdownloadFile" data-target="cMethoddownloadFile" class="autouncollapse">downloadFile</a></li><li><a href="#mget" data-target="cMethodget" class="autouncollapse">get</a></li><li><a href="#mhasCellNetwork" data-target="cMethodhasCellNetwork" class="autouncollapse">hasCellNetwork</a></li><li><a href="#mhasNetwork" data-target="cMethodhasNetwork" class="autouncollapse">hasNetwork</a></li><li><a href="#mhasWifiNetwork" data-target="cMethodhasWifiNetwork" class="autouncollapse">hasWifiNetwork</a></li><li><a href="#mpost" data-target="cMethodpost" class="autouncollapse">post</a></li><li><a href="#mstartStatusNotify" data-target="cMethodstartStatusNotify" class="autouncollapse">startStatusNotify</a></li><li><a href="#mstopDetectingConnection" data-target="cMethodstopDetectingConnection" class="autouncollapse">stopDetectingConnection</a></li><li><a href="#mstopStatusNotify" data-target="cMethodstopStatusNotify" class="autouncollapse">stopStatusNotify</a></li><li><a href="#muploadFile" data-target="cMethoduploadFile" class="autouncollapse">uploadFile</a></li></li></ul></div><div class="btn-group"><a href="#Properties" class="btn"><i class="icon-list"></i> Properties<sup>&nbsp;8</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li class="disabled"><a tabindex="-1" href="#"><b><i>Class Properties</i></b></a><li><a href="#pauthPassword" data-target="cPropertyauthPassword" class="autouncollapse">authPassword</a></li><li><a href="#pauthType" data-target="cPropertyauthType" class="autouncollapse">authType</a></li><li><a href="#pauthUser" data-target="cPropertyauthUser" class="autouncollapse">authUser</a></li><li><a href="#pheaders" data-target="cPropertyheaders" class="autouncollapse">headers</a></li><li><a href="#phttpVerb" data-target="cPropertyhttpVerb" class="autouncollapse"><span class="text-info">httpVerb</span></a></li><li><a href="#presponseTimeout" data-target="cPropertyresponseTimeout" class="autouncollapse">responseTimeout</a></li><li><a href="#purl" data-target="cPropertyurl" class="autouncollapse">url</a></li><li><a href="#pverifyPeerCertificate" data-target="cPropertyverifyPeerCertificate" class="autouncollapse"><span class="text-info">verifyPeerCertificate</span></a></li></li></ul></div><div class="btn-group"><a href="#Examples" class="btn"><i class="icon-edit"></i> Examples<sup>&nbsp;5</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#e0" data-target="eExample0" class="autouncollapse">Request a notification from the system when network availability changes</a></li><li><a href="#e1" data-target="eExample1" class="autouncollapse">Check whether the network is available</a></li><li><a href="#e2" data-target="eExample2" class="autouncollapse">Download file and save it to permanent storage</a></li><li><a href="#e3" data-target="eExample3" class="autouncollapse">Upload files via HTTP POST</a></li><li><a href="#e4" data-target="eExample4" class="autouncollapse">Network POST Using Ruby's Lambda</a></li></ul></div><div class="btn-group"><a href="#Remarks" class="btn"><i class="icon-warning-sign"></i> Remarks<sup>&nbsp;3</sup></a><button href="#" class="btn dropdown-toggle" data-toggle="dropdown">  <span class="caret"></span>&nbsp;</button><ul class="dropdown-menu" style="max-height: 500px;overflow: auto;"><li><a href="#r0" data-target="rRemark0" class="autouncollapse">Detecting a connection through proxies</a></li><li><a href="#r1" data-target="rRemark1" class="autouncollapse">Detecting a connection over WAN</a></li><li><a href="#r2" data-target="rRemark2" class="autouncollapse">Preventing access to the device (WEH / WM)</a></li></ul></div><div class="btn-group pull-right"><button class="btn dropdown-toggle" id="apiFilterBtn" data-toggle="dropdown" href="#" title="Filter Properties and Methods"><i class="icon-filter "></i>Show</button><select id="apiFilter" class="dropdown-menu apiFilter"><option value="all">All</option><option value="js">JavaScript</option><option value="ruby">Ruby</option><option value="android">Android</option><option value="ios">iOS</option><option value="wm">Windows Mobile</option><option value="wp8">Windows Phone 8</option><option value="w32">Windows Desktop</option><option value="msi">MSI Only</option></select></div><div  id="apibody" style="overflow:auto;padding-right: 5px;">
 <p>This API class allows you to interact with either the WAN or WiFI network of the device.</p>
 <h2>Enabling the API</h2>
 
@@ -130,25 +130,25 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
 <p>When you need to be notified of changes in the status of the network (connected / disconnected), use Network.startStatusNotify.</p>
 <ul class='nav nav-tabs' id='exI0-S0Tab'><li class='active'><a href='#exI0-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI0-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI0-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
     function status_notify_callback(params) {
       alert("Network status changed from "+params["prev_status"]+" to "+params["current_status"]);
     }
-  
+
     function start_status_notify() {
       # Request the system to check every 3 seconds and call us back if there is a change in network connectivity
       Rho.Network.startStatusNotify(3000, status_notify_callback);
     }
-    
+
     function stop_status_notify() {
       // Stop network status notifications
       Rho.Network.stopStatusNotify();
     }
 
-                   
+
                  </code></pre></div><div class='tab-pane' id='exI0-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
   def start_status_notify
     # Request the system to check every 3 seconds and call us back if there is a change in network connectivity
     Rho::Network.startStatusNotify(3000, url_for(:action =&gt; :status_notify_callback))
@@ -166,12 +166,12 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
     Rho::Network.stopStatusNotify
     Alert.show_popup "Stopped network status notifications"
   end
-                   
+
                  </code></pre></div></div>  </div></div></div></div><a name='e1'></a><div class=' example' id='e1'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample1"><strong>Check whether the network is available</strong></div><div id="cExample1" class="accordion-body">  <div class="accordion-inner">
 <p>You can check whether the mobile, WiFi or other network is available. This can be useful for example if you only want to perform large data transfers on WiFi and avoid doing them while on the cell network.</p>
 <ul class='nav nav-tabs' id='exI1-S0Tab'><li class='active'><a href='#exI1-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI1-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI1-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
     function network_availability() {
       // shows the network availability for...
       // Cell network
@@ -180,13 +180,13 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
       var wifi_network = Rho.Network.hasWifiNetwork()
       // Any network
       var network = Rho.Network.hasNetwork()
-      
+
       alert("Cell network: "+cell_network+"\nWi-Fi network: "+wifi_network+"\nNetwork: "+network);
     }
-                   
+
                  </code></pre></div><div class='tab-pane' id='exI1-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
     # check the network availability for...
     # Cell network
     cell_network = Rho::Network.hasCellNetwork
@@ -194,12 +194,12 @@ NOTE: The properties of this API Class cannot be accessed via setter or getter m
     wifi_network = Rho::Network.hasWifiNetwork
     # Any network
     network = Rho::Network.hasNetwork
-                   
+
                  </code></pre></div></div>  </div></div></div></div><a name='e2'></a><div class=' example' id='e2'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample2"><strong>Download file and save it to permanent storage</strong></div><div id="cExample2" class="accordion-body">  <div class="accordion-inner">
 <p>Download any file from an external server and store it in your device.</p>
 <ul class='nav nav-tabs' id='exI2-S0Tab'><li class='active'><a href='#exI2-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI2-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI2-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
 function download_file_callback(params) {
   if (params["status"] == "ok") {
     alert("Download Succeeded, path is /public/images/sample.png");
@@ -217,10 +217,10 @@ function download_file() {
   };
   Rho.Network.downloadFile(downloadfileProps, download_file_callback);
 }
-                   
+
                  </code></pre></div><div class='tab-pane' id='exI2-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
   def download_file
       #Download a file to the specified filename.
       downloadfileProps = Hash.new
@@ -229,7 +229,7 @@ function download_file() {
       downloadfileProps["overwriteFile"] = true
       Rho::Network.downloadFile(downloadfileProps, url_for(:action =&gt; :download_file_callback))
   end
-  
+
   def download_file_callback
     if @params["status"] == "ok"
         Alert.show_popup "Download Success,path is /public/images/sample.png "
@@ -238,12 +238,12 @@ function download_file() {
     end
   end
 
-                   
+
                  </code></pre></div></div>  </div></div></div></div><a name='e3'></a><div class=' example' id='e3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample3"><strong>Upload files via HTTP POST</strong></div><div id="cExample3" class="accordion-body">  <div class="accordion-inner">
 <p>You can upload any file to an external server via HTTP POST and be notified whether the transfer succeeded or not.</p>
 <ul class='nav nav-tabs' id='exI3-S0Tab'><li class='active'><a href='#exI3-S0JS' data-toggle='tab'>JavaScript</a></li><li ><a href='#exI3-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI3-S0JS'><pre class='CodeRay'><code>:::javascript
 
-           
+
 function upload_file_callback(params) {
   // Check the result of the upload and act accordingly
   if (params["status"] == "ok") {
@@ -264,10 +264,10 @@ function upload_file() {
 
     Rho.Network.uploadFile(uploadfileProps, upload_file_callback);
 }
-                   
+
                  </code></pre></div><div class='tab-pane' id='exI3-S0RUBY'><pre class='CodeRay'><code>:::ruby
 
-           
+
   def upload_file
     # Upload the specified file using HTTP POST.
     uploadfileProps = Hash.new
@@ -285,8 +285,34 @@ function upload_file() {
         Alert.show_popup "Upload Failed."
     end
   end
-                   
-                 </code></pre></div></div>  </div></div></div></div>
+
+                 </code></pre></div></div>  </div></div></div></div><a name='e4'></a><div class=' example' id='e4'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"   href="#cExample4"><strong>Network POST Using Ruby's Lambda</strong></div><div id="cExample4" class="accordion-body">  <div class="accordion-inner">
+<p>You can also define network request callbacks with this API using Ruby&rsquo;s lambda functions, similar to how you would use a JavaScript anonymous function for a callback. Simply define your callback, using lambda, in place of the callback parameter in the method call as such.</p>
+<ul class='nav nav-tabs' id='exI4-S0Tab'><li class='active'><a href='#exI4-S0RUBY' data-toggle='tab'>Ruby</a></li></ul><div class='tab-content'><div class='tab-pane active' id='exI4-S0RUBY'><pre class='CodeRay'><code>:::ruby
+
+Rho::Network.post(
+  {
+    url:      url,
+    headers:  { 'Content-Type' =&gt; 'application/json', 'Accept' =&gt; 'application/json' },
+    body:     json
+  },
+  lambda do |response; body, headers, cookies, http_status|
+
+    body = response['body']
+    headers = response['headers']
+    cookies = response['cookies']
+    http_status = response['http_status']
+
+    app_info "TESTING got POST callback"
+    app_info "body = #{body.inspect}"
+    app_info "headers = #{headers.inspect}"
+    app_info "cookies = #{cookies.inspect}"
+    app_info "http_error = #{http_error.class} #{http_error.inspect}"
+    app_info "testing lambda context, url = '#{url}'"
+  end
+)
+
+                            </code></pre></div></div>  </div></div></div></div>
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
