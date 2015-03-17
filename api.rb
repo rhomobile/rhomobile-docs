@@ -777,7 +777,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 							@propvaluetype = !vaelement["type"]
 						end
 						if !vaelement["constName"].nil?
-							vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
+							vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" for all "." when referencing constants)<br/> String: ' + vaelement["value"] + ' '
 
 						end
 						@propvalues += "<dt>#{vaelement["value"]}</dt><dd>#{@propvaldesc}</dt>"
@@ -795,7 +795,7 @@ def self.getplatformindicatorsfilter (platforms,msionly,ruby,javascript)
 		#puts "***" + doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].to_s + "***"
 		#Check to see if need to add to description about this method replacing a deprecated one
 		if !doc["MODULE"][0]["PROPERTIES"].nil? && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"].nil?  && !doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0].empty?
-	    	doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0]["ALIAS"].each() { |a|
+			doc["MODULE"][0]["PROPERTIES"][0]["ALIASES"][0]["ALIAS"].each() { |a|
 				#puts a
 				if a["existing"] == element["name"]
 					propreplaces += a["new"]
@@ -1035,7 +1035,7 @@ def self.getparams(element,toplevel)
 									valuetype = vaelement["type"]
 								end
 								if !vaelement["constName"].nil?
-									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String:' + vaelement["value"] + ''
+									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" for all "." when referencing constants)<br/> String:' + vaelement["value"] + ''
 								end
 
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>"
@@ -1143,7 +1143,7 @@ if !element["PARAM"].nil?
 									valuetype = vaelement["type"]
 								end
 								if !vaelement["constName"].nil?
-									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" instead of ".")<br/> String: ' + vaelement["value"] + ' '
+									vaelement["value"] = 'Constant: ' + @@apiName + '.' + vaelement["constName"] + ' (For Ruby use "::" for all "." when referencing constants)<br/> String: ' + vaelement["value"] + ' '
 								end
 
 								values += "<dt>#{vaelement["value"]}</dt><dd>#{valdesc}</dt>"

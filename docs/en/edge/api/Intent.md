@@ -44,10 +44,10 @@ Rho.Intent.send(params);
 </code></pre>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></p></div></p></div><div class="tab-pane fade" id="msend2"><div><p><strong>Parameters</strong></p><ul><li>params : <span class='text-info'>HASH</span><p><p>A hash-map with intent parameters.</p>
  </p></li><ul><li>intentType : <span class='text-info'>STRING</span><p><p>Type of Intent to send.</p>
- </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Intent.BROADCAST (For Ruby use "::" instead of ".")<br/> String:broadcast</dt><dd><p>Use the intent as broadcast intent.</p>
-</dt><dt>Constant: Intent.START_ACTIVITY (For Ruby use "::" instead of ".")<br/> String:startActivity</dt><dd><p>Use the intent to start a UI activity.</p>
+ </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Intent.BROADCAST (For Ruby use "::" for all "." when referencing constants)<br/> String:broadcast</dt><dd><p>Use the intent as broadcast intent.</p>
+</dt><dt>Constant: Intent.START_ACTIVITY (For Ruby use "::" for all "." when referencing constants)<br/> String:startActivity</dt><dd><p>Use the intent to start a UI activity.</p>
  Platforms: <p>Android</p>
-</dt><dt>Constant: Intent.START_SERVICE (For Ruby use "::" instead of ".")<br/> String:startService</dt><dd><p>Use the intent to start a background service.</p>
+</dt><dt>Constant: Intent.START_SERVICE (For Ruby use "::" for all "." when referencing constants)<br/> String:startService</dt><dd><p>Use the intent to start a background service.</p>
  Platforms: <p>Android</p>
 </dt></dl></li><li>permission : <span class='text-info'>STRING</span><p><p>Permission used to send a broadcast intent.</p>
  Platforms:Android </p></li><li>action : <span class='text-info'>STRING</span><p><p>Intent action. See <a href="http://developer.android.com/reference/android/content/Intent.html#setAction(java.lang.String)">Android docs</a>. for possible values.</p>
