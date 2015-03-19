@@ -27,7 +27,7 @@ Then, run this command to install the Rho Gems.
 
 * The `rhoconnect-client` was previosly included in the `rhodes` gem prior to version 4.0. If your application plans on using the RhoConnect client for data synchronization, you will need to install this gem.
 
-## Linking SDKs 
+## Linking SDKs
 
 You will need the SDKs for the platform you want to build your app on. These instructions are found [here](nativesdksetup).
 
@@ -36,7 +36,7 @@ After you install the gem and your desired SDKs, you need to run:
 	:::term
 	$ rhodes-setup
 
-This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. 
+This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank.
 
 ## Generating A Rhodes Application
 The first step is to generate the application and base files.  First we will generate an application called StoreManager with the following command:
@@ -52,7 +52,7 @@ This will generate an application directory called "storemanager" with several f
 If you do not need synchronized offline data, you can leave the third argument out.
 
 
-The default home screen of the app is defined in the storemanager/app/index.erb file.  You can edit the HTML there to create what your app displays.  You can link to other HTML files and ERB files from there with standard HTML techniques. 
+The default home screen of the app is defined in the storemanager/app/index.erb file.  You can edit the HTML there to create what your app displays.  You can link to other HTML files and ERB files from there with standard HTML techniques.
 
 ## Generating Models
 You can also use the command line to add models and controllers. When the model is generated, Rhodes will also create files for a standard UI for displaying and editing the model. This follows the standard model-view-controller paradigm.Get more details on [project structure](creating_a_project#project-structure).
@@ -71,8 +71,10 @@ Let's generate a model called "product" and give it some attributes.
 		[ADDED]  app/Product/product.rb
 		[ADDED]  app/test/product_spec.rb
 
+> Note: Models created through the command-line-interface will use the [property bag data schema](rhom_ruby#property_bag) by default. To use Fixed Schema instead, have a look at the [fixed schema section](rhom_ruby#fixed_schema) of our [Rhom in Ruby guide](rhom_ruby).
+
 ## Building and Running
-You build and run for individual platforms using command line options 
+You build and run for individual platforms using command line options
 
 Running on iphone simulator
 
