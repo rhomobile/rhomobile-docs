@@ -42,6 +42,7 @@ You are free to update all these files to suit your application
 **NOTE: Why does the `product.rb` file not mention the attributes at all? Rhodes provides two model storage schemes, called PropertyBag and FixedSchema. FixedSchema stores data for each model in its own database table, with one column per attribute, and requires the model to explicitly list the attributes it supports. PropertyBag stores everything in a single table and is more flexible: it determines the list of attributes dynamically at run time, the model does not need to declare them. The generator outputs PropertyBag models by default; that is why there is no mention of the attributes in the generated model file, PropertyBag does not require them. For a discussion of the benefits and drawbacks of each approach, see [Using the local database](local_database).**
 
 ## Using Models
+<a name="property_bag"></a>
 ### Property Bag
 With a property bag model, all data is stored in a single table using the object-attribute-value pattern also referred to as the [Entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model).
 
@@ -61,7 +62,7 @@ Source ID: 1, Model Name: Account
 +-----------+----------+--------------+----------------------+
 | source_id | attrib   | object       | value                |
 +-----------+----------+--------------+------- --------------+
-|         1 | name     | 48f39f63741b | A.G. Parr PLC 37862  | 
+|         1 | name     | 48f39f63741b | A.G. Parr PLC 37862  |
 |         1 | industry | 48f39f63741b | Entertainment        |
 |         1 | name     | 48f39f230529 | Jones Group          |
 |         1 | industry | 48f39f230529 | Sales                |
@@ -74,7 +75,7 @@ Here, Rhom will expose a class `Account` with two attributes: `name` and `indust
     account = Account.find('48f39f63741b')
     account.name
       #=> "A.G. Parr PLC 37862"
-    
+
     account.industry
       #=> "Entertainment"
 
@@ -83,7 +84,7 @@ To use a property bag model, simply generate a new model with some attributes:
 
     :::term
     $ rhodes model product name,brand,price,quantity,sku
-    
+
 This will generate a file called `product.rb` which looks like:
 
     :::ruby
@@ -95,7 +96,7 @@ This will generate a file called `product.rb` which looks like:
 
       #add model specific code here
     end
-    
+
 There are several features you can enable or disable in the model, below is a complete list:
 
     :::ruby
@@ -105,35 +106,35 @@ There are several features you can enable or disable in the model, below is a co
       # rhoconnect settings
       # Enable sync for this model.
       # Default is disabled.
-      enable :sync 
+      enable :sync
 
       # Set the type of sync this model
       # will use (default :incremental).
       # Set to :bulk_only to disable incremental
       # sync and only use bulk sync.
-      set :sync_type, :bulk_only 
-    
+      set :sync_type, :bulk_only
+
       # Set the sync priority for this model.
       # 1000 is default, set to lower number
       # for a higher priority.
-      set :sync_priority, 1     
+      set :sync_priority, 1
 
       # Instruct Rhom to send all attributes
       # to RhoConnect when an object is updated.
       # Default is disabled, only changed attributes
       # are sent.
-      enable :full_update 
+      enable :full_update
 
-      # RhoConnect provides a simple way to keep data out of redis. 
-      # If you have sensitive data that you do not want saved in redis, 
+      # RhoConnect provides a simple way to keep data out of redis.
+      # If you have sensitive data that you do not want saved in redis,
       # add the pass_through option in settings/settings.yml for each source.
       # Add pass_through to client model definition
-      enable :pass_through 
-    
+      enable :pass_through
+
       # model settings
-    
+
       # Define how data is partitioned for this model.
-      # For synced models default is :user. 
+      # For synced models default is :user.
       # For non-synced models default is :local
       # If you have an :app partition
       # for your RhoConnect source adapter and use bulk sync,
@@ -143,17 +144,18 @@ There are several features you can enable or disable in the model, below is a co
       # Define blob attributes for the model.
       # :blob           Declare property as a blob type
       #
-      # :overwrite      (optional) Overwrite client copy 
+      # :overwrite      (optional) Overwrite client copy
       #                 of blob with new copy from server.
       #                 This is useful when RhoConnect modifies
-      #                 images sent from Rhodes, for example 
+      #                 images sent from Rhodes, for example
       #                 zooming or cropping.
-      property :image_url, :blob, :overwrite 
-    
+      property :image_url, :blob, :overwrite
+
       # You can define your own properties also
       property :mycustomproperty, 'hello'
     end
 
+<a name="fixed_schema"></a>
 ### Fixed Schema
 With a fixed schema model, each model has a separate database table and each attribute exists as a column in the table.  In this sense, fixed schema models are similar to traditional relational tables.
 
@@ -172,7 +174,7 @@ First, generate the model using the `rhodes` command:
 
     :::term
     $ rhodes model product name,brand,price,quantity,sku
-    
+
 Next, change the include statement in `product.rb` to `include Rhom::FixedSchema` and add the attributes:
 
     :::ruby
@@ -181,18 +183,18 @@ Next, change the include statement in `product.rb` to `include Rhom::FixedSchema
 
       # Uncomment the following line to enable sync with Product.
       # enable :sync
-    
+
       property :name, :string
       property :brand, :string
       property :price, :string
       property :quantity, :string
       property :sku, :string
-      
+
       property :int_prop, :integer
       property :float_prop, :float
       property :date_prop, :date #translate to integer type
       property :time_prop, :time #translate to integer type
-      
+
     end
 
 That's it!  Now your model is a fixed schema model, the table will be generated automatically for you when the application launches.
@@ -206,30 +208,30 @@ Below is a full list of options available to fixed schema models:
       # rhoconnect settings
       # Enable sync for this model.
       # Default is disabled.
-      enable :sync 
+      enable :sync
 
       # Set the type of sync this model
       # will use (default :incremental).
       # Set to :bulk_only to disable incremental
       # sync and only use bulk sync.
-      set :sync_type, :bulk_only 
+      set :sync_type, :bulk_only
 
       # Set the sync priority for this model.
       # 1000 is default, set to lower number
       # for a higher priority.
-      set :sync_priority, 1     
+      set :sync_priority, 1
 
       # Instruct Rhom to send all attributes
       # to RhoConnect when an object is updated.
       # Default is disabled, only changed attributes
       # are sent.
-      enable :full_update 
+      enable :full_update
 
-      # RhoConnect provides a simple way to keep data out of redis. 
-      # If you have sensitive data that you do not want saved in redis, 
+      # RhoConnect provides a simple way to keep data out of redis.
+      # If you have sensitive data that you do not want saved in redis,
       # add the pass_through option in settings/settings.yml for each source.
       # Add pass_through to client model definition
-      enable :pass_through 
+      enable :pass_through
 
       # model settings
 
@@ -249,22 +251,22 @@ Below is a full list of options available to fixed schema models:
       property :tag, :string
       property :phone, :string
       property :image_url, :blob
-    
+
       # Define a named index on a set of attributes.
       # For example, this will create index for name and tag columns.
-      index :by_name_tag, [:name, :tag] 
+      index :by_name_tag, [:name, :tag]
 
       # Define a unique named index on a set of attributes.
       # For example, this will create unique index for the phone column.
-      unique_index :by_phone, [:phone] 
+      unique_index :by_phone, [:phone]
 
       # Define blob attributes for the model.
       # :blob           Declare property as a blob type
       #
-      # :overwrite      (optional) Overwrite client copy 
+      # :overwrite      (optional) Overwrite client copy
       #                 of blob with new copy from server.
       #                 This is useful when RhoConnect modifies
-      #                 images sent from Rhodes, for example 
+      #                 images sent from Rhodes, for example
       #                 zooming or cropping.
       property :image_url, :blob, :overwrite
 
@@ -284,7 +286,7 @@ To use this hook, first we need to track the `:schema_version` in our model:
 
       set :schema_version, '1.1'
     end
-    
+
 Next, we will implement the following hook in our `application.rb` class:
 
 #### `on_migrate_source(old_version, new_src)`
@@ -292,17 +294,17 @@ This is called on application start when `:schema_version` has changed.
 
     :::ruby
     class AppApplication < Rho::RhoApplication
-      
+
       # old_version     String containing old version value (i.e. '1.0')
       # new_src         Hash with source information:
       #                 'schema_version', 'name', 'schema'
       #                 new_src['schema']['sql'] contains new schema sql
       def on_migrate_source(old_version, new_src)
         # ... do something like alert user ...
-        
+
         db = Rho::RHO.get_src_db(new_src['name'])
         db.execute_sql("ALTER TABLE #{new_src['name']} ADD COLUMN mytest VARCHAR DEFAULT null")
-        
+
         true # does not create table
       end
     end
@@ -310,7 +312,7 @@ This is called on application start when `:schema_version` has changed.
 **NOTE: To modify schema without recreate table, you can use only ADD COLUMN command, you cannot remove column or change type(This is sqlite limitation) **
 
 Return `false` to run the custom sql specified by the new_src['schema']['sql'] string:
-    
+
     :::ruby
     def on_migrate_source(old_version, new_src)
       # ... do something like alert user ...
@@ -320,19 +322,19 @@ Return `false` to run the custom sql specified by the new_src['schema']['sql'] s
 **NOTE: For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time. **
 
 ### Property Bag Data Migrations
-No data migration required, since all attributes are dynamic. 
+No data migration required, since all attributes are dynamic.
 If you want to remove all local data when upgrading to new application version: change `app_db_version` in `rhoconfig.txt`.
 
 This scenario will work for Property Bag and Fixed Schema models.
 
 ## Adding new objects
-Use the `create` method to create a new model object and save it to the database. 
+Use the `create` method to create a new model object and save it to the database.
 
 NOTE: This is the fastest way to insert a single item into the database.
 
     :::ruby
     user = User.create(
-            :name => 'Alice', 
+            :name => 'Alice',
             :email => 'alice@example.com')
 
 You can also create the new model object without saving it automatically and then explicitly use the `save` method. This is useful when you want to update some of the object attributes before saving.
@@ -342,12 +344,12 @@ You can also create the new model object without saving it automatically and the
     # update the object
     user.email = 'alice@example.com'
     user.save
-  
+
 ## Retrieving objects
 You can retrieve all objects for a model or only those matching given conditions using the `find` method.
 
-### Getting all objects for a model 
-You can retrieve all objects for a model using the `all` parameter. 
+### Getting all objects for a model
+You can retrieve all objects for a model using the `all` parameter.
 
     :::ruby
     users = User.find(:all)
@@ -357,7 +359,7 @@ You can retrieve all objects matching given conditions using the `conditions` pa
 
     :::ruby
     users = User.find(
-                :all, 
+                :all,
                 :conditions => {:name => 'Alice'}
             )
 
@@ -365,11 +367,11 @@ You can retrieve all objects matching given conditions using the `conditions` pa
 Because, internally, property bag models store all their values in the same column, this column is defined as `varchar`, which means that number comparisons do not work as you would expected. If you need to perform order comparisons on a numeric field in a property bag model, use CAST to convert the value to a number of the desired type:
 
     :::ruby
-    @accts = Account.find(:all, 
+    @accts = Account.find(:all,
         :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
     #or using sql query:
     size = 3
-    @accts = Account.find(:all, 
+    @accts = Account.find(:all,
         :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
 
 ### Ordering the objects
@@ -378,15 +380,15 @@ You can retrieve objects sorted by one or more attributes using the `order` and 
     :::ruby
     # order by one attribute
     users = User.find(
-                :all, 
-                :order => 'name', 
+                :all,
+                :order => 'name',
                 :orderdir => 'DESC'
             )
-    
+
     # order by multiple attributes
     users = User.find(
-                :all, 
-                :order => ['name', 'email'], 
+                :all,
+                :order => ['name', 'email'],
                 :orderdir => ['ASC', 'DESC']
             )
 
@@ -395,7 +397,7 @@ If, for a particular action, you do not need every attribute in an object, you c
 
     :::ruby
     users = User.find(
-                :all, 
+                :all,
                 :select => ['name']
             )
 
@@ -407,7 +409,7 @@ You can pass `offset` and `per_page` parameters to `find` method to retrieve obj
     :::ruby
     # get first 10 records
     users = User.find(:all, :per_page => 10)
-    
+
     # get records 21-40
     users = User.find(:all, :offset => 20, :per_page => 20)
 
@@ -418,7 +420,7 @@ You can use `:conditions`, `:order` and `select` parameters, similarly to the `f
     :::ruby
     # get first 10 records
     users = User.paginate(:page => 0)
-    
+
     # get records 21-40
     users = User.paginate(:page => 1, :per_page => 20)
 
@@ -427,7 +429,7 @@ You can get only the first object matching given conditions using `first` instea
 
     :::ruby
     user = User.find(
-                :first, 
+                :first,
                 :conditions => {:name => 'Alice'}
             )
 
@@ -442,7 +444,7 @@ You can get the number of objects matching given conditions using the `count` pa
 
     :::ruby
     count = User.find(
-                :count, 
+                :count,
                 :conditions => {:name => 'Alice'}
             )
 
@@ -454,7 +456,7 @@ NOTE: This is the fastest way to add or update item attributes.
     :::ruby
     user = User.find(:first, :conditions => {:name => 'Alice'})
     user.update_attributes(
-                :name => 'Bob', 
+                :name => 'Bob',
                 :email => 'bob@example.com')
 
 ## Deleting
@@ -471,7 +473,7 @@ To delete all objects for a model, or only those matching given conditions, use 
     :::ruby
     # delete all objects
     User.delete_all()
-    
+
     # delete only objects matching :conditions
     User.delete_all(:conditions => {:name => 'Alice'})
 
@@ -485,7 +487,7 @@ Use transactions to group together database operations that must either succeed 
         # do multiple operations
         User.create(:name => 'Alice', :email => 'alice@example.com')
         User.create(:name => 'Bob', :email => 'bob@example.com')
-        
+
         # no errors, so commit all the changes
         db.commitTransaction
     rescue
@@ -521,12 +523,12 @@ The list of attributes in a model can be updated as development progresses. If y
 
     :::ruby
     property :<property_name> :<data_type>
-    
+
 In our example `Product` model, for example, we could add
 
     :::ruby
     property :color, :string
-    
+
 The guide [Using the local database](../rhodes/rhom#fixed-schema) contains all the details on which data types are supported, as well as other ways to fine-tune data synchronization.
 
 ## Linking a model to a RhoConnect synchronization server
@@ -540,7 +542,7 @@ Once your application can store data about a particular model, enabling two-way 
 
     :::ruby
     enable :sync
-    
+
 As long as your RhoConnect server is properly configured, this is all that is required to benefit from automatic, two-way synchronization. See the [RhoConnect Tutorial](../tutorial/rhoconnect) for in-depth information about the benefits RhoConnect provides, as well as [Using the local database](../rhodes/rhom#fixed-schema) to find out how to tune data synchronization according to the needs of your application.
 
 ## Associations
@@ -572,7 +574,7 @@ The value you must use as the identifier to link objects is the `object` propert
 You can also define polymorphic sync associations, or sync associations across multiple classes.
 
 Using array notation:
-    
+
     :::ruby
     belongs_to :parent_id, ['Product', 'Case']
 
@@ -607,10 +609,10 @@ For such models if you try to set a property that has not been explicitly define
     :::ruby
     obj = Customer.new( :wrong_address => 'test') #will raise ArgumentError exception
     obj = Customer.create( :wrong_address => 'test') #will raise ArgumentError exception
-    
+
     obj = Customer.new
     obj.wrong_address = 'test' #will raise ArgumentError exception
-    
+
     obj = Customer.new
     obj.update_attributes(:wrong_address => 'test') #will raise ArgumentError exception
 
@@ -619,29 +621,29 @@ For such models if you try to set a property that has not been explicitly define
 ## Resetting the Database
 Rhodes provides the following functions for recovering the database from a bad or corrupt state, or if the RhoConnect server returns errors.
 
-### `Rhom::Rhom.database_full_reset(reset_client_info=false, reset_local_models=true)` 
+### `Rhom::Rhom.database_full_reset(reset_client_info=false, reset_local_models=true)`
 Deletes all records from the property bag and model tables.
-  
+
     :::ruby
-    # reset_client_info   If set to true, client_info 
+    # reset_client_info   If set to true, client_info
     #           table will be cleaned.
     #
-    # reset_local_models  If set to true, local(non-synced models) 
+    # reset_local_models  If set to true, local(non-synced models)
     #           will be cleaned.
     Rhom::Rhom.database_full_reset(false,true)
-  
-### `Rhom::Rhom.database_full_reset_and_logout` 
+
+### `Rhom::Rhom.database_full_reset_and_logout`
 Perform a full reset and then logout the RhoConnect client.
 
     :::ruby
     Rhom::Rhom.database_full_reset_and_logout
 
-### `Rhom::Rhom.database_fullclient_reset_and_logout` 
+### `Rhom::Rhom.database_fullclient_reset_and_logout`
 Equivalent to `Rhom::Rhom.database_full_reset(true)` followed by `SyncEngine.logout`.
 
     :::ruby
     Rhom::Rhom.database_fullclient_reset_and_logout
-  
+
 **NOTE: If you receive a sync error "Unknown client" message in your sync callback, this means that the RhoConnect server no longer knows about the client and a `Rhom::Rhom.database_fullclient_reset_and_logout` is recommended.  This error requires proper intervention in your app so you can handle the state before resetting the client.  For example, your sync notification could contain the following:**
 
     :::ruby
@@ -650,21 +652,21 @@ Equivalent to `Rhom::Rhom.database_full_reset(true)` followed by `SyncEngine.log
       Rhom::Rhom.database_fullclient_reset_and_logout
     end
 
-### `Rhom::Rhom.database_local_reset` 
+### `Rhom::Rhom.database_local_reset`
 Reset only local(non-sync-enabled) models.
 
     :::ruby
     Rhom::Rhom.database_local_reset
 
-### `Rhom::Rhom.database_full_reset_ex( :models => [model_name1, model_name2], :reset_client_info=>false, :reset_local_models => true)` 
+### `Rhom::Rhom.database_full_reset_ex( :models => [model_name1, model_name2], :reset_client_info=>false, :reset_local_models => true)`
 Deletes all records from the property bag and model tables, if models are set then reset only selected models
-  
+
     :::ruby
     # models                Array of models names to reset
-    # reset_client_info   If set to true, client_info 
+    # reset_client_info   If set to true, client_info
     #           table will be cleaned.
     #
-    # reset_local_models  If set to true, local(non-synced models) 
+    # reset_local_models  If set to true, local(non-synced models)
     #           will be cleaned.
     Rhom::Rhom.database_full_reset_ex(:models => ['Product', 'Customer'])
 
@@ -676,33 +678,33 @@ Let's say we have the following SQL fragment condition:
 
     :::ruby
     Product.find(
-     :all, 
-     :conditions => [ 
-       "LOWER(description) like ? or LOWER(title) like ?", 
-       query, 
+     :all,
+     :conditions => [
+       "LOWER(description) like ? or LOWER(title) like ?",
+       query,
        query
-     ], 
-     :select => ['title','description'] 
+     ],
+     :select => ['title','description']
     )
 
 Using advanced `:conditions`, this becomes:
 
     :::ruby
-    Product.find( 
-      :all, 
-      :conditions => { 
-      { 
-        :func => 'LOWER', 
-        :name => 'description', 
+    Product.find(
+      :all,
+      :conditions => {
+      {
+        :func => 'LOWER',
+        :name => 'description',
         :op => 'LIKE'
-      } => query, 
+      } => query,
         {
-        :func => 'LOWER', 
-        :name => 'title', 
+        :func => 'LOWER',
+        :name => 'title',
         :op => 'LIKE'
       } => query
-      }, 
-      :op => 'OR', 
+      },
+      :op => 'OR',
       :select => ['title','description']
     )
 
@@ -710,71 +712,71 @@ You can also use the 'IN' operator:
 
     :::ruby
     Product.find(
-      :all, 
-      :conditions => { 
+      :all,
+      :conditions => {
         {
-        :name => "image_uri", 
-        :op => "IN" 
-      } => "'15704','15386'" 
-      } 
+        :name => "image_uri",
+        :op => "IN"
+      } => "'15704','15386'"
+      }
     )
 
     # or use array notation
     Product.find(
-      :all, 
-      :conditions => { 
+      :all,
+      :conditions => {
         {
-        :name => "image_uri", 
-        :op => "IN" 
+        :name => "image_uri",
+        :op => "IN"
       } => ["15704","15386"]
-      } 
+      }
     )
 
 You can also group `:conditions`:
-  
+
     :::ruby
     cond1 = {
-      :conditions => { 
+      :conditions => {
         {
-        :func => 'UPPER', 
-        :name => 'name', 
-        :op => 'LIKE' 
-      } => query, 
-        { 
-        :func => 'UPPER', 
-        :name => 'industry', 
+        :func => 'UPPER',
+        :name => 'name',
+        :op => 'LIKE'
+      } => query,
+        {
+        :func => 'UPPER',
+        :name => 'industry',
         :op => 'LIKE'
       } => query
-      }, 
+      },
       :op => 'OR'
     }
 
     cond2 = {
-      :conditions => { 
+      :conditions => {
         {
-        :name => 'description', 
+        :name => 'description',
         :op => 'LIKE'
         } => 'Hello%'
-      }   
+      }
     }
 
-    @accts = Account.find( 
-      :all, 
-      :conditions => [cond1, cond2], 
-      :op => 'AND', 
+    @accts = Account.find(
+      :all,
+      :conditions => [cond1, cond2],
+      :op => 'AND',
       :select => ['name','industry','description']
     )
 
 ## Find by numeric field
 To use number comparison conditions in find use CAST :
     :::ruby
-    @accts = Account.find(:all, 
+    @accts = Account.find(:all,
         :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
     #or using sql query:
     size = 3
-    @accts = Account.find(:all, 
+    @accts = Account.find(:all,
         :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
-        
+
 ## Database Encryption
 
 **NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](build_config#other-build-time-settings). Additionally, a [RhoElements license](licensing) is required.**
