@@ -10,7 +10,7 @@ For more information on Ruby Gems, visit [Rubygems.org](http://guides.rubygems.o
 
 Before installing the needed Rho Gems, you must:
 
-* Install Ruby for your operating system (RhoMobile Suite currently includes version 1.93)
+* [Install Ruby for your operating system](rhomobile-install) (RhoMobile Suite currently includes version 1.93)
 
 Then, run this command to install the Rho Gems.
 

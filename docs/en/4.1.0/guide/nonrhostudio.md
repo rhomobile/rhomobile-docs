@@ -1,7 +1,5 @@
-#Developing Without RhoStudio
-
-Although installing RhoMobile Suite provides everything you need to build RhoMobile applications through the included RhoStudio IDE, you may wish to use your own IDE to build your RhoMobile applications. This guide describes how to setup your environment as well as how to use the Rhomobile command line options.   
-
+# Developing Without RhoStudio
+Although installing RhoMobile Suite provides everything you need to build RhoMobile applications through the included RhoStudio IDE, you may wish to use your own IDE to build your RhoMobile applications. This guide describes how to setup your environment as well as how to use the Rhomobile command line options.
 
 ## What are Gems?
 A RubyGem is a software package, commonly called a “gem”. Gems contain a packaged Ruby application or library. The RubyGems software itself allows you to easily download, install, and manipulate gems on your system. There are three gems included with RhoMobile Suite: `rhodes`, `rhoelements` and `rhoconnect-client`.
@@ -12,14 +10,14 @@ For more information on Ruby Gems, visit [Rubygems.org](http://guides.rubygems.o
 
 Before installing the needed Rho Gems, you must:
 
-* Install Ruby for your operating system (RhoMobile Suite currently includes version 1.93)
+* [Install Ruby for your operating system](rhomobile-install) (RhoMobile Suite currently includes version 1.93)
 
 Then, run this command to install the Rho Gems.
 
 	:::term
-  	$ [sudo] gem install rhodes
-  	$ [sudo] gem install --local path_to_gem/rhoelements_gem_name.gem
-  	$ [sudo] gem install --local path_to_gem/rhoconnect-client_gem_name.gem
+	$ [sudo] gem install rhodes
+	$ [sudo] gem install --local path_to_gem/rhoelements_gem_name.gem
+	$ [sudo] gem install --local path_to_gem/rhoconnect-client_gem_name.gem
 
 NOTE: Installing RhoMobile Suite will install these gems automatically. You can have multiple versions of these gems installed on your system. By default when building your application the most recent version # is used. Please consult the guide on building for a specific version of RhoMobile.
 
@@ -29,7 +27,7 @@ NOTE: Installing RhoMobile Suite will install these gems automatically. You can 
 
 * The `rhoconnect-client` was previosly included in the `rhodes` gem prior to version 4.0. If your application plans on using the RhoConnect client for data synchronization, you will need to install this gem.
 
-## Linking SDKs 
+## Linking SDKs
 
 You will need the SDKs for the platform you want to build your app on. These instructions are found [here](nativesdksetup).
 
@@ -38,7 +36,7 @@ After you install the gem and your desired SDKs, you need to run:
 	:::term
 	$ rhodes-setup
 
-This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. 
+This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank.
 
 ##Generating A Rhodes Application
 The first step is to generate the application and base files.  First we will generate an application called StoreManager with the following command:
@@ -53,7 +51,7 @@ This will generate an application directory called "storemanager" with several f
 If you do not need synchronized offline data, you can leave the third argument out.
 
 
-The default home screen of the app is defined in the storemanager/app/index.erb file.  You can edit the HTML there to create what your app displays.  You can link to other HTML files and ERB files from there with standard HTML techniques. 
+The default home screen of the app is defined in the storemanager/app/index.erb file.  You can edit the HTML there to create what your app displays.  You can link to other HTML files and ERB files from there with standard HTML techniques.
 
 ## Generating Models
 You can also use the command line to add models and controllers. When the model is generated, Rhodes will also create files for a standard UI for displaying and editing the model. This follows the standard model-view-controller paradigm.Get more details on [project structure](creating_a_project#project-structure).
@@ -77,7 +75,7 @@ Let's generate a model called "product" and give it some attributes.
         [ADDED]  app/test/product_spec.rb
 
 ## Building and Running
-You build and run for individual platforms using command line options 
+You build and run for individual platforms using command line options
 
 Running on iphone simulator
     :::term
@@ -98,7 +96,7 @@ If your IDE or Text-Editor provides a means to launch an external executable, yo
 
     :::term
     $ rake -T
-	
+
 	rake build:android:eclipsebundle         # Build RhoBundle for Eclipse project
 	rake build:android:extensions            # Building native extensions
 	rake build:android:rhobundle             # Build RhoBundle for android

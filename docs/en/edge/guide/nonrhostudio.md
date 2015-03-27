@@ -7,10 +7,9 @@ A RubyGem is a software package, commonly called a “gem”. Gems contain a pac
 For more information on Ruby Gems, visit [Rubygems.org](http://guides.rubygems.org/what-is-a-gem/)
 
 ## Installing Rho Gems
-
 Before installing the needed Rho Gems, you must:
 
-* Install Ruby for your operating system (RhoMobile Suite currently includes version 1.93)
+* [Install Ruby for your operating system](rhomobile-install) (RhoMobile Suite currently includes version 1.93)
 
 Then, run this command to install the Rho Gems.
 
@@ -28,7 +27,6 @@ Then, run this command to install the Rho Gems.
 * The `rhoconnect-client` was previosly included in the `rhodes` gem prior to version 4.0. If your application plans on using the RhoConnect client for data synchronization, you will need to install this gem.
 
 ## Linking SDKs
-
 You will need the SDKs for the platform you want to build your app on. These instructions are found [here](nativesdksetup).
 
 After you install the gem and your desired SDKs, you need to run:
