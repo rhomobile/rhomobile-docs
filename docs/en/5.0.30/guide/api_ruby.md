@@ -1,13 +1,13 @@
-# Using RhoMobile Ruby API's 
+# Using RhoMobile Ruby API's
 
-RhoMobile applications support access to device, system and framework capabilities through a common API set whether you are building Rhodes, RhoElements or RhoMobile enabled web apps. 
+RhoMobile applications support access to device, system and framework capabilities through a common API set whether you are building Rhodes, RhoElements or RhoMobile enabled web apps.
 
 
 ## Using your own objects
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them.
 
 In the following example we want to save a reference to the front facing camera of the device so that we can manipulate the front facing camera properties seperate from the rear-facing camera:
-	
+
 	:::ruby
 	@desiredCamera;
 	Rho::Camera.enumerate(lambda |e|
@@ -27,7 +27,7 @@ We can then reference instance methods on that object
 
 
 ## Setting propeties
-There are a few different ways you can set properties. 
+There are a few different ways you can set properties.
 
 ### Using the default instance
 One way is to use the default instance of the API class. This will change the property of the object in a global sense until it is changed again (or the application is exited):
@@ -36,7 +36,7 @@ One way is to use the default instance of the API class. This will change the pr
 	Rho::Class.Property = value;
 
 For example the following snippet will turn of the `illuminationMode` for the default Barcode instance.
-	
+
 	:::ruby
 	Rho::Barcode.illuminationMode='alwayOff'
 
@@ -44,7 +44,7 @@ For example the following snippet will turn of the `illuminationMode` for the de
 You can also use special class methods to set a property (as long as the class supports this method):
 
 	:::ruby
-	Rho::Barcode.setProperty :illuminationMode, 'alwaysOff' 
+	Rho::Barcode.setProperty :illuminationMode, 'alwaysOff'
 
 You can also use a special class method to set multiple properties in one line of code (as long as the class supports this method):
 
@@ -69,7 +69,7 @@ There are a few ways to get an object's property values:
 The following examples use a synchronous method that will be blocking.
 
 The following example uses the `getProperty` class method. This method may not be available on all APIs.
-	
+
 	:::ruby
 	iMode = Rho::Barcode.getProperty('illuminationMode')
 
@@ -82,7 +82,7 @@ You can use the `getProperties` method for a list of propeties you wish to know 
 	# The object properties will be the list of properties used
 	if settingsHash.illuminationMode == 'alwaysOff'...
 
-You can also use the `getAllProperties` method to get all properties of an object	
+You can also use the `getAllProperties` method to get all properties of an object
 
 	:::ruby
 	settingsHash = Rho::Barcode.getAllProperties()
@@ -100,10 +100,8 @@ The following code snippet uses a lambda function that will execute when the cal
 The following code snippet also uses a lambda function that will execute when the callback is executed. This time we are also passing in other parameters
 
 	:::javascript
-	Barcode.getProperties(['autoEnter','code128','code39'],   
+	Barcode.getProperties(['autoEnter','code128','code39'],
 	lambda{|e| puts e.code128})
-
-**NOTE: For methods that support callbacks, the callback function will always be the last parameter of the method**
 
 The following code snippet uses a controller method name for the callback instead of an anonymous function
 
@@ -111,6 +109,8 @@ The following code snippet uses a controller method name for the callback instea
 	Barcode.getAllProperties(fnPropertyPerser());
 
 ## Handling callbacks
+> NOTE: For methods that support callbacks, the callback function will always be the last parameter of the method.
+
 Some methods will support a callback for returning information in an unblocking asynchronous way. This will be indicated in the documentation by a parameter named `callback`
 
 	:::ruby
@@ -121,7 +121,7 @@ The callback parameter will either be marked as <span class="label label-info">O
 Be sure to check the type of object the callback will be returning as well as the list of available callback parameters for each method. Typically the callback will return an object with a pre-defined set of objects that can be accessed for information.
 
 ### Callback as lambda function
-The following code snippet takes a picture from the device's camera and will run the lambda function 	
+The following code snippet takes a picture from the device's camera and will run the lambda function
 
 	:::ruby
 	# The documentation will list the callback type as well as callback parameters that are available
