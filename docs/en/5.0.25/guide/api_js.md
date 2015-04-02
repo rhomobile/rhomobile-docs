@@ -1,39 +1,44 @@
-# Using RhoMobile JavaScript API's 
-
+# Using RhoMobile JavaScript API's
 RhoMobile applications support access to device, system and framework capabilities through a common API using JavaScript. In order to use these api's your application pages must have access to the `rhoapi-modules.js` file. This JavaScript library will provide all API access under the `Rho` set of classes.
 
 ## Enabling RhoMobile API's
-When building a native RhoMobile application, the `rhoapi-modules.js` file is automatically generated at build time and added to the application's `\public\api` folder upon installation of the application to the device. The contents of this file will be based on the `extensions`, `capabilities` specified in your `build.yml` file as well as the target operating system. 
+When building a native RhoMobile application, the `rhoapi-modules.js` file is automatically generated at build time and added to the application's `\public\api` folder upon installation of the application to the device. The contents of this file will be based on the `extensions`, `capabilities` specified in your `build.yml` file as well as the target operating system.
 
 Your html or erb pages must include reference to this file otherwise you will not be able to use the `Rho.Object` API classes
 
 	:::html
-	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
+	<script charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
 
-**NOTE: This reference to the `rhoapi-modules` must appear before jQuery libraries are loaded. In RhoMobile suite 2.2, some `Rhodes` APIs were made available via JavaScript. However please note that the name of the RhoMobile javacript file has changed. It is no longer `rho_javscript_api.js`.**
+> Note: This reference to the `rhoapi-modules` must appear before jQuery libraries are loaded. In RhoMobile suite 2.2, some `Rhodes` APIs were made available via JavaScript. However please note that the name of the RhoMobile javacript file has changed. It is no longer `rho_javscript_api.js`.
+
+You may also include only the modules you intend to use, to improve page loading times. To do this, you must include the file `rhoapi.js` prior to including the specific JS modules. The `rhoapi.js` file creates the Rho name-space needed for the JavaScript APIs to function properly.
+
+	:::html
+	<script charset="utf-8" src="/public/api/rhoapi.js"></script>
+	<script charset="utf-8" src="/public/api/Rho.Barcode.js"></script>
 
 ### JavaScript ORM
 If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
 
 	:::html
-	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
+	<script charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
 ## JavaScript RhoMobile Application Structure
 The following application structure is what is minimally required to build a JavaScript RhoMobile Application. You can still use the [App Generator](creating_a_project#creating-a-project-with-rhostudio) to create the default structure, but then remove the `app` folder that is generated for a `Ruby` MVC app.
 
 	:::html
-	- build.yml 
+	- build.yml
 	- rhoconfig.txt (start_path points to starting html page)
 	- rakefile
 	- icon (folder for application icon)
 	- public (root folder for 'web application')
 
 ## Build.yml settings
-Be sure to include the extensions and capabilities that are required for the APIs that are being used. In addition, you should specify the following setting in the `build.yml` file: 
+Be sure to include the extensions and capabilities that are required for the APIs that are being used. In addition, you should specify the following setting in the `build.yml` file:
 	:::yaml
 	javascript_application: true
 
-When this flag is specified, the Ruby VM will not start at application start, and all ruby files will be ignored. 
+When this flag is specified, the Ruby VM will not start at application start, and all ruby files will be ignored.
 
 **NOTE: If you do not specify this parameter and remove your `app` folder then the build process will fail.**
 
@@ -48,7 +53,7 @@ To use Common APIs you have to copy `rhoapi-modules.js` to your web server appli
 Some API classes support instance objects. This allows you to maintain your own objects and assign different properties to them.
 
 In the following example we want to save a reference to the front facing camera of the device so that we can manipulate the front facing camera properties separate from the rear-facing camera:
-	
+
 	:::javascript
 	var desiredCamera;
 	Rho.Camera.enumerate(function (e)
@@ -68,7 +73,7 @@ We can then reference instance methods on that object
 
 
 ## Setting Properties
-There are a few different ways you can set properties. 
+There are a few different ways you can set properties.
 
 ### Using the default instance
 One way is to use the default instance of the API class. This will change the property of the object in a global sense until it is changed again (or the application is exited):
@@ -77,7 +82,7 @@ One way is to use the default instance of the API class. This will change the pr
 	Rho.Class.Property = value;
 
 For example the following snippet will turn of the `illuminationMode` for the default Barcode instance.
-	
+
 	:::javascript
 	Rho.Barcode.illuminationMode='alwaysOff';
 
@@ -110,7 +115,7 @@ There are a few ways to get an object's property values:
 The following examples use a synchronous method that will be blocking.
 
 The following example uses the `getProperty` class method. This method may not be available on all APIs.
-	
+
 	:::javascript
 	var iMode = Rho.Barcode.getProperty('illuminationMode');
 
@@ -123,7 +128,7 @@ You can use the `getProperties` method for a list of propeties you wish to know 
 	// The object properties will be the list of properties used
 	if (settingsObj.illuminationMode == 'alwaysOff')...
 
-You can also use the `getAllProperties` method to get all properties of an object	
+You can also use the `getAllProperties` method to get all properties of an object
 
 	:::javascript
 	var settingsObj = Rho.Barcode.getAllProperties();
@@ -138,13 +143,13 @@ The following code snippet uses a self-describing autonomous function that will 
 	:::javascript
 	Barcode.getAllProperties(function(e)
 	{
-		alert(e.code128);  
+		alert(e.code128);
 	});
 
 The following code snippet also uses a self-describing anonymous function that will execute when the callback is executed. This time we are also passing in other parameters
 
 	:::javascript
-	Barcode.getProperties(["autoEnter","code128"], 
+	Barcode.getProperties(["autoEnter","code128"],
 	function (e)
 	{
 			alert(e.code128);
@@ -168,7 +173,7 @@ The callback parameter will either be marked as <span class="label label-info">O
 Be sure to check the type of object the callback will be returning as well as the list of available callback parameters for each method. Typically the callback will return an object with a pre-defined set of objects that can be accessed for information.
 
 ### Callback as anonymous function
-The following code snippet takes a picture from the device's camera and will run the anonymous function 	
+The following code snippet takes a picture from the device's camera and will run the anonymous function
 
 	:::javascript
 	// The documentation will list the callback type as well as callback parameters that are available
@@ -179,7 +184,7 @@ The following code snippet takes a picture from the device's camera and will run
 
 ### Callback as a JavaScript function
 The following code snippet takes a picture from the device's camera and then calls another JavaScript function `mycallbackhandler`:
-	
+
 	:::javascript
 	Rho.Camera.takePicture(..., mycallbackHandler());
 
