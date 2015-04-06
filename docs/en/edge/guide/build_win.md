@@ -11,6 +11,15 @@ By default the application is built with most recent supported version of Visual
 
 * use either `2012` or `2008`
 
+To optimize Win32 app installer file size by exclusion of Qt DLLs and/or Visual C runtime DLLs add `deployqt` and/or `deploymsvc` boolean parameters to `win32` section of `build.yml`, e.g.:
+
+    :::yaml
+    win32:
+      deployqt: 0
+      deploymsvc: 0
+
+If you excluded Qt DLLs or VC runtime from app installer, you need to install them separately on every PC before running your app. It is recommended to use our build of the Qt binaries (see [below](#build-for-windows-https)) for development. By doing so you'll be able to use our [RhoRuntimeQt installer](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe) to install all required Qt and Visual Studio Redistributable DLLs. Alternatively you may put Qt5 DLLs to any folder and add its full path to `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
+
 ## Build application from the command line
 
 To build and run the application issue command:
