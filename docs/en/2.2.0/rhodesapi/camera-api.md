@@ -210,4 +210,4 @@ Once the user has taken/chosen a picture (`take_picture`, `choose_picture`), the
 </table>
 
 ##Devices lacking support
-WM devices that has MPA3 board (eg: MC67) does not support Camera API in ruby applications.
+Due to platform limitation devices such as ES400, MC65 and MC67 does not support camera API in ruby applications. Preferred Imager APIs in that case.
