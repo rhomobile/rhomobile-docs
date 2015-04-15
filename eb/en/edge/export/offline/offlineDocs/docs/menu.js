@@ -29,6 +29,10 @@ var menuStrcture = [
 								link: '#guide-apioverview',
 							},
 							{
+								name: 'Feature Demo',
+								link: '#guide-featuredemo',
+							},
+							{
 								name: 'Hello EB Tutorial',
 								link: '#guide-tutorial-helloeb',
 							},
