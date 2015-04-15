@@ -559,6 +559,43 @@
 </ul>
 
 
+<h3>hideSplashScreen()</h3>
+
+<p>Hide Splash Screen if delay is configured as -1 in rhoconfig.txt</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.hideSplashScreen()</code></li>
+</ul>
+</li>
+</ul>
+
+
 <h3>isApplicationInstalled(<span class="text-info">STRING</span> applicationName)</h3>
 
 <p>Checks if the specified applicationName is installed on the device.</p>
@@ -719,43 +756,13 @@
 </ul>
 
 
-<h3>setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</h3>
-
-<p>Set do not backup attribute for file.</p>
-
-<h4>Parameters</h4>
-
-<ul><li>pathToFile : <span class='text-info'>STRING</span><p>Path to file. </p></li><li>doNotBackup : <span class='text-info'>BOOLEAN</span><p>True set doNotBackup attribute to file (exclude this file from backup), false for remove doNotBackup attribute from file. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-
-<h4>Returns</h4>
-
-<p>Synchronous Return:</p>
-
-<ul>
-<li>Void</li>
-</ul>
-
-
-<h4>Method Access:</h4>
-
-<ul>
-<li>Class Method: This method can only be accessed via the API class object.
-
-<ul>
-<li><code>EB.System.setDoNotBackupAttribute(<span class="text-info">STRING</span> pathToFile, <span class="text-info">BOOLEAN</span> doNotBackup)</code></li>
-</ul>
-</li>
-</ul>
-
-
-<h3>setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</h3>
+<h3>setNetworkStatusNotify(<span class="text-info">STRING</span> url)</h3>
 
 <p>Use Network.setStatusNotify: set network notification callback.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>poll_interval : <span class='text-info'>INTEGER</span><p>IOS. The network status polling period for systems that can not notify network status change immediately. Default value is 20 seconds. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>url : <span class='text-info'>STRING</span><p>The url to the user-defined callback method. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
@@ -781,7 +788,7 @@
 <li>Class Method: This method can only be accessed via the API class object.
 
 <ul>
-<li><code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url, <span class="text-info">INTEGER</span> poll_interval)</code></li>
+<li><code>EB.System.setNetworkStatusNotify(<span class="text-info">STRING</span> url)</code></li>
 </ul>
 </li>
 </ul>
@@ -1070,36 +1077,6 @@
 </ul>
 
 
-<h3>set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</h3>
-
-<p>Use System.applicationIconBadge: Set the application icon to have this badge number. Set to 0 (zero) to remove badge.iOS only.</p>
-
-<h4>Parameters</h4>
-
-<ul><li>badgeNumber : <span class='text-info'>INTEGER</span><p> </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-
-<h4>Returns</h4>
-
-<p>Synchronous Return:</p>
-
-<ul>
-<li>Void</li>
-</ul>
-
-
-<h4>Method Access:</h4>
-
-<ul>
-<li>Class Method: This method can only be accessed via the API class object.
-
-<ul>
-<li><code>EB.System.set_application_icon_badge(<span class="text-info">INTEGER</span> badgeNumber)</code></li>
-</ul>
-</li>
-</ul>
-
-
 <h3>set_http_proxy_url(<span class="text-info">STRING</span> proxyURI)</h3>
 
 <p>Use System.httpProxyURI property: To use client with the HTTP proxy.</p>
@@ -1214,82 +1191,6 @@
 </ul>
 
 
-<h3>startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</h3>
-
-<p>Use Timer.start: start timer.</p>
-
-<h4>Parameters</h4>
-
-<ul><li>interval : <span class='text-info'>INTEGER</span><p>Timer interval. </p></li><li>url : <span class='text-info'>STRING</span><p>URL of the callback method. </p></li><li>url_params : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Parameters which will be added to callback URL. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-
-<h4>Returns</h4>
-
-<p>Synchronous Return:</p>
-
-<ul>
-<li>Void</li>
-</ul>
-
-
-<h4>Platforms</h4>
-
-<ul>
-<li>Android</li>
-<li>Windows Mobile</li>
-</ul>
-
-
-<h4>Method Access:</h4>
-
-<ul>
-<li>Class Method: This method can only be accessed via the API class object.
-
-<ul>
-<li><code>EB.System.startTimer(<span class="text-info">INTEGER</span> interval, <span class="text-info">STRING</span> url, <span class="text-info">STRING</span> url_params)</code></li>
-</ul>
-</li>
-</ul>
-
-
-<h3>stopTimer(<span class="text-info">STRING</span> url)</h3>
-
-<p>Use Timer.stop: stop timer.</p>
-
-<h4>Parameters</h4>
-
-<ul><li>url : <span class='text-info'>STRING</span><p>URL of the callback method which identify the timer to stop. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
-
-
-<h4>Returns</h4>
-
-<p>Synchronous Return:</p>
-
-<ul>
-<li>Void</li>
-</ul>
-
-
-<h4>Platforms</h4>
-
-<ul>
-<li>Android</li>
-<li>Windows Mobile</li>
-</ul>
-
-
-<h4>Method Access:</h4>
-
-<ul>
-<li>Class Method: This method can only be accessed via the API class object.
-
-<ul>
-<li><code>EB.System.stopTimer(<span class="text-info">STRING</span> url)</code></li>
-</ul>
-</li>
-</ul>
-
-
 <h3>unset_http_proxy()</h3>
 
 <p>Use System.httpProxyURI property: Stop using HTTP proxy that was set by the command line, rhoconfig.txt or set_http_proxy_url.</p>
@@ -1328,13 +1229,13 @@
 </ul>
 
 
-<h3>unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</h3>
+<h3>unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)</h3>
 
 <p>Unzip file.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>localPathToZip : <span class='text-info'>STRING</span><p>The path to the file to be unzipped. Application should have write permissions to this folder. </p></li><li>password : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Password for the zip. </p></li><li>outputFileName : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Output file name. Used when decompressing gzip streams. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Returns</h4>
@@ -1360,7 +1261,7 @@
 <li>Class Method: This method can only be accessed via the API class object.
 
 <ul>
-<li><code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password)</code></li>
+<li><code>EB.System.unzipFile(<span class="text-info">STRING</span> localPathToZip, <span class="text-info">STRING</span> password, <span class="text-info">STRING</span> outputFileName)</code></li>
 </ul>
 </li>
 </ul>
@@ -1818,7 +1719,7 @@
 
 <h4>Description</h4>
 
-<p>Returns true if the device has touch screen capabilities.</p>
+<p>Returns true if the device has touch screen capabilities.  For Win32 desktop builds this API will return whether mouse support is available.</p>
 
 <h4>Access</h4>
 
@@ -1930,7 +1831,7 @@
 </ul>
 
 
-<h3>isMotorolaDevice</h3>
+<h3><span class="text-info">isSymbolDevice</span></h3>
 
 <h4>Type</h4>
 
@@ -1938,7 +1839,7 @@
 
 <h4>Description</h4>
 
-<p>Returns true if the device supports Motorola device capabilities. APIs will indicate if the property or method is available on MSI devices only. You can use this property to help your application decide when to take advantage of advanced MSI capabilities.</p>
+<p><span class='label label-info'>Replaces:isMotorolaDevice</span> Returns true if the device supports Symbol device capabilities. APIs will indicate if the property or method is available on Symbol devices only. You can use this property to help your application decide when to take advantage of advanced Symbol capabilities.</p>
 
 <h4>Access</h4>
 
@@ -1946,7 +1847,7 @@
 <li>Class: This property can only be accessed via the API class object.
 
 <ul>
-<li><code>EB.System.isMotorolaDevice</code></li>
+<li><code>EB.System.isSymbolDevice</code></li>
 </ul>
 </li>
 </ul>
@@ -2204,8 +2105,6 @@
 <ul>
 <li>Constant: EB.System.PLATFORM_WM_CE &ndash; String: WINDOWS</li>
 <li>Constant: EB.System.PLATFORM_ANDROID &ndash; String: ANDROID</li>
-<li>Constant: EB.System.PLATFORM_IOS &ndash; String: APPLE</li>
-<li>Constant: EB.System.PLATFORM_WP8 &ndash; String: WP8</li>
 <li><p>Constant: EB.System.PLATFORM_WINDOWS_DESKTOP &ndash; String: WINDOWS_DESKTOP</p>
 
 <h4>Access</h4></li>
@@ -2223,6 +2122,7 @@
 <ul>
 <li>Android</li>
 <li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
@@ -2472,6 +2372,7 @@
 
 <ul>
 <li>Android</li>
+<li>Windows Mobile</li>
 </ul>
 
 

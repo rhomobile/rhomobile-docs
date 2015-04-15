@@ -1,0 +1,58 @@
+<div class='tableofcontents'> </div><h1>Compatibility Matrix</h1>
+
+<div id="toolbar" >
+    <button class="btn btn-primary" id="btnFilter"><i class="glyphicon glyphicon-filter"></i> (<span id="condition">Any</span>)</button>
+    <select id="engines" multiple="multiple">
+    </select>
+    <select id="os" multiple="multiple">
+    </select>
+</div>
+
+
+<p>The filter option below allows you to change between:</p>
+
+<ul>
+<li>Filter operator:
+
+<ul>
+<li>All : both Engine and Operating System selections must be matched</li>
+<li>Any : either the Engine or the Operating System selection may be matched</li>
+</ul>
+</li>
+<li>Engine:
+
+<ul>
+<li>IE : Internet Explorer Engine (Windows Mobile / CE). API access is via Pocket Browser EMML 1.0, EMML 1.1, and ActiveX objects only &ndash; Please refer to Pocket Browser documentation for syntax.</li>
+<li>Webkit:
+
+<ul>
+<li>Android devices use the stock webkit provided by Android</li>
+<li>Windows Mobile/CE devices use the Zebra Technologies Webkit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Operating System:
+
+<ul>
+<li>WM : Windows Mobile</li>
+<li>CE : Windows CE</li>
+<li>Android : Android</li>
+</ul>
+</li>
+</ul>
+
+
+<table id="table" 
+    data-search="true"
+    data-show-columns="true"
+    data-toolbar="#toolbar">
+    <thead>
+    <tr>
+        <th data-field="api">Api</th>
+        <th data-field="engines">Engines</th>
+        <th data-field="os">Operating System</th>
+    </tr>
+    </thead>
+</table>
+

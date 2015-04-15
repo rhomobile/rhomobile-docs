@@ -1,4 +1,4 @@
-#Feature Demo - Enterprise Browser
+# Enterprise Browser Feature Demo  
 
 ##Overview
 This is the Feature Demo for Enterprise Browser. It uses AJAX to pull in the demo files so must be run from a web server (local to the device or remote). The instructions below show how to use the local built-in web server. This demonstration will not work if using the 'file://' prefix.

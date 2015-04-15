@@ -4,8 +4,38 @@
 
 <p>Audio capture API allows you to capture audio from the device&rsquo;s built in microphone or input source.</p>
 
-<pre><code>            ## Enabling the API There are two methods of enabling the AudioCapture API: * Include all ebapi modules or * Include only the API modules you need For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser. ### Include all JS API modules To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html: :::html &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt; &gt; Note: that the pathing for this file is relative to the current page. This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion. ### Include only the modules you need To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the AudioCapture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML. :::html &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt; &lt;script type="text/javascript" charset="utf-8" src="eb.audiocapture.js"&gt;&lt;/script&gt; The ebapi.js file is necessary for all single API inclusions.
+<h2>Enabling the API</h2>
+
+<p>There are two methods of enabling the AudioCapture API:</p>
+
+<ul>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
+</ul>
+
+
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
+
+<h3>Include all JS API modules</h3>
+
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
+
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
+
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
+
+<h3>Include only the modules you need</h3>
+
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the AudioCapture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.audiocapture.js"&gt;&lt;/script&gt;
+</pre>
+
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
@@ -609,14 +639,19 @@
 
 <p>On Quitting of the Application, Android will save the data in the file and gracefully exit. In Android, during suspend/resume or screen timeout the audio will keep on recording.</p>
 
+<h3>SDCard Access</h3>
+
+<p>Extensions which came from RhoElements (i.e. AudioCapture) that could possibly write files to external storage will require &ldquo;write SD card&rdquo; permissions as part of the extension&rsquo;s AndroidManifest. You cannot remove the ability to write to the SD card as it would cause the extension to malfunction. Therefore, the capability has already been granted on build, and any capability added by you will be ignored. This being the case, the following extensions will always be able to write to the SD card by default.</p>
+
 <h2>Examples</h2>
 
-<h3>Capturing Audio</h3>
+<h3>Capturing and Playing Audio</h3>
 
-<p>In the following example you&rsquo;ll see how to capture and play back audio on your device. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.</p>
+<p>This example will show how to capture audio from your device to a file and then play that audio file. Note that this example assumes that your ebapi-modules.js file is located in the same folder as the HTML that is evoking it.</p>
 
 <pre name="code" class="javascript">&lt;head&gt;
-    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+    &lt;script src="http://192.168.1.28:8080/target/target-script-min.js#anonymous"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="../apis/EnterpriseBrowser/ebapi-modules.js"&gt;&lt;/script&gt;
 
     &lt;title&gt;Audio Capture API Example&lt;/title&gt;
 

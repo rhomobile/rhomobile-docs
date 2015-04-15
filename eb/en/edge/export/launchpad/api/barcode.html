@@ -4171,7 +4171,7 @@
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: EB.Barcode.REDUNDANCY_AND_LENGTH &ndash; String: redundancyAndLength Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners.</li>
+<li>Constant: EB.Barcode.REDUNDANCY_AND_LENGTH &ndash; String: redundancyAndLength Double redundancy based on redundancy flags and code length. Only applicable to laser scanners, not BlockBuster imager scanners. Not supported on Android with EMDK version 3.1 and above.</li>
 <li>Constant: EB.Barcode.SHORT_OR_CODABAR &ndash; String: shortOrCodabar Double redundancy if short barcode or Codabar.</li>
 <li>Constant: EB.Barcode.LONG_AND_SHORT &ndash; String: longAndShort Double redundancy for long barcodes, triple for short barcodes.</li>
 <li>Constant: EB.Barcode.ALL_TWICE &ndash; String: allTwice Double redundancy for all barcodes.</li>
@@ -6328,7 +6328,7 @@
 
 <h4>Description</h4>
 
-<p>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners.</p>
+<p>Maximum time in milliseconds that laser scanners will emit a beam or imager scanners will enable the imager. A value of 0 indicates an infinite timeout. This parameter is compatible with aimType:trigger, aimType:timedHold, aimType:timedRelease and aimType:pressAndRelease. Note that for regulatory reasons scanTimeout is not configurable on all laser / imager scanners. Scan timeout is extent to hardware capabilities and limitations.</p>
 
 <h4>Access</h4>
 
@@ -7707,7 +7707,7 @@
 
 <h4>Description</h4>
 
-<p>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given.</p>
+<p>Configures the feedback given after a successful scan. This value is ignored if aimType is set to continuousRead and no feedback will be given. Not supported on Android with EMDK version 3.1 and above.</p>
 
 <h4>Values</h4>
 
@@ -7747,7 +7747,7 @@
 
 <h4>Description</h4>
 
-<p>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds.</p>
+<p>If the viewfinderFeedback:enabled or viewfinderFeedback:reticle are applied then the decoded barcode will remain on the screen for this duration, specified in milliseconds. Not supported on Android with EMDK version 3.1 and above.</p>
 
 <h4>Access</h4>
 
@@ -8048,16 +8048,15 @@ it is necessary to disable the scanner and then re-enable it before another scan
 
 <h2>Examples</h2>
 
-<h3>Scanning a Barcode</h3>
+<h3>Enable barcode scanner and scan a bacrode</h3>
 
-<p>In this example you&rsquo;ll see how to enable your device&rsquo;s barcode scanner and scan a barcode with said scanner. This example assumes that the ebapi-modules.js file resides in the same folder as the HTML file invoking it.</p>
+<p>This example shows how to enable your device&rsquo;s barcode scanner and access the data gathered by the scanner. Note that this example assumes that your ebapi-modules.js file is in the same folder as the HTML invoking it. On symbol devices, data wedge needs to be disabled or the Enterprise Browser will not be able to claim any of the scanners.</p>
 
 <pre name="code" class="javascript">&lt;head&gt;
+    &lt;title&gt;Barcode API Test&lt;/title&gt;
     &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 
-    &lt;title&gt;Barcode API Test&lt;/title&gt;
-
-    &lt;script&gt;
+    &lt;script type="text/javascript"&gt;
         function scanReceived(params){
             // No data or no timestamp, scan failed.
             if(params['data']== "" || params['time']==""){
@@ -8083,7 +8082,6 @@ it is necessary to disable the scanner and then re-enable it before another scan
 
 &lt;body onunload='unloadEvent()'&gt;
     &lt;h1&gt;Barcode API Test&lt;/h1&gt;
-    &lt;/br&gt;
     &lt;div id="display"&gt;
         Barcode Data: &lt;br&gt;
         Time: &lt;br&gt;
