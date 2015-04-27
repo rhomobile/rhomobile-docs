@@ -259,6 +259,10 @@ When multiple RhoElememts applications are running the following considerations 
 If the Scanner Meta Tag is used without DecodeEvent, the data will be output as keystrokes. On unlicensed devices it is not recommended to enable the Scanner on the application's startup page, this can interfere with the the license screen.
 
 
+###Use Meta Tags Instead of Scanner Object
+Prefer Meta Tags instead of Scanner Object, if an application is designed to perform continuos scanning on reload of the page with certain properties(exposed by scanner object).
+
+
 ###Scanning and Image Capture Interaction
 In some device configurations the scanner and imager share the same hardware, e.g. the blockbuster scanner and top mounted imager on the MC75a. Where two modules share the same physical hardware they cannot be enabled simultaneously, once the scanner is enabled it must be disabled before the imager can be used, and vice versa.
 
