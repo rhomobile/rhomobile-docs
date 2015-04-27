@@ -210,4 +210,4 @@ Once the user has taken/chosen a picture (`take_picture`, `choose_picture`), the
 </table>
 
 ##Devices lacking support
-Due to platform limitation devices such as ES400, MC65 and MC67 does not support camera API in ruby applications. Preferred Imager APIs in that case.
+Due to platform limitation devices such as ES400, MC65 and MC67 does not support camera API. Preferred Imager APIs in that case.
