@@ -141,7 +141,7 @@ Select "RhoMobile Application" and click the "New" button, then click "Run"
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-configurations-4.0.png)
 
-After a brief compilation period, the application will start in [RhoSimulator](debugging_with_rhosimulator)
+After a brief compilation period, the application will start in RhoSimulator. C
 
 ### Running from the command line
 > Note: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.
@@ -174,3 +174,4 @@ Now that your first application is ready to run, there are some other topics you
 * [Adding models](local_database)
 * [Application configuration](runtime_config)
 * Device capabilities like [Barcode](../api/barcode) or [Native UI Components](native_ui_elements)
+* Using RhoSimulator in [Javascript applications](../guide/debugging_js) and [Ruby Applications](../guide/debugging_ruby)
