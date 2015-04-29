@@ -564,8 +564,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -577,8 +577,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -590,8 +590,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -603,8 +603,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -616,8 +616,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -629,8 +629,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -642,8 +642,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -655,8 +655,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -668,8 +668,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -681,8 +681,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -694,8 +694,8 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
