@@ -511,7 +511,7 @@ The ebapi.js file is necessary for all single API inclusions.
             </PROPERTY>
             <PROPERTY name="scannerType" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android, WP8</PLATFORM>
                 <APPLIES msiOnly="false">All Scanners</APPLIES>
                 <DESC>The type of scanner in use, will be one of 'Camera', 'Imager' or 'Laser'. Camera scanners capture and process an image taken via the devices camera. Imager scanners rely on capturing and processing an image of the barcode via dedicated scanning hardware. Both camera and imager scanners are capable of decoding 1D and 2D barcodes. Laser scanners are only capable of decoding 1D barcodes and rely on a sweeping laser.</DESC>
             </PROPERTY>
@@ -1775,6 +1775,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
             <METHOD name="getSupportedProperties" hasCallback="optional">
                 <DESC>Return array of properties supported by this scanner.</DESC>
+                <APPLIES msiOnly="true">Symbol Technologies' scanners</APPLIES>
                 <RETURN type="ARRAY">
                     <DESC>Array of property names supported by this scanner.</DESC>
                     <PARAM type="STRING"/>

@@ -292,6 +292,7 @@ Synchronous Return:
 
 * Android
 * Windows Mobile
+* Symbol Devices Only
 
 ####Method Access:
 

@@ -9,6 +9,27 @@ The SmartCradle API is used to set and retrieve attributes of the MC18 CradleTBD
 
 
 
+### flashLed(<span class="text-info">HASH</span> propertyMap)
+The LED can be flashed to identify device location without unlocking the cradle.
+
+####Parameters
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with reading card data. </p></li><ul><li>ledOnDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the on duration of that flash specified in milliseconds.  Set to 0 to prevent flashing and keep the LED off. In Android, this is in mSecs and the range is from 0 mSec(minimum) to 65535 mSec(maximum). </p></li><li>ledOffDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the off duration of that flash specified in milliseconds.  Set to 0 to prevent flashing.  If the on duration is non-zero and this parameter is zero then the LED will remain on when unlocked. In Android, this is in mSecs and the range is from 0 mSec(minimum) to 65535 mSec(maximum). </p></li><li>smoothingEffect : <span class='text-info'>BOOLEAN</span><p>Enables or Disables the smoothing effect of LED blinking. </p></li><li>ledFlashCount : <span class='text-info'>INTEGER</span><p>ledFlashCount is the no of count it will be flashed. This will take affect for valid values of ledOnDuration and ledOffDuration.  </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Android
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.SmartCradle.flashLed(<span class="text-info">HASH</span> propertyMap)</code> 
+
+
 ### getAllProperties()
 This method will return all of object/value pairs for the propertyNames of the API class.
 
@@ -25,6 +46,7 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
@@ -49,6 +71,7 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
@@ -73,6 +96,7 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
@@ -94,6 +118,7 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
@@ -115,6 +140,7 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
@@ -124,10 +150,10 @@ Synchronous Return:
 
 
 ### unlock(<span class="text-info">INTEGER</span> ledOnDuration, <span class="text-info">INTEGER</span> ledOffDuration, <span class="text-info">INTEGER</span> timeout)
-Unlocks the terminal from the cradle for the specified period
+Unlocks the terminal from the cradle for the specified period. For Android, the smoothing effect by default is false.
 
 ####Parameters
-<ul><li>ledOnDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the on duration of that flash specified in milliseconds.  Set to 0 to prevent flashing and keep the LED off. </p></li><li>ledOffDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the off duration of that flash specified in milliseconds.  Set to 0 to prevent flashing.  If the on duration is non-zero and this parameter is zero then the LED will remain on when unlocked. </p></li><li>timeout : <span class='text-info'>INTEGER</span><p>The cradle will remain unlocked for the length of time in seconds specified by this value.  Specified in seconds.  Range 10 to 30 inclusive. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>ledOnDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the on duration of that flash specified in milliseconds.  Set to 0 to prevent flashing and keep the LED off. In Android, this is in mSecs and the range is from 0 mSec(minimum) to 65535 mSec(maximum). </p></li><li>ledOffDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the off duration of that flash specified in milliseconds.  Set to 0 to prevent flashing.  If the on duration is non-zero and this parameter is zero then the LED will remain on when unlocked. In Android, this is in mSecs and the range is from 0 mSec(minimum) to 65535 mSec(maximum). </p></li><li>timeout : <span class='text-info'>INTEGER</span><p>The cradle will remain unlocked for the length of time in seconds specified by this value.  Specified in seconds.  Range 10 to 30 inclusive. </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Returns
 Synchronous Return:
@@ -136,12 +162,34 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.SmartCradle.unlock(<span class="text-info">INTEGER</span> ledOnDuration, <span class="text-info">INTEGER</span> ledOffDuration, <span class="text-info">INTEGER</span> timeout)</code> 
+
+
+### unlockEx(<span class="text-info">HASH</span> propertyMap)
+Unlocks the terminal from the cradle for the specified period. For Android, the smoothing effect by default is false.
+
+####Parameters
+<ul><li>propertyMap : <span class='text-info'>HASH</span><p>The properties associated with reading card data. </p></li><ul><li>ledOnDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the on duration of that flash specified in milliseconds.  Set to 0 to prevent flashing and keep the LED off. In Android, this is in mSecs and the range is from 0 mSec(minimum) to 65535 mSec(maximum). </p></li><li>ledOffDuration : <span class='text-info'>INTEGER</span><p>During unlock the LEDs will flash, this is the off duration of that flash specified in milliseconds.  Set to 0 to prevent flashing.  If the on duration is non-zero and this parameter is zero then the LED will remain on when unlocked. In Android, this is in mSecs and the range is from 0 mSec(minimum) to 65535 mSec(maximum). </p></li><li>timeout : <span class='text-info'>INTEGER</span><p>The cradle will remain unlocked for the length of time in seconds specified by this value.  Specified in seconds.  Range 10 to 30 inclusive. </p></li><li>smoothingEffect : <span class='text-info'>BOOLEAN</span><p>Enables or Disables the smoothing effect of LED blinking. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Android
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.SmartCradle.unlockEx(<span class="text-info">HASH</span> propertyMap)</code> 
 
 
 ##Properties
@@ -153,7 +201,7 @@ Synchronous Return:
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-CAPI version of the cradle.
+CAPI version of the cradle. Not Applicable for Android.
 ####Access
 
 
@@ -164,6 +212,7 @@ CAPI version of the cradle.
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###chargeState
@@ -188,6 +237,7 @@ Sets the charge state of the cradle.  Values can be either 'Fast' or 'Slow'.
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###columnId
@@ -195,7 +245,7 @@ Sets the charge state of the cradle.  Values can be either 'Fast' or 'Slow'.
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The current Column ID of the cradle in the matrix
+The current Column ID of the cradle in the matrix. In Android, the range of columnId is 0 to 255.
 ####Access
 
 
@@ -206,6 +256,7 @@ The current Column ID of the cradle in the matrix
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###driverVersion
@@ -213,7 +264,7 @@ The current Column ID of the cradle in the matrix
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-Driver version of the cradle.
+Driver version of the cradle. Not Applicable for Android.
 ####Access
 
 
@@ -224,6 +275,7 @@ Driver version of the cradle.
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###firmwareVersion
@@ -242,6 +294,7 @@ Firmware version of the cradle.
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###hardwareId
@@ -260,6 +313,7 @@ Hardware ID of the cradle
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###mfgDate
@@ -267,7 +321,7 @@ Hardware ID of the cradle
 ####Type
 <span class='text-info'>STRING</span> <span class='label'>Read Only</span>
 ####Description
-Manufacture date of the cradle in DD-MM-YY format
+Manufacture date of the cradle in DD-MM-YY format. Not Applicable for Android.
 ####Access
 
 
@@ -278,6 +332,7 @@ Manufacture date of the cradle in DD-MM-YY format
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###partNumber
@@ -296,6 +351,7 @@ Part number of the cradle.
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###rowId
@@ -303,7 +359,7 @@ Part number of the cradle.
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The current Row ID of the cradle in the matrix
+The current Row ID of the cradle in the matrix. In Android, the range of rowId is 0 to 255.
 ####Access
 
 
@@ -314,6 +370,7 @@ The current Row ID of the cradle in the matrix
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###serialNumber
@@ -332,6 +389,7 @@ Serial number of the cradle.
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ###wallId
@@ -339,7 +397,7 @@ Serial number of the cradle.
 ####Type
 <span class='text-info'>INTEGER</span> 
 ####Description
-The current Wall ID of the cradle in the matrix
+The current Wall ID of the cradle in the matrix. In Android, the range of wallId is 0 to 255.
 ####Access
 
 
@@ -350,6 +408,7 @@ The current Wall ID of the cradle in the matrix
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ##Remarks
