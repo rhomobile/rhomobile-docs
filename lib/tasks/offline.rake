@@ -1,5 +1,5 @@
-desc 'generate offline json index file for offline search'
-task :offline_index do
+desc 'generate eb docs'
+task :generate_eb_docs do
   Offline.generate_json_index
 end
 
