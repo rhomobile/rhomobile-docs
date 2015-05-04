@@ -175,15 +175,14 @@ Now open `extensions/greeting/ext/platform/android/src/com/rho/greeting/Greeting
 
 In order to do that:
 
-* remove the call to `super(this)` in the constructor
 * remove all existing methods
 * add the missing method:
 
-	:::java
-    @Override 
-    public void welcome(String user, IMethodResult result) {
-    	result.set("Welcome, "+user);
-    }
+		:::java
+	    @Override 
+	    public void welcome(String user, IMethodResult result) {
+	    	result.set("Welcome, "+user);
+	    }
 
 Remember that the API descriptor initially had some methods (`getPlatformName`, `calcSumm`, `joinStrings`) that are no longer present. For the extension to build cleanly, you must remove these methods from `android/src/com/rho/greeting/Greeting.java`
 
@@ -199,7 +198,6 @@ Your code must be located in `<extension name>/ext/platform/iphone/impl`
 
 Open `stub_impl/GreetingSingleton.h` and copy the `welcome` method to `impl/GreetingSingleton.h`, removing the other methods that are present. Do the same between `stub_impl/GreetingSingleton.m` and `impl/GreetingSingleton.m`, fleshing out the method like this:
 
-	:::objective-c
 	-(void) welcome:(NSString*)user methodResult:(id<IMethodResult>)methodResult {
 		[methodResult setResult:[@"Welcome, " stringByAppendingString:user]];
 	}
@@ -526,12 +524,14 @@ The `<PROPERTY>` tag accepts several attributes apart from `name`:
 	- `propertyBagViaAccessors` : `getProperty` and `setProperty` will delegate to `get<name>` and `set<name>`
 * `nativeName` : the actual name used for the `get` and `set` methods. Example:
 
-	:::xml
-	<PROPERTY name="color" nativeName="redgreenblue"/>
+		:::xml
+		<PROPERTY name="color" nativeName="redgreenblue"/>
 
-	:::javascript
-	var color = Rho.Example.getredgreenblue();
-	Rho.Example.setProperty("color","#FF0000");
+	Will be used like:
+	
+		:::javascript
+		var color = Rho.Example.getredgreenblue();
+		Rho.Example.setProperty("color","#FF0000");
 
 * `generateAccessors` : defaults to true, set to false if you do not need the `get<name>` and `set<name>` methods
 * `type` : the type of the property (`"STRING"`, `"INTEGER"`, etc.)

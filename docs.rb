@@ -21,7 +21,7 @@ class Docs < Sinatra::Base
 
   use PdfMaker
   use Rack::Codehighlighter, :coderay, :markdown => true, :element => "pre>code", 
-    :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => false
+    :pattern => /:::(\w+)\s*(\n|&#x000A;)/i, :logging => false
 
   $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 
