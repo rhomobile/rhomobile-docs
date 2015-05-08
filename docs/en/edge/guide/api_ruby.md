@@ -1,4 +1,4 @@
-# Using RhoMobile Ruby API's
+# Using RhoMobile Ruby APIs
 
 RhoMobile applications support access to device, system and framework capabilities through a common API set whether you are building Rhodes, RhoElements or RhoMobile enabled web apps.
 
@@ -87,7 +87,7 @@ You can also use the `getAllProperties` method to get all properties of an objec
 	:::ruby
 	settingsHash = Rho::Barcode.getAllProperties()
 
-**NOTE: Some API's like Barcode have many properties and there may be an undesirable performance hit for reading all properties available. Use this method sparingly.**
+**NOTE: Some APIs like Barcode have many properties and there may be an undesirable performance hit for reading all properties available. Use this method sparingly.**
 
 ### Reading values Asynchronously
 There are a few ways you can read properties in non-blocking asynchronously way by specifying a callback:
