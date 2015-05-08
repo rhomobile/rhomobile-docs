@@ -1,6 +1,6 @@
 # Migrating your RhoMobile application to 5.X
 
-RhoMobile Suite 5.0 and up offers a set of common API's to access device,system and framework capabilities across JavaScript and Ruby. 
+RhoMobile Suite 5.0 and up offers a set of common APIs to access device,system and framework capabilities across JavaScript and Ruby. 
 
 
 ## RhoConnect Client
@@ -10,26 +10,26 @@ In RhoMobile Suite 5.0 and up, the RhoConnect Client is available via an extensi
 	extensions: ["rhoconnect-client"]
 
 ## Android WebKit
-In RhoMobile Suite 5.0 and up, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 5.0 RhoElement API's will only work using the stock webkit. RhoElement API's that have [not yet moved](#using-22-apirsquos) to version 5.0, however will only work on the Motorola Webkit for Android.
+In RhoMobile Suite 5.0 and up, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 5.0 RhoElement APIs will only work using the stock webkit. RhoElement APIs that have [not yet moved](#using-22-apirsquos) to version 5.0, however will only work on the Motorola Webkit for Android.
 
 ## Shared Runtime
 In RhoMobile Suite 2.0, there was a RhoElements Shared Runtime that was included with the installation. This application was a pre-built RhoMobile application that included application configuration options including the Motorola Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and build a RhoMobile application. Since the RhoMobile suite 5.0 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
 ## JavaScript Licensing
-In RhoMobile Suite 5.0 and up, more API's have JavaScript access that did not have this interface before. In addition some API's previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 5.0 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
+In RhoMobile Suite 5.0 and up, more APIs have JavaScript access that did not have this interface before. In addition some APIs previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 5.0 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
 
 ## API Platform Support
-It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 5.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [API Summary](apisummary) for an overview.
+It is the intention for all APIs to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 5.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [API Summary](apisummary) for an overview.
 
 ## Replaced APIs
-In the API reference documentation, new APIs that have replaced previously available API's will be highlighted in the menu as well as the description. 
+In the API reference documentation, new APIs that have replaced previously available APIs will be highlighted in the menu as well as the description. 
 
 For example [System.applicationInstall](../api/system#mapplicationInstall)
 
 <span class="label label-info">Replaces:app_install</span>
 
 ## Deprecated APIs
-In the API reference documentation, API's that have been marked as deprecated will be highlighted in the menu and description. Deprecated means that the API should work, but will no longer be enhanced or supported. The associated description should indicate alternatives.
+In the API reference documentation, APIs that have been marked as deprecated will be highlighted in the menu and description. Deprecated means that the API should work, but will no longer be enhanced or supported. The associated description should indicate alternatives.
 
 For example [System.hasNetwork](../api/system#phasNetwork)
 
@@ -37,7 +37,7 @@ For example [System.hasNetwork](../api/system#phasNetwork)
 
 
 ## API Migration Table
-The following shows you a summary of these new API's and how any previous API relates to it.
+The following shows you a summary of these new APIs and how any previous API relates to it.
 
 <table class="table">
 <thead>	
@@ -226,7 +226,7 @@ Provides visual, audio and tactile alerts to the user.
 <a href="/api/Orm">Orm</a> & <a href="/api/OrmModel">OrmModel</a>
 </td>
 <td>
-Api's for user defined Data models
+Apis for user defined Data models
 </td>
 <td>
 Previously Rhomobile Data Models were accessible only through the<a href="/v/2.2/rhodesapi/rhom-api/"> Rhom API via Ruby</a> 
@@ -326,10 +326,10 @@ Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2. Also C
 </tbody>
 </table>
 
-## Using 2.2 API's
+## Using 2.2 APIs
 Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 5.x in order to supply both a Common API format in both JavaScript and Ruby.
 
-**NOTE: When using 2.2 API's in RhoMobile 5.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
+**NOTE: When using 2.2 APIs in RhoMobile 5.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 
 * [Mapview](../../2.2.0/rhodesapi/mapview-api)
 * [Camera](../../2.2.0/rhodesapi/camera-api/)
@@ -358,7 +358,7 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
 
 ### Rhodes 2.2 APIs
-2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 5.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
+2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 5.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby APIs will behave exactly as they did before.  Note that some of the Rhodes 2.2 APIs provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
 
 To generate this file you must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
 
@@ -420,7 +420,7 @@ Callbacks are now specified as the last parameter in all new 5.0 API classes.
 In version 2.2 APIs like Scanner would reset when you navigated between pages however, in 5.0 the APIs are not reset between page navigations, therefore if you have an application say with Page1 enabling barcode scanner with a callbackhandler, and then you navigate to page2 (no barcode scanner) - you should handle setting or disabling the barcode depending on the desired behavior. In 2.2 the barcode would have been disabled upon navigating to Page 2. In 5.0, the scanner is left in the previous state and it will be up to the application to control behavior on page load.
 
 ## Removed APIs
-The following API's have been removed from Rhomobile 5.0
+The following APIs have been removed from Rhomobile 5.0
 
 * [DateTimePicker](../rhodesapi/datetimepicker-api) - There are many HTML5 options available for this
 * [Airbeam](../rhoelements/airbeam)- Can be controlled via [System.runApplication](../api/system#mrunApplication)
