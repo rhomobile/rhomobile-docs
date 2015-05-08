@@ -1,17 +1,4 @@
-# Using RhoMobile JavaScript API's
-
-RhoMobile applications support access to device, system and framework capabilities through a common API using JavaScript. In order to use these api's your application pages must have access to the `rhoapi-modules.js` file. This JavaScript library will provide all API access under the `Rho` set of classes.
-
-## Enabling RhoMobile API's
-When building a native RhoMobile application, the `rhoapi-modules.js` file is automatically generated at build time and added to the application's `\public\api` folder upon installation of the application to the device. The contents of this file will be based on the `extensions`, `capabilities` specified in your `build.yml` file as well as the target operating system.
-
-Your html or erb pages must include reference to this file otherwise you will not be able to use the `Rho.Object` API classes
-
-	:::html
-	<script charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
-
-> Note: This reference to the `rhoapi-modules` must appear before jQuery libraries are loaded. In RhoMobile suite 2.2, some `Rhodes` APIs were made available via JavaScript. However please note that the name of the RhoMobile javacript file has changed. It is no longer `rho_javscript_api.js`.
-
+# Using RhoMobile JavaScript APIs
 You may also include only the modules you intend to use, to improve page loading times. To do this, you must include the file `rhoapi.js` prior to including the specific JS modules. The `rhoapi.js` file creates the Rho name-space needed for the JavaScript APIs to function properly.
 
 	:::html
@@ -134,7 +121,7 @@ You can also use the `getAllProperties` method to get all properties of an objec
 	:::javascript
 	var settingsObj = Rho.Barcode.getAllProperties();
 
-**NOTE: Some API's like Barcode have many properties and there may be an undesirable performance hit for reading all properties available. Use this method sparingly.**
+**NOTE: Some APIs like Barcode have many properties and there may be an undesirable performance hit for reading all properties available. Use this method sparingly.**
 
 ### Reading values Asynchronously
 There are a few ways you can read properties in non-blocking asynchronously way by specifying a callback:
