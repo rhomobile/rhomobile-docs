@@ -29,16 +29,16 @@ For example, if my web application was at http://www.mydomain.com/mywebapp then 
 When this application is launched on the device, it will attempt to connect to this URL.
 
 ## 5) Enabling RhoMobile APIs
-By default not all RhoMobile APIs are available to your application. API's and capabilities are included by defining `extensions` in the `build.yml` file.
+By default not all RhoMobile APIs are available to your application. APIs and capabilities are included by defining `extensions` in the `build.yml` file.
 
 ### Default APIs 
 By default the following APIs are included when building any application:
 [Application](../api/Application), [Database](../api/Database), [RhoFile](../api/File), [Log](../api/Log), [NativeMenubar](../api/NativeMenubar), [NativeTabbar](../api/NativeTabbar), [NativeToolbar](../api/NativeToolbar), [Navbar](..api/Navbar), [Network](../api/Network), [Notification](../api/Notification), [Orm](../api/Orm), [OrmModel](..api/OrmModel), [System](../api/system), [Webview](../api/webview) 
 
-These api's are noted on their individual API reference pages under the extension: `coreapi`. You do not need to specify including this as it will automatically be included
+These APIs are noted on their individual API reference pages under the extension: `coreapi`. You do not need to specify including this as it will automatically be included
 
 ### Licensed APIs
-A group of API's that are available under the `RhoElements` package require a license. [Read More](licensing) about licensing. 
+A group of APIs that are available under the `RhoElements` package require a license. [Read More](licensing) about licensing. 
 
 By including the following extension in the `build.yml` file you will enable the associated set(s) of APIs:
 
@@ -57,7 +57,7 @@ Or you can include specific groups by specifying a set of them:
     extensions: ["barcode","indicators"]
 
 ### Other APIs not requiring a license
-The following API's are not included by default and can be included by specifying the proper `extension` in the `build.yml`:
+The following APIs are not included by default and can be included by specifying the proper `extension` in the `build.yml`:
 
 * [MediaPlayer](../api/mediaplayer): `extensions: ["mediaplayer"]`
 * [ScreenOrientation](../api/screenorientation): `extensions: ["screenorientation"]`
