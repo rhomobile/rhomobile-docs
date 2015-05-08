@@ -1,26 +1,26 @@
 # Install RhoMobile Suite
-The RhoMobile Suite installer installs Rho products, such as Rhodes, RhoConnect, RhoElements, and RhoStudio.
+The RhoMobile installer places the Rhodes open-source development framework and the RhoStudio (Eclipse) IDE on the development host system. Also included are Zebra's RhoConnect and RhoElements components. These optional modules can be used to create apps that connect and sync with one or more back-end systems and/or that support Zebra's enterprise-grade devices. 
+
+RhoMobile also depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully for a trouble-free installation!**
 
 ## Windows 32-bit
-### Ruby
-RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This Ruby is used for rake commands on the developer computer and to run RhoConnect applications.
+### STEP 1: Download the RhoMobile Suite Installer
+[Download the RhoMobile Suite Installer for Windows](http://rhomobile.com/download/) and launch it. This will install Rhodes, RhoStudio, RhoConnect and RhoElements, we well as [Ruby](http://www.ruby-lang.org/en/) and [Redis](http://redis.io/) open source tools. 
 
-RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby is used on devices.
+Additional installers will automatically launch for [Git](https://github.com/) and [Node.js](https://nodejs.org/). Follow prompts and read and accept those open-source license agreements as appropriate. 
 
-### Java Development Kit
-Ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp).
+**NOTE: During installation, certain virus detectors might warn about a "Suspicious.MLApp" security risk in the "rubyw.exe" file. This is known false positive and can be ignored.<br>**
 
-### Download and Install
-Download and run the latest [Motorola RhoMobile Suite Installer](http://rhomobile.com/download/) for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
+### STEP 2: Install the Java Development Kit
+RhoStudio requires the Java Development kit, which is different than the Java that might already be present for your browsers. Unless you're sure you already have it, visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the version that's appropriate for your system.
 
-**NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
-**NOTE: Use Motorola RhoStudio 32-bit launcher to run RhoStudio.**
-
-### Setting the JDK Path
+#### Setting the JDK Path
 Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to JDK, such as <tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt> .
 
-### Understanding the Windows Installation
+### STEP 3: Launch RhoStudio Using the Rho Launcher
+
+Understanding the Windows Installation
 Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
 
 * A link to the [developer community](http://developer.motorolasolutions.com).
