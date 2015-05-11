@@ -3,86 +3,110 @@ The RhoMobile installer places the Rhodes open-source development framework and 
 
 RhoMobile also depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully for a trouble-free installation!**
 
-## Windows 32-bit
-### STEP 1: Download the RhoMobile Suite Installer
+## Windows (for 32- and 64-bit systems)
+### STEP 1: Run the RhoMobile Suite Installer
 [Download the RhoMobile Suite Installer for Windows](http://rhomobile.com/download/) and launch it. This will install Rhodes, RhoStudio, RhoConnect and RhoElements, we well as [Ruby](http://www.ruby-lang.org/en/) and [Redis](http://redis.io/) open source tools. 
 
-Additional installers will automatically launch for [Git](https://github.com/) and [Node.js](https://nodejs.org/). Follow prompts and read and accept those open-source license agreements as appropriate. 
+Additional installers will automatically launch for [Git](https://github.com/) and [Node.js](https://nodejs.org/). Follow prompts and read and accept their respective open-source license agreements as appropriate. 
 
-**NOTE: During installation, certain virus detectors might warn about a "Suspicious.MLApp" security risk in the "rubyw.exe" file. This is known false positive and can be ignored.<br>**
+**NOTE: During installation, certain virus detectors might warn about a "Suspicious.MLApp" security risk in the "rubyw.exe" file. This known false-positive can be safely ignored.<br>**
+
+### STEP 1a: For Windows 8.1 Only
+Since Windows 8.x lacks a Start Menu, a few extra steps are needed to make the RhoMobile launchers visible.
+
+After running the RhoMobile installer in Windows 8.x, do the following:
+
+* "Show All Apps" on the Start Screen: While on the "Start Screen" (aka "Metro"), right-click at the bottom of the screen until the App Bar appears (on Win8.1, the button will appear without right-clicking).
+
+* Click the "All Apps" button to show all apps. Locate the "RhoMobile Suite" group (see image, below) and launch the desired app from there, or...
+
+* Right-click the desired RhoStudio app launcher and select "Pin to Taskbar." This will make it easy to access them from the Desktop in the future. Repeat this action for other launchers and for links to Documentation and Developer Community, if desired.
+
+<img src="http://rhomobile-suite.s3.amazonaws.com/install/RhoMobile_on_Win8.png" alt="RhoStudio on Win_8" />
+
+NOTE: By default, the Windows 8 Desktop allows 32-bit applications only. For running the 64-bit version of RhoStudio, see "Notes for 64-bit Windows Systems, below. Additional Windows settings also might be necessary. 
 
 ### STEP 2: Install the Java Development Kit
-RhoStudio requires the Java Development kit, which is different than the Java that might already be present for your browsers. Unless you're sure you already have it, visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the version that's appropriate for your system.
+RhoStudio requires the Java Development kit, which is different than the Java that might already be present for browsers. Unless you're sure you already have the JDK, visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the version that's appropriate for your system.
 
+## Notes for 64-bit Windows Systems
+The 32- and 64-bit versions of RhoMobile are functionally equivalent, and there's no disadvantage to using the 32-bit RhoMobile suite on development hosts with 64-bit Windows. However, if you'd prefer to run the 64-bit version of RhoMobile on your 64-bit Windows machine, you'll need to manually download and install the 64-bit version of the Java development kit. 
+
+*NOTE: The Java Development Kit is different than Java versions that might already be on your system for browsers.*
+
+To get the 64-bit JDK: 
+
+* Visit visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the 64-bit Java version for Mac OS X or Windows as appropriate for your system.
+* To confirm the the JDK path, launch RhoStudio and go to Window>>Preferences>>RhoMobile. The "Java bin path" should be: **<tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt>**
 
 #### Setting the JDK Path
 Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to JDK, such as <tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt> .
 
-### STEP 3: Launch RhoStudio Using the Rho Launcher
+### STEP 3: Launching RhoStudio
 
-Understanding the Windows Installation
-Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
 
-* A link to the [developer community](http://developer.motorolasolutions.com).
-* A link to the [RhoMobile documentation](/home).
-* A launcher for RhoStudio.
-* A link to the readme file.
-* A link to the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](../rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
-* An uninstaller for RhoMobile Suite.
+The RhoMobile installer for Windows places the following items in the Windows Start menu or Start Screen (Windows 8.x):
+
+* Launchers for RhoStudio 32- and 64-bit editions
+* A link to the Readme file
+* Links to the [RhoMobile Developer Community](http://developer.motorolasolutions.com) and [RhoMobile Documentation](/home) sites
+* A link to the RhoConnect Push Service files
+* An uninstaller for RhoMobile Suite
+
+NOTE: You MUST USE RHOSTUDIO LAUNCHERS to run RhoStudio.
 
 ### Troubleshooting
-RhoStudio doesn't start with message "Failed to create the Java Virtual Machine":
+**PROBLEM**<br>
+RhoStudio fails to start and displays "Failed to create the Java Virtual Machine":
 
-  Reduce JVM heap size. Likely your computer has not enough memory.<br>
-  Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt> file in editor.<br>
-  Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".<br>
+**POSSIBLE CAUSE**<br>
+Your computer has insufficient memory.
 
-## Windows 64-bit
+**SOLUTION**<br>
+Reduce the size of the JVM heap:<br> 
+
+* Use a text editor to open the file: <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt><br>
+* Search for "<tt>-Xmx1024m</tt>"<br>
+* Change it to "<tt>-Xmx512m</tt>"<br>
+
+This will halve the memory used by the Java Virtual Machine. 
+________________
+**PROBLEM**<br>
+RhoStudio fails to start and displays "Failed to load the JNI shared library...":
+
+**POSSIBLE CAUSE**<br>
+Incompatibility between the RhoStudiop launcher and the JDK version installed. 
+
+**SOLUTION**<br>
+- Try reinstalling the JDK version.
+
+Make sure the JDK and RhoStudio launcher match in terms of x86 vs. x64.  
+________________
+**PROBLEM**<br>
+RhoStudio fails to start and displays no message. 
+
+**POSSIBLE CAUSE**<br>
+You're launching 64-bit RhoStudio without 64-bit Java installed. 
+
+**SOLUTION**<br>
+Follow instructions for installing 64-bit Java, above.<br> 
+
+________________
+**PROBLEM**<br>
+RhoConnect applications don't work properly. 
+
+**POSSIBLE CAUSE**<br>
+Spaces exist in the Workspace path.
+
+**SOLUTION**<br>
+When RhoStudio launches for the first time, it prompts for the selection of  Workspace in which to store all files. The existance of spaces in this Workspace can cause applications to behave unpredictably. To correct, remove spaces from the Workspace (Window>>Preferences>>Startup and Shutdown>>Workspaces). 
+
+
 ### Ruby
-RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This Ruby used for rake commands on developer computer and to run RhoConnect applications.
+The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
 
-RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby used on devices.
+Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target device.
 
-### Java Development Kit
-Ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp). Install Windows x64 JDK or x86 JDK or both.
-
-### Download and Install
-Download and run the latest [Motorola RhoMobile Suite Installer](http://rhomobile.com/download/) for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
-
-**NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
-
-### Setting the JDK Path
-Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section, and set the Java bin path. Set this path to the x86 JDK, such as <tt>C:\Program Files (x86)\Java\jdk&lt;version number&gt;\bin</tt> .
-
-> Note: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br/>Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.
-
-### Understanding the Windows Installation
-Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
-
-* A link to the [developer community](http://developer.motorolasolutions.com).
-* A link to the [RhoMobile documentation](/home).
-* A launcher for RhoStudio.
-* A link to the readme file.
-* A link to the RhoElements Runtime files.
-* A link to the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](../rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
-* An uninstaller for RhoMobile Suite.
-
-### Troubleshooting
-* RhoStudio doesn't start, and a message appears: "Failed to create the Java Virtual Machine":
-
-	Reduce JVM heap size. Likely your computer has not enough memory.<br>
-	Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt> file in editor.<br>
-	Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".<br>
-
-* RhoStudio doesn't start, and a message appears: "Failed to load the JNI shared library...":
-
-	Check compatibility between RhoStudio launcher and JDK version:<br>
-	32-bit launcher is compatible with x86 JDK.<br>
-	64-bit launcher is compatible with x64 JDK.
-
-* Removing Spaces from the Workspace Path for RhoConnect Applications
-
-	When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
 
 ## Mac OS
 ### Java Development Kit
