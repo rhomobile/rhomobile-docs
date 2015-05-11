@@ -78,9 +78,8 @@ RhoStudio fails to start and displays "Failed to load the JNI shared library..."
 Incompatibility between the RhoStudiop launcher and the JDK version installed. 
 
 **SOLUTION**<br>
+- Make sure the JDK and RhoStudio launcher match in terms of x86 vs. x64.  
 - Try reinstalling the JDK version.
-
-Make sure the JDK and RhoStudio launcher match in terms of x86 vs. x64.  
 ________________
 **PROBLEM**<br>
 RhoStudio fails to start and displays no message. 
@@ -99,7 +98,7 @@ RhoConnect applications don't work properly.
 Spaces exist in the Workspace path.
 
 **SOLUTION**<br>
-When RhoStudio launches for the first time, it prompts for the selection of  Workspace in which to store all files. The existance of spaces in this Workspace can cause applications to behave unpredictably. To correct, remove spaces from the Workspace (Window>>Preferences>>Startup and Shutdown>>Workspaces). 
+When RhoStudio launches for the first time, it prompts for the selection of  Workspace in which to store all files. The existence of spaces in this Workspace can cause applications to behave unpredictably. To correct, remove spaces from the Workspace (Window>>Preferences>>Startup and Shutdown>>Workspaces). 
 
 
 ### Ruby
