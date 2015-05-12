@@ -116,18 +116,25 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 ###The Mac OS X installation steps:<br>
 #####`MUST be performed in THIS ORDER`<br>
 #####0. Download and install XCode and corresponding Command Line Tools<br>
-#####1. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
-#####2. Copy RhoStudio to the development system's Applications folder. `DO NOT LAUNCH!`<br>
-#####3. Download and install the Java 6 SDK from Java.com (see below for link)<br>
-#####4. Use Terminal to install Ruby Version Manager (RVM)<br>
-#####5. Use RVM to install Ruby 1.9.3 (even if you have a newer version)<br>
-#####6. Run the "install gems" Terminal script from the RhoSuite .dmg<br>
-#####7. Run the "Install RhoConnect-push" Terminal script (OPTIONAL - SEE DOCS PAGE <LINK>)<br>
+#####1a. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
+#####1b. Copy RhoStudio to the development system's Applications folder. `DO NOT LAUNCH!`<br>
+#####2. Download and install the Java 6 SDK from Java.com (see below for link)<br>
+#####3. Use Terminal to install Ruby Version Manager (RVM)<br>
+#####4. Use RVM to install Ruby 1.9.3 (even if you have a newer version)<br>
+#####5. Run the "install gems" Terminal script from the RhoSuite .dmg<br>
+#####6. Run the "Install RhoConnect-push" Terminal script (OPTIONAL - SEE DOCS PAGE <LINK>)<br>
 <br>
 
 #### Detailed instructions for Mac OS X Installations:
 
-###STEP 1: 
+###STEP 1: Download and Copy RhoMobile Suite 
+#####`MUST be performed in THIS ORDER`<br>
+a. **Download RhoMobile Suite** (.dmg) from [RhoMobile.com] (http://rhomobile.com/download) and double-click it. A window similar to the following will open: 
+![img] (http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png)
+
+b. **Drag the RhoStudio icon to the Applications folder alias** (in the direction of the arrow). This will copy the suite's main executables and some other useful files to the Applications folder of the development Mac. 
+
+
 
 
 
