@@ -113,17 +113,26 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 
 >**This process requires administrator access and write permissions in all areas.** 
 <br>
-####The Mac OS X installation steps: 
-**0. Download and install XCode and corresponding Command Line Tools<br>
-1. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
-2. Copy RhoStudio to the development system's Applications folder. DO NOT LAUNCH!<br>
-3. Download and install the Java 6 SDK from Java.com<br>
-4. Use Terminal to install Ruby Version Manager (RVM)<br>
-5. Use RVM to install Ruby 1.9.3 (even if you have a newer version)<br>
-6. Run the "install gems" Terminal script from the RhoSuite .dmg<br>
-7. Run the "Install RhoConnect-push" Terminal script (OPTIONAL - SEE DOCS PAGE <LINK>)<br>**
+###The Mac OS X installation steps:<br> 
+#####0. Download and install XCode and corresponding Command Line Tools<br>
+#####1. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
+#####2. Copy RhoStudio to the development system's Applications folder. `DO NOT LAUNCH!`<br>
+#####3. Download and install the Java 6 SDK from Java.com (see below for link)<br>
+#####4. Use Terminal to install Ruby Version Manager (RVM)<br>
+#####5. Use RVM to install Ruby 1.9.3 (even if you have a newer version)<br>
+#####6. Run the "install gems" Terminal script from the RhoSuite .dmg<br>
+#####7. Run the "Install RhoConnect-push" Terminal script (OPTIONAL - SEE DOCS PAGE <LINK>)<br>
+<br>
 
-Detailed instructions follow for each step.
+#### Detailed instructions for Mac OS X Installations:
+
+###STEP 1: 
+
+
+
+
+
+
 
 ## Java Development Kit
 RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7 and 10.8, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://www.java.com/en/download/index.jsp) and install Java 6 or higher.
