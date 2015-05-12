@@ -113,7 +113,8 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 
 >**This process requires administrator access and write permissions in all areas.** 
 <br>
-###The Mac OS X installation steps:<br> 
+###The Mac OS X installation steps:<br>
+#####`MUST be performed in THIS ORDER`<br>
 #####0. Download and install XCode and corresponding Command Line Tools<br>
 #####1. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
 #####2. Copy RhoStudio to the development system's Applications folder. `DO NOT LAUNCH!`<br>
