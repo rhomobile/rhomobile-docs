@@ -150,6 +150,20 @@ This goes to the "get.RVM" web site and securely downloads the latest stable ver
 
 #####*Terminal is in the Applications folder, and can be launched quickly by hitting CMD-SPACE >> typing 'Terminal' >> and hitting ENTER. 
 
+### STEP 4: Install Ruby 1.9.3
+Now that you have RVM, you can use it to install Ruby 1.9.3. Remember, **RhoMobile requires Ruby 1.9.3**. Existing Ruby version(s) will remain on your Mac, but version 1.9.3 will be the default. 
+
+**Install Ruby 1.9.3 by entering the following command in Terminal:** 
+
+`rvm install 1.9.3`
+
+Verify that Ruby 1.9.3 is the default by entering this command: 
+
+`ruby -v`
+
+The result should include "Ruby 1.9.3" and some other info. 
+
+
 
 
 ### Setup for Ruby
