@@ -134,7 +134,8 @@ a. [**Download RhoMobile Suite**](http://rhomobile.com/download) and double-clic
 
 b. **Drag the RhoStudio icon to the Applications folder alias** (in the direction of the arrow). This will copy the suite's main executables and some other useful files to the Applications folder of the development Mac. 
 
-
+### STEP 2: Install the Java Development Kit 
+RhoStudio relies on desktop Java, which Apple stopped including with Mac OS X as of version 10.7 (Lion). This is different than the version of Java that might already be on your system for browsers. RhoMobile supports JDK 6.0 and higher. [**Download the latest JDK** from Java.com](http://www.java.com/en/download/). Open the downloaded disk image, double-click the package within it and follow prompts to install the JDK. 
 
 
 
