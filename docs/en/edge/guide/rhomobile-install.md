@@ -163,15 +163,19 @@ Verify that Ruby 1.9.3 is the default by entering this command:
 	 
 The result should include "Ruby 1.9.3" and some other info. 
 
-*Terminal is in the Applications folder. To launch it quickly:<br>
+#######Terminal is in the Applications folder. To launch it quickly:<br>
  Hit CMD-SPACE >> Type 'Terminal' >> Hit ENTER. 
 
 
-### STEP 5: Install Gems
+### STEP 5: Install Ruby Gems
 
 You're almost done! 
+<br>
+<br><br><br><br><br>
 
-
+`X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X`
+###THE REMAINDER OF THIS DOCUMENT IS UNDER CONSTRUCTION!
+`X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X`
 
 ### Setup for Ruby
 If you do not have Ruby Version Manager and Ruby 1.9.3 installed, you must install them.
@@ -208,11 +212,6 @@ Go to the [Node.js website](http://nodejs.org/#), and download and install Node.
     :::term
     $ brew install node
 
-### Download and Install
-Download the latest [Motorola RhoMobile Suite Installer](http://rhomobile.com/download/) for Macintosh.
-
-Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
-  <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png" alt="RhoStudioInstaller Mac" />
 
 > Note: Do not use `sudo` when you install the gems: that can cause problems with file permissions when you run bundle commands within RhoStudio.
 
