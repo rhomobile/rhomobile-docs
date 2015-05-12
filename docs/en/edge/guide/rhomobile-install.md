@@ -16,11 +16,11 @@ Since Windows 8.x lacks a Start Menu, a few extra steps are needed to make the R
 
 After running the RhoMobile installer in Windows 8.x, do the following:
 
-* "Show All Apps" on the Start Screen: While on the "Start Screen" (aka "Metro"), right-click at the bottom of the screen until the App Bar appears (on Win8.1, the button will appear without right-clicking).
+* Go to the "Start Screen" of Windows 8 (aka "Metro") and right-click at the bottom of the screen until the App Bar appears (on Win8.1, the button should appear without right-clicking).
 
-* Click the "All Apps" button to show all apps. Locate the "RhoMobile Suite" group (see image, below) and launch the desired app from there, or...
+* Click the "All Apps" button to show all apps. Locate the "RhoMobile Suite" group (see image, below). Once installation is completed, you can run the desired RhoMobile launcher from there, or...
 
-* Right-click the desired RhoStudio app launcher and select "Pin to Taskbar." This will make it easy to access them from the Desktop in the future. Repeat this action for other launchers and for links to Documentation and Developer Community, if desired.
+* Right-click the desired launcher and select "Pin to Taskbar." This will make it easy to access from the Desktop in the future. Repeat this action for other launchers and for links to Documentation and Developer Community, if desired.
 
 <img src="http://rhomobile-suite.s3.amazonaws.com/install/RhoMobile_on_Win8.png" alt="RhoStudio on Win_8" />
 
@@ -43,7 +43,6 @@ To get the 64-bit JDK:
 Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to JDK, such as <tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt> .
 
 ### STEP 3: Launching RhoStudio
-
 
 The RhoMobile installer for Windows places the following items in the Windows Start menu or Start Screen (Windows 8.x):
 
@@ -98,8 +97,7 @@ RhoConnect applications don't work properly.
 Spaces exist in the Workspace path.
 
 **SOLUTION**<br>
-When RhoStudio launches for the first time, it prompts for the selection of  Workspace in which to store all files. The existence of spaces in this Workspace can cause applications to behave unpredictably. To correct, remove spaces from the Workspace (Window>>Preferences>>Startup and Shutdown>>Workspaces). 
-
+When RhoStudio launches for the first time, it prompts for the selection of  Workspace in which to store all files. The existence of spaces the Workspace path can cause applications to behave unpredictably. To correct, go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace that contains no spaces in the path.
 
 ### Ruby
 The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
@@ -107,7 +105,7 @@ The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version
 Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target device.
 
 
-## Mac OS
+## Mac OS X
 ### Java Development Kit
 RhoStudio requires Java Development Kit. For Mac OS 10.6 and earlier, the JDK is already installed. For Mac OS 10.7 and 10.8, Java is not automatically installed. Download the Java for Mac Installer from [Apple support](http://www.java.com/en/download/index.jsp) and install Java 6 or higher.
 
