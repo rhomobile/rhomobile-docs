@@ -166,10 +166,10 @@ The `rhoconfig.txt` file generated with a new application contains the following
     clientSSLCertificatePassword = 'password'
 
     ios_net_curl = true
-    #If true, an old libCURL-based Net request will be used. This option can be enabled for regression testing or if custom proxy support is required. Default is TRUE but, to support per-app VPN this option should be set to FALSE.
+    #If true, an old libCURL-based Net request will be used. This option can be enabled for regression testing or if custom proxy support is required. Default is TRUE but, to support per-app VPN (ex. MobileIron) this option should be set to FALSE.
 
     ios_direct_local_requests = false
-    #If true, request to local server will be applied directly, bypassing socket intercommunication, no network requests are involved. If false, a legacy client-server intercommunication will be made for local requests. Default is FALSE but, to support per-app VPN this option should be set to TRUE.
+    #If true, request to local server will be applied directly, bypassing socket intercommunication, no network requests are involved. If false, a legacy client-server intercommunication will be made for local requests. Default is FALSE but, to support per-app VPN (ex. MobileIron) this option should be set to TRUE.
 
 
 ## Config.xml
