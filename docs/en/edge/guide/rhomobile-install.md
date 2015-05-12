@@ -138,17 +138,15 @@ b. **Drag the RhoStudio icon to the Applications folder alias** (in the directio
 RhoStudio relies on desktop Java, which Apple stopped including with Mac OS X as of version 10.7 (Lion). This is different than the version of Java that might already be on your system for browsers. RhoMobile supports JDK 6.0 and higher. [**Download the latest JDK** from Java.com](http://www.java.com/en/download/). Open the downloaded disk image, double-click the package within it and follow prompts to install the JDK. 
 
 ### STEP 3: Install Ruby Version Manager (RVM) 
-RhoStudio requires Ruby 1.9.3; it is not compatible with any other version. Mavericks and Yosemite come with Ruby 2.0. This step installs a tool called Ruby Version Manager (RVM) that we'll use to install Ruby 1.9.3. RVM also makes it easy to switch back to Ruby 2.0, should you ever need to.
+This step installs a tool called Ruby Version Manager (RVM) that we'll use to install Ruby 1.9.3. RhoStudio requires this version of Ruby and is not compatible with any other. Mavericks and Yosemite come with Ruby 2.0. Fortunately, RVM makes it easy to switch back to Ruby 2.0, should you ever need to.
 
 **NOTE: Do not use `sudo` to install RVM; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
 
->**Note:** Do not use `sudo` when you install RVM; it can cause problems with file permissions when you run bundle commands within RhoStudio.
+To install RVM, open a Terminal* window and enter the following command at the `$` prompt (you can use copy and paste):
 
-To install RVM, open a Terminal* window and enter the following command (you can use copy and paste) at the `$` prompt:
+`\curl -sSL https://get.rvm.io | bash -s stable`<br>
 
-`$` `\curl -sSL https://get.rvm.io | bash -s stable`<br>
-
-Follow prompts and enter information as needed. 
+This goes to the "get.RVM" web site and securely downloads the latest stable version. Follow prompts and enter information as needed. 
 
 #####*Terminal is in the Applications folder, and can be launched quickly by hitting CMD-SPACE >> typing 'Terminal' >> and hitting ENTER. 
 
