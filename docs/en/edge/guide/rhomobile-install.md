@@ -97,7 +97,7 @@ RhoConnect applications don't work properly.
 Spaces exist in the Workspace path.
 
 **SOLUTION**<br>
-When RhoStudio launches for the first time, it prompts for the selection of  Workspace in which to store all files. The existence of spaces the Workspace path can cause applications to behave unpredictably. To correct, go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace that contains no spaces in the path.
+The Workspace is a local or network directory into which RhoStudio stores all project files. The existence of spaces in the Workspace path can cause applications to behave unpredictably. To correct this, go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.
 
 ### Ruby
 The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
