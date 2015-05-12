@@ -160,9 +160,16 @@ Now that you have RVM, you can use it to install Ruby 1.9.3. Remember, **RhoMobi
 Verify that Ruby 1.9.3 is the default by entering this command: 
 
 `ruby -v`
-
+	 
 The result should include "Ruby 1.9.3" and some other info. 
 
+*Terminal is in the Applications folder. To launch it quickly:<br>
+ Hit CMD-SPACE >> Type 'Terminal' >> Hit ENTER. 
+
+
+### STEP 5: Install Gems
+
+You're almost done! 
 
 
 
