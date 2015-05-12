@@ -129,8 +129,8 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 
 ###STEP 1: Download and Copy RhoMobile Suite 
 #####`MUST be performed in THIS ORDER`<br>
-a. **Download RhoMobile Suite** (.dmg) from [RhoMobile.com] (http://rhomobile.com/download) and double-click it. A window similar to the following will open: 
-![img] (http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png)
+a. [**Download RhoMobile Suite**](http://rhomobile.com/download) and double-click it. A window similar to the following will open: 
+![img](http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png)
 
 b. **Drag the RhoStudio icon to the Applications folder alias** (in the direction of the arrow). This will copy the suite's main executables and some other useful files to the Applications folder of the development Mac. 
 
