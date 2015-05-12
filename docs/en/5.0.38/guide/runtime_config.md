@@ -22,6 +22,7 @@ You can also check if a configuration property actually exists before accessing 
     :::ruby
     start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
 
+
 The `rhoconfig.txt` file generated with a new application contains the following default values, as well as descriptions of each setting:
 
     :::yaml
@@ -170,7 +171,6 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
     ios_direct_local_requests = false
     #If true, request to local server will be applied directly, bypassing socket intercommunication, no network requests are involved. If false, a legacy client-server intercommunication will be made for local requests. Default is FALSE but, to support per-app VPN (ex. MobileIron) this option should be set to TRUE.
-
 
 ## Config.xml
 ### What it affects
