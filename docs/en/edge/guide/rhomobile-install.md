@@ -196,9 +196,13 @@ This process might take several minutes as it copies groups of gems.
 
 **NOTE: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version.**<br>
 
->That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base!!
+>That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base. 
 
-IMPORTANT! To launch RhoMobile, USE THE LAUNCHERS!!!!!
+>There's just one more thing, and it's IMPORTANT! 
+
+>To launch RhoMobile, be sure to use one of the RhoMobile Launchers. 
+
+>![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)
 
 
 ###STEP 6: Setting up RhoConnect (Optional)
