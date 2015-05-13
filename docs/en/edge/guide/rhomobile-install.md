@@ -109,12 +109,11 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 
 ### *NOTE*
 
-> The Mac OS X installation relies on Apple's XCode development environment and its Command Line Tools. If XCode is not already installed, please visit [Apple's developer download site](http://developer.Apple.com/downloads) and download and install the version appropriate for your system before proceeding. 
+> The Mac OS X installation relies on Apple's XCode development environment and the corresponding Command Line Tools. If XCode is not already installed, please visit [Apple's developer download site](http://developer.Apple.com/downloads) and download and install the version appropriate for your system before proceeding. 
 
->**This process requires administrator access and write permissions in all areas.** 
-<br>
 ###The Mac OS X installation steps:<br>
-#####`MUST be performed in THIS ORDER`<br>
+#####`-->> This process requires administrator access and write permissions in all areas. <<-- `
+`-->> All steps MUST be performed in this order! <<-- `<br>
 #####0. Download and install XCode and corresponding Command Line Tools<br>
 #####1a. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
 #####1b. Copy RhoStudio to the development system's Applications folder. `DO NOT LAUNCH!`<br>
@@ -128,48 +127,72 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 #### Detailed instructions for Mac OS X Installations:
 
 ###STEP 1: Download and Copy RhoMobile Suite 
-#####`MUST be performed in THIS ORDER`<br>
+`-->> All steps MUST be performed in this order! <<-- `<br>
+
 a. [**Download RhoMobile Suite**](http://rhomobile.com/download) and double-click it. A window similar to the following will open: 
 ![img](http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png)
 
-b. **Drag the RhoStudio icon to the Applications folder alias** (in the direction of the arrow). This will copy the suite's main executables and some other useful files to the Applications folder of the development Mac. 
+b. **Drag the RhoStudio icon to the Applications folder alias** (in the direction of the arrow). This will copy the suite's main executables and some other useful files to the Applications folder of the development Mac. DO NOT ATTEMPT TO LAUNCH RHOSTUDIO AT THIS TIME.
+
+>Keep the RhoMobile Suite Installer .dmg handy; we'll refer to it again in STEP 5. 
 
 ### STEP 2: Install the Java Development Kit 
-RhoStudio relies on desktop Java, which Apple stopped including with Mac OS X as of version 10.7 (Lion). This is different than the version of Java that might already be on your system for browsers. RhoMobile supports JDK 6.0 and higher. [**Download the latest JDK** from Java.com](http://www.java.com/en/download/). Open the downloaded disk image, double-click the package within it and follow prompts to install the JDK. 
+RhoStudio relies on desktop Java, which Apple stopped including with Mac OS X as of version 10.7 (Lion). RhoMobile supports JDK 6.0 and higher. Regardless of what you currently have, we recommend that you [**download the latest JDK** from Java.com](http://www.java.com/en/download/). This is different than the version of Java that might already be on your system for browsers. 
+
+**Download and open the JDK .dmg, double-click the package within it and follow prompts to install the latest JDK.** 
 
 ### STEP 3: Install Ruby Version Manager (RVM) 
-This step installs a tool called Ruby Version Manager (RVM) that we'll use to install Ruby 1.9.3. RhoStudio requires this version of Ruby and is not compatible with any other. Mavericks and Yosemite come with Ruby 2.0. Fortunately, RVM makes it easy to switch back to Ruby 2.0, should you ever need to.
+This step installs a tool called Ruby Version Manager (RVM) that we'll use to install Ruby 1.9.3. RhoStudio requires Ruby v1.9.3 and is not compatible with any other version, incuding the newer version (2.0) that comes with Mac OS X Mavericks and Yosemite. Fortunately, RVM makes it easy to switch between Ruby versions if need be.
 
 **NOTE: Do not use `sudo` to install RVM; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
 
-To install RVM, open a Terminal* window and enter the following command at the `$` prompt (you can use copy and paste):
+**To install RVM, open a Terminal* window and enter (or copy and paste) the following command at the `$` prompt:**
 
 `\curl -sSL https://get.rvm.io | bash -s stable`<br>
 
-This goes to the "get.RVM" web site and securely downloads the latest stable version. Follow prompts and enter information as needed. 
+This goes to the "get.RVM" web site and securely downloads the latest stable version. As it installs, follow prompts and enter information as needed. 
 
-#####*Terminal is in the Applications folder, and can be launched quickly by hitting CMD-SPACE >> typing 'Terminal' >> and hitting ENTER. 
+######*Terminal is in the Applications folder. To launch it directly:<br>Hit CMD-SPACE >> Type 'Term' >> Hit ENTER. 
 
 ### STEP 4: Install Ruby 1.9.3
-Now that you have RVM, you can use it to install Ruby 1.9.3. Remember, **RhoMobile requires Ruby 1.9.3**. Existing Ruby version(s) will remain on your Mac, but version 1.9.3 will be the default. 
+Now that you have RVM, you can use it to install Ruby 1.9.3. Remember, RhoMobile requires Ruby 1.9.3 and will not work with other versions. This step will not effect existing Ruby version(s) on your Mac, but Ruby 1.9.3 will become the default. 
 
-**Install Ruby 1.9.3 by entering the following command in Terminal:** 
+**Open a _NEW_ Terminal window and install Ruby 1.9.3 with the following command:** 
 
 `rvm install 1.9.3`
 
-Verify that Ruby 1.9.3 is the default by entering this command: 
+**When prompted, hit ENTER to install homebrew in the /user/local directory. Respond to additional prompts as needed. This may take a few minutes. 
+
+Once complete, verify that Ruby 1.9.3 is the default by entering this command:**
 
 `ruby -v`
-	 
-The result should include "Ruby 1.9.3" and some other info. 
 
-#######Terminal is in the Applications folder. To launch it quickly:<br>
- Hit CMD-SPACE >> Type 'Terminal' >> Hit ENTER. 
+The result should be something similar to:
+`ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-darwin14.0.0]`
+
 
 
 ### STEP 5: Install Ruby Gems
 
-You're almost done! 
+>Almost done! 
+
+This step installs a number of helpful Ruby apps and libraries, known as Gems, using a script that runs within a Terminal window. Ruby Gems are platform- and processor-specific and deliver much of the key functionality of the RhoMobile platform.
+
+**NOTE: Do not use `sudo` to install Gems; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
+
+If it's not still visible, re-open the RhoMobile Suite Installer .dmg (below) from STEP 1: 
+![img](http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png)
+
+**Double-click "Install gems." A Terminal window will open and prompt 
+
+
+
+ Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
+
+
+Be sure to have only one .DMG mounted. 
+
+
 <br>
 <br><br><br><br><br>
 
@@ -177,17 +200,6 @@ You're almost done!
 ###THE REMAINDER OF THIS DOCUMENT IS UNDER CONSTRUCTION!
 `X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X`
 
-### Setup for Ruby
-If you do not have Ruby Version Manager and Ruby 1.9.3 installed, you must install them.
-
-On Macintosh, Ruby is already installed, but this version is outdated and isn’t compatible with RhoStudio. Install [Ruby Version Manager](https://rvm.io/) (RVM) into your home directory.
-
-> Note: Do not use `sudo` when you install RVM: that can cause problems with file permissions when you run bundle commands within RhoStudio.
-
-Install Ruby 1.9.3 with the following RVM command.
-
-	:::term
-	$ rvm install 1.9.3
 
 ### Setup for RhoConnect
 On Macintosh, you need the following setup before redis is installed.
@@ -195,11 +207,7 @@ On Macintosh, you need the following setup before redis is installed.
  * The `/usr/local` directory exists and is recursively writable by the current user.
  * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
 
-### Setup for Xcode, Command Line Tools, and homebrew
 
-If you do not have the latest Xcode and command line tools, you need to install them. Install the latest [Xcode](https://developer.apple.com/xcode/).
-
-Then install the command line tools: go to Xcode –> Preferences –> Downloads tab and install the "Command Line Tools."
 
 Then install [Homebrew](https://github.com/Homebrew/homebrew) into `/usr/local`.
 
@@ -213,7 +221,6 @@ Go to the [Node.js website](http://nodejs.org/#), and download and install Node.
     $ brew install node
 
 
-> Note: Do not use `sudo` when you install the gems: that can cause problems with file permissions when you run bundle commands within RhoStudio.
 
 Run "Install gems". A terminal window will open. Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
 
