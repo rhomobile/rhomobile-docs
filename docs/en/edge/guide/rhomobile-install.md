@@ -34,13 +34,10 @@ The 32- and 64-bit versions of RhoMobile are functionally equivalent, and there'
 
 *NOTE: The Java Development Kit is different than Java versions that might already be on your system for browsers.*
 
-To get the 64-bit JDK: 
+####To get the 64-bit JDK: 
 
-* Visit visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the 64-bit Java version for Mac OS X or Windows as appropriate for your system.
+* Visit visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the 64-bit Java version for Windows.
 * To confirm the the JDK path, launch RhoStudio and go to Window>>Preferences>>RhoMobile. The "Java bin path" should be: **<tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt>**
-
-#### Setting the JDK Path
-Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to JDK, such as <tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt> .
 
 ### STEP 3: Launching RhoStudio
 
@@ -54,7 +51,7 @@ The RhoMobile installer for Windows places the following items in the Windows St
 
 NOTE: TO run RhoStudio, you MUST USE THE RHOSTUDIO LAUNCHERS. Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
 
-### Troubleshooting
+### Windows Troubleshooting
 **PROBLEM**<br>
 RhoStudio fails to start and displays "Failed to create the Java Virtual Machine":
 
@@ -116,12 +113,14 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 `-->> All steps MUST be performed in this order! <<-- `<br>
 #####0. Download and install XCode and corresponding Command Line Tools<br>
 #####1a. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
-#####1b. Copy RhoStudio to the development system's Applications folder. `DO NOT LAUNCH!`<br>
+#####1b. Copy RhoStudio to the development system's Applications folder `DO NOT LAUNCH!`<br>
 #####2. Download and install the Java 6 SDK from Java.com (see below for link)<br>
 #####3. Use Terminal to install Ruby Version Manager (RVM)<br>
 #####4. Use RVM to install Ruby 1.9.3 (even if you have a newer version)<br>
-#####5. Run the "install gems" Terminal script from the RhoSuite .dmg<br>
-#####6. Run the "Install RhoConnect-push" Terminal script (OPTIONAL - SEE DOCS PAGE <LINK>)<br>
+#####5. Run the "install gems" Terminal script from the RhoSuite .dmg
+**OPTIONAL STEPS:** 
+#####6. Run the "Install RhoConnect-push" Terminal script<br>
+#####7. Set up native SDKs for specific target devices (Android, iOS)
 <br>
 
 #### Detailed instructions for Mac OS X Installations:
@@ -201,18 +200,19 @@ This process might take several minutes as it copies groups of gems.
 >To launch RhoMobile, be sure to use one of the RhoMobile Launchers. Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
->The 32- and 64-bit versions of RhoMobile are functionally equivalent, and there's no disadvantage to using the 32-bit RhoMobile suite on development hosts. However, if you'd prefer to run the 64-bit version of RhoMobile on your 64-bit Mac, you need to manually download and install the 64-bit version of the Java development kit. 
+>The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
-*NOTE: The Java Development Kit is different than Java versions that might already be on your system for browsers.*
+###Mac OS X Troubleshooting
+`UNDER CONSTRUCTION`
 
-To get the 64-bit JDK: 
 
-* Visit visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the 64-bit Java version for Mac OS X or Windows as appropriate for your system.
+###Setting the JDK Path
 
-* To confirm the the JDK path, launch RhoStudio and go to Window>>Preferences>>RhoMobile. The "Java bin path" should be: **<tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt>**
+If you have trouble with Java,
 
-#### Setting the JDK Path
-Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to JDK, such as <tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt> .
+Go to RhoStudio>>Preferences>>RhoMobile and confirm or set the Java bin path as <tt>/Library/Java/JavaVirtualMachines/jdk&lt;version number&gt;.jdk/Contents/Home/bin</tt>.
+
+
 
 
 ###STEP 6: Setting up RhoConnect (Optional)
