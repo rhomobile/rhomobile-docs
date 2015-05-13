@@ -129,9 +129,11 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 ###STEP 1: Download and Copy RhoMobile Suite 
 `-->> All steps MUST be performed in this order! <<-- `<br>
 
-a. [**Download RhoMobile Suite**](http://rhomobile.com/download) and double-click it. A window similar to the following will open: 
-![img](http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png)
+a. [**Download RhoMobile Suite**](http://rhomobile.com/download) and double-click it. A window similar to the following will open: <br>
 
+![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_Installer_disc_image.png)
+
+<br>
 b. **Drag the RhoStudio icon to the Applications folder alias** (in the direction of the arrow). This will copy the suite's main executables and some other useful files to the Applications folder of the development Mac. DO NOT ATTEMPT TO LAUNCH RHOSTUDIO AT THIS TIME.
 
 >Keep the RhoMobile Suite Installer .dmg handy; we'll refer to it again in STEP 5. 
@@ -171,45 +173,39 @@ The result should be something similar to:
 `ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-darwin14.0.0]`
 
 
-
 ### STEP 5: Install Ruby Gems
 
 >Almost done! 
 
-This step installs a number of helpful Ruby apps and libraries, known as Gems, using a script that runs within a Terminal window. Ruby Gems are platform- and processor-specific and deliver much of the key functionality of the RhoMobile platform.
+The final (required) step is to install Ruby gems. Gems are platform- and processor-specific Ruby apps and libraries that deliver much of the key functionality of the RhoMobile platform. Gems are copied from the installation disk image (.dmg) to your hard drive using a Terminal script included with the installer image.
 
-**NOTE: Do not use `sudo` to install Gems; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
+**NOTE: If additional gems are needed in the future, do not use `sudo` to install them; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
 
-If it's not still visible, re-open the RhoMobile Suite Installer .dmg (below) from STEP 1: 
-![img](http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png)
+**Double-click "Install gems" from the RhoMobile Suite Installer .dmg (below) introduced earlier.<br> A Terminal window will open.**<br>
 
-**Double-click "Install gems." A Terminal window will open and prompt 
-
+![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_Installer_Install_gems.png)
 
 
- Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
+**If you're given a choice similar to the one below, select option 1.** 
+
+>![img](http://rhodocs-images.s3.amazonaws.com/guide/which_ruby.png)
+
+**When prompted, select N to avoid using `sudo` to install gems.**
+
+This process might take several minutes as it copies groups of gems.  
+
+**NOTE: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version.**<br>
+
+>That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base!!
+
+IMPORTANT! To launch RhoMobile, USE THE LAUNCHERS!!!!!
 
 
-Be sure to have only one .DMG mounted. 
+###STEP 6: Setting up RhoConnect (Optional)
+RhoConnect IS THIS AND THAT. Explian why it's useful. 
 
 
-<br>
-<br><br><br><br><br>
-
-`X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X`
-###THE REMAINDER OF THIS DOCUMENT IS UNDER CONSTRUCTION!
-`X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X`
-
-
-### Setup for RhoConnect
-On Macintosh, you need the following setup before redis is installed.
-
- * The `/usr/local` directory exists and is recursively writable by the current user.
- * The `/usr/local/etc/` directory exists and is recursively writable by the current user.
-
-
-
-Then install [Homebrew](https://github.com/Homebrew/homebrew) into `/usr/local`.
+If you p
 
 ### Setup for RhoConnect Push
 
