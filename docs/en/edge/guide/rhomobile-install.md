@@ -52,20 +52,21 @@ The RhoMobile installer for Windows places the following items in the Windows St
 NOTE: TO run RhoStudio, you MUST USE THE RHOSTUDIO LAUNCHERS. Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
 
 ### Windows Troubleshooting
-**PROBLEM**<br>
-RhoStudio fails to start and displays "Failed to create the Java Virtual Machine":
+###PROBLEM<br>
+>"Failed to create the Java Virtual Machine"
 
-**POSSIBLE CAUSE**<br>
-Your computer has insufficient memory.
+>**POSSIBLE CAUSE**<br>
+>Insufficient memory
 
-**SOLUTION**<br>
-Reduce the size of the JVM heap:<br> 
+>**SOLUTION**<br>
+>Reduce the size of the JVM heap:<br> 
 
-* Use a text editor to open the file: <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt><br>
-* Search for "<tt>-Xmx1024m</tt>"<br>
-* Change it to "<tt>-Xmx512m</tt>"<br>
+>* Use a text editor to open the file: <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt><br>
+>* Search for "<tt>-Xmx1024m</tt>"<br>
+>* Change it to "<tt>-Xmx512m</tt>"<br>
 
-This will halve the memory used by the Java Virtual Machine. 
+>This will halve the memory used by the Java Virtual Machine.<br>
+
 ________________
 **PROBLEM**<br>
 RhoStudio fails to start and displays "Failed to load the JNI shared library...":
@@ -257,7 +258,8 @@ In addition to RhoStudio, the RhoMobile Suite Installer for Macintosh also conta
 ### Git
 The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
 
-## Eclipse plugin, RhoSimulator
+## TROUBLESHOOTING
+
 > Note: Installing RhoStudio as a plugin for Eclipse is currently disabled.
 
 RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
