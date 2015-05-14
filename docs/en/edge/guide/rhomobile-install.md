@@ -51,52 +51,6 @@ The RhoMobile installer for Windows places the following items in the Windows St
 
 NOTE: TO run RhoStudio, you MUST USE THE RHOSTUDIO LAUNCHERS. Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
 
-### Windows Troubleshooting
-###PROBLEM<br>
->"Failed to create the Java Virtual Machine"
-
->**POSSIBLE CAUSE**<br>
->Insufficient memory
-
->**SOLUTION**<br>
->Reduce the size of the JVM heap:<br> 
-
->* Use a text editor to open the file: <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt><br>
->* Search for "<tt>-Xmx1024m</tt>"<br>
->* Change it to "<tt>-Xmx512m</tt>"<br>
-
->This will halve the memory used by the Java Virtual Machine.<br>
-
-________________
-**PROBLEM**<br>
-RhoStudio fails to start and displays "Failed to load the JNI shared library...":
-
-**POSSIBLE CAUSE**<br>
-Incompatibility between the RhoStudiop launcher and the JDK version installed. 
-
-**SOLUTION**<br>
-- Make sure the JDK and RhoStudio launcher match in terms of x86 vs. x64.  
-- Try reinstalling the JDK version.
-________________
-**PROBLEM**<br>
-RhoStudio fails to start and displays no message. 
-
-**POSSIBLE CAUSE**<br>
-You're launching 64-bit RhoStudio without 64-bit Java installed. 
-
-**SOLUTION**<br>
-Follow instructions for installing 64-bit Java, above.<br> 
-
-________________
-**PROBLEM**<br>
-RhoConnect applications don't work properly. 
-
-**POSSIBLE CAUSE**<br>
-Spaces exist in the Workspace path.
-
-**SOLUTION**<br>
-The Workspace is a local or network directory into which RhoStudio stores all project files. The existence of spaces in the Workspace path can cause applications to behave unpredictably. To correct this, go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.
-
 ### Ruby
 The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
 
@@ -260,9 +214,61 @@ The RhoMobile Suite installer for Macintosh does not install Git. Although you c
 
 ## TROUBLESHOOTING
 
-> Note: Installing RhoStudio as a plugin for Eclipse is currently disabled.
+###PROBLEM (Win)<br>
+>"Failed to create the Java Virtual Machine"
 
-RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
+>**POSSIBLE CAUSE**<br>
+>Insufficient memory
+
+>**SOLUTION**<br>
+>Reduce the size of the JVM heap:<br> 
+
+>* Use a text editor to open the file: <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt><br>
+>* Search for "<tt>-Xmx1024m</tt>"<br>
+>* Change it to "<tt>-Xmx512m</tt>"<br>
+
+>This will halve the memory used by the Java Virtual Machine.<br>
+
+###PROBLEM (Win)<br>
+>"Failed to load the JNI shared library..."
+
+>**POSSIBLE CAUSE**<br>
+>Incompatibility between the RhoStudio launcher and the JDK version installed. 
+
+>**SOLUTION**<br>
+>- Make sure the JDK and RhoStudio launcher match x86 vs. x64)  
+>- Reinstall the JDK
+
+###PROBLEM (Win)<br>
+>RhoStudio fails to start and displays no message. 
+
+>**POSSIBLE CAUSE**<br>
+>Attempting to launch 64-bit RhoStudio without 64-bit Java 
+
+>**SOLUTION**<br>
+Install 64-bit Java (see above)<br> 
+
+###PROBLEM (Win)<br>
+>RhoConnect applications don't work properly
+
+>**POSSIBLE CAUSE**<br>
+>Spaces exist in the Workspace path
+
+>**SOLUTION**<br>
+>Go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.<br>
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+###PROBLEM (Mac)<br>
+>RhoStudio fails **BLAH BLAH BLAH** to start and displays no message. 
+
+>**POSSIBLE CAUSE**<br>
+>Attempting to launch 64-bit RhoStudio without 64-bit Java 
+
+>**SOLUTION**<br>
+Install 64-bit Java (see above)<br> 
+
+Note: Installing RhoStudio as a plugin for Eclipse is currently disabled. RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
 
 ## Next Step: Setup Native SDKs
 If you are planning on building your RhoMobile application locally on your development machine you will need the SDKs for the platform you want to build your app on. These instructions are found [here](nativesdksetup).
