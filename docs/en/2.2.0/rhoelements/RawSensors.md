@@ -109,7 +109,7 @@ As this plugin returns the raw sensor values reported by the operating system th
 
 
 ###JavaScript and Meta-Tag Support
-On iOS devices and non Motorola Solutions Windows Mobile/CE devices, only the Ruby interface is currently available. On all Android and Motorola Solutions devices all language interfaces are supported.
+On iOS devices and non Zebra Technologies Windows Mobile/CE devices, only the Ruby interface is currently available. On all Android and Zebra Technologies devices all language interfaces are supported.
 
 
 

@@ -57,7 +57,7 @@ system_property can be any of the properties below:
 * country - country abbreviation
 * is_emulator - return true if application is running on emulator
 * has_calendar - return true if calendar support is available. By default, Calender db is empty. Please ensuer that you have configured and synced your Email/Calendar prior to this.
-* is_motorola_device – return true if device supports Motorola device capabilities, such as Scanner, etc.
+* is_motorola_device – return true if device supports Zebra device capabilities, such as Scanner, etc.
 
 ## app_install
 

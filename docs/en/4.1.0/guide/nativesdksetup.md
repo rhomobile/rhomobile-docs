@@ -60,7 +60,7 @@ Note that Windows Mobile versions of your Rhodes application must be built in a 
 Make sure you have installed the following software. Since Rhdoes builds a unified .cab file for both WM and WinCE, only the WinCE SDK is necessary for building either platform.
 
 * .NET Compact Framework
-* For Windows Mobile and Windows CE 5.0: MC3000c50b PSDK from [Motorola Support Central](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=/ssi/emb/downloads/30XXC50BxxPS010403.exe)
+* For Windows Mobile and Windows CE 5.0: MC3000c50b PSDK from [Zebra Support Central](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=/ssi/emb/downloads/30XXC50BxxPS010403.exe)
 * Microsoft Active Sync 4.5 for Windows XP; Windows Mobile Device Center for Windows Vista or higher
 * Microsoft Device Emulator 3.0 for Windows Vista or higher
 * Visual Studio 2008.

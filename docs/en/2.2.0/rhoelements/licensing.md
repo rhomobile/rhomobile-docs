@@ -1,6 +1,6 @@
 # RhoElements Licensing
 
-Running Motorola Solutions RhoElements applications requires a license. There are a number of licensing options available depending on the specific customer need or deployment. RhoElements applications which are not licensed will display a message on startup; unlicensed Motorola Solutions devices will also display a periodic nag screen, although unlicensed devices are fully functional for the purposes of evaluation, development, and testing.
+Running Zebra Technologies RhoElements applications requires a license. There are a number of licensing options available depending on the specific customer need or deployment. RhoElements applications which are not licensed will display a message on startup; unlicensed Zebra Technologies devices will also display a periodic nag screen, although unlicensed devices are fully functional for the purposes of evaluation, development, and testing.
 
 The same license key will work across any operating system. The name associated with the license is stored in the log file when the application is started.
 
@@ -9,14 +9,14 @@ The same license key will work across any operating system. The name associated 
 If you have included any of the following features in your application, your application will require a RhoElements license to run. Applications not using any of these features will be able to run license-free.
 
 * [Mobile APIs](apicompatibility) indicated with <span class="label label-inverse">RHOELEMENTS</span> application type
-* [Motorola Solutions WebKit](rhoelements2-native#enabling-motorola-webkit)
+* [Zebra Technologies WebKit](rhoelements2-native#enabling-motorola-webkit)
 * [Barcode extension](../rhodesapi/barcode-api)
 * [NFC extension](../rhodes/device-caps#nfc)
 * [Database Encryption](../rhodes/rhom#database-encryption)
 * [Inline Signature Capture](../rhodes/device-caps#signature-capture)
 * [Windows Desktop](../rhodes/build#build-for-windows)
 
-**NOTE: that the "shared runtime" requires a license to run since it uses Motorola Solutions WebKit and RhoElements APIs.**
+**NOTE: that the "shared runtime" requires a license to run since it uses Zebra Technologies WebKit and RhoElements APIs.**
 
 ## Obtaining a License
 
@@ -28,15 +28,15 @@ An application license is a completely separate concept from a device license an
 
 Application licenses are currently only applicable for Android, iPhone, Windows Mobile, Windows CE and Windows Embedded Handheld devices, but will be extended to other platforms in the future.
 
-When you get an application license from Motorola Solutions for a hybrid application, you will need to provide Motorola Solutions with the following information.
+When you get an application license from Zebra Technologies for a hybrid application, you will need to provide Zebra Technologies with the following information.
 
 * Your company name.
 * The name of your application.
 * The version of RhoElements for which you want the license.
 
-Application Licenses are encoded by the Motorola Solutions Software License team on allocation but an unencrypted license will look like the following:
+Application Licenses are encoded by the Zebra Technologies Software License team on allocation but an unencrypted license will look like the following:
 
-	Company Name: Motorola Solutions
+	Company Name: Zebra Technologies
 	PackageName: Warehouse Picking	//  As defined in the build.yml file
 	For Version: 2.*.*			//  Application licenses can be version specific, this one is valid for any 2.x version of RhoElements
 
@@ -79,37 +79,37 @@ There are two types of device license, both of which are applied in the same way
 
 * Device specific licenses are tied to the specific device and only apply to that device, trying to apply a device specific license to another device will fail.
 
-* Deployment licenses are not tied to a specific device, a single deployment license will work across an entire deployment and is most useful when including the license file in your device deployment or licensing non-Motorola Solutions devices.
+* Deployment licenses are not tied to a specific device, a single deployment license will work across an entire deployment and is most useful when including the license file in your device deployment or licensing non-Zebra Technologies devices.
 
 Once your device is licensed, a splash screen will be displayed briefly each time the application is run saying who RhoElements has been licensed to.
 
 ## Applying a Device License via the Wizard
 
-Devices running Windows Mobile and Windows CE as well as Motorola Solutions Android devices present the user with a licensing Wizard to guide the user through licensing.
+Devices running Windows Mobile and Windows CE as well as Zebra Technologies Android devices present the user with a licensing Wizard to guide the user through licensing.
 
 <img src="http://rhodocs.s3.amazonaws.comrhoelements/rhoe-license.png">
 
 The first page of the licensing wizard has a "Cancel" button. Clicking it allows you to evaluate the software. While you are evaluating the software, the functionality is not restricted.
 
-The licensing wizard assumes you have already obtained a license via the [Motorola Solutions software licensing website](https://softwarelicensing.motorolasolutions.com). The wizard will guide you through applying your license. There are two options available.
+The licensing wizard assumes you have already obtained a license via the [Zebra Technologies software licensing website](https://softwarelicensing.motorolasolutions.com). The wizard will guide you through applying your license. There are two options available.
 
 * Internet Licensing.  This only requires you to know the order number associated with your RhoElements licenses order.  Provided your device has an internet connection not obstructed by a proxy and can contact the licensing server your device will be licensed automatically.
 
-* Manual Licensing.  You can also print off the license from the licensing website and manually key in your company name and license number. If you are using a Motorola Solutions device you will be able to scan the information rather than keying it in manually.
+* Manual Licensing.  You can also print off the license from the licensing website and manually key in your company name and license number. If you are using a Zebra Technologies device you will be able to scan the information rather than keying it in manually.
 
-More verbose instructions on licensing your device and how to interact with the licensing server are available [within the Motorola Solutions software licensing website](https://softwarelicensing.motorolasolutions.com/documentation/index.html#licensingRuntime).
+More verbose instructions on licensing your device and how to interact with the licensing server are available [within the Zebra Technologies software licensing website](https://softwarelicensing.motorolasolutions.com/documentation/index.html#licensingRuntime).
 
 ## Applying a Device License via a File
 
 There are three ways to apply a device license via a file.
 
-Via a Registry key: From the Motorola Solutions Software licensing site, after you have applied for your license you are able to download a registry key file (.reg) containing the company name and license key.  On Windows Mobile and Windows CE devices, you can license the device via this registry key.
+Via a Registry key: From the Zebra Technologies Software licensing site, after you have applied for your license you are able to download a registry key file (.reg) containing the company name and license key.  On Windows Mobile and Windows CE devices, you can license the device via this registry key.
 
 Via a file on Android devices when developing hybrid applications: Create the file `/mnt/sdcard/keys/rhoelements`. On its first line, enter your company name associated with the license. On its second line, enter the hexadecimal license key. The easiest way to do this is to manually license one device and then the use the file `/mnt/sdcard/keys/rhoelements` that was created.
 
-NOTE: Currently this is the recommended approach for deploying a license on the Motorola Solutions ET1 and MC40 without manual intervention.
+NOTE: Currently this is the recommended approach for deploying a license on the Zebra Technologies ET1 and MC40 without manual intervention.
 
-Via build.yml for Native Applications (iOS and Non-MSI Android): If you are developing native applications for iOS or Android hardware that is not Motorola Solutions, you can provide the deployment license information in the build.yml file.
+Via build.yml for Native Applications (iOS and Non-MSI Android): If you are developing native applications for iOS or Android hardware that is not Zebra Technologies, you can provide the deployment license information in the build.yml file.
 
 	:::term
 	motorola_license_company: 'Deployment License Company name'

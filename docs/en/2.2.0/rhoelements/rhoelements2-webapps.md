@@ -20,10 +20,10 @@ In order for RhoElements to start with your web app, you need to configure RhoEl
 **NOTE: If you do not plan on [building native apps](rhoelements2-native), then you do not need to install any of the prerequisites, such as other mobile development platforms or the Java Development Kit. However, to obtain the individual mobile platform RhoElements runtimes for your web app, you must minimally install RhoMobile Suite.**
 
 
-After you [install Motorola RhoMobile Suite](../rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
+After you [install Zebra RhoMobile Suite](../rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile, Windows CE and Android. You will need to install the RhoElements Runtime on each device that will be used for your application.
 
-* On Windows, you can find the RhoElements Runtimes in the Start Menu, under Motorola RhoMobile Suite.
-* On Macintosh, they are located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.
+* On Windows, you can find the RhoElements Runtimes in the Start Menu, under Zebra RhoMobile Suite.
+* On Macintosh, they are located in the Zebra RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.
 
 On Windows Mobile/CE devices, install the RhoElements Runtime.cab to \Program Files\RhoElements using ActiveSync or Windows Mobile Device Center. On Android, install the RhoElements Runtime.apk using the Android SDK.
 
@@ -33,7 +33,7 @@ Once installed, you will have access to the RhoElements config.xml file.
 
 ## Writing Your RhoElements Web App
 
-This section will take you step by step through creating your first web-based scanning application for your Motorola mobile device using RhoElements. The tutorial is based on the ubiquitous "Hello World" application but instead of simply displaying this message, it will enable the scanner on the mobile device and display a message when a barcode is decoded. Once you have completed this tutorial you should be familiar with the RhoElements language "EMML" and how this applies to the other features of RhoElements such as the Signature Capture or Gesture modules.
+This section will take you step by step through creating your first web-based scanning application for your Zebra mobile device using RhoElements. The tutorial is based on the ubiquitous "Hello World" application but instead of simply displaying this message, it will enable the scanner on the mobile device and display a message when a barcode is decoded. Once you have completed this tutorial you should be familiar with the RhoElements language "EMML" and how this applies to the other features of RhoElements such as the Signature Capture or Gesture modules.
 
 ### Hello Scan
 
@@ -122,10 +122,10 @@ Your first application is now complete. For the purpose of this tutorial, we wil
 
 ## Setting RhoElements to Start With Your Application
 
-This section assumes you have created your application on a Motorola Windows Mobile or CE device; you can create on an Android device also.
+This section assumes you have created your application on a Zebra Windows Mobile or CE device; you can create on an Android device also.
 
 1. Copy the file HelloScan.html to the root folder of your device using ActiveSync or Windows Mobile Device Center.
-2. Find the file "\Program Files\RhoElements\config\Config.xml" on your Motorola Windows Mobile/CE device and copy it to your PC.
+2. Find the file "\Program Files\RhoElements\config\Config.xml" on your Zebra Windows Mobile/CE device and copy it to your PC.
 3. Open config.xml in your PC's text editor.
 4. Find the "Application" entry in the config.xml file and change its startPage parameter to "file://\helloscan.html".
 5. Copy the config.xml file on your PC back to your mobile device.
@@ -185,7 +185,7 @@ For example, this code in the .lnk file will change the startup page to be a loc
 
 ### Creating Shortcuts on Android Enterprise Tablet
 
-The Motorola Solutions Enterprise Tablet (ET1) has been customized so that android shortcuts can be created very easily. Once RhoElements is installed on the ET1:
+The Zebra Technologies Enterprise Tablet (ET1) has been customized so that android shortcuts can be created very easily. Once RhoElements is installed on the ET1:
 
 1. Navigate the ET1 to the home page by pressing the Home button on the device.
 2. Press and hold until you see the 'Add to Home screen' popup menu display.
@@ -213,7 +213,7 @@ NOTE: The last application will launch using the same runtime container. Only on
 
 The RhoElements Runtime is a prebuilt Rhodes application that launches in full screen mode and loads the configuration parameters as described above. If you would like to modify the behavior of the RhoElements runtime, such as change the startup screen or icon, then load the Rhodes project from which you can build a RhoElements Runtime into RhoStudio.
 
-**NOTE: The RhoElements Runtime is only available for [Motorola Solutions devices](rhoelements-introduction#_motdevices).**
+**NOTE: The RhoElements Runtime is only available for [Zebra Technologies devices](rhoelements-introduction#_motdevices).**
 
 ### Building Custom RhoElements Runtime for Windows Mobile/CE
 
@@ -229,7 +229,7 @@ The resulting `cab` file can be found at `<RhoMobile Suite Install Folder>\RhoEl
 
 ### Building Custom RhoElements Runtime for Android
 
-On the Macintosh, the RhoElements Runtime project is located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 folder. 
+On the Macintosh, the RhoElements Runtime project is located in the Zebra RhoMobile Suite Installer for Mac, in the RhoElements2 folder. 
 
 Copy the RhoElements2 project folder to your Macintosh at a location where you can run your RhoElements/Ruby rake commands. One way you can do this is to import this project into RhoStudio.
 
@@ -298,7 +298,7 @@ Connect your device to your PC via the USB cable and wait for Microsoft ActiveSy
 From ActiveSync or Windows Mobile Device Center, select the "Add/Remove Programs" dialog normally found in the Tools menu.
 </li>
 <li>
-Uncheck the text box beside Motorola RhoElements x.x.x.x Runtime and click "OK".
+Uncheck the text box beside Zebra RhoElements x.x.x.x Runtime and click "OK".
 </li>
 <li>
 RhoElements will now uninstall from your device.
@@ -308,7 +308,7 @@ Any user generated files and folders and any log files in the \Program Files\Rho
 
 ## Conclusion and Best Practice
 
-By completing this tutorial you will now be familiar with EMML and having realized how simple it is to produce applications using RhoElements for Motorola mobile devices.
+By completing this tutorial you will now be familiar with EMML and having realized how simple it is to produce applications using RhoElements for Zebra mobile devices.
 
 Here are a few points to remember or consider when designing and writing your application:
 <ul>

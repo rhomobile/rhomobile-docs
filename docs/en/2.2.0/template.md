@@ -129,7 +129,7 @@ app_type: "rhoelements"
 							<img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript">
 							<img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby">
 							<img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded">
-							<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">(Currently only supported on the MC18 device)
+							<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Zebra Devices Only">(Currently only supported on the MC18 device)
 						</p>
 					</div>
 				</p>

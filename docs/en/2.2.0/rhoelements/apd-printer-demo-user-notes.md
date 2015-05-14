@@ -1,6 +1,6 @@
-# Motorola Adaptive Printer Driver - Printing Demo User Notes
+# Zebra Adaptive Printer Driver - Printing Demo User Notes
 
-The Motorola Adaptive Printer Driver (APD) provides a simple way to interface application software to virtually any portable printer. This simple demonstration application is intended to show the main functions of the Adaptive Printer Driver, and may also be used for test purposes. A variety of types of printer are supported and the user can add new data files to provide support for further printer types as required.
+The Zebra Adaptive Printer Driver (APD) provides a simple way to interface application software to virtually any portable printer. This simple demonstration application is intended to show the main functions of the Adaptive Printer Driver, and may also be used for test purposes. A variety of types of printer are supported and the user can add new data files to provide support for further printer types as required.
 
 The demonstration comprises three simple steps.
 
@@ -12,7 +12,7 @@ The first sections (Terminal, Printer, Demonstration) provide a summary of the o
 
 ## Terminal
 
-This demonstration works on Motorola Windows Mobile and Windows CE devices.
+This demonstration works on Zebra Windows Mobile and Windows CE devices.
 
 Load the software onto the terminal as described in Annex A. Switch on the terminal and ‘click’ on the Start bar at the top of the screen. Then, depending on terminal type, either select APD Print Demo from the drop-down menu, or select Programs and then APD Print Demo. A small screen should be displayed, with the title “APD DLL Demo V2.xx”.
 
@@ -21,7 +21,7 @@ The terminal needs to be set to work with a particular printer by entering the c
 The above information can also be entered manually using the terminal’s pop up
 ‘virtual’ keyboard.
 
-If there is no “Printer ID” label on the printer, Motorola document CPR576 should be used to determine the correct Printer ID. The ‘address’, if used can usually be determined from a status print-out (usually obtained by switching the printer on whilst holding the FEED button).
+If there is no “Printer ID” label on the printer, Zebra document CPR576 should be used to determine the correct Printer ID. The ‘address’, if used can usually be determined from a status print-out (usually obtained by switching the printer on whilst holding the FEED button).
 
 ## Printer
 
@@ -78,7 +78,7 @@ More detailed information on the above is given in the following sections.
 
 ## Introduction
 
-This document relates to the Adaptive Printer Driver Printing Demonstration Software for Motorola mobile computers, version 2-18.
+This document relates to the Adaptive Printer Driver Printing Demonstration Software for Zebra mobile computers, version 2-18.
 
 This software is provided as a set of files suitable for use in mobile devices (terminals). It is intended to provide a simple demonstration of the Adaptive Printer Driver, in conjunction with almost any portable printer. Wired, and ‘cordless’ connections are supported, as well as directly-connected printers, such as the Zebra TR220 and O’Neil PrintPad.
 
@@ -86,7 +86,7 @@ Where a “Bluetooth” or “Wireless LAN” ‘cordless’ connection is used,
 
 ## Concept
 
-Communication of data from an application running on the Motorola hand-held terminal, or running on a remote host to which the hand-held terminal has a ‘virtual’ connection, can be handled via Motorola’s Adaptive Printer Driver (APD). The APD controls the hardware providing the connection to the printer and deals with the associated data transport protocol. A further function of the APD is that it can remove the variation in the command languages used by the various printer types. This allows the application to pass data to the APD in a ‘raw’ form, where the application need have no knowledge of the type of printer, or the method of connection to the printer. This is particularly useful where several different printers are used, or when an application needs to be transferred to a new type of printer. However, the APD may also be used in the traditional scenario where the application encodes data into the command language used by a specific printer. In this case, the APD simply transports the data to the printer ‘as is’.
+Communication of data from an application running on the Zebra hand-held terminal, or running on a remote host to which the hand-held terminal has a ‘virtual’ connection, can be handled via Motorola’s Adaptive Printer Driver (APD). The APD controls the hardware providing the connection to the printer and deals with the associated data transport protocol. A further function of the APD is that it can remove the variation in the command languages used by the various printer types. This allows the application to pass data to the APD in a ‘raw’ form, where the application need have no knowledge of the type of printer, or the method of connection to the printer. This is particularly useful where several different printers are used, or when an application needs to be transferred to a new type of printer. However, the APD may also be used in the traditional scenario where the application encodes data into the command language used by a specific printer. In this case, the APD simply transports the data to the printer ‘as is’.
 
 There are three elements to printing.
 
@@ -298,7 +298,7 @@ Toshiba-TEC printers require format files to be loaded into the printer before p
 
 Thus, before attempting to demonstrate printing with Toshiba-TEC B-211 and B-415 via a ‘cordless’ (RF) connection, the formats must be loaded via a cable, as follows:
 
-* Connect the printer to the Motorola terminal via the appropriate serial cable
+* Connect the printer to the Zebra terminal via the appropriate serial cable
 * Start the program on the terminal and set the ‘Printer ID’ to “0000T21”.
 * Then print each of the following using the terminal’s demonstration program as detailed in Section 8:- Formats 1, 2 and 3 and ‘Variable Data’
 * Now switch the printer off, disconnect the cable, then switch the printer on again.
@@ -385,8 +385,8 @@ Now disconnect the ActiveSync connection and ‘cold boot’ the terminal accord
 Calibrate the screen, and set the date, time and regional settings as required.
 Return to Section 6 of this manual.
 
-Motorola, Moto, Motorola Solutions and the Stylized M Logo are trademarks or registered trademarks of Motorola Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners.
+Motorola, Moto, Zebra Technologies and the Stylized M Logo are trademarks or registered trademarks of Zebra Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners.
 
-©2011 Motorola Solutions, Inc. All Rights Reserved.
+©2011 Zebra Technologies, Inc. All Rights Reserved.
 
 

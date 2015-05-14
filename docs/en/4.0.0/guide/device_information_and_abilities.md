@@ -256,7 +256,7 @@ JavaScript syntax:
 
 ### CardReader
 
-RhoMobile supports integrated and add-on magnetic strip card readers on Motorola Solutions devices. The [CardReader API](../api/cardreader) `enumerate` method allows you to get a list of the available card readers.
+RhoMobile supports integrated and add-on magnetic strip card readers on Zebra Technologies devices. The [CardReader API](../api/cardreader) `enumerate` method allows you to get a list of the available card readers.
 
 Ruby syntax:
     :::ruby
@@ -288,22 +288,22 @@ JavaScript syntax:
 
 **NOTE: on iOS, Bluetooth connectivity is only allowed with another device also running iOS or an accessory that has been officially approved by Apple**
 
-### Motorola Device
+### Zebra Device
 
-You can check if the device running the application is a Motorola device which has additional device capabilities such as hardware barcode scanner, magnetic stripe reader, etc.
+You can check if the device running the application is a Zebra device which has additional device capabilities such as hardware barcode scanner, magnetic stripe reader, etc.
 
 Ruby syntax:
     :::ruby
     is_motorola_device = Rho::System.isMotorolaDevice
     if is_motorola_device
-        # do something with Motorola device specific capabilities
+        # do something with Zebra device specific capabilities
     end
 
 JavaScript syntax:
     :::javascript
     var is_motorola_device = Rho.System.isMotorolaDevice;
     if (is_motorola_device) {
-        // do something with Motorola device specific capabilities
+        // do something with Zebra device specific capabilities
     }
            
 ### RhoSimulator

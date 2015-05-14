@@ -79,7 +79,7 @@ The callback is a POST message; the body of the message contains the return stat
 </table>
 
 ## take_picture
-Take a picture. `options_hash` is used with iOS, Android, and RhoElements Motorola devices.
+Take a picture. `options_hash` is used with iOS, Android, and RhoElements Zebra devices.
 
 > Note: On low memory devices, the `take_picture` method may not work. As a workaround, you can use the `Imager` API's [`capture()`](../rhoelements/imager#methods) method.
 
@@ -100,7 +100,7 @@ JavaScript syntax:
 	</tr>
 	<tr>
 		<td><code>options_hash</code></td>
-		<td>(Android, iOS, Motorola devices only) a hash of additional parameters.</td>
+		<td>(Android, iOS, Zebra devices only) a hash of additional parameters.</td>
 	</tr>
 </table>
 
@@ -187,8 +187,8 @@ Once the user has taken/chosen a picture (`take_picture`, `choose_picture`), the
 	</tr>
 </table>
 
-## options_hash for RhoElements Motorola Devices
-`options_hash` is a hash used with `take_picture` on RhoElements Motorola devices, 
+## options_hash for RhoElements Zebra Devices
+`options_hash` is a hash used with `take_picture` on RhoElements Zebra devices, 
 
 <table border="1">
 	<tr>

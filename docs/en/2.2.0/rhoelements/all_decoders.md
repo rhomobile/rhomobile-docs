@@ -83,7 +83,7 @@ Some decoders will not be enabled as some symbologies use the same systems to en
 	</tr>
 	<tr>
 		<th class="tableHeading">Minimum Requirements</th>
-		<td class="clsSyntaxCell clsOddRow">Motorola barcode scanner hardware.</td>
+		<td class="clsSyntaxCell clsOddRow">Zebra barcode scanner hardware.</td>
 	</tr>
 	<tr>
 		<th class="tableHeading">Persistence</th>

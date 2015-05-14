@@ -23,7 +23,7 @@
 	<tr>
 		<td style="text-align:left;" class="clsSyntaxCells clsOddRow">
 			<b>PSExternal</b><br/>
-			Used to send commands via the Motorola Adaptive Printer Driver without returning a result.
+			Used to send commands via the Zebra Adaptive Printer Driver without returning a result.
 		</td>
 		<td style="text-align:left;" class="clsSyntaxCells clsOddRow">
 			<b>Name:</b> iCommand<br/>
@@ -39,7 +39,7 @@
 	<tr>
 		<td class="clsSyntaxCells clsEvenRow" style="text-align:left;">
 			<b>PSExternalEx</b><br/>
-			Used to send commands via the Motorola Adaptive Printer Driver, returning the result of the command.
+			Used to send commands via the Zebra Adaptive Printer Driver, returning the result of the command.
 		</td>
 		<td class="clsSyntaxCells clsEvenRow" style="text-align:left;">
 			<b>Name:</b> iCommand<br/>
@@ -55,7 +55,7 @@
 	<tr>
 		<td style="text-align:left;" class="clsSyntaxCells clsOddRow">
 			<b>PSGetLastMessage</b><br/>
-			Returns the last error message encountered by the Motorola Adaptive Printer Driver.
+			Returns the last error message encountered by the Zebra Adaptive Printer Driver.
 		</td>
 		<td style="text-align:left;" class="clsSyntaxCells clsOddRow"/>
 		<td style="text-align:left;" valign="top" class="clsSyntaxCells clsOddRow">String representing the last error message from the APD</td>
@@ -79,7 +79,7 @@ The APD Preexisting JavaScript Object provides backwards compatibility with code
 	</script>
 
 ###APD version
-The APD version returned by the Cmd_PSGetVersion command (decimal code 260) is not assumed to be the same across the supported platforms, even though the supported capabilities are the same. For instance, at the time of writing, the current version for Windows is 'Motorola APD V2.19.06', whereas the version for Android is Motorola APD V1.00.00A, with the terminating 'A' standing for Android.
+The APD version returned by the Cmd_PSGetVersion command (decimal code 260) is not assumed to be the same across the supported platforms, even though the supported capabilities are the same. For instance, at the time of writing, the current version for Windows is 'Zebra APD V2.19.06', whereas the version for Android is Zebra APD V1.00.00A, with the terminating 'A' standing for Android.
 
 ###Embedded Commands
 If an embedded command with a malformed code is sent via APD, for instance 'apd.PSExternal(266, "$$[CMD:-0104]$$")', Windows APD will not generate any output to the printer, but on Android the malformed command will be treated as a common string and therefore printed out.

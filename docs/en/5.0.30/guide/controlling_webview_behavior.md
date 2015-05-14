@@ -14,11 +14,11 @@ The native browser in Windows Mobile, however, is too limited for today's web de
 	capabilities:
 		- motorola_browser
 
-While the Motorola browser is also available for Android, its use is discouraged in RhoMobile 5.0 and intended only for Windows Mobile.
+While the Zebra browser is also available for Android, its use is discouraged in RhoMobile 5.0 and intended only for Windows Mobile.
 
 > Note: Although this alternative implementation is capable of supporting modern features, performance will be limited by the underlying hardware.
 
-> Note: In RhoMobile 2.0 and prior, using the Motorola browser was the only way to access RhoElements (licensed) APIs from your application but, this is no longer the case. Except on Windows Mobile, all APIs, licensed or not are available in the default browser.
+> Note: In RhoMobile 2.0 and prior, using the Zebra browser was the only way to access RhoElements (licensed) APIs from your application but, this is no longer the case. Except on Windows Mobile, all APIs, licensed or not are available in the default browser.
 
 ## Communication between WebView and Ruby code
 

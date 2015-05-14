@@ -1,5 +1,5 @@
-# Motorola Adaptive Printer Driver Overview
-Motorola Adaptive Printer Driver (APD) is a small executable program that runs on Motorola Mobile Computers. It provides a simple, yet powerful, interface to software applications, to transfer data from the user's software application to virtually any portable printer, via cable, or Bluetooth, short-range RF, or WLAN wireless connections.
+# Zebra Adaptive Printer Driver Overview
+Zebra Adaptive Printer Driver (APD) is a small executable program that runs on Zebra Mobile Computers. It provides a simple, yet powerful, interface to software applications, to transfer data from the user's software application to virtually any portable printer, via cable, or Bluetooth, short-range RF, or WLAN wireless connections.
 
 ## Why You Would Use the APD
 APD takes care of connectivity. APD takes care of different printer command languages. This means your application doesn't need to know what type of printer is being used, or how it is connected. You application only has to decide what to print, and to which printer.
@@ -121,7 +121,7 @@ However, there is one major problem: This will always print exactly the same rec
 
 So now, we can produce a template file which is the same as the text shown left, except that all the red text is replaced by markers to indicate the points at which new variable data is to be inserted by the application.
 
-Using the Motorola Adaptive Printer Driver, the template is external to the application. For the application programmer, this means that:
+Using the Zebra Adaptive Printer Driver, the template is external to the application. For the application programmer, this means that:
 
 * The application only needs to produce the variable text (I.e. the red bits)
 * The application programmer need have no knowledge of CPCL. (The template can be produced by someone else).
@@ -139,7 +139,7 @@ The markers (e.g. $$[1]$$) shown in red tell the APD where to insert the data fr
 ![img](http://rhodocs.s3.amazonaws.com/moto-adaptive-printer-driver/APD-Zebra-CPCP-example-template-1a.jpg)
 
 ### Example Template
-The template used by the Motorola Adaptive Printer Driver to print our receipt on the Zebra printer is shown below.
+The template used by the Zebra Adaptive Printer Driver to print our receipt on the Zebra printer is shown below.
 
 ![img](http://rhodocs.s3.amazonaws.com/moto-adaptive-printer-driver/APD-Zebra-CPCP-example-template-2.jpg)
 
@@ -166,7 +166,7 @@ Now that all the CPCL-specific commands and static data have been removed to the
 	 2 Coffee              œ  4.00
 	 1 Liqueur             œ  2.00
 
-* The top line is only necessary if the application is making use of the Adaptive Printer Driver's embedded commands (as required when using Motorola PocketBrowser). Refer to APD Programmer's Manual for details of the APD's command set.
+* The top line is only necessary if the application is making use of the Adaptive Printer Driver's embedded commands (as required when using Zebra PocketBrowser). Refer to APD Programmer's Manual for details of the APD's command set.
 * The second line specifies the template file required, in this case “TR2”. 
 * Note that the full name of the template file is actually “TR2.C22”, but the last part is determined automatically by the APD to suit the type of printer in use. In this way, the APD can select different template files if more than one printer type is in use; and the application need have no knowledge if which printer is in use.
 * The variables (“date” onwards) are then listed, one line for each, in the numeric order that they are used by the template, which in this case is not the order in which they are printed.
@@ -226,8 +226,8 @@ The above template uses a different central section to the one on the previous p
 * {AHEAD 20} has also been added to set the correct vertical position.
 
 ## Conclusion
-The previous pages show how the Motorola Adaptive Printer Driver makes use of template files to remove the need for application programs to deal with printer-specific command languages, and to allow the application to work with different types of printer without needing changes to the application program code.
+The previous pages show how the Zebra Adaptive Printer Driver makes use of template files to remove the need for application programs to deal with printer-specific command languages, and to allow the application to work with different types of printer without needing changes to the application program code.
 
 Examples of templates for two popular printers were shown. Both of these printers offer a line printer mode, as well as a PCL (printer command language) mode, and the templates use both PCL mode and line printer mode. However, it is also possible to produce templates for printers that only offer a PCL mode, or only offer a line printer mode (the latter option assumes that the printer can print graphics and barcodes).
 
-Motorola, Moto, Motorola Solutions and the Stylized M Logo are trademarks or registered trademarks of Motorola Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners. ©2011 Motorola Solutions, Inc. All Rights Reserved.
+Motorola, Moto, Zebra Technologies and the Stylized M Logo are trademarks or registered trademarks of Zebra Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners. ©2011 Zebra Technologies, Inc. All Rights Reserved.

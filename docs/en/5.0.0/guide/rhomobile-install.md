@@ -11,17 +11,17 @@ RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby is used on devices.
 Ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp).
 
 ### Download and Install
-Download and run the latest [Motorola RhoMobile Suite Installer](http://rhomobile.com/download/) for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
+Download and run the latest [Zebra RhoMobile Suite Installer](http://rhomobile.com/download/) for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
 
 **NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
-**NOTE: Use Motorola RhoStudio 32-bit launcher to run RhoStudio.**
+**NOTE: Use Zebra RhoStudio 32-bit launcher to run RhoStudio.**
 
 ### Setting the JDK Path
 Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section and set the Java bin path. Set this path to JDK, such as <tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt> .
 
 ### Understanding the Windows Installation
-Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
+Once you install Zebra RhoMobile Suite on Windows, you will see Zebra RhoMobile Suite on the Windows Start menu with the following options:
 
 * A link to the [developer community](http://developer.motorolasolutions.com).
 * A link to the [RhoMobile documentation](/home).
@@ -47,17 +47,17 @@ RhoMobile Native applications use Ruby 1.9.2-p290. This Ruby used on devices.
 Ensure that Java Development Kit is installed. The Sun JDK for Windows is available [here](http://java.sun.com/javase/downloads/index.jsp). Install Windows x64 JDK or x86 JDK or both.
 
 ### Download and Install
-Download and run the latest [Motorola RhoMobile Suite Installer](http://rhomobile.com/download/) for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
+Download and run the latest [Zebra RhoMobile Suite Installer](http://rhomobile.com/download/) for Windows. This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), Rhodes, RhoElements, RhoConnect and RhoConnect-Client packages.
 
 **NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
 ### Setting the JDK Path
 Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section, and set the Java bin path. Set this path to the x86 JDK, such as <tt>C:\Program Files (x86)\Java\jdk&lt;version number&gt;\bin</tt> .
 
-> Note: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br/>Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.
+> Note: Use Zebra RhoStudio 64-bit to run RhoStudio with x64 JDK.<br/>Use Zebra RhoStudio 32-bit to run RhoStudio with x86 JDK.
 
 ### Understanding the Windows Installation
-Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
+Once you install Zebra RhoMobile Suite on Windows, you will see Zebra RhoMobile Suite on the Windows Start menu with the following options:
 
 * A link to the [developer community](http://developer.motorolasolutions.com).
 * A link to the [RhoMobile documentation](/home).
@@ -124,9 +124,9 @@ Go to the [Node.js website](http://nodejs.org/#), and download and install Node.
     $ brew install node
 
 ### Download and Install
-Download the latest [Motorola RhoMobile Suite Installer](http://rhomobile.com/download/) for Macintosh.
+Download the latest [Zebra RhoMobile Suite Installer](http://rhomobile.com/download/) for Macintosh.
 
-Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
+Click on the Zebra RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
   <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhomobile-suite-mac-install-4.0.png" alt="RhoStudioInstaller Mac" />
 
 > Note: Do not use `sudo` when you install the gems: that can cause problems with file permissions when you run bundle commands within RhoStudio.
@@ -135,12 +135,12 @@ Run "Install gems". A terminal window will open. Select suitable Ruby version an
 
 Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
 
-Drag Motorola RhoStudio to the Applications folder.
+Drag Zebra RhoStudio to the Applications folder.
 
 > Note: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.
 
 ### Understanding the Installer Contents
-In addition to RhoStudio, the Motorola RhoMobile Suite Installer for Macintosh also contains:
+In addition to RhoStudio, the Zebra RhoMobile Suite Installer for Macintosh also contains:
 
 * A folder containing a RhoElements application.
 * A folder containing sample applications.

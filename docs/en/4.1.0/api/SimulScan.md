@@ -7,7 +7,7 @@ example, a driver&rsquo;s license can be thought of as a template containing reg
 and photo, each of these regions are processed and returned to RhoElements separately by SimulScan so Optical Character
 Recognition captures the owners name and address whilst their photo is captured separately. These regions are
 defined by a template which maps the various regions of the document to the data they contain and can be created
-on-line at <a href="https://dpx-uat.motorolasolutions.com/">The SimulScan template builder</a>. This API is available only on Motorola Android devices with firmware supporting SimulScan.</p>
+on-line at <a href="https://dpx-uat.motorolasolutions.com/">The SimulScan template builder</a>. This API is available only on Zebra Android devices with firmware supporting SimulScan.</p>
 <h2>Enabling the API</h2>
 
 <p>In order to use this API you must include the following extension in your <code>build.yml</code>.</p>

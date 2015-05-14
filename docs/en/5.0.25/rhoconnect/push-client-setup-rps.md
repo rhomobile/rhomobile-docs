@@ -23,7 +23,7 @@ The typical flow of a message using RPS:
 	+           +            +                 +
 
 ### Download and Install Node.js
-If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Motorola RhoMobile Suite for Windows includes Node.js in its installation.)
+If you are using a Macintosh, go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. (Zebra RhoMobile Suite for Windows includes Node.js in its installation.)
 
 ### Starting the Push Service
 RhoConnect Push Service is a separate process that will run on your machine and broker push messages between your RhoConnect server and registered devices.
@@ -131,9 +131,9 @@ The JSON file has the following parameters.
 ## Installing the rhoconnect-push-service Runtime Apps on the Mobile Device
 To use the RhoConnect Push Service in your client application, you must install the rhoconnect-push-service runtime app(s) on your mobile device.
 
-On the Macintosh, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation package, in a folder called rhoconnect-push-service.
+On the Macintosh, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Zebra RhoMobile Suite installation package, in a folder called rhoconnect-push-service.
 
-On Windows, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Motorola RhoMobile Suite installation, in a directory called rhoconnect-push-service.
+On Windows, the rhoconnect-push-service runtime apps for Android and for Windows Mobile are located in the Zebra RhoMobile Suite installation, in a directory called rhoconnect-push-service.
 
 ### Installing Runtime Apps on Android Device
 If you are using an Android device, install `rhoconnect_push_service.apk` to your device.

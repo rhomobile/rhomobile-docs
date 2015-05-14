@@ -168,7 +168,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 ## Config.xml
 ### What it affects
-> Note: The Config.xml effects applications that are using Motorola Webkit. However the setting `CAFile` in this file will be used for 4.0 applications using the stock browser.
+> Note: The Config.xml effects applications that are using Zebra Webkit. However the setting `CAFile` in this file will be used for 4.0 applications using the stock browser.
 
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
@@ -367,7 +367,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-> Note: The following settings effects applications that are using Motorola Webkit. However the setting `CAFile` in this file will be used for 4.0 native applications using the stock browser
+> Note: The following settings effects applications that are using Zebra Webkit. However the setting `CAFile` in this file will be used for 4.0 native applications using the stock browser
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
@@ -488,7 +488,7 @@ The following is an example of a typical configuration file
     <tr>
       <td>Screen\\FullScreen</td>
       <td>FULLSCREEN</td>
-      <td>Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
+      <td>Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customized Zebra user interface; in this case access is provided to the status bar at the top of the screen.</td>
       <td>0 - Disabled<BR>1 - Enabled</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
@@ -659,7 +659,7 @@ The following is an example of a typical configuration file
     <tr>
       <td class="clsEvenRow">HTTP_Proxy</td>
       <td class="clsEvenRow">HTTPPROXY</td>
-      <td class="clsEvenRow">Specifies the HTTP Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Note that this setting only applies to the Motorola WebKit engine.</td>
+      <td class="clsEvenRow">Specifies the HTTP Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Note that this setting only applies to the Zebra WebKit engine.</td>
       <td class="clsEvenRow">URL:PortNo</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
@@ -667,7 +667,7 @@ The following is an example of a typical configuration file
     <tr>
       <td>HTTPS_Proxy</td>
       <td>N/A</td>
-      <td>Specifies the HTTPS Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager. Leave this field blank to not use a proxy. Note that this setting only applies to the Motorola WebKit engine.</td>
+      <td>Specifies the HTTPS Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager. Leave this field blank to not use a proxy. Note that this setting only applies to the Zebra WebKit engine.</td>
       <td>URL:PortNo</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
@@ -675,7 +675,7 @@ The following is an example of a typical configuration file
     <tr>
       <td class="clsEvenRow">No_Proxy</td>
       <td class="clsEvenRow">NOPROXY</td>
-      <td class="clsEvenRow">Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24. Note this configuration setting is usable with the Motorola Webkit browser only.
+      <td class="clsEvenRow">Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24. Note this configuration setting is usable with the Zebra Webkit browser only.
       </td>
       <td class="clsEvenRow">Comma separated list of direct access addresses.</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
@@ -732,7 +732,7 @@ The following is an example of a typical configuration file
     <tr>
       <td>NPAPI\\Preloads\\PreloadLegacyActiveX</td>
       <td>PRELOADLEGACYACTIVEX</td>
-      <td>Whether or not to preload the ActiveX object in WebKit. You'll need to use this if you want backwards compatibility with code written in PocketBrowser that used the ActiveXObject. This setting is supported on Windows Mobile / CE with the Motorola Webkit only.</td>
+      <td>Whether or not to preload the ActiveX object in WebKit. You'll need to use this if you want backwards compatibility with code written in PocketBrowser that used the ActiveXObject. This setting is supported on Windows Mobile / CE with the Zebra Webkit only.</td>
       <td>0 - Do Not Preload<br>1 - Preload</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
@@ -833,7 +833,7 @@ The following is an example of a typical configuration file
     <tr>
       <td>HTMLStyles\\FontFamily</td>
       <td>FONTFAMILY</td>
-      <td>Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.</td>
+      <td>Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Zebra WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.</td>
       <td>Font name</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
@@ -841,7 +841,7 @@ The following is an example of a typical configuration file
     <tr>
       <td class="clsEvenRow">HTMLStyles\\FontDirectory</td>
       <td class="clsEvenRow">FONTDIRECTORY</td>
-      <td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Motorola WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
+      <td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Zebra WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
       <td class="clsEvenRow"><code>\Windows</code></td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
     </tr>

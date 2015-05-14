@@ -828,7 +828,7 @@ Returns results of the last Access operation
 
 ## Remarks
 ### Installation
-The RFID plug-in package for RhoElements 2.2 SP1 must be [downloaded separately on Motorola Solutions Support Site](http://goo.gl/4IwC6T) and installed on the device. Please refer to the RFID plug-in release notes included with the download for installation instructions. You can find a sample app [here](http://goo.gl/arDsF2) to see how to use rfid as the RhoMobile framework expects it to be used. And you can find release notes for the rfid plug-in and the sample app [here](http://goo.gl/VtCDnO). Once you have the plug-in installed, you'll also need to modify your config.xml setting `PreloadLegacyActiveX` and set it to '1' as such:
+The RFID plug-in package for RhoElements 2.2 SP1 must be [downloaded separately on Zebra Technologies Support Site](http://goo.gl/4IwC6T) and installed on the device. Please refer to the RFID plug-in release notes included with the download for installation instructions. You can find a sample app [here](http://goo.gl/arDsF2) to see how to use rfid as the RhoMobile framework expects it to be used. And you can find release notes for the rfid plug-in and the sample app [here](http://goo.gl/VtCDnO). Once you have the plug-in installed, you'll also need to modify your config.xml setting `PreloadLegacyActiveX` and set it to '1' as such:
 
 	:::xml
 	<PreloadLegacyActiveX value="1"/>

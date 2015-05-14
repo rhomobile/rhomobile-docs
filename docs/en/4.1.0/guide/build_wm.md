@@ -34,7 +34,7 @@ By default 'Windows Mobile 6 Professional SDK (ARMV4I)' SDK and "Windows Mobile 
 
 * 'target_sdk' may be:
  
-  "MC3000c50b (ARMV4I)" - for Motorola CE devices. Install MC3000c50b PSDK from [Symbol support site](http://support.symbol.com)
+  "MC3000c50b (ARMV4I)" - for Zebra CE devices. Install MC3000c50b PSDK from [Symbol support site](http://support.symbol.com)
   
   "Windows Mobile 6.5.3 Professional DTK (ARMV4I)" for latest Windows Mobile SDK.
   

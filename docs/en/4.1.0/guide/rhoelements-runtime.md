@@ -12,10 +12,10 @@ To enable your web app for RhoElements, perform these steps.
 
 ## Installing the RhoElements Runtime
 
-After you [install Motorola RhoMobile Suite](rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile and Windows CE. You will need to install the RhoElements Runtime on each device that will be used for your application.
+After you [install Zebra RhoMobile Suite](rhomobile-install), you will have access to a set of executables -- the RhoElements runtimes -- for Windows Mobile and Windows CE. You will need to install the RhoElements Runtime on each device that will be used for your application.
 
-* On Windows, you can find the RhoElements Runtimes in the Start Menu, under Motorola RhoMobile Suite.
-* On Macintosh, they are located in the Motorola RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.
+* On Windows, you can find the RhoElements Runtimes in the Start Menu, under Zebra RhoMobile Suite.
+* On Macintosh, they are located in the Zebra RhoMobile Suite Installer for Mac, in the RhoElements2 Shared Runtime folder.
 
 On Windows Mobile/CE devices, install the RhoElements Runtime.cab to \Program Files\RhoElements using ActiveSync or Windows Mobile Device Center. 
 
@@ -49,7 +49,7 @@ NOTE: You do not need to place your HTML files in the `Program Files\RhoElements
 
 This section assumes you have created your web pages to run locally on the device or remotely on a web server;
 
-1. Find the file "\Program Files\RhoElements\config\Config.xml" on your Motorola Windows Mobile/CE device and copy it to your PC.
+1. Find the file "\Program Files\RhoElements\config\Config.xml" on your Zebra Windows Mobile/CE device and copy it to your PC.
 2. Open config.xml in your PC's text editor.
 3. Find the "Application" entry in the config.xml file and change its startPage parameter to the location of your HTML pages either locally ex: "file://\helloscan.html" or on your web server: "http://mydomain.com/mystartpage.index.html"
 4. Copy the config.xml file on your PC back to your mobile device.

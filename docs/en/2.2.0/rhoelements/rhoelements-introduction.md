@@ -2,7 +2,7 @@
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements/RhodesvsRhoElements.png" width="550" />
 
-Motorola's RhoMobile Suite provides developers the best of all worlds for building cross platform enterprise applications. Most often, there is hesitation around developing cross platform applications because of the concern that certain features will be lost or cannot replicate properly in a non-native environment.  Developers now have a choice of using Ruby, JavaScript or HTML META tags for accessing device capabilities. These cross platform applications can be delivered to the device as a native application, or existing web applications can be extended to provide RhoElements features. RhoElement applications also provide a common user exeperience through a standard enterprise enhanced Motorola Webkit that not only runs on Android, but Windows Mobile and CE as well. 
+Motorola's RhoMobile Suite provides developers the best of all worlds for building cross platform enterprise applications. Most often, there is hesitation around developing cross platform applications because of the concern that certain features will be lost or cannot replicate properly in a non-native environment.  Developers now have a choice of using Ruby, JavaScript or HTML META tags for accessing device capabilities. These cross platform applications can be delivered to the device as a native application, or existing web applications can be extended to provide RhoElements features. RhoElement applications also provide a common user exeperience through a standard enterprise enhanced Zebra Webkit that not only runs on Android, but Windows Mobile and CE as well. 
 
 
 ## Hybrid and Native HTML5 applications
@@ -37,7 +37,7 @@ If you are planning on building multiple applications to be run on the same devi
 
 ## Rhodes Platform Changes
 
-As of Rhodes version 3.3.3, the [Barcode](../rhodesapi/barcode-api), [NFC](../rhodes/device-caps#nfc), and [Signature Capture](../rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](../rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](licensing) is required.
+As of Rhodes version 3.3.3, the [Barcode](../rhodesapi/barcode-api), [NFC](../rhodes/device-caps#nfc), and [Signature Capture](../rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](../rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Zebra RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](licensing) is required.
 
 ## Supported Operating Systems
 

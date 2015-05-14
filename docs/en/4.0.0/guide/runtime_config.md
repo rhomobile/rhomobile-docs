@@ -158,7 +158,7 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 ## Config.xml
 ### What it affects
-> Note: The Config.xml effects applications that are using Motorola Webkit. However the setting `CAFile` in this file will be used for 4.0 applications using the stock browser
+> Note: The Config.xml effects applications that are using Zebra Webkit. However the setting `CAFile` in this file will be used for 4.0 applications using the stock browser
 
 Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
@@ -336,7 +336,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-> Note: The following settings effects applications that are using Motorola Webkit. However the setting `CAFile` in this file will be used for 4.0 native applications using the stock browser
+> Note: The following settings effects applications that are using Zebra Webkit. However the setting `CAFile` in this file will be used for 4.0 native applications using the stock browser
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
@@ -428,7 +428,7 @@ The following is an example of a typical configuration file
   <tr>
     <td>Screen\\FullScreen</td>
     <td>FULLSCREEN</td>
-    <td>Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
+    <td>Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customized Zebra user interface; in this case access is provided to the status bar at the top of the screen.</td>
     <td>0 - Disabled<BR>1 - Enabled</td>
   </tr>
   <tr>
@@ -514,13 +514,13 @@ The following is an example of a typical configuration file
   <tr>
     <td>HTTP_Proxy</td>
     <td>HTTPPROXY</td>
-    <td>Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.</td>
+    <td>Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.</td>
     <td>URL:PortNo</td>
   </tr>
   <tr>
     <td class="clsEvenRow">HTTPS_Proxy</td>
     <td class="clsEvenRow">N/A</td>
-    <td class="clsEvenRow">Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</td>
+    <td class="clsEvenRow">Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</td>
     <td class="clsEvenRow">URL:PortNo</td>
   </tr>
   <tr>
@@ -628,13 +628,13 @@ The following is an example of a typical configuration file
   <tr>
     <td>HTMLStyles\\FontFamily</td>
     <td>FONTFAMILY</td>
-    <td>Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.</td>
+    <td>Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Zebra WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.</td>
     <td>Font name</td>
   </tr>
   <tr>
     <td class="clsEvenRow">HTMLStyles\\FontDirectory</td>
     <td class="clsEvenRow">FONTDIRECTORY</td>
-    <td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Motorola WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
+    <td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Zebra WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
     <td class="clsEvenRow"><code>\Windows</code></td>
   </tr>
   <tr>

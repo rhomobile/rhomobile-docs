@@ -8,13 +8,13 @@ In RhoMobile Suite 5.0.25 and up, the RhoConnect Client is available via an exte
 	extensions: ["rhoconnect-client"]
 
 ## Android WebKit
-In RhoMobile Suite 5.0.25 and up, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 5.0.25 RhoElement API's will only work using the stock webkit. RhoElement API's that have [not yet moved](#using-22-apirsquos) to version 5.0.25, however will only work on the Motorola Webkit for Android.
+In RhoMobile Suite 5.0.25 and up, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 5.0.25 RhoElement API's will only work using the stock webkit. RhoElement API's that have [not yet moved](#using-22-apirsquos) to version 5.0.25, however will only work on the Zebra Webkit for Android.
 
 ## Shared Runtime
-In RhoMobile Suite 2.0, there was a RhoElements Shared Runtime that was included with the installation. This application was a pre-built RhoMobile application that included application configuration options including the Motorola Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and build a RhoMobile application. Since the RhoMobile suite 5.0.25 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
+In RhoMobile Suite 2.0, there was a RhoElements Shared Runtime that was included with the installation. This application was a pre-built RhoMobile application that included application configuration options including the Zebra Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and build a RhoMobile application. Since the RhoMobile suite 5.0.25 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
 ## JavaScript Licensing
-In RhoMobile Suite 5.0.25 and up, more API's have JavaScript access that did not have this interface before. In addition some API's previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Motorola Webkit) but not necessarily on ruby. In 5.0.25 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
+In RhoMobile Suite 5.0.25 and up, more API's have JavaScript access that did not have this interface before. In addition some API's previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Zebra Webkit) but not necessarily on ruby. In 5.0.25 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
 
 ## API Platform Support
 It is the intention for all API's to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 5.0.25 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [API Summary](apisummary) for an overview.
@@ -353,7 +353,7 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * [Reboot](../../2.2.0/rhoelements/reboot)
 
 ### RhoElements 2.2 APIs
-The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
+The 2.2 RhoElement APIS are only supported on Zebra Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
 
 ### Rhodes 2.2 APIs
 2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 5.0.25 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`

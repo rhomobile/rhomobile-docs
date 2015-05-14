@@ -24,7 +24,7 @@ Applications that are running in a more traditional web app model are typically 
 
 ### Hybrid Application Development and Distribution
 
-To develop a RhoElements Hybrid application, use a web development environment, such as Eclipse or Visual Studio. You install the RhoElements Runtime on your mobile device; the runtime is a precompiled RhoElements native application written by Motorola Solutions. This application is responsible for reading your application's config.xml and directing the view to the URL specified as the "Start Page" in your application's config.xml.
+To develop a RhoElements Hybrid application, use a web development environment, such as Eclipse or Visual Studio. You install the RhoElements Runtime on your mobile device; the runtime is a precompiled RhoElements native application written by Zebra Technologies. This application is responsible for reading your application's config.xml and directing the view to the URL specified as the "Start Page" in your application's config.xml.
 
 **NOTE: This RhoElements runtime application works in the same way and will be 100% backwards compatible with RhoElements Version 1.x **
 

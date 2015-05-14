@@ -1,8 +1,8 @@
 # Barcode
 
-The Barcode API class allows you to capture barcode data using your devices camera and/or dedicated scanning component like a 1D laser or 2D imager scanner found on Motorola Solutions devices.
+The Barcode API class allows you to capture barcode data using your devices camera and/or dedicated scanning component like a 1D laser or 2D imager scanner found on Zebra Technologies devices.
 
-Because RhoMobile Suite is designed to run on both Consumer devices and Motorola Solutions' enterprise devices support for the Barcode API will vary from device to device. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Motorola Solutions' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a ‘one shot’ use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback).
+Because RhoMobile Suite is designed to run on both Consumer devices and Zebra Technologies' enterprise devices support for the Barcode API will vary from device to device. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Zebra Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a ‘one shot’ use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback).
 
 ## Default Object and Instance Objects
 In RhoMobile 5.0, we have introduced instance objects on certain API classes. For the Barcode API, if you simply access `Rho.Barcode` or `Rho::Barcode` this will invoke the default object which will pick the `best` scan engine on the device. You can also define your own instance of  Barcode object by either using the [Barcode.getDefault()](../api/barcode#mgetDefaultSTATIC) method or by using one of the objects returned in the [Barcode.enumerate()](../api/barcode#menumerateSTATIC) method. If you would like to change the properties of the default scanner so that you do not need to always reset properties or keep a global variable instance available
@@ -108,7 +108,7 @@ Ruby
 	end
 
 ### Dedicated Hardware Trigger
-On Motorola Solutions devices there is a dedicated hardware button that is used as a `scanner trigger`. In order to use this feature, you would use [Barcode.enable()](../api/barcode#menable). This will enable the scanner trigger for accepting barcodes. Like with the `take` method, we could optionally pass in a set of properties to use, but must always provide a callback for handling the result.
+On Zebra Technologies devices there is a dedicated hardware button that is used as a `scanner trigger`. In order to use this feature, you would use [Barcode.enable()](../api/barcode#menable). This will enable the scanner trigger for accepting barcodes. Like with the `take` method, we could optionally pass in a set of properties to use, but must always provide a callback for handling the result.
 
 The `Barcode.enable()` returns a different set of callback parameters:
 

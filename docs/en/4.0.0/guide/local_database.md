@@ -72,7 +72,7 @@ RhoMobile applications provide definition and CRUD access to your data models in
 
 ## Database Encryption
 
-**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to upgrade to RhoMobile Suite purchase a [RhoElements license](licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is removed from Rhodes. This feature is only supported in Zebra RhoMobile Suite. If you wish to use this feature, you will need to upgrade to RhoMobile Suite purchase a [RhoElements license](licensing) is required.**
 
 If your application requires that the local database is encrypted on the filesystem, you can enable it by setting a flag in `build.yml`:
 
