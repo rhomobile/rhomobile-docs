@@ -110,7 +110,7 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 
 ###The Mac OS X installation steps:<br>
 #####`-->> This process requires administrator access and write permissions in all areas. <<-- `
-`-->> All steps MUST be performed in this order! <<-- `<br>
+`-->> Steps MUST be performed in the following order <<-- `<br>
 #####0. Download and install XCode and corresponding Command Line Tools<br>
 #####1a. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
 #####1b. Copy RhoStudio to the development system's Applications folder `DO NOT LAUNCH!`<br>
@@ -126,9 +126,9 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 #### Detailed instructions for Mac OS X Installations:
 
 ###STEP 1: Download and Copy RhoMobile Suite 
-`-->> All steps MUST be performed in this order! <<-- `<br>
+`-->> Steps MUST be performed in the following order <<-- `<br>
 
-a. [**Download RhoMobile Suite**](http://rhomobile.com/download) and double-click it. A window similar to the following will open: <br>
+a. [**Download RhoMobile Suite**](http://rhomobile.com/download) disc image (a .dmg file) and double-click it. A window similar to the following will open: <br>
 
 ![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_Installer_disc_image.png)
 
@@ -151,20 +151,24 @@ This step installs a tool called Ruby Version Manager (RVM) that we'll use to in
 
 `\curl -sSL https://get.rvm.io | bash -s stable`<br>
 
-This goes to the "get.RVM" web site and securely downloads the latest stable version. As it installs, follow prompts and enter information as needed. 
+This command securely downloads the latest stable version of RVM from the "get.RVM" web site. <br>
 
-######*Terminal is in the Applications folder. To launch it directly:<br>Hit CMD-SPACE >> Type 'Term' >> Hit ENTER. 
+**Follow prompts and enter information as needed.** 
+
+*Terminal is included with Mac OS X and is in the Applications folder. <br>
+To launch Terminal directly:<br>
+**Hit CMD-SPACE >> Type 'Term' >> Hit ENTER.** 
 
 ### STEP 4: Install Ruby 1.9.3
-Now that you have RVM, you can use it to install Ruby 1.9.3. Remember, RhoMobile requires Ruby 1.9.3 and will not work with other versions. This step will not effect existing Ruby version(s) on your Mac, but Ruby 1.9.3 will become the default. 
+Now that you have RVM, you can use it to install Ruby 1.9.3 and some other useful stuff. Remember, RhoMobile requires Ruby 1.9.3 and will not work with other versions. This step will not effect existing Ruby version(s) on your Mac, but Ruby 1.9.3 will become the default. 
 
 **Open a _NEW_ Terminal window and install Ruby 1.9.3 with the following command:** 
 
 `rvm install 1.9.3`
 
-**When prompted, hit ENTER to install homebrew in the /user/local directory. Respond to additional prompts as needed. This may take a few minutes. 
+**You also might be promoted to install [homebrew](http://brew.sh/).** If so, just hit ENTER to install it in the default `/user/local` directory. Respond to additional prompts as needed. This step may take a few minutes. 
 
-Once complete, verify that Ruby 1.9.3 is the default by entering this command:**
+**Once complete, verify that Ruby 1.9.3 is the default by entering this command:**
 
 `ruby -v`
 
@@ -193,11 +197,11 @@ The final (required) step is to install Ruby gems. Gems are platform- and proces
 
 This process might take several minutes as it copies groups of gems.  
 
-**NOTE: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version.**<br>
+**NOTE: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version. Failure to do so might result in an improper installation.**<br>
 
->That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base. 
+>That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base. <br><br> **Optionally, scroll down in the RhoMobile Suite Installer .dmg and copy the files labeled "Launchpad" and "RhoMobile Docs." These contain links to the RhoMobile developer community and documentation sites.** 
 
->To launch RhoMobile, be sure to use one of the RhoMobile Launchers. Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
+>**To launch RhoMobile you MUST use one of the RhoMobile Launchers.** Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 >The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
