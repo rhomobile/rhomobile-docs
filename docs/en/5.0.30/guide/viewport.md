@@ -3,9 +3,9 @@
 Using the Viewport configuration setting in your app's config.xml, as well as in the HTML source of your app, you can configure the way your app will appear on a device based on either the device's width or a width you otherwise specify. We will go over a few of the less intuitive parts of the viewport configuration here.
 
 ## Enabling Viewport Modification
-This will enable you to use your stnadard viewport settings within the Motorola Webkit. For more information on the Viewport metatag see the [Mozilla Viewport Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
+This will enable you to use your stnadard viewport settings within the Zebra Webkit. For more information on the Viewport metatag see the [Mozilla Viewport Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
 
-Firstly, to enable the viewport in Motorola WebKit on Windows Mobile / CE you need to specify the following configuration option:
+Firstly, to enable the viewport in Zebra WebKit on Windows Mobile / CE you need to specify the following configuration option:
 
 `config.xml`
 	 

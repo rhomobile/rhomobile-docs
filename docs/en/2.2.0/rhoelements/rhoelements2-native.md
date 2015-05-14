@@ -84,9 +84,9 @@ The selected application capabilities will appear in the Capabilities: text fiel
 
 ## Building and Running RhoElements Native Applications in RhoStudio
 
-You need to perform some additional steps before you build and run a RhoElements application on [Motorola Mobile devices](rhoelements2-native#building-rhoelements-native-applications-for-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below. 
+You need to perform some additional steps before you build and run a RhoElements application on [Zebra Mobile devices](rhoelements2-native#building-rhoelements-native-applications-for-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below. 
 
-You need to edit your build.yml file before you build and run a RhoElements application on [non-Motorola Mobile devices](rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below.
+You need to edit your build.yml file before you build and run a RhoElements application on [non-Zebra Mobile devices](rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices). After those additional steps, you can follow essentially the same instructions as you would for a Rhodes application, as shown below.
 
 To start the build process in RhoStudio, create a Run Configuration: select your project in the Project Explorer, and select Run->Run Configurations… from the menu. The Run Configurations window appears.
 
@@ -96,9 +96,9 @@ To create a new build configuration for your application, select RhoMobile Appli
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements/new-configuration-rhoelements.png"/>
 
-## Building RhoElements Native Applications for Motorola Devices
+## Building RhoElements Native Applications for Zebra Devices
 
-You can build RhoElements native applications for Motorola devices by performing some additional steps. The Motorola devices run Windows Mobile, Windows CE, and Android.
+You can build RhoElements native applications for Zebra devices by performing some additional steps. The Zebra devices run Windows Mobile, Windows CE, and Android.
 
 *NOTE:  RhoElements applications will not work in the case of an incorrect network setup on a Windows Mobile device, because RhoElements relies on <code>localhost</code> hostname and <code>127.0.0.1</code> IP-address presence.
 
@@ -106,13 +106,13 @@ In general, when connected to a PC, the device should have Internet connectivity
 In case of broken Internet connectivity, make sure that at <code>Settings</code> » <code>Connections</code> » <code>Connections</code> » <code>Advanced</code> » <code>Select Networks</code>
 the value <code>My ISP</code> is selected in both select boxes.
 
-### Building on Motorola Windows Mobile Devices
+### Building on Zebra Windows Mobile Devices
 
-To build for Motorola Windows Mobile devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](../rhodes/build#build-for-windows-mobile).
+To build for Zebra Windows Mobile devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](../rhodes/build#build-for-windows-mobile).
 
-### Building on Motorola Windows CE Devices
+### Building on Zebra Windows CE Devices
 
-To build for Motorola Windows CE devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](../rhodes/build#build-for-windows-mobile).
+To build for Zebra Windows CE devices, you can create a run configuration in RhoStudio, choose Windows Mobile as the platform, and click the Run button. For detailed instructions on building and running on Windows Mobile, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Windows Mobile](../rhodes/build#build-for-windows-mobile).
 
 Additionally, you need to install MC3000c50b PSDK from the [Symbol support site](http://support.symbol.com/support/search.do?cmd=displayKC&docType=kc&externalId=11964&sliceId=&dialogID=45371217&stateId=0%200%2045367143). 
 
@@ -121,24 +121,24 @@ Then add MC3000c50b to your application's build.yml file.
         wm:
           sdk: "MC3000c50b (ARMV4I)"
 
-### Building on Motorola Android ET1 Devices
+### Building on Zebra Android ET1 Devices
 
-Before you build for a Motorola Android ET1 device, you need to:
+Before you build for a Zebra Android ET1 device, you need to:
 
 * Install [Android USB drivers](http://developer.android.com/sdk/win-usb.html).
 * On the ET1 device, define Symbol USB vendor ID (0x05e0) in (user_profile)/.android/adb_usb.ini.
 
 		0x05E0
 
-To build for Motorola Android ET1 devices, you can create a run configuration in RhoStudio, choose Android 2.3.4 as the platform, and click the Run button. For detailed instructions on building and running on Android, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Android](../rhodes/build#build-for-android).
+To build for Zebra Android ET1 devices, you can create a run configuration in RhoStudio, choose Android 2.3.4 as the platform, and click the Run button. For detailed instructions on building and running on Android, such as prerequisite software and setting SDK paths, refer to the Rhodes build instructions for [Android](../rhodes/build#build-for-android).
 
-## Building RhoElements Native Applications for non-Motorola Devices
+## Building RhoElements Native Applications for non-Zebra Devices
 
-You can build RhoElements applications that will run on devices other than Motorola devices.
+You can build RhoElements applications that will run on devices other than Zebra devices.
 
-### Building for Non-Motorola Windows Mobile/CE and Android Devices
+### Building for Non-Zebra Windows Mobile/CE and Android Devices
 
-To build a RhoElements application for a non-Motorola device on Android, Windows CE, or Windows Mobile, add the following to your application's build.yml file. This application will use the [Rhodes device capabilities](../rhodes/device-caps) but will provide the Motorola Webkit as the rendering engine (Android, Windows Mobile, Windows CE devices only).
+To build a RhoElements application for a non-Zebra device on Android, Windows CE, or Windows Mobile, add the following to your application's build.yml file. This application will use the [Rhodes device capabilities](../rhodes/device-caps) but will provide the Zebra Webkit as the rendering engine (Android, Windows Mobile, Windows CE devices only).
 
     app_type: rhoelements
     
@@ -155,7 +155,7 @@ To build a RhoElements application for Blackberry, have app_type set to rhoeleme
 
 For iOS or Blackberry, you must edit your build.yml file each time you build to ensure that app_type is set to rhoelements.
 
-## Enabling Motorola Device Capabilities
+## Enabling Zebra Device Capabilities
 
 By default, when creating an application using the app generator described above, RhoElements will be the default application type. If you have a previous Rhodes application that you would like to convert to a RhoElements application or if you did not have this option checked initially, all you need to do is add the following line in the build.yml file:
 
@@ -164,23 +164,23 @@ By default, when creating an application using the app generator described above
 
 NOTE: After application type change in build.yml it is required to run <code>rake clean:wm</code> and/or <code>rake clean:android</code> respectively from command line in the application folder, or check 'Clean before build' option in the respective Run Configuration(s).
 
-This indicates that your application will be a "RhoElements" application. This application type by default uses the Motorola Webkit as the rendering engine for your application interface. It also exposes [an extended set of RhoElements APIs](apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
+This indicates that your application will be a "RhoElements" application. This application type by default uses the Zebra Webkit as the rendering engine for your application interface. It also exposes [an extended set of RhoElements APIs](apicompatibility). If you build your application without this parameter, only the APIs that are indicated as <span class="label">RHODES</span> will be available and the default rendering engine will be unique to the native operating system that the application is deployed on.
 
 ## Pre Licensing Your Application
 
-A license is required to run a RhoElements application. On Non-Motorola devices that are running Android, iOS or Blackberry operating systems, you cannot license the application from the device. You will need to include the licensing information as part of the build process.  A 'Deployment License' is needed and the following information should be provided in the application's build.yml file. 
+A license is required to run a RhoElements application. On Non-Zebra devices that are running Android, iOS or Blackberry operating systems, you cannot license the application from the device. You will need to include the licensing information as part of the build process.  A 'Deployment License' is needed and the following information should be provided in the application's build.yml file. 
 
 	motorola_license_company: 'Deployment License Company name'
     motorola_license: 'Deployment License Number'
 
 When the application is started, the license is checked for validity. If the license is invalid, the user will be notified and have to acknowledge before proceeding. You may obtain this information from the [Software Licensing Server](https://softwarelicensing.motorolasolutions.com/). After logging into the server you will see your license information on the 'Deployment License' tab.
 
-NOTE: For Motorola devices and Non-Motorola devices that run Windows Mobile or Windows CE, the license cannot be obtained directly from the device or pre-bundled with the application. For these devices, you may either apply the license directly from the device using the licensing wizard's Manual or Internet methods.
+NOTE: For Zebra devices and Non-Zebra devices that run Windows Mobile or Windows CE, the license cannot be obtained directly from the device or pre-bundled with the application. For these devices, you may either apply the license directly from the device using the licensing wizard's Manual or Internet methods.
 
 See the [RhoElements Licensing page](licensing) for more information.
 
-## Enabling Motorola Webkit
-In conditions where you may have a traditional Rhodes application but would like to utilize the Motorola Webkit on Windows Mobile, Windows CE, or Android devices, add the Motorola browser capability to your application's build.yml file. 
+## Enabling Zebra Webkit
+In conditions where you may have a traditional Rhodes application but would like to utilize the Zebra Webkit on Windows Mobile, Windows CE, or Android devices, add the Zebra browser capability to your application's build.yml file. 
 
     capabilities:
     - motorola_browser
@@ -196,7 +196,7 @@ There are two steps to this setup.
 1. Install the RhoElements Runtime (can be done once).
 2. Build the application and indicate at build time that shared mode will be used.
 
-**NOTE: The RhoElements Runtime is only available on [Motorola Solutions devices](rhoelements-introduction#_motdevices). This is a more complicated setup that involves coordination at build and run times. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
+**NOTE: The RhoElements Runtime is only available on [Zebra Technologies devices](rhoelements-introduction#_motdevices). This is a more complicated setup that involves coordination at build and run times. It should be meant for scenarios that have multiple RhoElements applications running on the same device where you could be concerned about memory limitations. Failure to properly build and deploy will result in a non-functioning application.**
 
 <!-- PLACEHOLDER - DIAGRAM NEEDED -->
 
@@ -246,7 +246,7 @@ The following command line parameter is used by the RhoElements Runtime (`RhoEle
         of the RhoElements main application,
         e.g. -approot='\Program Files\app'
 
-If the `-approot` parameter is not present, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag of the RhoElements Runtime configuration file will be used as the start page parameter (usually it points to 'Welcome to Motorola RhoElements' page).
+If the `-approot` parameter is not present, then the value from `Configuration` > `Applications` > `Application` > `General` > `StartPage` tag of the RhoElements Runtime configuration file will be used as the start page parameter (usually it points to 'Welcome to Zebra RhoElements' page).
 
 Set the `approot` parameter in the .lnk file to point to your RhoElements main application, such as:
 
@@ -256,7 +256,7 @@ Set the `approot` parameter in the .lnk file to point to your RhoElements main a
 
 You can include a custom [RhoElements configuration file](ConfigurationSettings) `Config.xml` in your native application bundle.
 
-**NOTE: This only works on Windows Mobile and Android with Motorola WebKit. It does not work with RhoSimulator.**
+**NOTE: This only works on Windows Mobile and Android with Zebra WebKit. It does not work with RhoSimulator.**
 
 The only sections of `Config.xml` used in a native application are related to webkit and plug-in, such as specifying a user agent string. The Logger section and the startpath are ignored.
 
@@ -311,7 +311,7 @@ If you start your application with rake, then the log file is additionally store
 
 ### Accessing the rhodata Folder on Non-Rooted Devices
 
-On devices that are not rooted, like the Motorola ET1, the rhodata folder is not typically accessible through USB. You can change the location of the log file if you wish to have easy access to it.
+On devices that are not rooted, like the Zebra ET1, the rhodata folder is not typically accessible through USB. You can change the location of the log file if you wish to have easy access to it.
 
 Add the LogFilePath parameter to rhoconfig.txt (feel free to change the path).
 

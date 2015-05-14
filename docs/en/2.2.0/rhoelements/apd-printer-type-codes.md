@@ -1,12 +1,12 @@
-# Motorola Adaptive Printer Driver - Print Type Codes
+# Zebra Adaptive Printer Driver - Print Type Codes
 
-The Motorola Adaptive Printer Driver (APD) provides a simple, yet powerful, interface between your applications and virtually any portable printer.
+The Zebra Adaptive Printer Driver (APD) provides a simple, yet powerful, interface between your applications and virtually any portable printer.
 
 ## Overview
 
 By means of simple commands that are independent of printer type and connection, the host application can print labels, receipts, or tags, without knowledge of the command language used by the printer, or the way the printer is linked to the hand- held terminal. Thus, printer types can be mixed, or a new type can be added – with the host sending the information in the same simple, ‘unified’ form.
 
-The ‘key’ to the Adaptive Printer Driver is the “Printer ID” (PID) that identifies the type of printer, its command language, means of connection and other parameters, such as IP Address. Normally, the “Printer ID” is displayed in bar-coded form on a small label on the printer so that the user can transfer all the required parameters to the Motorola terminal, simply by scanning this label.
+The ‘key’ to the Adaptive Printer Driver is the “Printer ID” (PID) that identifies the type of printer, its command language, means of connection and other parameters, such as IP Address. Normally, the “Printer ID” is displayed in bar-coded form on a small label on the printer so that the user can transfer all the required parameters to the Zebra terminal, simply by scanning this label.
 
 An example of the PID for a printer for use in a Wireless Local Area Network is shown below.
 
@@ -119,7 +119,7 @@ The Bluetooth address, in the second barcode, is encoded as “0080371ABD79” t
 	</tr>
 	<tr>
 		<td>E10</td>
-		<td>Zebra TR220; Also sold as Motorola PGP1000</td>
+		<td>Zebra TR220; Also sold as Zebra PGP1000</td>
 	</tr>
 	<tr>
 		<td>F</td>
@@ -281,4 +281,4 @@ The Bluetooth address, in the second barcode, is encoded as “0080371ABD79” t
 
 Note 1: The APD will also accept the 5 digit ‘ID’ used by Toshiba-TEC printers. When this is entered, the APD will convert the 5 digit number to a 4 character hexadecimal code and assume “T” as the type code. This identifies the command language to be used, allowing data to be printed correctly. However, it does not allow the APD to determine the exact model of printer, so care needs to be taken in the naming of template and format files for these printers.
 
-Motorola, Moto, Motorola Solutions and the Stylized M Logo are trademarks or registered trademarks of Motorola Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners. ©2011 Motorola Solutions, Inc. All Rights Reserved.
+Motorola, Moto, Zebra Technologies and the Stylized M Logo are trademarks or registered trademarks of Zebra Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners. ©2011 Zebra Technologies, Inc. All Rights Reserved.

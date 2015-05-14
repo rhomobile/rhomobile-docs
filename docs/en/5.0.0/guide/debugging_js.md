@@ -370,7 +370,7 @@ In this example, I am showing just a few commands that can be run from the conso
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-barcode-take-and-failed-extension.png"/>
 
-As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is a Motorola Solutions ET1 which is in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the Barcode.take() method, so I know that the Barcode module is working properly.
+As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is a Zebra Technologies ET1 which is in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the Barcode.take() method, so I know that the Barcode module is working properly.
 
 Notice that when the barcode callback handler function is executed we are doing a `console.log(e)` where `e` is the callback return object. We can then simply inspect the object right in the console and see that it contains a `barcode` property and a `status` property. Exactly what is described in the [Barcode.take()](../api/barcode#mtake) method description. Using other means like looking in [Rholog.txt](logging) for information like this may be very time consuming and tedious to add code to output to the log, retrieve it from the device, etc.
 

@@ -777,7 +777,7 @@ To use number comparison conditions in find use CAST :
         
 ## Database Encryption
 
-**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](#database-encryption) is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](build_config#other-build-time-settings). Additionally, a [RhoElements license](licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](#database-encryption) is removed from Rhodes. This feature is only supported in Zebra RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](build_config#other-build-time-settings). Additionally, a [RhoElements license](licensing) is required.**
 
 If your application requires that the local database is encrypted on the filesystem, you can enable it by setting a flag in `build.yml`:
 

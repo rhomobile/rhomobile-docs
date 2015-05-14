@@ -2,7 +2,7 @@ Near Field Communications With Rhodes
 ========
 This tutorial will guide you through running near field communications with Rhodes. Near field communication is very similar to RFID, and you can even use near field communications to read RFID tags. It has features to have two devices communicate with each other, as well as act as mobile business cards.
 
-**NOTE: As of Rhodes version 3.3.3, the [NFC](rhodes/device-caps#nfc) API is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [NFC](rhodes/device-caps#nfc) API is removed from Rhodes. This feature is only supported in Zebra RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](rhoelements/licensing) is required.**
 
 Source Code
 -----------

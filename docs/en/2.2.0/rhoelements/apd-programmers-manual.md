@@ -1,6 +1,6 @@
-# Motorola Adaptive Printer Driver APD Programmer's Manual
+# Zebra Adaptive Printer Driver APD Programmer's Manual
 
-This document describes the printing features available to applications running on Motorola hand-held.
+This document describes the printing features available to applications running on Zebra hand-held.
 
 The Adaptive Printer Driver manages the physical interface between the terminal and portable printers, and provides:
 
@@ -13,11 +13,11 @@ Note that the Adaptive Printer Driver is external to the ‘application’ progr
 
 Further details are given in the following sections of this document.
 
-*NOTES:* The APD is available in two forms: the Windows “DLL” form should be used for all new applications, including applications employing Motorola RhoElements. The EXE form is provided to allow earlier applications using this form to be upgraded. Note that the EXE form does no support all of the functions available when using the DLL form of the APD.
+*NOTES:* The APD is available in two forms: the Windows “DLL” form should be used for all new applications, including applications employing Zebra RhoElements. The EXE form is provided to allow earlier applications using this form to be upgraded. Note that the EXE form does no support all of the functions available when using the DLL form of the APD.
 
 ## 1. Concept of the Adaptive Printer Driver
 
-The Motorola Adaptive Printer Driver (APD) was originally devised to allow terminal applications to support cordless printing, using an RF protocol devised by Symbol Technologies, called “SPAN” (Symbol Personal Area Network). However, as the APD uses a ‘multiple protocol’ concept, it was easy to add other RF protocols and ‘wired’ operation whilst, as far as the host application is concerned, the APD’s operation appears the same, whatever the connectivity.
+The Zebra Adaptive Printer Driver (APD) was originally devised to allow terminal applications to support cordless printing, using an RF protocol devised by Symbol Technologies, called “SPAN” (Symbol Personal Area Network). However, as the APD uses a ‘multiple protocol’ concept, it was easy to add other RF protocols and ‘wired’ operation whilst, as far as the host application is concerned, the APD’s operation appears the same, whatever the connectivity.
 
 The APD was designed to support many different printers, and to allow ‘new’ types of printer to be added freely. This was achieved by defining a simple command interface between the APD and the application that generates the data to be printed.
 
@@ -47,14 +47,14 @@ The Funtions section gives an overview of all the functions available and Annex 
 
 ## 2. Functions
 
-The Motorola Adaptive Printer Driver allows a wide range of printers, and other peripheral devices, to interface to application software operating on Motorola hand-held terminals. The driver provides a number of functions that are accessed directly from the terminal’s application program via a set of software commands.
+The Zebra Adaptive Printer Driver allows a wide range of printers, and other peripheral devices, to interface to application software operating on Zebra hand-held terminals. The driver provides a number of functions that are accessed directly from the terminal’s application program via a set of software commands.
 
 ### 2.1 Connection
 
 The driver controls the physical connection between the terminal and the peripheral device.
 The connection (or link) may be:
 
-* ‘Wired’, using a cable between the Motorola hand-held terminal and printer; or
+* ‘Wired’, using a cable between the Zebra hand-held terminal and printer; or
 * ‘Cordless’, using a radio-frequency (RF) link between the terminal and printer, or
 * ‘Wireless LAN’, where both the terminal and the printer are Mobile Units in a Wireless Local Area Network conforming to the IEEE 802.11 or 802.11b specifications; or
 * ‘Bluetooth’ wireless connectivity.
@@ -144,7 +144,7 @@ It sometimes takes a few seconds to open the required connection to the printer 
 
 #### 2.3.3 “BT Power On” and “BT Power Off” Commands
 
-Power to the ‘Marlin’ Bluetooth module used in some Motorola devices needs to be enabled to allow Bluetooth communication to take place. When the device initialises after a full reset (cold boot), ‘BT Power’ is set to off. However, the APD will set it to on if Bluetooth printing is requested. These commands are included to allow the application to control the power if required; for example to improve power management.
+Power to the ‘Marlin’ Bluetooth module used in some Zebra devices needs to be enabled to allow Bluetooth communication to take place. When the device initialises after a full reset (cold boot), ‘BT Power’ is set to off. However, the APD will set it to on if Bluetooth printing is requested. These commands are included to allow the application to control the power if required; for example to improve power management.
 
 ## ANNEX A: List of APD Functions
 
@@ -153,7 +153,7 @@ The Adaptive Printer Driver is supplied as a ‘Pocket PC’ DLL file (Dynamic L
 Some of the functions can be accessed using commands that interface directly to the APD. These ‘direct’ commands are described in section A.1.
 However, there are several functions that cannot be accessed directly and have to be accessed indirectly via the “PSExternal” command. In fact, all of the APD’s functions can be accessed by this method, but some functions require parameters that must be passed in the form of a data file. This is not always convenient, so it is also possible to access the APD’s functions by ‘embedding’ the command and its parameters into a string that can be passed directly without requiring a file.
 
-Sections A.2 and A.3 describe the ‘indirect, and ‘embedded’ methods respectively. Section A.4 provides a complete list of all the functions, in order of their command number. This section also includes examples of how the commands are implemented in ‘direct’, ‘indirect’ and ‘embedded’ forms. There is also an example of how the commands are implemented when using Motorola RhoElements, where the APD is provided as an Active-X object.
+Sections A.2 and A.3 describe the ‘indirect, and ‘embedded’ methods respectively. Section A.4 provides a complete list of all the functions, in order of their command number. This section also includes examples of how the commands are implemented in ‘direct’, ‘indirect’ and ‘embedded’ forms. There is also an example of how the commands are implemented when using Zebra RhoElements, where the APD is provided as an Active-X object.
 
 ### A.1 COMMAND FORMAT for ‘Direct’ Commands
 
@@ -334,7 +334,7 @@ Each field of variable data is on a separate line, where each line is terminated
 
 Normally, the Send Format command uses a filename without an extension, i.e. “LabelData”, and the APD would add an extension that corresponds to the type of printer in use. In this case, by including the extension, the APD uses the exact file specified. This can be useful where the data is not specific to one type of printer (as in this example).
 
-#### A.3.3 Embedding commands in “Motorola RhoElements” applications
+#### A.3.3 Embedding commands in “Zebra RhoElements” applications
 
 The following example shows how variable data can be sent using the “Send String” in a Browser application:
 
@@ -391,7 +391,7 @@ where:
 *Embedded* shows the form of the Command Header when this command is
 ‘embedded’ into another command. The Command Header may form part of the parameter string associated with command 010A (Send String), or the Command Header may be placed in a file that is called by the Send Format command (0100).
 
-*Browser* shows how the command can be used within Motorola RhoElements applications, where PSExternal is supported by creating an Active-X object containing the Adaptive Printer Driver.
+*Browser* shows how the command can be used within Zebra RhoElements applications, where PSExternal is supported by creating an Active-X object containing the Adaptive Printer Driver.
 
 The syntax for this form is:
 
@@ -605,7 +605,7 @@ Where the PID has been read from the barcoded label on the printer, ’Wireless 
 
 “Cabled” connections to printers (using a PID starting with “0000”) will normally use the parameters: 9600 baud, No parity, 8 Data bits, 1 Stop bit. However, if the printer language character is “C” (e.g. “000C53”), the baud rate is set to 19200.
 
-By default, the serial port is set as “COM1”. However, this can be changed to “COM5” to suit the Motorola MC50 terminal by including the file “APD-com5.reg” in the “\Application” folder. Note that this file is only activated during a ‘cold boot’.
+By default, the serial port is set as “COM1”. However, this can be changed to “COM5” to suit the Zebra MC50 terminal by including the file “APD-com5.reg” in the “\Application” folder. Note that this file is only activated during a ‘cold boot’.
 
 #### Command 0106 (Decimal 262) Get Current Printer.
 
@@ -687,7 +687,7 @@ Purpose: Not implemented on this version.
 
 Reference: Cmd\_PSSendString.
 
-Purpose: This command allows data to be sent directly, without needing to place it in a file first. This command is only supported by the DLL version of the driver (as used in the Motorola Pocket Browser). It is not supported by the EXE version. The string can contain ‘embedded’ commands as well as data.
+Purpose: This command allows data to be sent directly, without needing to place it in a file first. This command is only supported by the DLL version of the driver (as used in the Zebra Pocket Browser). It is not supported by the EXE version. The string can contain ‘embedded’ commands as well as data.
 
 Parameters: Data to be sent to the printer, or an ‘embedded’ command followed by
 data.
@@ -974,7 +974,7 @@ The Bluetooth radio takes approximately 5 seconds to deactivate when command 011
 
 ### B.1 Label Formats and Print Templates - Introduction
 
-Printers from different suppliers use different ‘languages’ to define the commands that control how information will appear when printed. (i.e. commands will define text font style, barcode symbology, the size and position of each field, etc.). The Motorola Printer Driver is able to encode data from an application into the ‘language’ suitable for the particular printer used. To do this, the essential elements of a particular printer’s language are defined either within the printer driver, or by a text file. This means that the application can easily use different types of printer, including ‘new’ printers, without needing any change to the driver itself or to the host application.
+Printers from different suppliers use different ‘languages’ to define the commands that control how information will appear when printed. (i.e. commands will define text font style, barcode symbology, the size and position of each field, etc.). The Zebra Printer Driver is able to encode data from an application into the ‘language’ suitable for the particular printer used. To do this, the essential elements of a particular printer’s language are defined either within the printer driver, or by a text file. This means that the application can easily use different types of printer, including ‘new’ printers, without needing any change to the driver itself or to the host application.
 
 Note that, for the driver to perform encoding, the data from the application must be presented in its ‘raw’ form, i.e. just the data variables, separated by ‘carriage return’, ‘line feed’. This implies that all the details of the presentation of the data, i.e. text font type, size and position on label; barcode symbology, size and position; and details of any lines or graphics used, must be defined elsewhere.
 
@@ -1096,7 +1096,7 @@ Note that, with CPCL, the quantity field forms part of the format file. Unless t
 ##### B.4.1.3 Format File (“Form2.C32”) for use with the above Print Template.
 
 This would have been loaded previously into the printer, either directly from a
-PC, or from the Motorola terminal using the “Send Format” command:
+PC, or from the Zebra terminal using the “Send Format” command:
 
 	! DF F2.FMT (Define Form “F2”)
 	! 0 200 200 300 \\ (Header, variable = qty.)
@@ -1282,7 +1282,7 @@ The above data would be inserted into this (plus the quantity, 1) to form the fo
 ##### B.4.2.3 Format File (“Form2.R60”) for use with the above Print Template.
 
 This would have been loaded previously into the printer, either directly from a
-PC, or from the Motorola terminal using the “Send Format” command:
+PC, or from the Zebra terminal using the “Send Format” command:
 
 	^C|^
 	^R|$|DR|^
@@ -1735,7 +1735,7 @@ The four zeros indicate a ‘wired’ connection to a printer using command lang
 Any other PIDs of this form, not shown above, will use the parameters:
 9600, N, 8, 1.
 
-NOTE: The ‘default’ serial communication port is “COM1”, which is used by most Motorola devices. However, the Motorola MC50 Mobile Computer uses “COM5”. To change the port used by the APD to “COM5”, add the file “APD-com5.reg” to the files placed in the terminal’s “\Application” folder. Note that this file only takes effect after a ‘cold boot’.
+NOTE: The ‘default’ serial communication port is “COM1”, which is used by most Zebra devices. However, the Zebra MC50 Mobile Computer uses “COM5”. To change the port used by the APD to “COM5”, add the file “APD-com5.reg” to the files placed in the terminal’s “\Application” folder. Note that this file only takes effect after a ‘cold boot’.
 
 #### 12345 Where “12345” may be any 5-digit number, except 00000.
 
@@ -1954,8 +1954,8 @@ Not yet implemented: Details to follow.
 
 Wired connections currently use a 5- or 7-character Peripheral Identifier.
 
-Motorola, Moto, Motorola Solutions and the Stylized M Logo are trademarks or registered trademarks of Motorola Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners.
+Motorola, Moto, Zebra Technologies and the Stylized M Logo are trademarks or registered trademarks of Zebra Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners.
 
-©2011 Motorola Solutions, Inc. All Rights Reserved.
+©2011 Zebra Technologies, Inc. All Rights Reserved.
 
 

@@ -103,7 +103,7 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 	<tr>
 		<td class="clsSyntaxCells clsOddRow"><b>getSmartBatteryStatus</b></td>
 		<td class="clsSyntaxCells clsOddRow">
-			Triggers a SmartBatteryEvent. This returns attributes about the battery such as number of charge cycles and date of manufacture. Please note that the Smart Battery is only supported on Motorola Devices running Windows Embedded Hand-held or CE and is dependent on the available hardware.</td>
+			Triggers a SmartBatteryEvent. This returns attributes about the battery such as number of charge cycles and date of manufacture. Please note that the Smart Battery is only supported on Zebra Devices running Windows Embedded Hand-held or CE and is dependent on the available hardware.</td>
 		<td class="clsSyntaxCells clsOddRow">N/A</td>
 	</tr>
 	<tr>
@@ -240,7 +240,7 @@ Returns various parameters relating to battery charge and battery hardware. Not 
 	<tr>
 		<td class="clsSyntaxCells clsEvenRow" style="text-align:left;">2</td>
 		<td class="clsSyntaxCells clsEvenRow" style="text-align:left;"><b>partNumber</b></td>
-		<td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The Motorola part number of the battery, e.g. 21-65587 Rev. A</td>
+		<td class="clsSyntaxCells clsEvenRow" style="text-align:left;">The Zebra part number of the battery, e.g. 21-65587 Rev. A</td>
 	</tr>
 	<tr>
 		<td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td>

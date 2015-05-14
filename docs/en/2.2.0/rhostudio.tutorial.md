@@ -48,7 +48,7 @@ On Windows XP reduce JVM heap size:<br>
 Open <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86\RhoStudio.ini</tt> file in editor.<br>
 Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".
 
-**NOTE: Use Motorola RhoStudio 32-bit launcher to run RhoStudio.**
+**NOTE: Use Zebra RhoStudio 32-bit launcher to run RhoStudio.**
 
 ### Installing on Windows 64-bit
 
@@ -58,8 +58,8 @@ Download the latest [RhoStudio for Windows](http://rhomobile.com/rhostudio-windo
 
 **NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
-**NOTE: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
-Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.**
+**NOTE: Use Zebra RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
+Use Zebra RhoStudio 32-bit to run RhoStudio with x86 JDK.**
 
 ### Setting path to the Java Development Kit
 
@@ -71,7 +71,7 @@ In RhoStudio Preferences, open RhoMobile and check that the path is set to your 
 
 **NOTE: You also can use RhoStudio to generate a RhoConnect application and source adapter. You can see an example in the [RhoConnect tutorial](rhoconnect/tutorial).**
 
-**NOTE: Motorola RhoMobile Suite installs into a Motorola RhoStudio folder. Old versions of RhoStudio installed into a RhoStudio folder. Check that you start from Motorola RhoStudio.**
+**NOTE: Zebra RhoMobile Suite installs into a Zebra RhoStudio folder. Old versions of RhoStudio installed into a RhoStudio folder. Check that you start from Zebra RhoStudio.**
 
 In RhoStudio, select File->New->Project...
 

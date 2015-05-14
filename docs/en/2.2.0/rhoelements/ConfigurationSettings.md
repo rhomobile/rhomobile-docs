@@ -262,7 +262,7 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >Screen\\FullScreen</td>
 <td >FULLSCREEN</td>
-<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="/rhoelements/Application">Application</a> tag.  Some Windows Mobile devices feature a customized Motorola user interface; in this case access is provided to the status bar at the top of the screen.</td>
+<td >Sets RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimised using the <a href="/rhoelements/Application">Application</a> tag.  Some Windows Mobile devices feature a customized Zebra user interface; in this case access is provided to the status bar at the top of the screen.</td>
 <td >0 - Disabled<BR>1 - Enabled</td>
 </tr>
 <tr>
@@ -349,13 +349,13 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td class="clsEvenRow">HTTP_Proxy</td>
 <td class="clsEvenRow">HTTPPROXY</td>
-<td class="clsEvenRow">Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.</td>
+<td class="clsEvenRow">Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.</td>
 <td class="clsEvenRow">URL:PortNo</td>
 </tr>
 <tr>
 <td >HTTPS_Proxy</td>
 <td >N/A</td>
-<td >Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Motorola WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</td>
+<td >Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</td>
 <td >URL:PortNo</td>
 </tr>
 <tr>
@@ -458,13 +458,13 @@ The following is an example of a typical configuration file, many of the attribu
 <tr>
 <td >HTMLStyles\\FontFamily</td>
 <td >FONTFAMILY</td>
-<td >Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Motorola WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet.</td>
+<td >Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows the default font has been set to 'Tahoma' as this is present on all Zebra WM / CE devices, note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The font specified must be stored in \Windows for Windows WM / CE devices, or /system/fonts for Enterprise Tablet.</td>
 <td >Font name</td>
 </tr>
 <tr>
 <td class="clsEvenRow">HTMLStyles\\FontDirectory</td>
 <td class="clsEvenRow">FONTDIRECTORY</td>
-<td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is \Windows on all Motorola WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
+<td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is \Windows on all Zebra WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
 <td class="clsEvenRow">\Windows</td>
 </tr>
 <tr>

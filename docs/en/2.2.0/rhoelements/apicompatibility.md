@@ -1650,7 +1650,7 @@ The following table shows the compatibility for each Mobile API.
 	</tbody>
 </table>
 
-> Note: As of Rhodes version 3.3.3, the [Barcode](../rhodes/device-caps#barcode), [NFC](../rhodes/device-caps#nfc), and [Inline Signature Capture](../rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](../rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Motorola RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](licensing) is required.**
+> Note: As of Rhodes version 3.3.3, the [Barcode](../rhodes/device-caps#barcode), [NFC](../rhodes/device-caps#nfc), and [Inline Signature Capture](../rhodes/device-caps#signature-capture) APIs, as well as [Rhom data encryption](../rhodes/rhom#database-encryption) are removed from Rhodes. These features are only supported in Zebra RhoMobile Suite. If you wish to use these features, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](licensing) is required.**
 
 ## Legend
 <table class="table">
@@ -1667,7 +1667,7 @@ The following table shows the compatibility for each Mobile API.
 			<span class="label label-inverse">
 				<span rel="tooltip" title="apptype: rhoelements is specified in the build.yml">RHOELEMENTS </span>
 			</span>&nbsp;
-			applications. Can be used on any supported device and is accessible either through the <a href="/rhoelements/rhoelements2-native#enabling-motorola-webkit">Motorola Webkit</a> or the <a href="/rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices"> device's browser</a>.
+			applications. Can be used on any supported device and is accessible either through the <a href="/rhoelements/rhoelements2-native#enabling-motorola-webkit">Zebra Webkit</a> or the <a href="/rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices"> device's browser</a>.
 		</td>
 	</tr>
 	<tr>
@@ -1676,7 +1676,7 @@ The following table shows the compatibility for each Mobile API.
 			<span class="label label-inverse">
 				<span rel="tooltip" title="apptype: rhoelements is specified in the build.yml">RHOELEMENTS</span>
 			</span>
-			&nbsp; applications using the <a href="/rhoelements/rhoelements2-native#enabling-motorola-webkit">Motorola Webkit</a>. APIs are only accesible when running on <a href="/rhoelements/rhoelements-introduction#_motdevices">Motorola Devices</a>  
+			&nbsp; applications using the <a href="/rhoelements/rhoelements2-native#enabling-motorola-webkit">Zebra Webkit</a>. APIs are only accesible when running on <a href="/rhoelements/rhoelements-introduction#_motdevices">Zebra Devices</a>  
 		</td>
 	</tr>
 	<tr>
@@ -1687,7 +1687,7 @@ The following table shows the compatibility for each Mobile API.
 			<span class="label label-inverse">
 				<span rel="tooltip" title="apptype: rhoelements is specified in the build.yml">RHOELEMENTS </span>
 			</span>
-			&nbsp;applications. Can be used on any supported device and is accessible either through the <a href="/rhoelements/rhoelements2-native#enabling-motorola-webkit">Motorola Webkit</a> or the <a href="/rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices"> device's browser</a>.
+			&nbsp;applications. Can be used on any supported device and is accessible either through the <a href="/rhoelements/rhoelements2-native#enabling-motorola-webkit">Zebra Webkit</a> or the <a href="/rhoelements/rhoelements2-native#building-rhoelements-native-applications-for-non-motorola-devices"> device's browser</a>.
 		</td>
 	</tr>
 </table>

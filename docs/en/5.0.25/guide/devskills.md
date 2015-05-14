@@ -4,7 +4,7 @@ You will use traditional Web skills when developing RhoMobile Applications inclu
 
 
 ##HTML
-RhoMobile applications run inside the native webkit supported webview control on modern platforms like Android and iOS as well as the Motorola Webkit on Windows Mobile/CE. RhoMobile supports modern HTML5 features, however like with standard browsers there may be differences in behavior.
+RhoMobile applications run inside the native webkit supported webview control on modern platforms like Android and iOS as well as the Zebra Webkit on Windows Mobile/CE. RhoMobile supports modern HTML5 features, however like with standard browsers there may be differences in behavior.
 
 ##JavaScript
 JavaScript can be used in the traditional sense for either application logic and/or for user interface using modern JavaScript frameworks. RhoMobile also provides a full set of framework and device capability APIs that can be accessed in JavaScript by including the RhoMobile JavaScript library.

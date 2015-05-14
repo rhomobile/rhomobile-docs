@@ -6,7 +6,7 @@ RhoElements Applications can be written either in SVG or HTML with both renderin
 RhoElements only supports the following types of application:
 <OL>
 <LI>HTML Only: Rendered with a WebKit based, HTML5 compliant rendering engine.</LI>
-<LI>SVG Only: Rendered with the proprietry Motorola SVG rendering engine.</LI>
+<LI>SVG Only: Rendered with the proprietry Zebra SVG rendering engine.</LI>
 <LI>HTML embedded within an SVG application.  Particularly useful for producing a scalable UI in SVG.</LI>
 </OL>
 

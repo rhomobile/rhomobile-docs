@@ -13,7 +13,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
     : Indicates this API/Platform requires a license for production use.
   </p>
   <p>
-    <img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"> 
+    <img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Zebra Devices Only"> 
     : Indicates this API is only available on Symbol devices.
   </p>
 </div>
@@ -80,7 +80,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
 
     <tr>
       <td>
-        <a href="../api/cardreader">CardReader<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only">
+        <a href="../api/cardreader">CardReader<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Zebra Devices Only">
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -158,7 +158,7 @@ Below is a list of the new common api's for RhoMobile Suite 4.1. Please consult 
 
     <tr>
       <td>
-        <a href="../api/keystate">KeyState<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Motorola Devices Only"></a>
+        <a href="../api/keystate">KeyState<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Zebra Devices Only"></a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
@@ -515,7 +515,7 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 **NOTE: When using 2.2 API's in RhoMobile 4.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 
 ### RhoElements 2.2 APIs
-The 2.2 RhoElement APIS are only supported on Motorola Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
+The 2.2 RhoElement APIS are only supported on Zebra Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
 
 ### Rhodes 2.2 APIs
 2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 4.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby API's will behave exactly as they did before.  Note that some of the Rhodes 2.2 API's provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`

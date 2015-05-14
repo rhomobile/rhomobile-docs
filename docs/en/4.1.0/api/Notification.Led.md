@@ -74,5 +74,5 @@ end
 <a name='Remarks'></a>
 <h2><i class='icon-warning-sign'></i>Remarks</h2>
 
-<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Underlying hardware</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>The LED API relies on Motorola drivers on Windows Mobile / CE and therefore will not work on non-Motorola platforms.  Depending on your device configuration, not all LEDs reported by the API may exist physically on the device.</p>
+<a name='r0'></a><div class=' remarks' id='r0'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark0"><strong>Underlying hardware</strong></div><div id="cRemark0" class="accordion-body">  <div class="accordion-inner"><p>The LED API relies on Zebra drivers on Windows Mobile / CE and therefore will not work on non-Zebra platforms.  Depending on your device configuration, not all LEDs reported by the API may exist physically on the device.</p>
   </div></div></div></div></div>

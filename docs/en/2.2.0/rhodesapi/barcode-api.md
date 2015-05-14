@@ -4,7 +4,7 @@ Allows the device to recognize a barcode. See the controller and view in the /ap
 
 See [Barcode in Device Capabilities](../rhodes/device-caps#barcode) for a discussion of barcode recognition.
 
-**NOTE: As of Rhodes version 3.3.3, the [Barcode](barcode-api), is removed from Rhodes. This feature is only supported in Motorola RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the [Barcode](barcode-api), is removed from Rhodes. This feature is only supported in Zebra RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](../rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../rhoelements/licensing) is required.**
 
 ## Using JavaScript API
 You can call some of the Barcode methods from JavaScript as well as Ruby. To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method.

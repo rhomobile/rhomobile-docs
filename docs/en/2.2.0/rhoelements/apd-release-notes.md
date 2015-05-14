@@ -1,16 +1,16 @@
-# Motorola Adaptive Printer Driver APD Release Notes
+# Zebra Adaptive Printer Driver APD Release Notes
 
 Adaptive Printer Driver v2-19.06
 
 ## Description
 
-Thank you for selecting Motorola Solutions, Inc as your mobility solution tool provider.  The Motorola Adaptive Printer Driver (APD) provides a simple way to interface application software to virtually any portable printer. 
+Thank you for selecting Zebra Technologies, Inc as your mobility solution tool provider.  The Zebra Adaptive Printer Driver (APD) provides a simple way to interface application software to virtually any portable printer. 
 
 For the latest software updates, go to the Developer & Software Tools page on the Support Central Web site at:
 
 [http://support.symbol.com/support/product/DEV_SW_TOOLS.html](http://support.symbol.com/support/product/DEV_SW_TOOLS.html)
 
-For more information on Motorola enterprise mobility devices, please visit:
+For more information on Zebra enterprise mobility devices, please visit:
 
 [http://www.motorola.com/enterprise](http://www.motorola.com/enterprise)
 
@@ -57,7 +57,7 @@ The Software Development Team
  
 Last revised:  August 5, 2011
 
-Copyright (c) 2011 Motorola Solutions, Inc. All rights reserved.
+Copyright (c) 2011 Zebra Technologies, Inc. All rights reserved.
  
  
 

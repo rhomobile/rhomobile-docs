@@ -34,7 +34,7 @@ You can change the default font if required, just make sure the requited .ttf fi
 
 ###The Default font
 
-Out of the box RhoElements is configured to use the Tahoma font on RhoElements, the main reason for this is that it is available on all Motorola Windows devices.  One limitation of tahoma is that it has no italicised variant.
+Out of the box RhoElements is configured to use the Tahoma font on RhoElements, the main reason for this is that it is available on all Zebra Windows devices.  One limitation of tahoma is that it has no italicised variant.
 
 ###Obtaining Truetype fonts
 

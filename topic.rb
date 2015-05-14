@@ -62,6 +62,10 @@ class Topic
 	end
 
 	def markdown(source)
+    source = source.gsub(/Motorola Solutions/,'Zebra Technologies')
+    source = source.gsub(/Motorola Webkit/,'Zebra Webkit')
+    source = source.gsub(/Motorola /,'Zebra ')
+    # source = source.gsub(/Motorola/,'Zebra')
 		html = RDiscount.new(notes(source), :smart).to_html
 		# parse custom {lang} definitions to support syntax highlighting
 		html.gsub(/<pre><code>\{(\w+)\}/, '<pre><code class="brush: \1;">')

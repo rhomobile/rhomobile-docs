@@ -5,7 +5,7 @@ This tutorial will outline the steps required to create a sample inventory manag
 Before we begin, make sure you have [downloaded and installed RhoMobile Suite](../rhomobile-install). Recall that RhoStudio is an Eclipse based IDE that allows you to write a mobile application using HTML, JavaScript and Ruby that will run on multiple mobile platforms. Each mobile platform’s development environment is used in the build process to compile a final executable for that platform. It is imperative that you have this complete development environment setup for each platform you will be building on. The prerequisites and setup for building on each mobile platform (for example, setting up an Android SDK) can be found [here](../rhodes/build). In this tutorial we will begin by developing using RhoSimulator, but the final application will be running on a device.
 
 ## Project Structure
-After launching Motorola RhoStudio, let’s create a new project inside by selecting ‘File/New Project’. You should see a dialog appear like the one below. Select ‘RhoMobile application’ and then click the ‘Next’ button.  
+After launching Zebra RhoStudio, let’s create a new project inside by selecting ‘File/New Project’. You should see a dialog appear like the one below. Select ‘RhoMobile application’ and then click the ‘Next’ button.  
 
 <img src="http://rhodocs.s3.amazonaws.com/rhoelements-tutorial/image001.png"/>
 
@@ -309,7 +309,7 @@ Next, we will setup the controller to trigger the Scanner to start as soon as th
 
 This function calls the Rhodes ‘Scanner’ class and firsts assigns a decode event callback. This function is what gets executed on a successful barcode decode. The ‘Scanner.enable’ line makes the scanner active for this page and the user can press the scanner button on the device to bring up the viewfinder and perform a scan. After enabling the scanner, the function renders the ‘scanPage.erb’ page and attaches the Back action to display the home screen, i.e. the ‘index.erb’ at the root of the ‘app’. 
 
-NOTE: At the time of writing this tutorial, the Scanner object is only available on Motorola Hardware. You will need a device at this point to complete the remainder of the project. Alternatively, I could have chosen the Barcode object with slightly different syntax. Please consult the complete list of Mobile APIs as well as the API Compatibility Matrix to see which APIs are supported on which platforms.
+NOTE: At the time of writing this tutorial, the Scanner object is only available on Zebra Hardware. You will need a device at this point to complete the remainder of the project. Alternatively, I could have chosen the Barcode object with slightly different syntax. Please consult the complete list of Mobile APIs as well as the API Compatibility Matrix to see which APIs are supported on which platforms.
 
 The ‘decodeEventCallback’ function is given below:
 

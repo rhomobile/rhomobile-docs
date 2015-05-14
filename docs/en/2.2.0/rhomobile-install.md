@@ -44,22 +44,22 @@ Install Ruby 1.9.3 with the following RVM command.
 
 ### Download and Install
 
-Download the latest [Motorola RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](rhoconnect/introduction) and [Rhodes](rhodes/introduction).
+Download the latest [Zebra RhoMobile Suite Installer for Macintosh](http://rhomobile.com/rhostudio-mac). This contains [Redis](http://redis.io/), [RhoConnect](rhoconnect/introduction) and [Rhodes](rhodes/introduction).
 
-Click on the Motorola RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
+Click on the Zebra RhoMobile Suite Installer for Mac download file to open it. You will get a window similar to this:<br>
   <img src="http://rhodocs.s3.amazonaws.com/rhodes-devel/rhostudio-mac-install.png" alt="RhoStudioInstaller Mac" />
 
 Run "Install gems". A terminal window will open. Select suitable Ruby version and whether to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
 
 Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
 
-Drag Motorola RhoStudio to the Applications folder.
+Drag Zebra RhoStudio to the Applications folder.
 
 **NOTE: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.**
 
 ### Understanding the Installer Contents
 
-In addition to RhoStudio, the Motorola RhoMobile Suite Installer for Macintosh also contains:
+In addition to RhoStudio, the Zebra RhoMobile Suite Installer for Macintosh also contains:
 
 * A folder containing a RhoElements application.
 * A folder containing sample applications.
@@ -86,7 +86,7 @@ Ensure that Java Development Kit is installed. The Sun JDK for Windows is availa
 
 ### Download and Install
 
-Download and run the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](rhoconnect/introduction) and [Rhodes](rhodes/introduction).
+Download and run the latest [Zebra RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](rhoconnect/introduction) and [Rhodes](rhodes/introduction).
 
 **NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
@@ -96,7 +96,7 @@ Find "<tt>-Xmx1024m</tt>" line and change it to "<tt>-Xmx512m</tt>".
 
 The 32-bit Windows version of the JDK is required for Blackberry tools.
 
-**NOTE: Use Motorola RhoStudio 32-bit launcher to run RhoStudio.**
+**NOTE: Use Zebra RhoStudio 32-bit launcher to run RhoStudio.**
 
 ### Setting the JDK Path
 
@@ -104,7 +104,7 @@ Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section a
 
 ### Understanding the Windows Installation
 
-Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
+Once you install Zebra RhoMobile Suite on Windows, you will see Zebra RhoMobile Suite on the Windows Start menu with the following options:
 
 * A link to the [developer community](http://developer.motorolasolutions.com).
 * A link to the [RhoMobile documentation](home).
@@ -136,12 +136,12 @@ Ensure that Java Development Kit is installed. The Sun JDK for Windows is availa
 
 ### Download and Install
 
-Download and run the latest [Motorola RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](rhoconnect/introduction) and [Rhodes](rhodes/introduction).
+Download and run the latest [Zebra RhoMobile Suite Installer for Windows](http://rhomobile.com/rhostudio-windows). This installs the [Ruby stack](http://www.ruby-lang.org/en/), [Redis](http://redis.io/), [RhoConnect](rhoconnect/introduction) and [Rhodes](rhodes/introduction).
 
 **NOTE: If you use Symantec Antivirus it can warn about "Suspicious.MLApp" security risk in rubyw.exe file during installation. It is known false positive in Symantec antivirus.<br>Ignore this warning.**
 
-**NOTE: Use Motorola RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
-Use Motorola RhoStudio 32-bit to run RhoStudio with x86 JDK.**
+**NOTE: Use Zebra RhoStudio 64-bit to run RhoStudio with x64 JDK.<br>
+Use Zebra RhoStudio 32-bit to run RhoStudio with x86 JDK.**
 
 ### Setting the JDK Path
 
@@ -149,7 +149,7 @@ Go to RhoStudio Preferences (Windows -> Preferences), select RhoMobile section, 
 
 ### Understanding the Windows Installation
 
-Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoMobile Suite on the Windows Start menu with the following options:
+Once you install Zebra RhoMobile Suite on Windows, you will see Zebra RhoMobile Suite on the Windows Start menu with the following options:
 
 * A link to the [developer community](http://developer.motorolasolutions.com).
 * A link to the [RhoMobile documentation](home).
@@ -177,9 +177,9 @@ Once you install Motorola RhoMobile Suite on Windows, you will see Motorola RhoM
 
 When you start RhoStudio, you set the location of the workspace directory. Set this path to a workspace directory that does not contain space symbols: if the path has spaces, a RhoConnect application created with RhoStudio will not work properly.
 
-## Checking for the Motorola RhoStudio Installation
+## Checking for the Zebra RhoStudio Installation
 
-Motorola RhoMobile Suite installs into a Motorola RhoStudio folder. Old versions of RhoStudio installed into a RhoStudio folder. Check that you start from Motorola RhoStudio.
+Zebra RhoMobile Suite installs into a Zebra RhoStudio folder. Old versions of RhoStudio installed into a RhoStudio folder. Check that you start from Zebra RhoStudio.
 
 ## Setup Rhodes SDKs
 

@@ -487,7 +487,7 @@ JavaScript syntax:
 
 ## eCompass
 
-The Motorola eCompass is a tilt compensated electronic compass utilizing an accelerometer and a magnetometer. It returns data about the orientation of the device in relation to the magnetic north of the Earth.
+The Zebra eCompass is a tilt compensated electronic compass utilizing an accelerometer and a magnetometer. It returns data about the orientation of the device in relation to the magnetic north of the Earth.
 
 Usage Examples:
 
