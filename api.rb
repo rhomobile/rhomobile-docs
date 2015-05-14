@@ -591,7 +591,7 @@ def self.getconstantlinks(doc)
 			indicators += '<img src="/img/windows.jpg" style="width: 20px;padding-top: 8px" rel="tooltip" title="Windows Desktop">'
 	  	end
 	  	if msionly
-			indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Motorola Devices Only">'
+			indicators += '<img src="/img/motowebkit.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Zebra Technologies Devices Only">'
 		end
 	end
   	return indicators
