@@ -13,7 +13,7 @@ Without Rhom, you would issue SQL statements to the database:
 
 With Rhom you can achieve the same result with:
     :::javascript
-    product.updateAttibutes({price: 119, brand: "Motorola"});
+    product.updateAttibutes({price: 119, brand: "Zebra"});
 
 Object deletion in SQL:
 

@@ -356,7 +356,7 @@ With a reference to the [ORMModel](../api/OrmModel), either retained after creat
 	// create a product and save it to the database
 	var product = rhoProductModel.create({
 		name: "ET1",
-		brand: "Motorola",
+		brand: "Zebra",
 		price: 199.99
 	});
 
@@ -403,7 +403,7 @@ That is all you need to do to integrate Backbone.js models and Rhom. Internally,
 
 	product.set({
 		name: "ET1",
-		brand: "Motorola",
+		brand: "Zebra",
 		price: 199.99
 		});
 

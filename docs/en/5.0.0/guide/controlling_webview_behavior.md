@@ -8,7 +8,7 @@ At its core, WebView is a web browser, capable of making requests both to the em
 
 There are two implementations of `WebView` available. The default implementation (`native_browser`) delegates all rendering and interaction to the native browser component provided by the operating system; that means on iOS, it will behave like Safari, on Android it uses the same engine as the browser included with the device, etc.
 
-The native browser in Windows Mobile, however, is too limited for today's web development standards. If you need more power than what Pocket Internet Explorer provides, there is an alternative implementation of `WebView`, developed by Motorola, which you can enable in your `build.yml` file, by adding the `motorola_browser` capability.
+The native browser in Windows Mobile, however, is too limited for today's web development standards. If you need more power than what Pocket Internet Explorer provides, there is an alternative implementation of `WebView`, developed by Zebra which you can enable in your `build.yml` file, by adding the `motorola_browser` capability.
 
 	:::yml
 	capabilities:

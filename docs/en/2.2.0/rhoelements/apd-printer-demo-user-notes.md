@@ -385,7 +385,7 @@ Now disconnect the ActiveSync connection and ‘cold boot’ the terminal accord
 Calibrate the screen, and set the date, time and regional settings as required.
 Return to Section 6 of this manual.
 
-Motorola, Moto, Zebra Technologies and the Stylized M Logo are trademarks or registered trademarks of Zebra Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners.
+Zebra Moto, Zebra Technologies and the Stylized M Logo are trademarks or registered trademarks of Zebra Trademark Holdings, LLC and are used under license. All other trademarks are the property of their respective owners.
 
 ©2011 Zebra Technologies, Inc. All Rights Reserved.
 

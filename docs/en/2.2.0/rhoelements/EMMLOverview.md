@@ -8,7 +8,7 @@ EMML (Enterprise Mobility Mark-Up Language) is an extension of the HTML language
 
 ###History
 
-EMML was first conceived by Symbol Technologies (now a wholly owned subsidiary of Motorola, Inc) in 2001. Part of the first version of PocketBrowser, it was originally a mechanism for providing access to the barcode scanner built into many of Symbol's enterprise mobility devices. It was extended to included features such as WLAN signal indicators, power statistics and access to the communications port to allow for input from custom devices such as magnetic card readers and temperature probes.
+EMML was first conceived by Symbol Technologies (now a wholly owned subsidiary of Zebra Inc) in 2001. Part of the first version of PocketBrowser, it was originally a mechanism for providing access to the barcode scanner built into many of Symbol's enterprise mobility devices. It was extended to included features such as WLAN signal indicators, power statistics and access to the communications port to allow for input from custom devices such as magnetic card readers and temperature probes.
 
 PocketBrowser version 1 was well received by developers in the enterprise arena, and the language portion of PocketBrowser (EMML) was duplicated by other hardware companies in the industry.
 
