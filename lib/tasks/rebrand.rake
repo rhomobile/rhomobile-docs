@@ -9,6 +9,8 @@ task :rebrand_moto do
 		    source = source.gsub(/Motorola Solutions/,'Zebra Technologies')
 		    source = source.gsub(/Motorola Webkit/,'Zebra Webkit')
 		    source = source.gsub(/Motorola /,'Zebra ')
+            source = source.gsub(/Motorola"/,'Zebra"')
+            source = source.gsub(/Motorola,/,'Zebra')
             File.open(doc,"w") do |fd|
 	          fd.write(source)
 	        end
