@@ -161,56 +161,7 @@ This process might take several minutes as it copies groups of gems.
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 >The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
-###Mac OS X Troubleshooting
-`UNDER CONSTRUCTION`
 
-
-###Setting the JDK Path
-
-If you have trouble with Java,
-
-Go to RhoStudio>>Preferences>>RhoMobile and confirm or set the Java bin path as <tt>/Library/Java/JavaVirtualMachines/jdk&lt;version number&gt;.jdk/Contents/Home/bin</tt>.
-
-
-
-
-###STEP 6: Setting up RhoConnect (Optional)
-RhoConnect IS THIS AND THAT. Explian why it's useful. 
-
-
-If you p
-
-### Setup for RhoConnect Push
-
-To use RhoConnect Push, you need to install Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
-
-Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
-
-    :::term
-    $ brew install node
-
-
-
-Run "Install gems". A terminal window will open. Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
-
-Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
-
-Drag RhoStudio to the Applications folder.
-
-> Note: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.
-
-### Understanding the Installer Contents
-In addition to RhoStudio, the RhoMobile Suite Installer for Macintosh also contains:
-
-* A folder containing a RhoElements application.
-* A folder containing sample applications.
-* A folder containing the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](../rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
-* A folder containing the RhoElements Runtime files.
-* A link to the [Developer Community](http://developer.motorolasolutions.com).
-* A link to the RhoMobile documentation website.
-
-### Git
-The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
 
 ## TROUBLESHOOTING
 
@@ -257,7 +208,13 @@ Install 64-bit Java (see above)<br>
 >**SOLUTION**<br>
 >Go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.<br>
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+##`THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
+
+
 
 ###PROBLEM (Mac)<br>
 >RhoStudio fails **BLAH BLAH BLAH** to start and displays no message. 
@@ -267,6 +224,57 @@ Install 64-bit Java (see above)<br>
 
 >**SOLUTION**<br>
 Install 64-bit Java (see above)<br> 
+
+
+###Mac OS X Troubleshooting
+
+
+
+###Setting the JDK Path
+
+If you have trouble with Java,
+
+Go to RhoStudio>>Preferences>>RhoMobile and confirm or set the Java bin path as <tt>/Library/Java/JavaVirtualMachines/jdk&lt;version number&gt;.jdk/Contents/Home/bin</tt>.
+
+
+
+
+###STEP 6: Setting up RhoConnect (Optional)
+RhoConnect IS THIS AND THAT. Explian why it's useful. 
+
+
+If you p
+
+### Setup for RhoConnect Push
+
+To use RhoConnect Push, you need to install Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
+
+Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
+
+    :::term
+    $ brew install node
+
+
+Run "Install gems". A terminal window will open. Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
+
+Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
+
+Drag RhoStudio to the Applications folder.
+
+> Note: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.
+
+### Understanding the Installer Contents
+In addition to RhoStudio, the RhoMobile Suite Installer for Macintosh also contains:
+
+* A folder containing a RhoElements application.
+* A folder containing sample applications.
+* A folder containing the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](../rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
+* A folder containing the RhoElements Runtime files.
+* A link to the [Developer Community](http://developer.motorolasolutions.com).
+* A link to the RhoMobile documentation website.
+
+### Git
+The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
 
 Note: Installing RhoStudio as a plugin for Eclipse is currently disabled. RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
 
