@@ -49,7 +49,7 @@ The RhoMobile installer for Windows places the following items in the Windows St
 * A link to the RhoConnect Push Service files
 * An uninstaller for RhoMobile Suite
 
-NOTE: TO run RhoStudio, you MUST USE THE RHOSTUDIO LAUNCHERS. Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
+NOTE: To run RhoStudio, you MUST USE THE RHOSTUDIO LAUNCHERS. Before building your first project, you'll be prompted to create a free account at http://rms.rhomobile.com. Just enter a valid email address and password. 
 
 ### Ruby
 The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
@@ -69,10 +69,10 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 #####0. Download and install XCode and corresponding Command Line Tools<br>
 #####1a. Download RhoMobile Suite (.dmg) from [RhoMobile.com](http://rhomobile.com/download)<br>
 #####1b. Copy RhoStudio to the development system's Applications folder `DO NOT LAUNCH!`<br>
-#####2. Download and install the Java 6 SDK from Java.com (see below for link)<br>
+#####2. Download and install the Java 6 SDK from Java.com (see link, below)<br>
 #####3. Use Terminal to install Ruby Version Manager (RVM)<br>
 #####4. Use RVM to install Ruby 1.9.3 (even if you have a newer version)<br>
-#####5. Run the "install gems" Terminal script from the RhoSuite .dmg
+#####5. Run the "install gems" Terminal script from the RhoMobile Suite .dmg
 **OPTIONAL STEPS:** 
 #####6. Run the "Install RhoConnect-push" Terminal script<br>
 #####7. Set up native SDKs for specific target devices (Android, iOS)
@@ -121,13 +121,13 @@ Now that you have RVM, you can use it to install Ruby 1.9.3 and some other usefu
 
 `rvm install 1.9.3`
 
-**You also might be promoted to install [homebrew](http://brew.sh/).** If so, just hit ENTER to install it in the default `/user/local` directory. Respond to additional prompts as needed. This step may take a few minutes. 
+**You also might be prompted to install [homebrew](http://brew.sh/).** If so, just hit ENTER to install it in the default `/user/local` directory. Respond to additional prompts as needed. This step may take a few minutes. 
 
 **Once complete, verify that Ruby 1.9.3 is the default by entering this command:**
 
 `ruby -v`
 
-The result should be something similar to:
+The result should be something similar to this:
 `ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-darwin14.0.0]`
 
 
@@ -137,30 +137,46 @@ The result should be something similar to:
 
 The final (required) step is to install Ruby gems. Gems are platform- and processor-specific Ruby apps and libraries that deliver much of the key functionality of the RhoMobile platform. Gems are copied from the installation disk image (.dmg) to your hard drive using a Terminal script included with the installer image.
 
-**NOTE: If additional gems are needed in the future, do not use `sudo` to install them; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
-
 **Double-click "Install gems" from the RhoMobile Suite Installer .dmg (below) introduced earlier.<br> A Terminal window will open.**<br>
 
 ![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_Installer_Install_gems.png)
 
+**When prompted, select N to avoid using `sudo` to install gems.** This process might take a while; it copies several groups of gems.  
 
-**If you're given a choice similar to the one below, select option 1.** 
+>**If you're given a choice similar to the one below, select option 1.** 
 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/which_ruby.png)
 
-**When prompted, select N to avoid using `sudo` to install gems.**
-
-This process might take several minutes as it copies groups of gems.  
+**NOTE: If additional gems are needed in the future, do not use `sudo` to install them; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
 
 **NOTE: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version. Failure to do so might result in an improper installation.**<br>
 
->That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base. <br><br> **Optionally, scroll down in the RhoMobile Suite Installer .dmg and copy the files labeled "Launchpad" and "RhoMobile Docs." These contain links to the RhoMobile developer community and documentation sites.** 
+>That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base. <br><br> 
+**Before you close the installer image, you might want to copy the files labeled "Launchpad" and "RhoMobile Docs" (you might have to scroll down to see them). They contain links to the RhoMobile developer community and documentation sites.** 
 
 >**To launch RhoMobile you MUST use one of the RhoMobile Launchers.** Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
->The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
+> FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
+###STEP 6: Setting up RhoConnect (Optional)
+RhoConnect is an optional add-on to the RhoMobile Suite that permits development of data-driven apps that can use synchronization to connect with one or more remote systems and operate with or without a data connection. RhoConnect simplifies integration with enterprise back-end systems,be they cloud-based, on-premise or a combination of both. 
+
+
+To use RhoConnect Push, you need to install Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
+
+Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
+
+    :::term
+    $ brew install node
+
+
+Run "Install gems". A terminal window will open. Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
+
+Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
+
+###STEP 7: Setting up Native SDKs (Optional)
+If you plan to build native apps that target devices running Android, iOS or Windows Mobile, 
 
 
 ## TROUBLESHOOTING
@@ -229,35 +245,12 @@ Install 64-bit Java (see above)<br>
 ###Mac OS X Troubleshooting
 
 
-
 ###Setting the JDK Path
 
 If you have trouble with Java,
 
 Go to RhoStudio>>Preferences>>RhoMobile and confirm or set the Java bin path as <tt>/Library/Java/JavaVirtualMachines/jdk&lt;version number&gt;.jdk/Contents/Home/bin</tt>.
 
-
-
-
-###STEP 6: Setting up RhoConnect (Optional)
-RhoConnect IS THIS AND THAT. Explian why it's useful. 
-
-
-If you p
-
-### Setup for RhoConnect Push
-
-To use RhoConnect Push, you need to install Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
-
-Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
-
-    :::term
-    $ brew install node
-
-
-Run "Install gems". A terminal window will open. Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
-
-Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
 
 Drag RhoStudio to the Applications folder.
 
