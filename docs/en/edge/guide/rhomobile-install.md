@@ -137,7 +137,8 @@ The result should be something similar to this:
 
 The final (required) step is to install Ruby gems. Gems are platform- and processor-specific Ruby apps and libraries that deliver much of the key functionality of the RhoMobile platform. Gems are copied from the installation disk image (.dmg) to your hard drive using a Terminal script included with the installer image.
 
-**Double-click "Install gems" from the RhoMobile Suite Installer .dmg (below) introduced earlier.<br> A Terminal window will open.**<br>
+**Double-click "Install gems" from the RhoMobile Suite Installer .dmg (below) introduced earlier.<br>**
+A Terminal window will open.<br>
 
 ![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_Installer_Install_gems.png)
 
@@ -151,10 +152,10 @@ The final (required) step is to install Ruby gems. Gems are platform- and proces
 
 **NOTE: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version. Failure to do so might result in an improper installation.**<br>
 
->That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base. <br><br> 
-**Before you close the installer image, you might want to copy the files labeled "Launchpad" and "RhoMobile Docs" (you might have to scroll down to see them). They contain links to the RhoMobile developer community and documentation sites.** 
+>That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base!<br><br> 
+**Before you close the installer image, you might want to copy the files labeled "Launchpad" and "RhoMobile Docs" (scroll down in the .dmg window if you can't see them).** These files contain links to the [RhoMobile developer community](https://developer.motorolasolutions.com/welcome) and [RhoMobile documentation](http://docs.rhomobile.com/) sites. 
 
->**To launch RhoMobile you MUST use one of the RhoMobile Launchers.** Before building your first project, you'll be promoted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password. 
+>**NOTE: TO LAUNCH RHOMOBILE:** You MUST use one of the RhoMobile Launchers.** (Before building your first project, you'll be prompted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password). 
 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
@@ -187,7 +188,7 @@ If you plan to build native apps that target devices running Android, iOS or Win
 ## TROUBLESHOOTING
 
 ###PROBLEM (Win)<br>
->"Failed to create the Java Virtual Machine"
+>**"Failed to create the Java Virtual Machine"**
 
 >**POSSIBLE CAUSE**<br>
 >Insufficient memory
@@ -195,24 +196,25 @@ If you plan to build native apps that target devices running Android, iOS or Win
 >**SOLUTION**<br>
 >Reduce the size of the JVM heap:<br> 
 
->* Use a text editor to open the file: <tt>&lt;RhoMobileSuiteDir&gt;\rhostudio\win32.win32.x86_64\RhoStudio.ini</tt><br>
->* Search for "<tt>-Xmx1024m</tt>"<br>
->* Change it to "<tt>-Xmx512m</tt>"<br>
+>1) Use a text editor to open the file:<br><br>
+`<RhoMobileSuiteDir>\rhostudio\win32.win32.x86_64\RhoStudio.ini`<br><br>
+>2) Search for `-Xmx1024m`<br><br>
+>3) Change it to `-Xmx512m`<br>
 
 >This will halve the memory used by the Java Virtual Machine.<br>
 
 ###PROBLEM (Win)<br>
->"Failed to load the JNI shared library..."
+>**"Failed to load the JNI shared library..."**
 
 >**POSSIBLE CAUSE**<br>
 >Incompatibility between the RhoStudio launcher and the JDK version installed. 
 
->**SOLUTION**<br>
+>**POSSIBLE SOLUTIONS**<br>
 >- Make sure the JDK and RhoStudio launcher match x86 vs. x64)  
 >- Reinstall the JDK
 
 ###PROBLEM (Win)<br>
->RhoStudio fails to start and displays no message. 
+>**RhoStudio fails to start and displays no message.** 
 
 >**POSSIBLE CAUSE**<br>
 >Attempting to launch 64-bit RhoStudio without 64-bit Java 
@@ -221,7 +223,7 @@ If you plan to build native apps that target devices running Android, iOS or Win
 Install 64-bit Java (see above)<br> 
 
 ###PROBLEM (Win)<br>
->RhoConnect applications don't work properly
+>**RhoConnect applications don't work properly**
 
 >**POSSIBLE CAUSE**<br>
 >Spaces exist in the Workspace path
@@ -229,32 +231,44 @@ Install 64-bit Java (see above)<br>
 >**SOLUTION**<br>
 >Go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.<br>
 
-
-
-
-
-##`THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
-
-
-
 ###PROBLEM (Mac)<br>
->RhoStudio fails **BLAH BLAH BLAH** to start and displays no message. 
+>**ERROR: "Cannot Find Rhodes..."** 
+
+><FILE: cannot-find_rhodes.png> 
 
 >**POSSIBLE CAUSE**<br>
->Attempting to launch 64-bit RhoStudio without 64-bit Java 
+>Failed to use one of the RhoStudio launcher scripts  
 
 >**SOLUTION**<br>
-Install 64-bit Java (see above)<br> 
+>Launch with the "RhoStudio 32-bits" or "RhoStudio 64-bits script<br> 
+>![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
+> FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
+
+>###PROBLEM (Mac)<br>
+>problem description
+
+>**POSSIBLE CAUSE**<br>
+>cause description   
+
+>**SOLUTION**<br>
+>solution description<br> 
 
 
-###Mac OS X Troubleshooting
+<FILE: rhomobile-suite_RhoConnect_push.png> 
+
+
+
+### >>>-------> `THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
+
 
 
 ###Setting the JDK Path
 
 If you have trouble with Java,
 
-Go to RhoStudio>>Preferences>>RhoMobile and confirm or set the Java bin path as <tt>/Library/Java/JavaVirtualMachines/jdk&lt;version number&gt;.jdk/Contents/Home/bin</tt>.
+Go to RhoStudio>>Preferences>>RhoMobile and confirm or set the Java bin path as <tt>/System/Library/Java/JavaVirtualMachines/jdk&lt;version number&gt;.jdk/Contents/Home/bin</tt>.
+
+
 
 
 Drag RhoStudio to the Applications folder.
