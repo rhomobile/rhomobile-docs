@@ -160,10 +160,15 @@ The final (required) step is to install Ruby gems. Gems are platform- and proces
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
 ###STEP 6: Setting up RhoConnect (Optional)
-RhoConnect is an optional add-on to the RhoMobile Suite that permits development of data-driven apps that can use synchronization to connect with one or more remote systems and operate with or without a data connection. RhoConnect simplifies integration with enterprise back-end systems,be they cloud-based, on-premise or a combination of both. 
+RhoConnect is an optional add-on to the RhoMobile Suite that permits development of data-driven apps that can operate with or without a data connection. RhoConnect delivers synchronization and simple integration with enterprise back-end systems in the cloud, on premises or any combination of the two. 
 
 
-To use RhoConnect Push, you need to install Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
+**To install RhoConnect, launch "Install RhoConnect-push" from the RhoMobile SUite installer disc image. 
+
+<FILE: rhomobile-suite_RhoConnect_push.png> 
+
+
+It relies on Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
 
 Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
 
