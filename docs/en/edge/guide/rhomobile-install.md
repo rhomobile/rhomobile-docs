@@ -160,6 +160,84 @@ A Terminal window will open.<br>
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
+
+## TROUBLESHOOTING
+
+>###PROBLEM (Win)
+>"Failed to create the Java Virtual Machine"<br>
+
+>**POSSIBLE CAUSE**<br>
+>Insufficient memory
+
+>**SOLUTION**<br>
+>Reduce the size of the JVM heap:<br> 
+
+>1) Use a text editor to open the file:<br><br>
+`<RhoMobileSuiteDir>\rhostudio\win32.win32.x86_64\RhoStudio.ini`<br><br>
+>2) Search for `-Xmx1024m`<br><br>
+>3) Change it to `-Xmx512m`<br>
+
+>This will halve the memory used by the Java Virtual Machine<br>
+
+>###PROBLEM (Win)
+
+>"Failed to load the JNI shared library..."<br>
+>**POSSIBLE CAUSE**<br>
+>Incompatibility between the RhoStudio launcher and the JDK version installed. 
+
+>**POSSIBLE SOLUTIONS**<br>
+>- Make sure the JDK and RhoStudio launcher match x86 vs. x64)  
+>- Reinstall the JDK
+
+>###PROBLEM (Win)
+>RhoStudio fails to start and displays no message<br>
+>**POSSIBLE CAUSE**<br>
+>Attempting to launch 64-bit RhoStudio without 64-bit Java 
+
+>**SOLUTION**<br>
+Install 64-bit Java (see above)<br> 
+
+>###PROBLEM (Win)
+>RhoConnect applications don't work properly<br>
+
+>**POSSIBLE CAUSE**<br>
+>Spaces exist in the Workspace path
+
+>**SOLUTION**<br>
+>Go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.<br>
+
+>###PROBLEM (Mac OS X)
+
+>"ERROR: Cannot Find Rhodes..."<br>
+
+><FILE: cannot-find_rhodes.png> 
+
+>**POSSIBLE CAUSE**<br>
+>Failed to use one of the RhoStudio launcher scripts  
+
+>**SOLUTION**<br>
+>Launch with the "RhoStudio 32-bits" or "RhoStudio 64-bits script<br> 
+>![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
+> FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
+
+
+### >>>-------> `THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
+
+>###PROBLEM (Win)
+
+>PROBLEM (Mac)<br>
+>**problem description**
+
+>**POSSIBLE CAUSE**<br>
+>cause description   
+
+>**SOLUTION**<br>
+>solution description<br> 
+
+<FILE: rhomobile-suite_RhoConnect_push.png> 
+
+
+
 ###STEP 6: Setting up RhoConnect (Optional)
 RhoConnect is an optional add-on to the RhoMobile Suite that permits development of data-driven apps that can operate with or without a data connection. RhoConnect delivers synchronization and simple integration with enterprise back-end systems in the cloud, on premises or any combination of the two. 
 
@@ -183,82 +261,6 @@ Run "Install rhoconnect-push". A terminal window will open. Select whether to us
 
 ###STEP 7: Setting up Native SDKs (Optional)
 If you plan to build native apps that target devices running Android, iOS or Windows Mobile, 
-
-
-## TROUBLESHOOTING
-
-###PROBLEM (Win)<br>
->**"Failed to create the Java Virtual Machine"**
-
->**POSSIBLE CAUSE**<br>
->Insufficient memory
-
->**SOLUTION**<br>
->Reduce the size of the JVM heap:<br> 
-
->1) Use a text editor to open the file:<br><br>
-`<RhoMobileSuiteDir>\rhostudio\win32.win32.x86_64\RhoStudio.ini`<br><br>
->2) Search for `-Xmx1024m`<br><br>
->3) Change it to `-Xmx512m`<br>
-
->This will halve the memory used by the Java Virtual Machine.<br>
-
-###PROBLEM (Win)<br>
->**"Failed to load the JNI shared library..."**
-
->**POSSIBLE CAUSE**<br>
->Incompatibility between the RhoStudio launcher and the JDK version installed. 
-
->**POSSIBLE SOLUTIONS**<br>
->- Make sure the JDK and RhoStudio launcher match x86 vs. x64)  
->- Reinstall the JDK
-
-###PROBLEM (Win)<br>
->**RhoStudio fails to start and displays no message.** 
-
->**POSSIBLE CAUSE**<br>
->Attempting to launch 64-bit RhoStudio without 64-bit Java 
-
->**SOLUTION**<br>
-Install 64-bit Java (see above)<br> 
-
-###PROBLEM (Win)<br>
->**RhoConnect applications don't work properly**
-
->**POSSIBLE CAUSE**<br>
->Spaces exist in the Workspace path
-
->**SOLUTION**<br>
->Go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.<br>
-
-###PROBLEM (Mac)<br>
->**ERROR: "Cannot Find Rhodes..."** 
-
-><FILE: cannot-find_rhodes.png> 
-
->**POSSIBLE CAUSE**<br>
->Failed to use one of the RhoStudio launcher scripts  
-
->**SOLUTION**<br>
->Launch with the "RhoStudio 32-bits" or "RhoStudio 64-bits script<br> 
->![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
-> FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
-
->###PROBLEM (Mac)<br>
->problem description
-
->**POSSIBLE CAUSE**<br>
->cause description   
-
->**SOLUTION**<br>
->solution description<br> 
-
-
-<FILE: rhomobile-suite_RhoConnect_push.png> 
-
-
-
-### >>>-------> `THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
 
 
 
