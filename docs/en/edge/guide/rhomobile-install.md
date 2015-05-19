@@ -74,9 +74,8 @@ Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target devic
 #####4. Use RVM to install Ruby 1.9.3 (even if you have a newer version)<br>
 #####5. Run the "install gems" Terminal script from the RhoMobile Suite .dmg
 **OPTIONAL STEPS:** 
-#####6. Run the "Install RhoConnect-push" Terminal script<br>
-#####7. Set up native SDKs for specific target devices (Android, iOS)
-<br>
+#####Set up native SDKs for specific target devices (Android, iOS)<br>
+#####Run the "Install RhoConnect-push" Terminal script<br><br>
 
 #### Detailed instructions for Mac OS X Installations:
 
@@ -160,6 +159,20 @@ A Terminal window will open.<br>
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
+## Installing Native SDKs (Optional)
+The RhoMobile Suite allows the development of apps that can run on multiple mobile platforms from a single code base. In essence, these apps employ a web-like front end that renders on a platform-specific webkit, which passes device calls through to the underlying hardware. 
+
+RhoStudio also permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8. If you plan to target any of these platforms with native apps, you'll need to install the corresponding SDKs for each. 
+
+For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](http://docs.rhomobile.com/en/edge/guide/nativesdksetup). 
+
+
+
+
+If you plan to build native apps that target devices running Android, iOS or Windows Mobile, 
+
+
+
 
 ## TROUBLESHOOTING
 
@@ -240,30 +253,16 @@ Install 64-bit Java (see above)<br>
 
 
 
-###STEP 6: Setting up RhoConnect (Optional)
-RhoConnect is an optional add-on to the RhoMobile Suite that permits development of data-driven apps that can operate with or without a data connection. RhoConnect delivers synchronization and simple integration with enterprise back-end systems in the cloud, on premises or any combination of the two. 
+###STEP 7: Setting up RhoConnect (Optional)
+RhoConnect is an optional add-on to the RhoMobile Suite that permits development of data-driven apps that can operate with or without a data connection. RhoConnect delivers synchronization and simple integration with enterprise one or more back-end systems in the cloud, on premises or in combination. 
 
+RhoConnect relies on [Node.js](http://nodejs.org/#), which might already be on your system. To find out/install it, execute the following Terminal command: 
 
-**To install RhoConnect, launch "Install RhoConnect-push" from the RhoMobile SUite installer disc image. 
+brew install node
+
+**Once that completes, launch "Install RhoConnect-push" from the RhoMobile Suite installer disc image to install RhoConnect.**
 
 <FILE: rhomobile-suite_RhoConnect_push.png> 
-
-
-It relies on Node.js. Node.js is installed along with the installation of the RhoMobile Suite, but you can also install it manually if you do not want to go through the entire installation process.
-
-Go to the [Node.js website](http://nodejs.org/#), and download and install Node.js. Or you can enter the following command after you install Homebrew.
-
-    :::term
-    $ brew install node
-
-
-Run "Install gems". A terminal window will open. Select suitable Ruby version and 'N' to use 'sudo' prefix for gem installation. Wait for the gems install process to complete.
-
-Run "Install rhoconnect-push". A terminal window will open. Select whether to use 'sudo' prefix for installation. Wait for the rhoconnect-push install process to complete.
-
-###STEP 7: Setting up Native SDKs (Optional)
-If you plan to build native apps that target devices running Android, iOS or Windows Mobile, 
-
 
 
 ###Setting the JDK Path
