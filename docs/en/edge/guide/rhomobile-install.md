@@ -182,6 +182,7 @@ A Terminal window will open.<br>
 >###PROBLEM (Win)
 
 >"Failed to load the JNI shared library..."<br>
+
 >**POSSIBLE CAUSE**<br>
 >Incompatibility between the RhoStudio launcher and the JDK version installed. 
 
@@ -191,6 +192,7 @@ A Terminal window will open.<br>
 
 >###PROBLEM (Win)
 >RhoStudio fails to start and displays no message<br>
+
 >**POSSIBLE CAUSE**<br>
 >Attempting to launch 64-bit RhoStudio without 64-bit Java 
 
@@ -216,7 +218,7 @@ Install 64-bit Java (see above)<br>
 >Failed to use one of the RhoStudio launcher scripts  
 
 >**SOLUTION**<br>
->Launch with the "RhoStudio 32-bits" or "RhoStudio 64-bits script<br> 
+>Launch RhoStudio using the "RhoStudio 32-bits" or "RhoStudio 64-bits" launcher script<br> 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
