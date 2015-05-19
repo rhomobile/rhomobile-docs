@@ -266,10 +266,5 @@ brew install node
 
 <FILE: rhomobile-suite_RhoConnect_push.png> 
 
-
-###Setting the JDK Path
-
-If you have trouble with Java,
-
 ### Git
 The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
