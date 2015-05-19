@@ -1,9 +1,11 @@
 # Install RhoMobile Suite
+The RhoMobile Suite allows the development of apps that can run on multiple mobile platforms from a single code base. In essence, these apps employ a web-like front end that renders on a platform-specific webkit, which passes device calls through to the underlying hardware. Optionally, RhoStudio can build native apps for Android, iOS and Windows Mobile and Windows Phone 8. 
+
 The RhoMobile installer places the Rhodes open-source development framework and the RhoStudio (Eclipse) IDE on the development host system. Also included are Zebra's RhoConnect and RhoElements components. These optional modules can be used to create apps that connect and sync with one or more back-end systems and/or that support Zebra's enterprise-grade devices. 
 
 RhoMobile also depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully for a trouble-free installation!**
 
-## Windows (for 32- and 64-bit systems)
+## Installing on Windows (32- and 64-bit)
 ### STEP 1: Run the RhoMobile Suite Installer
 [Download the RhoMobile Suite Installer for Windows](http://rhomobile.com/download/) and launch it. This will install Rhodes, RhoStudio, RhoConnect and RhoElements, we well as [Ruby](http://www.ruby-lang.org/en/) and [Redis](http://redis.io/) open source tools. 
 
@@ -29,7 +31,7 @@ NOTE: By default, the Windows 8 Desktop allows 32-bit applications only. For run
 ### STEP 2: Install the Java Development Kit
 RhoStudio requires the Java Development kit, which is different than the Java that might already be present for browsers. Unless you're sure you already have the JDK, visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the version that's appropriate for your system.
 
-## Notes for 64-bit Windows Systems
+### Notes for 64-bit Windows
 The 32- and 64-bit versions of RhoMobile are functionally equivalent, and there's no disadvantage to using the 32-bit RhoMobile suite on development hosts with 64-bit Windows. However, if you'd prefer to run the 64-bit version of RhoMobile on your 64-bit Windows machine, you'll need to manually download and install the 64-bit version of the Java development kit. 
 
 *NOTE: The Java Development Kit is different than Java versions that might already be on your system for browsers.*
@@ -57,7 +59,7 @@ The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version
 Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target device.
 
 
-## Mac OS X
+## Installing on Mac OS X
 
 ### *NOTE*
 
@@ -160,19 +162,7 @@ A Terminal window will open.<br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
 ## Installing Native SDKs (Optional)
-The RhoMobile Suite allows the development of apps that can run on multiple mobile platforms from a single code base. In essence, these apps employ a web-like front end that renders on a platform-specific webkit, which passes device calls through to the underlying hardware. 
-
-RhoStudio also permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8. If you plan to target any of these platforms with native apps, you'll need to install the corresponding SDKs for each. 
-
-For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](http://docs.rhomobile.com/en/edge/guide/nativesdksetup). 
-
-
-
-
-If you plan to build native apps that target devices running Android, iOS or Windows Mobile, 
-
-
-
+RhoStudio permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8 on the local development host or in the cloud using [Rhohub.com](https://rms.rhomobile.com/). If you plan to build native apps locally, you'll need to install the corresponding SDKs for each. For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](http://docs.rhomobile.com/en/edge/guide/nativesdksetup). 
 
 ## TROUBLESHOOTING
 
@@ -235,6 +225,18 @@ Install 64-bit Java (see above)<br>
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
+>###PROBLEM (Mac OS X)
+
+> Errors relating to Java<br>
+
+>**POSSIBLE CAUSE**<br>
+>incorrect Java bin path  
+
+>**SOLUTION**<br>
+>Go to **RhoStudio>>Preferences>>RhoMobile** and set the Java bin path. It should be similar to:<br>
+
+>`/System/Library/Java/JavaVirtualMachines/jdk<version number>/Contents/Home/bin`<br>
+
 
 ### >>>-------> `THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
 
@@ -269,7 +271,6 @@ brew install node
 
 If you have trouble with Java,
 
-Go to RhoStudio>>Preferences>>RhoMobile and confirm or set the Java bin path as <tt>/System/Library/Java/JavaVirtualMachines/jdk&lt;version number&gt;.jdk/Contents/Home/bin</tt>.
 
 
 
@@ -293,5 +294,3 @@ The RhoMobile Suite installer for Macintosh does not install Git. Although you c
 
 Note: Installing RhoStudio as a plugin for Eclipse is currently disabled. RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
 
-## Next Step: Setup Native SDKs
-If you are planning on building your RhoMobile application locally on your development machine you will need the SDKs for the platform you want to build your app on. These instructions are found [here](nativesdksetup).
