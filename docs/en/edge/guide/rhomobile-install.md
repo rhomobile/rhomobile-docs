@@ -271,26 +271,5 @@ brew install node
 
 If you have trouble with Java,
 
-
-
-
-
-Drag RhoStudio to the Applications folder.
-
-> Note: RhoStudio has two launchers: RhoStudio 32-bit and RhoStudio 64-bit. Use the launcher suitable for your system.
-
-### Understanding the Installer Contents
-In addition to RhoStudio, the RhoMobile Suite Installer for Macintosh also contains:
-
-* A folder containing a RhoElements application.
-* A folder containing sample applications.
-* A folder containing the RhoConnect Push Service files. You use these when you [set up the RhoConnect Push Service on your mobile device](../rhoconnect/push-client-setup-rps) to broker push messages between your RhoConnect server and your device.
-* A folder containing the RhoElements Runtime files.
-* A link to the [Developer Community](http://developer.motorolasolutions.com).
-* A link to the RhoMobile documentation website.
-
 ### Git
 The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
-
-Note: Installing RhoStudio as a plugin for Eclipse is currently disabled. RhoSimulator, which comes with RhoStudio for Mac and Windows, does not work with Linux.
-
