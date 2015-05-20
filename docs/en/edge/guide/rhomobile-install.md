@@ -222,32 +222,34 @@ Install 64-bit Java (see above)<br>
 
 >"ERROR: Cannot Find Rhodes..."<br>
 
-><FILE: cannot-find_rhodes.png> 
+><FILE: cannot_find_rhodes.png> 
 
 >**POSSIBLE CAUSE**<br>
 >Failed to use one of the RhoStudio launcher scripts  
 
 >**SOLUTION**<br>
->Launch RhoStudio using the "RhoStudio 32-bits" or "RhoStudio 64-bits" launcher script<br> 
+>Launch RhoStudio with "RhoStudio 32-bits" or "RhoStudio 64-bits" scripts<br> 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
 >###PROBLEM (Mac OS X)
 
-> Errors relating to Java<br>
+> You need Java SE (or similar)<br>
 
->**POSSIBLE CAUSE**<br>
->incorrect Java bin path  
+>**POSSIBLE CAUSES**<br>
+>incorrect Java bin path or Java not installed
 
->**SOLUTION**<br>
->Go to **RhoStudio>>Preferences>>RhoMobile** and set the Java bin path. It should be similar to:<br>
+>**POSSIBLE SOLUTIONS**<br>
+>-Go to **RhoStudio>>Preferences>>RhoMobile** and set the Java bin path. The correct path should be similar to:<br> 
 
 >`/System/Library/Java/JavaVirtualMachines/jdk<version number>/Contents/Home/bin`<br>
+
+>-Install Java using instructions found elsewhere on this page. 
 
 
 ### >>>-------> `THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
 
->###PROBLEM (Win)
+>###PROBLEM (Mac OS X)
 
 >PROBLEM (Mac)<br>
 >**problem description**
