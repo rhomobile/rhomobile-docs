@@ -171,9 +171,9 @@ A Terminal window will open and execute an installation script.<br>
 RhoStudio permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8 on the local development host or in the cloud using [Rhohub.com](https://rms.rhomobile.com/). If you plan to build native apps locally, you'll need to install the corresponding SDKs for each. For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](http://docs.rhomobile.com/en/edge/guide/nativesdksetup).<br>
 <br>
 
-## TROUBLESHOOTING
+## Troubleshooting Windows
 
->###PROBLEM (Windows)
+###PROBLEM
 >"Failed to create the Java Virtual Machine"<br>
 
 >**POSSIBLE CAUSE**<br>
@@ -189,8 +189,7 @@ RhoStudio permits development of native apps for Android, iOS and Windows Mobile
 
 >This will halve the memory used by the Java Virtual Machine<br>
 
->###PROBLEM (Windows)
-
+###PROBLEM
 >"Failed to load the JNI shared library..."<br>
 
 >**POSSIBLE CAUSE**<br>
@@ -200,7 +199,7 @@ RhoStudio permits development of native apps for Android, iOS and Windows Mobile
 >- Make sure the JDK and RhoStudio launcher match x86 vs. x64)  
 >- Reinstall the JDK
 
->###PROBLEM (Windows)
+###PROBLEM
 >RhoStudio fails to start and displays no message<br>
 
 >**POSSIBLE CAUSE**<br>
@@ -209,7 +208,7 @@ RhoStudio permits development of native apps for Android, iOS and Windows Mobile
 >**SOLUTION**<br>
 Install 64-bit Java (see above)<br> 
 
->###PROBLEM (Windows)
+###PROBLEM
 >RhoConnect applications don't work properly<br>
 
 >**POSSIBLE CAUSE**<br>
@@ -217,84 +216,54 @@ Install 64-bit Java (see above)<br>
 
 >**SOLUTION**<br>
 >Go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.<br>
+<br>
 
->###PROBLEM (Mac OS X)
+## Troubleshooting Mac OS X
 
->"ERROR: Cannot Find Rhodes..."<br>
-
-><FILE: cannot_find_rhodes.png> 
->![img]()
+###PROBLEM
+>![img](http://rhomobile-suite.s3.amazonaws.com/install/Cannot_find_Rhodes.png)
 
 >**POSSIBLE CAUSE**<br>
 >Failed to use one of the RhoStudio launcher scripts  
 
 >**SOLUTION**<br>
->Launch RhoStudio with "RhoStudio 32-bits" or "RhoStudio 64-bits" scripts<br> 
+>Launch RhoStudio using either "RhoStudio 32-bits" or "RhoStudio 64-bits" scripts in the RhoStudio folder. **DO NOT** launch apps in the "cocoa" folders. <br>
+
+>**FACT:** The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
-> FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
->###PROBLEM (Mac OS X)
-
-> You need Java SE (or similar)<br>
-
-<FILE: you_need_Java_SE.png>
->![img]()
+###PROBLEM
+>![img](http://rhomobile-suite.s3.amazonaws.com/install/You_need_Java_SE.png)
 
 >**POSSIBLE CAUSES**<br>
->incorrect Java bin path or Java not installed
+>Java not installed, installed incorrectly or wrong version
 
->**POSSIBLE SOLUTIONS**<br>
->-Go to **RhoStudio>>Preferences>>RhoMobile** and set the Java bin path. The correct path should be similar to:<br> 
+>**SOLUTION**<br>
+>Install Java using instructions found in the Mac OS X section of this page
 
->`/System/Library/Java/JavaVirtualMachines/jdk<version number>/Contents/Home/bin`<br>
-
->-Install Java using instructions found in the Mac OS X section of this page
-
->###PROBLEM (Mac OS X)
->Mac OS X is preventing RhoStudio from launching<br>
->![img](rhostudio can't be opened)
+###PROBLEM
+>![img](http://rhomobile-suite.s3.amazonaws.com/install/Rho_cannot_be_opened.png)
 
 >**POSSIBLE CAUSE**<br>
 >Mac OS X security policy is preventing an unsigned/downloaded app from launching   
 
 >**SOLUTION**<br>
 >1) Open the Mac OS X Preferences panel<br>
->2) Click on "Security & Privacy" prefs, then hit General<br>
->3) The last blocked app will be shown. Click the "Open Anyway" button.<br>
->4) if necessary, re-launch RhoStudio using the launcher script.<br>
+>2) Click on "Security & Privacy" prefs, then hit General (below)<br>
+>3) The last blocked app will be shown. Click the "Open Anyway" button<br>
+>4) if necessary, re-launch RhoStudio using the launcher script<br>
 
->![img](Mac_Security_prefs)
+>![img](http://rhomobile-suite.s3.amazonaws.com/install/Mac_Security_Prefs.png)
 
-
-
-### >>>-------> `THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
-
->###PROBLEM (Mac OS X)
-
->PROBLEM (Mac)<br>
->**problem description**
->![img]()
+###PROBLEM
+>Random Java-related issues 
 
 >**POSSIBLE CAUSE**<br>
->cause description   
+Incorrect Java bin path
 
 >**SOLUTION**<br>
->solution description<br> 
+>Go to **RhoStudio>>Preferences>>RhoMobile** and set the Java bin path. The correct path should be similar to the image below:<br> 
 
-<FILE: rhomobile-suite_RhoConnect_push.png> 
+>![img](http://rhomobile-suite.s3.amazonaws.com/install/Java_bin_path.png)
 
-
-
-###STEP 7: Setting up RhoConnect (Optional)
-RhoConnect is an optional add-on to the RhoMobile Suite that permits development of data-driven apps that can operate with or without a data connection. RhoConnect delivers synchronization and simple integration with enterprise one or more back-end systems in the cloud, on premises or in combination. 
-
-RhoConnect relies on [Node.js](http://nodejs.org/#), which might already be on your system. To find out/install it, execute the following Terminal command: 
-
-brew install node
-
-**Once that completes, launch "Install RhoConnect-push" from the RhoMobile Suite installer disc image to install RhoConnect.**
-
-<FILE: rhomobile-suite_RhoConnect_push.png> 
-
-### Git
-The RhoMobile Suite installer for Macintosh does not install Git. Although you can develop without Git, it is a very useful tool, and is needed for RhoHub. You can install [Git on Mac](http://code.google.com/p/git-osx-installer/downloads/list?can=3).
+EDIT THIS DOCUMENT
