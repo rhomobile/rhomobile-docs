@@ -11,7 +11,7 @@ RhoMobile depends on Java, Ruby, Git and other tools. Depending on the developme
 
 Additional installers will automatically launch for [Git](https://github.com/) and [Node.js](https://nodejs.org/). Follow prompts and read and accept their respective open-source license agreements as appropriate. 
 
-**NOTE: During installation, certain virus detectors might warn about a "Suspicious.MLApp" security risk in the "rubyw.exe" file. This known false-positive can be safely ignored.<br>**
+**NOTE: During installation, certain virus detectors might warn about a "Suspicious.MLApp" security risk in the "rubyw.exe" file. This false-positive can be safely ignored.<br>**
 
 ### STEP 1a: For Windows 8.1 Only
 Since Windows 8.x lacks a Start Menu, a few extra steps are needed to make the RhoMobile launchers visible.
