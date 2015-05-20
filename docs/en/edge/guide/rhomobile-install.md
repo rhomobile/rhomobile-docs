@@ -223,6 +223,7 @@ Install 64-bit Java (see above)<br>
 >"ERROR: Cannot Find Rhodes..."<br>
 
 ><FILE: cannot_find_rhodes.png> 
+>![img]()
 
 >**POSSIBLE CAUSE**<br>
 >Failed to use one of the RhoStudio launcher scripts  
@@ -236,6 +237,9 @@ Install 64-bit Java (see above)<br>
 
 > You need Java SE (or similar)<br>
 
+<FILE: you_need_Java_SE.png>
+>![img]()
+
 >**POSSIBLE CAUSES**<br>
 >incorrect Java bin path or Java not installed
 
@@ -244,7 +248,23 @@ Install 64-bit Java (see above)<br>
 
 >`/System/Library/Java/JavaVirtualMachines/jdk<version number>/Contents/Home/bin`<br>
 
->-Install Java using instructions found elsewhere on this page. 
+>-Install Java using instructions found in the Mac OS X section of this page
+
+>###PROBLEM (Mac OS X)
+>Mac OS X is preventing RhoStudio from launching<br>
+>![img](rhostudio can't be opened)
+
+>**POSSIBLE CAUSE**<br>
+>Mac OS X security policy is preventing an unsigned/downloaded app from launching   
+
+>**SOLUTION**<br>
+>1) Open the Mac OS X Preferences panel<br>
+>2) Click on "Security & Privacy" prefs, then hit General<br>
+>3) The last blocked app will be shown. Click the "Open Anyway" button.<br>
+>4) if necessary, re-launch RhoStudio using the launcher script.<br>
+
+>![img](Mac_Security_prefs)
+
 
 
 ### >>>-------> `THE REMAINDER OF DOC IS THIS UNDER CONSTRUCTION`
@@ -253,6 +273,7 @@ Install 64-bit Java (see above)<br>
 
 >PROBLEM (Mac)<br>
 >**problem description**
+>![img]()
 
 >**POSSIBLE CAUSE**<br>
 >cause description   
