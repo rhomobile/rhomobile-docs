@@ -266,4 +266,3 @@ Incorrect Java bin path
 
 >![img](http://rhomobile-suite.s3.amazonaws.com/install/Java_bin_path.png)
 
-EDIT THIS DOCUMENT
