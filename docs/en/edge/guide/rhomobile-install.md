@@ -39,7 +39,8 @@ The 32- and 64-bit versions of RhoMobile are functionally equivalent, and there'
 ####To get the 64-bit JDK: 
 
 * Visit visit [Oracle's Java Developer Kit download page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and select, download and install the 64-bit Java version for Windows.
-* To confirm the the JDK path, launch RhoStudio and go to Window>>Preferences>>RhoMobile. The "Java bin path" should be: **<tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt>**
+* To confirm the the JDK path, launch RhoStudio and go to **Window>>Preferences>>RhoMobile**.
+The "Java bin path" should be: **<tt>C:\Program Files\Java\jdk&lt;version number&gt;\bin</tt>**
 
 ### STEP 3: Launching RhoStudio
 
