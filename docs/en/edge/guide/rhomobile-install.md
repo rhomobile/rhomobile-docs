@@ -44,7 +44,7 @@ The "Java bin path" should be: **<tt>C:\Program Files\Java\jdk&lt;version number
 
 ### STEP 3: Launching RhoStudio
 
-The RhoMobile installer for Windows places the following items in the Windows Start menu or Start Screen (Windows 8.x):
+The RhoMobile installer for Windows places the following items in the Windows Start menu or Start Screen (Windows 8.x in "All Apps" view mode):
 
 * Launchers for RhoStudio 32- and 64-bit editions
 * A link to the Readme file
@@ -52,7 +52,9 @@ The RhoMobile installer for Windows places the following items in the Windows St
 * A link to the RhoConnect Push Service files
 * An uninstaller for RhoMobile Suite
 
-NOTE: To run RhoStudio, you MUST USE THE RHOSTUDIO LAUNCHERS. Before building your first project, you'll be prompted to create a free account at http://rms.rhomobile.com. Just enter a valid email address and password. 
+**NOTE:To run RhoStudio, you MUST USE THE RHOSTUDIO LAUNCHERS.
+
+NOTE:Before building your first project, you'll be prompted to create a free account at http://rms.rhomobile.com. Just enter a valid email address and password. 
 
 ### Ruby
 The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
