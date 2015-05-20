@@ -56,15 +56,16 @@ The RhoMobile installer for Windows places the following items in the Windows St
 
 NOTE:Before building your first project, you'll be prompted to create a free account at http://rms.rhomobile.com. Just enter a valid email address and password. 
 
-### Ruby
-The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
+### *Ruby Notes*
+>The RhoMobile Suite installer for Windows contains Ruby 1.9.3-p194. This version of Ruby is used for executing rake commands on the development host computer and for running RhoConnect applications.
 
-Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target device.
+>Native applications built with RhoStudio use Ruby 1.9.2-p290 on the target device.
+<br>
 
 
 ## Installing on Mac OS X
 
-### *NOTE*
+### *Apple XCode Required*
 
 > The Mac OS X installation relies on Apple's XCode development environment and the corresponding Command Line Tools. If XCode is not already installed, please visit [Apple's developer download site](http://developer.Apple.com/downloads) and download and install the version appropriate for your system before proceeding. 
 
