@@ -103,21 +103,20 @@ RhoStudio relies on desktop Java, which Apple stopped including with Mac OS X as
 **Download and open the JDK .dmg, double-click the package within it and follow prompts to install the latest JDK.** 
 
 ### STEP 3: Install Ruby Version Manager (RVM) 
-This step installs a tool called Ruby Version Manager (RVM) that we'll use to install Ruby 1.9.3. RhoStudio requires Ruby v1.9.3 and is not compatible with any other version, incuding the newer version (2.0) that comes with Mac OS X Mavericks and Yosemite. Fortunately, RVM makes it easy to switch between Ruby versions if need be.
+This step installs a tool called Ruby Version Manager (RVM) that we'll use to install Ruby 1.9.3. RhoStudio requires Ruby v1.9.3 and is not compatible with any other version, incuding the newer version (2.0) that comes with Mac OS X Mavericks and Yosemite. Fortunately, RVM makes it easy to switch between Ruby versions if you need to later.
 
-**NOTE: Do not use `sudo` to install RVM; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
+**NOTE: WARNING: Do not use `sudo` to install RVM; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
 
 **To install RVM, open a Terminal* window and enter (or copy and paste) the following command at the `$` prompt:**
 
 `\curl -sSL https://get.rvm.io | bash -s stable`<br>
 
-This command securely downloads the latest stable version of RVM from the "get.RVM" web site. <br>
+This command securely downloads the latest stable version of RVM from the "get.rvm.io" web site. <br>
 
 **Follow prompts and enter information as needed.** 
 
-*Terminal is included with Mac OS X and is in the Applications folder. <br>
-To launch Terminal directly:<br>
-**Hit CMD-SPACE >> Type 'Term' >> Hit ENTER.** 
+Terminal is included with Mac OS X and is in the Applications folder.
+To launch Terminal without having to navigate to the Apps folder: **CMD-SPACE >> Type 'Term' >> Hit ENTER**
 
 ### STEP 4: Install Ruby 1.9.3
 Now that you have RVM, you can use it to install Ruby 1.9.3 and some other useful stuff. Remember, RhoMobile requires Ruby 1.9.3 and will not work with other versions. This step will not effect existing Ruby version(s) on your Mac, but Ruby 1.9.3 will become the default. 
@@ -138,39 +137,43 @@ The result should be something similar to this:
 
 ### STEP 5: Install Ruby Gems
 
->Almost done! 
-
-The final (required) step is to install Ruby gems. Gems are platform- and processor-specific Ruby apps and libraries that deliver much of the key functionality of the RhoMobile platform. Gems are copied from the installation disk image (.dmg) to your hard drive using a Terminal script included with the installer image.
+**Almost done!** The final required step is to install Ruby gems. Gems are platform- and processor-specific Ruby apps and libraries that deliver much of the key functionality of the RhoMobile platform. Gems are copied from the installation disk image (.dmg) to your hard drive using a Terminal script included with the installer image.
 
 **Double-click "Install gems" from the RhoMobile Suite Installer .dmg (below) introduced earlier.<br>**
-A Terminal window will open.<br>
+A Terminal window will open and execute an installation script.<br>
 
 ![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_Installer_Install_gems.png)
 
 **When prompted, select N to avoid using `sudo` to install gems.** This process might take a while; it copies several groups of gems.  
 
->**If you're given a choice similar to the one below, select option 1.** 
+**NOTE: WARNING: If additional gems are needed in the future, do not use `sudo` to install them; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
 
->![img](http://rhodocs-images.s3.amazonaws.com/guide/which_ruby.png)
+**If you're given a choice similar to the one below, select option 1.** 
 
-**NOTE: If additional gems are needed in the future, do not use `sudo` to install them; it can cause problems with file permissions when running bundle commands from within RhoStudio.<br>**
+![img](http://rhodocs-images.s3.amazonaws.com/guide/which_ruby.png)
 
-**NOTE: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version. Failure to do so might result in an improper installation.**<br>
+**NOTE: CAUTION: In the unlikely event that you've mounted more than one disc image containing gems, it's important to unmount all except the current RhoMobile Suite version. Failure to do so might result in an improper installation.**<br>
 
 >That's it! You've completed all the required steps to use your Mac and RhoMobile to develop cross-platform applications from a single code base!<br><br> 
-**Before you close the installer image, you might want to copy the files labeled "Launchpad" and "RhoMobile Docs" (scroll down in the .dmg window if you can't see them).** These files contain links to the [RhoMobile developer community](https://developer.motorolasolutions.com/welcome) and [RhoMobile documentation](http://docs.rhomobile.com/) sites. 
 
->**NOTE: TO LAUNCH RHOMOBILE:** You MUST use one of the RhoMobile Launchers.** (Before building your first project, you'll be prompted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password). 
+**IMPORTANT: To launch RhoMobile, you MUST use one of the RhoMobile Launchers indicated in the image below.** 
 
 >![img](http://rhodocs-images.s3.amazonaws.com/guide/RhoMobile_launchers.png)<br><br>
 > FYI: The 32- and 64-bit versions of RhoMobile are functionally equivalent. 
 
+>Before building your first project, you'll be prompted to create a free account at [rms.rhomobile.com](http://rms./rhomobile.com). Just enter a valid email address and password). 
+
+>The installer image also contains files labeled "Launchpad" and "RhoMobile Docs" (scroll down in the .dmg window if you can't see them). You can copy these or bookmark their links to the [RhoMobile developer community](https://developer.motorolasolutions.com/welcome) and [RhoMobile documentation](http://docs.rhomobile.com/) sites.<br>
+<br>
+
+
 ## Installing Native SDKs (Optional)
-RhoStudio permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8 on the local development host or in the cloud using [Rhohub.com](https://rms.rhomobile.com/). If you plan to build native apps locally, you'll need to install the corresponding SDKs for each. For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](http://docs.rhomobile.com/en/edge/guide/nativesdksetup). 
+RhoStudio permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8 on the local development host or in the cloud using [Rhohub.com](https://rms.rhomobile.com/). If you plan to build native apps locally, you'll need to install the corresponding SDKs for each. For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](http://docs.rhomobile.com/en/edge/guide/nativesdksetup).<br>
+<br>
 
 ## TROUBLESHOOTING
 
->###PROBLEM (Win)
+>###PROBLEM (Windows)
 >"Failed to create the Java Virtual Machine"<br>
 
 >**POSSIBLE CAUSE**<br>
@@ -186,7 +189,7 @@ RhoStudio permits development of native apps for Android, iOS and Windows Mobile
 
 >This will halve the memory used by the Java Virtual Machine<br>
 
->###PROBLEM (Win)
+>###PROBLEM (Windows)
 
 >"Failed to load the JNI shared library..."<br>
 
@@ -197,7 +200,7 @@ RhoStudio permits development of native apps for Android, iOS and Windows Mobile
 >- Make sure the JDK and RhoStudio launcher match x86 vs. x64)  
 >- Reinstall the JDK
 
->###PROBLEM (Win)
+>###PROBLEM (Windows)
 >RhoStudio fails to start and displays no message<br>
 
 >**POSSIBLE CAUSE**<br>
@@ -206,7 +209,7 @@ RhoStudio permits development of native apps for Android, iOS and Windows Mobile
 >**SOLUTION**<br>
 Install 64-bit Java (see above)<br> 
 
->###PROBLEM (Win)
+>###PROBLEM (Windows)
 >RhoConnect applications don't work properly<br>
 
 >**POSSIBLE CAUSE**<br>
