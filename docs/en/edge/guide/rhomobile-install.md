@@ -1,9 +1,9 @@
 # Install RhoMobile Suite
-The RhoMobile Suite allows the development of apps that can run on multiple mobile platforms from a single code base. In essence, these apps employ a web-like front end that renders on a platform-specific webkit, which passes device calls through to the underlying hardware. Optionally, RhoStudio can build native apps for Android, iOS and Windows Mobile and Windows Phone 8. 
+The RhoMobile Suite allows the development of apps that can run on multiple mobile platforms from a single code base. In essence, these apps employ a web-like front end that renders on a platform-specific webkit, which passes device calls through to the underlying hardware. RhoStudio also can build native apps for Android, iOS and Windows Mobile and Windows Phone 8 using the corresponding SDK(s). 
 
-The RhoMobile installer places the Rhodes open-source development framework and the RhoStudio (Eclipse) IDE on the development host system. Also included are Zebra's RhoConnect and RhoElements components. These optional modules can be used to create apps that connect and sync with one or more back-end systems and/or that support Zebra's enterprise-grade devices. 
+At minimum, the RhoMobile installer places the Rhodes open-source development framework and the RhoStudio (Eclipse) IDE on the development host system. Also included are Zebra's RhoConnect and RhoElements components, optional modules for creating apps that connect and sync with one or more back-end systems and/or that support Zebra's enterprise-grade devices. Native SDKs, if desired, are installed separately. 
 
-RhoMobile also depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully for a trouble-free installation!**
+RhoMobile depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully to ensure a trouble-free installation.**
 
 ## Installing on Windows (32- and 64-bit)
 ### STEP 1: Run the RhoMobile Suite Installer
