@@ -6,14 +6,48 @@
 * Latest Windows Phone 8 mobile devices
 * Windows Desktop (Windows 7, 8, 8.1)
 
-NOTE: Please review Release notes that accompany the software for further remarks on supported devices and operating systems.
+NOTE: Please review release notes that accompany the software for further remarks on supported devices and operating systems.
 
-## Validated MSI Hardware
-<a name="_motdevices"></a>
-NOTE: All devices listed below were validated using the latest version of their respective operating systems (BSPs). Functionality on older OS versions may vary.
-
-### Mobile Terminals
+## Validated Zebra Hardware
+### Mobile Computers
 ET1 (Gingerbread/JellyBean), ES400, MC3000, MC3090, MC3190-Z (RFID), MC3100(R/S), MC3190(R/S/G), MC40 (Gingerbread/JellyBean), MC45, MC5574, MC5590, MC55A0, MC55N0, MC659B, MC67, MC7004, MC7090, MC7094, MC7095, MC7506, MC7508, MC7596, MC7598, MC75A0, MC75A6, MC75A8, MC9090, MC9097, MC9094, MC9190-G, MC9190-Z (RFID) MC92N0, MC9590, MC9596, MC9598, MC959B (WM 6.1), TC55.
+
+| Model 		| Platform | OS
+|:--------------:|:--------:|:--:
+| MC32NO  | MPA 3 | Android JB
+| MC92NO  | MPA 3 | WM 6.5, CE 7
+| MC67  | MPA 3 | WM 6.5 
+| MK3100  | ADC | CE 7 
+| VC70  | MPA 3 | CE 7 
+| MC75A  | MPA 2 | WM 6.5
+| MC3190  | MPA 2 | CE 6, WM 6.5 
+| MC959B  | MPA 2 | WM 6.1, WM 6.5
+| ES400  | MPA 3 | WM 6.5
+| MC9190  | MPA 2 | CE 6
+| MC45  | ODM | WM 6.5
+| MC32NO  | MPA 3 | CE 7
+| MC55  | MPA 2 | CE6
+| WT4190  | MPA 3 | CE 7
+| MC67  | MPA 3 | WM 6.5
+| ET1  | TI | Android JB
+| MC40  | TI | Android JB
+| TC55  | Qualcomm | Android JB
+| TC70  | Qualcomm | Android KitKat
+| MC67  | Qualcomm | Android JB
+| WAP4  | TI | CE 6
+
+## Validated Non-Zebra Hardware
+
+| Model 		| Manufacturer  | Platform | OS
+|:-------------:|:-------------:|:--------:|:--:
+| iPhone 5 | Apple | A7 | iOS 7, iOS 8
+| iPhone 6 | Apple | A8 | iOS 8
+| Nexus 4 | Google | Qualcomm | Android JB
+| Note 3 | Samsung | Qualcomm | Android JB
+| Lumia 920 | Nokia | Qualcomm | WP8
+| FonePad | ASUS | x86 | Android JB (x86)
+
+
 
 **NOTE: The TC55 supports [4.0 APIs](apiusage#api-migration-table) and a subset of [2.2 APIs](apiusage#using-22-apirsquos). Applications that have been developed using some 2.2 APIs like [Scanner](../../2.2.0/rhoelements/scanner) will need to be modified to use the 5.0 APIs, for example [Barcode](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.**
 
