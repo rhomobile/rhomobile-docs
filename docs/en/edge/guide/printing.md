@@ -1,7 +1,7 @@
 # Printing
 
 ## Overview
-RhoMobile Suite 5.1 adds the ability to print to devices connected via USB in addition to Bluetooth and Wi-Fi devices supporte din prior versions. 
+RhoMobile Suite 5.1 adds the ability to print to devices connected via USB. As in prior versions, output to Zebra devices via Bluetooth and Wi-Fi is still supported. 
 
 using the same set of printing APIs  we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via Wi-Fi and Bluetooth
   ), but in subsequent releases we will be adding different printer types. 
@@ -55,7 +55,7 @@ If we knew the printer's Bluetooth address we could have specified the `deviceAd
 		deviceAddress: '00:03:7A:4C:F2:DB'
 		...
 
-NOTE: The deviceAddress for a Bluetooth device must include the ':' like ##:##:##:##:##:##. The discovery process may take several seconds to complete.
+NOTE: The deviceAddress for Bluetooth devices must include the colons (:) in the form: ##:##:##:##:##:##. Note that the discovery process may take several moments to complete.
 
 Likewise, if we were searching for a printer over Wi-Fi, we could have also used the `deviceAddress` & `devicePort` parameters.
 	:::javascript
@@ -65,7 +65,7 @@ Likewise, if we were searching for a printer over Wi-Fi, we could have also used
 		devicePort: 8080
 		...
 
-NOTE: Be sure that your Bluetooth or Wi-Fi radios are turned on in your device. Your printer should also be in Bluetooth discover mode
+NOTE: Be sure that the Bluetooth or Wi-Fi radio is turned on in the device. If using Bluetooth, the printer also should be in discover mode.
 
 The searchPrinters `callback function` will be executed for each printer found. The callback will include a `printerID` property, which will be used to establish a connection with the printer. When the search is complete, it will issue one more callback with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
 
@@ -118,7 +118,12 @@ You can also check some information about the printer using the [requestState me
 		});
 
 ## Getting Supported Printer Languages
-Before you should send any commands to the printer, you should know what languages the printer supports. In the case of Zebra these may be ZPL, CPCL, EPS, etc. You can do this by using the [enumerateSupportedControlLanguages method](../api/printing#menumerateSupportedControlLanguages). The callback will be an array of [PRINTER_LANGUAGE... Constants](../api/printing#Constants):
+Before sending commands to the printer, you should be aware of which languages are supported. For Zebra printers these might include ZPL, CPCL, EPS, etc. 
+
+To retrieve a list of supported languages, use the method: 
+[enumerateSupportedControlLanguages](../api/printing#menumerateSupportedControlLanguages). 
+
+The callback will be an array of [PRINTER_LANGUAGE... Constants](../api/printing#Constants):
 
 	:::javascript
 	//assumes you created a printer instance from previous instructions
@@ -130,10 +135,12 @@ Before you should send any commands to the printer, you should know what languag
 	});
 
 ## Sending Printer Commands
-Now that we found and connected to the printer, we can send commands to the printer. Depending on your printer model and the current state it is in, you may see different behavior. Commands for each printer will not be discussed here, you should consult the manufacturers' technical documentation. There are two fundamental ways for sending commands
+Once found and connected, the printer can begin to receive commands. Printer behavior will vary depending on the make, model and current state of the printer. Consult your printer's technical documentation for printer-specific commands and syntax. 
+
+In general, there are two fundamental ways for sending commands:
 
 * Sending a string that includes raw printer commands
-* Sending a series of commands that are stored in a file ex: ZPL,CPCL
+* Sending a series of commands stored in a file (i.e. ZPL, CPCL)
 
 ### Sending a Raw String
 To send a string to the printer, you use the [printRawString method](../api//printingzebra#mprintRawString)
@@ -143,7 +150,7 @@ To send a string to the printer, you use the [printRawString method](../api//pri
 	myPrinter.printRawString('This is a test print');
 
 	// Example of sending a Zebra CPCL Command
-	// changing from linemode to ZPL mode
+	// changing from line mode to ZPL mode
 	myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
 
 ### Sending a Series of Commands
@@ -250,7 +257,7 @@ Some Zebra printers support storing images. You can accomplish this by creating 
 
 
 ## Disconnecting
-Be sure to disconnect from the printer when not in use. This is especially important for Bluetooth connections. To do this you will use the [disconnect method](../api/printingzebra#mdisconnect)
+Be sure to disconnect the printer when not in use. This is especially important for Bluetooth connections. To do this you will use the [disconnect method](../api/printingzebra#mdisconnect)
 
 	:::javacript
 	//assumes you already created an instance object from previous instructions
