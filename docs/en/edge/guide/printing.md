@@ -248,7 +248,7 @@ Some Zebra printers support storing images. You can accomplish this by creating 
 
 
 ## Disconnecting
-Be sure to disconnect from the printer when not in use. This is especially true for BoueTooth connections. To do this you will use the [disconnect method](../api/printingzebra#mdisconnect)
+Be sure to disconnect from the printer when not in use. This is especially important for Bluetooth connections. To do this you will use the [disconnect method](../api/printingzebra#mdisconnect)
 
 	:::javacript
 	//assumes you already created an instance object from previous instructions
