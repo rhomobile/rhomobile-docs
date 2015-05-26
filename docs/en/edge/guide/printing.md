@@ -1,22 +1,25 @@
 # Printing
 
 ## Overview
-RhoMobile Suite 5.1 adds the ability to print to devices connected via USB. As in prior versions, output to Zebra devices via Bluetooth and Wi-Fi is still supported. 
+RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. For Android devices, it also permits printing via USB, which is **NEW IN VERSION 5.1.** For output to USB printers, Zebra's Android devices must be connected using a USB adapter or cradle. 
 
-using the same set of printing APIs  we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via Wi-Fi and Bluetooth
-  ), but in subsequent releases we will be adding different printer types. 
+To handle USB printing, the `CONNECTION_TYPE_USB` parameter has been added to the RhoMobile Printing API, which otherwise operates in exactly the same way as prior editions. 
+
 
 ## Enabling the APIs
-In the [API reference](apisummary), you will see two new APIs: [Printing](../api/printing) and [PrintingZebra](../api/printingzebra). The `Printing` API is a parent class that is defined to easily define common class attributes that specific printer type APIs like [PrintingZebra](../api/printingzebra) will inherit. To enable this functionality in your application, your must include both of these extensions in you build.yml
+In the [API reference](apisummary), you will see two new APIs: [Printing](../api/printing) and [PrintingZebra](../api/printingzebra). The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs (such as [PrintingZebra](../api/printingzebra)) will inherit. To enable this functionality in your application, you must include both extensions in your build.yml. 
+
+Sample Ruby code: 
 
     :::ruby
     extensions: ["printing","printing_zebra"]
 
 ## Finding Printers
-In order to print you must first find and connect to a printer. There are a few different ways to do this, but they all use the [searchPrinters Method](../api/printing#msearchPrintersSTATIC). 
+Before it can print, your app must first find and connect to a printer. There are a few ways to do this, and all use the [searchPrinters Method](../api/printing#msearchPrintersSTATIC). 
 
-For example, in the following code snippet, we are looking for any Zebra printers over Bluetooth
-   only, by specifying `connectionType` and `printerType` in the `options` parameter:
+The following JavaScript code looks for any Zebra printers available via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
+
+Sample JavaScript code: 
 
 	:::javascript
 	var printers = [];
@@ -55,7 +58,7 @@ If we knew the printer's Bluetooth address we could have specified the `deviceAd
 		deviceAddress: '00:03:7A:4C:F2:DB'
 		...
 
-NOTE: The deviceAddress for Bluetooth devices must include the colons (:) in the form: ##:##:##:##:##:##. Note that the discovery process may take several moments to complete.
+NOTE: The deviceAddress for Bluetooth devices must include the colons (in the form ##:##:##:##:##:##). Note that the discovery process may take several moments to complete.
 
 Likewise, if we were searching for a printer over Wi-Fi, we could have also used the `deviceAddress` & `devicePort` parameters.
 	:::javascript
@@ -120,8 +123,7 @@ You can also check some information about the printer using the [requestState me
 ## Getting Supported Printer Languages
 Before sending commands to the printer, you should be aware of which languages are supported. For Zebra printers these might include ZPL, CPCL, EPS, etc. 
 
-To retrieve a list of supported languages, use the method: 
-[enumerateSupportedControlLanguages](../api/printing#menumerateSupportedControlLanguages). 
+To retrieve a list of supported languages, use the method: [enumerateSupportedControlLanguages](../api/printing#menumerateSupportedControlLanguages). 
 
 The callback will be an array of [PRINTER_LANGUAGE... Constants](../api/printing#Constants):
 
