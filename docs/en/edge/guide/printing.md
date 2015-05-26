@@ -1,7 +1,8 @@
 # Printing
 
 ## Overview
-In RhoMobile Suite 4.1, we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and BlueTooth), but in subsequent releases we will be adding different printer types. 
+In RhoMobile Suite 4.1, we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and Bluetooth
+  ), but in subsequent releases we will be adding different printer types. 
 
 ## Enabling the APIs
 In the [API reference](apisummary), you will see two new APIs: [Printing](../api/printing) and [PrintingZebra](../api/printingzebra). The `Printing` API is a parent class that is defined to easily define common class attributes that specific printer type APIs like [PrintingZebra](../api/printingzebra) will inherit. To enable this functionality in your application, your must include both of these extensions in you build.yml
@@ -12,7 +13,8 @@ In the [API reference](apisummary), you will see two new APIs: [Printing](../api
 ## Finding Printers
 In order to print you must first find and connect to a printer. There are a few different ways to do this, but they all use the [searchPrinters Method](../api/printing#msearchPrintersSTATIC). 
 
-For example, in the following code snippet, we are looking for any Zebra printers over BlueTooth only, by specifying `connectionType` and `printerType` in the `options` parameter:
+For example, in the following code snippet, we are looking for any Zebra printers over Bluetooth
+   only, by specifying `connectionType` and `printerType` in the `options` parameter:
 
 	:::javascript
 	var printers = [];
@@ -43,7 +45,7 @@ For example, in the following code snippet, we are looking for any Zebra printer
 
 NOTE: It is recommended to provide as many parameters as possible to reduce the search time.
 
-If we knew the printer's BlueTooth address we could have specified the `deviceAddress` in the `options` parameter. When you are connecting for the first time to your device, you may be prompted for the devices Bluetooth secure pairing PIN. usually by default manufacturers use `0000`, `1111` or `1234`.
+If we knew the printer's Bluetooth address we could have specified the `deviceAddress` in the `options` parameter. When you are connecting for the first time to your device, you may be prompted for the devices Bluetooth secure pairing PIN. usually by default manufacturers use `0000`, `1111` or `1234`.
 
 	:::javascript
 	Rho.PrinterZebra.searchPrinters({ 
@@ -51,7 +53,7 @@ If we knew the printer's BlueTooth address we could have specified the `deviceAd
 		deviceAddress: '00:03:7A:4C:F2:DB'
 		...
 
-NOTE: The deviceAddress for a BlueTooth device must include the ':' like ##:##:##:##:##:##. The discovery process may take several seconds to complete.
+NOTE: The deviceAddress for a Bluetooth device must include the ':' like ##:##:##:##:##:##. The discovery process may take several seconds to complete.
 
 Likewise, if we were searching for a printer over WiFi, we could have also used the `deviceAddress` & `devicePort` parameters.
 	:::javascript
@@ -61,7 +63,7 @@ Likewise, if we were searching for a printer over WiFi, we could have also used 
 		devicePort: 8080
 		...
 
-NOTE: Be sure that your BlueTooth or WiFi radios are turned on in your device. Your printer should also be in BlueTooth discover mode
+NOTE: Be sure that your Bluetooth or WiFi radios are turned on in your device. Your printer should also be in Bluetooth discover mode
 
 The searchPrinters `callback function` will be executed for each printer found. The callback will include a `printerID` property, which will be used to establish a connection with the printer. When the search is complete, it will issue one more callback with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
 
