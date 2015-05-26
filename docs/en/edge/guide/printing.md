@@ -267,5 +267,5 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 
 #### Limitations
 * Currently, the printing service only works with one client at a time but, this will be changed in RE 5.0 to include a multi-client mode.
-* The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with bluetooth printers.
+* The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with Bluetooth printers.
 * The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) currently does not work.
