@@ -1,7 +1,9 @@
 # Printing
 
 ## Overview
-In RhoMobile Suite 4.1, we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via WiFi and Bluetooth
+RhoMobile Suite 5.1 adds the ability to print to devices connected via USB in addition to Bluetooth and Wi-Fi devices supporte din prior versions. 
+
+using the same set of printing APIs  we introduced a simplified method for printing. In this release we are currently supporting printing to Zebra printers only (via Wi-Fi and Bluetooth
   ), but in subsequent releases we will be adding different printer types. 
 
 ## Enabling the APIs
@@ -55,7 +57,7 @@ If we knew the printer's Bluetooth address we could have specified the `deviceAd
 
 NOTE: The deviceAddress for a Bluetooth device must include the ':' like ##:##:##:##:##:##. The discovery process may take several seconds to complete.
 
-Likewise, if we were searching for a printer over WiFi, we could have also used the `deviceAddress` & `devicePort` parameters.
+Likewise, if we were searching for a printer over Wi-Fi, we could have also used the `deviceAddress` & `devicePort` parameters.
 	:::javascript
 	Rho.Printer.searchPrinters({ 
 		connectionType:Rho.Printer.CONNECTION_TYPE_TCP,  
@@ -63,7 +65,7 @@ Likewise, if we were searching for a printer over WiFi, we could have also used 
 		devicePort: 8080
 		...
 
-NOTE: Be sure that your Bluetooth or WiFi radios are turned on in your device. Your printer should also be in Bluetooth discover mode
+NOTE: Be sure that your Bluetooth or Wi-Fi radios are turned on in your device. Your printer should also be in Bluetooth discover mode
 
 The searchPrinters `callback function` will be executed for each printer found. The callback will include a `printerID` property, which will be used to establish a connection with the printer. When the search is complete, it will issue one more callback with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
 
