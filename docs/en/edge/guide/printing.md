@@ -15,7 +15,10 @@ Sample Ruby code:
     extensions: ["printing","printing_zebra"]
 
 ## Finding Printers
-Before it can print, your app must first find and connect to a printer. There are a few ways to do this, and all use the [searchPrinters Method](../api/printing#msearchPrintersSTATIC). 
+Before an app can print, it must app must first find and connect to a printer. There are a few ways to do this, but all use the [searchPrinters Method](../api/printing#msearchPrintersSTATIC). 
+
+###Bluetooth Discovery
+Printing via Bluetooth is supported by Android, iOS and Windows Mobile apps. When pairing with a Bluetooth device for the first time, a prompt might appear to enter a Bluetooth secure pairing PIN. Commonly used codes include `0000`, `1111` and `1234`. Check the printer manufacturer's specifications.
 
 The following JavaScript code looks for any Zebra printers available via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
 
@@ -48,19 +51,24 @@ Sample JavaScript code:
 			}
 		});
 
-NOTE: It is recommended to provide as many parameters as possible to reduce the search time.
+NOTE: TIP: The discovery process may take several moments. To minimize search time, provide as many search parameters as possible.
 
-If we knew the printer's Bluetooth address we could have specified the `deviceAddress` in the `options` parameter. When you are connecting for the first time to your device, you may be prompted for the devices Bluetooth secure pairing PIN. usually by default manufacturers use `0000`, `1111` or `1234`.
+If a printer's Bluetooth MAC address is known, it can be specified as a `deviceAddress` using the `options` parameter, as below. 
 
+Sample JavaScript code: 
 	:::javascript
 	Rho.PrinterZebra.searchPrinters({ 
 		connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
 		deviceAddress: '00:03:7A:4C:F2:DB'
 		...
 
-NOTE: The deviceAddress for Bluetooth devices must include the colons (in the form ##:##:##:##:##:##). Note that the discovery process may take several moments to complete.
+NOTE: The Bluetooth MAC address comes in the form ##:##:##:##:##:## and must include colons. 
 
-Likewise, if we were searching for a printer over Wi-Fi, we could have also used the `deviceAddress` & `devicePort` parameters.
+
+###Wi-Fi Discovery
+For Wi-Fi printer searching, the `deviceAddress` and `devicePort` parameters can be used to quickly identify known devices, as below.
+
+Sample JavaScript code:
 	:::javascript
 	Rho.Printer.searchPrinters({ 
 		connectionType:Rho.Printer.CONNECTION_TYPE_TCP,  
@@ -68,11 +76,16 @@ Likewise, if we were searching for a printer over Wi-Fi, we could have also used
 		devicePort: 8080
 		...
 
-NOTE: Be sure that the Bluetooth or Wi-Fi radio is turned on in the device. If using Bluetooth, the printer also should be in discover mode.
+NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer also should be in discover mode.
 
-The searchPrinters `callback function` will be executed for each printer found. The callback will include a `printerID` property, which will be used to establish a connection with the printer. When the search is complete, it will issue one more callback with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
+The `searchPrinters` callback function will be executed for each printer found. The callback will include a `printerID` property, which will be used to establish a connection with the printer. When the search is complete, it will issue one more callback with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
 
 NOTE: This ID is a unique ID that the RhoMobile framework keeps track of. It is not an ID that the printer manufacturer may be using.
+
+###USB Discovery
+`UNDER CONSTRUCTION`
+
+
 
 ## Connecting to the Printer
 Now that we found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of Printer class by calling the [getPrinterByID method](../api//printingzebra#mgetPrinterByIDSTATIC) and pass in a string that is the printerID that was returned in the `searchPrinters` call
