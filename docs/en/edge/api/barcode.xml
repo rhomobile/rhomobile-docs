@@ -1888,13 +1888,12 @@ On Symbol Technologies' scanners the scanner viewfinder window is not infinitely
                 <DESC>On WM/CE, for some properties, it is first necessary to apply those properties before enabling the scanner.</DESC>
             </REMARK>
 
-        <REMARK title="Position of barcode scanning screen">
-                <DESC>On Android, On rotation the position of barcode scanning area, shall be changed,it shall not maintain at the same position,but funcationality will not be changed.</DESC>
+        <REMARK title="Android Camera Barcode limitation">
+                <DESC>As google barcode scanning library(Zxing library) supported only in Landscape mode. Barcode scanning window only appears at centre of screen in Landscape mode.</DESC>
             </REMARK>
             
             <REMARK title="DataWedge Interaction With Native Apps" productException="eb">
                 <DESC>In order to use the scanner with RhoElements Native Apps you will need to either disable DataWedge or create a DataWedge profile for your app.
-
 **Disabling Datawedge**
 
 1. Start the DataWedge app

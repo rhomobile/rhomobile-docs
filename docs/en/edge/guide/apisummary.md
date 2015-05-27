@@ -177,8 +177,8 @@ Below is a list of the new common APIs for RhoMobile Suite 5.1. Please consult t
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "></td>
     </tr>
 
     <tr>
@@ -256,6 +256,18 @@ Below is a list of the new common APIs for RhoMobile Suite 5.1. Please consult t
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+    </tr>
+    <tr>
+      <td>
+        <a href="../api/device">Device<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Zebra Devices Only"></a>
+      </td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "></td>
     </tr>
 
     <tr>
@@ -999,6 +1011,18 @@ Below is a list of the new common APIs for RhoMobile Suite 5.1. Please consult t
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
     </tr>
+    <tr>
+      <td>
+        <a href="../api/smartcradle">SmartCradle<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Zebra Devices Only"></a>
+      </td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "></td>
+      <td style="text-align:center" class=" "></td>
+    </tr>
 
     <tr>
       <td>
@@ -1045,11 +1069,11 @@ Below is a list of the new common APIs for RhoMobile Suite 5.1. Please consult t
       </td>
       <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "></td>
     </tr>
 
     <!-- <tr>
