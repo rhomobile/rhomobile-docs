@@ -1,9 +1,9 @@
 # Printing
 
 ## Overview
-RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. For Android devices, it also permits printing via USB, which is **NEW IN VERSION 5.1.** For output to USB printers, Zebra's Android devices must be connected using a USB adapter or cradle. 
+RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. RhoMobile also supports printing via USB from Android devices, which is **new in version 5.1**. For output to USB printers, Zebra's Android devices must be connected using a USB adapter or cradle. 
 
-To handle USB printing, the `CONNECTION_TYPE_USB` parameter has been added to the RhoMobile Printing API, which otherwise operates in exactly the same way as prior editions. 
+**New in version 5.1.** is the `CONNECTION_TYPE_USB` parameter, which has been added to the RhoMobile Printing API to handle USB printing. This API otherwise operates in exactly the same way as prior editions. 
 
 
 ## Enabling the APIs
@@ -293,3 +293,152 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 * Currently, the printing service only works with one client at a time but, this will be changed in RE 5.0 to include a multi-client mode.
 * The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with Bluetooth printers.
 * The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) currently does not work.
+
+##Supported Printers
+
+USB printing is supported from Android Devices only
+
+P4T™/RP4T™
+
+Not Supported
+QL Plus™, QLn™ series
+
+
+
+<P>
+<table class="table table-striped">
+<tr>
+<th class="clsSyntaxHeadings"></th>
+<th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
+<th class="clsSyntaxHeadings">Device model(s)</th>
+<th class="clsSyntaxHeadings">Operating System(s)</th>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/mobile/mz-220/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/x1426279604956.jpg.pagespeed.ic.F9pw8Srpwb.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MZ</b></td>
+<td class="clsSyntaxCells clsOddRow">MZ 220, MZ 320</td>
+<td class="clsSyntaxCells clsOddRow">Android</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="imz220pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/mz-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel_1d2c/image.img.png/x1426276854144.png.pagespeed.ic.OndlAqm5W1.png" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>iMZ</b></td>
+<td class="clsSyntaxCells clsOddRow">iMZ 220, iMZ 320</td>
+<td class="clsSyntaxCells clsOddRow">Android</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>RW</b></td>
+<td class="clsSyntaxCells clsOddRow">RW 220, RW 420, RW 420 Print Station</td>
+<td class="clsSyntaxCells clsOddRow">Android</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/passive-rfid/rp4t/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/1426279500551.jpg" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>P4T</b></td>
+<td class="clsSyntaxCells clsOddRow">P4T, RP4T</td>
+<td class="clsSyntaxCells clsOddRow">Android</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc3100Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC3100</b></td>
+<td class="clsSyntaxCells clsOddRow"><nobr>MC3100R, MC3100S, MC3190G, </nobr>MC3190R, MC3190S, MC3190Z</td>
+<td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional<br>Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
+<td class="clsSyntaxCells clsOddRow">MC32N0</td>
+<td class="clsSyntaxCells clsOddRow">Windows CE 7.0<br>Android 4.1 (JellyBean)</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC40</b></td>
+<td class="clsSyntaxCells clsOddRow"><nobr>MC40</td>
+<td class="clsSyntaxCells clsOddRow">Android 2.3 (Gingerbread)<br>Android 4.1 (JellyBean)</td>
+</td>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc45Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC45</b></td>
+<td class="clsSyntaxCells clsOddRow">MC45</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc55Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC55</b></td>
+<td class="clsSyntaxCells clsOddRow">MC5574, MC5590</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc55a0Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC55A0</b></td>
+<td class="clsSyntaxCells clsOddRow">MC55A0</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc55n0Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC55N0</b></td>
+<td class="clsSyntaxCells clsOddRow">MC55N0</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc65Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC65</b></td>
+<td class="clsSyntaxCells clsOddRow">MC659B</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC67</b></td>
+<td class="clsSyntaxCells clsOddRow">MC67</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5<br>Android 4.1 (JelyBean)</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc70Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC70</b></td>
+<td class="clsSyntaxCells clsOddRow">MC7004, MC7090, MC7094, MC7095</td>
+<td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc75Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC75</b></td>
+<td class="clsSyntaxCells clsOddRow">MC7506, MC7508, MC7596, MC7598</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc75aPic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC75a</b></td>
+<td class="clsSyntaxCells clsOddRow">MC75A0, MC75A6, MC75A8</td>
+<td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc9000Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC9000</b></td>
+<td class="clsSyntaxCells clsOddRow"><nobr>MC9090, MC9097, MC9094</nobr></td>
+<td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC9100</b></td>
+<td class="clsSyntaxCells clsOddRow">MC9190-G, MC9190Z</td>
+<td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional<br>Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC9200</b></td>
+<td class="clsSyntaxCells clsOddRow">MC92N0</td>
+<td class="clsSyntaxCells clsOddRow">Windows CE 7.0<br>Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MC9500</b></td>
+<td class="clsSyntaxCells clsOddRow"><nobr>MC9590, MC9596, MC9598, MC959B (WM6.1)</nobr></td>
+<td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1, Windows Embedded Handheld 6.5</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>TC55</b></td>
+<td class="clsSyntaxCells clsOddRow"><nobr>TC55</nobr></td>
+<td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
+</tr>
+</table>
+<p><b>* </b>The MC2100 family of devices are only supported by RhoElements 2.1.<br>
+</p>

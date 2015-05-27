@@ -9,11 +9,7 @@
 NOTE: Please review release notes that accompany the software for further remarks on supported devices and operating systems.
 
 
-<img id="mc3000Pic" src="" height="75"></img>
-
-
 ###Mobile Computers
-<P>
 <table class="table table-striped">
 <tr>
 <th class="clsSyntaxHeadings"></th>
@@ -148,13 +144,15 @@ NOTE: Please review release notes that accompany the software for further remark
 <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
 </tr>
 </table>
-<p><b>* </b>The MC2100 family of devices are only supported by RhoElements 2.1.<br>
-</p>
 
 
-**NOTE: The TC55 supports [4.0 APIs](apiusage#api-migration-table) and a subset of [2.2 APIs](apiusage#using-22-apirsquos). Applications that have been developed using some 2.2 APIs like [Scanner](../../2.2.0/rhoelements/scanner) will need to be modified to use the 5.0 APIs, for example [Barcode](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.**
+The MC2100 family of devices are only supported by RhoElements 2.1.<br>
 
-**NOTE: MC3190-Z and MC9190Z RFID Devices are supported [via a RFID plugin](../../2.2.0/rhoelements/rfid) that must be installed separately. This plug-in was developed for RhoElements version 2.2 but is still supported.**
+
+
+**NOTE: The TC55 supports [4.0 APIs](apiusage#api-migration-table) and a subset of [2.2 APIs](apiusage#using-22-apirsquos). Applications that have been developed using some 2.2 APIs like [Scanner](../../2.2.0/rhoelements/scanner) will need to be modified to use the 5.0 APIs, for example [Barcode](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.
+
+**NOTE: MC3190-Z and MC9190Z RFID Devices are supported [via a RFID plugin](../../2.2.0/rhoelements/rfid) that must be installed separately. This plug-in was developed for RhoElements version 2.2 but is still supported.
 
 ### Vehicle Terminals
 VC5090, VC6000, VC6096, VC70
