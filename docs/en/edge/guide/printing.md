@@ -1,5 +1,4 @@
 # Printing
-
 ## Overview
 RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. To print via USB, the Zebra Android device must be connected to one of [Zebra's supported printers](http://127.0.0.1:9393/en/edge/guide/printing#supported-printers) using a USB adapter or cradle. 
 
@@ -80,16 +79,12 @@ Sample JavaScript code:
 		devicePort: 8080
 		...
 
-NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer also should be in discover mode.
-
-The `searchPrinters` callback function will be executed for each printer found. The callback will include a `printerID` property, which will be used to establish a connection with the printer. When the search is complete, it will issue one more callback with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
-
-NOTE: This ID is a unique ID that the RhoMobile framework keeps track of. It is not an ID that the printer manufacturer may be using.
+NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer should be in discover mode.
 
 ###via USB
-Printing via USB is supported by Android devices only.  
+Printing via USB is supported for Android apps only. To print from one of Zebra's Android devices, it must be connected to one of the [supported Zebra printers](http://127.0.0.1:9393/en/edge/guide/printing#supported-printers) using a USB adapter or cradle.
 
-
+Again we use the `search.Printers` method to search for printer(s) connected to the mobile device via USB. This time the new `CONNECTION_TYPE_USB` parameter is used.
 
 Sample JavaScript code: 
 
@@ -120,13 +115,13 @@ Sample JavaScript code:
 			}
 		});
 
+## 3) Connect to the Printer
 
-`UNDER CONSTRUCTION`
+The scripts in STEP 2 will causae the `searchPrinters` callback function to be executed for each printer found. The callback's `printerID` property will be used to establish a connection with the desired printer. When the search is complete, it will issue one more callbacks with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
 
+NOTE: This ID is a unique identifier that is tracked by the RhoMobile framework. It is different from any ID that the printer manufacturer might be using.
 
-
-## Connecting to the Printer
-Now that we found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of Printer class by calling the [getPrinterByID method](../api//printingzebra#mgetPrinterByIDSTATIC) and pass in a string that is the printerID that was returned in the `searchPrinters` call
+Now that we found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of Printer class by calling the [getPrinterByID](../api//printingzebra#mgetPrinterByIDSTATIC) method and pass in a string that is the printerID that was returned in the `searchPrinters` call.
 
 	:::javascript
 	// Ex: printers[0] = 'ZEBRA_PRINTER_1'
