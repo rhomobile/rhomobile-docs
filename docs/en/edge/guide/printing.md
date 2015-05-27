@@ -1,26 +1,27 @@
 # Printing
 
 ## Overview
-RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. RhoMobile also supports printing via USB from Android devices, which is **new in version 5.1**. For output to USB printers, Zebra's Android devices must be connected using a USB adapter or cradle. 
+RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. To print via USB, the Zebra Android device must be connected to one of [Zebra's supported printers](http://127.0.0.1:9393/en/edge/guide/printing#supported-printers) using a USB adapter or cradle. 
 
-**New in version 5.1.** is the `CONNECTION_TYPE_USB` parameter, which has been added to the RhoMobile Printing API to handle USB printing. This API otherwise operates in exactly the same way as prior editions. 
+To facilitate USB printing, the RhoMobile Printing API now incldues the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in exactly the same way as in prior editions.
 
+This guide is designed to provide an overview of the steps necessary to enable printing in a RhoMobile application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
 
-## Enabling the APIs
-In the [API reference](apisummary), you will see two new APIs: [Printing](../api/printing) and [PrintingZebra](../api/printingzebra). The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs (such as [PrintingZebra](../api/printingzebra)) will inherit. To enable this functionality in your application, you must include both extensions in your build.yml. 
+## 1) Enable Print APIs
+In the [API reference](apisummary) contains two APIs. The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra](../api/printingzebra) is the printer-type API for Zebra printers. 
+
+**To enable printing in your application, your `build.yml` must include both of these extensions**. 
 
 Sample Ruby code: 
 
     :::ruby
     extensions: ["printing","printing_zebra"]
 
-## Finding Printers
-Before an app can print, it must app must first find and connect to a printer. There are a few ways to do this, but all use the [searchPrinters Method](../api/printing#msearchPrintersSTATIC). 
+## 2) Find a Printer
+Before your app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters](../api/printing#msearchPrintersSTATIC) method.
 
-###Bluetooth Discovery
-Printing via Bluetooth is supported by Android, iOS and Windows Mobile apps. When pairing with a Bluetooth device for the first time, a prompt might appear to enter a Bluetooth secure pairing PIN. Commonly used codes include `0000`, `1111` and `1234`. Check the printer manufacturer's specifications.
-
-The following JavaScript code looks for any Zebra printers available via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
+###via Bluetooth
+Printing via Bluetooth is supported by Android, iOS and Windows Mobile apps. The following JavaScript code looks for any Zebra printers available via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
 
 Sample JavaScript code: 
 
@@ -53,7 +54,11 @@ Sample JavaScript code:
 
 NOTE: TIP: The discovery process may take several moments. To minimize search time, provide as many search parameters as possible.
 
+NOTE: TIP: During Bluetooth discovery, be sure to set the printer to "discover mode."
+
 If a printer's Bluetooth MAC address is known, it can be specified as a `deviceAddress` using the `options` parameter, as below. 
+
+NOTE: The Bluetooth MAC address consists of six groups of two hexadecimal digits separated by colons. 
 
 Sample JavaScript code: 
 	:::javascript
@@ -62,11 +67,10 @@ Sample JavaScript code:
 		deviceAddress: '00:03:7A:4C:F2:DB'
 		...
 
-NOTE: The Bluetooth MAC address comes in the form ##:##:##:##:##:## and must include colons. 
+NOTE: When pairing with a Bluetooth device for the first time, a prompt might appear for a pairing PIN. Commonly used PINs include `0000`, `1111` and `1234`. Check the printer manufacturer's specifications.
 
-
-###Wi-Fi Discovery
-For Wi-Fi printer searching, the `deviceAddress` and `devicePort` parameters can be used to quickly identify known devices, as below.
+###via Wi-Fi
+Printing via Wi-Fi is supported by Android, iOS and Windows Mobile apps. For Wi-Fi printer searching, the `deviceAddress` and `devicePort` parameters can be used to quickly identify known devices, as below.
 
 Sample JavaScript code:
 	:::javascript
@@ -82,7 +86,41 @@ The `searchPrinters` callback function will be executed for each printer found. 
 
 NOTE: This ID is a unique ID that the RhoMobile framework keeps track of. It is not an ID that the printer manufacturer may be using.
 
-###USB Discovery
+###via USB
+Printing via USB is supported by Android devices only.  
+
+
+
+Sample JavaScript code: 
+
+	:::javascript
+	var printers = [];
+
+	Rho.Printer.searchPrinters({ 
+		connectionType:Rho.Printer.CONNECTION_TYPE_USB,  
+		printerType: Rho.Printer.PRINTER_TYPE_ZEBRA
+		 }, function (cb){
+			if(cb.status == 'PRINTER_STATUS_SUCCESS')
+			{
+				if (typeof cb.printerID != "undefined")
+				{
+					console.log('Found: ' + cb.printerID)
+					// > Found ZEBRA_PRINTER_1
+
+					printers.push(cb.printerID);
+				}
+				else
+				{
+					console.log('Done Searching');
+				}
+			}
+			else
+			{
+				console.log(cb.status);
+			}
+		});
+
+
 `UNDER CONSTRUCTION`
 
 
@@ -328,9 +366,10 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 <td class="clsSyntaxCells clsOddRow">P4T, RP4T Passive RFID Printer</td>
 <td class="clsSyntaxCells clsOddRow">Android, iOS, WM</td>
 </tr>
-
+<td class="clsSyntaxCells clsOddRow"><b></b></td>
+<td class="clsSyntaxCells clsOddRow">NOTE: Printing via USB is supported from Android devices only.</td>
+<td class="clsSyntaxCells clsOddRow"><b></b></td>
+<td class="clsSyntaxCells clsOddRow">NOTE: Zebra's QL Plus and QLn series printers DO NOT support USB printing.</td>
+</tr>
 </table>
-
-NOTE: Printing via USB is supported from Android Devices only.
-NOTE: Zebra's QL Plus and QLn series printers DO NOT support USB printing.
 
