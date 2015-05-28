@@ -1,6 +1,6 @@
 # Printing
 ## Overview
-RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. To print via USB, the Zebra Android device must be connected to one of [Zebra's supported printers](http://127.0.0.1:9393/en/edge/guide/printing#supported-printers) using a USB adapter or cradle. 
+RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. To print via USB, the Zebra Android device must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) using a USB adapter or cradle. 
 
 To facilitate USB printing, the RhoMobile Printing API now incldues the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in exactly the same way as in prior editions.
 
@@ -78,7 +78,7 @@ Sample JavaScript code:
 NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer should be in discover mode.
 
 ###Finding via USB
-In the current version, printing via USB is supported for Android apps only. To print from one of Zebra's Android devices, the device must be connected to one of the [supported Zebra printers](http://127.0.0.1:9393/en/edge/guide/printing#supported-printers) **using an OTG cable, adapter or cradle.**
+In the current version, printing via USB is supported for Android apps only. To print from one of Zebra's Android devices, the device must be connected to one of the [supported Zebra printers](http://../guide/printing#supported-printers) **using an OTG cable, adapter or cradle.**
 
 NOTE: Printing via USB from a mobile device requires a USB On-the-Go (OTG) cable, which permits the device to act as a host to the client printer. 
 
@@ -115,12 +115,13 @@ Sample JavaScript code:
 
 ## 3) Connect to the Printer
 
-The script in STEP 2 executes the `searchPrinters` `callback` function to create a unique `printerID` property for each printer found. This ID will be used to establish a connection with the desired printer. After the last printer is found, an additional callback will contain no `printerID`, signaling the end of search and that it's safe to connect to a printer.
+The script in STEP 2 executes the `searchPrinters` `callback` function to create a unique `printerID` property for each printer found. This ID will be used to establish a connection with the desired printer. After the last printer is found, an additional `callback` will contain no `printerID`, signaling the end of search and that it's safe to connect to a printer.
 
-NOTE: This `printerID` is a unique identifier that is tracked by the RhoMobile framework. It has no relation to ID numbers that a printer manufacturer might have assigned.
+NOTE: This `printerID` is a unique identifier that is tracked by the RhoMobile framework. It has no relation to ID numbers that a printer manufacturer might be using.
 
-Now that we've found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of Printer class by calling the [getPrinterByID](../api//printingzebra#mgetPrinterByIDSTATIC) method and pass in a string that is the printerID that was returned in the `searchPrinters` call.
+At this time there should be one or more `printerID` values in the `printers` array variable. To access one, create an instance of the Printer class by calling the [getPrinterByID](../api//printingzebra#mgetPrinterByIDSTATIC) method and passing a `printerID` as a string to the vairable `myPrinter` as below.
 
+Sample JavaScript code:
 	:::javascript
 	// Ex: printers[0] = 'ZEBRA_PRINTER_1'
 	var myPrinter = Rho.Printer.getPrinterByID(printers[0]);
@@ -130,7 +131,9 @@ Now that we've found the printers using the `searchPrinters` method, we should h
 	// with that class
 
 
-Once we have an instance to a specific printer we now must make a connection, using the [connect method](../api/printingzebra#mconnect), before executing any additional commands:
+Once you've instantiated a specific printer, your app can connect to it using the [connect](../api/printingzebra#mconnect) method as below. 
+
+Sample JavaScript code: 
 	:::javascript
 	myPrinter.connect(function (cb){
 		
@@ -148,10 +151,12 @@ Once we have an instance to a specific printer we now must make a connection, us
 		
 	});
 
-The callback object in the `connect` method will be a `string` containing one of the [PRINTER_STATUS...](../api/printingzebra#Constants) constants.
+The `callback` object in the [connect](../api/printingzebra#mconnect) method will be a `string` containing one of the [PRINTER_STATE](../api/printingzebra#Constants) constants.
+
+>> before executing any additional commands
 
 ## Getting Printer State
-You can also check some information about the printer using the [requestState method](../api/printingzebra#mrequestState). This method sends a message to the printer to retrieve the current status and returns the information in a callback. The first parameter of this method is an array that lists the items to find. These are [Printer Constants](../api/printing#Constants) that start with `PRINTER_STATE`. Each state you specify will be returned as a property of the callback object.
+You can also check some information about the printer using the [requestState](../api/printingzebra#mrequestState) method. This method sends a message to the printer to retrieve the current status and returns the information in a callback. The first parameter of this method is an array that lists the items to find. These are [Printer Constants](../api/printing#Constants) that start with `PRINTER_STATE`. Each state you specify will be returned as a property of the callback object.
 
 	:::javascript
 	// Assumes you have created an instance 'myPrinter'
