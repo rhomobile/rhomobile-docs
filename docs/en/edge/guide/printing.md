@@ -115,11 +115,11 @@ Sample JavaScript code:
 
 ## 3) Connect to the Printer
 
->> The scripts in STEP 2 repeat the `searchPrinters` callback function until no more printers are found. The callback's `printerID` property will be used to establish a connection with the desired printer. When a search is complete, `searchPrinters` will issue one additional callback with a success status but the result will contain no `printerID`. You would use this as an indication that the search process is complete and it is safe to connect to one of the found printers.
+The script in STEP 2 executes the `searchPrinters` `callback` function to create a unique `printerID` property for each printer found. This ID will be used to establish a connection with the desired printer. After the last printer is found, an additional callback will contain no `printerID`, signaling the end of search and that it's safe to connect to a printer.
 
-NOTE: This ID is a unique identifier that is tracked by the RhoMobile framework. It is different from any ID that the printer manufacturer might be using.
+NOTE: This `printerID` is a unique identifier that is tracked by the RhoMobile framework. It has no relation to ID numbers that a printer manufacturer might have assigned.
 
-Now that we found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of Printer class by calling the [getPrinterByID](../api//printingzebra#mgetPrinterByIDSTATIC) method and pass in a string that is the printerID that was returned in the `searchPrinters` call.
+Now that we've found the printers using the `searchPrinters` method, we should have a `printerID` in our `printers array variable`. We create an instance of Printer class by calling the [getPrinterByID](../api//printingzebra#mgetPrinterByIDSTATIC) method and pass in a string that is the printerID that was returned in the `searchPrinters` call.
 
 	:::javascript
 	// Ex: printers[0] = 'ZEBRA_PRINTER_1'
