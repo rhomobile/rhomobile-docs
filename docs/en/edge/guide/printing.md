@@ -19,8 +19,8 @@ Sample Ruby code:
 ## 2) Find a Printer
 Before your app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters](../api/printing#msearchPrintersSTATIC) method.
 
-###via Bluetooth
-Printing via Bluetooth is supported by Android, iOS and Windows Mobile apps. The following JavaScript code looks for any Zebra printers available via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
+###Finding via Bluetooth
+Printing via Bluetooth is supported by Android, iOS and Windows Mobile apps. **During Bluetooth discovery, the printer must be in "discoverable" mode.** The following JavaScript code looks for any Zebra printers discoverable via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
 
 Sample JavaScript code: 
 
@@ -51,24 +51,20 @@ Sample JavaScript code:
 			}
 		});
 
-NOTE: TIP: The discovery process may take several moments. To minimize search time, provide as many search parameters as possible.
+NOTE: TIP: To minimize search time, your script should provide as many search parameters as possible.
 
-NOTE: TIP: During Bluetooth discovery, be sure to set the printer to "discover mode."
-
-If a printer's Bluetooth MAC address is known, it can be specified as a `deviceAddress` using the `options` parameter, as below. 
-
-NOTE: The Bluetooth MAC address consists of six groups of two hexadecimal digits separated by colons. 
+The Bluetooth MAC address consists of six groups of two hexadecimal digits separated by colons. If a printer's Bluetooth MAC address is known, it can be specified as a `deviceAddress` using the `options` parameter, as below. 
 
 Sample JavaScript code: 
 	:::javascript
 	Rho.PrinterZebra.searchPrinters({ 
 		connectionType:Rho.Printer.CONNECTION_TYPE_BLUETOOTH,  
 		deviceAddress: '00:03:7A:4C:F2:DB'
-		...
+		... 
 
 NOTE: When pairing with a Bluetooth device for the first time, a prompt might appear for a pairing PIN. Commonly used PINs include `0000`, `1111` and `1234`. Check the printer manufacturer's specifications.
 
-###via Wi-Fi
+###Finding via Wi-Fi
 Printing via Wi-Fi is supported by Android, iOS and Windows Mobile apps. For Wi-Fi printer searching, the `deviceAddress` and `devicePort` parameters can be used to quickly identify known devices, as below.
 
 Sample JavaScript code:
@@ -81,10 +77,12 @@ Sample JavaScript code:
 
 NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer should be in discover mode.
 
-###via USB
-Printing via USB is supported for Android apps only. To print from one of Zebra's Android devices, it must be connected to one of the [supported Zebra printers](http://127.0.0.1:9393/en/edge/guide/printing#supported-printers) using a USB adapter or cradle.
+###Finding via USB
+In the current version, printing via USB is supported for Android apps only. To print from one of Zebra's Android devices, the device must be connected to one of the [supported Zebra printers](http://127.0.0.1:9393/en/edge/guide/printing#supported-printers) **using an OTG cable, adapter or cradle.**
 
-Again we use the `search.Printers` method to search for printer(s) connected to the mobile device via USB. This time the new `CONNECTION_TYPE_USB` parameter is used.
+NOTE: Printing via USB from a mobile device requires a USB On-the-Go (OTG) cable, which permits the device to act as a host to the client printer. 
+
+Use the `search.Printers` method  and the `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1; it is not present in prior versions.**
 
 Sample JavaScript code: 
 
@@ -117,7 +115,7 @@ Sample JavaScript code:
 
 ## 3) Connect to the Printer
 
-The scripts in STEP 2 will causae the `searchPrinters` callback function to be executed for each printer found. The callback's `printerID` property will be used to establish a connection with the desired printer. When the search is complete, it will issue one more callbacks with a success status, but will not contain a printerID. You would use this as an indication that the search process is complete and it is safe to connect to the printer.
+>> The scripts in STEP 2 repeat the `searchPrinters` callback function until no more printers are found. The callback's `printerID` property will be used to establish a connection with the desired printer. When a search is complete, `searchPrinters` will issue one additional callback with a success status but the result will contain no `printerID`. You would use this as an indication that the search process is complete and it is safe to connect to one of the found printers.
 
 NOTE: This ID is a unique identifier that is tracked by the RhoMobile framework. It is different from any ID that the printer manufacturer might be using.
 
@@ -332,10 +330,10 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 <P>
 <table class="table table-striped">
 <tr>
-<th class="clsSyntaxHeadings"></th>
-<th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-<th class="clsSyntaxHeadings">Device model(s)</th>
-<th class="clsSyntaxHeadings">Operating System(s)</th>
+<th class="text-centered"></th>
+<th class="text-centered"><nobr>Device family</nobr></th>
+<th class="text-centered">Device model(s)</th>
+<th class="text-centered">Operating System(s)</th>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/mobile/mz-220/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/x1426279604956.jpg.pagespeed.ic.F9pw8Srpwb.jpg" height="75"></img></td>
