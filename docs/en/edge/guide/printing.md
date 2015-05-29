@@ -115,7 +115,7 @@ Sample JavaScript code:
 
 ## 3) Connect to the Printer
 
-The script in STEP 2 executes the `searchPrinters` `callback` function to create a unique `printerID` property for each printer found. This ID will be used to establish a connection with the desired printer. After the last printer is found, an additional `callback` will contain no `printerID`, signaling the end of search and that it's safe to connect to a printer.
+The script in STEP 2 executes the searchPrinters callback function, which returns a unique printerID property for each printer found. This ID will be used to establish a connection with the desired printer. After the last printer is found, an additional callback will be triggered and will contain no printerID, signaling the end of search and that it's safe to connect to a printer.
 
 NOTE: This `printerID` is a unique identifier that is tracked by the RhoMobile framework. It has no relation to ID numbers that a printer manufacturer might be using.
 
@@ -151,9 +151,10 @@ Sample JavaScript code:
 		
 	});
 
-The `callback` object in the [connect](../api/printingzebra#mconnect) method will be a `string` containing one of the [PRINTER_STATE](../api/printingzebra#Constants) constants.
+The `callback` object in the [connect](../api/printingzebra#mconnect) method will be a `string` containing one of the [PRINTER_STATUS...](../api/printingzebra#Constants) constants.
 
 >> before executing any additional commands
+>> include extensions in build.yml NOT in rudy/
 
 ## Getting Printer State
 You can also check some information about the printer using the [requestState](../api/printingzebra#mrequestState) method. This method sends a message to the printer to retrieve the current status and returns the information in a callback. The first parameter of this method is an array that lists the items to find. These are [Printer Constants](../api/printing#Constants) that start with `PRINTER_STATE`. Each state you specify will be returned as a property of the callback object.
