@@ -6,7 +6,7 @@ To facilitate USB printing, the RhoMobile Printing API now incldues the `CONNECT
 
 This guide is designed to provide an overview of the steps necessary to enable printing in a RhoMobile application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
 
-## 1) Enable Print APIs
+## 1- Enable Print APIs
 In the [API reference](apisummary) contains two APIs. The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra](../api/printingzebra) is the printer-type API for Zebra printers. 
 
 **To enable printing in your application, your `build.yml` must include both of these extensions**. 
@@ -16,7 +16,7 @@ Sample Ruby code:
     :::ruby
     extensions: ["printing","printing_zebra"]
 
-## 2) Find a Printer
+## 2- Find a Printer
 Before your app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters](../api/printing#msearchPrintersSTATIC) method.
 
 ###Finding via Bluetooth
@@ -113,7 +113,7 @@ Sample JavaScript code:
 			}
 		});
 
-## 3) Connect to the Printer
+## 3- Connect to a Printer
 
 The script in STEP 2 executes the searchPrinters callback function, which returns a unique printerID property for each printer found. This ID will be used to establish a connection with the desired printer. After the last printer is found, an additional callback will be triggered and will contain no printerID, signaling the end of search and that it's safe to connect to a printer.
 
@@ -151,14 +151,14 @@ Sample JavaScript code:
 		
 	});
 
-The `callback` object in the [connect](../api/printingzebra#mconnect) method will be a `string` containing one of the [PRINTER_STATUS...](../api/printingzebra#Constants) constants. Some of those printer status constants include: 
+The `callback` object in the [connect](../api/printingzebra#mconnect) method will be a `string` containing one of the [PRINTER_STATUS...](../api/printingzebra#Constants) constants. For example: 
 
 - PRINTER_STATUS_SUCCESS
 - PRINTER_STATUS_ERR_NETWORK
 - PRINTER_STATUS_ERR_TIMEOUT
 
-## Retrieving Printer State
-You can also check information about the printer using the [requestState](../api/printingzebra#mrequestState) method, which returns the information in a callback object. The first parameter of this method is an array that lists the items to find. These are [PRINTER_STATE...](../api/printing#Constants) constants such as: 
+## 4- Retrieve Printer State
+You can also check information about the printer using the [requestState](../api/printingzebra#mrequestState) method, which returns the information in a callback object. The first parameter of this method is an array that lists the items to find. These are [PRINTER_STATE...](../api/printing#Constants) constants. For example: 
 
 - PRINTER_STATE_IS_COVER_OPENED
 - PRINTER_STATE_IS_DRAWER_OPENED
@@ -177,11 +177,17 @@ Sample JavaScript code:
 
 		});
 
-## Getting Supported Printer Languages
-Before sending commands to the printer, you should be aware of which languages are supported. For Zebra printers these might include ZPL, CPCL and EPS. To retrieve a list of supported languages, use the [enumerateSupportedControlLanguages](../api/printing#menumerateSupportedControlLanguages) method. 
-The callback will be an array of [PRINTER_LANGUAGE...](../api/printing#Constants) constants. 
+## 5- Retrieve Supported Printer Languages
+Before sending commands to the printer, you should be aware of which printer languages are supported. For Zebra printers these might include ZPL, CPCL and EPS. To retrieve a list of supported languages, use the [enumerateSupportedControlLanguages](../api/printing#menumerateSupportedControlLanguages) method. 
 
-	:::javascript
+The callback will be an array of [PRINTER_LANGUAGE...](../api/printing#Constants) constants. For example: 
+
+- PRINTER_LANGUAGE_ZPL
+- PRINTER_LANGUAGE_CPCL
+- PRINTER_LANGUAGE_EPS
+
+Sample JavaScript code:
+		:::javascript
 	//assumes you created a printer instance from previous instructions
 	myPrinter.enumerateSupportedControlLanguages(function(cb){
 		// cb = Array of strings 
@@ -192,16 +198,16 @@ The callback will be an array of [PRINTER_LANGUAGE...](../api/printing#Constants
 
 NOTE: WARNING: Ruby is NOT supported with the CPCL printer language.  
 
-## Sending Printer Commands
-Once found and connected, the printer can begin to receive commands. Printer behavior will vary depending on the make, model and current state of the printer. Consult your printer's technical documentation for printer-specific commands and syntax. 
+## 6- Begin Sending Printer Commands
+Once your app finds and connects to a printer, it can begin to send commands. Printer behavior will vary depending on its make, model and current state. Consult your printer's technical documentation for printer-specific commands and syntax.
 
-In general, there are two fundamental ways for sending commands:
+In general, there are two fundamental ways to send commands:
 
-* Sending a string that includes raw printer commands
-* Sending a series of commands stored in a file (i.e. ZPL, CPCL)
+* In a string that includes raw printer commands
+* In a series of commands stored in a file (i.e. ZPL, CPCL)
 
 ### Sending a Raw String
-To send a string to the printer, you use the [printRawString method](../api//printingzebra#mprintRawString)
+To send a string to the printer, you use the [printRawString](../api//printingzebra#mprintRawString) method: 
 
 	:::javascript
 	// If my printer was in line mode I would see this text printed
@@ -212,9 +218,11 @@ To send a string to the printer, you use the [printRawString method](../api//pri
 	myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
 
 ### Sending a Series of Commands
-Typically, there will be a series of commands that need to be executed. These command files(ex; ZPL, CPCL) can be generated by hand or from a tool provided by Zebra. You can include these files in your application, so that they can be used.
+Typically, there will be a series of commands stored in a file (i.e. ZPL, CPCL). These can be generated manually or made using a tool provided by Zebra. Either way, they can be delivered with an application and modified as needed for printing. 
 
-Assuming we have a file `address.cpcl` stored in the application's `public` folder, which has CPCL commands to print an address:
+For example, let's say we created a file called `address.cpcl` that's stored in the application's `public` folder. This file will contain CPCL commands that will be used to print an address. The file might look something like the one below.  
+
+Sample terminal script with CPCL commands: 
 	:::term
 	! U1 SETLP 5 2 46
 	AURORA'S FABRIC SHOP
@@ -222,8 +230,10 @@ Assuming we have a file `address.cpcl` stored in the application's `public` fold
 	123 Castle Drive, Kingston, RI 02881
 	(401) 555-4CUT
 
-You can use the [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder](../api/Application#ppublicFolder) property to create a fully qualified path to the `address.cpcl` file. This file path is passed to the [sendFileContents method](../api/printingzebra#msendFileContents):
+You can use the [RhoFile.join](../api/File#mjoinSTATIC) helper function and the [Application.publicFolder](../api/Application#ppublicFolder) property to create a fully qualified path to the `address.cpcl` file. This file path would then be passed to the [sendFileContents](../api/printingzebra#msendFileContents) method. Here's how: 
 
+
+Sample JavaScript code:
 	:::javascript
 	var addressFile = Rho.RhoFile.join(Rho.Application.publicFolder, 'address.cpcl');
 
@@ -233,9 +243,17 @@ You can use the [RhoFile.join](../api/File#mjoinSTATIC) helper function and [App
 		// Will return a PRINTER_STATUS... CONSTANT String
 		});
 
-## Using Files Already Stored On The Printer
-You may have already stored files on the printer or have been included through some other means. You can retrieve a list of files that exists on the printer by using the [retrieveFileNames method](../api/printingzebra#mretrieveFileNames)
+## 7- Disconnect
+Whenever your app is finished printing, it's important to disconnect from the printer. This is especially important for Bluetooth connections. To disconnect, use the [disconnect](../api/printingzebra#mdisconnect) method:
 
+	:::javacript
+	//assumes you already created an instance object from previous instructions
+	myPrinter.disconnect();
+
+## Using Files Stored On The Printer
+Some printers have the ability to store command-file templates or other files useful for performaing print operations. To retrieve a list of files that exist on the printer by using the [retrieveFileNames](../api/printingzebra#mretrieveFileNames) method. 
+
+Sample JavaScript code: 
 	:::javascript
 	myPrinter.retrieveFileNames(function (e){
 		// e.status : PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR
@@ -243,25 +261,25 @@ You may have already stored files on the printer or have been included through s
 		//
 	});
 
-Now that we have the names of the files stored on the printer, we can print to them and pass in variables that the file is expecting (specified in the ZPL or CPCL file). We do this either using the [printStoredFormatWithArray method](../api/printingzebra#mprintStoredFormatWithArray) or the [printStoredFormatWithHash method](../api/printingzebra#mprintStoredFormatWithHash). Both of these include three parameters:
+Once the file names are known, your app can print to them, passing variables as specified within the ZPL or CPCL files themselves. This is done using either the [printStoredFormatWithArray](../api/printingzebra#mprintStoredFormatWithArray) method or the [printStoredFormatWithHash](../api/printingzebra#mprintStoredFormatWithHash) method. Both include three parameters:
 
-*formatPathOnPrinter - this will be 'E:filename' where 'filename' is the name of the file that we sent in the previous step, or one that existed on the device (assuming the file is on the printers 'E' partition)
+###Parameter 1- formatPathOnPrinter
+This will be 'E:filename' where 'filename' is the name of the file that we sent in the previous step, or one that existed on the device (assuming the file is on the printer's 'E' partition)
 
-*vars - This represents the data we want to pass to the label. 
+###Parameter 2- vars 
+This represents the data we want to pass to the label. 
 
 `printStoredFormatWithArray` - An array of strings representing the data to fill into the format. For ZPL formats, index 0 of the array corresponds to field number 2 (^FN2). For CPCL, the variables are passed in the order that they are found in the format 
 
-`printStoredFormatWithHash` (Only ZPL Support) - An hash which contains the key/value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as string ex: '1':'field1', '2':'field2' etc. 
-
-*callback - Will return a PRINTER_STATUS... CONSTANT String
-
-Example using `printStoredFormatWithArray`
+Sample JavaScript code:
 	:::javascript
 	myPrinter.printStoredFormatWithArray('E:LABEL.ZPL',['John Doe','123 East Main St','Smalltown, NY 11766'],function (e){
 			// Will return a PRINTER_STATUS... CONSTANT String
 		});
 
-Example using `printStoredFormatWithHash`
+`printStoredFormatWithHash` (Only ZPL Support) - An hash which contains the key/value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as string ex: '1':'field1', '2':'field2' etc. 
+
+Sample JavaScript code:
 	:::javascript 
 	myPrinter.printStoredFormatWithHash('E:LABEL.ZPL',{ '1':'John Doe','2': '123 East Main St','3': Smalltown, NY 11766'},function (e){
 
@@ -273,9 +291,13 @@ Example using `printStoredFormatWithHash`
 		});
 
 
-## Printing Images
-You can also print images using the [printImageFromFile method](../api/printingzebra#mprintImageFromFile) (as long as your printer supports images). Say for example, you had included an image called `myImage.jpg` in the `public` folder of your application. You can use the [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder](../api/Application#ppublicFolder) property to create a fully qualified path to the `myImage.jpg` file. This file path is passed to the `printImageFromFile` method:
+###Parameter 3- callback
+This will return a [PRINTER_STATUS...](../api/printingzebra#Constants) constant string.
 
+## Printing Images
+For printers with graphics support, images are printed using the [printImageFromFile](../api/printingzebra#mprintImageFromFile) method. For example, an image called `myImage.jpg` in your application's `public` folder could use the same [RhoFile.join](../api/File#mjoinSTATIC) helper function and [Application.publicFolder](../api/Application#ppublicFolder) property described above to create a fully qualified path to the `myImage.jpg` file. The file could then be passed to the `printImageFromFile` method:
+
+Sample JavaScript code:
 	:::javascript
 	var imagefile = Rho.RhoFile.join(Rho.Application.publicFolder, 'myImage.jpg');
 
@@ -289,13 +311,14 @@ You can also print images using the [printImageFromFile method](../api/printingz
 			}
 		});
 
-The callback will be a [PRINTER_STATUS constant string](../api/printingzebra#Constants) indicating if the operation was successful or not.
+A callback for the [PRINTER_STATUS](../api/printingzebra#Constants) constant would return a string indicating whether the operation was successful.
 
-NOTE: If the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly. You should also consult the manufacturers' documentation on image support for your printer. The image may need to be of a certain size and color depth before sending to the printer.
+NOTE: Images larger than 1024x768 might take a long time to print or print incorrectly. Consult the printer manufacturer's documentation for acceptable parameters for image printing. 
 
 ### Storing Images
-Some Zebra printers support storing images. You can accomplish this by creating  your own ZPL or CPL command set, or use the [storeImage method](../api/printingzebra#mstoreImage)
+Some Zebra printers support the storage of images. You can accomplish this by creating your own ZPL or CPL command set, or use the [storeImage](../api/printingzebra#mstoreImage) method: 
 
+Sample JavaScript code:
 	:::javascript
 	//location of image on device
 	var imagefile = Rho.RhoFile.join(Rho.Application.publicFolder, 'myImage.jpg');
@@ -313,13 +336,6 @@ Some Zebra printers support storing images. You can accomplish this by creating 
 			}
 		});
 
-
-## Disconnecting
-Be sure to disconnect the printer when not in use. This is especially important for Bluetooth connections. To do this you will use the [disconnect method](../api/printingzebra#mdisconnect)
-
-	:::javacript
-	//assumes you already created an instance object from previous instructions
-	myPrinter.disconnect();
 
 ## Platform Notes
 ### Windows Mobile / Windows CE
