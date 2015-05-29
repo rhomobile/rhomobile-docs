@@ -167,8 +167,8 @@ You can also check information about the printer using the [requestState](../api
 Sample JavaScript code: 
 
 	:::javascript
-	// Assumes you have created an instance 'myPrinter'
-	// from previous methods described
+	// Assumes you have created the instance 'myPrinter'
+	// from previous methods described above
 	myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
 	'PRINTER_STATE_IS_PAPER_OUT'],function (cb){
 		console.log(cb.status);
@@ -178,11 +178,8 @@ Sample JavaScript code:
 		});
 
 ## Getting Supported Printer Languages
-Before sending commands to the printer, you should be aware of which languages are supported. For Zebra printers these might include ZPL, CPCL, EPS, etc. 
-
-To retrieve a list of supported languages, use the method: [enumerateSupportedControlLanguages](../api/printing#menumerateSupportedControlLanguages). 
-
-The callback will be an array of [PRINTER_LANGUAGE... Constants](../api/printing#Constants):
+Before sending commands to the printer, you should be aware of which languages are supported. For Zebra printers these might include ZPL, CPCL and EPS. To retrieve a list of supported languages, use the [enumerateSupportedControlLanguages](../api/printing#menumerateSupportedControlLanguages) method. 
+The callback will be an array of [PRINTER_LANGUAGE...](../api/printing#Constants) constants. 
 
 	:::javascript
 	//assumes you created a printer instance from previous instructions
@@ -192,6 +189,8 @@ The callback will be an array of [PRINTER_LANGUAGE... Constants](../api/printing
 		// PRINTER_LANGUAGE_CPCL
 		// PRINTER_LANGUAGE_EPS
 	});
+
+NOTE: WARNING: Ruby is NOT supported with the CPCL printer language.  
 
 ## Sending Printer Commands
 Once found and connected, the printer can begin to receive commands. Printer behavior will vary depending on the make, model and current state of the printer. Consult your printer's technical documentation for printer-specific commands and syntax. 
