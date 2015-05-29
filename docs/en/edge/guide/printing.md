@@ -151,22 +151,29 @@ Sample JavaScript code:
 		
 	});
 
-The `callback` object in the [connect](../api/printingzebra#mconnect) method will be a `string` containing one of the [PRINTER_STATUS...](../api/printingzebra#Constants) constants.
+The `callback` object in the [connect](../api/printingzebra#mconnect) method will be a `string` containing one of the [PRINTER_STATUS...](../api/printingzebra#Constants) constants. Some of those printer status constants include: 
 
->> before executing any additional commands
->> include extensions in build.yml NOT in rudy/
+- PRINTER_STATUS_SUCCESS
+- PRINTER_STATUS_ERR_NETWORK
+- PRINTER_STATUS_ERR_TIMEOUT
 
-## Getting Printer State
-You can also check some information about the printer using the [requestState](../api/printingzebra#mrequestState) method. This method sends a message to the printer to retrieve the current status and returns the information in a callback. The first parameter of this method is an array that lists the items to find. These are [Printer Constants](../api/printing#Constants) that start with `PRINTER_STATE`. Each state you specify will be returned as a property of the callback object.
+## Retrieving Printer State
+You can also check information about the printer using the [requestState](../api/printingzebra#mrequestState) method, which returns the information in a callback object. The first parameter of this method is an array that lists the items to find. These are [PRINTER_STATE...](../api/printing#Constants) constants such as: 
+
+- PRINTER_STATE_IS_COVER_OPENED
+- PRINTER_STATE_IS_DRAWER_OPENED
+- PRINTER_STATE_IS_PAPER_OUT
+
+Sample JavaScript code: 
 
 	:::javascript
 	// Assumes you have created an instance 'myPrinter'
 	// from previous methods described
 	myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
-		'PRINTER_STATE_IS_PAPER_OUT'],function (cb){
-			console.log(cb.status);
-			console.log(cb.PRINTER_STATE_IS_PAPER_OUT);
-			console.log(cb.PRINTER_STATE_IS_READY_TO_PRINT);
+	'PRINTER_STATE_IS_PAPER_OUT'],function (cb){
+		console.log(cb.status);
+		console.log(cb.PRINTER_STATE_IS_PAPER_OUT);
+		console.log(cb.PRINTER_STATE_IS_READY_TO_PRINT);
 
 		});
 
