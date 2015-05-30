@@ -7,7 +7,7 @@ To facilitate USB printing, the RhoMobile Printing API now incldues the `CONNECT
 This guide is designed to provide an overview of the steps necessary to enable printing in a RhoMobile application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
 
 ## 1- Enable Print APIs
-In the [API reference](apisummary) contains two APIs. The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra](../api/printingzebra) is the printer-type API for Zebra printers. 
+The [API reference](apisummary) contains two APIs. The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra](../api/printingzebra) is the printer-type API for Zebra printers. 
 
 **To enable printing in your application, your `build.yml` must include both of these extensions**. 
 
@@ -75,7 +75,7 @@ Sample JavaScript code:
 		devicePort: 8080
 		...
 
-NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer should be in discover mode.
+NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer should be in "discoverable" mode.
 
 ###Finding via USB
 In the current version, printing via USB is supported for Android apps only. To print from one of Zebra's Android devices, the device must be connected to one of the [supported Zebra printers](http://../guide/printing#supported-printers) **using an OTG cable, adapter or cradle.**
