@@ -11,11 +11,11 @@ The [RhoMobile APIs](apisummary) provide two APIs for printing. The [Printing](.
 
 **To enable printing in your application, your `build.yml` must include both of these extensions**. 
 
-Example `build.tml` command: 
+Example `build.yml` command: 
 
     :::ruby
     ...
-    extensions: ["printing","printing_zebra","rhoconnect-client"]
+    extensions: ["printing","printing_zebra","rhoconnect-client"...]
     ...
 
 
@@ -23,7 +23,7 @@ Example `build.tml` command:
 Before your app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters](../api/printing#msearchPrintersSTATIC) method.
 
 ###Finding via Bluetooth
-Printing via Bluetooth is supported by Android, iOS and Windows Mobile apps. **During Bluetooth discovery, the printer must be in "discoverable" mode.** The following JavaScript code looks for any Zebra printers discoverable via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
+Printing via Bluetooth is supported for Android, iOS and Windows Mobile apps. **During Bluetooth discovery, the printer must be set to "discoverable."** The following JavaScript code looks for any Zebra printers discoverable via Bluetooth by specifying the `connectionType` and `printerType` in the `options` parameter:
 
 Sample JavaScript code: 
 
@@ -54,9 +54,9 @@ Sample JavaScript code:
 			}
 		});
 
-NOTE: TIP: To minimize search time, your script should provide as many search parameters as possible.
+NOTE: TIP: To minimize search time, code should provide as many search parameters as possible.
 
-The Bluetooth MAC address consists of six groups of two hexadecimal digits separated by colons. If a printer's Bluetooth MAC address is known, it can be specified as a `deviceAddress` using the `options` parameter, as below. 
+The Bluetooth MAC address consists of six groups of two hexadecimal digits separated by colons. If a printer's Bluetooth MAC address is known, it can be specified as a `deviceAddress` using the `options` parameter: 
 
 Sample JavaScript code: 
 	:::javascript
@@ -65,10 +65,10 @@ Sample JavaScript code:
 		deviceAddress: '00:03:7A:4C:F2:DB'
 		... 
 
-NOTE: When pairing with a Bluetooth device for the first time, a prompt might appear for a pairing PIN. Commonly used PINs include `0000`, `1111` and `1234`. Check the printer manufacturer's specifications.
+NOTE: When pairing with a Bluetooth device for the first time, a prompt might appear for a pairing PIN. Commonly used PINs: 0000, 1111 and 1234. Check the printer manufacturer's specifications.
 
 ###Finding via Wi-Fi
-Printing via Wi-Fi is supported by Android, iOS and Windows Mobile apps. For Wi-Fi printer searching, the `deviceAddress` and `devicePort` parameters can be used to quickly identify known devices, as below.
+Printing via Wi-Fi is supported for Android, iOS and Windows Mobile apps. For Wi-Fi printer searching, the `deviceAddress` and `devicePort` parameters can be used to quickly identify known devices:
 
 Sample JavaScript code:
 	:::javascript
@@ -78,12 +78,12 @@ Sample JavaScript code:
 		devicePort: 8080
 		...
 
-NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the apprporiate radio is turned on in the device. If using Bluetooth, the printer should be in "discoverable" mode.
+NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the device's corresponding radio is turned on. If using Bluetooth, the printer should be set to "discoverable."
 
 ###Finding via USB
-In the current version, printing via USB is supported for Android apps only. To print from one of Zebra's Android devices, the device must be connected to one of the [supported Zebra printers](http://../guide/printing#supported-printers) **using an OTG cable, adapter or cradle.**
+Printing via USB is supported for Android apps only. To print from a Zebra Android device, it must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) **using an OTG cable or adapter.**
 
-NOTE: Printing via USB from a mobile device requires a USB On-the-Go (OTG) cable, which permits the device to act as a host to the client printer. 
+NOTE: The USB On-the-Go (OTG) spec permits a mobile device to act as "host" to client peripherals such as printers or keyboards. 
 
 Use the `search.Printers` method  and the `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
 
