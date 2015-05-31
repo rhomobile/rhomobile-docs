@@ -1,20 +1,23 @@
 # Printing
 ## Overview
-RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. To print via USB, the Zebra Android device must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) using a USB adapter or cradle. 
+RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. This version also improves performance of Bluetooth device discovery.  
 
-To facilitate USB printing, the RhoMobile Printing API now incldues the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in exactly the same way as in prior editions.
+The RhoMobile printing APIs in 5.1 now incldues the `CONNECTION_TYPE_USB` parameter to facilitate USB printing. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra Android device must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) using an OTG USB cable or adapter. Android printing is supported via direct USB connection or throiugh a cradle.   
 
 This guide is designed to provide an overview of the steps necessary to enable printing in a RhoMobile application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
 
 ## 1- Enable Print APIs
-The [API reference](apisummary) contains two APIs. The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra](../api/printingzebra) is the printer-type API for Zebra printers. 
+The [RhoMobile APIs](apisummary) provide two APIs for printing. The [Printing](../api/printing) API is a parent class that defines common class attributes that specific printer-type APIs will inherit. The [PrintingZebra](../api/printingzebra) API is the printer-type API for Zebra printers. 
 
 **To enable printing in your application, your `build.yml` must include both of these extensions**. 
 
-Sample Ruby code: 
+Example `build.tml` command: 
 
     :::ruby
-    extensions: ["printing","printing_zebra"]
+    ...
+    extensions: ["printing","printing_zebra","rhoconnect-client"]
+    ...
+
 
 ## 2- Find a Printer
 Before your app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the [searchPrinters](../api/printing#msearchPrintersSTATIC) method.
