@@ -29,10 +29,10 @@ After building with this extension, you will have access to the api from within 
 
 
 ## Choosing the Camera
-On most devices there are both a front and rear camera. By default the rear camera is chosen and can be used by just using the `Rho.Camera` namespace. However, the Camera API also supports defining instances of the Camera object in a variety of different ways. This allows you greater control and flexibility in using the API.
+On most devices there are both front and rear facing cameras. By default, the rear camera is chosen and can be used by using the `Rho.Camera` namespace. However, the Camera API also supports defining instances of the Camera object in a variety of different ways. This allows you greater control and flexibility in using the API.
 
 ### Specifying By Name
-One way you can ensure the use of a certain camera on the device is to get an instance by name using the `getCameraByType` method:
+One way you can ensure the use of a certain camera on a device is by naming an instance of that camera with the `getCameraByType` method:
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#js1" data-toggle="tab">JavaScript</a></li>
@@ -57,7 +57,7 @@ One way you can ensure the use of a certain camera on the device is to get an in
 >Note: On Windows Mobile/CE the options are `color` for the camera and `imager` for the B/W 2D Imager
 
 ## Finding All Cameras
-You can also use the `enumerate` method to identify all camera's available on the device. This method will return an array of Camera instances:
+You can also use the `enumerate` method to identify all cameras available on the device. This method will return an array of Camera instances:
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#js2" data-toggle="tab">JavaScript</a></li>
@@ -87,7 +87,7 @@ You can also use the `enumerate` method to identify all camera's available on th
 </div> 
 
 ## Capturing a Picture
-The `takePicture` method is used to capture an image and optionally pass in an options object as the first parameter to control the behavior of the API. The second parameter shown in the example is the callback function that is executed:
+The `takePicture` method is used to capture an image and optionally pass in an options object as the first parameter that can control the behavior of the API. The second parameter shown in the example is the executed callback function:
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#js3" data-toggle="tab">JavaScript</a></li>
@@ -151,6 +151,14 @@ The callback function will always be executed and will contain an object that wi
 
     	}
 
+        if(params.status =='error'){
+
+        }
+
+        if(params.status =='cancel'){
+
+        }
+
     }
  	
 
@@ -177,7 +185,7 @@ The callback function will always be executed and will contain an object that wi
 
 
 ### Retrieving the Image File
-In the callback of the `takePicture` method a parameter called `imageUri` will contain the location of the image file that was captured 
+In the callback of the `takePicture` method, a parameter called `imageUri` will contain the location of the caputered image
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#js4" data-toggle="tab">JavaScript</a></li>
@@ -211,7 +219,7 @@ In the callback of the `takePicture` method a parameter called `imageUri` will c
 </div> 
 
 ### Retrieving the Image as DataUri
-In some cases you may want to store the image as a DataURI string instead of an actual file. This is useful when the image size required is a lower resolution and you may want to store it directly in a database. To accomplish this you need to first specify this using the `outputFormat` property before you execute the `takePicture` method. The `imageUri` paramter of the callback of the `takePicture` method will contain the dataUri string representation of the image that was captured.
+In some cases, you may want to store the image as a DataURI string instead of an actual file. This is useful when the image size required is a lower resolution and you want to store it directly in a database. To accomplish this you need to first specify output format you would like by using the `outputFormat` property. You should specify the ouptput format before you execute the `takePicture` method. The `imageUri` paramter of the callback of the `takePicture` method will contain the dataUri string representation of the image that was captured.
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#js5" data-toggle="tab">JavaScript</a></li>
