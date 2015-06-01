@@ -317,8 +317,7 @@ This Property shall accept/return one among the values mentioned in constant sec
 
 ####Access
 
-* Instance: This property can be accessed via an instance object of this class:
-myObject.flashMode
+* Instance: This property can be accessed via an instance object of this class: `myObject.flashMode`
 
 * Default Instance: This property can be accessed via the default instance object of this class
 
