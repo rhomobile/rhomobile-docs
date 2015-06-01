@@ -28,7 +28,7 @@ NOTE: This feature is available only during development time and is removed auto
 Live Update will not work properly and will not display the **Live update setting** file if you do not have the proper version of RhoStudio.
 
 ###2. Add Necessary Extensions
-**To enable Live Update in your application, you must include the following extension in your build.yml:**
+**To enable Live Update in your application, you must include the following extension in your `build.yml`**
 
     :::ruby
 
@@ -46,12 +46,12 @@ Note: Step 4 can be done from both the command line and the RhoStudio IDE
   1. Build and run your project. When the mobile application is launched correctly, it will show an alert with your IP address and a few controls.
   <img src="http://i.imgur.com/xSXh8yT.png" width="380" height="600" border="10" />
 	
-  2. open the **Live update setting** file inside of your **Project explorer**. This will display all of the found subnets. 
+  2. open the Live update setting file inside of your Project explorer. This will display all of the found subnets. 
   Note: An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
 
   3. Double click on the subnet that you are using and RhoStudio will search that subnet for your device. If your device is found, it will appear in the list of found devices.
 	
-  4. Once the device is found, you should see a **dev-config.yml** file inside of your project explorer. This contains a list of all found devices. If you do not see this file and your device was found, try right clicking your current project and hitting refresh.
+  4. Once the device is found, you should see a `dev-config.yml` file inside of your project explorer. This contains a list of all found devices. If you do not see this file and your device was found, try right clicking your current project and hitting refresh.
 	
   5. Go into dev-config.yml and add the following line after the list of devices:
 
@@ -67,26 +67,26 @@ Note: Step 4 can be done from both the command line and the RhoStudio IDE
 
   1. Build and run your project
 
-  For iPhones:
+   For iPhones:
 
         :::term
 
       rake run:iphone
 
-  For Android:
+   For Android:
 
         :::term
 
       rake run:android
 
-  For Windows Mobile:
+   For Windows Mobile:
 
         :::term
 
       rake run:wm:device
 
-When the mobile application is launched correctly, it will show an alert with your IP address and a few controls.
-	
+  When the mobile application is launched correctly, it will show an alert with your IP address and a few controls.  
+  <br>
   2. Run the command below to find all possible subnets to use:
 
     :::term
@@ -106,13 +106,14 @@ When the mobile application is launched correctly, it will show an alert with yo
 
   If several subnets are available, you must tell the script which subnet you wish to use.
 
-  Note: an iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
-	
-  3. Once the subnet of the device is found, you should see a **dev-config.yml** file inside of your project folder. This contains a list of all found devices.
-	
+  Note: an iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.  
+  <br>
+  3. Once the subnet of the device is found, you should see a dev-config.yml file inside of your project folder. This contains a list of all found devices.
+  <br>
+  <br>
   4. Go into dev-config.yml and add the following line after the list of devices:
 
-		refresh:1
+		 refresh:1
 
   This will allow your web view to refresh when needed and to instantly reflect any changes made
 
@@ -131,9 +132,9 @@ Live Update can be used to update the following types of files at run time:
 
 To edit these files at run time, make the desired changes to your files and then save. The changes should now show on your mobile device when and Update Method is running.
 
-Live Update can run on, and send updates to, multiple devices at once as long as they are all in the list of **found devices** and all have the RhoMobile application running.
+Live Update can run on, and send updates to, multiple devices at once as long as they are all in the list of found devices and all have the RhoMobile application running.
 
- If you wish to unsubscribe a particular device from receiving updates, simply go into **dev-config.yml** and change **enabled: 1** to **enabled: 0**
+ If you wish to unsubscribe a particular device from receiving updates, simply go into dev-config.yml and change `enabled: 1` to `enabled: 0`
 
 **After all of this is done, you are all set up and ready to start using Live Update and all of the features it provides**
 
@@ -154,7 +155,7 @@ This feature allows the automatic detection and display of changes. Any changes 
 
 **Using From RhoStudio**
 
-Simply go to the **Live Update Settings** tab which can be found under **Project Explorer**
+Simply go to the Live Update Settings tab which can be found under Project Explorer
 
 Now click **Enable live update** and Auto Update should be up and running.
 
@@ -232,8 +233,8 @@ This will detect the proper connections and pathways for the new host computer a
 --
 If Live Update is not working for you, you may want to double check the following:
 
-* Make sure your build.yml includes the **development** extension
+* Make sure your build.yml includes the development extension
 * Connect your devices to the same subnet, and not just the same Wi-Fi.
-* Check that your dev-config.yml file has the property **refresh:1** and that it is not indented.
-* If making changes gives your mobile device a notification that says **Error when update Bundle**, check inside of dev-config.yml and make sure that the **application** setting under your device is using the current application you are developing for. If it is not, then you can type in the correct application name to fix it. 
+* Check that your dev-config.yml file has the property `refresh:1` and that it is not indented.
+* If making changes gives your mobile device a notification that says **Error when update Bundle**, check inside of dev-config.yml and make sure that the application setting under your device is using the current application you are developing for. If it is not, then you can type in the correct application name to fix it. 
 * If the Update Methods aren't working, make sure you are in the directory where all your project files are located.
