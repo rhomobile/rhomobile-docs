@@ -286,3 +286,42 @@ You can also save the image to the device's photo gallery by setting the `saveTo
 	</code></pre>
     </div>
 </div> 
+
+## Useful Properties
+
+### compressionFormat : STRING
+
+#### Description
+The format of the captured image in subsequent calls to takePicture(). If you do not define this property when you use choose_picture with iOS, the type of image in Gallery will be recognized, and the same format will be used for saving the image to applications data. In windows and WP8 devices the format will be always jpg type.  
+This Property shall accept/return one among the values mentioned in constant section which starts with [COMPRESSION_FORMAT_](http://docs.rhomobile.com/en/edge/api/camera#Constants)
+
+#### Params
+Default: jpg
+
+#### Access
+
+* Instance: This property can be accessed via an instance object of this class:
+    `myObject.compressionFormat`
+
+* Default Instance: This property can be accessed via the default instance object of this class
+
+Javascript: `Rho.Camera.compressionFormat`  
+
+Ruby: `Rho::Camera.compressionFormat`
+
+### flashMode : STRING
+
+#### Description
+Specifies the flash behavior when taking a picture.  
+This Property shall accept/return one among the values mentioned in constant section which starts with [FLASH_](http://docs.rhomobile.com/en/edge/api/camera#Constants)
+
+####Access
+
+* Instance: This property can be accessed via an instance object of this class:
+myObject.flashMode
+
+* Default Instance: This property can be accessed via the default instance object of this class
+
+Javascript: `Rho.Camera.flashMode`  
+
+Ruby: `Rho::Camera.flashMode`
