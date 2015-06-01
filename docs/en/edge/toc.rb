@@ -167,12 +167,14 @@ section 'rhomob-dev',                                     'Device Capabilities',
 end
 
 section 'rhomob-test',                  'Testing & Debugging','Mobile Guides' do
+  topic 'en/edge/guide/live-update',     'Live Update'
   topic 'en/edge/guide/debugging_ruby', 'Debugging Ruby'
   topic 'en/edge/guide/debugging_js',   'Debugging JavaScript'
   topic 'en/edge/guide/remote-debug',   'Remote JS Debugging'
   topic 'en/edge/guide/logging',        'Logging'
   topic 'en/edge/guide/testing',        'Testing'
   topic 'en/edge/guide/profiling',      'Performance Profiling'
+
 end
 
 section 'rhomob-ext',                       'Extending','Mobile Guides' do
