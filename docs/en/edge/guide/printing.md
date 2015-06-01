@@ -2,7 +2,7 @@
 ## Overview
 RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. This version also improves performance of Bluetooth device discovery.  
 
-The RhoMobile printing APIs in 5.1 now incldues the `CONNECTION_TYPE_USB` parameter to facilitate USB printing. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra Android device must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) using an OTG USB cable or adapter. Android printing is supported via direct USB connection or throiugh a cradle.   
+To facilite USB printing from Android, the RhoMobile printing API in 5.1 now incldues the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra Android device must be connected with a USB "On-The-Go" (OTG) cable or adapter to one of [Zebra's supported printers](http://../guide/printing#supported-printers). Android printing is supported via direct USB OTG connection or through a cradle with OTG adapter. 
 
 This guide is designed to provide an overview of the steps necessary to enable printing in a RhoMobile application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
 
@@ -83,7 +83,7 @@ NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the device's cor
 ###Finding via USB
 Printing via USB is supported for Android apps only. To print from a Zebra Android device, it must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) **using an OTG cable or adapter.**
 
-NOTE: The USB On-the-Go (OTG) spec permits a mobile device to act as "host" to client peripherals such as printers or keyboards. 
+NOTE: The USB On-the-Go (OTG) spec permits a mobile device to act as "host" to client peripherals such as flash drives, keyboards and printers. 
 
 Use the `search.Printers` method  and the `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
 
