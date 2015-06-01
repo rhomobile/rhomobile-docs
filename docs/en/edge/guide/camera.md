@@ -3,11 +3,11 @@ From version 5.1 of RhoMobile Suite, you can access the device's Camera capabili
 
 
 ## Enabling The Camera API
-To use the [Camera API](../../latest/api/camera) include the following extension in your `build.yml`
+To use the [Camera API](../../latest/api/camera), include the following extension in your `build.yml`
     :::ruby
     extensions: ["mediacapture"]
 
-After building with this extension, you will have access to the api from within your code
+After building with this extension, you will have access to the API from within your code
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#javascriptSend" data-toggle="tab">JavaScript</a></li>
@@ -29,7 +29,7 @@ After building with this extension, you will have access to the api from within 
 
 
 ## Choosing the Camera
-On most devices there are both front and rear facing cameras. By default, the rear camera is chosen and can be used by using the `Rho.Camera` namespace. However, the Camera API also supports defining instances of the Camera object in a variety of different ways. This allows you greater control and flexibility in using the API.
+On most devices there are both front and rear facing cameras. By default, the rear camera is chosen and can be used by calling the `Rho.Camera` namespace. However, the Camera API also supports defining instances of the Camera object in a variety of different ways. This allows you greater control and flexibility in using the API.
 
 ### Specifying By Name
 One way you can ensure the use of a certain camera on a device is by naming an instance of that camera with the `getCameraByType` method:
@@ -219,7 +219,7 @@ In the callback of the `takePicture` method, a parameter called `imageUri` will 
 </div> 
 
 ### Retrieving the Image as DataUri
-In some cases, you may want to store the image as a DataURI string instead of an actual file. This is useful when the image size required is a lower resolution and you want to store it directly in a database. To accomplish this you need to first specify output format you would like by using the `outputFormat` property. You should specify the ouptput format before you execute the `takePicture` method. The `imageUri` paramter of the callback of the `takePicture` method will contain the dataUri string representation of the image that was captured.
+In some cases, you may want to store the image as a DataURI string instead of an actual file. This is useful when the image size required is a lower resolution and you want to store it directly in a database. To accomplish this, you need to first specify the output format you would like by using the `outputFormat` property. You should specify the ouptput format before you execute the `takePicture` method. The `imageUri` paramter of the callback of the `takePicture` method will contain the dataUri string representation of the image that was captured.
 
 <ul class="nav nav-tabs">
     <li class="active"><a href="#js5" data-toggle="tab">JavaScript</a></li>
