@@ -9,7 +9,7 @@
 NOTE: Please review release notes that accompany the software for further remarks on supported devices and operating systems.
 
 
-###Mobile Computers
+###Mobile Computers (UNDER CONSTRUCTION)
 <table class="table table-striped">
 <tr>
 <th class="clsSyntaxHeadings"></th>
