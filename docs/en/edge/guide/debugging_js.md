@@ -1,15 +1,15 @@
 # Debugging JavaScript
 ## Debugging with RhoSimulator
 ### What is RhoSimulator?
-RhoSimulator lets you run your RhoMobile applications on a simulated device, so that you can see how it looks, test and debug it. RhoSimulator builds and runs your application much faster than other emulators, making it useful for rapid testing and debugging.
+RhoSimulator is a device simulation environment that's part of the standard [RhoMobile Suite installation](http://docs.rhomobile.com/en/5.0.38/guide/rhomobile-install). It lets you run, view, test and debug your RhoMobile applications in software first, before deployment to hardware. RhoSimulator builds and runs your apps much faster than other environments, making it amenable to more rapid test-and-debug cycles.
 
-Once your application is running under RhoSimulator, you can make changes to your source files and just press ‘Refresh’ to see your changes live, i.e. generally no RhoSimulator restart is required. The restart of RhoSimulator is required only if a model was added/modified or some code was changed in the `AppApplication` class.
+What's more, once an application is running under RhoSimulator, most changes to source files can be seen by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator unless a model was added or modified, or if something was changed in the `AppApplication` class.
 
-### Uses
-* Debug Ruby code by using RhoStudio.
-* Debug JavaScript.
-* Live edit HTML and CSS.
-* Diagnose network activity and AJAX calls.
+### Uses for RhoSimulator
+* Debug Ruby code
+* Debug JavaScript code
+* Live-edit HTML and CSS
+* Diagnose network activity and AJAX calls
 
 ### Limitations
 * You can run your application under RhoSimulator even without installing the simulated platform's SDK (for example, you can simulate iOS under Windows, or Windows Mobile under OSX). However, RhoSimulator does not attempt to replicate all features of a real device. For example: certain hardware features like the camera or barcode scanner are not replicated.
@@ -278,7 +278,7 @@ Run one of the following commands inside the application folder, depending on th
 
       rake run:win32:rhosimulator
 
-## Debugging on the device using Weinre
+## On-Device Debugging With Weinre
 
 Weinre is a must have developer tool for testing or debugging your JavaScript RhoMobile application. Although a lot of testing and analysis can be done using [RhoSimulator](debugging_with_rhosimulator), sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) in RhoSiumulator. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the RhoMobile APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs. 
 
@@ -409,6 +409,10 @@ This tab is great for inspecting front-end UI or DOM performance. Each action in
 The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
 
 NOTE: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers.
+
+## On-Device Debugging With Chrome
+
+
 
 ## Remote Debugging with a Browser's Web Inspector
 
