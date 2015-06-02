@@ -1,9 +1,14 @@
 # Debugging JavaScript
 ## Debugging with RhoSimulator
 ### What is RhoSimulator?
-RhoSimulator is a device simulation environment for RhoMobile apps that's part of the standard [RhoMobile Suite installation](http://docs.rhomobile.com/en/5.0.38/guide/rhomobile-install). It lets you run, view, test and debug your RhoMobile applications in software first, before deployment to hardware. 
+RhoSimulator is a device simulation environment for RhoMobile apps that's part of the standard [RhoMobile Suite installation](http://docs.rhomobile.com/en/5.0.38/guide/rhomobile-install). It also can run from a command line. It lets you run, view, test and debug your RhoMobile applications in software first, before testing on hardware or hardware emulation. 
 
-RhoSimulator builds and runs your apps much faster than other environments, and is a useful tool for rapid test-and-debug cycles. Once an application is running under RhoSimulator, most changes can be implemented by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator unless a model was added or modified, or if something was changed in the `AppApplication` class.
+RhoSimulator builds and runs your apps more quickly than do other environments, and is therefore useful for rapid test-and-debug cycles. Under RhoSimulator, most app changes can be made live by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator to accomodate app changes except to the `AppApplication` class or after the addition or change of a model.
+
+RhoSimulator uses the QT Webkit to render the UI portion of your app and approximate its appearance on Android, iOS and Windows Mobile platforms. However, pages might appear differently on the actual hardware due to variations in platform rendering engines. Also, RhoSimulator is NOT an *emulator*, and therefore excludes camera, barcode scanner and other hardware features that might be present in an emulator for your specific hardware platform. After initial debugging with RhoSimulator, we recommend further testing on your platform's hardware or emulator to ensure that your app behaves as desired.
+ 
+NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink, depending on Android version). Apps for iOS use the stock Safari Webkit, and for Windows Mobile and CE use Zebra's custom-developed Webkit. 
+
 
 ### RhoSimulator can:
 * Debug Ruby code
@@ -15,16 +20,14 @@ RhoSimulator builds and runs your apps much faster than other environments, and 
 * Simulate Windows Mobile on Mac OS X development host 
 
 ### RhoSimulator cannot:
-* Simulate all hardware features (incl. camera, barcode reader)
+* Simulate camera, barcode reader or certain other hardware
 * Run on a Linux development host
-* Emulate the target hardware platform
+* Perfectly emulate the target hardware platform
 * Render accurately for all Webkits 
 
-NOTE: 
 
-RhoSimulator *simulates* not *emulates* different platforms. The RhoSimulator uses QT Webkit internally to render the view portion of your application.  Whilst the view will be a very close approximation to how your application will appear on your device please bear in mind that different rendering engines will render pages slightly differently, depending on the actual page content.  For example, on Android we use the stock Webview control (Webkit or Blink, depending on the Android version) and on Windows Mobile / CE we use our custom developed Webkit based rendering engine. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect
 
-## Prerequisites
+## Requirements
 
 * You may want to [install RhoStudio](rhomobile-install) and use it as your IDE; although recommended, this step is optional, you can still use RhoSimulator from the command line.
 
