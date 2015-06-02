@@ -1,21 +1,28 @@
 # Debugging JavaScript
 ## Debugging with RhoSimulator
 ### What is RhoSimulator?
-RhoSimulator is a device simulation environment that's part of the standard [RhoMobile Suite installation](http://docs.rhomobile.com/en/5.0.38/guide/rhomobile-install). It lets you run, view, test and debug your RhoMobile applications in software first, before deployment to hardware. RhoSimulator builds and runs your apps much faster than other environments, making it amenable to more rapid test-and-debug cycles.
+RhoSimulator is a device simulation environment for RhoMobile apps that's part of the standard [RhoMobile Suite installation](http://docs.rhomobile.com/en/5.0.38/guide/rhomobile-install). It lets you run, view, test and debug your RhoMobile applications in software first, before deployment to hardware. 
 
-What's more, once an application is running under RhoSimulator, most changes to source files can be seen by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator unless a model was added or modified, or if something was changed in the `AppApplication` class.
+RhoSimulator builds and runs your apps much faster than other environments, and is a useful tool for rapid test-and-debug cycles. Once an application is running under RhoSimulator, most changes can be implemented by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator unless a model was added or modified, or if something was changed in the `AppApplication` class.
 
-### Uses for RhoSimulator
+### RhoSimulator can:
 * Debug Ruby code
 * Debug JavaScript code
 * Live-edit HTML and CSS
 * Diagnose network activity and AJAX calls
+* Run on Mac OS X and Windows development hosts
+* Simulate iOS on a Windows development host
+* Simulate Windows Mobile on Mac OS X development host 
 
-### Limitations
-* You can run your application under RhoSimulator even without installing the simulated platform's SDK (for example, you can simulate iOS under Windows, or Windows Mobile under OSX). However, RhoSimulator does not attempt to replicate all features of a real device. For example: certain hardware features like the camera or barcode scanner are not replicated.
-* RhoSimulator is currently only available for Windows and Mac OS X.
+### RhoSimulator cannot:
+* Simulate all hardware features (incl. camera, barcode reader)
+* Run on a Linux development host
+* Emulate the target hardware platform
+* Render accurately for all Webkits 
 
-> Note: As the name implies, RhoSimulator *simulates* not *emulates* different platforms. The RhoSimulator uses QT Webkit internally to render the view portion of your application.  Whilst the view will be a very close approximation to how your application will appear on your device please bear in mind that different rendering engines will render pages slightly differently, depending on the actual page content.  For example, on Android we use the stock Webview control (Webkit or Blink, depending on the Android version) and on Windows Mobile / CE we use our custom developed Webkit based rendering engine. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect
+NOTE: 
+
+RhoSimulator *simulates* not *emulates* different platforms. The RhoSimulator uses QT Webkit internally to render the view portion of your application.  Whilst the view will be a very close approximation to how your application will appear on your device please bear in mind that different rendering engines will render pages slightly differently, depending on the actual page content.  For example, on Android we use the stock Webview control (Webkit or Blink, depending on the Android version) and on Windows Mobile / CE we use our custom developed Webkit based rendering engine. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect
 
 ## Prerequisites
 
