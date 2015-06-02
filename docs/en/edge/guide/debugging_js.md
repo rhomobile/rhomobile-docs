@@ -1,7 +1,7 @@
 # Debugging JavaScript
 ## Debugging with RhoSimulator
 ### What is RhoSimulator?
-RhoSimulator is a device simulation environment for RhoMobile apps that's part of the standard [RhoMobile Suite installation](http://docs.rhomobile.com/en/5.0.38/guide/rhomobile-install). It also can run from a command line. It lets you run, view, test and debug your RhoMobile applications in software first, before testing on hardware or hardware emulation. 
+RhoSimulator is a device simulation environment for RhoMobile apps that's part of the standard [RhoMobile Suite installation](rhomobile-install). It also can run from a command line. It lets you run, view, test and debug your RhoMobile applications in software first, before testing on hardware or hardware emulation. 
 
 RhoSimulator builds and runs your apps more quickly than do other environments, and is therefore useful for rapid test-and-debug cycles. Under RhoSimulator, most app changes can be made live by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator to accomodate app changes except to the `AppApplication` class or after the addition or change of a model.
 
@@ -25,11 +25,9 @@ NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink,
 * Perfectly emulate the target hardware platform
 * Render accurately for all Webkits 
 
-
-
 ## Requirements
 
-* You may want to [install RhoStudio](rhomobile-install) and use it as your IDE; although recommended, this step is optional, you can still use RhoSimulator from the command line.
+We recommend installing the [RhoMobile Suite](rhomobile-install), which runs on Mac OS X and Windows development hosts and is fully integrated with RhoSimulator. However, RhoSimulator also can be invoked from the command line or integrated with an IDE you're already using. 
 
 ## Running your application in RhoSimulator
 
