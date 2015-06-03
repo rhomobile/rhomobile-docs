@@ -199,29 +199,30 @@ With a visual display similar to that of the Network tab, this tool measures and
 
 More information about Timeline can be found starting at 25:10 of Zebra's [Front-End UI Optimization Webinar](https://developer.motorolasolutions.com/docs/DOC-1661). This one-hour video contains useful information about detecting reflows and other common problems that can bring mobile apps to a crawl.
 
-### Debugging JavaScript code
+##4- Debugging JavaScript code
 
-The 'Scripts' tab allows you to set breakpoints and inspect variables in your JavaScript code.
+####Scripts Tab
+The Web Inspector's **Scripts tab** allows you to set breakpoints and inspect variables in your JavaScript code.
 
-#### Setting breakpoints
+### Setting breakpoints, inspecting variables
 
-* Select the required script source file from the dropdown
-* Goto the line where you want to set breakpoint
-* Click on left margin where the line number is displayed, a flag will appear over the line number to indicate that a breakpoint has been set
-* To remove the breakpoint, click on the flag that appears over the line number
-* Breakpoints are also displayed as a list on the right side of the inspector, under the heading 'Breakpoints'
-* Toggle the checkbox in the list view to temporarily disable and reenable the breakpoint
+1. From the dropdown near the top of the Scripts tab, **select the JavaScript source file** you want to debug.
+2. Find a line that needs a breakpoint and **click its line number**. A breakpoint flag will appear.
+3. Next time you run the app, it will pause at breakpoints (or if you press the 'Pause' button).   
+4. When paused, **inspect the values of JavaScript variables** under the "Scope Variables" header, at right.
 
 ![Breakpoints](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/javascript-breakpoints.png)
 
-#### Inspecting variables
+**NOTES:**<br> 
 
-When the application is paused at a breakpoint or by pressing the 'Pause' button, you can inspect the values of JavaScript variables.
+* **Local variables are displayed** under the **"Scope Variables"** heading.
+* If you **switch to a different stack frame under the "Call Stack" heading**, the local variables displayed will match the currently selected stack frame.
+* **Use "Watch Expressions" to evaluate an expression every time** the code is paused. These can include variables or any valid JavaScript expression.
+* To **remove a breakpoint, click on its line-number** flag. 
+* **Breakpoints also are presented in a list view** under the "Breakpoints" heading at right.
+* **Use the checkboxes to toggle Breakpoints** on and off.
 
-* Local variables are automatically displayed under the 'Scope Variables' heading
-* If you switch to a different stack frame under the 'Call Stack' heading, the local variables displayed will match the currently selected stack frame
-* You can use 'Watch Expressions' to add an expression that needs to be evaluated every time the code is paused. This can simply be a variable or it can be any valid JavaScript expression.
-
+>>>>>>>RESUME HERE ON THURSDAY
 
 ### The console
 
