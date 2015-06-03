@@ -62,37 +62,37 @@ In the 'Elements' tab of Web Inspector, you can examine the DOM tree structure o
 
 You can select and examine the code for individual elements in the DOM tree by using one of the following methods:
 
-#### Using the element picker
+#### Using the Element Picker
 
 Click on the 'Magnifying glass' icon in the bottom toolbar:
 
 ![Magnifying glass icon](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/html-element-picker.png)
 
-In the device window, click on the HTML element you want to inspect
+Then, move to the Device Window and click on the HTML element you want to inspect:
 
 ![Selecting an element](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/selecting-html-element.png)
 
-In the inspector window, the selected element is highlighted
+The selected element will then be highlighted in the Inspector Window, and its applied CSS styles and heirarchy will be shown: 
 
 ![Selected element](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/selected-html-element.png)
 
-#### Using the search box
+#### Using the Search Elements box
 
-In the 'Elements' tab search box, you can enter text to match any of the attributes, content or even tag name of the element. All the matching elements will be highlighted.
+You also can find particular attributes in the DOM using Search Elements. In the 'Elements' tab, find the Search Elements box in the upper-right corner and enter text, content or a even tag name of an element or attribute you'd like to find. All items matching the search will be highlighted: 
 
 ![Search elements](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/search-elements.png)
 
 #### Expanding/collapsing the DOM tree
 
-You can also navigate directly to the required HTML element by expanding/collapsing the tree using the disclosure arrows to the left of all tags with children.
+You also can navigate directly to the required HTML element by expanding/collapsing the DOM tree using the disclosure arrows to the left of all tags with children:
 
 ![DOM tree arrows](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/dom-tree-arrows.png)
 
-### Live editing HTML and CSS
+## 3- Live-Editing HTML and CSS
 
-The Web Inspector lets you modify your page and styles live. This provides a quick way to try out HTML and CSS changes to see how they look without having to go back to RhoStudio (or other IDE), providing you with very fast feedback and avoiding the tedious edit-save-refresh cycle.
+The Web Inspector permits live editing of the HTML and CSS code (within the simulator) and immediately renders your changes in the Device Window. This provides a quick way to preview HTML and CSS changes without having to go back to the IDE to edit, save and refresh. Once you're satisfied with your changes, you can then update your code files to make the changes permanent. 
 
-NOTE: These changes are only temporarily applied to the page inside RhoSimulator. To make them permanent you must actually update your HTML/CSS files.
+NOTE: Changes in RhoSimulator are temporary and apply only to the code running inside the simulator. To make changes permanent, you must update your HTML/CSS files separately.
 
 The following changes can be made live:
 
