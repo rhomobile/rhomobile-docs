@@ -259,5 +259,4 @@ If Live Update is not working for you, you may want to double check the followin
 * Make sure your build.yml includes the development extension
 * Connect your devices to the same subnet, and not just the same Wi-Fi.
 * Check that your dev-config.yml file has the property `refresh:1` and that it is not indented.
-* If making changes gives your mobile device a notification that says **Error when update Bundle**, check inside of dev-config.yml and make sure that the application setting under your device is using the current application you are developing for. If it is not, then you can type in the correct application name to fix it.      //change this one
 * If the Update Methods aren't working, make sure you are in the directory where all your project files are located.
