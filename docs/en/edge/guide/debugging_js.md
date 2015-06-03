@@ -1,25 +1,33 @@
 # Debugging JavaScript
 ## Debugging with RhoSimulator
-### What is RhoSimulator
-RhoSimulator lets you run your RhoMobile applications on a simulated device, so that you can see how it looks, test and debug it. RhoSimulator builds and runs your application much faster than other emulators, making it useful for rapid testing and debugging.
+### What is RhoSimulator?
+RhoSimulator is a device simulation environment for RhoMobile apps that's part of the standard [RhoMobile Suite installation](rhomobile-install). It also can run from a command line. It lets you run, view, test and debug your RhoMobile applications in software first, before testing on hardware or hardware emulation. 
 
-Once your application is running under RhoSimulator, you can make changes to your source files and just press ‘Refresh’ to see your changes live, i.e. generally no RhoSimulator restart is required. The restart of RhoSimulator is required only if a model was added/modified or some code was changed in the `AppApplication` class.
+RhoSimulator builds and runs your apps more quickly than do other environments, and is therefore useful for rapid test-and-debug cycles. Under RhoSimulator, most app changes can be made live by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator to accomodate app changes except to the `AppApplication` class or after the addition or change of a model.
 
-### Uses
-* Debug Ruby code by using RhoStudio.
-* Debug JavaScript.
-* Live edit HTML and CSS.
-* Diagnose network activity and AJAX calls.
+RhoSimulator uses the QT Webkit to render the UI portion of your app and approximate its appearance on Android, iOS and Windows Mobile platforms. However, pages might appear differently on the actual hardware due to variations in platform rendering engines. Also, RhoSimulator is NOT an *emulator*, and therefore excludes camera, barcode scanner and other hardware features that might be present in an emulator for your specific hardware platform. After initial debugging with RhoSimulator, we recommend further testing on your platform's hardware or emulator to ensure that your app behaves as desired.
+ 
+NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink, depending on Android version). Apps for iOS use the stock Safari Webkit, and for Windows Mobile and CE use Zebra's custom-developed Webkit. 
 
-### Limitations
-* You can run your application under RhoSimulator even without installing the simulated platform's SDK (for example, you can simulate iOS under Windows, or Windows Mobile under OSX). However, RhoSimulator does not attempt to replicate all features of a real device. For example: certain hardware features like the camera or barcode scanner are not replicated.
-* RhoSimulator is currently only available for Windows and Mac OS X.
 
-> Note: As the name implies, RhoSimulator *simulates* not *emulates* different platforms. The RhoSimulator uses QT Webkit internally to render the view portion of your application.  Whilst the view will be a very close approximation to how your application will appear on your device please bear in mind that different rendering engines will render pages slightly differently, depending on the actual page content.  For example, on Android we use the stock Webview control (Webkit or Blink, depending on the Android version) and on Windows Mobile / CE we use our custom developed Webkit based rendering engine. The use of RhoSimulator is encouraged for testing and debugging, but you still need to test on a physical device (or, at the very least, the platform's native *emulator*) to make sure your application behaves as you expect
+### RhoSimulator can:
+* Debug Ruby code
+* Debug JavaScript code
+* Live-edit HTML and CSS
+* Diagnose network activity and AJAX calls
+* Run on Mac OS X and Windows development hosts
+* Simulate iOS on a Windows development host
+* Simulate Windows Mobile on Mac OS X development host 
 
-## Prerequisites
+### RhoSimulator cannot:
+* Simulate camera, barcode reader or certain other hardware
+* Run on a Linux development host
+* Perfectly emulate the target hardware platform
+* Render accurately for all Webkits 
 
-* You may want to [install RhoStudio](rhomobile-install) and use it as your IDE; although recommended, this step is optional, you can still use RhoSimulator from the command line.
+## Requirements
+
+We recommend installing the [RhoMobile Suite](rhomobile-install), which runs on Mac OS X and Windows development hosts and is fully integrated with RhoSimulator. However, RhoSimulator also can be invoked from the command line or integrated with an IDE you're already using. 
 
 ## Running your application in RhoSimulator
 
@@ -278,7 +286,7 @@ Run one of the following commands inside the application folder, depending on th
 
       rake run:win32:rhosimulator
 
-## Debugging on the device using Weinre
+## On-Device Debugging With Weinre
 
 Weinre is a must have developer tool for testing or debugging your JavaScript RhoMobile application. Although a lot of testing and analysis can be done using [RhoSimulator](debugging_with_rhosimulator), sometimes the application behaves differently on a device and you can't test hardware features like [Barcode](../api/barcode) in RhoSiumulator. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the RhoMobile APIs right from the Weinre JavaScript Console tab much more rapidly then trying to fumble around with reading through logs. 
 
@@ -409,6 +417,10 @@ This tab is great for inspecting front-end UI or DOM performance. Each action in
 The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
 
 NOTE: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers.
+
+## On-Device Debugging With Chrome
+
+
 
 ## Remote Debugging with a Browser's Web Inspector
 
