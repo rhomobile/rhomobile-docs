@@ -253,7 +253,7 @@ If you started Live Update from the command line, you are going to end Live Upda
   If the Dev-config.yml in your new project is displaying the right application, you have successfully switched between applications and are ready to start using Live update again.
 
 ##Troubleshooting
---
+---
 If Live Update is not working for you, you may want to double check the following:
 
 * Make sure your build.yml includes the development extension
