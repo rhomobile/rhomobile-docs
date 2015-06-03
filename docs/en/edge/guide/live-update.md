@@ -244,11 +244,11 @@ If you started Live Update from the command line, you are going to end Live Upda
 &nbsp; <br> <br>
 2. Start Live Update in New Application
 
-   1. Rediscover Device in the New Application's Live Update Setting 
+   a. Rediscover Device in the New Application's Live Update Setting 
 
   Rediscover your mobile device the same way you discovered it originally, but make sure you are doing so in the new project's Live Update setting and not the original project's Live Update setting. 
   &nbsp; <br> <br>
-   2. Check Dev-Config.yml to make sure the application property displays the correct application for the discovered device. 
+   b. Check Dev-Config.yml to make sure the application property displays the correct application for the discovered device. 
 
   If the Dev-config.yml in your new project is displaying the right application, you have successfully switched between applications and are ready to start using Live update again.
 
