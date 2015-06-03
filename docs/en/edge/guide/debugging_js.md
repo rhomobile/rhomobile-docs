@@ -29,44 +29,42 @@ NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink,
 
 We recommend installing the [RhoMobile Suite](rhomobile-install) for Mac OS X or Windows development hosts, which includes and is fully integrated with RhoSimulator. While RhoSimulator also can be invoked from the command line or integrated with an IDE that you're already using, this documentation relates to its use through the RhoStudio IDE. 
 
-## Running Your App in RhoSimulator
+## 1- Launch Your App in RhoSimulator
 
-### Running RhoSimulator from RhoStudio
+### Using RhoSimulator from RhoStudio
 
-After you've carefully followed the instructions for [installing RhoMobile Suite](rhomobile-install) and created at least one project, open RhoStudio and the project you'd like to debug. Then: 
+After you've created at least one project in RhoMobile, open RhoStudio and the project you'd like to debug. Then: 
 
-* From the **Run Menu**, select **>>Run Configurations**
+* From the **Run Menu**, select **>> Run Configurations**
 * In the **left pane** of the **Run Configurations window** you'll see **RhoMobile Application**:
     * **Double-click** it to create a **new Launch Configuration**<br>
     **OR**<br>
-    * **Single-click its arrow** to **edit an existing Launch Configuration**<br>
+    * **Single-click its arrow** to **edit an existing Launch Configuration** (shown)<br>
 
-* With the desired Launch Configuration selected, **choose the Platform and RhoSimulator**
-* **Click Run** to deploy your app to RhoSimulator and launch it 
+* With the desired Launch Configuration selected, **choose the Platform and Simulator type**
+* **Click Run** to deploy and run your app in RhoSimulator
 
 ![Run Configurations](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/run-configuration.png)
 
-In the example, a Run Configuration is shown for the iPhone platform and RhoSimulator. The resulting RhoSimulator screen will look similar to the screenshot below. 
+In the example, a Run Configuration is shown for the iPhone platform and RhoSimulator. The resulting RhoSimulator screen will look similar to the one below. 
 
 ![Device Window](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/device-window.png)
 
-The below screenshot shows the Web Inspector provided by the RhoSimulator
+## 2- Examine Code With Web Inspector
+
+RhoSimulator presents two windows: One displays your application's UI, and the other exposes its code in a multi-tabbed window. The first is referred to as the Device Window, and the second is Web Inspector (below), a powerful debugging aid that allows you to inspect and edit the HTML and CSS of your web interface and immediately see the effects of your changes.
 
 ![Web Inspector](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/web-inspector-window.png)
 
-## Using the Web Inspector
-
-RhoSimulator has two windows, one is where your application runs and the other is the Web Inspector, a powerful debugging aid that allows you to inspect the web interface for your application and try out certain changes live on your HTML and CSS.
-
 ### Examining the DOM
 
-In the 'Elements' tab of Web Inspector you can examine the DOM tree structure of the HTML page that is currently visible. 
+In the 'Elements' tab of Web Inspector, you can examine the DOM tree structure of the HTML page that's currently displayed in the Device Window. 
 
-You can select and examine individual elements in the DOM tree by using one of the following methods:
+You can select and examine the code for individual elements in the DOM tree by using one of the following methods:
 
 #### Using the element picker
 
-Click on the 'Magnifying glass' icon in the bottom toolbar
+Click on the 'Magnifying glass' icon in the bottom toolbar:
 
 ![Magnifying glass icon](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/html-element-picker.png)
 
@@ -86,7 +84,7 @@ In the 'Elements' tab search box, you can enter text to match any of the attribu
 
 #### Expanding/collapsing the DOM tree
 
-You can also navigate directly to the required HTML element by expanding/collapsing the tree using the disclosure arrows to the left of all tags with children
+You can also navigate directly to the required HTML element by expanding/collapsing the tree using the disclosure arrows to the left of all tags with children.
 
 ![DOM tree arrows](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/dom-tree-arrows.png)
 
