@@ -27,26 +27,26 @@ NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink,
 
 ## Requirements
 
-We recommend installing the [RhoMobile Suite](rhomobile-install) for Mac OS X or Windows development hosts, which includes and is fully integrated with RhoSimulator. However, RhoSimulator also can be invoked from the command line or integrated with an IDE that you're already using. 
+We recommend installing the [RhoMobile Suite](rhomobile-install) for Mac OS X or Windows development hosts, which includes and is fully integrated with RhoSimulator. While RhoSimulator also can be invoked from the command line or integrated with an IDE that you're already using, this documentation relates to its use through the RhoStudio IDE. 
 
-## Running your application in RhoSimulator
+## Running Your App in RhoSimulator
 
 ### Running RhoSimulator from RhoStudio
 
-Ensure that your application is configured properly and successfully runs in [RhoSimulator from the command line](#running-rhosimulator-from-command-line)
+After you've carefully followed the instructions for [installing RhoMobile Suite](rhomobile-install) and created at least one project, open RhoStudio and the project you'd like to debug. Then: 
 
-* In RhoStudio, select your RhoMobile project from the Project Explorer.
-* Select 'Run' -> 'Run Configurations' from the main menu. The Run Configurations window appears.
-* Find 'RhoMobile Application' section on the left and add new (or modify existing) configuration.
-* Select the required platform.
-* Select RhoSimulator for the Simulator type.
-* Click 'Run' to start the RhoSimulator.
+* From the **Run Menu**, select **>>Run Configurations**
+* In the **left pane** of the **Run Configurations window** you'll see **RhoMobile Application**:
+    * **Double-click** it to create a **new Launch Configuration**<br>
+    **OR**<br>
+    * **Single-click its arrow** to **edit an existing Launch Configuration**<br>
 
-The below screenshot shows run configuration for RhoSimulator for the iPhone platform
+* With the desired Launch Configuration selected, **choose the Platform and RhoSimulator**
+* **Click Run** to deploy your app to RhoSimulator and launch it 
 
 ![Run Configurations](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/run-configuration.png)
 
-The below screenshot shows the RhoSimulator mimicking an iPhone
+In the example, a Run Configuration is shown for the iPhone platform and RhoSimulator. The resulting RhoSimulator screen will look similar to the screenshot below. 
 
 ![Device Window](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/device-window.png)
 
