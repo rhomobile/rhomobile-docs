@@ -96,84 +96,87 @@ NOTE: Changes in RhoSimulator are temporary and apply only to the code running i
 
 The following changes can be made live:
 
-#### Editing element attributes
+#### Editing an element attribute:
 
-* Double click the element's attribute name or value
-* Edit the text
-* Press enter to apply the change or escape to cancel
+1. **Double-click the element attribute** name or value
+2. **Edit** the text
+3. Press **ENTER to apply** the change or **ESC to cancel**
 
-For example, edit the CSS class attribute.
+For example, to edit the CSS class attribute:
 
 ![Edit attribute](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-attribute.png)
 
 #### Editing element inner text
 
-* Double click the text inside the element
-* Edit the text
-* Press enter to apply the change or escape to cancel
+1. **Double-click the text *inside* the element**
+2. **Edit** the text
+3. Press **ENTER to apply** the change or **ESC to cancel**
 
-For example, the 'Login' button name is changed to 'Sign in'.
+In the example below, the *Login* button's text was changed to *Sign in*:
 
 ![Edit innertext](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-innertext.png)
 
 #### Edit element tag
 
-* Double click the element's tag name
-* Edit the tag
-* Press enter to apply the change or escape to cancel
+1. **Double-click the element's tag name**
+2. **Edit** the tag
+3. Press **ENTER to apply** the change or **ESC to cancel**
 
 ![Edit tag](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-tag.png)
 
 #### Delete element
 
-* Click the element
-* Press Delete key
+1. **Single-click the element**
+2. **Press Delete** key
 
 #### Edit a style declaration
 
-* Inside a CSS rule, double click the property or value part of the declaration
-* Edit the property or value
-* Press enter to apply the change or escape to cancel
+1. Inside a CSS rule, **double-click the property or value** part of the declaration
+2. **Edit** the property or value
+3. Press **ENTER to apply** the change or **ESC to cancel**
 
-For example, change 'text-align' to 'right'
+In the example below, the *text-align* style was changed to *right*:
 
 ![Edit declaration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-declaration.png)
 
 #### Temporarily disable a style declaration
 
-* Inside a CSS rule, click the checkbox to the right of the declaration to temporarily disable or click again to reenable it
+1. Inside a CSS rule, **locate the appropriate checkbox to the right of the declaration**
+2. **Add a check to temporarily enable**; remove a check to temporarily disable
 
-For example, disable 'text-align'
+In the example, the *text-align* style *left* is temporarily disabled: 
 
 ![Disable declaration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-disable-declaration.png)
 
 #### Add a style declaration
 
-* Double click the opening or closing braces of a CSS rule
-* Type in the property name followed by a colon and the value
-* Press enter to apply the change or escape to cancel
+1. **Double-click the opening or closing braces** of a CSS rule
+2. **Type in the property name** followed by a colon and the value
+3. Press **ENTER to apply** the change or **ESC to cancel**
 
-For example, add a new 'border-style'
+In the example, a new 'border-style' is added: 
 
 ![New declaration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-new-declaration.png)
 
-#### Create new style rule
+#### Create a new style rule
 
-* Click the small 'Gear' icon to the right of the 'Styles' heading
-* Select 'New Style Rule'
-* Edit the selector as required and press enter or escape to cancel
-* Type in the property name followed by a colon and the value
-* Press enter to apply the change or escape to cancel
+1. **Click the small "Gear" icon** to the right of the *Styles* heading
+2. **Select "New Style Rule"**
+3. **Edit the selector as required** and press Enter (or ESC to cancel)
+4. **Type in the property name** followed by a colon and the value
+5. Press **ENTER to apply** the change or **ESC to cancel**
 
 ![New rule](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-new-rule.png)
 
 #### Edit style selector
 
-* Double click the style rule's selector
-* Edit the text
-* Press enter to apply the change or escape to cancel
+1. **Double-click the style rule's selector**
+2. **Edit** the text
+3. Press **ENTER to apply** the change or **ESC to cancel**
 
 ![Edit selector](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-selector.png)
+
+>>>>> RESUME HERE AFTER LUNCH 
 
 ### Checking resources used by a page
 
