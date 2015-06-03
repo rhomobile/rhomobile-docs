@@ -62,7 +62,7 @@ In the 'Elements' tab of Web Inspector, you can examine the DOM tree structure o
 
 You can select and examine the code for individual elements in the DOM tree by using one of the following methods:
 
-#### Using the Element Picker
+### Using the Element Picker
 
 Click on the 'Magnifying glass' icon in the bottom toolbar:
 
@@ -76,13 +76,13 @@ The selected element will then be highlighted in the Inspector Window, and its a
 
 ![Selected element](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/selected-html-element.png)
 
-#### Using the Search Elements box
+### Using the Search Elements box
 
 You also can find particular attributes in the DOM using Search Elements. In the 'Elements' tab, find the Search Elements box in the upper-right corner and enter text, content or a even tag name of an element or attribute you'd like to find. All items matching the search will be highlighted: 
 
 ![Search elements](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/search-elements.png)
 
-#### Expanding/collapsing the DOM tree
+### Expanding/collapsing the DOM tree
 
 You also can navigate directly to the required HTML element by expanding/collapsing the DOM tree using the disclosure arrows to the left of all tags with children:
 
@@ -96,7 +96,7 @@ NOTE: Changes in RhoSimulator are temporary and apply only to the code running i
 
 The following changes can be made live:
 
-#### Editing an element attribute:
+### Editing an element attribute
 
 1. **Double-click the element attribute** name or value
 2. **Edit** the text
@@ -106,7 +106,7 @@ For example, to edit the CSS class attribute:
 
 ![Edit attribute](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-attribute.png)
 
-#### Editing element inner text
+### Editing element inner text
 
 1. **Double-click the text *inside* the element**
 2. **Edit** the text
@@ -116,7 +116,7 @@ In the example below, the *Login* button's text was changed to *Sign in*:
 
 ![Edit innertext](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-innertext.png)
 
-#### Edit element tag
+### Editing an element tag
 
 1. **Double-click the element's tag name**
 2. **Edit** the tag
@@ -124,12 +124,12 @@ In the example below, the *Login* button's text was changed to *Sign in*:
 
 ![Edit tag](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-tag.png)
 
-#### Delete element
+### Deleting an element
 
 1. **Single-click the element**
 2. **Press Delete** key
 
-#### Edit a style declaration
+### Editing a style declaration
 
 1. Inside a CSS rule, **double-click the property or value** part of the declaration
 2. **Edit** the property or value
@@ -139,7 +139,7 @@ In the example below, the *text-align* style was changed to *right*:
 
 ![Edit declaration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-declaration.png)
 
-#### Temporarily disable a style declaration
+### Disabling a style declaration
 
 1. Inside a CSS rule, **locate the appropriate checkbox to the right of the declaration**
 2. **Add a check to temporarily enable**; remove a check to temporarily disable
@@ -148,17 +148,17 @@ In the example, the *text-align* style *left* is temporarily disabled:
 
 ![Disable declaration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-disable-declaration.png)
 
-#### Add a style declaration
+### Adding a style declaration
 
 1. **Double-click the opening or closing braces** of a CSS rule
 2. **Type in the property name** followed by a colon and the value
 3. Press **ENTER to apply** the change or **ESC to cancel**
 
-In the example, a new 'border-style' is added: 
+In the example, a new *border-style* is added: 
 
 ![New declaration](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-new-declaration.png)
 
-#### Create a new style rule
+### Creating a new style rule
 
 1. **Click the small "Gear" icon** to the right of the *Styles* heading
 2. **Select "New Style Rule"**
@@ -168,39 +168,36 @@ In the example, a new 'border-style' is added:
 
 ![New rule](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-new-rule.png)
 
-#### Edit style selector
+### Editing a style selector
 
-1. **Double-click the style rule's selector**
+1. Under the Styles heading, **Double-click the style rule's selector**
 2. **Edit** the text
 3. Press **ENTER to apply** the change or **ESC to cancel**
 
 ![Edit selector](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-selector.png)
 
->>>>> RESUME HERE AFTER LUNCH 
+### Other Web Inspector Tabs
 
-### Checking resources used by a page
+<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-tabs.png"/>
 
-The 'Resources' tab allows you to see the resources being loaded and used by the current page. 
+There are a few other Web Inspector tabs that might be useful for debugging your app. 
 
-This includes assets like:
-
-* JavaScript
-* Stylesheets
-* Images
-
-as well as cookies, if your application uses them
+#### Resources Tab
+The **Resources tab** allows you to see the resources being used by the current Webview page. Reources can include outside assets being called into your app such as **images, JavaScript, stylesheets and cookies**. Inspecting the resources can be useful if you want to make sure a particular resource has been loaded. This tab also can provide insight into other HTML5 features such as WebSQL and localStorage, if present. 
 
 ![Resources Tab](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/resources.png)
 
-### Diagnosing network activity and AJAX calls
+NOTE: WebSQL and localStorage are HTML5-specific features that are used by certain WebKit-based browsers. They are not related to the Rhom database provided by RhoMobile. 
 
-The 'Network' tab allows you to see the HTTP requests your application makes and how long they take to fetch. 
-
-* Click on any of the names on the left to view the headers and content for the request.
-* Use the data from the 'Latency' and 'Timeline' columns to optimize the time taken for your application screens to load (move your mouse over each row in the graph to get numerical values).
+#### Network Tab
+The Network tab presents a visual display of the time required for HTTP requests made by an application. Clicking on any of the resources in the left-hand pane will visually represent the delay as its headers and content are loaded and AJAX and other calls are made to remote servers. Data displayed when hovering over "Latency" and "Timeline" columns can be used to help optimize load-time performance.
 
 ![Network Tab](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/network.png)
 
+#### Timeline Tab
+With a visual display similar to that of the Network tab, this tool measures and displays the time required for each element of the user interface to render. The Timeline tab is useful for finding bottlenecks in front-end UI or DOM performance. 
+
+More information about Timeline can be found starting at 25:10 of Zebra's [Front-End UI Optimization Webinar](https://developer.motorolasolutions.com/docs/DOC-1661). This one-hour video contains useful information about detecting reflows and other common problems that can bring mobile apps to a crawl.
 
 ### Debugging JavaScript code
 
@@ -402,26 +399,7 @@ Now notice the error I received from the last API call: `TypeError: cannot call 
     </div>
 </div>
 
-### Other Tabs in Debugger UI
-
-<img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-tabs.png"/>
-
-There are a few other tabs that we have seen in the debugger UI that I should briefly mention. 
-
-#### Network Tab
-This tab is great for inspecting what files the application is obtaining from the 'server'. Remember that when building a RhoMobile application, the 'server' is normally running on the device as well. However it is still important to inspect this as unnecessary processing of JavaScript or CSS files may be giving your application a lag that you may not have noticed while running the app in RhoSimulator. There are many resources on the internet that describe using this tab in detail either in the context of Weinre or Chrome Dev Tools. Be sure to be aware of how to use this useful resource when optimizing your application.
-
-#### TimeLine Tab
-This tab is great for inspecting front-end UI or DOM performance. Each action in your user interface will be displayed and you can inspect for bottle necks in rendering, or other areas. Again there are many resources on the web that discuss this feature. We also did a full [webinar](https://developer.motorolasolutions.com/docs/DOC-1661) on the topic for detecting Reflows and the usual CSS suspects for performance hits on devices. Be sure to get familiar with these concepts and include them in your routine for application optimization.
-
-#### Resources Tab
-The resources tab provides information about the various resources associated with a page. This is useful if you want to make sure a resource (e.g. an external script or stylesheet) has been loaded or for checking out the cookies. You can also look at some HTML5 features like localStorage or WebSQL. 
-
-NOTE: localStorage and WebSQL are not related to the Rhom database that RhoMobile provides. These are HTML5 specific features that are provided with WebKit based browsers.
-
 ## On-Device Debugging With Chrome
-
-
 
 ## Remote Debugging with a Browser's Web Inspector
 
