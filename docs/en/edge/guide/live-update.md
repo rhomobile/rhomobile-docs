@@ -229,12 +229,34 @@ If you are going to do this, you must run the following command in your command 
 
 This will detect the proper connections and pathways for the new host computer and update your code accordingly.
 
+###Transitioning between apps that use Live Update
+If you are going to take a break from working on one app that uses Live Update and plan on switching to another app that has Live Update, there are a few steps that you should take to ensure that Live Update will work smoothly in the other mobile application. 
+
+1. Correctly Halt Live Update in the Original Application
+
+**From RhoStudio**  
+If you started Live Update from RhoStudio, then you are also going to end Live Update from RhoStudio. To do this, go under the progress tab and find the line that says "live update is running". Click on the red square that is to the right and the Live Update process will end.
+
+<img src="http://i.imgur.com/wmZObD0.png" width="600" height="520" border="10" />
+
+**From the Command Line**  
+If you started Live Update from the command line, you are going to end Live Update there as well. To do this, go to the command line window that Live update is running in. Once you are there, go to your keyboard, hold down the `control` button, and then press `c`. This will end the Live Update process.
+&nbsp; <br> <br>
+2. Start Live Update in New Application
+
+   a. Rediscover Device in the New Application's Live Update Setting 
+
+  Rediscover your mobile device the same way you discovered it originally, but make sure you are doing so in the new project's Live Update setting and not the original project's Live Update setting. 
+  &nbsp; <br> <br>
+   b. Check Dev-Config.yml to make sure the application property displays the correct application for the discovered device. 
+
+  If the Dev-config.yml in your new project is displaying the right application, you have successfully switched between applications and are ready to start using Live update again.
+
 ##Troubleshooting
---
+---
 If Live Update is not working for you, you may want to double check the following:
 
 * Make sure your build.yml includes the development extension
 * Connect your devices to the same subnet, and not just the same Wi-Fi.
 * Check that your dev-config.yml file has the property `refresh:1` and that it is not indented.
-* If making changes gives your mobile device a notification that says **Error when update Bundle**, check inside of dev-config.yml and make sure that the application setting under your device is using the current application you are developing for. If it is not, then you can type in the correct application name to fix it. 
 * If the Update Methods aren't working, make sure you are in the directory where all your project files are located.
