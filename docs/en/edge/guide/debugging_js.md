@@ -433,9 +433,13 @@ If you haven't already done so, **connect your device to an available USB port o
 
 
 
+>>>>>>>>> RESUME HERE FRIDAY
+
+
 ## Remote Debugging with a Browser's Web Inspector
 
 NOTE: This JS debugging feature is currently supported only on Windows development environments.
+
 Using a feature introduced in RhoElements 4.1, you can use your standard browser's web inspector feature to debug your app's JavaScript. This is helpful if you're already used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in only [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
 
 ### Using the Remote Debugger

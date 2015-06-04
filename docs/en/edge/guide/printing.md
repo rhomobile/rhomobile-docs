@@ -15,7 +15,7 @@ Example `build.yml` command:
 
     :::ruby
     ...
-    extensions: ["printing","printing_zebra","rhoconnect-client"...]
+    extensions: ["printing","printing_zebra",...]
     ...
 
 
@@ -75,17 +75,17 @@ Sample JavaScript code:
 	Rho.Printer.searchPrinters({ 
 		connectionType:Rho.Printer.CONNECTION_TYPE_TCP,  
 		deviceAddress: '192.168.1.121',
-		devicePort: 8080
+		devicePort: 6101
 		...
 
 NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the device's corresponding radio is turned on. If using Bluetooth, the printer should be set to "discoverable."
 
 ###Finding via USB
-Printing via USB is supported for Android apps only. To print from a Zebra Android device, it must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) **using an OTG cable or adapter.**
+Printing via USB is supported from Android devices only. To print from a Zebra enterprise mobile computer, it must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) **using an OTG cable or adapter.**
 
 NOTE: The USB On-the-Go (OTG) spec permits a mobile device to act as "host" to client peripherals such as flash drives, keyboards and printers. 
 
-Use the `search.Printers` method  and the `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
+Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
 
 Sample JavaScript code: 
 
@@ -346,13 +346,13 @@ Sample JavaScript code:
 Windows Mobile/CE require that a provided `printing-service` application is installed and always running in order to use the [Printing](../api/printing) and [PrintingZebra](../api/printingzebra) APIs.
 
 * Before installing the printing service on Windows Mobile devices, you first need to install the [.NET compact framework](http://www.microsoft.com/en-us/download/details.aspx?id=65) on your device. You may find the device installation package on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\NETCFv35.wm.armv4i.cab`
-* Windows CE only - You'll need to also install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
+* Windows CE only - You'll also need to install the messaging framework found on your build machine at `C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab` on Windows 7.
 
 #### Printing-Service Installation
 * The .cab file for the printing service is held inside the `printing-service` folder inside your RhoMobile Suite installation directory located at `C:\<path to your rhomobile suite installation>\printing-service\PrintingService.cab`
 
 #### Limitations
-* Currently, the printing service only works with one client at a time but, this will be changed in RE 5.0 to include a multi-client mode.
+* The printing service currently supports a single client at a time. Multi-client printing will be introduced in a future version of RMS.
 * The method [`Printer.requestState()`](../api/printing#mrequestState) does not work with Bluetooth printers.
 * The method [`Printer.stopSearch()`](../api/printing#mstopSearchSTATIC) currently does not work.
 
@@ -370,30 +370,36 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 <td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/mobile/mz-220/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/x1426279604956.jpg.pagespeed.ic.F9pw8Srpwb.jpg" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>MZ</b></td>
 <td class="clsSyntaxCells clsOddRow">MZ 220, MZ 320</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="imz220pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/mz-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel_1d2c/image.img.png/x1426276854144.png.pagespeed.ic.OndlAqm5W1.png" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>iMZ</b></td>
 <td class="clsSyntaxCells clsOddRow">iMZ 220, iMZ 320</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows  x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>RW</b></td>
 <td class="clsSyntaxCells clsOddRow">RW 220, RW 420, RW 420 Print Station</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/passive-rfid/rp4t/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/1426279500551.jpg" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>P4T</b></td>
 <td class="clsSyntaxCells clsOddRow">P4T, RP4T Passive RFID Printer</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="zd500rpic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/rfid/zd500r/_jcr_content/mainpar/tabscontainer/detailed-specs/content/subtabscontainer_540/zd500r/content/twocol_83b/leftpar/image_236a.img.png/1433356327246.png" height="75"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>ZD500R</b></td>
+<td class="clsSyntaxCells clsOddRow">ZD500R RFID Printer</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
 </tr>
 <td class="clsSyntaxCells clsOddRow"><b></b></td>
-<td class="clsSyntaxCells clsOddRow">NOTE: Printing via USB is NOT supported from iOS or WM devices.</td>
+<td class="clsSyntaxCells clsOddRow">NOTE: Printing via USB is NOT supported from iOS or WM/CE devices.</td>
 <td class="clsSyntaxCells clsOddRow"><b></b></td>
-<td class="clsSyntaxCells clsOddRow">NOTE: Zebra's QL Plus and QLn series printers DO NOT support  Android USB printing.</td>
+<td class="clsSyntaxCells clsOddRow">NOTE: Zebra's QL Plus and QLn series printers DO NOT support Android USB printing.</td>
 </tr>
 </table>
 
