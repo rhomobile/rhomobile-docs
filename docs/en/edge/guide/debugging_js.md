@@ -258,20 +258,18 @@ In adddition to displaying log messages, the Console provides a fully interactiv
 
 ![Interactive JavaScript](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/interactive-javascript.png)
 
-
-
-
 ## On-Device Debugging With Weinre
 
-Weinre is a must-have developer tool for testing or debugging your JavaScript RhoMobile application. Although a lot of testing and analysis can be done using [RhoSimulator](debugging_with_rhosimulator), you can't test hardware features such as [Barcode](../api/barcode) in RhoSiumulator and applications often will look or behave differently when running on a device. Weinre allows you to do all of this. Think of it as a remote Web Inspector. It also allows you to get familiar with the RhoMobile APIs right from the Weinre JavaScript Console tab much more rapidly than trying to fumble around with reading through logs. 
+Weinre is a must-have developer tool for testing or debugging RhoMobile JavaScript applications. Although lots of testing and analysis can be done using RhoSimulator, hardware features such as [Barcode](../api/barcode) are unavailable in RhoSiumulator, and applications often look or behave differently when running on a device. Weinre solves these problems. Acting like a remote Web Inspector, the JavaScript Console in Weinre allows you to get familiar with the RhoMobile APIs right from the tab. This is faster and easier than fumbling through logs.
 
-For those who would rather see it in action, this guide is modeled after a [webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we are going to cover here. We will also be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You may download it and follow along but the app is by no means necessary. You can use Weinre with any application or simply if you would just like to play around with the RhoMobile APIs to try out some code.
+This guide is modeled after a 14-minute [Weinre webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we cover here in action. We'll be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You're welcome to download the app and follow along, but it's by no means necessary. You could follow along using your own app, or simply play around with the APIs and try out some code. 
+
 
 ### Installing Weinre
 
-NOTE: You must have admin/sudo privileges to install weinre and your device must be on the same WiFi network as your laptop.
+NOTE: WARNINGS: You must have admin/sudo privileges to install Weinre, and the target device must be on the same Wi-Fi network as the development system.
 
-Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running the command:
+Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running this Terminal command:
 
     :::term
     $ npm -g install weinre
