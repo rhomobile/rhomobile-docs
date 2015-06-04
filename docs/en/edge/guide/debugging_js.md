@@ -27,13 +27,13 @@ NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink,
 
 ## Requirements
 
-We recommend installing the [RhoMobile Suite](rhomobile-install) for Mac OS X or Windows development hosts, which includes and is fully integrated with RhoSimulator. While RhoSimulator also can be invoked from the command line or integrated with an IDE that you're already using, this documentation relates to its use through the RhoStudio IDE. 
+This guide relates to the use of RhoSimulator through RhoStudio, an Eclipse-based IDE for Mac OS X and Windows. We recommend installing the [RhoMobile Suite](rhomobile-install) on your development machine, which includes RhoStudio and RhoSimulator and is fully integrated with its use. RhoSimulator also can be invoked from the command line or integrated with an IDE that you're already using. 
 
 ## 1- Launch Your App in RhoSimulator
 
 ### Using RhoSimulator from RhoStudio
 
-After you've created at least one project in RhoMobile, open RhoStudio and the project you'd like to debug. Then: 
+After you've created at least one RhoMobile project, open RhoStudio and the project you'd like to debug. Then: 
 
 * From the **Run Menu**, select **>> Run Configurations**
 * In the **left pane** of the **Run Configurations window** you'll see **RhoMobile Application**:
@@ -52,15 +52,15 @@ In the example, a Run Configuration is shown for the iPhone platform and RhoSimu
 
 ## 2- Examine Code With Web Inspector
 
-RhoSimulator presents two windows: One displays your application's UI, and the other exposes its code in a multi-tabbed window. The first is referred to as the Device Window, and the second is Web Inspector (below), a powerful debugging aid that allows you to inspect and edit the HTML and CSS of your web interface and immediately see the effects of your changes.
+RhoSimulator presents two windows: One displays your application's UI, and the other exposes its code in a multi-tabbed window. The first is referred to as the Device Window (similar to the one above), and the second is Web Inspector (below), a powerful debugging aid that allows you to inspect and edit the HTML and CSS of your web interface and immediately see the effects of your changes.
 
 ![Web Inspector](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/web-inspector-window.png)
 
 ### Examining the DOM
 
-In the 'Elements' tab of Web Inspector, you can examine the DOM tree structure of the HTML page that's currently displayed in the Device Window. 
+In the context of modern web programming, the "DOM" refers to your HTML code as it will appear when running. For example, while an HTML5 app might define certain variables, those variables contain no values until the app is actually running. So you might think of the DOM as HTML5 that's alive.
 
-You can select and examine the code for individual elements in the DOM tree by using one of the following methods:
+You can **examine the DOM in the Elements tab** of Web Inspector. This tab shows the DOM tree structure of the HTML page that's currently displayed in the Device Window. You can select and examine the code or individual elements in the DOM tree by using one of the following methods:
 
 ### Using the Element Picker
 
@@ -72,25 +72,25 @@ Then, move to the Device Window and click on the HTML element you want to inspec
 
 ![Selecting an element](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/selecting-html-element.png)
 
-The selected element will then be highlighted in the Inspector Window, and its applied CSS styles and heirarchy will be shown: 
+The selected element will then be highlighted in the Inspector Window, with its applied CSS styles shown in the right-hand pane and its heirarchy shown along the bottom: 
 
 ![Selected element](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/selected-html-element.png)
 
 ### Using the Search Elements box
 
-You also can find particular attributes in the DOM using Search Elements. In the 'Elements' tab, find the Search Elements box in the upper-right corner and enter text, content or a even tag name of an element or attribute you'd like to find. All items matching the search will be highlighted: 
+You also can find particular attributes in the DOM using Search Elements. **Click inside the Search Elements box in the upper-right corner and enter text**, content or the tag name of an element or attribute you'd like to find. All items matching the search will be highlighted: 
 
 ![Search elements](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/search-elements.png)
 
 ### Expanding/collapsing the DOM tree
 
-You also can navigate directly to the required HTML element by expanding/collapsing the DOM tree using the disclosure arrows to the left of all tags with children:
+You also can **navigate directly to the required HTML element by expanding/collapsing the DOM tree** using the disclosure arrows to the left of all tags with children:
 
 ![DOM tree arrows](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/dom-tree-arrows.png)
 
 ## 3- Live-Editing HTML and CSS
 
-The Web Inspector permits live editing of the HTML and CSS code (within the simulator) and immediately renders your changes in the Device Window. This provides a quick way to preview HTML and CSS changes without having to go back to the IDE to edit, save and refresh. Once you're satisfied with your changes, you can then update your code files to make the changes permanent. 
+The Web Inspector permits live editing of HTML and CSS code and immediately renders your changes in the Device Window. This provides a quick way to preview HTML and CSS changes without having to go back to the IDE to edit, save and refresh. However, **these changes exist only within the simulator**. To make your changes permanent, you'll need to update your code files once you're satisfied with the changes. 
 
 NOTE: Changes in RhoSimulator are temporary and apply only to the code running inside the simulator. To make changes permanent, you must update your HTML/CSS files separately.
 
@@ -102,7 +102,7 @@ The following changes can be made live:
 2. **Edit** the text
 3. Press **ENTER to apply** the change or **ESC to cancel**
 
-For example, to edit the CSS class attribute:
+In the example below, a CSS class attribute is edited:
 
 ![Edit attribute](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/live-edit-attribute.png)
 
@@ -190,12 +190,12 @@ The **Resources tab** allows you to see the resources being used by the current 
 NOTE: WebSQL and localStorage are HTML5-specific features that are used by certain WebKit-based browsers. They are not related to the Rhom database provided by RhoMobile. 
 
 #### Network Tab
-The Network tab presents a visual display of the time required for HTTP requests made by an application. Clicking on any of the resources in the left-hand pane will visually represent the delay as its headers and content are loaded and AJAX and other calls are made to remote servers. Data displayed when hovering over "Latency" and "Timeline" columns can be used to help optimize load-time performance.
+The Network tab **measures and displays the time required for HTTP requests** made by an application. Clicking on any of the resources in the left-hand pane will visually represent the delay as its headers and content are loaded and AJAX and other calls are made to remote servers. Data displayed when hovering over "Latency" and "Timeline" columns can be used to help optimize load-time performance.
 
 ![Network Tab](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/network.png)
 
 #### Timeline Tab
-With a visual display similar to that of the Network tab, this tool measures and displays the time required for each element of the user interface to render. The Timeline tab is useful for finding bottlenecks in front-end UI or DOM performance. 
+The Timeline tool **measures and displays the rendering time of each element of the user interface**, presenting a visual display similar to that of the Network tab. The Timeline tab is useful for finding bottlenecks in front-end UI or DOM performance. 
 
 More information about Timeline can be found starting at 25:10 of Zebra's [Front-End UI Optimization Webinar](https://developer.motorolasolutions.com/docs/DOC-1661). This one-hour video contains useful information about detecting reflows and other common problems that can bring mobile apps to a crawl.
 
@@ -207,30 +207,28 @@ The Web Inspector's **Scripts tab** allows you to set breakpoints and inspect va
 ### Setting breakpoints, inspecting variables
 
 1. From the dropdown near the top of the Scripts tab, **select the JavaScript source file** you want to debug.
-2. Find a line that needs a breakpoint and **click its line number**. A breakpoint flag will appear.
-3. Next time you run the app, it will pause at breakpoints (or if you press the 'Pause' button).   
+2. To set a breakpoint at a code line, **click its line number**. A breakpoint flag will appear.
+3. Next time you run, the app will pause at breakpoints (or after pressing the Pause button).   
 4. When paused, **inspect the values of JavaScript variables** under the "Scope Variables" header, at right.
 
 ![Breakpoints](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/javascript-breakpoints.png)
 
 **NOTES:**<br> 
 
-* **Local variables are displayed** under the **"Scope Variables"** heading.
+* **Local variables are displayed under** the **"Scope Variables"** heading.
 * If you **switch to a different stack frame under the "Call Stack" heading**, the local variables displayed will match the currently selected stack frame.
 * **Use "Watch Expressions" to evaluate an expression every time** the code is paused. These can include variables or any valid JavaScript expression.
 * To **remove a breakpoint, click on its line-number** flag. 
 * **Breakpoints also are presented in a list view** under the "Breakpoints" heading at right.
-* **Use the checkboxes to toggle Breakpoints** on and off.
+* **Use the checkboxes in list view to toggle Breakpoints** on and off.
 
->>>>>>>RESUME HERE ON THURSDAY
+### Using the Console
 
-### The console
-
-The 'Console' tab allows you to view log messages and also to execute and debug your JavaScript.
+The **Console tab allows JavaScript execution and debugging** and displays log messages. 
 
 ![Console](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/console.png)
 
-The console can also be accessed as part of any of the other tabs by using the 'Show console' button at the bottom left corner of the other tabs.
+**Access the Console tab from other tabs using the "Show Console" button** at the bottom-left corner of other tabs.
 
 ![Embedded Console](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/console-embedded.png)
 
