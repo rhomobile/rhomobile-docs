@@ -301,42 +301,41 @@ NOTE: Launching Weinre without this option will cause it to bind with the `local
 
 ###3- Enable Weinre In Your App
 
-If all goes well, your browser will display the Weinre Inspector Remote console. In the section labeled "Target Script," you'll see a string that contains a URL with your local IP address and port number, plus some additional text. 
+If all went well in Step 2, your browser is displaying the Weinre Inspector Remote console. In the section labeled "Target Script," you'll see a string that contains a URL with your local IP address and port number, plus the name and path of the script file that Weinre needs to communicate with the target device. 
 
 Lower in the Target Script section is an example of how to embed the Target Script string between `script` tags:  
 
 ####EXAMPLE:
 `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>` 
 
-**Copy and paste the example string (above) into the `barcode_enumerate.html` file (or the corresponding file in your app). Then copy the URL string from earlier and use it to replace the example URL. Be sure to leave the quote marks on either side**.
+**Copy and paste the example string (above) into the `barcode_enumerate.html` file (or the corresponding file for your app). Then copy your *actual* URL string referenced earlier and use it to replace the *example* URL. Be sure to leave the quote marks on either side of the URL**.
 
-
-
-This is a string that you must copy into your app in order for Weinre to be able to interact with your app. I'm going to put this line into my barcode_enumerate.html file so that when I load that file in my app, it will connect to Weinre and start capturing info. Remember when editing HTML in RhoStudio, the default double click action is to open the browser representation in the editor, so to edit the HTML itself, make sure to right-click the file and select open with "Text Editor" as shown below. After editing this file, you would rebuild and relaunch the application so that the changes take effect. 
+>TIP: In RhoStudio, the default double-click action for an HTML file is to open its browser representation in the editor. To edit the HTML itself, right-click the file, select "Open With" and choose "Text Editor" as shown below.
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-edit-barcode-enumerate.png"/>
 
-Here is what the line looks like in my HTML:
+Here's what the line should look like in the HTML:
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-target-script-example.png"/>
 
-Now that we have those steps out of the way, it's time to start up Weinre's `debug client user interface` by clicking the link in the  `Access Points` section of the page we just loaded in our browser.
+###4- Start the debug client UI
+**Start Weinre's debug interface by clicking the link under `Access Points` in the Weinre Console**:
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-link-to-debug-ui.png"/>
 
-### Debug Client UI
+#### Debug Client UI
 
-You may notice that there are many options at the top of the debug UI that very closely resemble the tools available in the Chrome Web Inspector. This is not by accident, these tools serve the same purpose as they would in the Chrome Web Inspector but these are for inspection on the device. 
+The image below shows the "Remote" tab of Weinre's Debug Client UI. The "Targets" and "Clients" sections contain one device each, and the green text indicates that both devices are communicating. 
 
-Here you see both the Weinre debug UI connected to my device (when the device is connected, the Targets and Clients fields are populated with green text describing the device connection.) and my device's screen. I am screen-casting my Android device's screen to my monitor with the help of an app called [Droid@Screen](http://droid-at-screen.ribomation.com/) which uses USB and adb in order to stream screen shots to your computer. It's got some lag but is very useful.
+The inset image is a screenshot from the target Android device that's being displayed by an app called [Droid@Screen](http://droid-at-screen.ribomation.com/). This useful screencasting tool uses USB and [ADB](http://developer.android.com/tools/help/adb.html) to stream screen shots to the development host.
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-debug-and-device.png"/>
 
-Now you can inspect your app just as you would any other HTML page if you were using the Chrome web inspector. Select the Elements tool at the top of the page and select an element to inspect. You will also see the element highlighted on your device showing you that two-way communication is established.
+At this point, can inspect your app just as you would with the Web Inspectors of RhoSimulator or Chrome. The Elements tab shown below demonstrates two-way communication between the device and the development host. Clicking on an element in the HTML will cause that element to be highlighted on the device's UI. 
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-two-way-communication-inspection.png"/>
 
-You can use the Elements tool to change things on the app's view on the fly just by changing the code in the inspector itself. For instance, in the below images I am simply changing the text on the button from "Enumerate" to "Changed!".
+The Elements tab can be used for on-the-fly changes to CSS styling, API and method calls and any and all app UI settings. In the example below, the button text was changed from "Enumerate" to "Changed!" simply by editing the test in the Elements tab. 
 
 <div class="row-fluid">
   <div>
@@ -351,9 +350,7 @@ You can use the Elements tool to change things on the app's view on the fly just
   </div>
 </div>
 
-You can change pretty much any part of the view such as CSS styling and even which APIs and methods are called, but I chose to do a simple one for brevity's sake.
-
-### Console and Issuing API Calls
+### Issuing API calls with Console
 
 One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware APIs in RhoMobile will only work on actual hardware, which means they cannot be tested in the RhoSimulator.
 
