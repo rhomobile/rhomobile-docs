@@ -352,29 +352,31 @@ The Elements tab can be used for on-the-fly changes to CSS styling, API and meth
 
 ### Issuing API calls with Console
 
-One of the most helpful features of Weinre is the console. You can use this console as the classic console to see what is happening on the device while in operation. However, with this console we can do more than just look at what's happening on the device, we can also issue commands to the device to see how the device will react. This is especially helpful since all of the hardware APIs in RhoMobile will only work on actual hardware, which means they cannot be tested in the RhoSimulator.
+One of the most versatile components of Weinre is its Console. Not only does it offer classic capabilities such as device visibility and monitoring during operation, but the Weinre Console also can access all of a device's hardware fearures, issue commands and report how the device reacts. 
 
-In this example, I am showing just a few commands that can be run from the console to verify that the JS APIs are operating properly. Here I use the JS API to check the platform I am running on, use the camera to scan a barcode, and then issue a command to the ScreenOrientation API which returns an error.
+The example below shows results from an attempt to use the JavaScript API to check the target platform, use the camera to scan a barcode, and issue a command to the [ScreenOrientation API](http://127.0.0.1:9393/en/edge/guide/screen_orientation) (which returned an error).
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-barcode-take-and-failed-extension.png"/>
 
-As you can see, I have verified using API calls that my JS APIs are functioning properly. My device is a Zebra Technologies ET1 which is in fact an Android device, so we know that the System API is working. The item's barcode that I scanned reads exactly what was returned here by the Barcode.take() method, so I know that the Barcode module is working properly.
+In the example, I used the Console to verify that my JavaScript APIs are functioning properly. A return of the correct system platform of "Android" proves that the System API is working. A return of the correct scanned barcode value likewise proves that the Barcode module is working properly.
 
-Notice that when the barcode callback handler function is executed we are doing a `console.log(e)` where `e` is the callback return object. We can then simply inspect the object right in the console and see that it contains a `barcode` property and a `status` property. Exactly what is described in the [Barcode.take()](../api/barcode#mtake) method description. Using other means like looking in [Rholog.txt](logging) for information like this may be very time consuming and tedious to add code to output to the log, retrieve it from the device, etc.
+**Here's another important benefit of the Weinre console. Notice that when the barcode callback handler function is executed, we are using the form `console.log(e)`, where `e` is the callback return object. That allows us to simply inspect the object right in the console. This simplifies validation because we see that it contains a `barcode` property and a `status` property, exactly as described in the [Barcode.take( )](../api/barcode#mtake) method description. Alternative means such as adding code for outputting to a log, then for seaching and retrieving the information from the device, can be time consuming, tedious and error-prone.**
 
 ### Extension Inclusion
 
-Now notice the error I received from the last API call: `TypeError: cannot call method 'normal' of undefined.` This error means that it cannot find the [ScreenOrientation](../api/screenorientation) module. This is because ScreenOrientation is not included by default in RhoMobile apps. To add this module in, all we have to do is list it in the app's build.yml in the extensions section as shown below and then rebuild the app.
+Now we turn to the error thrown by the [ScreenOrientation](../api/screenorientation) API call: `TypeError: cannot call method 'normal' of undefined.`<br>
+
+This indicates that it cannot find the module, and reminds us that the ScreenOrientation API is not included in RhoMobile apps by default. To include it in our build, it must be listed in the extensions section of the app's build.yml before the app is rebuilt: 
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-adding-extension.png"/>
 
 <div class="row-fluid">
     <div class="span6">
         <p>
-            Once the app is rebuilt, it should connect to Weinre as soon as it is activated as we did not remove the target script line from the HTML. Back in the console, now that the module is included you should notice that the module name will auto-complete since the framework is now aware of this module. And since this module is now available, the API call I made before will not return an error but will return what it is supposed to: VOID, which in the console is represented by a null return. It also change the orientation of the screen.
+            Since we did not remove the target script line from the HTML, the app should connect to Weinre as soon as it is rebuilt and activated. And now that the module is included and the framework is now aware of this module, the module name will auto-complete as it's typed into the Console. And instead of returning an error, the API call will change the orientation of the screen and return what it is supposed to: VOID, which in the console is represented by a null return.
         </p>
         <p>
-            To tell whether or not you'll have to add the extension into your build.yml please see the <a href="http://docs.rhomobile.com/guide/apisummary">API Summary Page</a> in our docs. Click on the API you wish to use and the corresponding module page will describe what needs to be done to use the API in question.
+            To determine which extensions you'll need to add to your build.yml, please see the <a href="http://docs.rhomobile.com/guide/apisummary">API Summary Page</a> in our docs and click on the API you wish to use. The resulting module page will describe what needs to be done to use any given API.
         </p>
     </div>
     <div class="span6" style="text-align:center">
@@ -391,7 +393,7 @@ Now notice the error I received from the last API call: `TypeError: cannot call 
 
 ## On-Device Debugging With Chrome
 
-Once you're satisfied with the way your app looks and behaves in simulation, it's usually a good idea to do some testing on an actual device. If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an effective and easy way to test, debug and fine-tune your app while it's running on the device. 
+If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some fine visuals for testing, debugging and fine-tuning your app while it's running on the device. 
 
 Google Remote Debugging works with native Android apps that use WebView--such as those built with RhoMobile--as well as purely browser-based apps. It employs live screencasting from the remote unit to the development host, and through port forwarding and virtual host mapping, permits the device to access a development server, if necessary. 
 
