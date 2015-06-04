@@ -265,39 +265,54 @@ Weinre is a must-have developer tool for testing or debugging RhoMobile JavaScri
 This guide is modeled after a 14-minute [Weinre webinar](https://www.youtube.com/watch?v=aSTXEEAfJ6M) that shows most of what we cover here in action. We'll be using the [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample) app for all of the examples in this guide. You're welcome to download the app and follow along, but it's by no means necessary. You could follow along using your own app, or simply play around with the APIs and try out some code. 
 
 
-### Installing Weinre
+###1- Install Weinre
 
-NOTE: WARNINGS: You must have admin/sudo privileges to install Weinre, and the target device must be on the same Wi-Fi network as the development system.
+NOTE: WARNING: You must have admin/sudo privileges to install Weinre, and the target device must be on the same Wi-Fi network as the development system.
 
 Weinre is a Node.js application and comes delivered via a Node Package installed with the `npm` command. Since Node.js is installed along with the Rhomobile suite, installing Weinre is as simple as running this Terminal command:
 
     :::term
     $ npm -g install weinre
 
-NOTE: Mac users you may have to include the 'sudo' command
+Some Mac users may have to include the 'sudo' command: 
 
-More details around the installation process and configuration of Weinre can be found on [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html). If you did not install RhoMobile Suite, you can still use Weinre, but you will have to install Node.JS separately.
+    :::term
+    $ sudo npm -g install weinre
 
-### Starting Weinre
-Open a command prompt and start Weinre with your local machine's local IP address using the `--boundhost` option. If you just launch `weinre` on it's own it will be bound to the `localhost` which will be unaccessible from your device's application.
+For further installation and configuration instructions, visit [Weinre's installation site](http://people.apache.org/~pmuellr/weinre/docs/latest/Installing.html). If you did not install RhoMobile Suite, you can still use Weinre, but you might have to install [Node.js](https://nodejs.org/) separately.
+
+###2- Start Weinre
+
+**From the command line, launch Weinre using the `boundhost` option.** This will bind it to your machine's local IP address: 
 
     :::term
     $ weinre --boundhost <your local IP address>
 
-Weinre will print out the address and port that you will use in order to continue.
+NOTE: Launching Weinre without this option will cause it to bind with the `localhost`, which is inaccessible from apps on a device.
 
-For example, here is my output from the above command
+**Weinre will display an IP address and port number similar to this:**
 
     :::term
     2013-10-31T00:24:07.549Z weinre: starting server at http://192.168.1.128:8080
 
-Verify that Weinre is running correctly by navigating your browser to the address Weinre gives you. You should see a page like this.
+**Point a browser to that address and port to verify that Weinre is running correctly**. You should see a page similar to the following:
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-web-console.png"/>
 
-### Enabling Weinre In Your App
+###3- Enable Weinre In Your App
 
-Notice the section in the web console labeled "Target Script". This is a string that you must copy into your app in order for Weinre to be able to interact with your app. This string is `<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>`. I'm going to put this line into my barcode_enumerate.html file so that when I load that file in my app, it will connect to Weinre and start capturing info. Remember when editing HTML in RhoStudio, the default double click action is to open the browser representation in the editor, so to edit the HTML itself, make sure to right-click the file and select open with "Text Editor" as shown below. After editing this file, you would rebuild and relaunch the application so that the changes take effect. 
+If all goes well, your browser will display the Weinre Inspector Remote console. In the section labeled "Target Script," you'll see a string that contains a URL with your local IP address and port number, plus some additional text. 
+
+Lower in the Target Script section is an example of how to embed the Target Script string between `script` tags:  
+
+####EXAMPLE:
+`<script src="http://<your local ip address>:<your port>/target/target-script-min.js#anonymous"></script>` 
+
+**Copy and paste the example string (above) into the `barcode_enumerate.html` file (or the corresponding file in your app). Then copy the URL string from earlier and use it to replace the example URL. Be sure to leave the quote marks on either side**.
+
+
+
+This is a string that you must copy into your app in order for Weinre to be able to interact with your app. I'm going to put this line into my barcode_enumerate.html file so that when I load that file in my app, it will connect to Weinre and start capturing info. Remember when editing HTML in RhoStudio, the default double click action is to open the browser representation in the editor, so to edit the HTML itself, make sure to right-click the file and select open with "Text Editor" as shown below. After editing this file, you would rebuild and relaunch the application so that the changes take effect. 
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-edit-barcode-enumerate.png"/>
 
