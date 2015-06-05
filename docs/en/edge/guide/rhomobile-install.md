@@ -7,7 +7,7 @@ RhoMobile depends on Java, Ruby, Git and other tools. Depending on the developme
 
 ## Installing on Windows (32- and 64-bit)
 ### STEP 1: Run the RhoMobile Suite Installer
-[Download the RhoMobile Suite Installer for Windows](http://rhomobile.com/download/) and launch it. This will install Rhodes, RhoStudio, RhoConnect and RhoElements, we well as [Ruby](http://www.ruby-lang.org/en/) and [Redis](http://redis.io/) open source tools. 
+[Download the RhoMobile Suite Installer for Windows](http://rhomobile.com/download/) and launch it. This will install Rhodes, RhoStudio, RhoConnect and RhoElements, as well as [Ruby](http://www.ruby-lang.org/en/) and [Redis](http://redis.io/) open source tools. 
 
 Additional installers will automatically launch for [Git](https://github.com/) and [Node.js](https://nodejs.org/). Follow prompts and read and accept their respective open-source license agreements as appropriate. 
 
