@@ -258,6 +258,14 @@ In adddition to displaying log messages, the Console provides a fully interactiv
 
 ![Interactive JavaScript](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/interactive-javascript.png)
 
+
+
+
+
+
+
+
+
 ## On-Device Debugging With Weinre
 
 Weinre is a must-have developer tool for testing or debugging RhoMobile JavaScript applications. Although lots of testing and analysis can be done using RhoSimulator, hardware features such as [Barcode](../api/barcode) are unavailable in RhoSiumulator, and applications often look or behave differently when running on a device. Weinre solves these problems. Acting like a remote Web Inspector, the JavaScript Console in Weinre allows you to get familiar with the RhoMobile APIs right from the tab. This is faster and easier than fumbling through logs.
@@ -395,17 +403,23 @@ This indicates that it cannot find the module, and reminds us that the ScreenOri
 
 If you're building an Android app and have a device with Android KitKat 4.4 or higher, [Google Remote Debugging](https://developer.chrome.com/devtools/docs/remote-debugging) is an alternative to Weinre that's a bit easier to install and offers some fine visuals for testing, debugging and fine-tuning your app while it's running on the device. 
 
-Google Remote Debugging works with native Android apps that use WebView--such as those built with RhoMobile--as well as purely browser-based apps. It employs live screencasting from the remote unit to the development host, and through port forwarding and virtual host mapping, permits the device to access a development server, if necessary. 
+Google Remote Debugging works with native Android apps that use WebView--such as those built with RhoMobile--as well as purely browser-based apps. It includes live screencasting from the remote unit to the development host, and supports port forwarding and virtual host mapping in case your device needs to access a development server. 
 
 ###Requirements
-Google Remote Debugging requires a Mac OS X or Windows development machine with Chrome 32 or later installed plus a USB cable and available USB port. The target device must be running Android 4.4 (KitKat) or later and be enabled for USB debugging. The app to be tested must be configured for WebView debugging.
+
+* Mac OS X or Windows development host
+* Chrome 32 or later installed 
+* A USB cable for connecting the target to the dev. host
+* A target device running Android 4.4 (KitKat) or later
+* USB debugging enabled on target
+* An app configured for WebView debugging
 
 ###1. Enable Device Debugging
 The target device must have USB debugging enabled. This feature is found in **Settings >> Developer Options** panel, which is hidden by default. 
 
 ![Developer Options](http://rhodocs.s3.amazonaws.com/guide/debugging_js/Android_developerOptions.png)
 
-Here's how to **unhide Developer options**, if neccessary: 
+Here's how to **unhide Developer options** (if neccessary) **and enable USB debugging**: 
 
 1. Go to **Settings >> About Phone**
 2. **Go to the "Build Number" box** (by scrolling all the way to the bottom)
@@ -428,14 +442,22 @@ If you haven't already done so, **connect your device to an available USB port o
 
 5. The final step is to **configure WebView for debugging**, which must be done from within the app. Fortunately, RhoMobile developers can skip this step too because the WebView components used by the RhoMobile Suite are automatically configured for debugging when deployed to devices with debug mode enabled.
 
-6. At this point you should be ready tp begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
+6. At this point you should be ready to begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+>>>>> UPDATE AND INTEGRATE WITH RHOSIM SECTION
 
 ## Remote Debugging with a Browser's Web Inspector
 
-NOTE: This JavaScript debugging technique is currently supported only on Windows development hosts.
+NOTE: This JavaScript debugging technique is currently supported on Windows development hosts only.
 
-Using a feature introduced in RhoElements 4.1, you can use your standard browser's web inspector feature to debug your app's JavaScript. This is helpful if you're already used to debugging JavaScript code in a specific browser's web inspection utility. So far, this feature works in only [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
+Using a feature introduced in RhoElements 4.1, you can use Chrome's Web Inspector to debug your app's JavaScript code. 
 
 ### Using the Remote Debugger
 Before you can use this remote web inspector, you must first open the app you want to use in RhoSimulator. In this example, we'll run an app called [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample). As you can see from the data platform attribute, this is running as a Win32 app.
