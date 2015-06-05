@@ -416,7 +416,7 @@ Here's how to **unhide Developer options**, if neccessary:
 ###2. Discover Device (in Desktop Chrome)
 If you haven't already done so, **connect your device to an available USB port on the development host** and **enable device detection in Chrome**: 
 
-![Developer Options](http://rhodocs.s3.amazonaws.com/guide/debugging_js/Chrome_detect_USB.png)
+>![Developer Options](http://rhodocs.s3.amazonaws.com/guide/debugging_js/Chrome_detect_USB.png)
 
 1. Open a browser window and **enter "chrome://inspect"** in the address bar. You should see a screen similar the one above.
 
@@ -431,16 +431,11 @@ If you haven't already done so, **connect your device to an available USB port o
 6. At this point you should be ready tp begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
 
 
-
-
->>>>>>>>> RESUME HERE FRIDAY
-
-
 ## Remote Debugging with a Browser's Web Inspector
 
-NOTE: This JS debugging feature is currently supported only on Windows development environments.
+NOTE: This JavaScript debugging technique is currently supported only on Windows development hosts.
 
-Using a feature introduced in RhoElements 4.1, you can use your standard browser's web inspector feature to debug your app's JavaScript. This is helpful if you're already used to debugging your JS in a specific browser's web inspection utility. So far, this feature works in only [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
+Using a feature introduced in RhoElements 4.1, you can use your standard browser's web inspector feature to debug your app's JavaScript. This is helpful if you're already used to debugging JavaScript code in a specific browser's web inspection utility. So far, this feature works in only [Google Chrome](https://www.google.com/intl/en/chrome/browser/).
 
 ### Using the Remote Debugger
 Before you can use this remote web inspector, you must first open the app you want to use in RhoSimulator. In this example, we'll run an app called [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample). As you can see from the data platform attribute, this is running as a Win32 app.
@@ -451,14 +446,14 @@ Once your app is open in RhoSimulator, simply navigate your browser to [http://l
 
 Once here you should see a web inspection tool very similar to our RhoSimulator's web inspector (which is very similar to that of Google Chrome's inspector) which should look like this:
 
-![Remote Inspector Landing Page](https://s3.amazonaws.com/rhodocs/guide/debugging_js/remote_inspector_landing_page.png)
+>![Remote Inspector Landing Page](https://s3.amazonaws.com/rhodocs/guide/debugging_js/remote_inspector_landing_page.png)
 
 ### Altering App Attributes
-As with most web inspectors you can change attributes in the inspector...
+As with most web inspectors, you can change attributes in the inspector...
 
 ![Changed inspector Text](https://s3.amazonaws.com/rhodocs/guide/debugging_js/changed_inspector_text.png)
 
-...and have them appear immediately in the app.
+...and have them appear immediately in the app:
 
 ![Changed APP Text](https://s3.amazonaws.com/rhodocs/guide/debugging_js/changed_app_text.png)
 
@@ -469,7 +464,7 @@ As you can probably guess by now, debugging using this method is very similar to
 
 ## Running RhoSimulator from the command line
 
-ToRhoSimulator can be executed from the command line and thereby integrated with your favorite IDE. To run RhoSimulator from the command line, use one of the following platform-specific commands from within the folder containing the app to be simulated:
+  RhoSimulator can be executed from the command line and thereby integrated with your favorite IDE. To run RhoSimulator from the command line, use one of the following platform-specific commands from within the folder containing the app to be simulated:
     
 * Android
 
