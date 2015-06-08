@@ -1,15 +1,45 @@
-# Supported Platforms
-## Supported Operating Systems
-* iOS 6.0 or greater (iPhone, iPod Touch, iPad)
-* Android 2.3 and greater (Gingerbread, Ice Cream Sandwich, JellyBean) - Both ARM and x86
-* Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 5, Windows CE 6, Windows CE 7, Windows XPe
-* Latest Windows Phone 8 mobile devices
-* Windows Desktop (Windows 7, 8, 8.1)
+# RMS 5.1 Supported Platforms
 
-NOTE: Please review release notes that accompany the software for further remarks on supported devices and operating systems.
+The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. In essence, RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
+
+##Supported Mobile Device Platforms 
+<table class="table table-striped">
+ <tr>
+  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings"><nobr>Operating system family</nobr></th>
+  <th class="clsSyntaxHeadings">Device(s)</th>
+  <th class="clsSyntaxHeadings">Operating System(s)</th>
+ </tr>
+ <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="Android_pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Tablets/ET1%20Enterprise%20Tablet/Technical_Product%20Specs/ET1%20Front%20with%20Managers%20Dashboard-TransBkg_%20Enterprise%20Tablet%20Side_095-TransBkg.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.-TV9YMitpn.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><b>Android</b></td>
+  <td class="clsSyntaxCells clsOddRow">Zebra (see below) and third-party devices</td>
+  <td class="clsSyntaxCells clsOddRow">Android  2.3 to 4.4: Gingerbread, Ice Cream Sandwich, Jelly Bean, KitKat (ARM and x86)</td>
+ </tr>
+ <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="iOS_pic" src="https://km.zebra.com/library/ZEBRA/V_ISVS/V_ISVS_NA/V_ISVS_NA_LIM/V_ISVS_NA_PRT/AppleiOS/GettingStartedWithAppleiOSGuide/AppRunning%20updated%20for%20apple%20guidelines.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><b>Apple iOS</b></td>
+  <td class="clsSyntaxCells clsOddRow">iPad, iPhone, iPod Touch</td>
+  <td class="clsSyntaxCells clsOddRow">iOS 6.0 or higher</td>
+ </tr>
+ <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC3100%20Mobile%20Computer/Technical_Product%20Specs/MC3100.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.ehcjS-H9zK.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><b>Windows Mobile/CE</b></td>
+  <td class="clsSyntaxCells clsOddRow">Zebra (see below) and third-party devices</td>
+  <td class="clsSyntaxCells clsOddRow">WM6.x Pro, WM 6.0 Std, WinCE 5, WinCE 6, WinCE 7, WinXPe</td>
+ </tr>
+<tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="winDesk_pic" src="https://www.zebra.com/content/zebra1/gb/en/products/software/mobile-computers/rhomobile-suite/_jcr_content/mainpar/twocol_cb57/rightpar/image_d47f.img.jpg/1428608575311.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><b>Windows Desktop</b></td>
+  <td class="clsSyntaxCells clsOddRow">Third-party devices</td>
+  <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
+ </tr></table>
+
+NOTE: Refer to release notes that accompany the software for more information about supported devices and operating systems.
 
 ##Supported Zebra Devices
-This software release has been approved for use with the following Zebra Enterprise Mobility devices.
+RMA 5.1 has been approved for building apps that target the following Zebra Enterprise Mobility devices.
+
 <H4>Mobile Computers</H4>
 <table class="table table-striped">
  <tr>
@@ -69,7 +99,7 @@ This software release has been approved for use with the following Zebra Enterpr
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="wap4Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/Workabout%20Pro%204%20Mobile%20Computer/Technical_Product%20Specs/WAP4_Long%20Front_022-MED.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WAP4</b></td>
-  <td class="clsSyntaxCells clsOddRow">WAP4</td>
+  <td class="clsSyntaxCells clsOddRow">WorkAbout Pro 4</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0</td>
  </tr>
  <tr>
@@ -129,7 +159,7 @@ This software release has been approved for use with the following Zebra Enterpr
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC9190-Z%20RFID%20Reader/Photography%20%E2%80%93%20Product/MC9190Z_Right_017%20HR%20TR_653.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9100</b></td>
-  <td class="clsSyntaxCells clsOddRow">MC9190-G, MC9190Z</td>
+  <td class="clsSyntaxCells clsOddRow">MC9190-G, MC9190-Z</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
@@ -223,8 +253,8 @@ This software release has been approved for use with the following Zebra Enterpr
 
 <br>
 
-<H2>Deprecated Zebra Devices</H2>
-Following Zebra Devices are no longer supported as of RMS 5.1: 
+##Deprecated Zebra Devices
+The following Zebra Devices are no longer supported beginning with the release of RMS 5.1: 
 
 <H4>Mobile Computers</H4>
 <table class="table table-striped">
