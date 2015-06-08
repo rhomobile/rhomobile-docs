@@ -8,7 +8,7 @@
 
 NOTE: Please review release notes that accompany the software for further remarks on supported devices and operating systems.
 
-<H2>Supported Zebra Devices</H2>
+##Supported Zebra Devices
 This software release has been approved for use with the following Zebra Enterprise Mobility devices.
 <H4>Mobile Computers</H4>
 <table class="table table-striped">
@@ -152,7 +152,7 @@ This software release has been approved for use with the following Zebra Enterpr
  </tr>
 </table>
 
-<b>* </b>The MC2100-family devices are supported only by RhoElements 2.1.<br>
+<b>* </b>The MC2100 family of devices is supported only by RhoElements 2.1.<br>
 </p>
 
 <H4>Vehicle Computers</H4>
@@ -164,13 +164,13 @@ This software release has been approved for use with the following Zebra Enterpr
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc6090Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc6090Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Handheld%20Computers/VC6096%20Mobile%20Computer/_Images/_static%20files/VC6096_LG.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC6000</b></td>
   <td class="clsSyntaxCells clsOddRow">VC6000, VC6096</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc70Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc70Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Vehicle-Mounted/VC70%20Vehicle-mounted%20Computer/Technical_Product%20Specs/VC70N0_Merged.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.h25sTvcTK-.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC70</b></td>
   <td class="clsSyntaxCells clsOddRow">VC70</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -186,7 +186,7 @@ This software release has been approved for use with the following Zebra Enterpr
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Interactive%20Kiosks/MK3100%20Micro%20Kiosk/Technical_Product%20Specs/MK3100-Front_Price-Check_01.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.mtx_sG1J9S.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3100</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3100, MK3190</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -203,14 +203,14 @@ This software release has been approved for use with the following Zebra Enterpr
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
   <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wt41n0Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wt41n0Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Wearable%20Computers/WT41N0%20Wearable%20Terminal/Photography%20%E2%80%93%20Product/WT41N0_Front_044.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WT41N0</b></td>
   <td class="clsSyntaxCells clsOddRow">WT41N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
  </tr>
 </table>
 
-<b>* </b>The MC2100-family devices are supported only by RhoElements 2.1.<br>
+<b>* </b>The MC2100 family of devices is supported only by RhoElements 2.1.<br>
 
 
 ###COMPATIBILITY ALERTS
@@ -235,13 +235,13 @@ Following Zebra Devices are no longer supported as of RMS 5.1:
   <th class="clsSyntaxHeadings">Device</th>
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="" height="75"></img></td>
-  <td class="clsSyntaxCells clsOddRow"><b>MC3090</b></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Mobile_Computers/Handheld_Computers/_IMAGE/_STATIC/MC3000_324_324.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><b>MC3000</b></td>
   <td class="clsSyntaxCells clsOddRow">MC3000, MC3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc9000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc9000Pic" src="http://www.symbol.com/assets/images/239_MC9000S.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9000</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC9090, MC9097, MC9094</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
@@ -257,13 +257,13 @@ Following Zebra Devices are no longer supported as of RMS 5.1:
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Micro_Kiosks/_IMAGE/_STATIC/MK3000_LG.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3000</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3000, MK3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk4000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk4000Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Interactive%20Kiosks/MK4000%20Micro%20Kiosk/Photography%20%E2%80%93%20Product/MK4000StrtOn_017_w-screen_small.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK4000</b></td>
   <td class="clsSyntaxCells clsOddRow">MK4000, MK4090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
@@ -278,7 +278,7 @@ Following Zebra Devices are no longer supported as of RMS 5.1:
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc5090Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc5090Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Vehicle-mounted%20Computers/VC5090/_Images/Static%20Files/B2B_Product_VC5090_LG_US-EN.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC5090</b></td>
   <td class="clsSyntaxCells clsOddRow">VC5090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
@@ -294,7 +294,7 @@ Following Zebra Devices are no longer supported as of RMS 5.1:
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
   <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wt4000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wt4000Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Wearable%20Computers/WT4000/_Images/Static%20Files/B2B_Product_WT4000_LG_US-EN.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WT4090</b></td>
   <td class="clsSyntaxCells clsOddRow">WT4070, WT4090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
