@@ -1,6 +1,6 @@
 # RMS 5.1 Supported Platforms
 
-The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. In essence, RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
+The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
 
 ##Supported Mobile Device Platforms 
 <table class="table table-striped">
@@ -13,7 +13,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="Android_pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Tablets/ET1%20Enterprise%20Tablet/Technical_Product%20Specs/ET1%20Front%20with%20Managers%20Dashboard-TransBkg_%20Enterprise%20Tablet%20Side_095-TransBkg.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.-TV9YMitpn.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Android</b></td>
-  <td class="clsSyntaxCells clsOddRow">Zebra (see below) and third-party devices</td>
+  <td class="clsSyntaxCells clsOddRow">Zebra devices (see below), third-party devices</td>
   <td class="clsSyntaxCells clsOddRow">Android  2.3 to 4.4: Gingerbread, Ice Cream Sandwich, Jelly Bean, KitKat (ARM and x86)</td>
  </tr>
  <tr>
@@ -25,7 +25,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC3100%20Mobile%20Computer/Technical_Product%20Specs/MC3100.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.ehcjS-H9zK.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Windows Mobile/CE</b></td>
-  <td class="clsSyntaxCells clsOddRow">Zebra (see below) and third-party devices</td>
+  <td class="clsSyntaxCells clsOddRow">Zebra devices (see below), third-party devices</td>
   <td class="clsSyntaxCells clsOddRow">WM6.x Pro, WM 6.0 Std, WinCE 5, WinCE 6, WinCE 7, WinXPe</td>
  </tr>
 <tr>
@@ -34,8 +34,6 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">Third-party devices</td>
   <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
  </tr></table>
-
-NOTE: Refer to release notes that accompany the software for more information about supported devices and operating systems.
 
 ##Supported Zebra Devices
 RMA 5.1 has been approved for building apps that target the following Zebra Enterprise Mobility devices.
@@ -240,25 +238,25 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
  </tr>
 </table>
 
-## On-Device Memory Considerations
-Memory constraints are important to consider, particularly when targeting the older devices supported by RhoElements. The following points might be helpful to consider: 
+## Device Memory and Other Considerations
+Memory constraints are important to consider, particularly when targeting the older devices supported by RhoElements. The following points might be helpful to keep in mind: 
 
 * RhoElements requires a *minimum* of 128MB physical device RAM<br>
 
-* Limit the use of JavaScript frameworks to minimize an app's RAM footprint<br>
+* The more RhoElements apps running on a device, the greater its memory requirement; consider using [TabBar](http://docs.rhomobile.com/en/5.0.38/api/NativeTabbar) to combine several individual apps
+
+* Use the [Memory API](http://docs.rhomobile.com/en/2.2.0/rhoelements/memory) and memory logs to monitor your app's memory requirements 
+
+* For low-end Zebra CE devices, try using Control Panel to increase available program memory
+
+* Limiting the use of JavaScript frameworks will minimize an app's RAM footprint
+
+* Don't rely too heavily on performance tests for JavaScript and CSS found online unless they're written specifically for mobile devices
 
 * To maximize performance, JQueryMobile is not included in Windows Mobile/CE devices by default
-* Use the [Memory API](http://docs.rhomobile.com/en/2.2.0/rhoelements/memory) and memory logs to monitor you app's memory requirements 
 
-* An active [RhoMobile developer community](https://developer.motorolasolutions.com) offers forums, blogs, webinars and other useful resources
+* An active [RhoMobile developer community](https://developer.motorolasolutions.com) offers forums, blogs, webinars and other useful resources to aid in your development efforts 
 
-* On-line performance tests for JavaScript and CSS, particularly those involving DOM manipulation will often be written to target desktop computers and may not run on all supported devices.
-* On some of our lower end CE devices you may find you need to increase the program memory available to install RhoElements and you can do this from the Control Panel. Out of the box you will have sufficient memory on your device but if you have already installed a lot of programs you may need to allocate more program memory or delete your existing files.
-* The more RhoElements applications you run on your device the greater the required memory will be. Consider using the TabBar in a single application rather than multiple separate applications.
-* Windows Mobile 5.0 is not supported in this release, devices should be updated to Windows Mobile 6.x where possible.
-
-### JQM Transitions
-When using JQM transitions on Windows Mobile or Windows CE devices, you may notice that the transition animations do not occur. Investigation into this shows that the device hardware is just not capable to rendering the animations; the transition jumps from the old page to the new page without any fancy animation, dropping all the frames.
 
 ##COMPATIBILITY ALERTS
 
@@ -267,6 +265,8 @@ When using JQM transitions on Windows Mobile or Windows CE devices, you may noti
 >* **The MC3190-Z and MC9190-Z devices require an [RFID plugin](../../2.2.0/rhoelements/rfid) to be installed separately**. This plug-in was originally developed for RhoElements version 2.2 but is still supported.
 
 >* **Only local deveopment is supported for Micro Kiosk (MK) devices**. Zebra development options for supported MK device include [RhoMobile Suite](http://rhomobile.com/) and [Enterprise Browser](http://goo.gl/V9zMxD). The use of [RhoMobile.com](../../hosted/guide/remote-build-guide) is not supported for building aps for MK devices. 
+
+>* **When using JQM transitions on Windows Mobile or Windows CE devices**, you may notice that the transition animations do not occur. This is due to insufficient processing resources on the device.
 
 <br>
 
@@ -349,4 +349,4 @@ When using JQM transitions on Windows Mobile or Windows CE devices, you may noti
 </table>
 
 ###Compatibility Alert
->Support for older or deprecated device families such as the MC9000 and MK4000 can be found in RhoElements 5.x. 
+>Support for older or deprecated device families such as the MC9000 and MK4000 can be found in [RhoElements 5.x](http://rhomobile.com/). 
