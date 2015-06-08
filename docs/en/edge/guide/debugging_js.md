@@ -1,13 +1,13 @@
 # Debugging JavaScript
 ## Debugging with RhoSimulator
 ### What is RhoSimulator?
-RhoSimulator is a device simulation environment for RhoMobile apps that's part of the standard [RhoMobile Suite installation](rhomobile-install). It also can run from a command line. It lets you run, view, test and debug the visible portions of your RhoMobile applications initially in software, before then testing them on hardware or hardware emulation. 
+**RhoSimulator is a device simulation environment for RhoMobile apps** that's part of the standard [RhoMobile Suite installation](rhomobile-install) and is fully untegrated within the IDE. It also can run from a command line and integrate with other IDEs, if desired. RhoSimulator provides an easy way to run, view, test and debug the visible portions of your RhoMobile applications before further testing on hardware or hardware emulation. 
 
-RhoSimulator builds and runs your apps more quickly than do other environments, and is therefore useful for rapid test-and-debug cycles. Under RhoSimulator, most app changes can be made live by pressing the ‘Refresh’ button. There's no need to rebuild the app or restart RhoSimulator to accomodate app changes except to the `AppApplication` class or after the addition or change of a model.
+RhoSimulator builds and runs your apps more quickly than do other environments, and is therefore useful for rapid test-and-debug cycles. Under RhoSimulator, **most app changes can be seen live or by after the 'Refresh' button**. In most cases, there's no need to rebuild the app or restart RhoSimulator after making changes to an app. The only exceptions are for modifications to the `AppApplication` class or after adding or editing a model.
 
-RhoSimulator uses the QT Webkit to render the UI portion of your app and approximate its appearance on Android, iOS and Windows Mobile platforms. However, pages might appear differently on the actual hardware due to variations in platform rendering engines. Also, RhoSimulator is NOT an *emulator*, and therefore excludes camera, barcode scanner and other hardware features that might be present in an emulator for your specific hardware platform. After initial debugging with RhoSimulator, we recommend further testing on your platform's hardware or emulator to ensure that your app behaves as desired.
+**RhoSimulator uses the QT Webkit to render the UI portion of your app and approximate its appearance on Android, iOS and Windows Mobile platforms. App UI views might appear differently on the actual hardware* ** due to variations in platform rendering engines. Also, RhoSimulator is NOT an *emulator*, and therefore excludes camera, barcode scanner and other hardware features that might be present in an emulator for your specific hardware platform. After initial debugging with RhoSimulator, we recommend further testing on your platform's hardware or emulator to ensure that your app behaves as desired.
  
-NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink, depending on Android version). Apps for iOS use the stock Safari Webkit, and for Windows Mobile and CE use Zebra's custom-developed Webkit. 
+NOTE: * RhoMobile apps for Android use the stock Webview control (Webkit or Blink, depending on Android version). Apps for iOS use the stock Safari Webkit, and for Windows Mobile and CE use Zebra's custom-developed Webkit. 
 
 
 ### RhoSimulator can:
@@ -16,8 +16,8 @@ NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink,
 * Live-edit HTML and CSS
 * Diagnose network activity and AJAX calls
 * Run on Mac OS X and Windows development hosts
-* Simulate iOS on a Windows development host
-* Simulate Windows Mobile on Mac OS X development host 
+* Simulate iOS on a Windows host
+* Simulate Windows Mobile on a Mac 
 
 ### RhoSimulator cannot:
 * Simulate camera, barcode reader or certain other hardware
@@ -27,7 +27,7 @@ NOTE: RhoMobile apps for Android use the stock Webview control (Webkit or Blink,
 
 ## Requirements
 
-This guide relates to the use of RhoSimulator through RhoStudio, an Eclipse-based IDE for Mac OS X and Windows. We recommend installing the [RhoMobile Suite](rhomobile-install) on your development machine, which includes RhoStudio and RhoSimulator and is fully integrated with its use. RhoSimulator also can be invoked from the command line or integrated with an IDE that you're already using. 
+**This guide relates to the use of RhoSimulator through RhoStudio**, an Eclipse-based IDE for Mac OS X and Windows. We recommend [installing the RhoMobile Suite](rhomobile-install) on your development machine, which includes RhoStudio and RhoSimulator, and is fully integrated with its use. RhoSimulator also can be invoked from the command line or integrated with an IDE that you're already using.
 
 ## 1- Launch Your App in RhoSimulator
 
@@ -39,26 +39,26 @@ After you've created at least one RhoMobile project, open RhoStudio and the proj
 * In the **left pane** of the **Run Configurations window** you'll see **RhoMobile Application**:
     * **Double-click** it to create a **new Launch Configuration**<br>
     **OR**<br>
-    * **Single-click its arrow** to **edit an existing Launch Configuration** (shown)<br>
+    * **Single-click its arrow** to **edit an existing Launch Configuration** (shown below)<br>
 
 * With the desired Launch Configuration selected, **choose the Platform and Simulator type**
 * **Click Run** to deploy and run your app in RhoSimulator
 
 ![Run Configurations](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/run-configuration.png)
 
-In the example, a Run Configuration is shown for the iPhone platform and RhoSimulator. The resulting RhoSimulator screen will look similar to the one below. 
+In the example, a Run Configuration is shown for the iPhone platform and RhoSimulator. The resulting RhoSimulator screen should look similar to this: 
 
 ![Device Window](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/device-window.png)
 
 ## 2- Examine Code With Web Inspector
 
-RhoSimulator presents two windows: One displays your application's UI, and the other exposes its code in a multi-tabbed window. The first is referred to as the Device Window (similar to the one above), and the second is Web Inspector (below), a powerful debugging aid that allows you to inspect and edit the HTML and CSS of your web interface and immediately see the effects of your changes.
+**RhoSimulator presents two windows**: One displays your application's UI, and the other exposes its code in a multi-tabbed window. The first is referred to as **the Device Window** (similar to the one above), and the second is **Web Inspector window** (below), a powerful debugging aid that allows you to inspect and edit the HTML and CSS of your web interface and immediately see the effects of your changes.
 
 ![Web Inspector](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/web-inspector-window.png)
 
 ### Examining the DOM
 
-In the context of modern web programming, the "DOM" refers to your HTML code as it will appear when running. For example, while an HTML5 app might define certain variables, those variables contain no values until the app is actually running. So you might think of the DOM as HTML5 that's alive.
+In the context of modern web programming, **the 'DOM' refers to your HTML code as it will appear when running**. For example, while an HTML5 app might define certain variables, those variables contain no values until the app is actually running. So you might think of the DOM as HTML5 that's live and in use.
 
 You can **examine the DOM in the Elements tab** of Web Inspector. This tab shows the DOM tree structure of the HTML page that's currently displayed in the Device Window. You can select and examine the code or individual elements in the DOM tree by using one of the following methods:
 
@@ -160,8 +160,8 @@ In the example, a new *border-style* is added:
 
 ### Creating a new style rule
 
-1. **Click the small "Gear" icon** to the right of the *Styles* heading
-2. **Select "New Style Rule"**
+1. **Click the small 'Gear' icon** to the right of the *Styles* heading
+2. **Select 'New Style Rule'**
 3. **Edit the selector as required** and press Enter (or ESC to cancel)
 4. **Type in the property name** followed by a colon and the value
 5. Press **ENTER to apply** the change or **ESC to cancel**
@@ -190,7 +190,7 @@ The **Resources tab** allows you to see the resources being used by the current 
 NOTE: WebSQL and localStorage are HTML5-specific features that are used by certain WebKit-based browsers. They are not related to the Rhom database provided by RhoMobile. 
 
 #### Network Tab
-The Network tab **measures and displays the time required for HTTP requests** made by an application. Clicking on any of the resources in the left-hand pane will visually represent the delay as its headers and content are loaded and AJAX and other calls are made to remote servers. Data displayed when hovering over "Latency" and "Timeline" columns can be used to help optimize load-time performance.
+The Network tab **measures and displays the time required for HTTP requests** made by an application. Clicking on any of the resources in the left-hand pane will visually represent the delay as its headers and content are loaded and AJAX and other calls are made to remote servers. Data displayed when hovering over 'Latency' and 'Timeline' columns can be used to help optimize load-time performance.
 
 ![Network Tab](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/network.png)
 
@@ -209,17 +209,17 @@ The Web Inspector's **Scripts tab** allows you to set breakpoints and inspect va
 1. From the dropdown near the top of the Scripts tab, **select the JavaScript source file** you want to debug.
 2. To set a breakpoint at a code line, **click its line number**. A breakpoint flag will appear.
 3. Next time you run, the app will pause at breakpoints (or after pressing the Pause button).   
-4. When paused, **inspect the values of JavaScript variables** under the "Scope Variables" header, at right.
+4. When paused, **inspect the values of JavaScript variables** under the 'Scope Variables' header, at right.
 
 ![Breakpoints](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/javascript-breakpoints.png)
 
 **NOTES:**<br> 
 
-* **Local variables are displayed under** the **"Scope Variables"** heading.
-* If you **switch to a different stack frame under the "Call Stack" heading**, the local variables displayed will match the currently selected stack frame.
-* **Use "Watch Expressions" to evaluate an expression every time** the code is paused. These can include variables or any valid JavaScript expression.
+* **Local variables are displayed under** the **'Scope Variables'** heading.
+* If you **switch to a different stack frame under the 'Call Stack' heading**, the local variables displayed will match the currently selected stack frame.
+* **Use 'Watch Expressions' to evaluate an expression every time** the code is paused. These can include variables or any valid JavaScript expression.
 * To **remove a breakpoint, click on its line-number** flag. 
-* **Breakpoints also are presented in a list view** under the "Breakpoints" heading at right.
+* **Breakpoints also are presented in a list view** under the 'Breakpoints' heading at right.
 * **Use the checkboxes in list view to toggle Breakpoints** on and off.
 
 ####Console Tab
@@ -249,7 +249,7 @@ Log messages are not visible by the end-user, but can be extremely useful for de
 Sample JavaScript code:
 
     :::javascript
-    console.log("Hello, world");
+    console.log('Hello, world');
 
 
 #### Interactive JavaScript
@@ -258,13 +258,18 @@ In adddition to displaying log messages, the Console provides a fully interactiv
 
 ![Interactive JavaScript](http://rhodocs-images.s3.amazonaws.com/guide/debugging_with_rhosimulator/interactive-javascript.png)
 
+### Using Chrome's Web Inspector
 
+If desired, **you can substitute the Chrome Web Inspector for the one in RhoSimulator** for debugging your JavaScript code. To ensure that you're using the latest version of Chrome Web Inspector, Google recommends using [Google Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html), which includes all the latest DevTools. 
 
+**Once your app is open in RhoSimulator, point Chrome to**:<br> 
 
+[http://localhost:9090/webkit/inspector/inspector.html?page=2](http://localhost:9090/webkit/inspector/inspector.html?page=2). 
 
+Alternatively, you can navigate to [http://localhost:9090](http://localhost:9090) and click the link that references your start page (for example http://127.0.0.1:49964/**app/index.erb** if your app starts at /app/index.erb). You should see a screen similar to this:
 
-
-
+>![Remote Inspector Landing Page](https://s3.amazonaws.com/rhodocs/guide/debugging_js/remote_inspector_landing_page.png)
+<br>
 
 ## On-Device Debugging With Weinre
 
@@ -309,7 +314,7 @@ NOTE: Launching Weinre without this option will cause it to bind with the `local
 
 ###3- Enable Weinre In Your App
 
-If all went well in Step 2, your browser is displaying the Weinre Inspector Remote console. In the section labeled "Target Script," you'll see a string that contains a URL with your local IP address and port number, plus the name and path of the script file that Weinre needs to communicate with the target device. 
+If all went well in Step 2, your browser is displaying the Weinre Inspector Remote console. In the section labeled 'Target Script,' you'll see a string that contains a URL with your local IP address and port number, plus the name and path of the script file that Weinre needs to communicate with the target device. 
 
 Lower in the Target Script section is an example of how to embed the Target Script string between `script` tags:  
 
@@ -318,7 +323,7 @@ Lower in the Target Script section is an example of how to embed the Target Scri
 
 **Copy and paste the example string (above) into the `barcode_enumerate.html` file (or the corresponding file for your app). Then copy your *actual* URL string referenced earlier and use it to replace the *example* URL. Be sure to leave the quote marks on either side of the URL**.
 
->TIP: In RhoStudio, the default double-click action for an HTML file is to open its browser representation in the editor. To edit the HTML itself, right-click the file, select "Open With" and choose "Text Editor" as shown below.
+>TIP: In RhoStudio, the default double-click action for an HTML file is to open its browser representation in the editor. To edit the HTML itself, right-click the file, select 'Open With' and choose 'Text Editor' as shown below.
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-edit-barcode-enumerate.png"/>
 
@@ -333,7 +338,7 @@ Here's what the line should look like in the HTML:
 
 #### Debug Client UI
 
-The image below shows the "Remote" tab of Weinre's Debug Client UI. The "Targets" and "Clients" sections contain one device each, and the green text indicates that both devices are communicating. 
+The image below shows the 'Remote' tab of Weinre's Debug Client UI. The 'Targets' and 'Clients' sections contain one device each, and the green text indicates that both devices are communicating. 
 
 The inset image is a screenshot from the target Android device that's being displayed by an app called [Droid@Screen](http://droid-at-screen.ribomation.com/). This useful screencasting tool uses USB and [ADB](http://developer.android.com/tools/help/adb.html) to stream screen shots to the development host.
 
@@ -343,16 +348,16 @@ At this point, can inspect your app just as you would with the Web Inspectors of
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-two-way-communication-inspection.png"/>
 
-The Elements tab can be used for on-the-fly changes to CSS styling, API and method calls and any and all app UI settings. In the example below, the button text was changed from "Enumerate" to "Changed!" simply by editing the test in the Elements tab. 
+The Elements tab can be used for on-the-fly changes to CSS styling, API and method calls and any and all app UI settings. In the example below, the button text was changed from 'Enumerate' to 'Changed!' simply by editing the test in the Elements tab. 
 
 <div class="row-fluid">
   <div>
     <div class="span6" style="text-align:center">
-        <p><b>Button text "Enumerate"</b></p>
+        <p><b>Button text 'Enumerate'</b></p>
         <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-button-element-before-change.png"/>
     </div>
     <div class="span6" style="text-align:center">
-        <p><b>Button text "Changed!"</b></p>
+        <p><b>Button text 'Changed!'</b></p>
         <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-button-element-after-change.png"/>
     </div>
   </div>
@@ -366,9 +371,10 @@ The example below shows results from an attempt to use the JavaScript API to che
 
 <img src="http://rhodocs.s3.amazonaws.com/weinre/weinre-barcode-take-and-failed-extension.png"/>
 
-In the example, I used the Console to verify that my JavaScript APIs are functioning properly. A return of the correct system platform of "Android" proves that the System API is working. A return of the correct scanned barcode value likewise proves that the Barcode module is working properly.
+In the example, I used the Console to verify that my JavaScript APIs are functioning properly. A return of the correct system platform of 'Android' proves that the System API is working. A return of the correct scanned barcode value likewise proves that the Barcode module is working properly.
 
-**Here's another important benefit of the Weinre console. Notice that when the barcode callback handler function is executed, we are using the form `console.log(e)`, where `e` is the callback return object. That allows us to simply inspect the object right in the console. This simplifies validation because we see that it contains a `barcode` property and a `status` property, exactly as described in the [Barcode.take( )](../api/barcode#mtake) method description. Alternative means such as adding code for outputting to a log, then for seaching and retrieving the information from the device, can be time consuming, tedious and error-prone.**
+>**There's another important benefit of the Weinre console.**<br>
+Notice that when the barcode callback handler function is executed, we are using the form `console.log(e)`, where `e` is the callback return object. That allows us to inspect the object right in the console. This simplifies validation because we see that it contains a `barcode` property and a `status` property, exactly as described in the [Barcode.take( )](../api/barcode#mtake) method description. Alternative means--such as adding code for outputting to a log, then for seaching and retrieving the information from the device--can be time consuming, tedious and error-prone.
 
 ### Extension Inclusion
 
@@ -422,7 +428,7 @@ The target device must have USB debugging enabled. This feature is found in **Se
 Here's how to **unhide Developer options** (if neccessary) **and enable USB debugging**: 
 
 1. Go to **Settings >> About Phone**
-2. **Go to the "Build Number" box** (by scrolling all the way to the bottom)
+2. **Go to the 'Build Number' box** (by scrolling all the way to the bottom)
 3. **Tap the Build Number box seven times** 
 4. Then, go back to Settings and **tap Developer Options** 
 5. **Enable USB Debugging** by checking its box
@@ -432,9 +438,9 @@ If you haven't already done so, **connect your device to an available USB port o
 
 >![Developer Options](http://rhodocs.s3.amazonaws.com/guide/debugging_js/Chrome_detect_USB.png)
 
-1. Open a browser window and **enter "chrome://inspect"** in the address bar. You should see a screen similar the one above.
+1. Open a browser window and **enter 'chrome://inspect'** in the address bar. You should see a screen similar the one above.
 
-2. **Check the "Discover USB Devices" checkbox**. Your mobile device should appear along with an alert on the device. 
+2. **Check the 'Discover USB Devices' checkbox**. Your mobile device should appear along with an alert on the device. 
 
 3. **Tap OK on the device** to complete the connection
 
@@ -444,49 +450,11 @@ If you haven't already done so, **connect your device to an available USB port o
 
 6. At this point you should be ready to begin debugging. Once your app is deployed and running on the device, the chrome://inspect page should look something like the one shown below, with your device and a link to its debug-enabled WebViews. **To begin debugging, click an inspect link.** 
 
-
-<br>
-<br>
-<br>
-<br>
 <br>
 
->>>>> UPDATE AND INTEGRATE WITH RHOSIM SECTION
+## Running RhoSimulator From the Command Line
 
-## Remote Debugging with a Browser's Web Inspector
-
-NOTE: This JavaScript debugging technique is currently supported on Windows development hosts only.
-
-Using a feature introduced in RhoElements 4.1, you can use Chrome's Web Inspector to debug your app's JavaScript code. 
-
-### Using the Remote Debugger
-Before you can use this remote web inspector, you must first open the app you want to use in RhoSimulator. In this example, we'll run an app called [Barcode Example](https://github.com/rhomobile/rho-samples/tree/master/BareBones/BarcodeExample). As you can see from the data platform attribute, this is running as a Win32 app.
-
-![Opening pp in RhoSim](https://s3.amazonaws.com/rhodocs/guide/debugging_js/opening_app_in_rhosim.png)
-
-Once your app is open in RhoSimulator, simply navigate your browser to [http://localhost:9090/webkit/inspector/inspector.html?page=2](http://localhost:9090/webkit/inspector/inspector.html?page=2). You can also navigate to [http://localhost:9090](http://localhost:9090) and click the link that references your start page (for example http://127.0.0.1:49964/app/index.erb if your app starts at /app/index.erb). 
-
-Once here you should see a web inspection tool very similar to our RhoSimulator's web inspector (which is very similar to that of Google Chrome's inspector) which should look like this:
-
->![Remote Inspector Landing Page](https://s3.amazonaws.com/rhodocs/guide/debugging_js/remote_inspector_landing_page.png)
-
-### Altering App Attributes
-As with most web inspectors, you can change attributes in the inspector...
-
-![Changed inspector Text](https://s3.amazonaws.com/rhodocs/guide/debugging_js/changed_inspector_text.png)
-
-...and have them appear immediately in the app:
-
-![Changed APP Text](https://s3.amazonaws.com/rhodocs/guide/debugging_js/changed_app_text.png)
-
-### Further Research
-As you can probably guess by now, debugging using this method is very similar to debugging using your web browser's built in web inspector because that is exactly what you are doing. Any further tutorials concerning debugging in this fashion should be looked into via tutorials for the given web inspection utility of your respective web browser.
-
-* [Google Chrome Dev Tools Tutorial](https://developers.google.com/chrome-developer-tools/)
-
-## Running RhoSimulator from the command line
-
-  RhoSimulator can be executed from the command line and thereby integrated with your favorite IDE. To run RhoSimulator from the command line, use one of the following platform-specific commands from within the folder containing the app to be simulated:
+  RhoSimulator can be executed from the command line and thereby integrated with your favorite IDE or inspected with alternative tools. To run RhoSimulator from the command line, use one of the following platform-specific commands from within the folder containing the app to be simulated:
     
 * Android
 
