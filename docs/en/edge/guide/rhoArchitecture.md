@@ -240,10 +240,27 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
  </tr>
 </table>
 
-<b>* </b>The MC2100 family of devices is supported only by RhoElements 2.1.<br>
+## On-Device Memory Considerations
+Memory constraints are important to consider, particularly when targeting the older devices supported by RhoElements. The following points might be helpful to consider: 
 
+* RhoElements requires a *minimum* of 128MB physical device RAM<br>
 
-###COMPATIBILITY ALERTS
+* Limit the use of JavaScript frameworks to minimize an app's RAM footprint<br>
+
+* To maximize performance, JQueryMobile is not included in Windows Mobile/CE devices by default
+* Use the [Memory API](http://docs.rhomobile.com/en/2.2.0/rhoelements/memory) and memory logs to monitor you app's memory requirements 
+
+* An active [RhoMobile developer community](https://developer.motorolasolutions.com) offers forums, blogs, webinars and other useful resources
+
+* On-line performance tests for JavaScript and CSS, particularly those involving DOM manipulation will often be written to target desktop computers and may not run on all supported devices.
+* On some of our lower end CE devices you may find you need to increase the program memory available to install RhoElements and you can do this from the Control Panel. Out of the box you will have sufficient memory on your device but if you have already installed a lot of programs you may need to allocate more program memory or delete your existing files.
+* The more RhoElements applications you run on your device the greater the required memory will be. Consider using the TabBar in a single application rather than multiple separate applications.
+* Windows Mobile 5.0 is not supported in this release, devices should be updated to Windows Mobile 6.x where possible.
+
+### JQM Transitions
+When using JQM transitions on Windows Mobile or Windows CE devices, you may notice that the transition animations do not occur. Investigation into this shows that the device hardware is just not capable to rendering the animations; the transition jumps from the old page to the new page without any fancy animation, dropping all the frames.
+
+##COMPATIBILITY ALERTS
 
 >* **The TC55 supports [4.0 APIs](apiusage#api-migration-table) and only a subset of [2.2 APIs](apiusage#using-22-apirsquos)**. Applications developed using certain 2.2 APIs might need to be rebuilt using a newer version of the API. For example, apps built with the [2.2 Scanner API](../../2.2.0/rhoelements/scanner) must now use the [5.x Barcode API](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.
 
@@ -254,7 +271,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
 <br>
 
 ##Deprecated Zebra Devices
-The following Zebra Devices are no longer supported beginning with the release of RMS 5.1: 
+**The following Zebra Devices are not supported in RMS 5.1** (but can still be targeted by prior versions): 
 
 <H4>Mobile Computers</H4>
 <table class="table table-striped">
@@ -331,18 +348,5 @@ The following Zebra Devices are no longer supported beginning with the release o
  </tr>
 </table>
 
-## Memory Considerations
-RhoElements 5.0 has support for our older device families such as the MC9000 and MK4000. The devices supported by RhoElements span the entire range of the performance spectrum and therefore care should be taken when developing applications, especially for these older devices. Please have the capabilities of your target device in mind when developing your application, the following points will help with this.
-
-* Devices must have a minimum of 128MB of physical RAM to support RhoElements
-* JavaScript libraries such as Sencha touch or JQuery Mobile can use a significant amount of memory at runtime. The more JavaScript libraries loaded into the DOM then the greater the RAM footprint of the web page will be.
-* Out of the box you will find JQueryMobile will not be included automatically in your views on Windows Mobile / CE devices, this is to give the best possible performance.
-* There are APIs available in the product to monitor the memory including memory logs and a Memory API. You can use these tools to get a handle on the requirements of your application.
-* Resources are available on developer.motorolasolutions.com to help create great looking, streamlined apps including blogs and webinars.
-* On-line performance tests for JavaScript and CSS, particularly those involving DOM manipulation will often be written to target desktop computers and may not run on all supported devices.
-* On some of our lower end CE devices you may find you need to increase the program memory available to install RhoElements and you can do this from the Control Panel. Out of the box you will have sufficient memory on your device but if you have already installed a lot of programs you may need to allocate more program memory or delete your existing files.
-* The more RhoElements applications you run on your device the greater the required memory will be. Consider using the TabBar in a single application rather than multiple separate applications.
-* Windows Mobile 5.0 is not supported in this release, devices should be updated to Windows Mobile 6.x where possible.
-
-### JQM Transitions
-When using JQM transitions on Windows Mobile or Windows CE devices, you may notice that the transition animations do not occur. Investigation into this shows that the device hardware is just not capable to rendering the animations; the transition jumps from the old page to the new page without any fancy animation, dropping all the frames.
+###Compatibility Alert
+>Support for older or deprecated device families such as the MC9000 and MK4000 can be found in RhoElements 5.x. 
