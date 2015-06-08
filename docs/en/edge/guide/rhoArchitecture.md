@@ -2,7 +2,7 @@
 
 The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
 
-##Supported Mobile Device Platforms 
+##Supported Mobile-Device Platforms 
 <table class="table table-striped">
  <tr>
   <th class="clsSyntaxHeadings"></th>
@@ -35,8 +35,10 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
  </tr></table>
 
+NOTE: Refer to release notes that accompany the software for more information about supported devices and operating systems.
+
 ##Supported Zebra Devices
-RMA 5.1 has been approved for building apps that target the following Zebra Enterprise Mobility devices.
+RMA 5.1 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
 
 <H4>Mobile Computers</H4>
 <table class="table table-striped">
@@ -264,7 +266,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 
 >* **The MC3190-Z and MC9190-Z devices require an [RFID plugin](../../2.2.0/rhoelements/rfid) to be installed separately**. This plug-in was originally developed for RhoElements version 2.2 but is still supported.
 
->* **Only local deveopment is supported for Micro Kiosk (MK) devices**. Zebra development options for supported MK device include [RhoMobile Suite](http://rhomobile.com/) and [Enterprise Browser](http://goo.gl/V9zMxD). The use of [RhoMobile.com](../../hosted/guide/remote-build-guide) is not supported for building aps for MK devices. 
+>* **Only local deveopment is supported for Micro Kiosk (MK) devices**. Zebra development options for supported MK devices include [RhoMobile Suite](http://rhomobile.com/) and [Enterprise Browser](http://goo.gl/V9zMxD). The use of [RhoMobile.com](../../hosted/guide/remote-build-guide) is not supported for building apps for MK devices. 
 
 >* **When using JQM transitions on Windows Mobile or Windows CE devices**, you may notice that the transition animations do not occur. This is due to insufficient processing resources on the device.
 
