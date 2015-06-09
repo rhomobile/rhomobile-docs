@@ -183,7 +183,7 @@ Sample yaml code:
 
 >A vulnerability has been discovered that affects applications using SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). **This applies only to apps for Windows Mobile and Windows CE built with RMS 5.1 or higher**. Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
 
-To forego this safeguard and enable SSL3, append the `<Navigation>` section of the `Config.xml`: <br><br>
+To forego this safeguard and enable SSL3, you must append the `<Navigation>` section of the `Config.xml`: <br><br>
 
 Sample yaml code:
     :::yaml
@@ -658,7 +658,7 @@ NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using 
     <tr>
       <td class="clsEvenRow">Navigation\\EnableSSL3</td>
       <td class="clsEvenRow">ENABLESSL3</td>
-      <td class="clsEvenRow">When enabled, SSL 3.0 is used.  </td>
+      <td class="clsEvenRow">When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against <a href="https://www.us-cert.gov/ncas/alerts/TA14-290A">the POODLE attack vulnerability</a>.</td>
       <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE</td>
     </tr>
