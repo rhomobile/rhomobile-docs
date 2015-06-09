@@ -83,10 +83,6 @@ NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the device's cor
 ###Finding via USB
 Printing via USB is supported from Android devices only. To print from a Zebra enterprise mobile computer, it must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) **using an OTG cable or adapter.**
 
-NOTE: The USB On-the-Go (OTG) spec permits a mobile device to act as "host" to client peripherals such as flash drives, keyboards and printers. 
-
-Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
-
 Sample JavaScript code: 
 
 	:::javascript
@@ -115,6 +111,23 @@ Sample JavaScript code:
 				console.log(cb.status);
 			}
 		});
+
+Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
+<br>
+
+####USB COMPATIBILITY ALERTS
+
+>* **A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as 'host' to client peripherals** such as flash drives, keyboards and printers. 
+
+>* **Some [Zebra TC7X single/dual slot cradles](https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html) present a USB micro "AB" receptacle** that allows the TC7X to act as host or client depending on the cable.
+
+>* **The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP)**, portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
+
+>* **Printing via USB from a cradled device is possible by inserting an OTG micro A connector to the cradle** and connecting the USB Mini-B end to the printer.
+
+>* **OTG supports direct USB connections only**; the use of USB hubs is not supported by the OTG spec. 
+<br>  
+
 
 ## 3- Connect to a Printer
 
