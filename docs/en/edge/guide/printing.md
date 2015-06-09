@@ -123,7 +123,7 @@ Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB`
 
 >* **The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP)**, portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
 
->* **Printing via USB from a cradled device is possible by inserting an OTG micro A connector to the cradle** and connecting the USB Mini-B end to the printer.
+>* **Printing via USB from a cradled device is possible by inserting an OTG micro A connector to the cradle** and connecting the USB-B (or mini-B) end to the printer.
 
 >* **OTG supports direct USB connections only**; the use of USB hubs is not supported by the OTG spec. 
 <br>  
