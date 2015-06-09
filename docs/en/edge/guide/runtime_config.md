@@ -183,7 +183,7 @@ Sample yaml code:
 
 >A vulnerability has been discovered that affects applications using SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). **This applies only to apps for Windows Mobile and Windows CE built with RMS 5.1 or higher**. Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
 
-To forego this safeguard and enable SSL3, append the `<Navigation>` section of the `Config.xml` with the following parameter: <br><br>
+To forego this safeguard and enable SSL3, append the `<Navigation>` section of the `Config.xml`: <br><br>
 
 Sample yaml code:
     :::yaml
@@ -194,17 +194,10 @@ Sample yaml code:
     <EnableSSL3 value="0"/>
     # value="0" (SSL3 disabled) 
     # value="1" (SSL3 enabled)
-    # If not specified, enabled by default.
+    # If not specified, SSL3 is enabled
     ...
     </Navigation>
     
-
-
-
-and in the description area "Configuration settings and values"
-
-
-
 
 The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
 
@@ -407,7 +400,13 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-> Note: The following settings effects applications that are using Zebra Webkit. However the setting `CaFile` in this file will be used for 4.0 native applications using the stock browser
+###VULNERABILITY ALERT
+
+>A vulnerability has been discovered that affects applications using SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). **This applies only to apps for Windows Mobile and Windows CE built with RMS 5.1 or higher**. Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
+
+The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
+
+NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
@@ -654,6 +653,14 @@ The following is an example of a typical configuration file
       <td class="clsEvenRow">Number of milliseconds before the browser times out and navigates to the page specified in the badlink setting.  If it is determined that the destination is unreachable regardless of wait time, the 'badlink' page may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an on-line page if desired.</td></td></td>
       <td class="clsEvenRow">Timeout in Milliseconds, maximum value is 45000</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
+    </tr>
+
+    <tr>
+      <td class="clsEvenRow">Navigation\\EnableSSL3</td>
+      <td class="clsEvenRow">ENABLESSL3</td>
+      <td class="clsEvenRow">When enabled, SSL 3.0 is used.  </td>
+      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
+      <td class="clsEvenRow">Windows Mobile, Windows CE</td>
     </tr>
 
     <tr>
