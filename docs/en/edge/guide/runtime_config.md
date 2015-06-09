@@ -2,28 +2,34 @@
 Apart from your source code, there are other important files that control how your application behaves at runtime: `rhoconfig.txt` and `Config.xml`
 
 ## rhoconfig.txt
-### What it affects
-The values in `rhoconfig.txt` control different aspects of your application, such as what page is loaded when the application starts or the address of the `RhoConnect` synchronization server, while those in `Config.xml` refer to features of the RhoElements runtime itself like what keys can be intercepted by the application or whether to pre-load modules on startup.
+The values in `rhoconfig.txt` control different aspects of your application, such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
 
-Apart from the settings recognized by the platform, you can add arbitrary values that are specific to your application:
+This is not to be confused with the `Config.xml` file, which determines features of the RhoElements runtime itself such as keys that can be intercepted by the application and whether to pre-load modules on startup. More on that later. 
+
+You can use `rhoconfig.txt` to add arbitrary values that are specific to your application and apart from settings recognized by the platform:
+
+Sample yaml code:
 
     :::yaml
     # application-specific value
     foo = 'bar'
 
-All values will be accessible at runtime via `Rho::RhoConfig`
+All values will be accessible at runtime via `Rho::RhoConfig`:
 
+Sample Ruby code:
     :::ruby
     foo = Rho::RhoConfig.bar
     start_path = Rho::RhoConfig.start_path
 
-You can also check if a configuration property actually exists before accessing it
+You also can check if a configuration property actually exists before accessing it:
 
+Sample Ruby code:
     :::ruby
     start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
 
-The `rhoconfig.txt` file generated with a new application contains the following default values, as well as descriptions of each setting:
+The `rhoconfig.txt` file generated with a new application contains the following default values along with descriptions of each setting:
 
+Sample yaml code:
     :::yaml
     # startup page for your application
     start_path = '/app'
@@ -173,10 +179,38 @@ The `rhoconfig.txt` file generated with a new application contains the following
 
 
 ## Config.xml
-### What it affects
-> Note: The Config.xml effects applications that are using Zebra Webkit. However the setting `CAFile` in this file will be used for 4.0 applications using the stock browser.
+###VULNERABILITY ALERT
 
-Runtime configuration of RhoElements is managed through an XML file called Config.xml. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
+>A vulnerability has been discovered that affects applications using SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). **This applies only to apps for Windows Mobile and Windows CE built with RMS 5.1 or higher**. Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
+
+To forego this safeguard and enable SSL3, append the `<Navigation>` section of the `Config.xml` with the following parameter: <br><br>
+
+Sample yaml code:
+    :::yaml
+    
+    <Navigation>
+    ...
+    <NavTimeout value="45000"/>
+    <EnableSSL3 value="0"/>
+    # value="0" (SSL3 disabled) 
+    # value="1" (SSL3 enabled)
+    # If not specified, enabled by default.
+    ...
+    </Navigation>
+    
+
+
+
+and in the description area "Configuration settings and values"
+
+
+
+
+The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
+
+NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
+
+Runtime configuration of RhoElements is managed through an XML file called `Config.xml`. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
 
 * Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
 
@@ -373,7 +407,7 @@ The following is an example of a typical configuration file
     </Configuration>
 
 ## Configuration settings and values
-> Note: The following settings effects applications that are using Zebra Webkit. However the setting `CAFile` in this file will be used for 4.0 native applications using the stock browser
+> Note: The following settings effects applications that are using Zebra Webkit. However the setting `CaFile` in this file will be used for 4.0 native applications using the stock browser
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
