@@ -70,13 +70,13 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow"><img id="mc3100Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC3100%20Mobile%20Computer/Technical_Product%20Specs/MC3100.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.ehcjS-H9zK.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC3100</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC3100R, MC3100S, MC3190G, </nobr>MC3190R, MC3190S, MC3190Z</td>
-  <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional<br>Windows Embedded Handheld 6.5</td>
+  <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC3200%20Mobile%20Computer/Photography%20%E2%80%93%20Product/Enterprise_NA_MC3200_Android_Gun_Right_Straight_Shooter_Turret_Front_Android_Jim_Lennon_merged.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC32N0</td>
-  <td class="clsSyntaxCells clsOddRow">Windows CE 7.0<br>Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Android 4.1 (JellyBean)</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC40%20Touch%20Computer/Photography%20%E2%80%93%20Product/MC40%20MSR_Front_Silver_054_AppScreen.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
@@ -136,7 +136,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC67%20Dual%20WAN/Photography%20%E2%80%93%20Product/MC67_Front_WEHH%20Home_038.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC67</b></td>
   <td class="clsSyntaxCells clsOddRow">MC67</td>
-  <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5<br>Android 4.1 (JelyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5,<br>Android 4.1 (JelyBean)</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc70Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Handheld%20Computers/MC70/_Images/Static%20Files/B2B_Product_MC70_LG_US-EN.jpg" height="75"></img></td>
@@ -160,13 +160,13 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC9190-Z%20RFID%20Reader/Photography%20%E2%80%93%20Product/MC9190Z_Right_017%20HR%20TR_653.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9100</b></td>
   <td class="clsSyntaxCells clsOddRow">MC9190-G, MC9190-Z</td>
-  <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional<br>Windows Embedded Handheld 6.5</td>
+  <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Mobile_Computers/Handheld_Computers/_IMAGE/_STATIC/MC9200_Front_324X324_Start.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9200</b></td>
   <td class="clsSyntaxCells clsOddRow">MC92N0</td>
-  <td class="clsSyntaxCells clsOddRow">Windows CE 7.0<br>Windows Embedded Handheld 6.5</td>
+  <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC9500-K%20Mobile%20Computer/Technical_Product%20Specs/MC9500_AlPri_Front%20Comm3Home_small.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
@@ -261,6 +261,8 @@ Memory constraints are important to consider, particularly when targeting the ol
 
 
 ##COMPATIBILITY ALERTS
+
+>* **RMS 5.1 now supports printing via USB from Android apps** to a subset of [Zebra printers that support USB printing](http://127.0.0.1:9393/en/edge/guide/printing#zebra-printers-with-usb-printing). 
 
 >* **The TC55 supports [4.0 APIs](apiusage#api-migration-table) and only a subset of [2.2 APIs](apiusage#using-22-apirsquos)**. Applications developed using certain 2.2 APIs might need to be rebuilt using a newer version of the API. For example, apps built with the [2.2 Scanner API](../../2.2.0/rhoelements/scanner) must now use the [5.x Barcode API](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.
 
