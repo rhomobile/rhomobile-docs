@@ -260,11 +260,13 @@ In adddition to displaying log messages, the Console provides a fully interactiv
 
 ### Using Chrome's Web Inspector
 
-If desired, **you can substitute the Chrome Web Inspector for the one in RhoSimulator** for debugging your JavaScript code. To ensure that you're using the latest version of Chrome Web Inspector, Google recommends using [Google Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html), which includes all the latest DevTools. 
+Optionally, **you can debug the visual elements of your app with Chrome's Web Inspector instead of the one in RhoSimulator**. Google urges web developers to use [Google Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html) so they always have latest version Chrome DevTools, but all recent versions of Chrome include Web Inspector. 
 
-**Once your app is open in RhoSimulator, point Chrome to**:<br> 
+1. **Once your app is open in RhoSimulator, point Chrome to**:<br> 
 
 [http://localhost:9090/webkit/inspector/inspector.html?page=2](http://localhost:9090/webkit/inspector/inspector.html?page=2). 
+
+2. If neccessary, **open the JavaScript console: View>>Developer>>JavaScript Console**
 
 Alternatively, you can navigate to [http://localhost:9090](http://localhost:9090) and click the link that references your start page (for example http://127.0.0.1:49964/**app/index.erb** if your app starts at /app/index.erb). You should see a screen similar to this:
 
