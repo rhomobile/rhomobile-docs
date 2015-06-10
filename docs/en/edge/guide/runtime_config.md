@@ -1,11 +1,11 @@
 # Runtime Application Configuration
-Apart from your source code, there are other important files that control how your application behaves at runtime: `rhoconfig.txt` and `Config.xml`
+Apart from your source code, the other files that control your application's runtime behavior are `rhoconfig.txt` and `Config.xml`.
 
-## rhoconfig.txt
 The values in `rhoconfig.txt` control different aspects of your application, such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
 
-This is not to be confused with the `Config.xml` file, which determines features of the RhoElements runtime itself such as keys that can be intercepted by the application and whether to pre-load modules on startup. More on that later. 
+The `Config.xml` file determines features of the RhoElements runtime itself, such as the keys that can be intercepted by the application and whether to pre-load modules on startup.
 
+## rhoconfig.txt
 You can use `rhoconfig.txt` to add arbitrary values that are specific to your application and apart from settings recognized by the platform:
 
 Sample yaml code:
@@ -207,7 +207,7 @@ Runtime configuration of RhoElements is managed through an XML file called `Conf
 
 * Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
 
-* OS X: `~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml`
+* Mac OS X: `~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml`
 
 ### Configuration File Location in a mobile device
 The location of the configuration file loaded by RhoElements is dependant on a number of factors:
@@ -1203,7 +1203,7 @@ NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using 
       <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
       <td class="clsEvenRow">Windows Mobile, Windows CE</td>
     </tr>
-     
+
   </table>
 </div>
 
