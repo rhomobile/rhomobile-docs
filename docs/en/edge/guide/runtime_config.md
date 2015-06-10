@@ -656,14 +656,6 @@ NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using 
     </tr>
 
     <tr>
-      <td class="clsEvenRow">Navigation\\EnableSSL3</td>
-      <td class="clsEvenRow">ENABLESSL3</td>
-      <td class="clsEvenRow">When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against <a href="https://www.us-cert.gov/ncas/alerts/TA14-290A">the POODLE attack vulnerability</a>.</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE</td>
-    </tr>
-
-    <tr>
       <td>ScreenOrientation\\AutoRotate</td>
       <td>AUTOROTATE</td>
       <td>When disabled the orientation of the screen will not change as the device is rotated and vice versa.  This is a screen rotation lock.</td></td></td>
@@ -1203,6 +1195,15 @@ NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using 
       <td>0-100 (100=no limit)</td>
       <td>Windows Mobile, Windows CE, Android, iOS</td>
     </tr>
+
+ <tr>
+      <td class="clsEvenRow">Navigation\\EnableSSL3</td>
+      <td class="clsEvenRow">ENABLESSL3</td>
+      <td class="clsEvenRow">When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against <a href="https://www.us-cert.gov/ncas/alerts/TA14-290A">the POODLE attack vulnerability</a>.</td>
+      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
+      <td class="clsEvenRow">Windows Mobile, Windows CE</td>
+    </tr>
+     
   </table>
 </div>
 
