@@ -6,27 +6,28 @@ At minimum, the RhoMobile installer places the Rhodes open-source development fr
 RhoMobile depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully to ensure a trouble-free installation.**
 
 ## Upgrading From a Prior Installation
-
-####For Mac OS X and Windows:
 Upgrading a system that already has a prior version of RhoMobile Suite still requires a download of the latest full installation image, but usually requires fewer steps than those of a full installation. If the upgrade steps fail, your system might require a full installation. 
 
 **If your machine already has an older version of RMS installed, first try the following**:
 
-* Visit the [RhoMobile.com download page](http://rhomobile.com/download/) and click on the appropriate download link for your development host system.  
+* Visit the [RhoMobile.com download page](http://rhomobile.com/download/) and click on the appropriate download link for your Mac or Windows development host system.  
 
-####For Mac OS X (.dmg file):
-* Drag-copy the RhoStudio folder from the .dmg to your Applications folder
-* Run the "Install Gems" script from the .dmg
-* **Launch RhoStudio from the latest Launcher scripts** (provided)
-* **Create or update any application aliases for the new Launchers**
+###For Mac OS X (.dmg file):
+1- **Drag-copy the RhoStudio folder** from the .dmg to your Applications folder. You'll see a message like the one below. **Be sure your workspaces folder is not in the same folder as the RhoStudio application** (by default, it's in the user's home directory, **not** in the RhoStudio folder).
 
-####For Windows (.exe file):
-* Launch the RhoMobile Suite Installer (.exe)
-* Update any shortcuts as necessary
+![img](http://rhomobile-suite.s3.amazonaws.com/install/New_RhoStudio_replace_old.png)
 
-###UPDATE ALERT: 
->**IMPORTANT: Do not update RhoStudio using "About RhoStudio>>Installation Details>>Update...**"<br>This will not update the gems or other modules required for proper RhoStudio operation.
-<br>
+2- **Run the "Install Gems" script** from the .dmg<br>
+3- **Launch RhoStudio from the latest Launcher** script (provided)<br>
+4- **Create or update any application aliases** for the new Launchers<br>
+
+###For Windows (.exe file):
+1- Launch the RhoMobile Suite Installer (.exe)
+2- Update any shortcuts as necessary
+
+NOTE: IMPORTANT: Do not update RhoStudio using "About RhoStudio>>Installation Details>>Update..." This will not update the gems or other modules required for proper RhoStudio operation.
+
+If the upgrade steps have failed, or if you're installing RhoMobile Suite for the first time, follow the installation instructions below for your development system. 
 
 ## Installing on Windows (32- and 64-bit)
 ### STEP 1: Run the RhoMobile Suite Installer
