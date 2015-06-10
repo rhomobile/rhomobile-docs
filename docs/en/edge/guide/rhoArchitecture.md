@@ -41,7 +41,7 @@ NOTE: Refer to release notes that accompany the software for more information ab
 RMA 5.1 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
 
 <H4>Mobile Computers</H4>
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
@@ -186,7 +186,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
 </p>
 
 <H4>Vehicle Computers</H4>
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
@@ -208,7 +208,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
 </table>
 
 <H4>Micro Kiosks</H4>
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
@@ -225,7 +225,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
 
 <H4>Wearable Computers</H4>
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
@@ -278,7 +278,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 **The following Zebra Devices are not supported in RMS 5.1** (but can still be targeted by prior versions): 
 
 <H4>Mobile Computers</H4>
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
 <tr>
 <tr>
   <th class="clsSyntaxHeadings"></th>
@@ -300,7 +300,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 </table>
 
 <H4>Micro Kiosks</H4>
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
@@ -321,7 +321,7 @@ Memory constraints are important to consider, particularly when targeting the ol
  </tr>
 </table>
 <H4>Vehicle Computers</H4>
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
@@ -337,7 +337,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 </table>
 
 <H4>Wearable Computers</H4>
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
