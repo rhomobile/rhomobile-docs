@@ -3,7 +3,7 @@
 The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
 
 ##Supported Mobile-Device Platforms 
-<table class="table table-striped">
+<table class="table table-stripe table-bordered">
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Operating system family</nobr></th>
@@ -73,13 +73,13 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC3200%20Mobile%20Computer/Photography%20%E2%80%93%20Product/Enterprise_NA_MC3200_Android_Gun_Right_Straight_Shooter_Turret_Front_Android_Jim_Lennon_merged.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/healthcare/photography-products/MC3200-Android-Gun-Right-Straight.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.LMWw8diGq5.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC32N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Android 4.1 (JellyBean)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC40%20Touch%20Computer/Photography%20%E2%80%93%20Product/MC40%20MSR_Front_Silver_054_AppScreen.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC40%20Touch%20Computer/Technical_Product%20Specs/MC40%20MSR_Front_Silver_054_AppScreen.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.0WDMYDx7Zf.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC40</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC40</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
@@ -115,7 +115,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc55a0Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC55A0%20Mobile%20Computer/Photography%20%E2%80%93%20Product/006_MC55LAN_Right_022_653_cq5dam.web.1280.1280.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc55a0Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/healthcare/photography-products/MC55LAN-Right_1280x1280.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC55A0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC55A0</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
@@ -145,7 +145,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc75Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc75Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Handheld%20Computers/MC%2075_Images/staticfile/MC75_LG_US-EN2.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC75</b></td>
   <td class="clsSyntaxCells clsOddRow">MC7506, MC7508, MC7596, MC7598</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>

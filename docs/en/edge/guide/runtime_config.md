@@ -414,13 +414,15 @@ Sample XML:
     </Configuration>
 
 ## Configuration settings and values
-###VULNERABILITY ALERT
+###Vulnerability Alert
 
 >A vulnerability has been discovered that affects applications using SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). **This applies only to apps for Windows Mobile and Windows CE built with RMS 5.1 or higher**. Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
 
 The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
 
 NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
+
+> Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
 ###Logger
 ####LogProtocol
@@ -433,10 +435,9 @@ Sets the protocol over which the logging data will be sent
 *Platforms
   *Android
   *Windows Mobile
-[6/10/15, 12:54:27 PM] Robert Galvin:  Possible Values* - File, HTTP
 
+Robert Galvin:  Possible Values* - File, HTTP
 
-> Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
 <div style="width:100%">
   <table class="table table-striped table-bordered table-condensed configxml" style="table-layout: fixed !important;">
