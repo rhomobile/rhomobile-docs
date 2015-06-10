@@ -203,20 +203,37 @@ The Config.xml affects only applications that use Zebra's Webkit. This settings 
 
 NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
 
-Runtime configuration of RhoElements is managed through an XML file called `Config.xml`. This file is *mandatory* for proper RhoElements execution: not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem; its location depends on the operating system:
+Runtime configuration of RhoElements is managed through an XML file called `Config.xml`. This file is *mandatory* for proper RhoElements execution. Not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults. This page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem. 
 
-* Windows: `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
+Its location depends on the operating system:
 
-* Mac OS X: `~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml`
+####Windows:
+`<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
 
-### Configuration File Location in a mobile device
-The location of the configuration file loaded by RhoElements is dependant on a number of factors:
+#####Mac OS X:
+`~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml`
 
-* When running on the Enterprise Tablet the configuration file is read from `/Android/data/com.motorolasolutions.rhoelements/Config.xml`.
-* When running on all other devices RhoElements will attempt to launch the configuration file `Config.xml` located in the folder `Config` off the installation root.
-* You can change which configuration file is loaded using the /C: configuration option
+### Config.xml file location on a mobile device
+The location of Config.xml varies based on the installation:
 
-For persistant installations, on cold boot the `Config.xml` file is copied from `\Application\RhoElements\Config\Config.xml` to `\Program Files\RhoElements\Config\Config.xml`; bear this in mind if you want your configuration to persist across cold boot. This behavior may be modified by changing `\Application\RhoElements.cpy`.
+* When running on the Zebra Enterprise Tablet: 
+`/Android/data/com.motorolasolutions.rhoelements/Config.xml`
+
+* All other devices locate `Config.xml` in `<installation root>\Config`
+
+>* For persistant installations, `Config.xml` on cold boot is copied from
+>
+>`\Application\RhoElements\Config\Config.xml`<br>
+>
+>to<br>
+>
+>`\Program Files\RhoElements\Config\Config.xml`<br> 
+>
+>Bear this in mind if you want your configuration to persist after a cold boot
+>
+>This behavior may be modified by changing `\Application\RhoElements.cpy`
+>
+>Also, you can switch between `Config.xml` files using the /C: configuration option
 
 ## Config.xml File Format
 The following is an example of a typical configuration file
