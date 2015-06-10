@@ -221,22 +221,19 @@ The location of Config.xml varies based on the installation:
 
 * All other devices locate `Config.xml` in `<installation root>\Config`
 
->* For persistant installations, `Config.xml` on cold boot is copied from
->
->`\Application\RhoElements\Config\Config.xml`<br>
->
->to<br>
->
->`\Program Files\RhoElements\Config\Config.xml`<br> 
->
->Bear this in mind if you want your configuration to persist after a cold boot
->
->This behavior may be modified by changing `\Application\RhoElements.cpy`
->
->Also, you can switch between `Config.xml` files using the /C: configuration option
+* For persistant installations, `Config.xml` on cold boot is copied from
+`\Application\RhoElements\Config\Config.xml`<br>
+to<br>
+`\Program Files\RhoElements\Config\Config.xml`<br> 
+
+Bear this in mind if you want your configuration to persist after a cold boot. This behavior may be modified by changing `\Application\RhoElements.cpy`.
+
+NOTE: It's possible to switch between `Config.xml` files using the /C: configuration option. 
 
 ## Config.xml File Format
 The following is an example of a typical configuration file
+
+Sample XML:
     :::xml
     <Configuration>
       <DebugButtons>
@@ -424,6 +421,20 @@ The following is an example of a typical configuration file
 The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
 
 NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
+
+###Logger
+####LogProtocol
+Sets the protocol over which the logging data will be sent
+*Possible Value
+   *File
+   *HTTP
+*Configuration identier
+   *LOGPROTOCOL
+*Platforms
+  *Android
+  *Windows Mobile
+[6/10/15, 12:54:27 PM] Robert Galvin:  Possible Values* - File, HTTP
+
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 

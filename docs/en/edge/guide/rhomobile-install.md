@@ -5,14 +5,14 @@ At minimum, the RhoMobile installer places the Rhodes open-source development fr
 
 RhoMobile depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully to ensure a trouble-free installation.**
 
-## UPGRADING FROM A PRIOR INSTALLATION
+## Upgrading From a Prior Installation
 
 ####For Mac OS X and Windows:
 Upgrading a system that already has a prior version of RhoMobile Suite still requires a download of the latest full installation image, but usually requires fewer steps than those of a full installation. If the upgrade steps fail, your system might require a full installation. 
 
 **If your machine already has an older version of RMS installed, first try the following**:
 
-* Visit the [RhoMobile.com download page](http://rhomobile.com/download/) and click on the appropriate link for your development host system.  
+* Visit the [RhoMobile.com download page](http://rhomobile.com/download/) and click on the appropriate download link for your development host system.  
 
 ####For Mac OS X (.dmg file):
 * Drag-copy the RhoStudio folder from the .dmg to your Applications folder
@@ -21,7 +21,7 @@ Upgrading a system that already has a prior version of RhoMobile Suite still req
 * **Create or update any application aliases for the new Launchers**
 
 ####For Windows (.exe file):
-* Launch the RhoMpbile Suite Installer (.exe)
+* Launch the RhoMobile Suite Installer (.exe)
 * Update any shortcuts as necessary
 
 ###UPDATE ALERT: 

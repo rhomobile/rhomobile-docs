@@ -245,9 +245,9 @@ Memory constraints are important to consider, particularly when targeting the ol
 
 * RhoElements requires a *minimum* of 128MB physical device RAM<br>
 
-* The more RhoElements apps running on a device, the greater its memory requirement; consider using [TabBar](http://docs.rhomobile.com/en/5.0.38/api/NativeTabbar) to combine several individual apps
+* The more RhoElements apps running on a device, the greater its memory requirement; consider using [TabBar](../api/NativeTabbar) to combine several individual apps
 
-* Use the [Memory API](http://docs.rhomobile.com/en/2.2.0/rhoelements/memory) and memory logs to monitor your app's memory requirements 
+* Use the [Memory API](../../2.2.0/rhoelements/memory) and memory logs to monitor your app's memory requirements 
 
 * For low-end Zebra CE devices, try using Control Panel to increase available program memory
 
@@ -260,17 +260,17 @@ Memory constraints are important to consider, particularly when targeting the ol
 * An active [RhoMobile developer community](https://developer.motorolasolutions.com) offers forums, blogs, webinars and other useful resources to aid in your development efforts 
 
 
-##COMPATIBILITY ALERTS
+##Compatibility Alerts
 
->* **RMS 5.1 now supports printing via USB from Android apps** to a subset of [Zebra printers that support USB printing](http://127.0.0.1:9393/en/edge/guide/printing#zebra-printers-with-usb-printing). 
+* **RMS 5.1 now supports printing via USB from Android apps** to a subset of [Zebra printers that support USB printing](#zebra-printers-with-usb-printing). 
 
->* **The TC55 supports [4.0 APIs](apiusage#api-migration-table) and only a subset of [2.2 APIs](apiusage#using-22-apirsquos)**. Applications developed using certain 2.2 APIs might need to be rebuilt using a newer version of the API. For example, apps built with the [2.2 Scanner API](../../2.2.0/rhoelements/scanner) must now use the [5.x Barcode API](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.
+* **The TC55 supports [4.0 APIs](apiusage#api-migration-table) and only a subset of [2.2 APIs](apiusage#using-22-apirsquos)**. Applications developed using certain 2.2 APIs might need to be rebuilt using a newer version of the API. For example, apps built with the [2.2 Scanner API](../../2.2.0/rhoelements/scanner) must now use the [5.x Barcode API](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.
 
->* **The MC3190-Z and MC9190-Z devices require an [RFID plugin](../../2.2.0/rhoelements/rfid) to be installed separately**. This plug-in was originally developed for RhoElements version 2.2 but is still supported.
+* **The MC3190-Z and MC9190-Z devices require an [RFID plugin](../../2.2.0/rhoelements/rfid) to be installed separately**. This plug-in was originally developed for RhoElements version 2.2 but is still supported.
 
->* **Only local deveopment is supported for Micro Kiosk (MK) devices**. Zebra development options for supported MK devices include [RhoMobile Suite](http://rhomobile.com/) and [Enterprise Browser](http://goo.gl/V9zMxD). The use of [RhoMobile.com](../../hosted/guide/remote-build-guide) is not supported for building apps for MK devices. 
+* **Only local deveopment is supported for Micro Kiosk (MK) devices**. Zebra development options for supported MK devices include [RhoMobile Suite](http://rhomobile.com/) and [Enterprise Browser](http://goo.gl/V9zMxD). The use of [RhoMobile.com](../../hosted/guide/remote-build-guide) is not supported for building apps for MK devices. 
 
->* **When using JQM transitions on Windows Mobile or Windows CE devices**, you may notice that the transition animations do not occur. This is due to insufficient processing resources on the device.
+* **When using JQM transitions on Windows Mobile or Windows CE devices**, you may notice that the transition animations do not occur. This is due to insufficient processing resources on the device.
 
 <br>
 
