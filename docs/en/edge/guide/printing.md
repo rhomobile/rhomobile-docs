@@ -81,7 +81,7 @@ Sample JavaScript code:
 NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the device's corresponding radio is turned on. If using Bluetooth, the printer should be set to "discoverable."
 
 ###Finding via USB
-Printing via USB is supported from Android devices only. To print from a Zebra enterprise mobile computer, it must be connected to one of [Zebra's supported printers](http://../guide/printing#supported-printers) **using an OTG cable or adapter.**
+Printing via USB is supported from Android devices only. To print from a Zebra enterprise mobile computer, it must be connected to one of [Zebra's supported printers](#zebra-printers-with-usb-printing) **using an OTG cable or adapter.**
 
 Sample JavaScript code: 
 
@@ -115,17 +115,17 @@ Sample JavaScript code:
 Use the `search.Printers` method  and the connecionType as `CONNECTION_TYPE_USB` parameter to search for printer(s) connected to the mobile device via USB. **This parameter is new in RMS 5.1.**
 <br>
 
-####USB COMPATIBILITY ALERTS
+####USB Compatibility Alerts
 
->* **A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as 'host' to client peripherals** such as flash drives, keyboards and printers. 
+* **A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as 'host' to client peripherals** such as flash drives, keyboards and printers. 
 
->* **Some [Zebra TC7X single/dual slot cradles](https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html) present a USB micro "AB" receptacle** that allows the TC7X to act as host or client depending on the cable.
+* **Some [Zebra TC7X single/dual slot cradles](https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html) present a USB micro "AB" receptacle** that allows the TC7X to act as host or client depending on the cable.
 
->* **The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP)**, portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
+* **The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP)**, portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes. 
 
->* **Printing via USB from a cradled device is possible by inserting an OTG micro A connector to the cradle** and connecting the USB-B (or mini-B) end to the printer.
+* **Printing via USB from a cradled device is possible by inserting an OTG micro A connector to the cradle** and connecting the USB-B (or mini-B) end to the printer.
 
->* **OTG supports direct USB connections only**; the use of USB hubs is not supported by the OTG spec. 
+* **OTG supports direct USB connections only**; the use of USB hubs is not supported by the OTG spec. 
 <br>  
 
 
@@ -395,7 +395,7 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 <td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>RW</b></td>
 <td class="clsSyntaxCells clsOddRow">RW 220, RW 420, RW 420 Print Station</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
+<td class="clsSyntaxCells usb comp">Android, Mac OS X, Windows x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/passive-rfid/rp4t/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/1426279500551.jpg" height="75"></img></td>
