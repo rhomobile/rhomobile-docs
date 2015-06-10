@@ -8,17 +8,19 @@ RhoMobile depends on Java, Ruby, Git and other tools. Depending on the developme
 ## UPGRADING FROM A PRIOR INSTALLATION
 
 ####For Mac OS X and Windows:
-In most cases, upgrading a system that already has a prior version of RhoMobile Suite requires the following:
+Upgrading a system that already has a prior version of RhoMobile Suite still requires a download of the latest full installation image, but usually requires fewer steps than those of a full installation. If the upgrade steps fail, your system might require a full installation. 
 
-* Visit the [RhoMobile.com download page](http://rhomobile.com/download/) and download the appropriate image for your system (a .dmg for Mac; an .exe for Windows) 
+**If your machine already has an older version of RMS installed, first try the following**:
 
-####For Mac OS X:
+* Visit the [RhoMobile.com download page](http://rhomobile.com/download/) and click on the appropriate link for your development host system.  
+
+####For Mac OS X (.dmg file):
 * Drag-copy the RhoStudio folder from the .dmg to your Applications folder
 * Run the "Install Gems" script from the .dmg
 * **Launch RhoStudio from the latest Launcher scripts** (provided)
 * **Create or update any application aliases for the new Launchers**
 
-####For Windows:
+####For Windows (.exe file):
 * Launch the RhoMpbile Suite Installer (.exe)
 * Update any shortcuts as necessary
 
