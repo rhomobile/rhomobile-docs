@@ -5,6 +5,15 @@ At minimum, the RhoMobile installer places the Rhodes open-source development fr
 
 RhoMobile depends on Java, Ruby, Git and other tools. Depending on the development host platform, these components are either installed automatically with the main suite or must be installed manually using the platform-specific processes below. **Please read and follow all instructions carefully to ensure a trouble-free installation.**
 
+## UPGRADING FROM A PRIOR INSTALLATION
+
+####Applies to Mac OS X and Windows, all versions:
+In most cases, 
+
+###UPDATE ALERT: 
+>**IMPORTANT: Do not update RhoStudio using "About RhoStudio>>Installation Details>>Update...**"<br> This will not update the gems or other modules required for proper RhoStudio operation.
+
+
 ## Installing on Windows (32- and 64-bit)
 ### STEP 1: Run the RhoMobile Suite Installer
 [Download the RhoMobile Suite Installer for Windows](http://rhomobile.com/download/) and launch it. This will install Rhodes, RhoStudio, RhoConnect and RhoElements, as well as [Ruby](http://www.ruby-lang.org/en/) and [Redis](http://redis.io/) open source tools. 
