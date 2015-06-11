@@ -270,7 +270,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.1. Please consult t
       <td style="text-align:center" class=" "></td>
     </tr>
 
-    <tr>
+    <!--<tr>
       <td>
         <a href="../api/SimulScan">Document Capture (BETA)</a>
       </td>
@@ -281,7 +281,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.1. Please consult t
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
-    </tr>
+    </tr>-->
 
     <tr>
       <td>

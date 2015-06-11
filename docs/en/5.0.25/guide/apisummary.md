@@ -246,7 +246,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
     </tr>
 
-    <tr>
+    <!--<tr>
       <td>
         <a href="../api/SimulScan">Document Capture (BETA)</a>
       </td>
@@ -257,7 +257,7 @@ Below is a list of the new common api's for RhoMobile Suite 5.0.25. Please consu
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
-    </tr>
+    </tr>-->
 
     <tr>
       <td>

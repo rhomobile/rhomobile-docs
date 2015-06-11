@@ -32,7 +32,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   # topic 'en/2.2.0/rhoelements/contact',                             'Contact'
   topic 'en/5.0.38/api/Database',                                     'Database'
   # topic 'en/5.0.38/api/device',                                       'Device'
-  topic 'en/5.0.38/api/SimulScan',                                    'SimulScan (BETA)'
+  #topic 'en/5.0.38/api/SimulScan',                                    'SimulScan (BETA)'
   topic 'en/5.0.38/api/geolocation',                                  'Geolocation'
   topic 'en/2.2.0/rhoelements/Gesture',                             'Gesture'
   topic 'en/2.2.0/rhoelements/hourglass',                           'Hourglass'

@@ -31,7 +31,7 @@ section 'rhodescommonapi-reference',                                'API Referen
   # topic 'en/2.2.0/rhoelements/config',                              'Config'
   # topic 'en/2.2.0/rhoelements/contact',                             'Contact'
   topic 'en/5.0.0/api/Database',                                     'Database'
-  topic 'en/5.0.0/api/SimulScan',                                    'Document Capture (BETA)'
+  #topic 'en/5.0.0/api/SimulScan',                                    'Document Capture (BETA)'
   topic 'en/5.0.0/api/geolocation',                                  'Geolocation'
   topic 'en/2.2.0/rhoelements/Gesture',                             'Gesture'
   topic 'en/2.2.0/rhoelements/hourglass',                           'Hourglass'
