@@ -332,7 +332,6 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 **NOTE: When using 2.2 APIs in RhoMobile 5.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 
 * [Mapview](../../2.2.0/rhodesapi/mapview-api)
-* [Camera](../../2.2.0/rhodesapi/camera-api/)
 * [Contacts](../../2.2.0/rhodesapi/rhocontact-api)
 * Calendar
 * System.Process
