@@ -70,7 +70,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <DESC>These properties are used to configure the barcode scanner or barcode decoding algorithms, depending on your device.</DESC>
             <PROPERTY name="autoEnter" type="BOOLEAN" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android</PLATFORM>
+                <PLATFORM>WM, CE, Android,WP8</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
                 <DESC>When true, automatically appends the character code for 'enter' to the end of any barcodes scanned. This is useful if you want to submit forms following a scan without further interaction. This property will only take effect if you have not specified a callback to the enable method. AutoEnter and AutoTab are mutually exclusive properties.</DESC>
             </PROPERTY>
@@ -501,13 +501,13 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</DESC>
+                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper. In Android, this settings will not overrie beeper and hence not supported.</DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeSound" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper. In Android, this settings will not overrie beeper and hence not supported.</DESC>
+                <DESC>Path to a local wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper.</DESC>
             </PROPERTY>
             <PROPERTY name="scannerType" type="STRING" generateAccessors="true" readOnly="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1673,7 +1673,7 @@ The ebapi.js file is necessary for all single API inclusions.
                     <DESC>This method replaces Barcode.enumerate from RhoElements 2.2 and takes a different prototype. Enumerate now returns an array of objects which can be used to control the specific scanner instance whereas previously it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC>
                     <DESC_EB>Returns an array of objects which can be used to control the specific scanner instance whereas previously, it took a callback which returned the 'name' and 'id' of scanners present on the device.</DESC_EB>
                 </BACKWARDS_COMPATIBILITY>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM>WM, CE, Android, iOS,WP8</PLATFORM>
                 <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <CALLBACK type="ARRAY">
                     <DESC>Array of Barcode objects, one for each hardware scanner on the device. Methods and properties can be set separately on each scanner but if you are using one scanner you must first disable it before being able to use another scanner on the same device.</DESC>
@@ -1786,7 +1786,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <DESC>Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On iPhone and Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC>
                 <DESC_EB>Enable the scanner and start capturing the barcode automatically. On Symbol Technologies' devices the amount of time to scan the barcode is defined by the scanTimeout property. On Android if a barcode is found, the user can confirm barcode recognition, or continue to try to recognize the barcode. When the user confirms or cancels, the callback is called. Once the callback has been called the barcode hardware is disabled.This method will work only on scanners which support soft scan.</DESC_EB>
-                <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+                <PLATFORM>WM, CE, Android, iOS,WP8</PLATFORM>
                 <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
@@ -1811,7 +1811,7 @@ The ebapi.js file is necessary for all single API inclusions.
             <METHOD name="take_barcode"  deprecated="true" productException="eb">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
                 <APPLIES>iOS/Android software recognizer</APPLIES>
-                <PLATFORM>iOS</PLATFORM>
+                <PLATFORM>iOS,WP8</PLATFORM>
                 <DESC>Deprecated old method for Barcode.take().</DESC>
                 <PARAMS>
                     <PARAM name="rubyCallbackURL" type="STRING">
