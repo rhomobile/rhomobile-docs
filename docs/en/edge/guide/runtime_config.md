@@ -1,7 +1,7 @@
 # Runtime Application Configuration
 Apart from your source code, the other files that control your application's runtime behavior are `rhoconfig.txt` and `Config.xml`.
 
-The values in `rhoconfig.txt` control different aspects of your application, such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
+The values in `rhoconfig.txt` control aspects of your application such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
 
 The `Config.xml` file determines features of the RhoElements runtime itself, such as the keys that can be intercepted by the application and whether to pre-load modules on startup.
 
@@ -190,7 +190,6 @@ Sample yaml code:
     
     <Navigation>
     ...
-    <NavTimeout value="45000"/>
     <EnableSSL3 value="0"/>
     # value="0" (SSL3 disabled) 
     # value="1" (SSL3 enabled)
@@ -201,7 +200,7 @@ Sample yaml code:
 
 The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
 
-NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
+NOTE: The 'CaFile' setting in 'Config.xml' will apply to 4.0 applications using the stock browser.
 
 Runtime configuration of RhoElements is managed through an XML file called `Config.xml`. This file is *mandatory* for proper RhoElements execution. Not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults. This page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem. 
 
@@ -398,6 +397,7 @@ Sample XML:
             <Cache                        value="5MB"/>
             <Keepalive                    value="true"/>
             <DisableTLS                   value="0"/>
+            <EnableSSL3                   value="0"/>
           </Navigation>
           <DeviceKeys>
             <EnableCtrlKey_C          value="0"/>
@@ -417,29 +417,9 @@ Sample XML:
 
 The `Config.xml` file affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. This section defines each 
 
-NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
+NOTE: The 'CaFile' setting in 'Config.xml' will apply to 4.0 applications using the stock browser.
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
-
-###Logger
-Sets the protocol over which the logging data will be sent<br>
-
-
-| Configuration<br> Identifier | Possible<br> Values | Platforms
-|:-------------------------:|:-------------------:|:--------------------
-| **LOGPROTOCOL** | **"File"** or <br>**"HTTP"** | **Android, iOS, WM/CE**
-
-
-###DebugButtons
-When enabled, a set of controls useful for development and debugging purposes will be present in the interface.
-
-
-DebugButtons\\<BR>DebugButtonsEnabled
-DEBUGBUTTONSENABLED
-
-0 - Disabled
-1 - Enabled
-Windows Mobile, Windows CE, Android, iOS
 
 
 <div style="width:100%">
