@@ -799,14 +799,14 @@ Platforms: **Android, iOS, WM/CE**<br>
 
 ###Scrolling\\ScrollTechnique
 Specifies the technique used to scroll the viewport:<br/>
-        <b>FingerScroll</b> - You can scroll around the page using finger swiping.(applies to Android only)<br/>
-        <b>Scrollbars</b> - When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/>
-        <b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element<br>
+* **FingerScroll:** Permits scrolling around a page with finger swiping (Android only)<br>
+* **Scrollbars:** When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<br>
+* **None:** No scrollbars will be displayed and the page will not respond to finger swipes.<br>
+NOTE: FingerScroll may interfere with drawing on a Canvas element<br>
 
 Configuration Identifier: **SCROLLTECHNIQUE**<br>
-Possible Values: **See description**<br>
+Possible Values: **FingerScroll (Android only), Scrollbars, None**<br>
 Platforms: **Android, iOS, WM/CE**<br>
-
 
 ###Authentication\\Username
 Specifies the username to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of "".  RhoElements will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.<br>
@@ -829,7 +829,6 @@ Configuration Identifier: **CARETWIDTH**<br>
 Possible Values: **Integer values for caret width in pixels from 1 to 5, inclusively**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
-
 ###HTMLStyles\\FontFamily
 Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Zebra WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.<br>
 
@@ -837,19 +836,11 @@ Configuration Identifier: **FONTFAMILY**<br>
 Possible Values: **Font name**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
-
 ###HTMLStyles\\FontDirectory
 Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Zebra WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
 
 Configuration Identifier: **FONTDIRECTORY**<br>
 Possible Values: **\Windows**<br>
-Platforms: **Android, iOS, WM/CE**<br>
-
-###
-<br>
-
-Configuration Identifier: ****<br>
-Possible Values: ****<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
 ###HTMLStyles\\UseNativeFonts
@@ -865,7 +856,6 @@ When enabled the browser window will resize to accommodate the SIP (Soft Input P
 Configuration Identifier: **RESIZEONSIP**<br>
 Possible Values: **0 - Disabled, 1 - Enabled**<br>
 Platforms: **Android, iOS, WM/CE**<br>
-
 
 ###SIP\\EnableSIP
 Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard).  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)<br>
@@ -975,47 +965,47 @@ Platforms: **Android, iOS, WM/CE**<br>
 
 ###Navigation\\BadLinkURI
 Navigates to the specified badlink uri when one of the following occurs:<br>
-      <ul>
-      <li>There is an error attempting to navigate to the page, e.g. the device has no network connection.
-      <li>The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
-      <li>The user presses the stop button.
-      </ul>
-      The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the <code>file://</code> protocol, this way the browser can always access the file.<br>
+
+-There is an error attempting to navigate to the page, e.g. the device has no network connection.
+- The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
+- The user presses the stop button.<br>
+
+The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the <code>file://</code> protocol, this way the browser can always access the file.<br>
 
 Configuration Identifier: **BADLINKURI**<br>
 Possible Values: **File name and path stored locally on the device (case sensitive)**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
 ###Navigation\\UserAgent
-hen visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:<br>
-      <ul>
-      <li>%p - platform name ("Windows CE " + version number)
-      <li>%w - WebKit version number
-      <li>%e - MotorolaWebKit version number.
-      </ul>
-      Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.<br/>
-      From RhoElements 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to RhoElements 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"<br>
+When visiting a web server, the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:<br>
+
+* platform name ("Windows CE " + version number)
+* WebKit version number
+* MotorolaWebKit version number.<br>
+
+Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.<br>
+In RhoElements 2.1 and higher, the default value was changed to work out of the box with a greater number of server configurations. Prior to RhoElements 2.1 the default user agent was "Mozilla/5.0, AppleWebKit (KHTML, i.e. Gecko), MotorolaWebKit, Safari."<br>
 
 Configuration Identifier: **USERAGENT**<br>
 Possible Values: **String**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
 ###Navigation\\ViewportEnabled
-Whether to enable or disable viewport meta tag processing (default is enabled)<br>
+Controls viewport meta tag processing enable or disable (enabled by default).<br>
 
 Configuration Identifier: **VIEWPORTENABLED**<br>
 Possible Values: **0 - Disabled, 1 - Enabled**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
 ###Navigation\\ViewportWidth
-efault viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified)<br>
+Sets the default viewport width for pages that do not have a viewport meta tag (if not specified, uses 1:1 scaling).<br>
 
 Configuration Identifier: **VIEWPORTWIDTH**<br>
 Possible Values: **Number**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
 ###Navigation\\CaFile
-A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a>.  This setting is supported on Windows Mobile / CE and Android.<br>
+A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a>. This setting is supported on Windows Mobile / CE and Android.<br>
 
 Configuration Identifier: **CAFILE**<br>
 Possible Values: **Local File name on the device**<br>
