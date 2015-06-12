@@ -790,12 +790,60 @@ Platforms: **Android, iOS, WM/CE**<br>
 
 
 ###Preloads\\Preload
-By default plugins will be loaded into memory when needed, e.g. when <code>Barcode.enable</code> is called, the <code>Barcode</code> plugin DLL will be loaded into memory. This loading operation takes takes a certain amount of time when it is performed for the first time; to prevent the user from noticing any lag when using their application, modules can be loaded in the background when RhoElements starts.  Specify a Preload tag for each module you wish to load at RhoElements startup; note that multiple modules may be defined in the same DLL but you still need to list all modules to preload here to see maximum benefit.<p>On low memory devices, it is recommended to preload all your required modules to avoid your program running out of memory during execution.<br>
+By default plugins will be loaded into memory when needed, e.g. when <code>Barcode.enable</code> is called, the <code>Barcode</code> plugin DLL will be loaded into memory. This loading operation takes takes a certain amount of time when it is performed for the first time; to prevent the user from noticing any lag when using their application, modules can be loaded in the background when RhoElements starts.  Specify a Preload tag for each module you wish to load at RhoElements startup; note that multiple modules may be defined in the same DLL but you still need to list all modules to preload here to see maximum benefit.<br>On low memory devices, it is recommended to preload all your required modules to avoid your program running out of memory during execution. <br>Preloads are not applicable to the enterprise tablet, as plugins are integral to RhoElements on this platform.<br>
 
 Configuration Identifier: **PRELOAD**<br>
 Possible Values: **0 - Do Not Preload, 1 - Preload**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
+
+###Scrolling\\ScrollTechnique
+Specifies the technique used to scroll the viewport:<br/>
+        <b>FingerScroll</b> - You can scroll around the page using finger swiping.(applies to Android only)<br/>
+        <b>Scrollbars</b> - When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/>
+        <b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element<br>
+
+Configuration Identifier: **SCROLLTECHNIQUE**<br>
+Possible Values: **See description**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+
+###Authentication\\Username
+Specifies the username to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of "".  RhoElements will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.<br>
+
+Configuration Identifier: **AUTHUSER_GLOBAL**<br>
+Possible Values: **ASCII text**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###Authentication\\Password
+Specifies the password to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a password of "".  RhoElements will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.<br>
+
+Configuration Identifier: **AUTHPASS_GLOBAL**<br>
+Possible Values: **ASCII text**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###HTMLStyles\\CaretWidth
+This setting is a number which specifies the width of the textbox / text area caret, in pixels. The default value if you don't specify anything is '1'.  Prior to this release the width was fixed at '1' and you could not change it. This setting only applies to the Webkit on Windows Mobile or Windows CE.<br>
+
+Configuration Identifier: **CARETWIDTH**<br>
+Possible Values: **Integer values for caret width in pixels from 1 to 5, inclusively**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+
+###HTMLStyles\\FontFamily
+Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Zebra WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.<br>
+
+Configuration Identifier: **FONTFAMILY**<br>
+Possible Values: **Font name**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+
+###HTMLStyles\\FontDirectory
+Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Zebra WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
+
+Configuration Identifier: **FONTDIRECTORY**<br>
+Possible Values: **\Windows**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
 ###
 <br>
@@ -804,387 +852,297 @@ Configuration Identifier: ****<br>
 Possible Values: ****<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
+###HTMLStyles\\UseNativeFonts
+When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.<br>
+
+Configuration Identifier: **USENATIVEFONTS**<br>
+Possible Values: **0 - Use FontFamily Setting, 1 - Use FreeType font library**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###SIP\\ResizeOnSIP
+When enabled the browser window will resize to accommodate the SIP (Soft Input Panel, the on-screen virtual keyboard) when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only.  This option is not compatible with CE or Finger Scrolling, the SIP will always appear at the bottom of the screen)<br>
+
+Configuration Identifier: **RESIZEONSIP**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
 
-    <tr>
-      <td class="clsEvenRow"></td>
-      <td class="clsEvenRow"></td>
-      <td class="clsEvenRow"></p>
-      <p>Preloads are not applicable to the enterprise tablet, as plugins are integral to RhoElements on this platform.</p></td>
-      <td class="clsEvenRow">Module name</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###SIP\\EnableSIP
+Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard).  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)<br>
 
-    <tr>
-      <td>Scrolling\\ScrollTechnique</td>
-      <td>SCROLLTECHNIQUE</td>
-      <td>Specifies the technique used to scroll the viewport:<br/>
-        <b>FingerScroll</b> - You can scroll around the page using finger swiping.(Only setting applicable to Android)<br/>
-        <b>Scrollbars</b> - When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<br/>
-        <b>None</b> - No scrollbars will be displayed and the page will not respond to finger swipes.<br/>
-        <b>NOTE:</b> FingerScroll may interfere with drawing on a Canvas element</td>
-      <td>See description</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **Not Configurable**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">Authentication\\Username</td>
-      <td class="clsEvenRow">AUTHUSER_GLOBAL</td>
-      <td class="clsEvenRow">Specifies the username to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of "".  RhoElements will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.</td>
-      <td class="clsEvenRow">ASCII text</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###System\\LowBatteryScan
+Windows Mobile and CE only.  Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling <code>Barcode.enable</code>.<br>
 
-    <tr>
-      <td>Authentication\\Password</td>
-      <td>AUTHPASS_GLOBAL</td>
-      <td>Specifies the password to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a password of "".  RhoElements will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.</td>
-      <td>ASCII text</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **LOWBATTERYSCAN**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">HTMLStyles\\CaretWidth</td>
-      <td class="clsEvenRow">CARETWIDTH</td>
-      <td class="clsEvenRow">This setting is a number which specifies the width of the textbox / text area caret, in pixels. The default value if you don't specify anything is '1'.  Prior to this release the width was fixed at '1' and you could not change it. This setting only applies to the Webkit on Windows Mobile or Windows CE.</td>
-      <td class="clsEvenRow">Integer values for caret width in pixels from 1 to 5, inclusively</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Scanner\\DisableScannerDuringNavigation
+By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behavior you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.<br>
 
-    <tr>
-      <td>HTMLStyles\\FontFamily</td>
-      <td>FONTFAMILY</td>
-      <td>Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Zebra WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in <code>\Windows</code> for Windows WM / CE devices, or <code>/system/fonts for Enterprise Tablet</code>.</td>
-      <td>Font name</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **DISABLESCANNERDURINGNAV**<br>
+Possible Values: **0 - Scanner remains enabled during page navigation, 1 - Scanner disabled during page navigation**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">HTMLStyles\\FontDirectory</td>
-      <td class="clsEvenRow">FONTDIRECTORY</td>
-      <td class="clsEvenRow">Specifies the font directory where true type fonts can be found.  On Windows the default font directory is <code>\Windows</code> on all Zebra WM / CE devices.  Not applicable to the Enterprise Tablet.</td>
-      <td class="clsEvenRow"><code>\Windows</code></td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Sound\\DecodeVolume
+The volume of the device beeper when a barcode is scanned<br>
 
-    <tr>
-      <td>HTMLStyles\\UseNativeFonts</td>
-      <td>USENATIVEFONTS</td>
-      <td>When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.</td>
-      <td>0 - Use FontFamily Setting<BR>1 - Use FreeType font library</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **DECODEVOLUME**<br>
+Possible Values: **0 - off, 1 - lowest to 5 loudest**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">SIP\\ResizeOnSIP</td>
-      <td class="clsEvenRow">RESIZEONSIP</td>
-      <td class="clsEvenRow">When enabled the browser window will resize to accommodate the SIP (Soft Input Panel, the on-screen virtual keyboard) when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only.  This option is not compatible with CE or Finger Scrolling, the SIP will always appear at the bottom of the screen)</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Sound\\DecodeFrequency
+The frequency of the device beeper when a barcode is successfully decoded.  This should be within the range of the beeper<br>
 
-    <tr>
-      <td>SIP\\EnableSIP</td>
-      <td>Not Configurable</td>
-      <td>Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard).  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)</td>
-      <td>0 - Disabled<BR>1 - Enabled</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **DECODEFREQUENCY**<br>
+Possible Values: **0 to 0xFFFF**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">System\\LowBatteryScan</td>
-      <td class="clsEvenRow">LOWBATTERYSCAN</td>
-      <td class="clsEvenRow">Windows Mobile and CE only.  Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling <code>Barcode.enable</code>.</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Sound\\InvalidDecodeFrequency
+The frequency of the device beeper when a barcode is scanned but not successfully decoded.  This should be within the range of the beeper. Not applicable to the Enterprise Tablet.<br>
 
-    <tr>
-      <td>Scanner\\DisableScannerDuringNavigation</td>
-      <td>DISABLESCANNERDURINGNAV</td>
-      <td>By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behavior you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
-      <td>0 - The Scanner will remain enabled during page navigation<BR>1 - The Scanner will disable during a page navigation</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **INVALIDDECODEFREQUENCY**<br>
+Possible Values: **0 to 0xFFFF**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">Sound\\DecodeVolume</td>
-      <td class="clsEvenRow">DECODEVOLUME</td>
-      <td class="clsEvenRow">The volume of the device beeper when a barcode is scanned</td>
-      <td class="clsEvenRow">0 to 5 with 5 being the loudest</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Sound\\DecodeDuration
+The duration of the device beeper when a barcode is scanned<br>
 
-    <tr>
-      <td>Sound\\DecodeFrequency</td>
-      <td>DECODEFREQUENCY</td>
-      <td>The frequency of the device beeper when a barcode is successfully decoded.  This should be within the range of the beeper</td>
-      <td>0 to 0xFFFF</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **DECODEDURATION**<br>
+Possible Values: **Milliseconds**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">Sound\\InvalidDecodeFrequency</td>
-      <td class="clsEvenRow">INVALIDDECODEFREQUENCY</td>
-      <td class="clsEvenRow">The frequency of the device beeper when a barcode is scanned but not successfully decoded.  This should be within the range of the beeper. Not applicable to the Enterprise Tablet.</td>
-      <td class="clsEvenRow">0 to 0xFFFF</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Sound\\ScanDecodeWav
+Wave file to be played when the scanner successfully decodes a barcode.  This setting overrides the scanner beeper.<br>
 
-    <tr>
-      <td>Sound\\DecodeDuration</td>
-      <td>DECODEDURATION</td>
-      <td>The duration of the device beeper when a barcode is scanned</td>
-      <td>Milliseconds</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **SCANDECODEWAV**<br>
+Possible Values: **File name and path stored locally on the device (case sensitive)**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">Sound\\ScanDecodeWav</td>
-      <td class="clsEvenRow">SCANDECODEWAV</td>
-      <td class="clsEvenRow">Wave file to be played when the scanner successfully decodes a barcode.  This setting overrides the scanner beeper.</td>
-      <td class="clsEvenRow">File name and path stored locally on the device (case sensitive)</a></td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Sound\\ScanInvalidWav
+Wave file to be played when a barcode is scanned but not successfully decoded.  This setting overrides the scanner beeper. Not applicable to the Enterprise Tablet.<br>
 
-    <tr>
-      <td>Sound\\ScanInvalidWav</td>
-      <td>SCANINVALIDWAV</td>
-      <td>Wave file to be played when a barcode is scanned but not successfully decoded.  This setting overrides the scanner beeper. Not applicable to the Enterprise Tablet.</td>
-      <td>File name and path stored locally on the device.</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **SCANINVALIDWAV**<br>
+Possible Values: **File name and path stored locally on the device**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">Sound\\ImagerCaptureWav</td>
-      <td class="clsEvenRow">IMAGERCAPTUREWAV</td>
-      <td class="clsEvenRow">Wave file to be played when the Imager captures an image</td>
-      <td class="clsEvenRow">File name and path stored locally on the device.</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Sound\\ImagerCaptureWav
+Wave file to be played when the Imager captures an image<br>
 
-    <tr>
-      <td>GUI\\SignalRefresh</td>
-      <td>SIGNALREFRESH</td>
-      <td>Specifies the refresh rate of the signal display, see the <a href="/api/signalindicators">Signal</a> API for more information.</td>
-      <td>Refresh rate in milliseconds</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **IMAGERCAPTUREWAV**<br>
+Possible Values: **File name and path stored locally on the device**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">GUI\\BatteryRefresh</td>
-      <td class="clsEvenRow">BATTERYREFRESH</td>
-      <td class="clsEvenRow">Specifies the refresh rate of the battery display, see the <a href="/api/battery">Battery</a> API for more information. Not applicable to the Enterprise Tablet<a href="#_batteryRefresh">* (see remark)</a></td>
-      <td class="clsEvenRow">Refresh rate in milliseconds</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###GUI\\SignalRefresh
+Specifies the refresh rate of the signal display, see the <a href="/api/signalindicators">Signal</a> API for more information.<br>
 
-    <tr>
-      <td>GUI\\HourglassEnabled</td>
-      <td>HOURGLASSENABLED</td>
-      <td>By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behavior.</td>
-      <td>0 - Disabled<BR>1 - Enabled</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **SIGNALREFRESH**<br>
+Possible Values: ****<br>
+Platforms: **AndroiRefresh rate in millisecondsd, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">GUI\\HourglassLeft</td>
-      <td class="clsEvenRow">HOURGLASSLEFT</td>
-      <td class="clsEvenRow">By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position.  If not specified the hourglass will appear at the center of the screen.</td>
-      <td class="clsEvenRow">Pixels</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
 
-    <tr>
-      <td>GUI\\HourglassTop</td>
-      <td>HOURGLASSTOP</td>
-      <td>By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position.  If not specified the hourglass will appear in the center of the screen.</td>
-      <td>Pixels</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###GUI\\BatteryRefresh
+Specifies the refresh rate of the battery display, see the <a href="/api/battery">Battery</a> API for more information. Not applicable to the Enterprise Tablet<a href="#_batteryRefresh">* (see remark)<br>
 
-    <tr>
-      <td class="clsEvenRow">Navigation\\BadLinkURI</td>
-      <td class="clsEvenRow">BADLINKURI</td>
-      <td class="clsEvenRow">Navigates to the specified badlink uri when one of the following occurs:<br>
+Configuration Identifier: **BATTERYREFRESH**<br>
+Possible Values: **Refresh rate in milliseconds**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###GUI\\HourglassEnabled
+By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behavior.<br>
+
+Configuration Identifier: **HOURGLASSENABLED**<br>
+Possible Values: **0 - Disabled<BR>1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###GUI\\HourglassLeft
+By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position.  If not specified the hourglass will appear at the center of the screen.<br>
+
+Configuration Identifier: **HOURGLASSLEFT**<br>
+Possible Values: **Pixels**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###GUI\\HourglassTop
+By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position.  If not specified the hourglass will appear in the center of the screen.<br>
+
+Configuration Identifier: **HOURGLASSTOP**<br>
+Possible Values: **Pixels**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###Navigation\\BadLinkURI
+Navigates to the specified badlink uri when one of the following occurs:<br>
       <ul>
       <li>There is an error attempting to navigate to the page, e.g. the device has no network connection.
       <li>The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
       <li>The user presses the stop button.
       </ul>
-      The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the <code>file://</code> protocol, this way the browser can always access the file.
-      </td>
-      <td class="clsEvenRow">File name and path stored locally on the device (case sensitive)</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+      The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button.  The page specified in the badlink setting should be an offline file using the <code>file://</code> protocol, this way the browser can always access the file.<br>
 
-    <tr>
-      <td>Navigation\\UserAgent</td>
-      <td>USERAGENT</td>
-      <td>When visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:<br>
+Configuration Identifier: **BADLINKURI**<br>
+Possible Values: **File name and path stored locally on the device (case sensitive)**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###Navigation\\UserAgent
+hen visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:<br>
       <ul>
       <li>%p - platform name ("Windows CE " + version number)
       <li>%w - WebKit version number
       <li>%e - MotorolaWebKit version number.
       </ul>
       Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.<br/>
-      From RhoElements 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to RhoElements 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"
-      </td>
-      <td>String</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+      From RhoElements 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to RhoElements 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Safari/%w"<br>
 
-    <tr>
-      <td class="clsEvenRow">Navigation\\ViewportEnabled</td>
-      <td class="clsEvenRow">VIEWPORTENABLED</td>
-      <td class="clsEvenRow">Whether to enable or disable viewport meta tag processing (default is enabled)</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **USERAGENT**<br>
+Possible Values: **String**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td>Navigation\\ViewportWidth</td>
-      <td>VIEWPORTWIDTH</td>
-      <td>Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified)</td>
-      <td>Number</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Navigation\\ViewportEnabled
+Whether to enable or disable viewport meta tag processing (default is enabled)<br>
 
-    <tr>
-      <td class="clsEvenRow">Navigation\\CaFile</td>
-      <td class="clsEvenRow">CAFILE</td>
-      <td class="clsEvenRow">A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a>.  This setting is supported on Windows Mobile / CE and Android.</td>
-      <td class="clsEvenRow">Local File name on the device.</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **VIEWPORTENABLED**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td>Navigation\\VerifyPeerCertificate</td>
-      <td>VERIFYPEERCERTIFICATE</td>
-      <td>Verify the server certificate against the internal certificates.  It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development.  A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.</td>
-      <td>Boolean</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Navigation\\ViewportWidth
+efault viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified)<br>
 
-    <tr>
-      <td class="clsEvenRow">Navigation\\clientSSLCertificate</td>
-      <td class="clsEvenRow">CLIENTSSLCERTIFICATE</td>
-      <td class="clsEvenRow">The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
-      <td class="clsEvenRow">Fully qualified local path. (case sensitive)</td>
-      <td class="clsEvenRow">Android</td>
-    </tr>
+Configuration Identifier: **VIEWPORTWIDTH**<br>
+Possible Values: **Number**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td>Navigation\\clientSSLCertificatePassword</td>
-      <td>CLIENTSSLCERTIFICATEPASSWORD</td>
-      <td>The password used with client certificate. This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.</td>
-      <td>Password</td>
-      <td>Android</td>
-    </tr>
+###Navigation\\CaFile
+A file of CA certificates in PEM format.  See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a>.  This setting is supported on Windows Mobile / CE and Android.<br>
 
-    <tr>
-      <td class="clsEvenRow">Navigation\\NetworkCookieDatabase</td>
-      <td class="clsEvenRow">NETWORKCOOKIEDATABASE</td>
-      <td class="clsEvenRow">If you want your cookies to persist across device boots then specify a file name here for the database used to hold the cookies.  If the specified file does not already exist then one will be created.  The cookies will be loaded in from this file and saved back to it when RhoElements exits, unless the file is read only in which case it will not be overwritten.  If not specified cookies will not persist.</td>
-      <td class="clsEvenRow">Fully qualified local path (case sensitive)</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **CAFILE**<br>
+Possible Values: **Local File name on the device**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td>Navigation\\Cache</td>
-      <td>NAVIGATIONCACHE</td>
-      <td>The browser cache size, in whole MBs.  This setting is only applicable to RhoMobile Suite version 2.2 and above.</td>
-      <td>Whole MBs, eg. 5MB</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Navigation\\VerifyPeerCertificate
+Verify the server certificate against the internal certificates.  It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development.  A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.<br>
 
-    <tr>
-      <td class="clsEvenRow">Navigation\\AcceptLanguage</td>
-      <td class="clsEvenRow">ACCEPTLANGUAGE</td>
-      <td class="clsEvenRow">Defines the Accept-Language HTTP header that will be sent from the client, described in more detail in the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFQ documentation</a>.</td>
-      <td class="clsEvenRow">Comma separated list of languages and a list of quality values. The two lists are separated by a semicolon.</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE</td>
-    </tr>
+Configuration Identifier: **VERIFYPEERCERTIFICATE**<br>
+Possible Values: **Boolean**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td>Navigation\\Keepalive</td>
-      <td>KEEPALIVE</td>
-      <td>Support HTTP keep-alive. When set to false, connections are closed when their request completes. By default keep-alive will be true even if this option is not specified. Applies to release 5.0 and greater.</td>
-      <td>Boolean</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
 
-    <tr>
-      <td class="clsEvenRow">Navigation\\DisableTLS</td>
-      <td class="clsEvenRow">DISABLETLS</td>
-      <td class="clsEvenRow">When enabled, the application will request SSLv3 connections instead of TLS. If your server is set to support both SSLv3 and TLS, the protocol for the entire session will be determined by the first interaction the client has with the server. For instance, if the client's first call to the server is TLS (DisableTLS = 0), the server-client communication will commence over TLS until the client application is terminated. However, if the server only supports SSLv3, all communication after the initial transmission will occur over SSLv3, to __and__ from the client, no matter what this option is set to. If you want to communicate without the possibility of using TLS, set this setting to 1 (true).</td>
-      <td class="clsEvenRow">0 - TLS Not disabled<br/>1 - TLS Disabled</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Navigation\\clientSSLCertificate
+he path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
 
-    <tr>
-      <td>DeviceKeys\\<BR>EnableCtrlKey_X</td>
-      <td>Not Configurable</td>
-      <td>CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.</td>
-      <td>0 - Disabled<BR>1 - Enabled</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **CLIENTSSLCERTIFICATE**<br>
+Possible Values: **Fully qualified local path. (case sensitive)**<br>
+Platforms: **Android**<br>
 
-    <tr>
-      <td class="clsEvenRow">DeviceKeys\\<BR>EnableVolumeSlider</td>
-      <td class="clsEvenRow">ENABLEVOLUMESLIDER</td>
-      <td class="clsEvenRow">Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Navigation\\clientSSLCertificatePassword
+The password used with client certificate. This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
 
-    <tr>
-      <td>DeviceKeys\\<BR>EnableBacklightSlider</td>
-      <td>ENABLEBACKLIGHTSLIDER</td>
-      <td>Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.</td>
-      <td>0 - Disabled<BR>1 - Enabled</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **CLIENTSSLCERTIFICATEPASSWORD**<br>
+Possible Values: **Password**<br>
+Platforms: **Android**<br>
 
-    <tr>
-      <td class="clsEvenRow">DefaultMetaTags\\MetaTag</td>
-      <td class="clsEvenRow">DEFAULTMETATAG</td>
-      <td class="clsEvenRow">All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.</td>
-      <td class="clsEvenRow">[Module]~[Contents expressed in EMML1.1]</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+If you want your cookies to persist across device boots then specify a file name here for the database used to hold the cookies.  If the specified file does not already exist then one will be created.  The cookies will be loaded in from this file and saved back to it when RhoElements exits, unless the file is read only in which case it will not be overwritten.  If not specified cookies will not persist.###Navigation\\NetworkCookieDatabase
+<br>
 
-    <tr>
-      <td>Geolocation\\GeolocationEnabled</td>
-      <td>Not Configurable</td>
-      <td>Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.</td>
-      <td>0 - Disabled<BR>1 - Enabled</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **NETWORKCOOKIEDATABASE**<br>
+Possible Values: **Fully qualified local path (case sensitive)**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
-    <tr>
-      <td class="clsEvenRow">TabInstance\\NewTabPhysicalMemLimit</td>
-      <td class="clsEvenRow">NEWTABPHYSICALMEMLIMIT</td>
-      <td class="clsEvenRow">This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%. If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code>.</td>
-      <td class="clsEvenRow">0-100 (100=no limit)</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+###Navigation\\Cache
+The browser cache size, in whole MBs.  This setting is only applicable to RhoMobile Suite version 2.2 and above.<br>
 
-    <tr>
-      <td>TabInstance\\NewTabVirtualMemLimit</td>
-      <td>NEWTABVIRTUALMEMLIMIT</td>
-      <td>This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%.If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code></td>
-      <td>0-100 (100=no limit)</td>
-      <td>Windows Mobile, Windows CE, Android, iOS</td>
-    </tr>
+Configuration Identifier: **NAVIGATIONCACHE**<br>
+Possible Values: **Whole MBs, eg. 5M**<br>
+Platforms: **Android, iOS, WM/CE**<br>
 
- <tr>
-      <td class="clsEvenRow">Navigation\\EnableSSL3</td>
-      <td class="clsEvenRow">ENABLESSL3</td>
-      <td class="clsEvenRow">When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against <a href="https://www.us-cert.gov/ncas/alerts/TA14-290A">the POODLE attack vulnerability</a>.</td>
-      <td class="clsEvenRow">0 - Disabled<BR>1 - Enabled</td>
-      <td class="clsEvenRow">Windows Mobile, Windows CE</td>
-    </tr>
+###Navigation\\AcceptLanguage
+Defines the Accept-Language HTTP header that will be sent from the client, described in more detail in the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFQ documentation</a><br>
+
+Configuration Identifier: **ACCEPTLANGUAGE**<br>
+Possible Values: **Comma separated list of languages and a list of quality values. The two lists are separated by a semicolon**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###Navigation\\Keepalive
+Support HTTP keep-alive. When set to false, connections are closed when their request completes. By default keep-alive will be true even if this option is not specified. Applies to release 5.0 and greater.<br>
+
+Configuration Identifier: **KEEPALIVE**<br>
+Possible Values: **Boolean**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+
+###Navigation\\DisableTLS
+When enabled, the application will request SSLv3 connections instead of TLS. If your server is set to support both SSLv3 and TLS, the protocol for the entire session will be determined by the first interaction the client has with the server. For instance, if the client's first call to the server is TLS (DisableTLS = 0), the server-client communication will commence over TLS until the client application is terminated. However, if the server only supports SSLv3, all communication after the initial transmission will occur over SSLv3, to __and__ from the client, no matter what this option is set to. If you want to communicate without the possibility of using TLS, set this setting to 1 (true).<br>
+
+Configuration Identifier: **DISABLETLS**<br>
+Possible Values: **0 - TLS Not disabled, 1 - TLS Disabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###DeviceKeys\\EnableCtrlKey_X
+CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).  This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.<br>
+
+Configuration Identifier: **Not Configurable**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###DeviceKeys\\<BR>EnableVolumeSlider
+Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.<br>
+
+Configuration Identifier: **ENABLEVOLUMESLIDER**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+
+###DeviceKeys\\EnableBacklightSlider
+Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.<br>
+
+Configuration Identifier: **ENABLEBACKLIGHTSLIDER**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###DefaultMetaTags\\MetaTag
+All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1.  If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.<br>
+
+Configuration Identifier: **DEFAULTMETATAG**<br>
+Possible Values: **[Module]~[Contents expressed in EMML1.1]**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###Geolocation\\GeolocationEnabled
+Enables/disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.<br>
+
+Configuration Identifier: **Not Configurable**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###TabInstance\\NewTabPhysicalMemLimit
+This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%. If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code>.<br>
+
+Configuration Identifier: **NEWTABPHYSICALMEMLIMIT**<br>
+Possible Values: **0-100 (100 = no limit)**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###TabInstance\\NewTabVirtualMemLimit
+This setting controls whether a new Tab will be created using the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is>=80%.If the tab is unable to be created due to this limit being reached the <a href="../api/NativeTabbar#mcreate">NativeTabbar.create API</a> callback will contain a <code>tabEvent</code> = <code>onTabNewError</code><br>
+
+Configuration Identifier: **NEWTABVIRTUALMEMLIMIT**<br>
+Possible Values: **0-100 (100 = no limit)**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###Navigation\\EnableSSL3
+When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against <a href="https://www.us-cert.gov/ncas/alerts/TA14-290A">the POODLE attack vulnerability</a>.<br>
+
+Configuration Identifier: **ENABLESSL3**<br>
+Possible Values: **0 - Disabled, 1 - Enabled**<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
+###
+<br>
+
+Configuration Identifier: ****<br>
+Possible Values: ****<br>
+Platforms: **Android, iOS, WM/CE**<br>
+
 
   </table>
 </div>
