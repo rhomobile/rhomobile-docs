@@ -468,7 +468,7 @@ The port over which the logging data will be sent (ignored for File protocol)<br
 **Configuration Identifier**:
 LOGPORT<br>
 
-**Possible Values:**
+**Possible Values**:
 Any valid HTTP port<br>
 
 **Platforms**: 
@@ -577,129 +577,243 @@ File size in kilobytes<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 
-<<<<<<<<<RESUME HERE>>>>>>>>>
-
+##FileLocations
 ###RegExFile
-In order to enable backward compatibility with pages written in EMML 1.0, regular expressions are used to convert to EMML1.1 meta tags.  This setting defines the location of the XML file which contains the conversions to be used.  This setting is only applicable to Windows<br>
+This setting defines the location of the XML file that contains the conversions to be used for backward compatibility with EMML 1.0. Applies to Windows only.<br>
 
-Configuration Identifier: **REGEXFILE**<br>
-Possible Values: **Fully qualified path to file defining the regular expressions (case sensitive)**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**:
+REGEXFILE<br>
 
-###FileLocations\\\PluginFile
-Not applicable to the Enterprise Tablet:<br>RhoElements has a plugin based architecture so functionality can be tailored to the individual application, lessening the memory footprint on the device.  It is necessary for RhoElements to have a mapping between modules, plugins and the physical location of the Plugin DLL on the device; this mapping is stored in the Plug-in file and the location of that file is defined by this setting<br>
+**Possible Values**:
+Fully qualified path to file defining the regular expressions (case sensitive)<br>
 
-Configuration Identifier: **PLUGINFILE**<br>
-Possible Values: **Fully qualified path to file defining the plugins (case sensitive)**<br>
-Platforms: **Android, iOS, WM/CE**<br>
-
-###Screen\\\FullScreen
-RhoElements to fullscreen mode, locking out the OS to the user unless specifically minimized using the <a href="../api/Application#mminimize">Application API</a>.  Some Windows Mobile devices feature a customized Zebra user interface; in this case access is provided to the status bar at the top of the screen<br>
-
-Configuration Identifier: **FULLSCREEN**<br>
-Possible Values: **0 - Disabled, 1 - Enabled**<br>
-Platforms: **Android, iOS, WM/CE**<br>
-
-###Screen\\\ShowLicenseConfirmation
-On a licensed device, this setting will enable or disable the display of the "licensed to..." dialog at launch.  On unlicensed devices there will be no effect<br>
-
-Configuration Identifier: **SHOWLICENSECONFIRMATION**<br>
-Possible Values: **0 - Do not show license confirmation, <b>1 - Show license confirmation**<br>
-Platforms: **WM/CE**<br>
+**Platforms**:
+Android, iOS, WM/CE<br>
 
 
-###Screen\\\PageZoom
-Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.<a href="#_pageZoom">* (see remark)</a><br>
+###PluginFile
+Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between RhoElements modules. **Not applicable to the Enterprise Tablet**.<br>
 
-Configuration Identifier: **PAGEZOOM**<br>
-Possible Values: **Zoom factor of the page**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**: 
+PLUGINFILE<br>
 
-###VoidConnection\\\TrackConnection
-This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up meaage will be disappered. If connection is not established during timeout value, it will navigate to badlink page. On windows, if this feature is enabled, it will display a non modal dialog whenever connectivity goes, whereas in case of Android it will display a modal dialog and user will be blocked from performing any UI actions. On windows as it is a non modal dialog, user still can continue work on the parent screen until the timeout occurs. However it is not recommended to access the back ground application when the  connection checking window is being shown.<br>
+**Possible Values**: 
+Fully qualified path to file defining the plugins (case sensitive)<br>
 
-Configuration Identifier: **TrackConnection**<br>
-Possible Values: **Connection Tracking**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Platforms**: 
+Android, iOS, WM/CE<br>
 
-###VoidConnection\\\HostURL
-This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appeneded to i after appending  colon to the ip. So the accepatable formats are www.symbol.com , http://192.168.7.32:8080, http://192.168.7.32<br>
+##Screen
+###FullScreen
+Forces RhoElements to display in fullscreen mode, hiding the OS from the user unless specifically minimized using the [Application API](../api/Application#mminimize). For Windows Mobile devices that include a custom Zebra user interface, access is provided to the status bar at the top of the screen.<br>
 
-Configuration Identifier: **HostURL**<br>
-Possible Values: **Connection Tracking**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**:
+FULLSCREEN<br>
 
-###VoidConnection\\\Message
-Message is the customized Message to be shown in the pop up window<br>
+**Possible Values**: 
+0 - Disabled, 1 - Enabled<br>
 
-Configuration Identifier: **Message**<br>
-Possible Values: **Customized Message**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Platforms**:
+Android, iOS, WM/CE<br>
 
-###VoidConnection\\\Timeout
-This value indicates for how many miliseconds the application should try to connect to the URL before navigating to badlink page. The minimum value is 30000. If specified less than 30000, it will take 30000. The value of this parameter should be atleast 3 times bigger than PollInterval,else both will take default values<br>
 
-Configuration Identifier: **Timeout**<br>
-Possible Values: **Timeout**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+###ShowLicenseConfirmation
+Controls the display of the "licensed to..." dialog at launch (on licensed devices only). Has no effect on unlicensed devices.<br>
 
-###VoidConnection\\\PollInterval
-This value indicates for how many miliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value. The minimum value is 5000. If specified less than 5000, it will take 5000. It is a non-testable parameter<br>
+**Configuration Identifier**: 
+SHOWLICENSECONFIRMATION<br>
 
-Configuration Identifier: **PollInterval**<br>
-Possible Values: **PollInterval**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Possible Values**:
+0 - Do not show license confirmation, 1 - Show license confirmation<br>
 
-###WebServer\\\Enabled
-Enables or Disables an internal web server to run locally on the device.  If running multiple applications with internal web servers consideration should be made over whether a single server should be used or multiple servers running on different ports<br>
+**Platforms**: WM/CE<br>
 
-Configuration Identifier: **WEBSENABLED**<br>
-Possible Values: **0 - Disabled, 1 - Enabled**<br>
-Platforms: **Android, iOS, WM/CE**<br>
 
-###WebServer\\\Port
-By default should be left at 8080, This specifies the IP port the Web Server is running on<br>
+###PageZoom
+Sets the zoom factor of the page. Default zoom value is 1.0 (if unspecified). On Android, zero and negative values are not supported. On Windows, zoom value less than 1.0 reverts to 1.0 since lower values would not be readable. [More info](#_pageZoom)<br>
 
-Configuration Identifier: **WEBSPORT**<br>
-Possible Values: **8080**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**: 
+PAGEZOOM<br>
 
-###WebServer\\\WebFolder
-Specifies a folder on the device where the web application is stored, Index.html is the default page if no other page is requested<br>
+**Possible Values**: 
+Zoom factor of the page<br>
 
-Configuration Identifier: **WEBSFOLDER**<br>
-Possible Values: **Fully qualified path to folder containing web application (case sensitive)**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Platforms**: 
+Android, iOS, WM/CE<br>
 
-###WebServer\\\Public
-Enables or Disables access to the local WebServer from an external device, it is recommended that the setting is only used for debugging purposes. <strong>Enabling this feature in a production deployment is a potential security risk. Make sure to check this value before deployment.</strong><br>
 
-Configuration Identifier: **WEBSPUBLIC**<br>
-Possible Values: **0 - Disabled, 1 - Enabled**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+##VoidConnection
+###TrackConnection
+Controls connection tracking. When enabled, will display an alert whenever a connection with the URL defined in "HostURL" element is lost, removed when connection is restored, and changed to 'bad link' message if timeout is reached. Alert is modal on Android, and prevents any UI actions while displayed. Although alert is non-modal on Windows, interaction with the background app is not recommended while alert is being displayed.<br>
 
-###DeviceKeys\\\FunctionKeysCapturable
-This parameter is specific to Windows Mobile and Windows CE:<P>When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behavior (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys).  When enabled, function keys will be capturable by the <a href="/api/keycapture">Key Capture module</a>.<P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown <a href="#_fnbehavior">here</a>.  This setting is not specific to the current application and will be applied globally on the device.<br>
+**Configuration Identifier**: 
+TrackConnection<br>
 
-Configuration Identifier: **FUNCTIONKEYSCAPTURABLE**<br>
-Possible Values: **0 - F keys not capturable, 1 - F keys capturable**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Possible Values**: 0 - disabled, 1- enabled<br>
 
-###DeviceKeys\\\EnableFunctionKey_X
-By default all function keys are disabled (e.g. F1, F2) but this setting is used to specify which function keys should be enabled.  For each key you wish to enable define a EnableFunctionKey_X tag but replace 'X' with the key being enabled, so for example to enable F1 specify EnableFunctionKey_F1.  The maximum function key you can enable is F24.  In order to use this configuration setting you must preload the KeyCapture module<p>On the Enterprise tablet, this tag can be used to enable the 'P' keys. For compatibility with other devices the 'P' keys are referred to as 'F' keys in the config file. Therefore in order to enable P2 key on the enterprise tablet, the tag EnableFunctionKey_F2 should be set to 1.  For Windows Mobile / CE this setting is not specific to the current application and will be applied globally on the device, <b>only being unset when a device warm boot is performed.</b></p> <p>On MC40, F1 is mapped to the Volume Down button, F2 to the Volume UP button and F3 to the Search button.</p> <P>The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at <a href="#_fnbehavior">the end of this document</a><br>
+**Platforms**:
+Android, iOS, WM/CE<br>
 
-Configuration Identifier: **ENABLEFUNCTIONKEY_FX**<br>
-Possible Values: **0 - Disabled, 1 - Enabled**<br>
-Platforms: **Android, iOS, WM/CE**<br>
 
-###DeviceKeys\\\EnableApplicationKey_X
+###HostURL
+Used to specifiy the URL to which your application will connect. Supports IP addresses, host names and specific ports (when appended to URL with a colon. If no port is specified, default=80).<br>
+
+**Configuration Identifier**: 
+HostURL<br>
+
+**Possible Values**:
+Fully qualified host name or IP address, with or without port number<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+
+###Message
+Use to specify a custom message to be displayed in a pop-up window.<br>
+
+**Configuration Identifier**: 
+Message<br>
+
+**Possible Values**: 
+Alpha-numeric text<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+###Timeout
+Defines the amount of time (in milliseconds) the application should wait for a connection to the URL specified in 'HostURL' before navigating to 'bad link' page. The minimum value is 30000; lower values will revert to 30000. Value should be a multiple of the value set in PollInterval.<br>
+
+**Configuration Identifier**: 
+Timeout<br>
+
+**Possible Values**: 
+Whole number greater than 30000 (ms)<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+###PollInterval
+Defines the amount of time (in milliseconds) the application should pause before subsequently checking for a connection to the URL specified in 'HostURL.' The minimum value is 5000; lower values will revert to 5000. The value in 'Timeout' should be a multiple of this number.<br>
+
+NOTE: This parameter is not testable. 
+
+**Configuration Identifier**: 
+PollInterval<br>
+
+**Possible Values**: 
+PollInterval<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+##WebServer
+###Enabled
+Determines whether a web server will be running locally on the device to service the application. When multiple Webview applications are deployed, all can run from a single embedded server or use discrete servers, each running on a different port.<br>
+
+**Configuration Identifier**: WEBSENABLED<br>
+
+**Possible Values**: 
+0 - Disabled, 1 - Enabled<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+
+###Port
+Specifies the port number of the web server running locally on the device (default= 8080)<br>
+
+**Configuration Identifier**: 
+WEBSPORT<br>
+
+**Possible Values*: 8080<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+
+##WebFolder
+Specifies the folder on the device in which the web application and its initial page are stored. By default, the initial page is 'index.html' unless another page is requested.<br>
+
+**Configuration Identifier**: 
+WEBSFOLDER<br>
+
+**Possible Values**: 
+Fully qualified path to folder containing web application (case sensitive)<br>
+
+**Platforms**: Android, iOS, WM/CE<br>
+
+
+###Public
+Controls access to the local web server from an external device. Generally used only for debugging. 
+
+NOTE: Enabling this feature in a production deployment is a potential security risk. <br><u>It is highly recommended that this value be checked before deployment</u>. <br>
+
+**Configuration Identifier**: 
+WEBSPUBLIC<br>
+
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+
+**Platforms**: Android, iOS, WM/CE<br>
+
+
+##DeviceKeys
+###FunctionKeysCapturable
+**Applies to Windows Mobile and Windows CE only; disabled by default**. 
+
+Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the [Key Capture API](/api/keycapture). When disabled, keys revert to the device's default behavior. NOTE: This setting is not specific to an application. When enabled, settings are applied globally to the device. 
+
+**Configuration Identifier**: FUNCTIONKEYSCAPTURABLE<br>
+
+**Possible Values**: 
+0 - 'F keys' not capturable, 1 - 'F keys' capturable<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
+
+###EnableFunctionKey_X
+This setting is used to specify which function keys should be enabled (all Function keys are disabled by default). For each key to be enabled, define a EnableFunctionKey_X tag, replacing the 'X' with the key number being enabled. For example, to enable F1, specify EnableFunctionKey_F1 up to a maximum of F24. **This configuration setting requires a preload of the KeyCapture module**. 
+
+**Configuration Identifier**: 
+ENABLEFUNCTIONKEY_FX<br>
+
+**Possible Values**: 
+0 - Disabled, 1 - Enabled<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+**Sample XML code**:
+    :::xml
+    <EnableFunctionKey_F1 value="1"/>
+
+####Device-specific notes
+* **On the Enterprise Tablet**, this tag can be used to enable the 'P' keys. For example, if the sample code above were run on an Enterprise Tablet, it would enable the 'P1' key.  
+
+* This setting **on Windows Mobile and Windows CE** will be applied globally to the device and can be reset with a warm boot. 
+
+* **On the Zebra MC40**, F1 is mapped to the volume-down button, F2 to the volume-up button and F3 to the search button.
+
+[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
+
+
+###EnableApplicationKey_X
+**Applies to Windows Mobile and Windows CE only; disabled by default**. 
+
 This parameter is specific to Windows Mobile and Windows CE:<br>Some devices have keys to access specific applications on the device, e.g. Calendar, Outlook etc, all of which are disabled by default.  This setting is used to specify which application keys should be enabled, numbered A1 to A16.  For each key you wish to enable define a EnableApplicationKey_X tag but replace 'X' with the key being enabled, e.g. EnableApplicationKey_A1.  Note that the mapping of keys to applications is device specific so A1 may have two functions on two different devices.  In order to use this configuration setting you must preload the KeyCapture module<P>This setting is not specific to the current application and will be applied globally on the device. <b>Once set, this will persist across multiple RhoElements executions and can only be unset by performing a device warm boot.<br>
 
 Configuration Identifier: **Not Configurable**<br>
 Possible Values: **0 - Disabled, 1 - Enabled**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
-###Navigation\\\NavTimeout
+
+
+
+
+##Navigation
+###NavTimeout
+
 Number of milliseconds before the browser times out and navigates to the page specified in the badlink setting.  If it is determined that the destination is unreachable regardless of wait time, the 'badlink' page may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an on-line page if desired.<br>
 
 Configuration Identifier: **NAVTIMEOUT**<br>
