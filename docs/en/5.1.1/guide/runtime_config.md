@@ -190,7 +190,6 @@ Sample yaml code:
     
     <Navigation>
     ...
-    <NavTimeout value="45000"/>
     <EnableSSL3 value="0"/>
     # value="0" (SSL3 disabled) 
     # value="1" (SSL3 enabled)
