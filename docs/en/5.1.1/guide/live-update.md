@@ -18,11 +18,11 @@ Live Update is supported on the following platforms and devices:
 * Android
 * Windows Mobile
 
-Note: Live Update is not supported by Android emulators and applications with the “development” extension cannot be built on Rhohub.com.
+> Note: Live Update is not supported by Android emulators and applications with the “development” extension cannot be built on Rhohub.com.
 
 ## Enabling Live Update
 ---
-NOTE: This feature is available only during development time and is removed automatically in a production build
+> Note: This feature is available only when your build.yml contains `build: debug` and is removed automatically when your build.yml contains `build: release`
 
 ###1. Make Sure You Have Version 5.1 or Greater of RhoStudio
 Live Update will not work properly and will not display the **Live update setting** file if you do not have the proper version of RhoStudio.
@@ -39,21 +39,22 @@ Live Update will not work properly and will not display the **Live update settin
 Any device with an application that uses Live Update must be connected to the same Wi-Fi and subnet as your computer. If your computer and mobile device are connected to the same Wi-Fi, but not the same subnet, you can go into network preferences and then into advanced options and manually configure your IP address to have the same subnet as your mobile device. If you are unsure what to make the IP address, giving your computer an address that is one or two numbers away from you mobile device's IP should provide the same subnet. If this still does not work, someone else is most likely using that IP address and you should try a different IP.
 
 ###4. Discovering Your Mobile Devices 
-Note: Step 4 can be done from both the command line and the RhoStudio IDE
+> Note: Step 4 can be done from both the command line and the RhoStudio IDE
 
 **From the RhoStudio IDE**
 
-  1. Build and run your project. When the mobile application is launched correctly, it will show an alert with your IP address and a few controls.
-  <img src="http://i.imgur.com/xSXh8yT.png" width="380" height="600" border="10" />
-	
-  2. open the Live update setting file inside of your Project explorer. This will display all of the found subnets. 
-  Note: An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
+1. Build and run your project. When the mobile application is launched correctly, it will show an alert with your IP address and a few controls.
+  
+    <img src="http://i.imgur.com/xSXh8yT.png" width="380" height="600" border="10" />
 
-  3. Double click on the subnet that you are using and RhoStudio will search that subnet for your device. If your device is found, it will appear in the list of found devices.
+2. Open the Live update setting file inside of your Project explorer. This will display all of the found subnets. 
+> Note: An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
+
+3. Double click on the subnet that you are using and RhoStudio will search that subnet for your device. If your device is found, it will appear in the list of found devices.
 	
-  4. Once the device is found, you should see a `dev-config.yml` file inside of your project explorer. This contains a list of all found devices. If you do not see this file and your device was found, try right clicking your current project and hitting refresh.
+4. Once the device is found, you should see a `dev-config.yml` file inside of your project explorer. This contains a list of all found devices. If you do not see this file and your device was found, try right clicking your current project and hitting refresh.
 	
-  5. Go into dev-config.yml and add the following line after the list of devices:
+5. Go into dev-config.yml and add the following line after the list of devices:
 
           :::term
 
@@ -61,23 +62,25 @@ Note: Step 4 can be done from both the command line and the RhoStudio IDE
 
   This will allow your web view to refresh when needed and to instantly reflect any changes made.
 
-  NOTE: Make sure this line is not indented, or dev-config.yml will assume that this is a characteristic of the particular device above.
+  > Note: Make sure this line is not indented, or dev-config.yml will assume that this is a characteristic of the particular device above.
 
 **From the command line**
 
   1. Build and run your project
 
-   For iPhones:
+   For iOS Simulator:
 
         :::term
 
-      rake run:iphone
+      rake run:iphone:
+
+  > Note: Running for iOS Simulator allows you to take advantage of Live Update just as well as running for an iOS Device, but an iOS device requires that you [manually install your application package from iTunes](http://docs.rhomobile.com/en/5.1.1/guide/build_ios)
 
    For Android:
 
         :::term
 
-      rake run:android
+      rake run:android:device
 
    For Windows Mobile:
 
@@ -96,7 +99,7 @@ Note: Step 4 can be done from both the command line and the RhoStudio IDE
 
     :::term
 
-  	rake dev:network:discovery[“192.168.1.*”]
+  	rake dev:network:discovery["192.168.1.*"]
 
   You can list out all discovered subnets with the command:
 
@@ -106,7 +109,7 @@ Note: Step 4 can be done from both the command line and the RhoStudio IDE
 
   If several subnets are available, you must tell the script which subnet you wish to use.
 
-  Note: an iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.  
+  An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.  
   <br>
   3. Once the subnet of the device is found, you should see a dev-config.yml file inside of your project folder. This contains a list of all found devices.
   <br>
@@ -119,7 +122,7 @@ Note: Step 4 can be done from both the command line and the RhoStudio IDE
 
 <img src="http://i.imgur.com/A1ZdUep.png" width="680" height="600" border="10"/>
 
-  NOTE: Make sure this line is not indented or dev-config.yml will assume that this is a characteristic of the particular device above.
+  > Note: Make sure this line is not indented or dev-config.yml will assume that this is a characteristic of the particular device above.
 
 ###5. Updating Your App
 Live Update can be used to update the following types of files at run time:
@@ -129,6 +132,9 @@ Live Update can be used to update the following types of files at run time:
 * Javascript
 * .rb
 * .erb
+* image files
+
+These files most be in either your app folder or your public folder for Live Update to immediately notice the changes.
 
 To edit these files at run time, make the desired changes to your files and then save. The changes should now show on your mobile device when and Update Method is running.
 
@@ -159,9 +165,11 @@ Simply go to the Live Update Settings tab which can be found under Project Explo
 
 Now click **Enable live update** and Auto Update should be up and running.
 
-Note: You can tell if Live Update is running by checking the Progress tab.
+> Note: You can tell if Live Update is running by checking the Progress tab.
 
 <img src="http://i.imgur.com/ST22AcD.png" width="680" height="600" border="10"/>
+
+To end Live Update, go under the progress tab and find the line that says "live update is running". Click on the red square that is to the right and the process will end.
 
 **Using From the Command Line**
 
@@ -171,9 +179,18 @@ You can enable Auto Update by typing the following command into your command lin
 
 	rake dev:update:auto
 
-Note: You will be notified when Auto Update is running by a message in your command line.
+> Note: You will be notified when Auto Update is running by a message in your command line.
 
 <img src="http://i.imgur.com/AFJDNPn.png" width="600" height="520" border="10"/>
+
+To end Live Update, open a new window in your terminal and enter
+
+    :::term  
+
+    rake dev:update:auto:stop
+
+You can alternatively go to the command line window that Live update is running in. Once you are there, go to your keyboard, hold down the `control` button, and then press `c`.
+
 
 ###Partial Update
 The partial update method is useful when you want multiple changes to be shown at once rather than displaying them one by one. Partial Update allows you to deploy changes made to all discovered devices, but only when you specify it to do so.
@@ -190,7 +207,7 @@ Make any changes you like to your program and when your are ready to deploy them
 
 	rake dev:update:partial
 
-NOTE: The Partial Update bundle only includes changed files. If you did not change any files, discovered mobile devices will not receive any notifications.
+> Note: The Partial Update bundle only includes changed files. If you did not change any files, discovered mobile devices will not receive any notifications.
 
 ###Full Update
 The Full Update method is similar to Partial Update in that you specify when you want an update to be deployed to mobile devices. Unlike Partial Update, Full Update builds an update bundle with all the application's files, not just the changed files. This means it will notify all discovered devices whether or not changes are made.
@@ -213,7 +230,9 @@ When this command is run, a Partial Update bundle is built using the information
 
 upgrade_package_add_files.txt - it contains list of changed or added files
 
-upgrade_package_remove_files.txt - it contains list of removed files.
+upgrade_package_remove_files.txt - it contains list of removed files
+
+Both of these files can be found in the first layer of your current project folder. I.E. `current_project/*`
 
 ###Using Live Update with applications that were built on different platforms
 
@@ -237,7 +256,7 @@ If you are going to take a break from working on one app that uses Live Update a
 **From RhoStudio**  
 If you started Live Update from RhoStudio, then you are also going to end Live Update from RhoStudio. To do this, go under the progress tab and find the line that says "live update is running". Click on the red square that is to the right and the Live Update process will end.
 
-<img src="http://i.imgur.com/wmZObD0.png" width="600" height="520" border="10" />
+  <img src="http://i.imgur.com/wmZObD0.png" width="600" height="520" border="10" />
 
 **From the Command Line**  
 If you started Live Update from the command line, you are going to end Live Update there as well. To do this, go to the command line window that Live update is running in. Once you are there, go to your keyboard, hold down the `control` button, and then press `c`. This will end the Live Update process.
@@ -251,6 +270,27 @@ If you started Live Update from the command line, you are going to end Live Upda
    b. Check Dev-Config.yml to make sure the application property displays the correct application for the discovered device. 
 
   If the Dev-config.yml in your new project is displaying the right application, you have successfully switched between applications and are ready to start using Live update again.
+
+##Serving HTTP requests  
+Subscribed devices are passed bundles from a server via HTTP requests, which means it is necessary to launch a web server before you use any Live Update Methods. Live Update uses **Webrick** as a web server and checks to see if a webserver is running when ever you run a command that contains `dev:update`. If a server is not already running on Webrick, any of the dev:update commands will start a web server for you in a new command line window.
+
+If you wish to, instead, start and stop the webserver manually, you can do so with the following:
+
+**To Start Webserver**  
+In a NEW command line window, enter
+
+        :::term
+
+    rake dev:webserver:start
+
+**To Stop Webserver**  
+In a NEW command line window, enter
+   
+        :::term
+
+    rake dev:webserver:stop
+
+> Note: Both your mobile application and The Live update server send messages using http based protocol. This is why the start of any update process launches an http server in a new command line window.
 
 ##Troubleshooting
 ---
