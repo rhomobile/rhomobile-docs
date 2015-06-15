@@ -731,7 +731,7 @@ WEBSPORT<br>
 Android, iOS, WM/CE<br>
 
 
-##WebFolder
+###WebFolder
 Specifies the folder on the device in which the web application and its initial page are stored. By default, the initial page is 'index.html' unless another page is requested.<br>
 
 **Configuration Identifier**: 
@@ -746,7 +746,7 @@ Fully qualified path to folder containing web application (case sensitive)<br>
 ###Public
 Controls access to the local web server from an external device. Generally used only for debugging. 
 
-NOTE: Enabling this feature in a production deployment is a potential security risk. <br><u>It is highly recommended that this value be checked before deployment</u>. <br>
+NOTE: Enabling this feature in a production deployment is a potential security risk. <br><u>It is highly recommended that this feature be disabled before deployment</u>. <br>
 
 **Configuration Identifier**: 
 WEBSPUBLIC<br>
@@ -757,6 +757,18 @@ WEBSPUBLIC<br>
 
 
 ##DeviceKeys
+
+NOTES NOTES NOTES
+
+
+This setting is not specific to the current application and will be applied globally on the device. 
+
+<b>Once set, this will persist across multiple RhoElements executions and can only be unset by performing a device warm boot.<br>
+
+
+[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
+
+
 ###FunctionKeysCapturable
 **Applies to Windows Mobile and Windows CE only; disabled by default**. 
 
@@ -770,10 +782,11 @@ Determines behavior of Function keys on Windows Mobile and Windows CE devices. W
 **Platforms**: 
 Android, iOS, WM/CE<br>
 
-[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
 
 ###EnableFunctionKey_X
-This setting is used to specify which function keys should be enabled (all Function keys are disabled by default). For each key to be enabled, define a EnableFunctionKey_X tag, replacing the 'X' with the key number being enabled. For example, to enable F1, specify EnableFunctionKey_F1 up to a maximum of F24. **This configuration setting requires a preload of the KeyCapture module**. 
+**Requires a preload of the KeyCapture module**.
+
+This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a EnableFunctionKey_X tag, replacing the 'X' with the key number being enabled. For example, to enable F1, specify EnableFunctionKey_F1.
 
 **Configuration Identifier**: 
 ENABLEFUNCTIONKEY_FX<br>
@@ -786,10 +799,15 @@ Android, iOS, WM/CE<br>
 
 **Sample XML code**:
     :::xml
-    <EnableFunctionKey_F1 value="1"/>
+    <DeviceKeys>
+    ...
+      <EnableFunctionKey_F1 value="1"/>
+    ...
+    </DeviceKeys>
+
 
 ####Device-specific notes
-* **On the Enterprise Tablet**, this tag can be used to enable the 'P' keys. For example, if the sample code above were run on an Enterprise Tablet, it would enable the 'P1' key.  
+* **On the Enterprise Tablet**, this tag can be used to enable the 'P' keys. For example, if the sample code above were run on an Enterprise Tablet, it would enable the 'P1' key.
 
 * This setting **on Windows Mobile and Windows CE** will be applied globally to the device and can be reset with a warm boot. 
 
@@ -799,13 +817,40 @@ Android, iOS, WM/CE<br>
 
 
 ###EnableApplicationKey_X
-**Applies to Windows Mobile and Windows CE only; disabled by default**. 
+* **Applies to Windows Mobile and Windows CE only; disabled by default**. 
+* **This configuration setting requires a preload of the KeyCapture module**.
+* **IMPORTANT: The mapping of application keys is device-specific; behavior may vary from one device to another.**  
 
-This parameter is specific to Windows Mobile and Windows CE:<br>Some devices have keys to access specific applications on the device, e.g. Calendar, Outlook etc, all of which are disabled by default.  This setting is used to specify which application keys should be enabled, numbered A1 to A16.  For each key you wish to enable define a EnableApplicationKey_X tag but replace 'X' with the key being enabled, e.g. EnableApplicationKey_A1.  Note that the mapping of keys to applications is device specific so A1 may have two functions on two different devices.  In order to use this configuration setting you must preload the KeyCapture module<P>This setting is not specific to the current application and will be applied globally on the device. <b>Once set, this will persist across multiple RhoElements executions and can only be unset by performing a device warm boot.<br>
+Specifies which WM/CE Application keys (numbered A1 to A16) should be enabled (all are disabled by default). For each key to be enabled, define a EnableApplicationKey_X tag, replacing the 'X' with the key being enabled. For example, to enable key A5, your tag will include 'EnableApplicationKey_A5' as in the sample, below. 
 
-Configuration Identifier: **Not Configurable**<br>
-Possible Values: **0 - Disabled, 1 - Enabled**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**: 
+Not Configurable<br>
+
+**Possible Values**: 
+0 - Disabled, 1 - Enabled<br>
+
+**Platforms**:
+Android, iOS, WM/CE<br>
+
+**Sample XML code**:
+    :::xml
+    <DeviceKeys>
+    ...
+     <EnableApplicationKey_A5 value="1"/>
+    ...
+    </DeviceKeys>
+
+
+
+
+
+
+
+
+>>>>>>> RESUME HERE TUESDAY
+
+
+
 
 
 
@@ -816,23 +861,38 @@ Platforms: **Android, iOS, WM/CE**<br>
 
 Number of milliseconds before the browser times out and navigates to the page specified in the badlink setting.  If it is determined that the destination is unreachable regardless of wait time, the 'badlink' page may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an on-line page if desired.<br>
 
-Configuration Identifier: **NAVTIMEOUT**<br>
-Possible Values: **Timeout in Milliseconds (max, value=45000)**<br>
-Platforms: **Android, iOS, WM/CE**<br>
-  
-###ScreenOrientation\\AutoRotate
-When disabled the orientation of the screen will not change as the device is rotated and vice versa.  This is a screen rotation lock.<br>
+**Configuration Identifier**: 
+NAVTIMEOUT<br>
 
-Configuration Identifier: **AUTOROTATE**<br>
-Possible Values: **0 - Disabled, 1 - Enabled**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Possible Values**: 
+Timeout in Milliseconds (max, value=45000)<br>
+
+**Platforms**: Android, iOS, WM/CE<br>
+
+##ScreenOrientation
+###AutoRotate
+When disabled the orientation of the screen will not change as the device is rotated. This is a screen rotation lock.<br>
+
+**Configuration Identifier**: 
+AUTOROTATE<br>
+
+**Possible Values**: 
+0 - Disabled, 1 - Enabled<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
 
 ###UserData
 Used to persist data when using Read/WriteUserSetting.<br>
 
-Configuration Identifier: **N/A**<br>
-Possible Values: **Any valid user setting.**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**: 
+N/A<br>
+
+**Possible Values**: 
+Any valid user setting.<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
 
 ###General\\Name
 The name of the application<br>
