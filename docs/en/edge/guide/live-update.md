@@ -11,9 +11,10 @@ This guide is designed to provide an overview of the steps necessary to quickly 
 
 ##Requirements
 ---
-Live Update is supported on the following platforms and devices:
+Live Update is supported on the following platforms and devices:  
+
 * Mac OS
-* Windows OS
+* Windows OS (Currently in Beta)
 * iOS
 * Android
 * Windows Mobile
@@ -133,6 +134,8 @@ Live Update can be used to update the following types of files at run time:
 * .rb
 * .erb
 * image files
+
+> Note: If you change a `.rb` file and apply the changes to a mobile application that uses Live Update, you will need to restart that application to view the changes.
 
 These files most be in either your app folder or your public folder for Live Update to immediately notice the changes.
 
