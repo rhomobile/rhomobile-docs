@@ -949,8 +949,12 @@ Determines whether to preload the NPAPI plugin to provide native JavaScript obje
 **Platforms**: Android, iOS, WM/CE<br>
 
 
->>>>>>>>>END QUESTION SECTION
 
+
+
+
+
+>>>>>>>>>>>>>>>>>RESUME HERE <<<<<<<<<<<<<<<<<<<<<<<<
 
 
 
@@ -958,14 +962,21 @@ Determines whether to preload the NPAPI plugin to provide native JavaScript obje
 
 ##Preloads
 ###Preload
-By default plugins will be loaded into memory when needed, e.g. when <code>Barcode.enable</code> is called, the <code>Barcode</code> plugin DLL will be loaded into memory. This loading operation takes takes a certain amount of time when it is performed for the first time; to prevent the user from noticing any lag when using their application, modules can be loaded in the background when RhoElements starts.  Specify a Preload tag for each module you wish to load at RhoElements startup; note that multiple modules may be defined in the same DLL but you still need to list all modules to preload here to see maximum benefit.<br>On low memory devices, it is recommended to preload all your required modules to avoid your program running out of memory during execution. <br>Preloads are not applicable to the enterprise tablet, as plugins are integral to RhoElements on this platform.<br>
+Defines plug-ins to be pre-loaded along with RhoElements rather than loading when needed by a program function. This prevents the user from experiencing a lag when performing a function for the first time. Plug-ins are otherwise loaded into memory as needed. For example, when `Barcode.enable` is called, the `Barcode` plug-in DLL will be loaded, causing a delay. 
+
+Specify a Preload tag for each module to be loaded when RhoElements starts up. Note that while multiple modules may be defined in the same DLL, all pre-loaded modules must be listed to see maximum benefit.
+
+Preload all required modules to avoid running out of memory during execution on low memory devices. 
+
+**Plug-ins are integral to RhoElements on the Enterprise Tablet, and therefore do not apply.<br>
 
 **Configuration Identifier**: PRELOAD<br>
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 
-###Scrolling\\ScrollTechnique
+##Scrolling
+###ScrollTechnique
 Specifies the technique used to scroll the viewport:<br/>
 * **FingerScroll:** Permits scrolling around a page with finger swiping (Android only)<br>
 * **Scrollbars:** When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<br>
