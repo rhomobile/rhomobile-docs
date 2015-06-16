@@ -681,7 +681,7 @@ Alpha-numeric text<br>
 Android, iOS, WM/CE<br>
 
 ###Timeout
-Defines the amount of time (in milliseconds) the application should wait for a connection to the URL specified in 'HostURL' before navigating to 'bad link' page. The minimum value is 30000; lower values will revert to 30000. Value should be a multiple of the value set in PollInterval.<br>
+Defines the amount of time (in milliseconds) the application should wait for a connection to the URL specified in 'HostURL' before displaying the 'bad link' page. The minimum value is 30000; lower values will revert to 30000. Value should be a multiple of the value set in PollInterval.<br>
 
 **Configuration Identifier**: 
 Timeout<br>
@@ -786,7 +786,7 @@ Android, iOS, WM/CE<br>
 ###EnableFunctionKey_X
 **Requires a preload of the KeyCapture module**.
 
-This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a EnableFunctionKey_X tag, replacing the 'X' with the key number being enabled. For example, to enable F1, specify EnableFunctionKey_F1.
+This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a tag using `EnableFunctionKey_X`, replacing the 'X' with the key number being enabled. For example, to enable F1, your tag will include `EnableFunctionKey_F1` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement. 
 
 **Configuration Identifier**: 
 ENABLEFUNCTIONKEY_FX<br>
@@ -821,7 +821,7 @@ Android, iOS, WM/CE<br>
 * **This configuration setting requires a preload of the KeyCapture module**.
 * **IMPORTANT: The mapping of application keys is device-specific; behavior may vary from one device to another.**  
 
-Specifies which WM/CE Application keys (numbered A1 to A16) should be enabled (all are disabled by default). For each key to be enabled, define a EnableApplicationKey_X tag, replacing the 'X' with the key being enabled. For example, to enable key A5, your tag will include 'EnableApplicationKey_A5' as in the sample, below. 
+Specifies which WM/CE Application keys (numbered A1 to A16) should be enabled (all are disabled by default). For each key to be enabled, define a tag using `EnableApplicationKey_X`, replacing the 'X' with the key being enabled. For example, to enable key A5, your tag will include `EnableApplicationKey_A5` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement.  
 
 **Configuration Identifier**: 
 Not Configurable<br>
@@ -859,7 +859,9 @@ Android, iOS, WM/CE<br>
 ##Navigation
 ###NavTimeout
 
-Number of milliseconds before the browser times out and navigates to the page specified in the badlink setting.  If it is determined that the destination is unreachable regardless of wait time, the 'badlink' page may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an on-line page if desired.<br>
+Defines the amount of time (in milliseconds) the application should wait for a page before displaying the 'bad link' message.
+
+If it is determined that the destination is unreachable regardless of wait time, the 'badlink' page may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an on-line page if desired.<br>
 
 **Configuration Identifier**: 
 NAVTIMEOUT<br>
