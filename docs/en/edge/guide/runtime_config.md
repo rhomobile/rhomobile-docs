@@ -670,7 +670,7 @@ Specifies the port number of the web server running locally on the device (defau
 
 **Configuration Identifier**: 
 WEBSPORT<br>
-**Possible Values*: 8080<br>
+**Possible Values**: 8080<br>
 **Platforms**: 
 Android, iOS, WM/CE<br>
 
@@ -698,13 +698,11 @@ WEBSPUBLIC<br>
 
 ##DeviceKeys
 
-NOTES NOTES NOTES
+####About DeviceKeys
 
+* **DeviceKey settings are applied globally on the device**; they are not contained within any single application. 
 
-This setting is not specific to the current application and will be applied globally on the device. 
-
-<b>Once set, this will persist across multiple RhoElements executions and can only be unset by performing a device warm boot.<br>
-
+* **Once set, DeviceKey settings persist until reset by a warm boot**.
 
 [Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
 
@@ -776,68 +774,51 @@ Android, iOS, WM/CE<br>
 
 ##Navigation
 ###NavTimeout
-Defines the amount of time (in milliseconds) the application should wait to establish communication with the relevant server (not for a page to fully load) before displaying the 'bad link' message. If the destination is unreachable, the bad link message might be displayed before the timeout is reached. The navigation timeout will not be invoked when navigating to an application's start page. The recommended best practice is to store the first page locally to avoid connectivity issues at start up. The app can then redirect to an on-line page if desired.<br>
+Defines the amount of time (in milliseconds) the application should wait *to establish communication with the relevant server* (as opposed to waiting for a page to fully load) before displaying the 'bad link' message. If the destination is unreachable, the bad link message might be displayed before the timeout is reached. The navigation timeout will not be invoked when navigating to an application's start page. The recommended best practice is to store the first page locally to avoid connectivity issues at start-up. The app can then redirect to an on-line page if desired.<br>
 
-**Configuration Identifier**: 
-NAVTIMEOUT<br>
-**Possible Values**: 
-Timeout in Milliseconds (max, value=45000)<br>
+**Configuration Identifier**: NAVTIMEOUT<br>
+**Possible Values**: Timeout in Milliseconds (max, value=45000)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 ##ScreenOrientation
 ###AutoRotate
 Acts as a rotation lock. When AutoRotate is disabled, screen will remain in a fixed position regardless of device orientation. When enabled, screen will automatically adjust orientation as the device is rotated. <br>
 
-**Configuration Identifier**: 
-AUTOROTATE<br>
-**Possible Values**: 
-0 - Disabled, 1 - Enabled<br>
-**Platforms**: 
-Android, iOS, WM/CE<br>
+**Configuration Identifier**: AUTOROTATE<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
 ##UserData
 Used to persist data when using Read/WriteUserSetting.<br>
 
-**Configuration Identifier**: 
-N/A<br>
-**Possible Values**: 
-Any valid user setting<br>
-**Platforms**: 
-Android, iOS, WM/CE<br>
+**Configuration Identifier**: N/A<br>
+**Possible Values**: Any valid user setting<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
 ##General
 ###Name
 Stores the name of the application.<br>
 
-**Configuration Identifier**: 
-Not Configurable<br>
-**Possible Values**:
-ASCII text<br>
-**Platforms**:
-Android, iOS, WM/CE<br>
+**Configuration Identifier**: Not Configurable<br>
+**Possible Values**: ASCII text<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
 
 ###StartPage
 Defines the start page of a RhoElements application, displayed at launch. This should be a local file to avoid connectivity issues on start-up.<br>
 
-**Configuration Identifier**: 
-STARTPAGE<br>
-**Possible Values**: 
-Fully qualified path to start page (case sensitive)<br>
-**Platforms**: 
-Android, iOS, WM/CE<br>
+**Configuration Identifier**: STARTPAGE<br>
+**Possible Values**: Fully qualified path to start page (case sensitive)<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
 ###UseRegularExpressions
 **Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser**.<br>
 
 Regular Expressions are used to maintain backward compatiblility with PocketBrowser syntax for controlling device capabilities. If backward compatiblility is not required, regular expressions can safely be disabled, possibly improving app performance. 
 
-**Configuration Identifier**: 
-USEREGULAREXPRESSIONS<br>
-**Possible Values**: 
-0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions<br>
-**Platforms**: 
-Android, iOS, WM/CE<br>
+**Configuration Identifier**: USEREGULAREXPRESSIONS<br>
+**Possible Values**: 0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
 ###HTTP_Proxy
 **Applies only to the Zebra WebKit engine.**
@@ -938,30 +919,30 @@ Determines whether to preload the NPAPI plugin to mimic the ODAX ActiveX object 
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###NPAPI\\Preloads\\PreloadLegacyNoSIP
-Whether or not to preload the NPAPI plug-in to mimic the NoSIP ActiveX object in WebKit.<br>
+###Preloads\\PreloadLegacyNoSIP
+Determines whether to preload the NPAPI plug-in to mimic the NoSIP ActiveX object in WebKit.<br>
 
 **Configuration Identifier**: PRELOADLEGACYNOSIP<br>
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###NPAPI\\Preloads\\PreloadLegacyAirBeam
-Not applicable to the Enterprise Tablet:<br>Whether or not to preload the NPAPI plugin to mimic the AirBeam ActiveX object in WebKit<br>
+###Preloads\\PreloadLegacyAirBeam
+Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX object in WebKit. **Not applicable to the Enterprise Tablet**. 
 
 **Configuration Identifier**: PRELOADLEGACYAIRBEAM<br>
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###NPAPI\\Preloads\\PreloadLegacyAPD
-Whether or not to preload the NPAPI plugin to mimic the APD ActiveX object in WebKit<br>
+###Preloads\\PreloadLegacyAPD
+Determines whether to preload the NPAPI plugin to mimic the APD ActiveX object in WebKit.<br>
 
 **Configuration Identifier**: PRELOADLEGACYAPD<br>
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 
-###NPAPI\\Preloads\\PreloadJSObjects
-Whether or not to preload the NPAPI plugin to provide native JavaScript objects for each of the modules<br>
+###Preloads\\PreloadJSObjects
+Determines whether to preload the NPAPI plugin to provide native JavaScript objects for each of the modules<br>
 
 **Configuration Identifier**: PRELOADLEGACYJSOBJECTS<br>
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
