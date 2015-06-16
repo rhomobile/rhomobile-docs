@@ -1,4 +1,4 @@
-# Runtime Application Configuration
+# Application Runtime Configuration
 Apart from your source code, the other files that control your application's runtime behavior are `rhoconfig.txt` and `Config.xml`.
 
 The values in `rhoconfig.txt` control different aspects of your application, such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
@@ -681,7 +681,7 @@ Alpha-numeric text<br>
 Android, iOS, WM/CE<br>
 
 ###Timeout
-Defines the amount of time (in milliseconds) the application should wait for a connection to the URL specified in 'HostURL' before displaying the 'bad link' page. The minimum value is 30000; lower values will revert to 30000. Value should be a multiple of the value set in PollInterval.<br>
+Defines the amount of time (in milliseconds) the application should wait for a connection to the URL specified in 'HostURL' before displaying the 'bad link' message. The minimum value is 30000; lower values will revert to 30000. Value should be a multiple of the value set in PollInterval.<br>
 
 **Configuration Identifier**: 
 Timeout<br>
@@ -840,28 +840,9 @@ Android, iOS, WM/CE<br>
     ...
     </DeviceKeys>
 
-
-
-
-
-
-
-
->>>>>>> RESUME HERE TUESDAY
-
-
-
-
-
-
-
-
 ##Navigation
 ###NavTimeout
-
-Defines the amount of time (in milliseconds) the application should wait for a page before displaying the 'bad link' message.
-
-If it is determined that the destination is unreachable regardless of wait time, the 'badlink' page may be loaded before NAVTIMEOUT.  This is the time taken to establish communication with the server, not the time taken to fully load the page.<br><br>Note that the navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an on-line page if desired.<br>
+Defines the amount of time (in milliseconds) the application should wait to establish communication with the relevant server (not for a page to fully load) before displaying the 'bad link' message. If the destination is unreachable, the bad link message might be displayed before the timeout is reached. The navigation timeout will not be invoked when navigating to an application's start page. The recommended best practice is to store the first page locally to avoid connectivity issues at start up. The app can then redirect to an on-line page if desired.<br>
 
 **Configuration Identifier**: 
 NAVTIMEOUT<br>
@@ -873,7 +854,7 @@ Timeout in Milliseconds (max, value=45000)<br>
 
 ##ScreenOrientation
 ###AutoRotate
-When disabled the orientation of the screen will not change as the device is rotated. This is a screen rotation lock.<br>
+Acts as a rotation lock. When AutoRotate is disabled, screen will remain in a fixed position regardless of device orientation. When enabled, screen will automatically adjust orientation as the device is rotated. <br>
 
 **Configuration Identifier**: 
 AUTOROTATE<br>
@@ -884,34 +865,63 @@ AUTOROTATE<br>
 **Platforms**: 
 Android, iOS, WM/CE<br>
 
-###UserData
+##UserData
 Used to persist data when using Read/WriteUserSetting.<br>
 
 **Configuration Identifier**: 
 N/A<br>
 
 **Possible Values**: 
-Any valid user setting.<br>
+Any valid user setting<br>
 
 **Platforms**: 
 Android, iOS, WM/CE<br>
 
-###General\\Name
-The name of the application<br>
+##General
+###Name
+Stores the name of the application.<br>
 
-Configuration Identifier: **Not Configurable**<br>
-Possible Values: **ASCII text**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**: 
+Not Configurable<br>
 
-###General\\StartPage
-Defines the start page of the RhoElements application, the first page to be displayed when RhoElements is launched.  This should be a local file to avoid connectivity issues on start up.<br>
+**Possible Values**:
+ASCII text<br>
 
-Configuration Identifier: **STARTPAGE**<br>
-Possible Values: **Fully qualified path to start page (case sensitive)**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Platforms**:
+Android, iOS, WM/CE<br>
 
-###General\\UseRegularExpressions
-For backward compatiblility with PocketBrowser syntax for controlling device capabilities, RhoElements uses a Regular Expression engine to apply a series of transformations to each meta tag or JavaScript call being processed, as defined in RegEx.xml. If you are developing applications without the need to be backwardly compatible with PocketBrowser syntax you can disable regular expressions, this can result in an improvement in application performance, depending on how the application is structured. This setting is only applicable to RhoMobile Suite version 2.2 and above on Windows devices.<br>
+
+###StartPage
+Defines the start page of a RhoElements application, displayed at launch. This should be a local file to avoid connectivity issues on start-up.<br>
+
+**Configuration Identifier**: 
+STARTPAGE<br>
+
+**Possible Values**: 
+Fully qualified path to start page (case sensitive)<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+
+
+
+
+>>>>>>> RESUME HERE
+
+
+
+
+
+
+
+
+
+
+###UseRegularExpressions
+**Applies only to apps built with RhoMobile Suite 2.2 or higher for Windows Mobile/CE devices** and if backward compatibility with PocoetBrowser is required.<br>
+
+Regular Expressions are used to maintain backward compatiblility with PocketBrowser syntax for controlling device capabilities. If backward compatiblility is not required, regular expressions can safely be disabled, possibly improving app performance. 
 
 Configuration Identifier: **USEREGULAREXPRESSIONS**<br>
 Possible Values: **0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions**<br>
