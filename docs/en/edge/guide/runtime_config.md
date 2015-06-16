@@ -903,93 +903,109 @@ Fully qualified path to start page (case sensitive)<br>
 **Platforms**: 
 Android, iOS, WM/CE<br>
 
-
-
-
-
->>>>>>> RESUME HERE
-
-
-
-
-
-
-
-
-
-
 ###UseRegularExpressions
-**Applies only to apps built with RhoMobile Suite 2.2 or higher for Windows Mobile/CE devices** and if backward compatibility with PocoetBrowser is required.<br>
+**Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser**.<br>
 
 Regular Expressions are used to maintain backward compatiblility with PocketBrowser syntax for controlling device capabilities. If backward compatiblility is not required, regular expressions can safely be disabled, possibly improving app performance. 
 
-Configuration Identifier: **USEREGULAREXPRESSIONS**<br>
-Possible Values: **0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**: 
+USEREGULAREXPRESSIONS<br>
+
+**Possible Values**: 
+0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions<br>
+
+**Platforms**: 
+Android, iOS, WM/CE<br>
 
 ###HTTP_Proxy
-Specifies the HTTP Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Note that this setting only applies to the Zebra WebKit engine.<br>
+**Applies only to the Zebra WebKit engine.**
 
-Configuration Identifier: **HTTPPROXY**<br>
-Possible Values: **URL:PortNo**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+Specifies the HTTP Proxy settings. For Internet Explorer, proxy settings are picked up from the Windows connection manager. Leave this field blank if no proxy is to be used. <br>
+
+**Configuration Identifier**: HTTPPROXY<br>
+
+**Possible Values**: URL:PortNo<br>
+
+**Platforms**: Android, iOS, WM/CE<br>
 
 ###HTTPS_Proxy
-Specifies the HTTPS Proxy settings to use in the format URL:port. Proxy settings for the Internet Explorer engine are picked up from the Windows connection manager. Leave this field blank to not use a proxy. Note that this setting only applies to the Zebra WebKit engine<br>
+**Applies only to the Zebra WebKit engine.**
 
-Configuration Identifier: **N/A**<br>
-Possible Values: **URL:PortNo**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+Specifies the HTTPS Proxy settings. For Internet Explorer, proxy settings are picked up from the Windows connection manager. Leave this field blank if no proxy is to be used. <br>
 
+**Configuration Identifier**: N/A<br>
+
+**Possible Values**: URL:PortNo<br>
+
+**Platforms**: Android, iOS, WM/CE<br>
 
 ###No_Proxy
-Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24. Note this configuration setting is usable with the Zebra Webkit browser only.<br>
+**Applies only to the Zebra WebKit engine.**
 
-Configuration Identifier: **NOPROXY**<br>
-Possible Values: **Comma-separated list of direct-access addresses**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24.<br>
 
-###WebDB\\WebStorageDBPath
-Path to an existing directory to store Web Storage databases<br>
+**Configuration Identifier**: NOPROXY<br>
 
-Configuration Identifier: **WEBSTORAGEDBPATH**<br>
-Possible Values: **Fully qualified local path (case sensitive)**<br>
-Platforms: **Windows Mobile / CE Webkit**<br>
+**Possible Values**: Comma-separated list of direct-access addresses<br>
 
-###WebDB\\WebSQLDBQuota
-Web SQL database maximum quota per database<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
-Configuration Identifier: **WEBSQLDBQUOTA**<br>
-Possible Values: **Size in bytes**<br>
-Platforms: **Windows Mobile / CE Webkit**<br>
+##WebDB
+###WebStorageDBPath
+Sets the path to an existing directory for storage of web storage databases.<br>
 
-###WebDB\\WebSQLDBPath
+**Configuration Identifier**: WEBSTORAGEDBPATH<br>
+
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+
+**Platforms**: Windows Mobile / CE Webkit<br>
+
+
+###WebSQLDBQuota
+Sets the maximum per-database quota for Web SQL databases.<br>
+
+**Configuration Identifier**: WEBSQLDBQUOTA<br>
+
+**Possible Values**: Size in bytes<br>
+
+**Platforms**: WM/CE Webkit<br>
+
+###WebSQLDBPath
 Path to an existing directory to store Web SQL databases<br>
 
-Configuration Identifier: **WEBSQLDBPATH**<br>
-Possible Values: **Fully qualified local path (case sensitive)**<br>
-Platforms: **WM/CE Webkit**<br>
+**Configuration Identifier**: WEBSQLDBPATH<br>
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+**Platforms**: WM/CE Webkit<br>
 
-###ApplicationCache\\ApplicationCacheQuota
+##ApplicationCache
+###ApplicationCacheQuota
 Application Cache data maximum quota per application.<br>
 
-Configuration Identifier: **APPLICATIONCACHEQUOTA**<br>
-Possible Values: **Size in bytes**<br>
-Platforms: **WM/CE Webkit**<br>
+**Configuration Identifier**: APPLICATIONCACHEQUOTA<br>
+**Possible Values**: Size in bytes**<br>
+**Platforms**: WM/CE Webkit<br>
 
-###ApplicationCache\\ApplicationCachePath
+###ApplicationCachePath
 Path to an existing directory to store Application Cache data.<br>
 
-Configuration Identifier: **APPLICATIONCACHEPATH**<br>
-Possible Values: **Fully qualified local path (case sensitive)**<br>
-Platforms: **WM/CE Webkit**<br>
+**Configuration Identifier**: APPLICATIONCACHEPATH<br>
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+**Platforms**: WM/CE Webkit<br>
 
-###NPAPI\\NPAPIDirectory
+##NPAPI
+###NPAPIDirectory
 Not applicable to the Enterprise Tablet:<br>Path to an existing directory where the NPAPI Plugins are stored<br>
 
-Configuration Identifier: **NPAPIDIRECTORY**<br>
-Possible Values: **ully qualified local path (case sensitive)**<br>
-Platforms: **Android, iOS, WM/CE**<br>
+**Configuration Identifier**: NPAPIDIRECTORY<br>
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+
+>>>>>>>>> QUESTION SECTION
+
+
+
+
 
 
 ###NPAPI\\Preloads\\PreloadLegacyActiveX
@@ -1005,7 +1021,6 @@ Whether or not to preload the NPAPI plugin to mimic the Generic ActiveX object i
 Configuration Identifier: **PRELOADLEGACYGENERIC**<br>
 Possible Values: **0 - Do Not Preload, 1 - Preload**<br>
 Platforms: **Android, iOS, WM/CE**<br>
-
 
 ###NPAPI\\Preloads\\PreloadLegacyODAX
 Not applicable to the Enterprise Tablet:<br>Whether or not to preload the NPAPI plugin to mimic the ODAX ActiveX object in WebKit.<br>
@@ -1044,7 +1059,15 @@ Possible Values: **0 - Do Not Preload, 1 - Preload**<br>
 Platforms: **Android, iOS, WM/CE**<br>
 
 
-###Preloads\\Preload
+>>>>>>>>>END QUESTION SECTION
+
+
+
+
+
+
+##Preloads
+###Preload
 By default plugins will be loaded into memory when needed, e.g. when <code>Barcode.enable</code> is called, the <code>Barcode</code> plugin DLL will be loaded into memory. This loading operation takes takes a certain amount of time when it is performed for the first time; to prevent the user from noticing any lag when using their application, modules can be loaded in the background when RhoElements starts.  Specify a Preload tag for each module you wish to load at RhoElements startup; note that multiple modules may be defined in the same DLL but you still need to list all modules to preload here to see maximum benefit.<br>On low memory devices, it is recommended to preload all your required modules to avoid your program running out of memory during execution. <br>Preloads are not applicable to the enterprise tablet, as plugins are integral to RhoElements on this platform.<br>
 
 Configuration Identifier: **PRELOAD**<br>
