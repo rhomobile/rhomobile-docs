@@ -978,13 +978,15 @@ Defines plug-ins to be pre-loaded with RhoElements rather than loading as needed
 ##Scrolling
 ###ScrollTechnique
 Specifies the technique used to scroll the viewport:<br/>
-* **FingerScroll:** Permits scrolling around a page with finger swiping (Android only)<br>
-* **Scrollbars:** When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page.<br>
-* **None:** No scrollbars will be displayed and the page will not respond to finger swipes.<br>
-NOTE: FingerScroll may interfere with drawing on a Canvas element<br>
+
+* **FingerScroll (Android only):** Permits scrolling around a page with finger swiping<br>
+* **Scrollbars:** Scrollbars will be presented when the page is too large to fit the viewport<br>
+* **None:** No scrollbars will be displayed and the page will not respond to finger swipes<br>
+
+NOTE: FingerScroll may interfere with drawing on a Canvas element.<br>
 
 **Configuration Identifier**: SCROLLTECHNIQUE<br>
-**Possible Values**: FingerScroll (Android only), Scrollbars, None<br>
+**Possible Values**: FingerScroll, Scrollbars, None<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###Authentication\\Username
