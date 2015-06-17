@@ -427,12 +427,39 @@ NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using 
 
 
 
+##ApplicationCache
+###ApplicationCacheQuota
+Application Cache data maximum quota per application.<br>
 
+**Configuration Identifier**: APPLICATIONCACHEQUOTA<br>
+**Possible Values**: Size in bytes<br>
+**Platforms**: WM/CE Webkit<br>
 
+###ApplicationCachePath
+Path to an existing directory to store Application Cache data.<br>
 
+**Configuration Identifier**: APPLICATIONCACHEPATH<br>
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+**Platforms**: WM/CE Webkit<br>
 
+##Authentication
+###Password
+Specifies the password to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of "". 
 
+NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. Your application should be designed to handle this scenario.<br>
 
+**Configuration Identifier**: AUTHPASS_GLOBAL<br>
+**Possible Values**: ASCII text<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+###Username
+Specifies the username to be provided automatically when RhoElements is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of "". 
+
+NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. Your application should be designed to handle this scenario.<br>
+
+**Configuration Identifier**: AUTHUSER_GLOBAL<br>
+**Possible Values**: ASCII text<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
 ##DebugButtons
 ###DebugButtonsEnabled
@@ -441,6 +468,209 @@ When enabled, presents a set of controls useful for development and debugging pu
 **Configuration Identifier**: DEBUGBUTTONSENABLED<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
+
+##DefaultMetaTags
+###MetaTag
+Permits a default meta tag to be specified so that a tag required by the application need not be present on every HTML page. Set a default tag by specifying the tag's module, followed by the tilda character (~) and the properties of the module you wish to set, as specified in [EMML 1.1](../../2.2.0/rhoelements/EMMLOverview#emml-11-the-current-standard). If the meta tag is present in both the configuration and a loaded page, the page will take priority. Only persistent tags can be set logically in the configuration. Tag persistence is covered in the 'additional information' section in the help file.<br>
+
+**Configuration Identifier**: DEFAULTMETATAG<br>
+**Possible Values**: [Module]~[Contents expressed in EMML1.1]<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+
+
+
+
+
+##DeviceKeys
+
+####About DeviceKeys
+
+* **DeviceKey settings are applied globally on the device**; they're not contained to a single application. 
+* **Once set, DeviceKey settings persist until reset by a warm boot**.
+
+[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
+
+###EnableApplicationKey_X
+* **Requires a preload of the KeyCapture module**.
+* **Applies to Windows Mobile and Windows CE only; disabled by default**. 
+* **Application-key mapping is device-specific; behavior may vary from one device to another.** 
+
+Specifies which WM/CE Application keys (numbered A1 to A16) should be enabled (all are disabled by default). For each key to be enabled, define a tag using `EnableApplicationKey_X`, replacing the 'X' with the key being enabled. For example, to enable key A5, your tag will include `EnableApplicationKey_A5` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement. 
+
+**Configuration Identifier**: Not Configurable<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+**Platforms**: Windows Mobile/CE<br>
+
+**Sample XML code**:
+    :::xml
+    <DeviceKeys>
+      ...
+      <EnableApplicationKey_A5 value="1"/>
+      ...
+    </DeviceKeys>
+
+###EnableBacklightSlider
+**Applies to MC2100 only**.
+
+Controls whether the backlight slider is available using the Orange+F2 key combination on Zebra's [MC2100 mobile computer](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html). This setting is not application specific; it will be applied globally on the device.<br>
+
+**Configuration Identifier**: ENABLEBACKLIGHTSLIDER<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+**Platforms**: Windows CE<br>
+
+###EnableCtrlKey_X
+Specifies which control-key combinations (copy, paste, etc.) should be enabled. **All are disabled on Windows CE by default**. 
+
+To enable a control-key combination, define a tag using `EnableCtrlKey_X`, replacing the 'X' with the key being enabled. For example, to enable copying with control-C, your tag will include `EnableCtrlKey_C` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement.
+
+**Configuration Identifier**: Not Configurable<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+    :::xml
+    <DeviceKeys>
+    ...
+      <EnableCtrlKey_C     value="0"/>
+    ...
+    </DeviceKeys>
+
+
+###EnableFunctionKey_X
+**Requires a preload of the KeyCapture module**.
+
+This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a tag using `EnableFunctionKey_X`, replacing the 'X' with the key number being enabled. For example, to enable F1, your tag will include `EnableFunctionKey_F1` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement. 
+
+**Configuration Identifier**: ENABLEFUNCTIONKEY_FX<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+**Sample XML code**:
+
+    :::xml
+      <DeviceKeys>
+        ...
+        <EnableFunctionKey_F1 value="1"/>
+        ...
+      </DeviceKeys>
+
+####Device-specific notes
+* **On the Enterprise Tablet, this tag can be used to enable the 'P' keys**. For example, if the sample code above were run on an Enterprise Tablet, it would enable the 'P1' key.
+* This setting **on Windows Mobile and Windows CE** is applied globally to the device and can be reset with a warm boot. 
+* **On the Zebra MC40**, F1 is mapped to the volume-down button, F2 to the volume-up button and F3 to the search button.
+
+[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
+
+###FunctionKeysCapturable
+**Applies to Windows Mobile and Windows CE only; disabled by default**. 
+
+Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the [Key Capture API](/api/keycapture). When disabled, keys revert to the device's default behavior. **This setting is not specific to an application. When enabled, settings are applied globally to the device**. 
+
+**Configuration Identifier**: FUNCTIONKEYSCAPTURABLE<br>
+**Possible Values**: 
+0 - 'F keys' not capturable, 1 - 'F keys' capturable<br>
+**Platforms**: 
+Windows Mobile/CE<br>
+
+###EnableVolumeSlider
+**Applies to [MC2100](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html) only**.
+
+Controls whether the speaker volume slider is available using the Orange+F1 key combination on Zebra's [MC2100 mobile computer](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html). **This setting is not application specific; it will be applied globally on the device**.<br>
+
+**Configuration Identifier**: ENABLEVOLUMESLIDER<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+**Platforms**: Windows CE<br>
+
+##FileLocations
+###RegExFile
+**Applies only to Windows Mobile/CE**.
+
+Defines the location of the XML file that contains the conversions to be used for backward compatibility with EMML 1.0.<br>
+
+**Configuration Identifier**: REGEXFILE<br>
+**Possible Values**: Fully qualified path to file defining the regular expressions (case sensitive)<br>
+**Platforms**: Windows Mobile/CE<br>
+
+###PluginFile
+Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between RhoElements modules. **Not applicable to the Enterprise Tablet**.<br>
+
+**Configuration Identifier**: 
+PLUGINFILE<br>
+**Possible Values**: 
+Fully qualified path to file defining the plugins (case sensitive)<br>
+**Platforms**: 
+Android, iOS, WM/CE<br>
+
+##General
+###Name
+Stores the name of the application.<br>
+
+**Configuration Identifier**: Not Configurable<br>
+**Possible Values**: ASCII text<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+###StartPage
+Defines the start page of a RhoElements application, displayed at launch. This should be a local file to avoid connectivity issues on start-up.<br>
+
+**Configuration Identifier**: STARTPAGE<br>
+**Possible Values**: Fully qualified path to start page (case sensitive)<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+###UseRegularExpressions
+**Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser**.<br>
+
+Regular Expressions are used to maintain backward compatiblility with PocketBrowser syntax for controlling device capabilities. If backward compatiblility is not required, regular expressions can safely be disabled, possibly improving app performance. 
+
+**Configuration Identifier**: USEREGULAREXPRESSIONS<br>
+**Possible Values**: 0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+##Geolocation
+###GeolocationEnabled
+Controls HTML5 Geolocation. When enabled on a device that supports geolocation and is in range of a GPS network, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called, notifying the app that the permission to using Geolocation is disabled.<br>
+
+**Configuration Identifier**: Not Configurable<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+##HTTP_Proxy
+###HTTP_Proxy
+**Applies only to the Zebra WebKit engine.**
+
+Specifies the URL and port number for the HTTP Proxy. For Internet Explorer, proxy settings are picked up from the Windows connection manager. Leave this field blank if no proxy is to be used. <br>
+
+**Configuration Identifier**: HTTPPROXY<br>
+**Possible Values**: URL:PortNo<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+###HTTPS_Proxy
+**Applies only to the Zebra WebKit engine.**
+
+Specifies the HTTPS Proxy settings. For Internet Explorer, proxy settings are picked up from the Windows connection manager. Leave this field blank if no proxy is to be used. <br>
+
+**Configuration Identifier**: N/A<br>
+**Possible Values**: URL:PortNo<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+###No_Proxy
+**Applies only to the Zebra WebKit engine.**
+
+Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24.<br>
+
+**Configuration Identifier**: NOPROXY<br>
+**Possible Values**: Comma-separated list of direct-access addresses<br>
+**Platforms**: Android, iOS, WM/CE<br>
+
+
+
+
+
+
+
+
+
+
+
 
 
 ##Logger
@@ -543,29 +773,6 @@ File size in kilobytes<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 
-##FileLocations
-###RegExFile
-**Applies only to Windows Mobile/CE**.
-
-Defines the location of the XML file that contains the conversions to be used for backward compatibility with EMML 1.0.<br>
-
-**Configuration Identifier**:
-REGEXFILE<br>
-**Possible Values**:
-Fully qualified path to file defining the regular expressions (case sensitive)<br>
-**Platforms**:
-Android, iOS, WM/CE<br>
-
-
-###PluginFile
-Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between RhoElements modules. **Not applicable to the Enterprise Tablet**.<br>
-
-**Configuration Identifier**: 
-PLUGINFILE<br>
-**Possible Values**: 
-Fully qualified path to file defining the plugins (case sensitive)<br>
-**Platforms**: 
-Android, iOS, WM/CE<br>
 
 ##Screen
 ###FullScreen
@@ -696,82 +903,6 @@ WEBSPUBLIC<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 
-##DeviceKeys
-
-####About DeviceKeys
-
-* **DeviceKey settings are applied globally on the device**; they are not contained within any single application. 
-
-* **Once set, DeviceKey settings persist until reset by a warm boot**.
-
-[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
-
-
-###FunctionKeysCapturable
-**Applies to Windows Mobile and Windows CE only; disabled by default**. 
-
-Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the [Key Capture API](/api/keycapture). When disabled, keys revert to the device's default behavior. NOTE: This setting is not specific to an application. When enabled, settings are applied globally to the device. 
-
-**Configuration Identifier**: FUNCTIONKEYSCAPTURABLE<br>
-**Possible Values**: 
-0 - 'F keys' not capturable, 1 - 'F keys' capturable<br>
-**Platforms**: 
-Android, iOS, WM/CE<br>
-
-
-###EnableFunctionKey_X
-**Requires a preload of the KeyCapture module**.
-
-This setting is used to specify which Function keys (F1 to F24) should be enabled (all Function keys are disabled by default). For each key to be enabled, define a tag using `EnableFunctionKey_X`, replacing the 'X' with the key number being enabled. For example, to enable F1, your tag will include `EnableFunctionKey_F1` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement. 
-
-**Configuration Identifier**: 
-ENABLEFUNCTIONKEY_FX<br>
-**Possible Values**: 
-0 - Disabled, 1 - Enabled<br>
-**Platforms**: 
-Android, iOS, WM/CE<br>
-
-**Sample XML code**:
-  :::xml
-  <DeviceKeys>
-  ...
-   <EnableFunctionKey_F1 value="1"/>
-  ...
-  </DeviceKeys>
-
-
-####Device-specific notes
-* **On the Enterprise Tablet**, this tag can be used to enable the 'P' keys. For example, if the sample code above were run on an Enterprise Tablet, it would enable the 'P1' key.
-
-* This setting **on Windows Mobile and Windows CE** will be applied globally to the device and can be reset with a warm boot. 
-
-* **On the Zebra MC40**, F1 is mapped to the volume-down button, F2 to the volume-up button and F3 to the search button.
-
-[Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
-
-
-###EnableApplicationKey_X
-* **Applies to Windows Mobile and Windows CE only; disabled by default**. 
-* **This configuration setting requires a preload of the KeyCapture module**.
-* **IMPORTANT: The mapping of application keys is device-specific; behavior may vary from one device to another.** 
-
-Specifies which WM/CE Application keys (numbered A1 to A16) should be enabled (all are disabled by default). For each key to be enabled, define a tag using `EnableApplicationKey_X`, replacing the 'X' with the key being enabled. For example, to enable key A5, your tag will include `EnableApplicationKey_A5` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement. 
-
-**Configuration Identifier**: 
-Not Configurable<br>
-**Possible Values**: 
-0 - Disabled, 1 - Enabled<br>
-**Platforms**:
-Android, iOS, WM/CE<br>
-
-**Sample XML code**:
-  :::xml
-  <DeviceKeys>
-  ...
-   <EnableApplicationKey_A5 value="1"/>
-  ...
-  </DeviceKeys>
-
 ##Navigation
 ###EnableSSL3
 When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against <a href="https://www.us-cert.gov/ncas/alerts/TA14-290A">the POODLE attack vulnerability</a>.<br>
@@ -802,57 +933,6 @@ Used to persist data when using Read/WriteUserSetting.<br>
 **Possible Values**: Any valid user setting<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-##General
-###Name
-Stores the name of the application.<br>
-
-**Configuration Identifier**: Not Configurable<br>
-**Possible Values**: ASCII text<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-
-###StartPage
-Defines the start page of a RhoElements application, displayed at launch. This should be a local file to avoid connectivity issues on start-up.<br>
-
-**Configuration Identifier**: STARTPAGE<br>
-**Possible Values**: Fully qualified path to start page (case sensitive)<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-###UseRegularExpressions
-**Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser**.<br>
-
-Regular Expressions are used to maintain backward compatiblility with PocketBrowser syntax for controlling device capabilities. If backward compatiblility is not required, regular expressions can safely be disabled, possibly improving app performance. 
-
-**Configuration Identifier**: USEREGULAREXPRESSIONS<br>
-**Possible Values**: 0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-###HTTP_Proxy
-**Applies only to the Zebra WebKit engine.**
-
-Specifies the HTTP Proxy settings. For Internet Explorer, proxy settings are picked up from the Windows connection manager. Leave this field blank if no proxy is to be used. <br>
-
-**Configuration Identifier**: HTTPPROXY<br>
-**Possible Values**: URL:PortNo<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-###HTTPS_Proxy
-**Applies only to the Zebra WebKit engine.**
-
-Specifies the HTTPS Proxy settings. For Internet Explorer, proxy settings are picked up from the Windows connection manager. Leave this field blank if no proxy is to be used. <br>
-
-**Configuration Identifier**: N/A<br>
-**Possible Values**: URL:PortNo<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-###No_Proxy
-**Applies only to the Zebra WebKit engine.**
-
-Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24.<br>
-
-**Configuration Identifier**: NOPROXY<br>
-**Possible Values**: Comma-separated list of direct-access addresses<br>
-**Platforms**: Android, iOS, WM/CE<br>
 
 ##WebDB
 ###WebStorageDBPath
@@ -877,24 +957,11 @@ Path to an existing directory to store Web SQL databases<br>
 **Possible Values**: Fully qualified local path (case sensitive)<br>
 **Platforms**: WM/CE Webkit<br>
 
-##ApplicationCache
-###ApplicationCacheQuota
-Application Cache data maximum quota per application.<br>
 
-**Configuration Identifier**: APPLICATIONCACHEQUOTA<br>
-**Possible Values**: Size in bytes<br>
-**Platforms**: WM/CE Webkit<br>
-
-###ApplicationCachePath
-Path to an existing directory to store Application Cache data.<br>
-
-**Configuration Identifier**: APPLICATIONCACHEPATH<br>
-**Possible Values**: Fully qualified local path (case sensitive)<br>
-**Platforms**: WM/CE Webkit<br>
 
 ##NPAPI
 ###NPAPIDirectory
-Not applicable to the Enterprise Tablet:<br>Path to an existing directory where the NPAPI Plugins are stored<br>
+Not applicable to the Enterprise Tablet:<br>Path to an existing directory containing the NPAPI Plugins.<br>
 
 **Configuration Identifier**: NPAPIDIRECTORY<br>
 **Possible Values**: Fully qualified local path (case sensitive)<br>
@@ -984,25 +1051,6 @@ NOTE: FingerScroll may interfere with drawing on a Canvas element.<br>
 **Possible Values**: FingerScroll, Scrollbars, None<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-##Authentication
-###Username
-Specifies the username to be provided automatically when RhoElements is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of "". 
-
-NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. Your application should be designed to handle this scenario.<br>
-
-**Configuration Identifier**: AUTHUSER_GLOBAL<br>
-**Possible Values**: ASCII text<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-###Password
-Specifies the password to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of "". 
-
-NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. Your application should be designed to handle this scenario.<br>
-
-**Configuration Identifier**: AUTHPASS_GLOBAL<br>
-**Possible Values**: ASCII text<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
 ##HTMLStyles
 ###CaretWidth
 **Applies only to Webkit on Windows Mobile or Windows CE**.
@@ -1025,7 +1073,7 @@ Specifies the default font when rendering text in web pages. The specified font 
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###FontDirectory
-Specifies the font directory where true type fonts can be found. The default font directory for all Zebra WM/CE devices is `\Windows`. **Not applicable to the Enterprise Tablet**.
+Specifies the font directory containing true type fonts. The default font directory for all Zebra WM/CE devices is `\Windows`. **Not applicable to the Enterprise Tablet**.
 
 **Configuration Identifier**: FONTDIRECTORY<br>
 **Possible Values**: \Windows<br>
@@ -1041,7 +1089,7 @@ Controls which fonts will be used. When set to '0' (default) the FreeType librar
 * Some early BSPs of CE7 do not support the native font render. 
 * The log file displys the font engine in use on launch. 
 
-NOTE: This config element is not currently available on MC92, VC70 or WT41N0.<br>
+NOTE: This configuration element is currently unavailable on MC92, VC70 or WT41N0 devices.<br>
 
 **Configuration Identifier**: USENATIVEFONTS<br>
 **Possible Values**: 0 - Use FontFamily Setting, 1 - Use FreeType font library<br>
@@ -1061,27 +1109,6 @@ Controls window resizing when the soft input panel (on-screen keyboard) is displ
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>>>>>>>>>>>>>>>>>>QUESTION (android only, CE off screen)
-
 ###EnableSIP
 Controls whether soft input panel (on-screen keyboard) can be used. (Android only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)<br>
 
@@ -1094,15 +1121,6 @@ Controls whether soft input panel (on-screen keyboard) can be used. (Android onl
 **Applies to Windows Mobile and Windows CE only**. 
 
 Controls whether the scanner can be used when battery charge level is low. Set to '0' to disable scanning with low battery and '1' to enable. **Can be overridden by calling `Barcode.enable`**.<br>
-
-
-
-
-
-
-
-
->>>>>>>>>>>>>CONFLICT (WM/CE only)
 
 **Configuration Identifier**: LOWBATTERYSCAN<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
@@ -1246,22 +1264,6 @@ Sets the default viewport width for pages that do not have a viewport meta tag. 
 **Possible Values**: Number<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>>>>>>>>>>>>>>>>>>>> iOS CONFLICT:
-
 ###CaFile
 Specifies the location of a file of CA certificates in PEM format. [See openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. This setting is supported on Android and Windows Mobile/CE only.<br>
 
@@ -1329,59 +1331,6 @@ Controls whether to request SSLv3 connections instead of TLS. By default, all re
 **Possible Values**: 0 - TLS Not Disabled, 1 - TLS Disabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-##DeviceKeys
-###EnableCtrlKey_X
-Specifies which control-key combinations (for copy, paste, etc.) should be enabled. **All are disabled on Windows CE by default**. 
-
-To enable a control-key combination, define a tag using `EnableCtrlKey_X`, replacing the 'X' with the key being enabled. For example, to enable copying with control-C, your tag will include `EnableCtrlKey_C` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement.
-
-**Configuration Identifier**: Not Configurable<br>
-**Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-    :::xml
-    <DeviceKeys>
-    ...
-      <EnableCtrlKey_C     value="0"/>
-    ...
-    </DeviceKeys>
-  
-
-###EnableVolumeSlider
-**Applies to [MC2100](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html) only**.
-
-Controls whether the speaker volume slider is available using the Orange+F1 key combination on Zebra's [MC2100 mobile computer](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html). This setting is not application specific; it will be applied globally on the device.<br>
-
-**Configuration Identifier**: ENABLEVOLUMESLIDER<br>
-**Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Windows CE<br>
-
-
-###EnableBacklightSlider
-**Applies to MC2100 only**.
-
-Controls whether the backlight slider is available using the Orange+F2 key combination on Zebra's [MC2100 mobile computer](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html). This setting is not application specific; it will be applied globally on the device.<br>
-
-**Configuration Identifier**: ENABLEBACKLIGHTSLIDER<br>
-**Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Windows CE<br>
-
-
-##DefaultMetaTags
-###MetaTag
-Permits a default meta tag to be specified so that a tag required by the application need not be present on every HTML page. Set a default tag by specifying the tag's module, followed by the tilda character (~) and the properties of the module you wish to set, as specified in [EMML 1.1](../../2.2.0/rhoelements/EMMLOverview#emml-11-the-current-standard). If the meta tag is present in both the configuration and a loaded page, the page will take priority. Only persistent tags can be set logically in the configuration. Tag persistence is covered in the 'additional information' section in the help file.<br>
-
-**Configuration Identifier**: DEFAULTMETATAG<br>
-**Possible Values**: [Module]~[Contents expressed in EMML1.1]<br>
-**Platforms**: Android, iOS, WM/CE<br>
-
-##Geolocation
-###GeolocationEnabled
-Controls HTML5 Geolocation. When enabled on a device that supports geolocation and is in range of a GPS network, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called, notifying the app that the permission to using Geolocation is disabled.<br>
-
-**Configuration Identifier**: Not Configurable<br>
-**Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Android, iOS, WM/CE<br>
 
 ##TabInstance
 ###NewTabPhysicalMemLimit
