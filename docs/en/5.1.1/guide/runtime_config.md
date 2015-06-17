@@ -190,7 +190,6 @@ Sample yaml code:
     
     <Navigation>
     ...
-    <NavTimeout value="45000"/>
     <EnableSSL3 value="0"/>
     # value="0" (SSL3 disabled) 
     # value="1" (SSL3 enabled)
@@ -420,26 +419,6 @@ The `Config.xml` file affects only applications that use Zebra's Webkit. This se
 NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
 
 > Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
-
-###Logger
-Sets the protocol over which the logging data will be sent<br>
-
-
-| Configuration<br> Identifier | Possible<br> Values | Platforms
-|:-------------------------:|:-------------------:|:--------------------
-| **LOGPROTOCOL** | **"File"** or <br>**"HTTP"** | **Android, iOS, WM/CE**
-
-
-###DebugButtons
-When enabled, a set of controls useful for development and debugging purposes will be present in the interface.
-
-
-DebugButtons\\<BR>DebugButtonsEnabled
-DEBUGBUTTONSENABLED
-
-0 - Disabled
-1 - Enabled
-Windows Mobile, Windows CE, Android, iOS
 
 
 <div style="width:100%">
