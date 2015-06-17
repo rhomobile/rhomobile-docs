@@ -1304,45 +1304,60 @@ The browser cache size, in whole MBs. **Applies to RhoMobile Suite version 2.2 a
 Specifies the Accept-Language HTTP header that will be sent from the client. For details, see the [RFQ documentation](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). <br>
 
 **Configuration Identifier**: ACCEPTLANGUAGE<br>
-**Possible Values**: Comma separated list of languages and a list of quality values. The two lists are separated by a semicolon<br>
+**Possible Values**: Comma-separated lists of languages and quality values. The two lists are separated by a semicolon<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\Keepalive
-Support HTTP keep-alive. When set to false, connections are closed when their request completes. By default keep-alive will be true even if this option is not specified. Applies to release 5.0 and greater.<br>
+###Keepalive
+Controls whether HTTP connections will be maintained between requests. **Enabled by default** or is unspecified. When disabled, a connection is closed when its request is complete. Applies to release 5.0 and greater.<br>
 
 **Configuration Identifier**: KEEPALIVE<br>
-**Possible Values**: Boolean<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 
-###Navigation\\DisableTLS
-When enabled, the application will request SSLv3 connections instead of TLS. If your server is set to support both SSLv3 and TLS, the protocol for the entire session will be determined by the first interaction the client has with the server. For instance, if the client's first call to the server is TLS (DisableTLS = 0), the server-client communication will commence over TLS until the client application is terminated. However, if the server only supports SSLv3, all communication after the initial transmission will occur over SSLv3, to __and__ from the client, no matter what this option is set to. If you want to communicate without the possibility of using TLS, set this setting to 1 (true).<br>
+###DisableTLS
+Controls whether to request SSLv3 connections instead of TLS. By default, all requests will be sent using TLS. If TLS is not supported, then SSLv3 will be used. The protocol used in both directions for the entire session is determined by the first interaction the client has with the server. To eliminate the possibility of using TLS, set DisableTLS to '1' (true).<br>
 
 **Configuration Identifier**: DISABLETLS<br>
-**Possible Values**: 0 - TLS Not disabled, 1 - TLS Disabled<br>
+**Possible Values**: 0 - TLS Not Disabled, 1 - TLS Disabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###DeviceKeys\\EnableCtrlKey_X
-CE Only:<BR>By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text). This setting is used to specify which CTRL+Key combinations should be enabled. For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.<br>
+##DeviceKeys
+###EnableCtrlKey_X
+Specifies which control-key combinations (for copy, paste, etc.) should be enabled. **All are disabled on Windows CE by default**. 
+
+To enable a control-key combination, define a tag using `EnableCtrlKey_X`, replacing the 'X' with the key being enabled. For example, to enable copying with control-C, your tag will include `EnableCtrlKey_C` as below. See the [sample Config.xml file](#configxml-file-format) for correct branch placement.
 
 **Configuration Identifier**: Not Configurable<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###DeviceKeys\\<BR>EnableVolumeSlider
-Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume. This setting is not application specific and will be applied globally on the device.<br>
+    :::xml
+    <DeviceKeys>
+    ...
+      <EnableCtrlKey_C     value="0"/>
+    ...
+    </DeviceKeys>
+  
+
+###EnableVolumeSlider
+**Applies to [MC2100](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html) only**.
+
+Controls whether the speaker volume slider is available using the Orange+F1 key combination on Zebra's [MC2100 mobile computer](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html). This setting is not application specific; it will be applied globally on the device.<br>
 
 **Configuration Identifier**: ENABLEVOLUMESLIDER<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: Windows CE<br>
 
 
-###DeviceKeys\\EnableBacklightSlider
-Specific to the MC2100:<BR>Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight. This setting is not application specific and will be applied globally on the device.<br>
+###EnableBacklightSlider
+**Applies to MC2100 only**.
+
+Controls whether the backlight slider is available using the Orange+F2 key combination on Zebra's [MC2100 mobile computer](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html). This setting is not application specific; it will be applied globally on the device.<br>
 
 **Configuration Identifier**: ENABLEBACKLIGHTSLIDER<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: Windows CE<br>
 
 ###DefaultMetaTags\\MetaTag
 All RhoElements Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag in by specifying the tag's module, followed by a tilda character and then the properties of the module you wish to set, specified in EMML 1.1. If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file.<br>
