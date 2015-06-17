@@ -73,7 +73,7 @@ Any device with an application that uses Live Update must be connected to the sa
 
         :::term
 
-      rake run:iphone:
+      rake run:iphone
 
   > Note: Running for iOS Simulator allows you to take advantage of Live Update just as well as running for an iOS Device, but an iOS device requires that you [manually install your application package from iTunes](http://docs.rhomobile.com/en/5.1.1/guide/build_ios)
 
@@ -235,7 +235,7 @@ upgrade_package_add_files.txt - it contains list of changed or added files
 
 upgrade_package_remove_files.txt - it contains list of removed files
 
-Both of these files can be found in the first layer of your current project folder. I.E. `current_project/*`
+The information added these files comes from inside of your current project folder, inside of `app/*` or `public/*`
 
 ###Using Live Update with applications that were built on different platforms
 
