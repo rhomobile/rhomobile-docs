@@ -948,18 +948,6 @@ Determines whether to preload the NPAPI plugin to provide native JavaScript obje
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-
-
-
-
-
-
->>>>>>>>>>>>>>>>>RESUME HERE <<<<<<<<<<<<<<<<<<<<<<<<
-
-
-
-
-
 ##Preloads
 ###Preload
 Defines plug-ins to be pre-loaded with RhoElements rather than loading as needed by a program function. Pre-loading prevents application lag when a program function is called for the first time. For example, when `Barcode.enable` is called by an app, a slight lag will be seen as the `Barcode` DLL loads into memory. Specify a Preload tag for each module to be loaded when RhoElements starts up. 
@@ -1022,124 +1010,178 @@ Specifies the width (in pixels) of the textbox / text-area caret. If unspecified
 Specifies the default font when rendering text in web pages. The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma', which is present on all Zebra WM/CE devices. On the Enterprise Tablet the default is font Droid Sans Fallback. 
 
 * Tahoma has no italic or oblique variants
-* On WM.CE, specified font must be stored in `\Windows`
+* On WM/CE, specified font must be stored in `\Windows`
 * On Enterprise Tablet, specified font must be stored in `/system/fonts`
 
 **Configuration Identifier**: FONTFAMILY<br>
 **Possible Values**: Font name<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###HTMLStyles\\FontDirectory
-Specifies the font directory where true type fonts can be found. On Windows the default font directory is <code>\Windows</code> on all Zebra WM / CE devices. Not applicable to the Enterprise Tablet.</td>
+###FontDirectory
+Specifies the font directory where true type fonts can be found. The default font directory for all Zebra WM/CE devices is `\Windows`. **Not applicable to the Enterprise Tablet**.
 
 **Configuration Identifier**: FONTDIRECTORY<br>
 **Possible Values**: \Windows<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###HTMLStyles\\UseNativeFonts
-When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.<br>
+###UseNativeFonts
+**Applies to Windows Mobile and Windows CE only**. 
+
+Controls which fonts will be used. When set to '0' (default) the FreeType library will be used as on apps built with RMS 2.x. When set to '1' the native font engine on the device is used. **A setting of '1' overrides the 'FontFamily' setting**. 
+
+* On localized devices from 4.1 and higher, the native font engine will be used by default.
+* The FreeType library cannot render localized characters such as Asian and some accented European characters. 
+* Some early BSPs of CE7 do not support the native font render. 
+* The log file displys the font engine in use on launch. 
+
+NOTE: This config element is not currently available on MC92, VC70 or WT41N0.<br>
 
 **Configuration Identifier**: USENATIVEFONTS<br>
 **Possible Values**: 0 - Use FontFamily Setting, 1 - Use FreeType font library<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###SIP\\ResizeOnSIP
-When enabled the browser window will resize to accommodate the SIP (Soft Input Panel, the on-screen virtual keyboard) when displayed. If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top. In order to use this configuration setting you must preload the SIP module. (Windows Mobile Only. This option is not compatible with CE or Finger Scrolling, the SIP will always appear at the bottom of the screen)<br>
+##SIP
+###ResizeOnSIP
+**Applies to Windows Mobile only. Requires SIP module preload**. 
+
+Controls window resizing when the soft input panel (on-screen keyboard) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top. 
+
+* Not compatible with Windows CE
+* Not compatible with Finger Scrolling
+* The SIP always appears at the bottom of the screen
 
 **Configuration Identifier**: RESIZEONSIP<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###SIP\\EnableSIP
-Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard). (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>QUESTION (android only, CE off screen)
+
+###EnableSIP
+Controls whether soft input panel (on-screen keyboard) can be used. (Android only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)<br>
 
 **Configuration Identifier**: Not Configurable<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###System\\LowBatteryScan
-Windows Mobile and CE only. Set to 0 to disable scanning when the battery is low or set to 1 to enable it. Once disabled the scanner can be enabled again by calling <code>Barcode.enable</code>.<br>
+##System
+###LowBatteryScan
+**Applies to Windows Mobile and Windows CE only**. 
+
+Controls whether the scanner can be used when battery charge level is low. Set to '0' to disable scanning with low battery and '1' to enable. **Can be overridden by calling `Barcode.enable`**.<br>
+
+
+
+
+
+
+
+
+>>>>>>>>>>>>>CONFLICT (WM/CE only)
 
 **Configuration Identifier**: LOWBATTERYSCAN<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Scanner\\DisableScannerDuringNavigation
-By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable. To override this behavior you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it. This setting is only applicable to RhoMobile Suite version 2.2 and above.<br>
+##Scanner
+###DisableScannerDuringNavigation
+**Applies to RhoMobile 2.2 and higher**.
+
+Controls whether scanner will be automatically disabled when navigating away from a page on which it was enabled. Override this default behavior by setting this option to '0'. Once enabled (either through meta tags, JavaScript or Ruby), the scanner will remain enabled in the foreground application until manually disabled.<br>
 
 **Configuration Identifier**: DISABLESCANNERDURINGNAV<br>
 **Possible Values**: 0 - Scanner remains enabled during page navigation, 1 - Scanner disabled during page navigation<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Sound\\DecodeVolume
-The volume of the device beeper when a barcode is scanned<br>
+##Sound
+###DecodeVolume
+Controls the volume of the device beeper when a barcode is scanned.<br>
 
 **Configuration Identifier**: DECODEVOLUME<br>
-**Possible Values**: 0 - off, 1 - lowest to 5 loudest<br>
+**Possible Values**: 0 - off, 1 - 5 (lowest to loudest)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Sound\\DecodeFrequency
-The frequency of the device beeper when a barcode is successfully decoded. This should be within the range of the beeper<br>
+###DecodeFrequency
+Controls the frequency of the device beeper sound when a barcode is successfully decoded. This value (in hex) must be a frequency within the range of the device beeper.<br>
 
 **Configuration Identifier**: DECODEFREQUENCY<br>
 **Possible Values**: 0 to 0xFFFF<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Sound\\InvalidDecodeFrequency
-The frequency of the device beeper when a barcode is scanned but not successfully decoded. This should be within the range of the beeper. Not applicable to the Enterprise Tablet.<br>
+###InvalidDecodeFrequency
+Controls the frequency of the device beeper sound when a barcode is scanned but not successfully decoded. This value (in hex) must be a frequency within the range of the device beeper. **Not applicable to the Enterprise Tablet**.<br>
 
 **Configuration Identifier**: INVALIDDECODEFREQUENCY<br>
 **Possible Values**: 0 to 0xFFFF<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Sound\\DecodeDuration
-The duration of the device beeper when a barcode is scanned<br>
+###DecodeDuration
+Controls the duration of the device beeper sound when a barcode is scanned.<br>
 
 **Configuration Identifier**: DECODEDURATION<br>
 **Possible Values**: Milliseconds<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Sound\\ScanDecodeWav
-Wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.<br>
+###ScanDecodeWav
+Specifies a .wav file to be played when the scanner successfully decodes a barcode. **Overrides all scanner beeper settings**.<br>
 
 **Configuration Identifier**: SCANDECODEWAV<br>
-**Possible Values**: File name and path stored locally on the device (case sensitive)<br>
+**Possible Values**: Fully qualified path to .wav file stored locally on the device (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Sound\\ScanInvalidWav
-Wave file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper. Not applicable to the Enterprise Tablet.<br>
+###ScanInvalidWav
+Specifies a .wav file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper. **Overrides all scanner beeper settings. Not applicable to the Enterprise Tablet**.<br>
 
 **Configuration Identifier**: SCANINVALIDWAV<br>
-**Possible Values**: File name and path stored locally on the device<br>
+**Possible Values**: Fully qualified path to .wav file stored locally on the device (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Sound\\ImagerCaptureWav
-Wave file to be played when the Imager captures an image<br>
+###ImagerCaptureWav
+Specifies a .wav file to be played when the Imager captures an image.<br>
 
 **Configuration Identifier**: IMAGERCAPTUREWAV<br>
-**Possible Values**: File name and path stored locally on the device<br>
+**Possible Values**: Fully qualified path to .wav file stored locally on the device (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###GUI\\SignalRefresh
-Specifies the refresh rate of the signal display, see the <a href="/api/signalindicators">Signal</a> API for more information.<br>
+##GUI
+###SignalRefresh
+Specifies the refresh rate of the signal display. See the [Signal API](/api/signalindicators) for more information.<br>
 
 **Configuration Identifier**: SIGNALREFRESH<br>
-**Possible Values**: <br>
-**Platforms**: AndroiRefresh rate in millisecondsd, iOS, WM/CE<br>
+**Possible Values**: Refresh rate in milliseconds<br>
+**Platforms**: Android, iOS, WM/CE<br>
 
 
-###GUI\\BatteryRefresh
-Specifies the refresh rate of the battery display, see the <a href="/api/battery">Battery</a> API for more information. Not applicable to the Enterprise Tablet<a href="#_batteryRefresh">* (see remark)<br>
+###BatteryRefresh
+Specifies the refresh rate of the battery display. See the [Battery API](/api/battery) for more information. **Not applicable to the Enterprise Tablet**. [More info](#_batteryRefresh).<br>
 
 **Configuration Identifier**: BATTERYREFRESH<br>
 **Possible Values**: Refresh rate in milliseconds<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###GUI\\HourglassEnabled
-By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to disable that behavior.<br>
+###HourglassEnabled
+Controls whether the [RhoElements Hourglass](/v/2.2/rhoelements/hourglass)icon will be displayed while navigating between pages (enabled by default)
 
 **Configuration Identifier**: HOURGLASSENABLED<br>
-**Possible Values**: 0 - Disabled<BR>1 - Enabled<br>
+**Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###GUI\\HourglassLeft
