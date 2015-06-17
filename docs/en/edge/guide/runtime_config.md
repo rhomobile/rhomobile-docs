@@ -910,7 +910,7 @@ Determines whether to preload the NPAPI plug-in to mimic the Generic ActiveX obj
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###NPAPI\\Preloads\\PreloadLegacyODAX
+###Preloads\\PreloadLegacyODAX
 **Does not apply to the Enterprise Tablet.** 
 
 Determines whether to preload the NPAPI plugin to mimic the ODAX ActiveX object in WebKit.<br>
@@ -981,7 +981,7 @@ NOTE: FingerScroll may interfere with drawing on a Canvas element.<br>
 ###Username
 Specifies the username to be provided automatically when RhoElements is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of "". 
 
-NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. The application should be designed to handle this scenario.<br>
+NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. Your application should be designed to handle this scenario.<br>
 
 **Configuration Identifier**: AUTHUSER_GLOBAL<br>
 **Possible Values**: ASCII text<br>
@@ -990,7 +990,7 @@ NOTE: RhoElements permits the user to enter incorrect credentials twice before p
 ###Password
 Specifies the password to be provided automatically when RhoElements is instructed to navigate to any page which requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of "". 
 
-NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. The application should be designed to handle this scenario.<br>
+NOTE: RhoElements permits the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page. Your application should be designed to handle this scenario.<br>
 
 **Configuration Identifier**: AUTHPASS_GLOBAL<br>
 **Possible Values**: ASCII text<br>
@@ -1144,21 +1144,21 @@ Controls the duration of the device beeper sound when a barcode is scanned.<br>
 Specifies a .wav file to be played when the scanner successfully decodes a barcode. **Overrides all scanner beeper settings**.<br>
 
 **Configuration Identifier**: SCANDECODEWAV<br>
-**Possible Values**: Fully qualified path to .wav file stored locally on the device (case sensitive)<br>
+**Possible Values**: Fully qualified local path to .wav file (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###ScanInvalidWav
 Specifies a .wav file to be played when a barcode is scanned but not successfully decoded. This setting overrides the scanner beeper. **Overrides all scanner beeper settings. Not applicable to the Enterprise Tablet**.<br>
 
 **Configuration Identifier**: SCANINVALIDWAV<br>
-**Possible Values**: Fully qualified path to .wav file stored locally on the device (case sensitive)<br>
+**Possible Values**: Fully qualified local path to .wav file (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###ImagerCaptureWav
 Specifies a .wav file to be played when the Imager captures an image.<br>
 
 **Configuration Identifier**: IMAGERCAPTUREWAV<br>
-**Possible Values**: Fully qualified path to .wav file stored locally on the device (case sensitive)<br>
+**Possible Values**: Fully qualified local path to .wav file (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 ##GUI
@@ -1178,112 +1178,130 @@ Specifies the refresh rate of the battery display. See the [Battery API](/api/ba
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###HourglassEnabled
-Controls whether the [RhoElements Hourglass](/v/2.2/rhoelements/hourglass)icon will be displayed while navigating between pages (enabled by default)
+Controls whether the [RhoElements Hourglass](/v/2.2/rhoelements/hourglass) icon will be displayed while navigating between pages (enabled by default)
 
 **Configuration Identifier**: HOURGLASSENABLED<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###GUI\\HourglassLeft
-By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position. If not specified the hourglass will appear at the center of the screen.<br>
+###HourglassLeft
+Controls the horizontal position of the [RhoElements Hourglass](/v/2.2/rhoelements/hourglass) icon, which is displayed by default while navigating between pages. If not specified, the hourglass will appear at the center of the screen.<br>
 
 **Configuration Identifier**: HOURGLASSLEFT<br>
-**Possible Values**: Pixels<br>
+**Possible Values**: Horizontal position, in pixels<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###GUI\\HourglassTop
-By default an <a href="/v/2.2/rhoelements/hourglass">Hourglass</a> will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position. If not specified the hourglass will appear in the center of the screen.<br>
+###HourglassTop
+Controls the vertical position of the [RhoElements Hourglass](/v/2.2/rhoelements/hourglass) icon, which is displayed by default while navigating between pages. If not specified, the hourglass will appear at the center of the screen.<br>
 
 **Configuration Identifier**: HOURGLASSTOP<br>
-**Possible Values**: Pixels<br>
+**Possible Values**: Vertical position, in pixels<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\BadLinkURI
-Navigates to the specified badlink uri when one of the following occurs:<br>
+##Navigation
+###BadLinkURI
+Specifies the 'badlink' URI file to be displayed when one of the following occurs:<br>
 
--There is an error attempting to navigate to the page, e.g. the device has no network connection.
-- The timeout occurs when navigating to the page. You can adjust the value of the timeout using the NavTimeout setting.
-- The user presses the stop button.<br>
+* **An error occurs when attempting to navigate to a page** (i.e. no network connection)
+* **A page times out** (timeout interval is set in NavTimeout)
+* **The user presses the stop button**
 
-The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be an offline file using the <code>file://</code> protocol, this way the browser can always access the file.<br>
+The browser will automatically append the querystring value "badlink" containing the URL of the page that could not be reached and "stop=true" if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be an offline file using the `file://` protocol so it's accessible by the browser.<br>
 
 **Configuration Identifier**: BADLINKURI<br>
-**Possible Values**: File name and path stored locally on the device (case sensitive)<br>
+**Possible Values**: Fully qualified local path to badlink URI file (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\UserAgent
-When visiting a web server, the WebKit browser will report its User-Agent header as the specified value. Use the following substitution variables:<br>
+###UserAgent
+Stores information about the device's operating environment. Can be used to spoof the device to a web server, for example to view content designed for the desktop on the mobile screen. When visiting a web server, the WebKit browser will report its User-Agent header as the value specified. Use the following substitution variables:<br>
 
-* platform name ("Windows CE " + version number)
-* WebKit version number
-* MotorolaWebKit version number.<br>
+* %p - Platform name ("Windows CE " + version number)
+* %w - WebKit version number
+* %e - Zebra WebKit version number
 
-Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.<br>
 In RhoElements 2.1 and higher, the default value was changed to work out of the box with a greater number of server configurations. Prior to RhoElements 2.1 the default user agent was "Mozilla/5.0, AppleWebKit (KHTML, i.e. Gecko), MotorolaWebKit, Safari."<br>
 
 **Configuration Identifier**: USERAGENT<br>
 **Possible Values**: String<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\ViewportEnabled
-Controls viewport meta tag processing enable or disable (enabled by default).<br>
+###ViewportEnabled
+Controls viewport meta tag processing (enabled by default).<br>
 
 **Configuration Identifier**: VIEWPORTENABLED<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\ViewportWidth
-Sets the default viewport width for pages that do not have a viewport meta tag (if not specified, uses 1:1 scaling).<br>
+###ViewportWidth
+Sets the default viewport width for pages that do not have a viewport meta tag. If not specified, uses 1:1 scaling.<br>
 
 **Configuration Identifier**: VIEWPORTWIDTH<br>
 **Possible Values**: Number<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\CaFile
-A file of CA certificates in PEM format. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a>. This setting is supported on Windows Mobile / CE and Android.<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>> iOS CONFLICT:
+
+###CaFile
+Specifies the location of a file of CA certificates in PEM format. [See openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. This setting is supported on Android and Windows Mobile/CE only.<br>
 
 **Configuration Identifier**: CAFILE<br>
-**Possible Values**: Local File name on the device<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+**Platforms**: Android, WM/CE<br>
 
-###Navigation\\VerifyPeerCertificate
-Verify the server certificate against the internal certificates. It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development. A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.<br>
+###VerifyPeerCertificate
+Controls whether server certificates will be verified against the internal certificates. **Enabled by default**. Useful for debugging, a value of 0 (disabled) is equivalent to automatically clicking 'OK' on a web browser's dialog when requesting approval for an untrusted certificate.
+
+NOTE: It is strongly recommended that this feature be <u>enabled for deployment</u>. <br>
 
 **Configuration Identifier**: VERIFYPEERCERTIFICATE<br>
-**Possible Values**: Boolean<br>
+**Possible Values**: 0 - disabled (do not verify peer certificates), 1 - enabled (verify peer certificates)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 
-###Navigation\\clientSSLCertificate
-he path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
+###clientSSLCertificate
+Specifies location of the '.p12' formatted certificate file used for client SSL authentication. This setting is used in any [Network API](/api/Network) call that sets up a secured SSL connection requiring client authentication, including get, post, downloadFile and uploadFile. This setting takes effect only if `verifyPeerCertificate` is enabled. If `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
 
 **Configuration Identifier**: CLIENTSSLCERTIFICATE<br>
 **Possible Values**: Fully qualified local path. (case sensitive)<br>
 **Platforms**: Android<br>
 
-###Navigation\\clientSSLCertificatePassword
-The password used with client certificate. This setting only takes effect if `verifyPeerCertificate` is enabled. Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
+###clientSSLCertificatePassword
+Specifies the password used with a client certificate. This setting takes effect only if `verifyPeerCertificate` is enabled. If `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
 
 **Configuration Identifier**: CLIENTSSLCERTIFICATEPASSWORD<br>
 **Possible Values**: Password<br>
 **Platforms**: Android<br>
 
-If you want your cookies to persist across device boots then specify a file name here for the database used to hold the cookies. If the specified file does not already exist then one will be created. The cookies will be loaded in from this file and saved back to it when RhoElements exits, unless the file is read only in which case it will not be overwritten. If not specified cookies will not persist.###Navigation\\NetworkCookieDatabase
-<br>
+###NetworkCookieDatabase
+Specifies the location of the database to hold persistent cookies, if desired. If the specified file does not exist, one will be created. Persistent cookies will be loaded from this file and saved back to it when RhoElements exits. If the file is read-only, it will not be overwritten. If not specified, cookies will not persist.<br>
 
 **Configuration Identifier**: NETWORKCOOKIEDATABASE<br>
 **Possible Values**: Fully qualified local path (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\Cache
-The browser cache size, in whole MBs. This setting is only applicable to RhoMobile Suite version 2.2 and above.<br>
+###Cache
+The browser cache size, in whole MBs. **Applies to RhoMobile Suite version 2.2 and higher**.<br>
 
 **Configuration Identifier**: NAVIGATIONCACHE<br>
 **Possible Values**: Whole MBs, eg. 5M<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-###Navigation\\AcceptLanguage
-Defines the Accept-Language HTTP header that will be sent from the client, described in more detail in the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFQ documentation</a><br>
+###AcceptLanguage
+Specifies the Accept-Language HTTP header that will be sent from the client. For details, see the [RFQ documentation](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). <br>
 
 **Configuration Identifier**: ACCEPTLANGUAGE<br>
 **Possible Values**: Comma separated list of languages and a list of quality values. The two lists are separated by a semicolon<br>
