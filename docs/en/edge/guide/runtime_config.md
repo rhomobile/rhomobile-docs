@@ -1,7 +1,7 @@
 # Application Runtime Configuration
 Apart from your source code, the other files that control your application's runtime behavior are `rhoconfig.txt` and `Config.xml`.
 
-The values in `rhoconfig.txt` control different aspects of your application, such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
+The values in `rhoconfig.txt` control aspects of your application such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
 
 The `Config.xml` file determines features of the RhoElements runtime itself, such as the keys that can be intercepted by the application and whether to pre-load modules on startup.
 
@@ -10,172 +10,172 @@ You can use `rhoconfig.txt` to add arbitrary values that are specific to your ap
 
 Sample yaml code:
 
-  :::yaml
-  # application-specific value
-  foo = 'bar'
+    :::yaml
+    # application-specific value
+    foo = 'bar'
 
 All values will be accessible at runtime via `Rho::RhoConfig`:
 
 Sample Ruby code:
-  :::ruby
-  foo = Rho::RhoConfig.bar
-  start_path = Rho::RhoConfig.start_path
+    :::ruby
+    foo = Rho::RhoConfig.bar
+    start_path = Rho::RhoConfig.start_path
 
 You also can check if a configuration property actually exists before accessing it:
 
 Sample Ruby code:
-  :::ruby
-  start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
+    :::ruby
+      start_path_exists = Rho::RhoConfig.exists?("start_path") # will return true
 
-The `rhoconfig.txt` file generated with a new application contains the following default values along with descriptions of each setting:
+The `rhoconfig.txt` file generated with each new application contains the following default values along with descriptions of each setting:
 
 Sample yaml code:
-  :::yaml
-  # startup page for your application
-  start_path = '/app'
+    :::yaml
+      # startup page for your application
+    start_path = '/app'
 
-  # path to the options page (in this case handled by JavaScript)
-  options_path = '/app/Settings'
+      # path to the options page (in this case handled by JavaScript)
+    options_path = '/app/Settings'
 
-  # location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
-  rhobundle_zip_url = ''
+      # location of bundle url (i.e. from rhohub.com); used by desktop win32 simulator
+    rhobundle_zip_url = ''
 
-  # optional password to access bundle (usually not required); used by desktop win32 simulator
-  rhobundle_zip_pwd = nil
+      # optional password to access bundle (usually not required); used by desktop win32 simulator
+    rhobundle_zip_pwd = nil
 
-  # Rhodes log properties
-  # log level
-  # 0-trace, 1-info(app level), 2-warnings, 3-errors
-  # for production set to 3
-  MinSeverity = 1
+    # Rhodes log properties
+    # log level
+    # 0-trace, 1-info(app level), 2-warnings, 3-errors
+    # for production set to 3
+    MinSeverity = 1
 
-  # enable copy log messages to standard output, useful for debugging
-  LogToOutput = 1
+    # enable copy log messages to standard output, useful for debugging
+    LogToOutput = 1
 
-  # '*' means all categories, otherwise list them : Cat1, Cat2
-  LogCategories = *
+    # '*' means all categories, otherwise list them : Cat1, Cat2
+    LogCategories = *
 
-  # what categories to exclude
-  ExcludeLogCategories =
+    # what categories to exclude
+    ExcludeLogCategories =
 
-  # max log file size in Bytes, set 0 to unlimited size; when limit is reached, log wraps to beginning of file
-  MaxLogFileSize=50000
+    # max log file size in Bytes, set 0 to unlimited size; when limit is reached, log wraps to beginning of file
+    MaxLogFileSize=50000
 
-  # turn on local http server traces, off by default
-  #net_trace = 0
+    # turn on local http server traces, off by default
+    #net_trace = 0
 
-  # timeout of network requests in seconds (30 by default)
-  #net_timeout = 60
+    # timeout of network requests in seconds (30 by default)
+    #net_timeout = 60
 
-  # where log will be posted by RhoConf.send_log or from the log menu
-  # source is also open and up on http://github.com/rhomobile/rhologs, so you can deploy your own logserver
-  logserver = 'http://rhologs.heroku.com'
+    # where log will be posted by RhoConf.send_log or from the log menu
+    # source is also open and up on http://github.com/rhomobile/rhologs, so you can deploy your own logserver
+    logserver = 'http://rhologs.heroku.com'
 
-  # log file prefix - contain human-readable text
-  logname='rhodes-app'
+    # log file prefix - contain human-readable text
+    logname='rhodes-app'
 
-  # Keep track of the last visited page
-  KeepTrackOfLastVisitedPage = 0
-  LastVisitedPage = ''
+    # Keep track of the last visited page
+    KeepTrackOfLastVisitedPage = 0
+    LastVisitedPage = ''
 
-  # sync server url, typically this will look like 'http://<hostname>:<port>/application'
-  # for example: 'http://localhost:9292/application'
-  syncserver = ''
+    # sync server url, typically this will look like 'http://<hostname>:<port>/application'
+    # for example: 'http://localhost:9292/application'
+    syncserver = ''
 
-  # 0 will disable auto sync
-  sync_poll_interval=0
+    # 0 will disable auto sync
+    sync_poll_interval=0
 
-  # geo location inactivity timeout (in seconds)
-  #geo_location_inactivity_timeout = 30
+    # geo location inactivity timeout (in seconds)
+    # geo_location_inactivity_timeout = 30
 
-  # open rhodes app in full screen mode
-  # default 1 for Android up to Rhodes 2.2.5.
-  # on all other platforms and on Android from Rhodes > 2.2.5 default 0
-  full_screen = 0
+    # open rhodes app in full screen mode
+    # default 1 for Android up to Rhodes 2.2.5.
+    # on all other platforms and on Android from Rhodes > 2.2.5 default 0
+    full_screen = 0
 
-  # show top menu on Windows desktop in full screen mode (default is 0=don't show top menu)
-  #w32_fullscreen_menu = 1
+    # show top menu on Windows desktop in full screen mode (default is 0=don't show top menu)
+    # w32_fullscreen_menu = 1
 
-  # disable the Android page loading progress bar
-  disable_loading_indication = 1
+    # disable the Android page loading progress bar
+    disable_loading_indication = 1
 
-  # Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes.
-  # If not specified, application will use dynamically selected one.
-  # WARNING!!! Remove this parameter before put application to production.
-  #local_server_port = 8080
+    # Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes.
+    # If not specified, application will use dynamically selected one.
+    # WARNING!!! Remove this parameter before put application to production.
+    # local_server_port = 8080
 
-  # show status bar on windows mobile. default 1
-  #wm_show_statusbar = 1
+    # show status bar on windows mobile. default 1
+    # wm_show_statusbar = 1
 
-  # disable screen rotation (enabled by default) - disable possible for ANDROID and iPhone ONLY
-  #disable_screen_rotation = 1
+    # disable screen rotation (enabled by default) - disable possible for ANDROID and iPhone ONLY
+    # disable_screen_rotation = 1
 
-  # disable close app when pressing back on home screen on blackberry
-  #bb_disable_closebyback = 0
+    # disable close app when pressing back on home screen on blackberry
+    # bb_disable_closebyback = 0
 
-  # load images in background, this improve reaction speed on user actions, 0 by default
-  #bb_loadimages_async = 0
+    # load images in background, this improve reaction speed on user actions, 0 by default
+    # bb_loadimages_async = 0
 
-  # set to 0 to reset the bulksync_state and trigger a bulk sync the next time rhodes synchronizes
-  #bulksync_state = 1
+    # set to 0 to reset the bulksync_state and trigger a bulk sync the next time rhodes synchronizes
+    # bulksync_state = 1
 
-  # hides forward button and animates back button transition
-  jqtouch_mode=1
+    # hides forward button and animates back button transition
+    jqtouch_mode=1
 
-  splash_screen='zoom'
+    splash_screen='zoom'
 
-  use_bb_full_browser=6
+    use_bb_full_browser=6
 
-  esri_map_url_roadmap: type: string
+    esri_map_url_roadmap: type: string
 
-  ESRI server url with roads map tiles.
+    ESRI server url with roads map tiles.
     iOS       - supported in esri extension.
     Android   - supported with ESRI map type.
     WM       - supported with WM mapview.
     WP8      - mapping is not supported.
 
-  esri_map_url_satellite: type: string
+    esri_map_url_satellite: type: string
     ESRI server url with satellite map tiles.
       iOS       - supported in esri extension.
       Android   - supported with ESRI map type.
       WM       - supported with WM mapview.
       WP8      - mapping is not supported.
 
-  OSM_map_url_roadmap: type: string
+    OSM_map_url_roadmap: type: string
     OSM server url with road map tiles.
       iOS      - not supported as only Google and ESRI maps are supported.
       Android   - supported with OSM map type.
       WM       - supported with WM mapview.
       WP8      - mapping is not supported.
 
-  disable_loading_indication:type - Bool
+    disable_loading_indication:type - Bool
     If enabled, blocks loading indication in webview
       Supported only on Android.
 
 ### Additional parameters that can be used in rhoconfig.txt
 
-  :::yaml
-  # Address and port of proxy server. This settings uses Network module.
-  http_proxy_host = 'server'
-  http_proxy_port = port
+    :::yaml
+    # Address and port of proxy server. This settings uses Network module.
+    http_proxy_host = 'server'
+    http_proxy_port = port
 
-  # Login and password for access to proxy server. Only basic authentication is supported
-  http_proxy_login  = 'user'
-  http_proxy_password = 'password'
+    # Login and password for access to proxy server. Only basic authentication is supported
+    http_proxy_login  = 'user'
+    http_proxy_password = 'password'
 
-  # CLient SSL Configuration. The path to the p12 formatted certificate file and the password used with the client certificate.
-  # The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL
-  # connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled.
-  # Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.
-  # These two settings are only supported for use on Android devices.
-  clientSSLCertificate     = 'certificate path'
-  clientSSLCertificatePassword = 'password'
+    # CLient SSL Configuration. The path to the p12 formatted certificate file and the password used with the client certificate.
+    # The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL
+    # connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled.
+    # Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.
+    # These two settings are only supported for use on Android devices.
+    clientSSLCertificate     = 'certificate path'
+    clientSSLCertificatePassword = 'password'
 
-  ios_net_curl = true
-  #If true, an old libCURL-based Net request will be used. This option can be enabled for regression testing or if custom proxy support is required. Default is TRUE but, to support per-app VPN (ex. MobileIron) this option should be set to FALSE.
+    ios_net_curl = true
+    #If true, an old libCURL-based Net request will be used. This option can be enabled for regression testing or if custom proxy support is required. Default is TRUE but, to support per-app VPN (ex. MobileIron) this option should be set to FALSE.
 
-  ios_direct_local_requests = false
-  #If true, request to local server will be applied directly, bypassing socket intercommunication, no network requests are involved. If false, a legacy client-server intercommunication will be made for local requests. Default is FALSE but, to support per-app VPN (ex. MobileIron) this option should be set to TRUE.
+    ios_direct_local_requests = false
+    #If true, request to local server will be applied directly, bypassing socket intercommunication, no network requests are involved. If false, a legacy client-server intercommunication will be made for local requests. Default is FALSE but, to support per-app VPN (ex. MobileIron) this option should be set to TRUE.
 
 
 ## Config.xml
@@ -186,17 +186,16 @@ Sample yaml code:
 To forego this safeguard and enable SSL3, you must append the `<Navigation>` section of the `Config.xml`: <br><br>
 
 Sample yaml code:
-  :::yaml
+    :::yaml
   
-  <Navigation>
-  ...
-  <NavTimeout value="45000"/>
-  <EnableSSL3 value="0"/>
-  # value="0" (SSL3 disabled) 
-  # value="1" (SSL3 enabled)
-  # If not specified, SSL3 is enabled
-  ...
-  </Navigation>
+    <Navigation>
+      ...
+      <EnableSSL3 value="0"/>
+      # value="0" (SSL3 disabled) 
+      # value="1" (SSL3 enabled)
+      # If not specified, SSL3 is enabled
+      ...
+    </Navigation>
   
 
 The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
@@ -234,197 +233,196 @@ NOTE: It's possible to switch between `Config.xml` files using the /C: configura
 The following is an example of a typical configuration file
 
 Sample XML:
-  :::xml
-  <Configuration>
-   <DebugButtons>
-    <DebugButtonsEnabled value="0" />
-   </DebugButtons>
-   <Logger>
-    <LogProtocol value="FILE"/>
-    <LogPort   value="80"/>
-    <LogURI    value="file://\Program Files\RhoElements\Log.txt"/>
-    <LogError   value="1"/>
-    <LogWarning  value="1"/>
-    <LogInfo   value="1"/>
-    <LogUser   value="1"/>
-    <LogMemory  value="1"/>
-    <LogMemPeriod value="5000"/>
-    <LogMaxSize  value="10"/>
-   </Logger>
-   <FileLocations>
-    <RegEXFile value="\Program Files\RhoElements\Config\RegEx.xml"/>
-    <PluginFile value="\Program Files\RhoElements\Config\Plugin.xml"/>
-   </FileLocations>
-   <Screen>
-    <FullScreen       value="1"/>
-    <ShowLicenseConfirmation value="0"/>
-    <PageZoom        value="1.0"/>
-   </Screen>
-  <VoidConnection>
-   <TrackConnection value="0"/>
-   <HostURL     value="100.159.16.12"/>
-   <Message     value="Establishing Connection "/>
-   <Timeout     value="30000"/>
-   <PollInterval  value="5000"/>
-  </VoidConnection>
-   <WebServer>
-    <Enabled  value="1"/>
-    <Port   value="8080"/>
-    <WebFolder value="\www"/>
-    <Public  value="0"/>
-   </WebServer>
-   <DeviceKeys>
-    <FunctionKeysCapturable  value="0"/>
-    <EnableFunctionKey_F1   value="0"/>
-    <EnableFunctionKey_F2   value="0"/>
-    <EnableFunctionKey_F3   value="0"/>
-    <EnableFunctionKey_F4   value="0"/>
-    <EnableFunctionKey_F5   value="0"/>
-    <EnableFunctionKey_F6   value="0"/>
-    <EnableFunctionKey_F7   value="0"/>
-    <EnableFunctionKey_F8   value="0"/>
-    <EnableFunctionKey_F9   value="0"/>
-    <EnableFunctionKey_F10  value="0"/>
-    <EnableFunctionKey_F11  value="0"/>
-    <EnableFunctionKey_F12  value="0"/>
-    <EnableApplicationKey_A1 value="0"/>
-    <EnableApplicationKey_A2 value="0"/>
-    <EnableApplicationKey_A3 value="0"/>
-    <EnableApplicationKey_A4 value="0"/>
-    <EnableApplicationKey_A5 value="0"/>
-    <EnableApplicationKey_A6 value="0"/>
-    <EnableApplicationKey_A7 value="0"/>
-    <EnableApplicationKey_A8 value="0"/>
-   </DeviceKeys>
-   <Navigation>
-    <NavTimeout value="45000"/>
-   </Navigation>
-   <ScreenOrientation>
-    <AutoRotate value="0"/>
-   </ScreenOrientation>
-   <TabInstance>
-    <NewTabPhysicalMemLimit value="90"/>
-    <NewTabVirtualMemLimit value="80"/>
-   </TabInstance>
-   <Geolocation>
-    <GeolocationEnabled value="0"/>
-   </Geolocation>
-   <UserData>
-   </UserData>
-   <Applications>
-    <Application>
-     <General>
-      <Name         value="Menu"/>
-      <StartPage       value="file://\Program Files\RhoElements\HTML\Menu.htm" name="Menu"/>
-      <UseRegularExpressions value="0"/>
-     </General>
-     <HTTP_Proxy value="http://myproxy.com:1050"/>
-     <No_Proxy  value="myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24"/>
-     <WebDB>
-      <WebStorageDBPath value="file://\Program Files\RhoElements"/>
-      <WebSQLDBQuota  value="5000000"/>
-      <WebSQLDBPath   value="file://\Program Files\RhoElements"/>
-     </WebDB>
-     <ApplicationCache>
-      <ApplicationCachePath  value="file://\Program Files\RhoElements"/>
-      <ApplicationCacheQuota value="5000000"/>
-     </ApplicationCache>
-     <NPAPI>
-      <NPAPIDirectory     value="file://\Program Files\RhoElements\NPAPI\"/>
-      <Preloads>
-       <PreloadLegacyActiveX value="0"/>
-       <PreloadLegacyGeneric value="1"/>
-       <PreloadLegacyODAX  value="1"/>
-       <PreloadLegacyNoSIP  value="1"/>
-       <PreloadLegacyAirBeam value="1"/>
-       <PreloadLegacyAPD   value="1"/>
-       <PreloadJSObjects   value="1"/>
-      </Preloads>
-     </NPAPI>
-     <Preloads>
-      <Preload value="Scanner"/>
-      <Preload value="Hourglass"/>
-     </Preloads>
-     <Scrolling>
-      <ScrollTechnique value="FingerScroll"/>
-     </Scrolling>
-     <Authentication>
-      <Username value="user"/>
-      <Password value="pass"/>
-     </Authentication>
-     <HTMLStyles>
-      <CaretWidth      value="1" />
-      <FontFamily      value="Tahoma" />
-      <FontDirectory     value="file://\Windows" />
-      <UseNativeFonts    value="0" />
-     </HTMLStyles>
-     <SIP>
-      <ResizeOnSIP value="0"/>
-      <EnableSIP  value="1"/>
-     </SIP>
-     <System>
-      <LowBatteryScan value="0"/>
-     </System>
-     <Scanner>
-      <DisableScannerDuringNavigation value="1"/>
-     </Scanner>
-     <Sound>
-      <DecodeVolume      value="5"/>
-      <DecodeFrequency    value="0xBB8"/>
-      <InvalidDecodeFrequency value="0x9C4"/>
-      <DecodeDuration     value="250"/>
-      <ScanDecodeWav     value=""/>
-      <ScanInvalidWav     value=""/>
-      <ImagerCaptureWav    value=""/>
-     </Sound>
-     <GUI>
-      <SignalRefresh   value="5000"/>
-      <BatteryRefresh   value="5000"/>
-      <HourglassEnabled  value="1" />
-      <HourglassLeft   value="" />
-      <HourglassTop    value="" />
-     </GUI>
-     <Navigation>
-      <BadLinkURI          value=""/>
-      <UserAgent          value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w"/>
-      <ViewportEnabled       value="0"/>
-      <ViewportWidth        value="640"/>
-      <CaFile            value="%INSTALLDIR%\server.pem"/>
-      <VerifyPeerCertificate    value="1"/>
-      <ClientSSLCertificate     value=""/>
-      <ClientSSLCertificatePassword value=""/>
-      <NetworkCookieDatabase    value="file://\Program Files\RhoElements\cookies.db"/>
-      <AcceptLanguage        value="en-GB,en-US;q=0.8,en;q=0.6,af;q=0.4"/>
-      <Cache            value="5MB"/>
-      <Keepalive          value="true"/>
-      <DisableTLS          value="0"/>
-     </Navigation>
+    :::xml
+      <Configuration>
+      <DebugButtons>
+        <DebugButtonsEnabled value="0" />
+      </DebugButtons>
+     <Logger>
+        <LogProtocol value="FILE"/>
+        <LogPort   value="80"/>
+        <LogURI    value="file://\Program Files\RhoElements\Log.txt"/>
+        <LogError   value="1"/>
+        <LogWarning  value="1"/>
+        <LogInfo   value="1"/>
+        <LogUser   value="1"/>
+       <LogMemory  value="1"/>
+        <LogMemPeriod value="5000"/>
+        <LogMaxSize  value="10"/>
+    </Logger>
+    <FileLocations>
+      <RegEXFile value="\Program Files\RhoElements\Config\RegEx.xml"/>
+      <PluginFile value="\Program Files\RhoElements\Config\Plugin.xml"/>
+     </FileLocations>
+     <Screen>
+      <FullScreen       value="1"/>
+      <ShowLicenseConfirmation value="0"/>
+      <PageZoom        value="1.0"/>
+     </Screen>
+    <VoidConnection>
+     <TrackConnection value="0"/>
+     <HostURL     value="100.159.16.12"/>
+     <Message     value="Establishing Connection "/>
+     <Timeout     value="30000"/>
+     <PollInterval  value="5000"/>
+    </VoidConnection>
+     <WebServer>
+      <Enabled  value="1"/>
+      <Port   value="8080"/>
+      <WebFolder value="\www"/>
+      <Public  value="0"/>
+     </WebServer>
      <DeviceKeys>
-      <EnableCtrlKey_C     value="0"/>
-      <EnableCtrlKey_V     value="0"/>
-      <EnableBacklightSlider  value="0"/>
-      <EnableVolumeSlider    value="0"/>
+      <FunctionKeysCapturable  value="0"/>
+      <EnableFunctionKey_F1   value="0"/>
+      <EnableFunctionKey_F2   value="0"/>
+      <EnableFunctionKey_F3   value="0"/>
+      <EnableFunctionKey_F4   value="0"/>
+      <EnableFunctionKey_F5   value="0"/>
+      <EnableFunctionKey_F6   value="0"/>
+      <EnableFunctionKey_F7   value="0"/>
+      <EnableFunctionKey_F8   value="0"/>
+      <EnableFunctionKey_F9   value="0"/>
+      <EnableFunctionKey_F10  value="0"/>
+      <EnableFunctionKey_F11  value="0"/>
+      <EnableFunctionKey_F12  value="0"/>
+      <EnableApplicationKey_A1 value="0"/>
+      <EnableApplicationKey_A2 value="0"/>
+      <EnableApplicationKey_A3 value="0"/>
+      <EnableApplicationKey_A4 value="0"/>
+      <EnableApplicationKey_A5 value="0"/>
+      <EnableApplicationKey_A6 value="0"/>
+      <EnableApplicationKey_A7 value="0"/>
+      <EnableApplicationKey_A8 value="0"/>
      </DeviceKeys>
-     <DefaultMetaTags>
-      <MetaTag value="SignatureCapture~left:30;top:130;height:100;bgcolor:#663300;width:200;border:visible;visibility:visible;" />
-      <MetaTag value="Signal~left:10;top:200;color:#663300;"/>
-     </DefaultMetaTags>
-    </Application>
-   </Applications>
-  </Configuration>
+     <Navigation>
+      <NavTimeout value="45000"/>
+     </Navigation>
+     <ScreenOrientation>
+      <AutoRotate value="0"/>
+     </ScreenOrientation>
+     <TabInstance>
+      <NewTabPhysicalMemLimit value="90"/>
+      <NewTabVirtualMemLimit value="80"/>
+     </TabInstance>
+     <Geolocation>
+      <GeolocationEnabled value="0"/>
+     </Geolocation>
+     <UserData>
+     </UserData>
+     <Applications>
+      <Application>
+       <General>
+        <Name         value="Menu"/>
+        <StartPage       value="file://\Program Files\RhoElements\HTML\Menu.htm" name="Menu"/>
+        <UseRegularExpressions value="0"/>
+       </General>
+       <HTTP_Proxy value="http://myproxy.com:1050"/>
+       <No_Proxy  value="myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24"/>
+       <WebDB>
+        <WebStorageDBPath value="file://\Program Files\RhoElements"/>
+        <WebSQLDBQuota  value="5000000"/>
+        <WebSQLDBPath   value="file://\Program Files\RhoElements"/>
+       </WebDB>
+       <ApplicationCache>
+        <ApplicationCachePath  value="file://\Program Files\RhoElements"/>
+        <ApplicationCacheQuota value="5000000"/>
+       </ApplicationCache>
+       <NPAPI>
+        <NPAPIDirectory     value="file://\Program Files\RhoElements\NPAPI\"/>
+        <Preloads>
+         <PreloadLegacyActiveX value="0"/>
+         <PreloadLegacyGeneric value="1"/>
+         <PreloadLegacyODAX  value="1"/>
+         <PreloadLegacyNoSIP  value="1"/>
+         <PreloadLegacyAirBeam value="1"/>
+         <PreloadLegacyAPD   value="1"/>
+         <PreloadJSObjects   value="1"/>
+        </Preloads>
+       </NPAPI>
+       <Preloads>
+        <Preload value="Scanner"/>
+        <Preload value="Hourglass"/>
+       </Preloads>
+       <Scrolling>
+        <ScrollTechnique value="FingerScroll"/>
+       </Scrolling>
+       <Authentication>
+        <Username value="user"/>
+        <Password value="pass"/>
+       </Authentication>
+       <HTMLStyles>
+        <CaretWidth      value="1" />
+        <FontFamily      value="Tahoma" />
+        <FontDirectory     value="file://\Windows" />
+        <UseNativeFonts    value="0" />
+       </HTMLStyles>
+       <SIP>
+        <ResizeOnSIP value="0"/>
+        <EnableSIP  value="1"/>
+       </SIP>
+       <System>
+        <LowBatteryScan value="0"/>
+       </System>
+       <Scanner>
+        <DisableScannerDuringNavigation value="1"/>
+       </Scanner>
+       <Sound>
+        <DecodeVolume      value="5"/>
+        <DecodeFrequency    value="0xBB8"/>
+        <InvalidDecodeFrequency value="0x9C4"/>
+        <DecodeDuration     value="250"/>
+        <ScanDecodeWav     value=""/>
+        <ScanInvalidWav     value=""/>
+        <ImagerCaptureWav    value=""/>
+       </Sound>
+       <GUI>
+        <SignalRefresh   value="5000"/>
+        <BatteryRefresh   value="5000"/>
+        <HourglassEnabled  value="1" />
+        <HourglassLeft   value="" />
+        <HourglassTop    value="" />
+       </GUI>
+       <Navigation>
+        <BadLinkURI          value=""/>
+        <UserAgent          value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) MotorolaWebKit/%e Mobile Safari/%w"/>
+        <ViewportEnabled       value="0"/>
+        <ViewportWidth        value="640"/>
+        <CaFile            value="%INSTALLDIR%\server.pem"/>
+        <VerifyPeerCertificate    value="1"/>
+        <ClientSSLCertificate     value=""/>
+        <ClientSSLCertificatePassword value=""/>
+        <NetworkCookieDatabase    value="file://\Program Files\RhoElements\cookies.db"/>
+        <AcceptLanguage        value="en-GB,en-US;q=0.8,en;q=0.6,af;q=0.4"/>
+        <Cache            value="5MB"/>
+        <Keepalive          value="true"/>
+        <DisableTLS          value="0"/>
+       </Navigation>
+       <DeviceKeys>
+        <EnableCtrlKey_C     value="0"/>
+        <EnableCtrlKey_V     value="0"/>
+        <EnableBacklightSlider  value="0"/>
+        <EnableVolumeSlider    value="0"/>
+       </DeviceKeys>
+       <DefaultMetaTags>
+        <MetaTag value="SignatureCapture~left:30;top:130;height:100;bgcolor:#663300;width:200;border:visible;visibility:visible;" />
+        <MetaTag value="Signal~left:10;top:200;color:#663300;"/>
+       </DefaultMetaTags>
+      </Application>
+     </Applications>
+    </Configuration>
 
 ## Configuration settings and values
 
-The `Config.xml` file affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. This section defines each 
+The following section describes each Config.xml setting and all of its possible values. 
 
-NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
+####General notes about Config.xml
+* The `Config.xml` file affects only applications that use Zebra's Webkit. 
+* It determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
 
-> Note: Fullscreen Mode is currently unavailable for the iOS7 SDK. For details and other differences, see the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
+* The `CaFile` setting applies only to apps built with RMS 4.0 that use the stock browser.
 
-
-
-
-
+* Fullscreen Mode is currently unavailable for the iOS7 SDK. For details, please refer to the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
 
 ##ApplicationCache
@@ -1243,6 +1241,28 @@ NOTE: This parameter is not testable.
 **Possible Values**: PollInterval<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
+##WebDB
+###WebStorageDBPath
+Sets the path to an existing directory for storage of web storage databases.<br>
+
+**Configuration Identifier**: WEBSTORAGEDBPATH<br>
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+**Platforms**: Windows Mobile / CE Webkit<br>
+
+###WebSQLDBQuota
+Sets the maximum per-database quota for Web SQL databases.<br>
+
+**Configuration Identifier**: WEBSQLDBQUOTA<br>
+**Possible Values**: Size in bytes<br>
+**Platforms**: WM/CE Webkit<br>
+
+###WebSQLDBPath
+Path to an existing directory to store Web SQL databases<br>
+
+**Configuration Identifier**: WEBSQLDBPATH<br>
+**Possible Values**: Fully qualified local path (case sensitive)<br>
+**Platforms**: WM/CE Webkit<br>
+
 ##WebServer
 ###Enabled
 Determines whether a web server will be running locally on the device to service the application. When multiple Webview applications are deployed, all can run from a single embedded server or use discrete servers, each running on a different port.<br>
@@ -1274,33 +1294,11 @@ Specifies the folder on the device in which the web application and its initial 
 **Possible Values**: Fully qualified path to folder containing web application (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
-##WebDB
-###WebStorageDBPath
-Sets the path to an existing directory for storage of web storage databases.<br>
-
-**Configuration Identifier**: WEBSTORAGEDBPATH<br>
-**Possible Values**: Fully qualified local path (case sensitive)<br>
-**Platforms**: Windows Mobile / CE Webkit<br>
-
-###WebSQLDBQuota
-Sets the maximum per-database quota for Web SQL databases.<br>
-
-**Configuration Identifier**: WEBSQLDBQUOTA<br>
-**Possible Values**: Size in bytes<br>
-**Platforms**: WM/CE Webkit<br>
-
-###WebSQLDBPath
-Path to an existing directory to store Web SQL databases<br>
-
-**Configuration Identifier**: WEBSQLDBPATH<br>
-**Possible Values**: Fully qualified local path (case sensitive)<br>
-**Platforms**: WM/CE Webkit<br>
-
 ###Vulnerability Alert
 
 >A vulnerability has been discovered that affects applications using SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). **This applies only to apps for Windows Mobile and Windows CE built with RMS 5.1 or higher**. Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
 
-## Remarks
+## Programming Notes
 ### <a name="_caseSensitivity">&dagger;</a>Case Sensitivity
 The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
