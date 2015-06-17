@@ -962,13 +962,13 @@ Determines whether to preload the NPAPI plugin to provide native JavaScript obje
 
 ##Preloads
 ###Preload
-Defines plug-ins to be pre-loaded along with RhoElements rather than loading when needed by a program function. This prevents the user from experiencing a lag when performing a function for the first time. Plug-ins are otherwise loaded into memory as needed. For example, when `Barcode.enable` is called, the `Barcode` plug-in DLL will be loaded, causing a delay. 
+Defines plug-ins to be pre-loaded with RhoElements rather than loading as needed by a program function. Pre-loading prevents application lag when a program function is called for the first time. For example, when `Barcode.enable` is called by an app, a slight lag will be seen as the `Barcode` DLL loads into memory. Specify a Preload tag for each module to be loaded when RhoElements starts up. 
 
-Specify a Preload tag for each module to be loaded when RhoElements starts up. Note that while multiple modules may be defined in the same DLL, all pre-loaded modules must be listed to see maximum benefit.
+* While multiple modules may be defined in the same DLL, **list all pre-loaded modules for maximum benefit**.
 
-Preload all required modules to avoid running out of memory during execution on low memory devices. 
+* For memory-constrained devices, **pre-load all required modules to prevent an out-of-memory condition during execution**. 
 
-**Plug-ins are integral to RhoElements on the Enterprise Tablet, and therefore do not apply.<br>
+* **Plug-ins are integral to RhoElements on the Enterprise Tablet**, and therefore do not apply.
 
 **Configuration Identifier**: PRELOAD<br>
 **Possible Values**: 0 - Do Not Preload, 1 - Preload<br>
