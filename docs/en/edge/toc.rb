@@ -127,6 +127,7 @@ section 'rhomob-apps',                        'Developing Apps','Mobile Guides' 
   topic 'en/edge/guide/webapps',              'RhoMobile for Web Apps'
   topic 'en/edge/guide/webcontainer',         'Custom Web App Container'
   topic 'en/edge/guide/app_upgrade',          'Upgrading Your App'
+  topic 'en/edge/guide/live-update',          'Live Update'
 end
 
 section 'rhomob-data',                    'Data Handling','Mobile Guides' do
@@ -167,7 +168,6 @@ section 'rhomob-dev',                                     'Device Capabilities',
 end
 
 section 'rhomob-test',                  'Testing & Debugging','Mobile Guides' do
-  topic 'en/edge/guide/live-update',     'Live Update'
   topic 'en/edge/guide/debugging_ruby', 'Debugging Ruby'
   topic 'en/edge/guide/debugging_js',   'Debugging JavaScript'
   topic 'en/edge/guide/logging',        'Logging'
