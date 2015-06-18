@@ -559,17 +559,6 @@ This setting is used to specify which Function keys (F1 to F24) should be enable
 
 [Read more about the interaction between FunctionKeysCapturable and EnableFunctionKey_X](#_fnbehavior). <br>
 
-###FunctionKeysCapturable
-**Applies to Windows Mobile and Windows CE only; disabled by default**. 
-
-Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the [Key Capture API](/api/keycapture). When disabled, keys revert to the device's default behavior. **This setting is not specific to an application. When enabled, settings are applied globally to the device**. 
-
-**Configuration Identifier**: FUNCTIONKEYSCAPTURABLE<br>
-**Possible Values**: 
-0 - 'F keys' not capturable, 1 - 'F keys' capturable<br>
-**Platforms**: 
-Windows Mobile/CE<br>
-
 ###EnableVolumeSlider
 **Applies to Zebra's [MC2100 mobile computer](https://www.zebra.com/us/en/products/mobile-computers/handheld/mc2100.html) only**.
 
@@ -587,6 +576,15 @@ Defines the location of the XML file that contains the conversions to be used fo
 
 **Configuration Identifier**: REGEXFILE<br>
 **Possible Values**: Fully qualified path to file defining the regular expressions (case sensitive)<br>
+**Platforms**: Windows Mobile/CE<br>
+
+###FunctionKeysCapturable
+**Applies to Windows Mobile and Windows CE only; disabled by default**. 
+
+Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the [Key Capture API](/api/keycapture). When disabled, keys revert to the device's default behavior. **This setting is not specific to an application. When enabled, settings are applied globally to the device**. 
+
+**Configuration Identifier**: FUNCTIONKEYSCAPTURABLE<br>
+**Possible Values**: 0 - 'F keys' not capturable, 1 - 'F keys' capturable<br>
 **Platforms**: Windows Mobile/CE<br>
 
 ###PluginFile
@@ -621,7 +619,15 @@ Regular Expressions are used to maintain backward compatiblility with PocketBrow
 
 **Configuration Identifier**: USEREGULAREXPRESSIONS<br>
 **Possible Values**: 0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: ###FunctionKeysCapturable
+**Applies to Windows Mobile and Windows CE only; disabled by default**. 
+
+Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the [Key Capture API](/api/keycapture). When disabled, keys revert to the device's default behavior. **This setting is not specific to an application. When enabled, settings are applied globally to the device**. 
+
+**Configuration Identifier**: FUNCTIONKEYSCAPTURABLE<br>
+**Possible Values**: 0 - 'F keys' not capturable, 1 - 'F keys' capturable<br>
+**Platforms**: Windows Mobile/CE<br>
+<br>
 
 ##Geolocation
 ###GeolocationEnabled
@@ -709,7 +715,15 @@ NOTE: This configuration element is currently unavailable on MC92, VC70 or WT41N
 
 **Configuration Identifier**: USENATIVEFONTS<br>
 **Possible Values**: 0 - Use FontFamily Setting, 1 - Use FreeType font library<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: ###FunctionKeysCapturable
+**Applies to Windows Mobile and Windows CE only; disabled by default**. 
+
+Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the [Key Capture API](/api/keycapture). When disabled, keys revert to the device's default behavior. **This setting is not specific to an application. When enabled, settings are applied globally to the device**. 
+
+**Configuration Identifier**: FUNCTIONKEYSCAPTURABLE<br>
+**Possible Values**: 0 - 'F keys' not capturable, 1 - 'F keys' capturable<br>
+**Platforms**: Windows Mobile/CE<br>
+<br>
 
 ##HTTP_Proxy
 ###HTTP_Proxy
@@ -858,7 +872,9 @@ The browser cache size, in whole MBs. **Applies to RhoMobile Suite version 2.2 a
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###CaFile
-Specifies the location of a file of CA certificates in PEM format. [See openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. This setting is supported on Android and Windows Mobile/CE only.<br>
+**Applies to Android and Windows Mobile/CE only. Not supported on iOS**. 
+
+Specifies the location of a file of CA certificates in PEM format. [See openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information.<br>
 
 **Configuration Identifier**: CAFILE<br>
 **Possible Values**: Fully qualified local path (case sensitive)<br>
@@ -1091,16 +1107,18 @@ NOTE: FingerScroll may interfere with drawing on a Canvas element.<br>
 
 ##SIP
 ###EnableSIP
-Controls whether soft input panel (on-screen keyboard) can be used. (Android only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)<br>
+**Applies to Android only**.
+
+Controls whether soft input panel (on-screen keyboard) will appear. On Windows Mobile/CE, this feature can be mimicked by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby 'disabling' its use.<br>
 
 **Configuration Identifier**: Not Configurable<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: Android<br>
 
 ###ResizeOnSIP
 **Applies to Windows Mobile only. Requires SIP module preload**. 
 
-Controls window resizing when the soft input panel (on-screen keyboard) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top. 
+Controls window resizing when the soft input panel (on-screen keyboard) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. 
 
 * Not compatible with Windows CE
 * Not compatible with Finger Scrolling
@@ -1108,7 +1126,7 @@ Controls window resizing when the soft input panel (on-screen keyboard) is displ
 
 **Configuration Identifier**: RESIZEONSIP<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: Windows Mobile<br>
 
 ##Sound
 ###DecodeDuration
@@ -1170,7 +1188,7 @@ Controls whether the scanner can be used when battery charge level is low. Set t
 
 **Configuration Identifier**: LOWBATTERYSCAN<br>
 **Possible Values**: 0 - Disabled, 1 - Enabled<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: Windows Mobile/CE<br>
 
 ##TabInstance
 ###NewTabPhysicalMemLimit
