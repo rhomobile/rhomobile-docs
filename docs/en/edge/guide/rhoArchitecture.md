@@ -23,7 +23,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">iOS 6.0 or higher</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC3100%20Mobile%20Computer/Technical_Product%20Specs/MC3100.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.ehcjS-H9zK.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/warehouse_management/photography-product/MC3100.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Windows Mobile/CE</b></td>
   <td class="clsSyntaxCells clsOddRow">Zebra devices (see below), third-party devices</td>
   <td class="clsSyntaxCells clsOddRow">WM6.x Pro, WM 6.0 Std, WinCE 5, WinCE 6, WinCE 7, WinXPe</td>
@@ -67,7 +67,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Core</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc3100Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC3100%20Mobile%20Computer/Technical_Product%20Specs/MC3100.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.ehcjS-H9zK.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc3100Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/warehouse_management/photography-product/MC3100.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC3100</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC3100R, MC3100S, MC3190G, </nobr>MC3190R, MC3190S, MC3190Z</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
@@ -157,7 +157,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC9190-Z%20RFID%20Reader/Photography%20%E2%80%93%20Product/MC9190Z_Right_017%20HR%20TR_653.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC9190-G%20Mobile%20Computer/Photography%20%E2%80%93%20Product/MC9190G_Right_079_653_Start_lo-TransBkg.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9100</b></td>
   <td class="clsSyntaxCells clsOddRow">MC9190-G, MC9190-Z</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
@@ -216,7 +216,7 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Interactive%20Kiosks/MK3100%20Micro%20Kiosk/Technical_Product%20Specs/MK3100-Front_Price-Check_01.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.mtx_sG1J9S.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/retail/photography-products/MK3100-Front_Price-Check_01.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3100</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3100, MK3190</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -288,7 +288,7 @@ Memory constraints are important to consider, particularly when targeting the ol
  </tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Mobile_Computers/Handheld_Computers/_IMAGE/_STATIC/MC3000_324_324.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC3000</b></td>
-  <td class="clsSyntaxCells clsOddRow">MC3000, MC3090</td>
+  <td class="clsSyntaxCells clsOddRow">MC3000 (CE 5.0 only), MC3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
  </tr>
  <tr>
