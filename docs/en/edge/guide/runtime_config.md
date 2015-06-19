@@ -1,4 +1,31 @@
 # Application Runtime Configuration
+Runtime configuration of RhoElements is managed through an XML file called `Config.xml`. This file is *mandatory* for proper RhoElements execution. Not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults. This page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem. 
+
+####General notes about Config.xml
+* The `Config.xml` file affects only applications that use Zebra's Webkit. 
+* It determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
+* The `CaFile` setting applies only to apps built with RMS 4.0 that use the stock browser.
+lease refer to the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
+
+###Vulnerability Alert
+
+>**Applies only to Windows Mobile and Windows CE apps built with RMS 5.1 or higher**.
+
+>In Oct., 2014, a vulnerability was discovered affecting applications that use SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
+
+>To forego this safeguard and enable SSL3, you must append the `<Navigation>` section of the `Config.xml`: <br>
+
+>In `Config.xml`:
+    :::yaml
+    <Navigation>
+      ...
+      <EnableSSL3 value="0"/>
+      # value="0" (SSL3 disabled) 
+      # value="1" (SSL3 enabled)
+      # If not specified, SSL3 is enabled
+      ...
+    </Navigation>
+
 Apart from your source code, the other files that control your application's runtime behavior are `rhoconfig.txt` and `Config.xml`.
 
 The values in `rhoconfig.txt` control aspects of your application such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
@@ -179,32 +206,8 @@ Sample yaml code:
 
 
 ## Config.xml
-###VULNERABILITY ALERT
 
->A vulnerability has been discovered that affects applications using SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). **This applies only to apps for Windows Mobile and Windows CE built with RMS 5.1 or higher**. Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
-
-To forego this safeguard and enable SSL3, you must append the `<Navigation>` section of the `Config.xml`: <br><br>
-
-Sample yaml code:
-    :::yaml
-  
-    <Navigation>
-      ...
-      <EnableSSL3 value="0"/>
-      # value="0" (SSL3 disabled) 
-      # value="1" (SSL3 enabled)
-      # If not specified, SSL3 is enabled
-      ...
-    </Navigation>
-  
-
-The Config.xml affects only applications that use Zebra's Webkit. This settings file determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
-
-NOTE: The `CaFile` setting in `Config.xml` will apply to 4.0 applications using the stock browser.
-
-Runtime configuration of RhoElements is managed through an XML file called `Config.xml`. This file is *mandatory* for proper RhoElements execution. Not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults. This page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem. 
-
-Its location depends on the operating system:
+###Config.xml location on desktops
 
 ####Windows:
 `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
@@ -212,27 +215,25 @@ Its location depends on the operating system:
 #####Mac OS X:
 `~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml`
 
-### Config.xml file location on a mobile device
-The location of Config.xml varies based on the installation:
+### Config.xml location on a mobile devices
 
-* When running on the Zebra Enterprise Tablet: 
+####On the Zebra Enterprise Tablet: 
 `/Android/data/com.motorolasolutions.rhoelements/Config.xml`
 
-* All other devices locate `Config.xml` in `<installation root>\Config`
+####All other devices: 
+`<installation root>\Config`
 
-* For persistant installations, `Config.xml` on cold boot is copied from
-`\Application\RhoElements\Config\Config.xml`<br>
-to<br>
-`\Program Files\RhoElements\Config\Config.xml`<br> 
+####For persistant installations: 
+On cold boot, `Config.xml` is copied from `\Application\RhoElements\Config\Config.xml`<br> to `\Program Files\RhoElements\Config\Config.xml`**. 
 
-Bear this in mind if you want your configuration to persist after a cold boot. This behavior may be modified by changing `\Application\RhoElements.cpy`.
+* To persist settings after a cold boot, **store desired settings in both locations**. 
 
-NOTE: It's possible to switch between `Config.xml` files using the /C: configuration option. 
+* **Modify this behavior by editing** `\Application\RhoElements.cpy`. 
+
+* **Switch between `Config.xml` files using /C:** configuration option. 
 
 ## Config.xml File Format
-The following is an example of a typical configuration file
-
-Sample XML:
+**Typical Config.xml file**:
     :::xml
       <Configuration>
       <DebugButtons>
@@ -415,15 +416,6 @@ Sample XML:
 ## Configuration settings and values
 
 The following section describes each Config.xml setting and all of its possible values. 
-
-####General notes about Config.xml
-* The `Config.xml` file affects only applications that use Zebra's Webkit. 
-* It determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
-
-* The `CaFile` setting applies only to apps built with RMS 4.0 that use the stock browser.
-
-* Fullscreen Mode is currently unavailable for the iOS7 SDK. For details, please refer to the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
-
 
 ##ApplicationCache
 ###ApplicationCacheQuota
