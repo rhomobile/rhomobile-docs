@@ -1,15 +1,13 @@
 # Application Runtime Configuration
-Runtime configuration of RhoElements is managed through an XML file called `Config.xml`. This file is *mandatory* for proper RhoElements execution. Not every setting has a default and if the configuration file cannot be found, RhoElements will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults. This page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled with the `rhoelements` gem. 
+Runtime configuration settings of RhoElements apps is managed through `Config.xml` and `rhoconfig.txt` files. **`Config.xml` is *required* for RhoElements execution, and your app will not start without it**. The `Config.xml` file determines features of the RhoElements runtime itself, such as the keys that can be intercepted by the application and whether to pre-load modules on startup. An example configuration file is provided as part of the installation and many (though not all) settings contain sensible defaults. The example `Config.xml` file is bundled with the `rhoelements` gem. Location of the file on various device installations is detailed below. 
 
-####General notes about Config.xml
-* The `Config.xml` file affects only applications that use Zebra's Webkit. 
-* It determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
-* The `CaFile` setting applies only to apps built with RMS 4.0 that use the stock browser.
-lease refer to the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
+The `rhoconfig.txt` file controls the app's startup page, the address of the `RhoConnect` synchronization server, if applicable, and some other settings. 
+
+This guide explains the meanings of each of the settings and their possible values. 
 
 ###Vulnerability Alert
 
->**Applies only to Windows Mobile and Windows CE apps built with RMS 5.1 or higher**.
+>**Applies to Windows Mobile and Windows CE apps built with RMS 5.1 or higher**.
 
 >In Oct., 2014, a vulnerability was discovered affecting applications that use SSL3, which is part of the Zebra Webkit (Ekioh 3.1.1). Known as POODLE (Padded Oracle On Downgraded Legacy Encryption), the vulnerability [as described by the U.S. Comuputer Emergency Readiness Team](https://www.us-cert.gov/ncas/alerts/TA14-290A) would allow an attacker to exploit the means by which SSL 3.0 handles block cipher mode padding to decrypt and **extract information from inside an encrypted transaction**.<br><br> To protect against this, **Zebra now ships the Zebra Webkit with SSL3 disabled by default**. <br><br>
 
@@ -26,11 +24,6 @@ lease refer to the [Differences in iOS7](build_ios#differences-building-for-ios7
       ...
     </Navigation>
 
-Apart from your source code, the other files that control your application's runtime behavior are `rhoconfig.txt` and `Config.xml`.
-
-The values in `rhoconfig.txt` control aspects of your application such as the page loaded when the application starts and the address of the `RhoConnect` synchronization server (if applicable). 
-
-The `Config.xml` file determines features of the RhoElements runtime itself, such as the keys that can be intercepted by the application and whether to pre-load modules on startup.
 
 ## rhoconfig.txt
 You can use `rhoconfig.txt` to add arbitrary values that are specific to your application and apart from settings recognized by the platform:
@@ -207,7 +200,16 @@ Sample yaml code:
 
 ## Config.xml
 
-###Config.xml location on desktops
+####General notes about Config.xml
+* The `Config.xml` file affects only applications that use Zebra's Webkit. 
+
+* It determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
+* The `CaFile` setting applies only to apps built with RMS 4.0 that use the stock browser.
+
+* Fullscreen mode is currently unavailable for the iOS 7 SDK. For details and other differences, please refer to the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
+
+
+###Location on desktops
 
 ####Windows:
 `<RhoMobile Suite installation directory>\ruby\lib\ruby\gems\1.9.1\gems\rhoelements-4.0.0\libs\data\Config\Config.xml`
@@ -215,7 +217,7 @@ Sample yaml code:
 #####Mac OS X:
 `~/.rvm/gems/ruby-1.9.3-p392/gems/rhoelements-4.0.0/libs/data/Config/Config.xml`
 
-### Config.xml location on a mobile devices
+###Location on a mobile devices
 
 ####On the Zebra Enterprise Tablet: 
 `/Android/data/com.motorolasolutions.rhoelements/Config.xml`
@@ -224,13 +226,13 @@ Sample yaml code:
 `<installation root>\Config`
 
 ####For persistant installations: 
-On cold boot, `Config.xml` is copied from `\Application\RhoElements\Config\Config.xml`<br> to `\Program Files\RhoElements\Config\Config.xml`**. 
+**On cold boot, `Config.xml` is copied from `\Application\RhoElements\Config\Config.xml`<br> to `\Program Files\RhoElements\Config\Config.xml`**. 
 
 * To persist settings after a cold boot, **store desired settings in both locations**. 
 
 * **Modify this behavior by editing** `\Application\RhoElements.cpy`. 
 
-* **Switch between `Config.xml` files using /C:** configuration option. 
+* **Switch between `Config.xml` files using the /C: configuration option**. 
 
 ## Config.xml File Format
 **Typical Config.xml file**:
