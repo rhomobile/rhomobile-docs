@@ -20,11 +20,21 @@ If your machine already has RMS installed, **[get the latest RhoMobile suite for
 2- **When you've confirmed that your projects are elsewhere, click 'Replace'**<br> 
 3- When copying from Step 2 is compete, **run the "Install Gems" script** from the .dmg<br>
 4- **Launch RhoStudio from the latest Launcher** script (provided)<br>
-5- **Create or update any application aliases** for the new Launchers<br>
+5- Go to **RhoMobile>>Preferences>>RhoMobile** and update Java bin path settings 
+
+* **Be sure to browse to your *System* Library**, which is directly below the root
+* Do **not** point to your user's Library folder<br>
+
+6- If you're building locally, click **Android** (under RhoMobile prefs branch) and re-enter path settings for Android SDK and NDK<br>
+6- **Create or update any application aliases** for the new Launchers<br>
+
+![img](http://rhomobile-suite.s3.amazonaws.com/install/Java_bin_path.png)
 
 ###For Windows (.exe file):
 1- **Launch the RhoMobile Suite Installer** (.exe)<br>
-2- **Update Start Menu/Start Screen shortcuts** as necessary
+2- **Update Start Menu/Start Screen shortcuts** as necessary<br>
+3- Go to **Window>>Preferences>>RhoMobile** and update Java bin path settings, if necessary<br>
+4- If you're building locally, click **Android** (under RhoMobile Preferences branch) and re-enter path settings for Android SDK and NDK if necessary<br>
 
 If the upgrade steps have failed, or if you're installing RhoMobile Suite for the first time, follow the instructions below for your development system. 
 
