@@ -353,4 +353,4 @@ Memory constraints are important to consider, particularly when targeting the ol
 </table>
 
 ###Compatibility Alert
->Support for older or deprecated device families such as the MC9000 and MK4000 can be found in [RhoElements 5.x](http://rhomobile.com/). 
+>Support for older or deprecated device families such as the MC9000 and MK4000 can be found in RhoElements 5.x. 
