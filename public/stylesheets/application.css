@@ -78,6 +78,12 @@ img {
 	border: 0;
 }
 
+/* Force any image in tables to not be huge*/
+td > img {
+	height: 40px
+	
+}
+
 form {
 	margin: 0;
 	padding: 0;
