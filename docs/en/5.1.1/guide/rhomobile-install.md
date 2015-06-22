@@ -204,7 +204,7 @@ A Terminal window will open and execute an installation script.<br>
 
 
 ## Installing Native SDKs (Optional)
-RhoStudio permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8 on the local development host or in the cloud using [Rhohub.com](https://rms.rhomobile.com/). If you plan to build native apps locally, you'll need to install the corresponding SDKs for each. For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](http://docs.rhomobile.com/en/edge/guide/nativesdksetup).<br>
+RhoStudio permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8 on the local development host or in the cloud using [Rhohub.com](https://rms.rhomobile.com/). If you plan to build native apps locally, you'll need to install the corresponding SDKs for each. For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](/guide/nativesdksetup).<br>
 <br>
 
 ## Troubleshooting Windows
