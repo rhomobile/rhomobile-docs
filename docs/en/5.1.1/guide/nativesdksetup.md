@@ -31,7 +31,18 @@ On Macintosh and Linux, navigate to and run `<Android SDK>/tools/android sdk`. O
 
 2) Download and unzip the [latest Android NDK](http://developer.android.com/sdk/ndk/index.html) to the location of your choice.
 
-> Note: You need to update Android SDK platforms and Android NDK to latest ones as you update to new versions of Rhodes. Android NDK version r8e is required as a minimum.
+> Note: You should update the Android SDK and NDK as you update to new versions of Rhodes. Android NDK version r8e is required as a minimum.
+
+NOTE: RMS 5.1 does not support Android NDK r10; Android NDK r9 is current recommendation. 
+
+Download Android NDK r9 from Google's servers:
+
+* [for Linux](http://dl.google.com/android/ndk/android-ndk-r9-linux-x86.tar.bz2)
+
+* [for Mac OS X](https://dl.google.com/android/ndk/android-ndk-r9d-darwin-x86_64.tar.bz2)
+
+* [for Windows](http://dl.google.com/android/ndk/android-ndk-r9d-windows-x86_64.zip)
+
 
 3) The Android Support Library must be installed using the latest version. (Minimum Rev 14). This can be installed using the Android SDK Manager under the `Extras` folder.
 
