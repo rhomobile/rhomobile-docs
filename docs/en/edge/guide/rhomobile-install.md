@@ -26,7 +26,9 @@ If your machine already has RMS installed, **[get the latest RhoMobile suite for
 * Do **not** point to your user's Library folder<br>
 
 6- If you're building locally, click **Android** (under RhoMobile prefs branch) and re-enter path settings for Android SDK and NDK<br>
-6- **Create or update any application aliases** for the new Launchers<br>
+NOTE: RMS 5.1 is NOT compatible with Android NDK 10; Android NDK 9d is recommended. 
+
+7- **Create or update any application aliases** for the new RhoSuite Launchers.<br>
 
 ![img](http://rhomobile-suite.s3.amazonaws.com/install/Java_bin_path.png)
 
@@ -35,8 +37,9 @@ If your machine already has RMS installed, **[get the latest RhoMobile suite for
 2- **Update Start Menu/Start Screen shortcuts** as necessary<br>
 3- Go to **Window>>Preferences>>RhoMobile** and update Java bin path settings, if necessary<br>
 4- If you're building locally, click **Android** (under RhoMobile Preferences branch) and re-enter path settings for Android SDK and NDK if necessary<br>
+NOTE: RMS 5.1 is NOT compatible with Android NDK 10; Android NDK 9d is recommended. 
 
-If the upgrade steps have failed, or if you're installing RhoMobile Suite for the first time, follow the instructions below for your development system. 
+If the upgrade steps have failed, or if you're installing RhoMobile Suite for the first time, follow the instructions below for a first-time installation. 
 
 ## Installing on Windows (32- and 64-bit)
 ### STEP 1: Run the RhoMobile Suite Installer
