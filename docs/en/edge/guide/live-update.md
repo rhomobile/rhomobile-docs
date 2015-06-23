@@ -1,29 +1,32 @@
 # Live Update
----
-
 ## Overview
----
-Live Update is a **new feature** in [RhoMobile Suite 5.1](http://docs.rhomobile.com/en/edge) that enables users to program and debug on the fly, allowing any changes made to instantly display on discovered mobile devices.
+Live Update is a **new feature** in [RhoMobile Suite 5.1](http://rhomobile.com) that instantly displays changes to many parts of a RhoMobile app on-device without the need to recompile and redeploy. This enables on-the-fly programming and debugging on multiple mobile devices at the same time. It supports Android, iOS (and Apple's iOS simulator) and Windows Mobile/CE. 
 
-Live Update watches for changes in the source code of your application. Each time an application file gets changed, the Live Update builds an update bundle and notifies discovered mobile device about it. The application on the discovered mobile device downloads the update package from the server, applies it, and then refreshes the web view to show the latest changes. Extended access to Live Update API is available from the command line.
+Live Update watches for changes in the source code of your app and builds a complete or partial update bundle (based on your preference) and can either deploy it immediately or on command. Once notified of an update, the target devices download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the web view to display the latest changes. Live Update works equally well through RhoStudio or from the command line.
 
-This guide is designed to provide an overview of the steps necessary to quickly and easily enable and use Live Update in a RhoMobile application. 
+This guide provides an overview of the Live Update setup process. 
 
 ##Requirements
----
-Live Update is supported on the following platforms and devices:  
+For Live Update, **apps must be built with RhoMobile Suite 5.1.1**. 
 
-* Mac OS
-* Windows OS (Currently in Beta)
-* iOS
-* Android
-* Windows Mobile
+**Live Update is supported on**:<br>
+* Mac OS X<br>
+* Windows (currently in beta)<br>
+* Android<br>
+* iOS (and Apple iOS simulator)<br>
+* Windows Mobile/CE<br>
 
-> Note: Live Update is not supported by Android emulators and applications with the “development” extension cannot be built on Rhohub.com.
+**Live Update is *not* supported on**:<br>
+* Android emulators<br>
+* Apps built on Rhohub.com<br>
+* Deployed apps lacking the “development” extension<br>
+* Apps with [build: "release"] in their `build.yml` file<br>
 
-## Enabling Live Update
----
-> Note: This feature is available only when your build.yml contains `build: debug` and is removed automatically when your build.yml contains `build: release`
+## Enable Live Update
+
+> NO NO NO 
+Note: This feature is available only when your `build.yml` file contains build: "debug" and is removed automatically when your build.yml contains `build: release`
+
 
 ###1. Make Sure You Have Version 5.1 or Greater of RhoStudio
 Live Update will not work properly and will not display the **Live update setting** file if you do not have the proper version of RhoStudio.
