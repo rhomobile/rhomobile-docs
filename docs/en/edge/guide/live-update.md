@@ -7,7 +7,7 @@ Live Update works by monitoring files in the **/apps** and **/public** folders o
 This guide provides an overview of the Live Update setup process. 
 
 ##Requirements
-**Live Update apps must be built with [RhoMobile Suite 5.1](http://rhomobile.com)**. 
+**Live Update works only on apps built with [RhoMobile Suite 5.1](http://rhomobile.com)**. 
 
 **Live Update is supported on**:<br>
 
@@ -34,25 +34,27 @@ This guide provides an overview of the Live Update setup process.
 * Ruby<br>
 * Embedded Ruby<br>
 * Images<br>
-* Other files in /app and /public folders<br>
+* Other files in **/app** and **/public** folders<br>
 
 ## Enable Live Update
 ###1. Make Sure You Have Version 5.1 or Greater of RhoStudio
 Live Update will not work properly and will not display the **Live update setting** file if you do not have the proper version of RhoStudio.
 
 ###2. Add Necessary Extensions
-**To enable Live Update in your application, you must include the following extension in your `build.yml`**
+To enable Live Update in your application, **include the following extension in your `build.yml`**:
 
     :::ruby
 
     extensions: ["development"]
 
 
+NOTE: By default, the `build.yml` file contains the line 'build: debug' (which changes to 'build: "debug" ' after your first build). Changing 'debug' to 'release' in this line removes Live Update capability.  
+
 ###3. Connecting your computer and mobile devices to the same network
 Any device with an application that uses Live Update must be connected to the same Wi-Fi and subnet as your computer. If your computer and mobile device are connected to the same Wi-Fi, but not the same subnet, you can go into network preferences and then into advanced options and manually configure your IP address to have the same subnet as your mobile device. If you are unsure what to make the IP address, giving your computer an address that is one or two numbers away from you mobile device's IP should provide the same subnet. If this still does not work, someone else is most likely using that IP address and you should try a different IP.
 
 ###4. Discovering Your Mobile Devices 
-> Note: Step 4 can be done from both the command line and the RhoStudio IDE
+> Note: Step 4 can be done from the command line or the RhoStudio IDE.
 
 **From the RhoStudio IDE**
 
