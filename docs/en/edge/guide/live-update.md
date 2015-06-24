@@ -2,7 +2,7 @@
 ## Overview
 Live Update is a **new feature in [RhoMobile Suite 5.1](http://rhomobile.com)** that instantly displays changes to many parts of a RhoMobile app on-device without the need to manually recompile and redeploy. This enables on-the-fly programming and debugging on multiple mobile devices at the same time. It supports Android, iOS (and Apple's iOS simulator) and Windows Mobile/CE in any combination. 
 
-Live Update works by monitoring files in the **/apps** and **/public** folders of your RhoMobile app. watches for changes in the source code of your app and builds a complete or partial update bundle (based on your preference) and can either deploy it immediately or on command. Once notified of an update, the target devices download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the web view to display the latest changes. Live Update works equally well through RhoStudio or from the command line.
+Live Update works by monitoring files in the **/apps** and **/public** folders of your RhoMobile app. It watches for changes in the source code and builds a complete or partial update bundle and can either deploy it immediately or on command. Once notified of an update, the target devices download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the Webview to display the changes on the device. Live Update works through RhoStudio or from the command line.
 
 This guide provides an overview of the Live Update setup process. 
 
