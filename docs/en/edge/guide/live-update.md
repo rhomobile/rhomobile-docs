@@ -2,21 +2,22 @@
 ## Overview
 Live Update is a **new feature in [RhoMobile Suite 5.1](http://rhomobile.com)** that instantly displays changes to many parts of a RhoMobile app on-device without the need to manually recompile and redeploy. This enables on-the-fly programming and debugging on multiple mobile devices at the same time. It supports Android, iOS (and Apple's iOS simulator) and Windows Mobile/CE in any combination. 
 
-Live Update works by monitoring files in the **/apps** and **/public** folders of your RhoMobile app. It watches for changes in the source code and builds a complete or partial update bundle and can either deploy it immediately or on command. Once notified of an update, the target devices download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the Webview to display the changes on the device. Live Update works through RhoStudio or from the command line.
+Live Update works by monitoring files in the **/apps** and **/public** folders of your RhoMobile app and builds a complete or partial update bundle that can either deploy immediately or on command. Once notified of an update, the target device(s) download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the Webview to display the changes. Live Update works through RhoStudio or from the command line.
 
 This guide provides an overview of the Live Update setup process. 
 
 ##Requirements
-**Live Update works only on apps built with [RhoMobile Suite 5.1](http://rhomobile.com)**. 
+**Live Update works only on "RhoElements" apps built with [RhoMobile Suite 5.1](http://rhomobile.com)**. 
 
 **Live Update is supported on**:<br>
 
-* Mac OS X<br>
-* Windows (currently in beta)<br>
+* Mac OS X development hosts<br>
+* Windows development hosts (feature in beta)<br>
 * Android<br>
 * iOS<br>
 * Apple iOS simulator<br>
 * Windows Mobile/CE<br>
+* **Apps built with the RhoElements option box checked**
 
 **Live Update is *not* supported on**:<br>
 
@@ -25,6 +26,7 @@ This guide provides an overview of the Live Update setup process.
 * Apps built on RhoMobile.com (formerly Rhohub)<br>
 * Deployed apps lacking the “development” extension<br>
 * Apps with [build: "release"] in their `build.yml` file<br>
+* Apps built without the RhoElements option box checked
 
 **Live Update acts on changes to**:<br>
 
@@ -37,24 +39,51 @@ This guide provides an overview of the Live Update setup process.
 * Other files in **/app** and **/public** folders<br>
 
 ## Enable Live Update
-###1. Make Sure You Have Version 5.1 or Greater of RhoStudio
-Live Update will not work properly and will not display the **Live update setting** file if you do not have the proper version of RhoStudio.
+###1. Prepare your RhoElements app
+Live Update works only with apps built with the RhoElements option box checked.   
 
 ###2. Add Necessary Extensions
-To enable Live Update in your application, **include the following extension in your `build.yml`**:
+To enable Live Update in your application, **add the following to the extensions section of your `build.yml`**:
 
-    :::ruby
+    :::xml
 
     extensions: ["development"]
 
 
-NOTE: By default, the `build.yml` file contains the line 'build: debug' (which changes to 'build: "debug" ' after your first build). Changing 'debug' to 'release' in this line removes Live Update capability.  
+> IMPORTANT: When a project is first created, the 'build' line in the `build.yml` file looks like this: 
+    :::xml
+    build: debug
+
+> After your first build, it looks like this: 
+    :::xml
+    build: "debug"
+
+> Changing "debug" to "release" removes Live Update capability.
+
+>However, if your 'extensions' line looks like the one below before your first build, then you probably forgot to check "Use RhoElements" box when creating your app. 
+
+>**INCORRECT**:
+
+    :::xml
+
+    extensions: ["rhoconnect-client"]
+
+>**CORRECT**:
+
+    :::xml
+
+    extensions: 
+    - rhoconnect-client
+    - development
+
+
+CAREFUL- When you build an app for the first time, RhoStudio defaults to the prior app's build config, which would cause you to mistakenly re-build the last app you were working on. To prevent this, collapse 
 
 ###3. Connecting your computer and mobile devices to the same network
 Any device with an application that uses Live Update must be connected to the same Wi-Fi and subnet as your computer. If your computer and mobile device are connected to the same Wi-Fi, but not the same subnet, you can go into network preferences and then into advanced options and manually configure your IP address to have the same subnet as your mobile device. If you are unsure what to make the IP address, giving your computer an address that is one or two numbers away from you mobile device's IP should provide the same subnet. If this still does not work, someone else is most likely using that IP address and you should try a different IP.
 
 ###4. Discovering Your Mobile Devices 
-> Note: Step 4 can be done from the command line or the RhoStudio IDE.
+> Note: Step 4 also can be done from the command line; just make your project folder the default directory. 
 
 **From the RhoStudio IDE**
 
