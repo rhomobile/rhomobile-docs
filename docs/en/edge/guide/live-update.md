@@ -4,7 +4,7 @@ Live Update is a **new feature in [RhoMobile Suite 5.1](http://rhomobile.com)** 
 
 Live Update works by monitoring files in the **/apps** and **/public** folders of your RhoMobile app and builds a complete or partial update bundle that can either deploy immediately or on command. Once notified of an update, the target device(s) download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the Webview to display the changes. Live Update works through RhoStudio or from the command line.
 
-This guide provides an overview of the Live Update setup process. 
+This guide provides an overview of the Live Update setup process from within RhoStudio and its Project Explorer interface and text editor. Some of the steps also can be performed from the command line and/or using your favorite text editor.
 
 ##Requirements
 **Live Update works only on "RhoElements" apps built with [RhoMobile Suite 5.1](http://rhomobile.com)**. 
@@ -39,8 +39,31 @@ This guide provides an overview of the Live Update setup process.
 * Other files in **/app** and **/public** folders<br>
 
 ## Enable Live Update
-###1. Prepare your RhoElements app
-Live Update works only with apps built with the RhoElements option box checked.   
+**Quick Steps** (detailed instructions follow):<br> 
+1. Confirm that `build.yml` contains the line 'build: debug'<br> 
+2. Add 'development' to the `extensions:` line in `build.yml`<br> 
+3. Build, deploy and launch app(s) to device(s)<br> 
+4. Establish that all devices are on same Wi-Fi subnet as dev host<br> 
+5. R-click and view 'Live Update Settings' in Project Explorer<br> 
+6. In upper section, double-click the subnet to discover devices<br>
+7. R-click project name in Project Explorer and select 'Refresh'. The file `dev-config.yml` will appear in project<br>
+8. In `dev-config.yml`, add 'refresh: 1' (do not indent) for each device to receive Live Updates<br>
+9. In Terminal, navigate to project directory and **run 'rake dev:update:initialize'** at $ prompt<br>
+**10. Changes should now appear on the device after each save** of files in /app or /public folders*<br>
+
+
+** *The first update might take a minute or two to appear; subsequent changes should be faster**.
+
+###Prepare your RhoElements app
+Live Update works only with apps built with the RhoElements option box checked (see below).
+
+>>> IMAGE OF RHOELEMENTS CHECK BOX HERE
+
+After your app is built but **before it's deployed to the device**: 
+
+1. **Locate your project** in Project Explorer and expand its file tree
+2. **Right-click** the `build.yml` file and select **"Open With>>Text Editor"**
+3. 
 
 ###2. Add Necessary Extensions
 To enable Live Update in your application, **add the following to the extensions section of your `build.yml`**:
@@ -78,6 +101,8 @@ To enable Live Update in your application, **add the following to the extensions
 
 
 CAREFUL- When you build an app for the first time, RhoStudio defaults to the prior app's build config, which would cause you to mistakenly re-build the last app you were working on. To prevent this, collapse 
+
+The first time you send a Live Update to a device, it will take a minute or two. The next ones will be faster. 
 
 ###3. Connecting your computer and mobile devices to the same network
 Any device with an application that uses Live Update must be connected to the same Wi-Fi and subnet as your computer. If your computer and mobile device are connected to the same Wi-Fi, but not the same subnet, you can go into network preferences and then into advanced options and manually configure your IP address to have the same subnet as your mobile device. If you are unsure what to make the IP address, giving your computer an address that is one or two numbers away from you mobile device's IP should provide the same subnet. If this still does not work, someone else is most likely using that IP address and you should try a different IP.
