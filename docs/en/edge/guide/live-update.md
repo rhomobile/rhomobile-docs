@@ -43,7 +43,7 @@ This guide provides an overview of the Live Update setup process from within Rho
 Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. Detailed instructions follow. 
 
 1. Confirm that `build.yml` contains the line **'build: debug'**<br> 
-2. **Add 'development' to `extensions:`** line in `build.yml`<br> 
+2. **Add '- development' to `extensions:`** line in `build.yml`<br> 
 3. **Build, deploy and launch** app(s) to device(s)<br> 
 4. Establish that **all devices are on same Wi-Fi subnet** as dev host<br> 
 5. In Project Explorer, R-click project name and **view 'Live Update Settings'**<br> 
@@ -55,53 +55,39 @@ Here's a quick overview of the steps required to enable Live Update on a new or 
 
 Changes should appear on the device each time a file is saved or placed in the /app or /public folders. If you're having trouble, refer to detailed instructions or troubleshooting section.<br>
 
-NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates should be faster.
+NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates are generally faster.
 
-###Prepare your RhoElements app
-Live Update works only with apps built with the RhoElements option box checked (see below).
+##1- Modify the build.yml
+Live Update works only with apps built with the RhoElements option box checked (see below). To confirm that your app is compatible, check for the line **app_type: "rhoelements"** in its `build.yml` file. 
 
->>> IMAGE OF RHOELEMENTS CHECK BOX HERE
+>> IMAGE: 01_RhoElements_checkbox
 
 After your app is built but **before it's deployed to the device**: 
 
-1. **Locate your project** in Project Explorer and expand its file tree
-2. **Right-click** the `build.yml` file and select **"Open With>>Text Editor"**
-3. 
+* **Locate your project** in Project Explorer and expand its file tree
+* **Right-click** the `build.yml` file and select **"Open With > Text Editor"**
+* Confirm that `build.yml` **contains the line 'build: debug'** 
+* **Locate the 'extensions:' line and add '- development' on a new indented line**
+<br>
 
-###2. Add Necessary Extensions
-To enable Live Update in your application, **add the following to the extensions section of your `build.yml`**:
-
-    :::xml
-
-    extensions: ["development"]
+>>IMAGE: 02_Build.yml_extensions
 
 
-> IMPORTANT: When a project is first created, the 'build' line in the `build.yml` file looks like this: 
-    :::xml
-    build: debug
 
-> After your first build, it looks like this: 
-    :::xml
-    build: "debug"
 
-> Changing "debug" to "release" removes Live Update capability.
 
->However, if your 'extensions' line looks like the one below before your first build, then you probably forgot to check "Use RhoElements" box when creating your app. 
 
->**INCORRECT**:
 
-    :::xml
+##2- Build the App
 
-    extensions: ["rhoconnect-client"]
+* From the **Run Menu**, select **>> Run Configurations**
+* In the **left pane** of the **Run Configurations window** you'll see **RhoMobile Application**:
+    * **Double-click** it to create a **new Launch Configuration**<br>
+    **OR**<br>
+    * **Single-click its arrow** to **edit an existing Launch Configuration** (shown below)<br>
 
->**CORRECT**:
-
-    :::xml
-
-    extensions: 
-    - rhoconnect-client
-    - development
-
+* With the desired Launch Configuration selected, **choose the Platform and Simulator type**
+* **Click Run** to deploy and run your app in RhoSimulator 
 
 CAREFUL- When you build an app for the first time, RhoStudio defaults to the prior app's build config, which would cause you to mistakenly re-build the last app you were working on. To prevent this, collapse 
 
@@ -374,3 +360,33 @@ If Live Update is not working for you, you may want to double check the followin
 * Connect your devices to the same subnet, and not just the same Wi-Fi.
 * Check that your dev-config.yml file has the property `refresh:1` and that it is not indented.
 * If the Update Methods aren't working, make sure you are in the directory where all your project files are located.
+
+####About the Build.yml
+
+
+* When a project is first created (but not yet built), the 'build' line in the `build.yml` file looks like this:<br>
+sza
+
+     :::xml
+     build: debug
+• After the first build, it looks like this: 
+
+
+      :::xml
+      build: "debug"
+
+• Changing "debug" to "release" declares it a production build and removes the Live Update capability.
+
+• Before your first build, your 'extensions' line should look like the one below. If it doesn't, you might have forgotton to check "Use RhoElements" box (seen above) when creating your project. 
+
+**CORRECT**:
+    :::xml
+
+    extensions: 
+    - rhoconnect-client
+    - development
+
+**INCORRECT**:
+    :::xml
+
+    extensions: ["rhoconnect-client"]
