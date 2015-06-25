@@ -68,10 +68,8 @@ After your app is built but **before it's deployed to the device**:
 * **Right-click** the `build.yml` file and select **"Open With > Text Editor"**
 * Confirm that `build.yml` **contains the line 'build: debug'** 
 * **Locate the 'extensions:' line and add '- development' on a new indented line**
-<br>
 
 >>IMAGE: 02_Build.yml_extensions
-
 
 
 
@@ -81,23 +79,33 @@ After your app is built but **before it's deployed to the device**:
 ##2- Build the App
 
 * From the **Run Menu**, select **>> Run Configurations**
-* In the **left pane** of the **Run Configurations window** you'll see **RhoMobile Application**:
-    * **Double-click** it to create a **new Launch Configuration**<br>
-    **OR**<br>
-    * **Single-click its arrow** to **edit an existing Launch Configuration** (shown below)<br>
+* Above the **left pane** click the **New Configuration button** (see image below)
+* **Enter a name** for your build configuration
+* From the drop-downs, **select the relevant project, platform, simulator and build type**
+* Check the 'Clean before build' box (only necessary for first-time builds or after the `build.yml` has beed edited)
+* **Click the Run button** to build, deploy and run your app on the selected device 
 
-* With the desired Launch Configuration selected, **choose the Platform and Simulator type**
-* **Click Run** to deploy and run your app in RhoSimulator 
+>>IMAGE: 03_new_Build_config
 
-CAREFUL- When you build an app for the first time, RhoStudio defaults to the prior app's build config, which would cause you to mistakenly re-build the last app you were working on. To prevent this, collapse 
+NOTE: TIP: When you build an app for the first time, RhoStudio defaults to the prior app's build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always confirm the selectedbuild config before clicking 'Run.'  
+
+##3- Establish a single Wi-Fi subnet
+
+**Skip this step if your Wi-Fi network consists of a single subnet.**
+
+After you build, deploy and launch your modified app, you'll need to discover your target device(s), which must be on the same Wi-Fi subnet as your development host. If they're not, change the IP address of the development host so that the first three figures of the IP address match those of the devices, and the fourth does not. This might require a call to your IT department. 
+
+>> 04_Mac_Wi-Fi_prefs
+
+The screenshot above shows the Network Preferences panel of Mac OS X after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Clicking on the drop-down indicated by the arrow will permit "Using DHCP with manual address," which allows a user-assigned IP subnet to match that of the device(s).
+
+
+##4- Discover Mobile Devices 
+
+
+> Note: Step 4 also can be done from the command line; just make your project folder the default directory. 
 
 The first time you send a Live Update to a device, it will take a minute or two. The next ones will be faster. 
-
-###3. Connecting your computer and mobile devices to the same network
-Any device with an application that uses Live Update must be connected to the same Wi-Fi and subnet as your computer. If your computer and mobile device are connected to the same Wi-Fi, but not the same subnet, you can go into network preferences and then into advanced options and manually configure your IP address to have the same subnet as your mobile device. If you are unsure what to make the IP address, giving your computer an address that is one or two numbers away from you mobile device's IP should provide the same subnet. If this still does not work, someone else is most likely using that IP address and you should try a different IP.
-
-###4. Discovering Your Mobile Devices 
-> Note: Step 4 also can be done from the command line; just make your project folder the default directory. 
 
 **From the RhoStudio IDE**
 
