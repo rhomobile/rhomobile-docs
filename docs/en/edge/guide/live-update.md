@@ -7,9 +7,9 @@ Live Update works by monitoring files in the **/apps** and **/public** folders o
 This guide provides an overview of the Live Update setup process from within RhoStudio and its Project Explorer interface and text editor. Some of the steps also can be performed from the command line and/or using your favorite text editor.
 
 ##Requirements
-**Live Update works only on "RhoElements" apps built with [RhoMobile Suite 5.1](http://rhomobile.com)**. 
+**Live Update works only on "RhoElements" apps built with [RhoMobile Suite 5.1](http://rhomobile.com)** or higher. 
 
-**Live Update is supported on**:<br>
+###Live Update is supported on:
 
 * Mac OS X development hosts<br>
 * Windows development hosts (feature in beta)<br>
@@ -19,7 +19,7 @@ This guide provides an overview of the Live Update setup process from within Rho
 * Windows Mobile/CE<br>
 * **Apps built with the RhoElements option box checked**
 
-**Live Update is *not* supported on**:<br>
+###Live Update is *not* supported on:
 
 * Android emulators<br>
 * RhoSimulator<br>
@@ -28,7 +28,7 @@ This guide provides an overview of the Live Update setup process from within Rho
 * Apps with [build: "release"] in their `build.yml` file<br>
 * Apps built without the RhoElements option box checked
 
-**Live Update acts on changes to**:<br>
+###Live Update acts on changes to:
 
 * HTML<br>
 * CSS<br>
@@ -36,23 +36,25 @@ This guide provides an overview of the Live Update setup process from within Rho
 * Ruby<br>
 * Embedded Ruby<br>
 * Images<br>
-* Other files in **/app** and **/public** folders<br>
+* Other files in **/app** and **/public** folders (only)<br>
 
 ## Enable Live Update
-**Quick Steps** (detailed instructions follow):<br> 
+###Quick Steps (detailed instructions follow): 
 1. Confirm that `build.yml` contains the line 'build: debug'<br> 
 2. Add 'development' to the `extensions:` line in `build.yml`<br> 
 3. Build, deploy and launch app(s) to device(s)<br> 
 4. Establish that all devices are on same Wi-Fi subnet as dev host<br> 
-5. R-click and view 'Live Update Settings' in Project Explorer<br> 
-6. In upper section, double-click the subnet to discover devices<br>
-7. R-click project name in Project Explorer and select 'Refresh'. The file `dev-config.yml` will appear in project<br>
-8. In `dev-config.yml`, add 'refresh: 1' (do not indent) for each device to receive Live Updates<br>
+5. In Project Explorer, R-click project and view 'Live Update Settings'<br> 
+6. In upper section of Settings, double-click subnet to discover devices<br>
+7. In Project Explorer, R-click project and select 'Refresh'. The file `dev-config.yml` will appear in project<br>
+8. Open `dev-config.yml` with text editor and add 'refresh: 1' (not indented) to enable Live Update for all discovered devices<br>
 9. In Terminal, navigate to project directory and **run 'rake dev:update:initialize'** at $ prompt<br>
-**10. Changes should now appear on the device after each save** of files in /app or /public folders*<br>
+10. In Live Update Settings, press "Enable Live Update" button at the top 
+
+**Changes should now appear on the device after each save of files in /app or /public folders*<br>
 
 
-** *The first update might take a minute or two to appear; subsequent changes should be faster**.
+** *The first update in a session generally takes a few moments to appear; subsequent changes should be faster**.
 
 ###Prepare your RhoElements app
 Live Update works only with apps built with the RhoElements option box checked (see below).
