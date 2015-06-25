@@ -39,22 +39,24 @@ This guide provides an overview of the Live Update setup process from within Rho
 * Other files in **/app** and **/public** folders (only)<br>
 
 ## Enable Live Update
-###Quick Steps (detailed instructions follow): 
-1. Confirm that `build.yml` contains the line 'build: debug'<br> 
-2. Add 'development' to the `extensions:` line in `build.yml`<br> 
-3. Build, deploy and launch app(s) to device(s)<br> 
-4. Establish that all devices are on same Wi-Fi subnet as dev host<br> 
-5. In Project Explorer, R-click project and view 'Live Update Settings'<br> 
-6. In upper section of Settings, double-click subnet to discover devices<br>
-7. In Project Explorer, R-click project and select 'Refresh'. The file `dev-config.yml` will appear in project<br>
-8. Open `dev-config.yml` with text editor and add 'refresh: 1' (not indented) to enable Live Update for all discovered devices<br>
+###Quick Steps:
+Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. Detailed instructions follow. 
+
+1. Confirm that `build.yml` contains the line **'build: debug'**<br> 
+2. **Add 'development' to `extensions:` line in `build.yml`<br> 
+3. **Build, deploy and launch** app(s) to device(s)<br> 
+4. Establish that **all devices are on same Wi-Fi subnet** as dev host<br> 
+5. In Project Explorer, R-click project name and **view 'Live Update Settings'**<br> 
+6. In upper section of Settings, **double-click subnet** to discover devices<br>
+7. In Project Explorer, **R-click project and select 'Refresh'**. The file `dev-config.yml` will appear in project<br>
+8. **Open `dev-config.yml` with text editor and add 'refresh: 1'** (not indented) after device section(s) to enable Live Update for all<br>
 9. In Terminal, navigate to project directory and **run 'rake dev:update:initialize'** at $ prompt<br>
-10. In Live Update Settings, press "Enable Live Update" button at the top 
+10. In Live Update Settings, **press "Enable Live Update" button**
 
-**Changes should now appear on the device after each save of files in /app or /public folders*<br>
+**Changes should now appear on the device after each save of files in /app or /public folders**<br>. If they don't, refer to detailed instructions and troubleshooting section. 
 
 
-** *The first update in a session generally takes a few moments to appear; subsequent changes should be faster**.
+** *The first update in a session could take a few minutes to appear; subsequent changes generally appear faster**.
 
 ###Prepare your RhoElements app
 Live Update works only with apps built with the RhoElements option box checked (see below).
