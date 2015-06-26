@@ -76,7 +76,7 @@ NOTE: The first Live Update in a session could take several minutes to appear; s
 ######(*) A USB cable is required for initial application deployment; RhoStudio does not support deployment over Wi-Fi. 
 
 ##1- Modify the build.yml
-This section contains detailed instructions for configuring Live Update on a development host. It follows the same sequence as the Quick Setup above, but uses a different numbering scheme. 
+This section contains detailed instructions for configuring Live Update on a development host. It follows the same general sequence as the Quick Setup above. 
 
 Live Update works only on apps built with the RhoElements option box checked (as below). To confirm that your app is compatible, check for the line **app_type: "rhoelements"** in its `build.yml` file (as in the image that follows, below). 
 
@@ -129,10 +129,24 @@ NOTE: A USB cable is required for initial application deployment; RhoStudio does
 
 ![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/03_new_Build_config.png)
 
-NOTE: TIP: When you build an app for the first time, RhoStudio defaults to the prior app's build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always confirm the selected build config before clicking 'Run.'
+NOTE: CAUTION: When bringing up the Run Configurations screen, RhoStudio opens the most recenly used build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always to confirm the selected build config before clicking 'Run.'
 
-##4- Discover Mobile Devices 
-This step establishes Wi-Fi communications between the development host and the device(s) to receive Live Updates. After discovery, the dev host knows which devices to 'notify' of updates and the devices become 'subscribers' for the download of update bundles. 
+When first launched, an app that has been properly modified for Live Update will display a message similar to the one below. In this case, the app name was "Bloopy." 
+
+<img src="http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/05_DeviceSubscribed.png" width="380" height="600" border="10" />
+
+##4- Discover Devices, Begin Live Update 
+This step establishes Wi-Fi communications between the development host and the device(s) that will receive Live Updates. After discovery, the dev host knows which devices to 'notify' of updates and the devices become 'subscribers' for downloading the host's update bundles. 
+
+With the modified app(s) running io the device(s): 
+
+* In Project Explorer, R-click project name and **view 'Live Update Settings'**<br> 
+* In upper section of Settings, **double-click subnet** to discover device(s)<br>
+* In Project Explorer, **R-click project and select 'Refresh'**. The file `dev-config.yml` will appear in project<br>
+* **Open `dev-config.yml` with text editor and add 'refresh: 1'** (not indented) after device section(s) to enable Live Update for all<br>
+* In Live Update Settings, **press "Enable Live Update" button**
+
+
 
 > Note: Step 4 also can be done from the command line; just make your project folder the default directory. 
 
@@ -145,6 +159,8 @@ NOTE: The first Live Update in a session could take several minutes to appear; s
     <img src="http://i.imgur.com/xSXh8yT.png" width="380" height="600" border="10" />
 
 2. Open the Live update setting file inside of your Project explorer. This will display all of the found subnets. 
+
+
 > Note: An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
 
 3. Double click on the subnet that you are using and RhoStudio will search that subnet for your device. If your device is found, it will appear in the list of found devices.
