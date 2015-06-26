@@ -19,8 +19,8 @@ Live Update has four modes of operation:
 
 **Live Update receives change info from** two files stored in the project's root level:
 
-* `upgrade_package_add_files.txt` which stores a list of new or modified files
-* `upgrade_package_remove_files.txt` which stores a list of removed files
+* `upgrade_package_add_files.txt` lists the project's new or modified files
+* `upgrade_package_remove_files.txt` lists files removed from the project
 
 
 ##Requirements
