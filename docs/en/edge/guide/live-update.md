@@ -63,7 +63,7 @@ Here's a quick overview of the steps required to enable Live Update on a new or 
 2. **Add '- development' to extensions:** line in `build.yml`<br> 
 3. Establish that **all devices are on same Wi-Fi subnet** as dev host<br> 
 4. **Build, deploy and launch** app(s) to device(s)*<br> 
-5. In Project Explorer, R-click project name and **view 'Live Update Settings'**<br> 
+5. In Project Explorer, R-click and **view 'Live Update Settings'**<br> 
 6. In upper section of Settings, **double-click subnet** to discover device(s)<br>
 7. In Project Explorer, **R-click project and select 'Refresh'**. The file `dev-config.yml` will appear in project<br>
 8. **Open `dev-config.yml` with text editor and add 'refresh: 1'** (not indented) after device section(s) to enable Live Update for all<br>
@@ -92,7 +92,7 @@ Live Update works only on apps built with the RhoElements option box checked (as
 * **Locate the 'extensions:' line and add '- development' on a new indented line**
 * **Save your changes** but ** *do not build yet* **
 
-![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/02_Build.yml_extensions.png)
+![Build.yml extensions](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/02_Build.yml_extensions.png)
 
 ##2- Establish Single Wi-Fi Subnet
 
@@ -106,19 +106,15 @@ To try it yourself:
 * **Make a note** of the IP address(es)   
 * **Change the IP address of the development host to match device(s)** 
 
-![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/04_Mac_Wi-Fi_prefs.png)
+![Mac OS X Wi-Fi prefs panel](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/04_Mac_Wi-Fi_prefs.png)
 
-The screenshot (above) shows the Network Preferences panel of Mac OS X after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Clicking on the drop-down (indicated by the arrow) and selecting "Use DHCP with manual address," which allows a user-assigned IP subnet to match that of the device(s).
+The screenshot above shows the **Network Preferences panel of Mac OS X** after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Click on the drop-down (indicated by the arrow) and **select "Use DHCP with manual address**" to allow a user-assigned IP address that's in the same subnet as the target device(s).
 
 NOTE: CAUTION: Manually editing IP addresses can lead to address conflicts and interruptions in service. We recommend consulting with IT before making changes.
 
-
-
-
-
 ##3- Build, Deploy and Run the App
 
-* From the **Run Menu**, select **>> Run Configurations**
+* From the **Run Menu**, select **> Run Configurations**
 * Above the **left pane** click the **New Configuration button** (see image below)
 * **Enter a name** for your build configuration
 * From the drop-downs, **select the relevant project, platform, simulator and build type**
@@ -131,63 +127,63 @@ NOTE: A USB cable is required for initial application deployment; RhoStudio does
 
 NOTE: CAUTION: When bringing up the Run Configurations screen, RhoStudio opens the most recenly used build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always to confirm the selected build config before clicking 'Run.'
 
-When first launched, an app that has been properly modified for Live Update will display a message similar to the one below. In this case, the app name was "Bloopy." 
+When first launched, an app that has been properly modified for Live Update will display a message similar to the one below. The name of the example app is "Bloopy." 
 
 <img src="http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/05_DeviceSubscribed.png" width="380" height="600" border="10" />
+#####Successful deployment of a Live Update-enabled app.
 
-##4- Discover Devices, Begin Live Update 
-This step establishes Wi-Fi communications between the development host and the device(s) that will receive Live Updates. After discovery, the dev host knows which devices to 'notify' of updates and the devices become 'subscribers' for downloading the host's update bundles. 
+<br>
+##4- Discover Devices, Begin Live Update Service 
+This step establishes Wi-Fi communications between the development host and the device(s) that you want to receive Live Updates. After discovery, the dev host knows which devices to 'notify' of updates and the devices become 'subscribers' to an embedded web server page on the dev host for downloading update bundles. 
 
-With the modified app(s) running io the device(s): 
+With the modified app(s) running on the device(s): 
 
-* In Project Explorer, R-click project name and **view 'Live Update Settings'**<br> 
-* In upper section of Settings, **double-click subnet** to discover device(s)<br>
-* In Project Explorer, **R-click project and select 'Refresh'**. The file `dev-config.yml` will appear in project<br>
-* **Open `dev-config.yml` with text editor and add 'refresh: 1'** (not indented) after device section(s) to enable Live Update for all<br>
-* In Live Update Settings, **press "Enable Live Update" button**
+1. In Project Explorer, R-click your project's **'Live Update Settings'** file
+2. Select **Open With > Live Update Setting**
+3. In Subnets section, **double-click the subnet** that contains the device(s) to be discovered
+4. A list of devices ** *that are running your Live Update-enabled app* **will appear in the Found Devices section
+5. **Click the "Enable Live Update" button**, which is above the Subnets section
+6. In the Project Explorer pane, **R-click project and select 'Refresh'**. The file `dev-config.yml` will appear in the project. 
+7. **Open `dev-config.yml` with the text editor and add 'refresh: 1'** (not indented) after the device section(s) to enable Live Update for all devices<br>
 
 
+![dev-config.yml mods](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/06_dev-config.yml.png)
+<br>
 
-> Note: Step 4 also can be done from the command line; just make your project folder the default directory. 
+**Congratulations!** Your dev host and target device(s) are now ready to use Live Update. To test it, make an obvious change to any file in your app
+s /app or /public folder and save it. 
+
+After a moment, your device(s) should display the change along with a  message like the one below. In this case, the app name was changed from Bloopy to "WorkerBee." 
+
+<img src="http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/09_AppUpdated.png" width="380" height="600" border="10" />
+#####Successful deployment of an update bundle. 
+<br>
 
 NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates generally occur after a few seconds.
 
-**From the RhoStudio IDE**
+##Notes about device and app behavior 
 
-1. Build and run your project. When the mobile application is launched correctly, it will show an alert with your IP address and a few controls.
-  
-    <img src="http://i.imgur.com/xSXh8yT.png" width="380" height="600" border="10" />
+* A device that goes to sleep between Live Updates might become unresponsive or display errors after subsequent updates. First try killing and re-starting its app. If that fails, unstall and redeploy. 
 
-2. Open the Live update setting file inside of your Project explorer. This will display all of the found subnets. 
+* An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
+
+* Running for iOS Simulator allows you to take advantage of Live Update just as well as running for an iOS Device, but an iOS device requires that you [manually install your application package from iTunes](http://docs.rhomobile.com/en/5.1.1/guide/build_ios)
 
 
-> Note: An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
 
-3. Double click on the subnet that you are using and RhoStudio will search that subnet for your device. If your device is found, it will appear in the list of found devices.
-	
-4. Once the device is found, you should see a `dev-config.yml` file inside of your project explorer. This contains a list of all found devices. If you do not see this file and your device was found, try right clicking your current project and hitting refresh.
-	
-5. Go into dev-config.yml and add the following line after the list of devices:
 
-          :::term
+##Troubleshooting
 
-		  refresh:1
 
-  This will allow your web view to refresh when needed and to instantly reflect any changes made.
 
-  > Note: Make sure this line is not indented, or dev-config.yml will assume that this is a characteristic of the particular device above.
 
-**From the command line**
+xsdsds
 
-  1. Build and run your project
+dsdsdsds
 
-   For iOS Simulator:
 
-        :::term
+dsds
 
-      rake run:iphone
-
-  > Note: Running for iOS Simulator allows you to take advantage of Live Update just as well as running for an iOS Device, but an iOS device requires that you [manually install your application package from iTunes](http://docs.rhomobile.com/en/5.1.1/guide/build_ios)
 
    For Android:
 
