@@ -24,22 +24,22 @@ Live Update has four modes of operation:
 
 
 ##Requirements
-**Live Update works only on "RhoElements" apps built with [RhoMobile Suite 5.1](http://rhomobile.com)** or higher. 
+**Live Update works only on 'RhoElements' apps built with [RhoMobile Suite 5.1](http://rhomobile.com)** or higher. 
 
 ###Live Update is supported on:
 
 * Mac OS X development hosts<br>
-* Windows development hosts (feature in beta)<br>
+* Windows development hosts (currently in beta)<br>
 * Android<br>
 * iOS<br>
 * Apple iOS simulator<br>
 * Windows Mobile/CE<br>
-* **Apps built with the RhoElements option box checked**
+* **Apps created with the RhoElements option box checked**
 
 ###Live Update is *not* supported on:
 
-* Android emulators<br>
 * RhoSimulator<br>
+* Android emulators<br>
 * Apps built on RhoMobile.com (formerly Rhohub)<br>
 * Deployed apps lacking the “development” extension<br>
 * Apps with [build: "release"] in their `build.yml` file<br>
@@ -60,19 +60,20 @@ Live Update has four modes of operation:
 Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. Detailed instructions follow. 
 
 1. Confirm that `build.yml` contains the line **'build: debug'**<br> 
-2. **Add '- development' to `extensions:`** line in `build.yml`<br> 
-3. **Build, deploy and launch** app(s) to device(s)<br> 
-4. Establish that **all devices are on same Wi-Fi subnet** as dev host<br> 
+2. **Add '- development' to extensions:** line in `build.yml`<br> 
+3. Establish that **all devices are on same Wi-Fi subnet** as dev host<br> 
+4. **Build, deploy and launch** app(s) to device(s)*<br> 
 5. In Project Explorer, R-click project name and **view 'Live Update Settings'**<br> 
-6. In upper section of Settings, **double-click subnet** to discover devices<br>
+6. In upper section of Settings, **double-click subnet** to discover device(s)<br>
 7. In Project Explorer, **R-click project and select 'Refresh'**. The file `dev-config.yml` will appear in project<br>
 8. **Open `dev-config.yml` with text editor and add 'refresh: 1'** (not indented) after device section(s) to enable Live Update for all<br>
-9. In Terminal, navigate to project directory and **run 'rake dev:update:initialize'** at $ prompt<br>
-10. In Live Update Settings, **press "Enable Live Update" button**
+9. In Live Update Settings, **press "Enable Live Update" button**
 
-Changes should appear on the device each time a file is saved or placed in the /app or /public folders. If you're having trouble, refer to detailed instructions or troubleshooting section.<br>
+**An update will occur each time a file is saved, placed in or removed from the /app or /public folders**. If you're having trouble, refer to the detailed instructions or troubleshooting section.<br>
 
 NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates are generally faster.
+
+######(*) A USB cable is required for initial application deployment; RhoStudio does not support deployment over Wi-Fi. 
 
 ##1- Modify the build.yml
 Live Update works only with apps built with the RhoElements option box checked (see below). To confirm that your app is compatible, check for the line **app_type: "rhoelements"** in its `build.yml` file. 
@@ -89,11 +90,20 @@ After your app is built but **before it's deployed to the device**:
 >>IMAGE: 02_Build.yml_extensions
 
 
+##2- Establish a single Wi-Fi subnet
+
+**Skip this step if your Wi-Fi network consists of a single subnet.**
+
+After you build, deploy and launch your modified app, you'll need to discover your target device(s), which must be on the same Wi-Fi subnet as your development host. If they're not, change the IP address of the development host so that the first three figures of the IP address match those of the devices, and the fourth does not. This might require a call to your IT department. 
+
+>> 04_Mac_Wi-Fi_prefs
+
+The screenshot above shows the Network Preferences panel of Mac OS X after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Clicking on the drop-down indicated by the arrow will permit "Using DHCP with manual address," which allows a user-assigned IP subnet to match that of the device(s).
 
 
 
 
-##2- Build the App
+##3- Build and Deploy the App
 
 * From the **Run Menu**, select **>> Run Configurations**
 * Above the **left pane** click the **New Configuration button** (see image below)
@@ -105,16 +115,7 @@ After your app is built but **before it's deployed to the device**:
 >>IMAGE: 03_new_Build_config
 
 NOTE: TIP: When you build an app for the first time, RhoStudio defaults to the prior app's build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always confirm the selectedbuild config before clicking 'Run.'  
-
-##3- Establish a single Wi-Fi subnet
-
-**Skip this step if your Wi-Fi network consists of a single subnet.**
-
-After you build, deploy and launch your modified app, you'll need to discover your target device(s), which must be on the same Wi-Fi subnet as your development host. If they're not, change the IP address of the development host so that the first three figures of the IP address match those of the devices, and the fourth does not. This might require a call to your IT department. 
-
->> 04_Mac_Wi-Fi_prefs
-
-The screenshot above shows the Network Preferences panel of Mac OS X after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Clicking on the drop-down indicated by the arrow will permit "Using DHCP with manual address," which allows a user-assigned IP subnet to match that of the device(s).
+NOTE: A USB cable is required for initial application deployment; RhoStudio does not support deployment over Wi-Fi. 
 
 
 ##4- Discover Mobile Devices 
@@ -228,6 +229,8 @@ Live Update can run on, and send updates to, multiple devices at once as long as
  If you wish to unsubscribe a particular device from receiving updates, simply go into dev-config.yml and change `enabled: 1` to `enabled: 0`
 
 **After all of this is done, you are all set up and ready to start using Live Update and all of the features it provides**
+
+NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates are generally faster.
 
 ##Update Methods
 ---
