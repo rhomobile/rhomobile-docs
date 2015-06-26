@@ -56,7 +56,7 @@ Live Update has four modes of operation:
 * Other files in **/app** and **/public** folders (only)<br>
 
 ## Enable Live Update
-###Quick Steps:
+###Quick Setup:
 Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. Detailed instructions follow. 
 
 1. Confirm that `build.yml` contains the line **'build: debug'**<br> 
@@ -69,34 +69,43 @@ Here's a quick overview of the steps required to enable Live Update on a new or 
 8. **Open `dev-config.yml` with text editor and add 'refresh: 1'** (not indented) after device section(s) to enable Live Update for all<br>
 9. In Live Update Settings, **press "Enable Live Update" button**
 
-**An update will occur each time a file is saved, placed in or removed from the /app or /public folders**. If you're having trouble, refer to the detailed instructions or troubleshooting section.<br>
+**Following this process, an update will occur each time a file is saved, placed in or removed from the /app or /public folders**. If you're having trouble, refer to the detailed instructions or troubleshooting section below.<br>
 
 NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates are generally faster.
 
 ######(*) A USB cable is required for initial application deployment; RhoStudio does not support deployment over Wi-Fi. 
 
 ##1- Modify the build.yml
-Live Update works only with apps built with the RhoElements option box checked (see below). To confirm that your app is compatible, check for the line **app_type: "rhoelements"** in its `build.yml` file. 
+This section contains detailed instructions for configuring Live Update on a development host. It follows the same sequence as the Quick Setup above, but uses a different numbering scheme. 
 
->> IMAGE: 01_RhoElements_checkbox
+Live Update works only on apps built with the RhoElements option box checked (as below). To confirm that your app is compatible, check for the line **app_type: "rhoelements"** in its `build.yml` file (as in the image that follows, below). 
 
-After your app is built but **before it's deployed to the device**: 
+![RhoElements Checkbox](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/01_RhoElements_checkbox.png)
+<br>
+
+###How to modify the Build.yml:
+** *After* ** your app is <u>created</u> but ** *before* ** it's <u>built and deployed</u> to the device: 
 
 * **Locate your project** in Project Explorer and expand its file tree
 * **Right-click** the `build.yml` file and select **"Open With > Text Editor"**
-* Confirm that `build.yml` **contains the line 'build: debug'** 
+* Confirm that `build.yml` **contains the line 'build: debug'** (quotes will be inserted automatically when it's built)
 * **Locate the 'extensions:' line and add '- development' on a new indented line**
+* **Save your changes** but ** *do not build yet* **
 
->>IMAGE: 02_Build.yml_extensions
+![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/02_Build.yml_extensions.png)
 
 
-##2- Establish a single Wi-Fi subnet
 
-**Skip this step if your Wi-Fi network consists of a single subnet.**
+##2- Establish Single Wi-Fi subnet
+
+**Skip this step if your Wi-Fi network consists of a single subnet (most common).**
+
+Live Update requires that all subscriber devices be on the same Wi-Fi subnet as the development host. 
 
 After you build, deploy and launch your modified app, you'll need to discover your target device(s), which must be on the same Wi-Fi subnet as your development host. If they're not, change the IP address of the development host so that the first three figures of the IP address match those of the devices, and the fourth does not. This might require a call to your IT department. 
 
->> 04_Mac_Wi-Fi_prefs
+
+![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/04_Mac_Wi-Fi_prefs.png)
 
 The screenshot above shows the Network Preferences panel of Mac OS X after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Clicking on the drop-down indicated by the arrow will permit "Using DHCP with manual address," which allows a user-assigned IP subnet to match that of the device(s).
 
