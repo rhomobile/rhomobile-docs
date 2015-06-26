@@ -1,10 +1,23 @@
 # Live Update
 ## Overview
-Live Update is a **new feature in [RhoMobile Suite 5.1](http://rhomobile.com)** that instantly displays changes to many parts of a RhoMobile app on-device without the need to manually recompile and redeploy. This enables on-the-fly programming and debugging on multiple mobile devices at the same time. It supports Android, iOS (and Apple's iOS simulator) and Windows Mobile/CE in any combination. 
+Live Update is a **new feature in [RhoMobile Suite 5.1](http://rhomobile.com)** that instantly displays changes to many parts of a RhoMobile app on-device without the need to manually recompile and redeploy. This enables on-the-fly programming and debugging on multiple mobile devices at the same time. It supports Android, iOS, the Apple iOS simulator, and Windows Mobile/CE in any combination. 
 
 Live Update works by monitoring files in the **/apps** and **/public** folders of your RhoMobile app and builds a complete or partial update bundle that can either deploy immediately or on command. Once notified of an update, the target device(s) download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the Webview to display the changes. Live Update works through RhoStudio or from the command line.
 
-This guide provides an overview of the Live Update setup process from within RhoStudio and its Project Explorer interface and text editor. Some of the steps also can be performed from the command line and/or using your favorite text editor.
+This guide provides an overview of the Live Update setup process from within RhoStudio's Project Explorer and text editor. Some of the steps also can be performed from the command line and/or using your favorite text editor.
+
+##Live Update Modes
+Live Update has four modes of operation: 
+
+* **<u>Partial Update</u>** packages and deploys to the device(s) the portions of a project that have changed. This on-command feature works only from the command line and **must be initialized with 'rake dev:update:initialize'** before each debugging session. 
+
+* **<u>Full Update</u>** packages and deploys all files in a project regardless of whether they've been changed. This on-command feature works only from the command line.
+
+* **<u>Auto Update</u>** monintors all files in a project and automatically packages and deploys the full app every time changes are saved. This mode is invoked from the Live Update Settings page in RhoStudio; it also can be invoked from the command line. 
+
+
+
+
 
 ##Requirements
 **Live Update works only on "RhoElements" apps built with [RhoMobile Suite 5.1](http://rhomobile.com)** or higher. 
