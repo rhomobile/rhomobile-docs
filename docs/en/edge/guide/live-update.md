@@ -9,13 +9,13 @@ This guide provides an overview of the Live Update setup process from within Rho
 ##Live Update Modes
 Live Update has four modes of operation: 
 
-* **<u>Partial Update</u>** packages and deploys to the device(s) the portions of a project that have changed. This on-command feature works only from the command line and **must be initialized with 'rake dev:update:initialize'** before each debugging session. 
+* **<u>Partial Update</u>** packages the portions of a project that have changed and notifies devices that a download is available. This on-command feature works only from the command line and must be initialized with '**rake dev:update:initialize**' before each debugging session. 
 
-* **<u>Full Update</u>** packages and deploys all files in a project regardless of whether they've been changed. This on-command feature works only from the command line and does not require initialization.
+* **<u>Full Update</u>** packages all files in a project regardless of whether they've been changed and notifies devices. This on-command feature works only from the command line and does not require initialization.
 
-* **<u>Auto Update</u>** monintors all files in a project and automatically packages and deploys the full app every time changes are saved. This mode is invoked from the Live Update Settings page in RhoStudio and can be monitored from the Progress tab. Auto mode also can be started from the command line. 
+* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked from the Live Update Settings page in RhoStudio and can be monitored from the Progress tab. Auto mode also can be started from the command line. 
 
-* **<u>Build and Notify</u>** mode is intended for use when integrating Live Update with an external build system. 
+* **<u>Build and Notify</u>** mode is intended for use when integrating Live Update with an external build system. This CLI-only feature is invoked with the '**rake dev:update:build_and_notify**' command. 
 
 **Live Update receives change info from** two files stored in the project's root level:
 
