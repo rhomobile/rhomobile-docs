@@ -4,7 +4,7 @@ Live Update is a **new feature in [RhoMobile Suite 5.1](http://rhomobile.com)** 
 
 Live Update works by monitoring files in the **/apps** and **/public** folders of your RhoMobile app and builds a complete or partial update bundle that can either deploy immediately or on command. Once notified of an update, the target device(s) download the bundle from the development host (on which Live Update embeds a web server), apply it and refresh the Webview to display the changes. Live Update works through RhoStudio or from the command line.
 
-This guide provides an overview of the Live Update setup process from within RhoStudio's Project Explorer and text editor. Some of the steps also can be performed from the command line and/or using your favorite text editor.
+This guide provides an overview of the Live Update setup process from within RhoStudio's Project Explorer and text editor. **Once it's familiar, this process should require just a few minutes to complete**. Some of the steps also can be performed from the command line and/or using your favorite text editor.
 
 ##Live Update Modes
 Live Update has four modes of operation: 
@@ -57,7 +57,7 @@ Live Update has four modes of operation:
 
 ## Enable Live Update
 ###Quick Setup:
-Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. Detailed instructions follow. 
+Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. Once it's familiar, this process should require just a few minutes to complete. Detailed instructions follow. 
 
 1. Confirm that `build.yml` contains the line **'build: debug'**<br> 
 2. **Add '- development' to extensions:** line in `build.yml`<br> 
@@ -71,7 +71,7 @@ Here's a quick overview of the steps required to enable Live Update on a new or 
 
 **Following this process, an update will occur each time a file is saved, placed in or removed from the /app or /public folders**. If you're having trouble, refer to the detailed instructions or troubleshooting section below.<br>
 
-NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates are generally faster.
+NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates generally occur after a few seconds.
 
 ######(*) A USB cable is required for initial application deployment; RhoStudio does not support deployment over Wi-Fi. 
 
@@ -94,7 +94,7 @@ Live Update works only on apps built with the RhoElements option box checked (as
 
 ![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/02_Build.yml_extensions.png)
 
-##2- Establish Single Wi-Fi subnet
+##2- Establish Single Wi-Fi Subnet
 
 **Skip this step if your Wi-Fi network consists of a single subnet (most common).**
 
@@ -116,7 +116,7 @@ NOTE: CAUTION: Manually editing IP addresses can lead to address conflicts and i
 
 
 
-##3- Build and Deploy the App
+##3- Build, Deploy and Run the App
 
 * From the **Run Menu**, select **>> Run Configurations**
 * Above the **left pane** click the **New Configuration button** (see image below)
@@ -125,21 +125,18 @@ NOTE: CAUTION: Manually editing IP addresses can lead to address conflicts and i
 * Check the 'Clean before build' box (only necessary for first-time builds or after the `build.yml` has beed edited)
 * **Click the Run button** to build, deploy and run your app on the selected device 
 
->>IMAGE: 03_new_Build_config
-
-NOTE: TIP: When you build an app for the first time, RhoStudio defaults to the prior app's build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always confirm the selectedbuild config before clicking 'Run.'  
 NOTE: A USB cable is required for initial application deployment; RhoStudio does not support deployment over Wi-Fi. 
 
+![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/03_new_Build_config.png)
 
-After you build, deploy and launch your modified app, you'll need to discover your target device(s), which must be on the same Wi-Fi subnet as your development host. 
-
+NOTE: TIP: When you build an app for the first time, RhoStudio defaults to the prior app's build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always confirm the selected build config before clicking 'Run.'
 
 ##4- Discover Mobile Devices 
-
+This step establishes Wi-Fi communications between the development host and the device(s) to receive Live Updates. After discovery, the dev host knows which devices to 'notify' of updates and the devices become 'subscribers' for the download of update bundles. 
 
 > Note: Step 4 also can be done from the command line; just make your project folder the default directory. 
 
-The first time you send a Live Update to a device, it will take a minute or two. The next ones will be faster. 
+NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates generally occur after a few seconds.
 
 **From the RhoStudio IDE**
 
