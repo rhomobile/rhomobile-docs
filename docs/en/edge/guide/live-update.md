@@ -11,12 +11,16 @@ Live Update has four modes of operation:
 
 * **<u>Partial Update</u>** packages and deploys to the device(s) the portions of a project that have changed. This on-command feature works only from the command line and **must be initialized with 'rake dev:update:initialize'** before each debugging session. 
 
-* **<u>Full Update</u>** packages and deploys all files in a project regardless of whether they've been changed. This on-command feature works only from the command line.
+* **<u>Full Update</u>** packages and deploys all files in a project regardless of whether they've been changed. This on-command feature works only from the command line and does not require initialization.
 
-* **<u>Auto Update</u>** monintors all files in a project and automatically packages and deploys the full app every time changes are saved. This mode is invoked from the Live Update Settings page in RhoStudio; it also can be invoked from the command line. 
+* **<u>Auto Update</u>** monintors all files in a project and automatically packages and deploys the full app every time changes are saved. This mode is invoked from the Live Update Settings page in RhoStudio and can be monitored from the Progress tab. Auto mode also can be started from the command line. 
 
+* **<u>Build and Notify</u>** mode is intended for use when integrating Live Update with an external build system. 
 
+**Live Update receives change info from** two files stored in the project's root level:
 
+* `upgrade_package_add_files.txt` which stores a list of new or modified files
+* `upgrade_package_remove_files.txt` which stores a list of removed files
 
 
 ##Requirements
