@@ -94,20 +94,24 @@ Live Update works only on apps built with the RhoElements option box checked (as
 
 ![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/02_Build.yml_extensions.png)
 
-
-
 ##2- Establish Single Wi-Fi subnet
 
 **Skip this step if your Wi-Fi network consists of a single subnet (most common).**
 
-Live Update requires that all subscriber devices be on the same Wi-Fi subnet as the development host. 
+Live Update requires that subscriber device(s) be on the same Wi-Fi subnet as the development host. That means that the first three figures of a device's IP address match those of every other device as well as those of the development host, and that the fourth figure does not. Setting this up it might require help from your IT department. 
 
-After you build, deploy and launch your modified app, you'll need to discover your target device(s), which must be on the same Wi-Fi subnet as your development host. If they're not, change the IP address of the development host so that the first three figures of the IP address match those of the devices, and the fourth does not. This might require a call to your IT department. 
+To try it yourself: 
 
+* **Open your devices' Wi-Fi control panel(s)** and verify that they're on the same subnet. 
+* **Make a note** of the IP address(es)   
+* **Change the IP address of the development host to match device(s)** 
 
 ![Build.yml settings](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/04_Mac_Wi-Fi_prefs.png)
 
-The screenshot above shows the Network Preferences panel of Mac OS X after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Clicking on the drop-down indicated by the arrow will permit "Using DHCP with manual address," which allows a user-assigned IP subnet to match that of the device(s).
+The screenshot (above) shows the Network Preferences panel of Mac OS X after entering the Wi-Fi section, clicking the Advanced… button and selecting the TCP/IP tab. In the case, the machine's subnet is "10.186.6" and it's using DHCP. Clicking on the drop-down (indicated by the arrow) and selecting "Use DHCP with manual address," which allows a user-assigned IP subnet to match that of the device(s).
+
+NOTE: CAUTION: Manually editing IP addresses can lead to address conflicts and interruptions in service. We recommend consulting with IT before making changes.
+
 
 
 
@@ -125,6 +129,9 @@ The screenshot above shows the Network Preferences panel of Mac OS X after enter
 
 NOTE: TIP: When you build an app for the first time, RhoStudio defaults to the prior app's build config, which could cause you to mistakenly re-build the last app you were working on. A good practice is to name your build config after the app it builds, and always confirm the selectedbuild config before clicking 'Run.'  
 NOTE: A USB cable is required for initial application deployment; RhoStudio does not support deployment over Wi-Fi. 
+
+
+After you build, deploy and launch your modified app, you'll need to discover your target device(s), which must be on the same Wi-Fi subnet as your development host. 
 
 
 ##4- Discover Mobile Devices 
