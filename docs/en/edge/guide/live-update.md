@@ -163,18 +163,48 @@ NOTE: The first Live Update in a session could take several minutes to appear; s
 
 ##Notes about device and app behavior 
 
-* A device that goes to sleep between Live Updates might become unresponsive or display errors after subsequent updates. First try killing and re-starting its app. If that fails, unstall and redeploy. 
+* Live Update works with multiple devices simultaneously, as long as they're among the discovered devices and have a Live Update-enabled app running.
+
+* A device that goes to sleep between Live Updates might become unresponsive or display errors on subsequent updates. First try killing and re-starting its app(s). If that fails, uninstall and redeploy the app(s). 
 
 * An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.
 
-* Running for iOS Simulator allows you to take advantage of Live Update just as well as running for an iOS Device, but an iOS device requires that you [manually install your application package from iTunes](http://docs.rhomobile.com/en/5.1.1/guide/build_ios)
+* To test apps for iOS, you must [manually install your app from iTunes](/guide/build_ios). 
+
+* Changes to `.rb` files might require the app(s) to be killed and restarted.
 
 
 
 
 ##Troubleshooting
+Some of the common problems and known issues of Live Update.   
+###PROBLEM
+
+>"Failed to create the Java Virtual Machine"<br>
+
+>**POSSIBLE CAUSE**<br>
+>Insufficient memory
+
+>**SOLUTION**<br>
+>Reduce the size of the JVM heap:<br> 
+
+>1) Use a text editor to open the file:<br><br>
+`<RhoMobileSuiteDir>\rhostudio\win32.win32.x86_64\RhoStudio.ini`<br><br>
+>2) Search for `-Xmx1024m`<br><br>
+>3) Change it to `-Xmx512m`<br>
+
+>This will halve the memory used by the Java Virtual Machine<br>
 
 
+
+
+1) "App files too old.png": Application in device too old that’s why displays this alert, full bundle should be applied
+
+2) "App unable to download or unpack.png" : May be due network
+
+3) "App unable to rename bundle.png": This is due delete/Replace file or folder, this is a known issue, below is the recommendation for it
+
+Recommendation: Goto settings -> apps -> your app -> Clear data and cache -> Apply full update
 
 
 xsdsds
@@ -233,23 +263,8 @@ dsds
 
   > Note: Make sure this line is not indented or dev-config.yml will assume that this is a characteristic of the particular device above.
 
-###5. Updating Your App
-Live Update can be used to update the following types of files at run time:
 
-* HTML 
-* CSS
-* Javascript
-* .rb
-* .erb
-* image files
 
-> Note: If you change a `.rb` file and apply the changes to a mobile application that uses Live Update, you will need to restart that application to view the changes.
-
-These files most be in either your app folder or your public folder for Live Update to immediately notice the changes.
-
-To edit these files at run time, make the desired changes to your files and then save. The changes should now show on your mobile device when and Update Method is running.
-
-Live Update can run on, and send updates to, multiple devices at once as long as they are all in the list of found devices and all have the RhoMobile application running.
 
  If you wish to unsubscribe a particular device from receiving updates, simply go into dev-config.yml and change `enabled: 1` to `enabled: 0`
 
