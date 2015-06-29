@@ -205,25 +205,18 @@ Some of the common problems and known issues of Live Update.
 >When using auto update mode, do not attempt to make changes to a file without first saving previous changes and seeing them updated on the device. This problem can sometimes be solved by "Refreshing" the app (R-clicking on the project name and selecting "Refresh") and applying an update with the full bundle. Otherwise, rebuild and redeploy the app. 
 
 ###PROBLEM
->"ERROR when downloading or unpack[ing]"<br>
+>"Error when update Bundle ... replace bundle ... unable to rename folder"<br>
 
 > <img src="http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/12_Live_Update_fail_unableToRename.png" width="380" height="600" border="10" />
+ 
+>**POSSIBLE CAUSE**<br>
+>This is a known issue in Live Update. 
 
-> 
+>**Solution**<br>
+> On the device, go to **Settings > Apps > (your app) ** and press the '**Clear data' and 'Clear cache**' buttons.  Then apply a **full update** or redeploy the app. 
 
+sa
 
-
-3) "App unable to rename bundle.png": This is due delete/Replace file or folder, this is a known issue, below is the recommendation for it
-
-Recommendation: Goto settings -> apps -> your app -> Clear data and cache -> Apply full update
-
-
-xsdsds
-
-dsdsdsds
-
-
-dsds
 
 
    For Android:
