@@ -175,31 +175,43 @@ NOTE: The first Live Update in a session could take several minutes to appear; s
 
 
 
+12_Live_Update_fail_unableToRename
+
+
+
 ##Troubleshooting
 Some of the common problems and known issues of Live Update.   
 ###PROBLEM
 
->"Failed to create the Java Virtual Machine"<br>
+>"ERROR when downloading or unpack[ing]"<br>
+
+> <img src="http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/10_Live_Update_fail_download_error.png" width="380" height="600" border="10" />
 
 >**POSSIBLE CAUSE**<br>
->Insufficient memory
+>Network connectivity issue
 
 >**SOLUTION**<br>
->Reduce the size of the JVM heap:<br> 
+>Check that the device is on the same Wi-Fi subnet as the dev host; kill and re-launch the app; rebuild and redeploy the app.<br> 
 
->1) Use a text editor to open the file:<br><br>
-`<RhoMobileSuiteDir>\rhostudio\win32.win32.x86_64\RhoStudio.ini`<br><br>
->2) Search for `-Xmx1024m`<br><br>
->3) Change it to `-Xmx512m`<br>
+###PROBLEM
+>"Your application files too old"
 
->This will halve the memory used by the Java Virtual Machine<br>
+> <img src="http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/11_Live_Update_fail_FileTooOld.png" width="380" height="600" border="10" />
+
+>**POSSIBLE CAUSE**<br>
+>Mutiple files are out of sync between the dev host and the deployed app.
+
+>**SOLUTION**<br>
+>When using auto update mode, do not attempt to make changes to a file without first saving previous changes and seeing them updated on the device. This problem can sometimes be solved by "Refreshing" the app (R-clicking on the project name and selecting "Refresh") and applying an update with the full bundle. Otherwise, rebuild and redeploy the app. 
+
+###PROBLEM
+>"ERROR when downloading or unpack[ing]"<br>
+
+> <img src="http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/12_Live_Update_fail_unableToRename.png" width="380" height="600" border="10" />
+
+> 
 
 
-
-
-1) "App files too old.png": Application in device too old that’s why displays this alert, full bundle should be applied
-
-2) "App unable to download or unpack.png" : May be due network
 
 3) "App unable to rename bundle.png": This is due delete/Replace file or folder, this is a known issue, below is the recommendation for it
 
