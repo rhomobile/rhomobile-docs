@@ -9,11 +9,11 @@ This guide provides an overview of the Live Update setup process from within Rho
 ##Live Update Modes
 Live Update has four modes of operation: 
 
-* **<u>Partial Update</u>** packages the portions of a project that have changed and notifies devices that a download is available. This on-command feature works only from the command line and must be initialized with '**rake dev:update:initialize**' before each debugging session. 
+* **<u>Partial Update</u>** packages the portions of a project that have changed and notifies devices that a download is available. This on-command feature works only from the command line and must be initialized before each debugging session. Use this mode when you want to make multiple changes and see them applied on command instead of each time a file is saved.
 
 * **<u>Full Update</u>** packages all files in a project regardless of whether they've been changed and notifies devices. This on-command feature works only from the command line and does not require initialization.
 
-* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked from the Live Update Settings page in RhoStudio and can be monitored from the Progress tab. Auto mode also can be started from the command line. 
+* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked by pressing the 'Enable Live Update' button in the Live Update Settings page in RhoStudio or using the CLI command below. It can be monitored and stopped from the Progress tab or using the CLI command below.
 
 * **<u>Build and Notify</u>** mode is intended for use when integrating Live Update with an external build system. This CLI-only feature is invoked with the '**rake dev:update:build_and_notify**' command. 
 
@@ -57,7 +57,7 @@ Live Update has four modes of operation:
 
 ## Enable Live Update
 ###Quick Setup:
-Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. Once it's familiar, this process should require just a few minutes to complete. Detailed instructions follow. 
+Here's a quick overview of the steps required to enable Live Update on a new or existing RhoElements app. When setting it up for the first time, we recommend using the detailed instructions that follow. Once it's familiar, this process should require just a few minutes to complete using these quick-setup steps. 
 
 1. Confirm that `build.yml` contains the line **'build: debug'**<br> 
 2. **Add '- development' to extensions:** line in `build.yml`<br> 
@@ -150,8 +150,7 @@ With the modified app(s) running on the device(s):
 ![dev-config.yml mods](http://rhodocs.s3.amazonaws.com/guide/LiveUpdate/06_dev-config.yml.png)
 <br>
 
-**Congratulations!** Your dev host and target device(s) are now ready to use Live Update. To test it, make an obvious change to any file in your app
-s /app or /public folder and save it. 
+**Congratulations!** Your dev host and target device(s) are now ready to use Live Update. To test it, make an obvious change to any file in the app's **/app or /public folder** and save it. 
 
 After a moment, your device(s) should display the change along with a  message like the one below. In this case, the app name was changed from Bloopy to "WorkerBee." 
 
@@ -458,3 +457,27 @@ sza
     :::xml
 
     extensions: ["rhoconnect-client"]
+
+    ##Live Update Modes
+Live Update has four modes of operation: 
+
+* **<u>Partial Update</u>** packages the portions of a project that have changed and notifies devices that a download is available. This on-command feature works only from the command line and must be initialized before each debugging session. Use this mode when you want to make multiple changes and see them applied on command instead of each time a file is saved.
+          Initialize: rake dev:update:initialize
+          Execute: rake dev:update:partial
+
+
+* **<u>Full Update</u>** packages all files in a project regardless of whether they've been changed and notifies devices. This on-command feature works only from the command line and does not require initialization.
+
+          Execute: rake dev:update:full 
+
+* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked by pressing the 'Enable Live Update' button in the Live Update Settings page in RhoStudio or using the CLI command below. It can be monitored and stopped from the Progress tab or using the CLI command below.
+          Execute: rake dev:update:auto
+          Terminate: rake rev:update:auto:stop
+
+* **<u>Build and Notify</u>** mode is intended for use when integrating Live Update with an external build system. This CLI-only feature is invoked with the '**rake dev:update:build_and_notify**' command. 
+
+**Live Update receives change info from** two files stored in the project's root level:
+
+* `upgrade_package_add_files.txt` lists the project's new or modified files
+* `upgrade_package_remove_files.txt` lists files removed from the project
+
