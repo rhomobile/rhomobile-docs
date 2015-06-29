@@ -214,79 +214,89 @@ Some of the common problems and known issues of Live Update.
 
 >**Solution**<br>
 > On the device, go to **Settings > Apps > (your app) ** and press the '**Clear data' and 'Clear cache**' buttons.  Then apply a **full update** or redeploy the app. 
+<br>
 
-sa
+##Live Update from the CLI
+
+**1- Open a Terminal window and make your project the current directory**.  
+
+**2- Discover devices on the current Wi-Fi subnet**:
+
+<ABBR></ABBR>
 
 
+    rake dev:network:discovery
 
-   For Android:
 
-        :::term
+  
+If more than one subnet is present, you must specify which subnet to scan: 
 
-      rake run:android:device
 
+    rake dev:network:discovery["192.168.1.*"]
+
+If you don't know whether more than one subnet is available, display a list... 
+
+
+    rake dev:network:list
+
+
+...and then use the ':discovery["IP ADDRESS"]' command above to specify which subnet to scan for subscribers. 
+
+**3- Select subscribers using the following commands**: 
+
+
+For Android:
+        
+
+    rake run:android:device
+
+For iOS:
+
+          
+
+    rake run:ios:device
+   
    For Windows Mobile:
 
+          
+
+    rake run:wm:device
+
+**4- To start the Webserver, open a new Terminal window, navigate to your project directory and enter**: 
+
         :::term
 
-      rake run:wm:device
+    rake dev:webserver:start
 
-  When the mobile application is launched correctly, it will show an alert with your IP address and a few controls.  
-  <br>
-  2. Run the command below to find all possible subnets to use:
+To Stop the Webserver  
+   
+        :::term
 
-    :::term
-  	rake dev:network:discovery
-  
-  Alternatively, you can use this command to search for a specific subnet:
-
-    :::term
-
-  	rake dev:network:discovery["192.168.1.*"]
-
-  You can list out all discovered subnets with the command:
-
-    :::term
-
-  	rake dev:network:list
-
-  If several subnets are available, you must tell the script which subnet you wish to use.
-
-  An iPhone that is in sleep mode or has the Live Update app minimized will not be discovered.  
-  <br>
-  3. Once the subnet of the device is found, you should see a dev-config.yml file inside of your project folder. This contains a list of all found devices.
-  <br>
-  <br>
-  4. Go into dev-config.yml and add the following line after the list of devices:
-
-		 refresh:1
-
-  This will allow your web view to refresh when needed and to instantly reflect any changes made
-
-<img src="http://i.imgur.com/A1ZdUep.png" width="680" height="600" border="10"/>
-
-  > Note: Make sure this line is not indented or dev-config.yml will assume that this is a characteristic of the particular device above.
+    rake dev:webserver:stop
 
 
+**5- Select one of four Live Update modes of operation**:
+
+* **<u>Partial Update</u>** packages the portions of a project that have changed and notifies devices that a download is available. This on-command feature works only from the command line and **must be initialized** before each debugging session. Use this mode when you want to make multiple changes and see them applied on command instead of each time a file is saved.
+          rake dev:update:initialize
+          rake dev:update:partial
 
 
- If you wish to unsubscribe a particular device from receiving updates, simply go into dev-config.yml and change `enabled: 1` to `enabled: 0`
+* **<u>Full Update</u>** packages all files in a project regardless of whether they've been changed and notifies devices. This on-command feature works only from the command line and does not require initialization.
 
-**After all of this is done, you are all set up and ready to start using Live Update and all of the features it provides**
+          rake dev:update:full 
 
-NOTE: The first Live Update in a session could take several minutes to appear; subsequent updates are generally faster.
+* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked by pressing the 'Enable Live Update' button in the Live Update Settings page in RhoStudio or by using the CLI command below. It can be monitored and stopped from the Progress tab or by using the CLI commands below.
+          rake dev:update:auto
+          rake rev:update:auto:stop
 
-##Update Methods
----
+* **<u>Build and Notify</u>** mode is intended for use when integrating Live Update with an external build system and is a CLI-only feature. 
+          rake dev:update:build_and_notify 
 
-**Options for Running Update Methods**
+**Live Update receives change info from** two files stored in the project's root level:
 
-If you want to run the main update method, Auto Update, you can easily do this within RhoStudio with the click of a button.
-
-If you would like more options, the command line offers an extended list of update methods that includes Auto Update, Partial Update, and Full Update. 
-
-When running these commands from the command line, make sure your current directory is the project folder that you are working on or the commands will not work.
-
+* `upgrade_package_add_files.txt` lists the project's new or modified files
+* `upgrade_package_remove_files.txt` lists files removed from the project
 
 ###Auto Update
 This feature allows the automatic detection and display of changes. Any changes saved while Auto Update is running will immediately notify and be displayed on discovered mobile devices. You should use this feature when you want instant feedback on your changes and don't want to tell RhoStudio when to show changes. 
@@ -464,25 +474,5 @@ sza
     extensions: ["rhoconnect-client"]
 
     ##Live Update Modes
-Live Update has four modes of operation: 
 
-* **<u>Partial Update</u>** packages the portions of a project that have changed and notifies devices that a download is available. This on-command feature works only from the command line and must be initialized before each debugging session. Use this mode when you want to make multiple changes and see them applied on command instead of each time a file is saved.
-          Initialize: rake dev:update:initialize
-          Execute: rake dev:update:partial
-
-
-* **<u>Full Update</u>** packages all files in a project regardless of whether they've been changed and notifies devices. This on-command feature works only from the command line and does not require initialization.
-
-          Execute: rake dev:update:full 
-
-* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked by pressing the 'Enable Live Update' button in the Live Update Settings page in RhoStudio or using the CLI command below. It can be monitored and stopped from the Progress tab or using the CLI command below.
-          Execute: rake dev:update:auto
-          Terminate: rake rev:update:auto:stop
-
-* **<u>Build and Notify</u>** mode is intended for use when integrating Live Update with an external build system. This CLI-only feature is invoked with the '**rake dev:update:build_and_notify**' command. 
-
-**Live Update receives change info from** two files stored in the project's root level:
-
-* `upgrade_package_add_files.txt` lists the project's new or modified files
-* `upgrade_package_remove_files.txt` lists files removed from the project
 
