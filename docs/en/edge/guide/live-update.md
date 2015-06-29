@@ -286,7 +286,7 @@ To Stop the Webserver
 
           rake dev:update:full 
 
-* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked by pressing the 'Enable Live Update' button in the Live Update Settings page in RhoStudio or by using the CLI command below. It can be monitored and stopped from the Progress tab or by using the CLI commands below.
+* **<u>Auto Update</u>** monintors all files in a project and automatically packages the app and notifies devices every time changes are saved. This mode is invoked by pressing the 'Enable Live Update' button in the Live Update Settings page in RhoStudio or by using the CLI command below. It can be monitored or stopped from RhoStudio's Progress tab, by pressing CTRL-C in webserver window, or by using the CLI commands below.
           rake dev:update:auto
           rake rev:update:auto:stop
 
@@ -298,144 +298,51 @@ To Stop the Webserver
 * `upgrade_package_add_files.txt` lists the project's new or modified files
 * `upgrade_package_remove_files.txt` lists files removed from the project
 
-###Auto Update
-This feature allows the automatic detection and display of changes. Any changes saved while Auto Update is running will immediately notify and be displayed on discovered mobile devices. You should use this feature when you want instant feedback on your changes and don't want to tell RhoStudio when to show changes. 
+###Using Live Update with apps built on disparate platforms
 
-**Using From RhoStudio**
+It possible to build an application on one host platform and use it with Live Update on another. For example: an iOS application built on Mac OS X can be copied to
+a Windows development host for use with Live Update. 
 
-Simply go to the Live Update Settings tab which can be found under Project Explorer
-
-Now click **Enable live update** and Auto Update should be up and running.
-
-> Note: You can tell if Live Update is running by checking the Progress tab.
-
-<img src="http://i.imgur.com/ST22AcD.png" width="680" height="600" border="10"/>
-
-To end Live Update, go under the progress tab and find the line that says "live update is running". Click on the red square that is to the right and the process will end.
-
-**Using From the Command Line**
-
-You can enable Auto Update by typing the following command into your command line:
-  
-    :::term
-
-	rake dev:update:auto
-
-> Note: You will be notified when Auto Update is running by a message in your command line.
-
-<img src="http://i.imgur.com/AFJDNPn.png" width="600" height="520" border="10"/>
-
-To end Live Update, open a new window in your terminal and enter
-
-    :::term  
-
-    rake dev:update:auto:stop
-
-You can alternatively go to the command line window that Live update is running in. Once you are there, go to your keyboard, hold down the `control` button, and then press `c`.
-
-
-###Partial Update
-The partial update method is useful when you want multiple changes to be shown at once rather than displaying them one by one. Partial Update allows you to deploy changes made to all discovered devices, but only when you specify it to do so.
-
-**If this is your first time using this feature in an application, you are going to want to run the command:**
-
-    :::term
-
-	rake dev:update:initialize
-
-Make any changes you like to your program and when your are ready to deploy them to your discovered mobile devices, type the following command into your command line:
-
-    :::term
-
-	rake dev:update:partial
-
-> Note: The Partial Update bundle only includes changed files. If you did not change any files, discovered mobile devices will not receive any notifications.
-
-###Full Update
-The Full Update method is similar to Partial Update in that you specify when you want an update to be deployed to mobile devices. Unlike Partial Update, Full Update builds an update bundle with all the application's files, not just the changed files. This means it will notify all discovered devices whether or not changes are made.
-
-You can use the Full Update feature by going into your command line and typing
-
-    :::term
-
-	rake dev:update:full
-
-###Using Live Update with other building systems
-
-Live Update provides a special command for building updates with external systems. Enter the following command in your command line if you wish to use Live Update with any external building systems:
-
-      :::term
-
-    rake dev:update:build_and_notify
-
-When this command is run, a Partial Update bundle is built using the information from two files:
-
-upgrade_package_add_files.txt - it contains list of changed or added files
-
-upgrade_package_remove_files.txt - it contains list of removed files
-
-The information added these files comes from inside of your current project folder, inside of `app/*` or `public/*`
-
-###Using Live Update with applications that were built on different platforms
-
-It possible to build an application on a host platform and use Live Update on another platform.
-For example: you can build an application on a Mac OS for an iPhone, copy the app source code to a
-Windows platform, and then start the Live Update process on a Windows machine. 
-
-If you are going to do this, you must run the following command in your command line before your first Partial Update:
+To do this, enter the following command on the second dev host before your first Partial Update:
 
       :::term
 
     rake dev:update:full
 
-This will detect the proper connections and pathways for the new host computer and update your code accordingly.
+This will detect the connections and pathways for the new host computer and update your code accordingly.
 
-###Transitioning between apps that use Live Update
-If you are going to take a break from working on one app that uses Live Update and plan on switching to another app that has Live Update, there are a few steps that you should take to ensure that Live Update will work smoothly in the other mobile application. 
+###Switching between Live Update apps
+If you're taking a break from working on one app that uses Live Update and starting work on another, follow these steps to make Live Update work smoothly:  
 
-1. Correctly Halt Live Update in the Original Application
+1. **Halt Live Update in the first app** by either pressing the square red stop button in RhoStudio's Progress tab, by executing the **rake dev:update:auto:stop** Terminal command from the project folder or by **pressing CTRL-C from the webserver window**
+2. **Launch the second Live Update-enabled app** on the device(s) on which to test
+3. Open the second app project in RhoStudio and **open its Live Update Settings window** 
+4. **Discover the device** running the second Live Update-enabled app 
+5. **Press "Enable Live Update" button** to start the Live Update service  
+6. **Double-check the `dev-config.yml` file** for the correct app in its 'application:' line
 
-**From RhoStudio**  
-If you started Live Update from RhoStudio, then you are also going to end Live Update from RhoStudio. To do this, go under the progress tab and find the line that says "live update is running". Click on the red square that is to the right and the Live Update process will end.
-
-  <img src="http://i.imgur.com/wmZObD0.png" width="600" height="520" border="10" />
-
-**From the Command Line**  
-If you started Live Update from the command line, you are going to end Live Update there as well. To do this, go to the command line window that Live update is running in. Once you are there, go to your keyboard, hold down the `control` button, and then press `c`. This will end the Live Update process.
-&nbsp; <br> <br>
-2. Start Live Update in New Application
-
-   a. Rediscover Device in the New Application's Live Update Setting 
-
-  Rediscover your mobile device the same way you discovered it originally, but make sure you are doing so in the new project's Live Update setting and not the original project's Live Update setting. 
-  &nbsp; <br> <br>
-   b. Check Dev-Config.yml to make sure the application property displays the correct application for the discovered device. 
-
-  If the Dev-config.yml in your new project is displaying the right application, you have successfully switched between applications and are ready to start using Live update again.
 
 ##Serving HTTP requests  
-Subscribed devices are passed bundles from a server via HTTP requests, which means it is necessary to launch a web server before you use any Live Update Methods. Live Update uses **Webrick** as a web server and checks to see if a webserver is running when ever you run a command that contains `dev:update`. If a server is not already running on Webrick, any of the dev:update commands will start a web server for you in a new command line window.
+Subscribed devices are passed bundles from a server via HTTP requests, which means it is necessary to launch a web server before you use any Live Update Methods. Live Update uses **Webrick** as a web server and checks to see if a webserver is running when ever you run a command that contains `dev:update`. If a server is not already running on Webrick, any of the dev:update commands will start a web server for you in a new Terminal window.
 
 If you wish to, instead, start and stop the webserver manually, you can do so with the following:
 
 **To Start Webserver**  
-In a NEW command line window, enter
+In a NEW Terminal window, enter
 
         :::term
 
     rake dev:webserver:start
 
 **To Stop Webserver**  
-In a NEW command line window, enter
+In a NEW Terminal window, enter
    
         :::term
 
     rake dev:webserver:stop
 
-> Note: Both your mobile application and The Live update server send messages using http based protocol. This is why the start of any update process launches an http server in a new command line window.
+> Note: Both your mobile application and The Live update server send messages using http based protocol. This is why the start of any update process launches an http server in a new Terminal window.
 
-##Troubleshooting
----
 If Live Update is not working for you, you may want to double check the following:
 
 * Make sure your build.yml includes the development extension
