@@ -173,14 +173,47 @@ NOTE: The first Live Update in a session could take several minutes to appear; s
 * Changes to `.rb` files might require the app(s) to be killed and restarted.
 
 
-
-
-12_Live_Update_fail_unableToRename
-
-
-
 ##Troubleshooting
-Some of the common problems and known issues of Live Update.   
+Here are some common problems and known issues of Live Update. If Live Update is not working for you, double-check the following first:
+
+* Does your `build.yml` file include the development extension?
+* Are your device(s) on the same Wi-Fi subnet as the dev host?
+* Does the `dev-config.yml` file contain 'refresh:1 on a not-indented line?
+* If CLI commands are not responding, have you set the directory to that of your project?
+* Is "Live Update is running" displayed in the Progress tab?
+
+###About Build.yml and Live Update
+
+* When a project is first created (but not yet built), the 'build' line in the `build.yml` file looks like this:
+
+
+      build: debug
+
+* After the first build, it looks like this: 
+
+    
+      build: "debug"
+
+<br>
+
+* Changing "debug" to "release" declares a production build and removes the Live Update capability.
+
+* Before (and after) your first build, your 'extensions' line should look like the **correct** one below. If it doesn't, you might have forgotton to check "Use RhoElements" box when creating your project.<br>
+
+**CORRECT**:
+    :::xml
+
+    ...
+    extensions: 
+    - rhoconnect-client
+    - development
+
+**INCORRECT**:
+    :::xml
+
+    ...
+    extensions: ["rhoconnect-client"]
+
 ###PROBLEM
 
 >"ERROR when downloading or unpack[ing]"<br>
@@ -320,66 +353,3 @@ If you're taking a break from working on one app that uses Live Update and start
 4. **Discover the device** running the second Live Update-enabled app 
 5. **Press "Enable Live Update" button** to start the Live Update service  
 6. **Double-check the `dev-config.yml` file** for the correct app in its 'application:' line
-
-
-##Serving HTTP requests  
-Subscribed devices are passed bundles from a server via HTTP requests, which means it is necessary to launch a web server before you use any Live Update Methods. Live Update uses **Webrick** as a web server and checks to see if a webserver is running when ever you run a command that contains `dev:update`. If a server is not already running on Webrick, any of the dev:update commands will start a web server for you in a new Terminal window.
-
-If you wish to, instead, start and stop the webserver manually, you can do so with the following:
-
-**To Start Webserver**  
-In a NEW Terminal window, enter
-
-        :::term
-
-    rake dev:webserver:start
-
-**To Stop Webserver**  
-In a NEW Terminal window, enter
-   
-        :::term
-
-    rake dev:webserver:stop
-
-> Note: Both your mobile application and The Live update server send messages using http based protocol. This is why the start of any update process launches an http server in a new Terminal window.
-
-If Live Update is not working for you, you may want to double check the following:
-
-* Make sure your build.yml includes the development extension
-* Connect your devices to the same subnet, and not just the same Wi-Fi.
-* Check that your dev-config.yml file has the property `refresh:1` and that it is not indented.
-* If the Update Methods aren't working, make sure you are in the directory where all your project files are located.
-
-####About the Build.yml
-
-
-* When a project is first created (but not yet built), the 'build' line in the `build.yml` file looks like this:<br>
-sza
-
-     :::xml
-     build: debug
-• After the first build, it looks like this: 
-
-
-      :::xml
-      build: "debug"
-
-• Changing "debug" to "release" declares it a production build and removes the Live Update capability.
-
-• Before your first build, your 'extensions' line should look like the one below. If it doesn't, you might have forgotton to check "Use RhoElements" box (seen above) when creating your project. 
-
-**CORRECT**:
-    :::xml
-
-    extensions: 
-    - rhoconnect-client
-    - development
-
-**INCORRECT**:
-    :::xml
-
-    extensions: ["rhoconnect-client"]
-
-    ##Live Update Modes
-
-
