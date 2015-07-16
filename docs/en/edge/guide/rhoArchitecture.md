@@ -45,8 +45,8 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Supported model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="es400Pic" src="https://portal.motorolasolutions.com/web/Business/landing_pages/US-EN/WirelessAgility/images/gallery/ES400_Photo_Gallery_0000_A.jpg" height="75"></img></td>
@@ -190,8 +190,8 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Supported model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="vc6090Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Handheld%20Computers/VC6096%20Mobile%20Computer/_Images/_static%20files/VC6096_LG.jpg" height="75"></img></td>
@@ -212,8 +212,8 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Supported model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/retail/photography-products/MK3100-Front_Price-Check_01.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
@@ -229,8 +229,8 @@ RMA 5.1 has been approved for building apps that target the following Zebra Ente
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Supported model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
   <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="wt41n0Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Wearable%20Computers/WT41N0%20Wearable%20Terminal/Photography%20%E2%80%93%20Product/WT41N0_Front_044.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
@@ -262,7 +262,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 
 ##Compatibility Alerts
 
-* **RMS 5.1 now supports printing via USB from Android apps** to a subset of [Zebra printers that support USB printing](#zebra-printers-with-usb-printing). 
+* **RMS 5.1 now supports printing via USB from Android apps** to a subset of [Zebra printers that support USB printing](printing#zebra-printers-with-usb-printing). 
 
 * **The TC55 supports [4.0 APIs](apiusage#api-migration-table) and only a subset of [2.2 APIs](apiusage#using-22-apirsquos)**. Applications developed using certain 2.2 APIs might need to be rebuilt using a newer version of the API. For example, apps built with the [2.2 Scanner API](../../2.2.0/rhoelements/scanner) must now use the [5.x Barcode API](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.
 
@@ -275,7 +275,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 <br>
 
 ##Deprecated Zebra Devices
-**The following Zebra Devices are not supported in RMS 5.1** (but can still be targeted by prior versions): 
+**The following Zebra Devices are not supported in RMS 5.1** (but can still be targeted by prior RMS versions): 
 
 <H4>Mobile Computers</H4>
 <table class="table table-striped table-bordered">
@@ -283,8 +283,8 @@ Memory constraints are important to consider, particularly when targeting the ol
 <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Deprecated model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Mobile_Computers/Handheld_Computers/_IMAGE/_STATIC/MC3000_324_324.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC3000</b></td>
@@ -304,8 +304,8 @@ Memory constraints are important to consider, particularly when targeting the ol
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Deprecated model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Micro_Kiosks/_IMAGE/_STATIC/MK3000_LG.jpg" height="75"></img></td>
@@ -325,8 +325,8 @@ Memory constraints are important to consider, particularly when targeting the ol
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Deprecated model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="vc5090Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Vehicle-mounted%20Computers/VC5090/_Images/Static%20Files/B2B_Product_VC5090_LG_US-EN.jpg" height="75"></img></td>
@@ -341,8 +341,8 @@ Memory constraints are important to consider, particularly when targeting the ol
  <tr>
   <th class="clsSyntaxHeadings"></th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
-  <th class="clsSyntaxHeadings">Device</th>
-  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="clsSyntaxHeadings">Deprecated model(s)</th>
+  <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
   <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="wt4000Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Wearable%20Computers/WT4000/_Images/Static%20Files/B2B_Product_WT4000_LG_US-EN.jpg" height="75"></img></td>
