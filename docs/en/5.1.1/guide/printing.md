@@ -374,7 +374,7 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 <P>
 <table class="table table-striped">
 <tr>
-<th class="text-centered"></th>
+<th class="text-centered">Device</th>
 <th class="text-centered"><nobr>Device family</nobr></th>
 <th class="text-centered">Device model(s)</th>
 <th class="text-centered">Operating System(s)</th>
@@ -410,7 +410,7 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 <td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
 </tr>
 <td class="clsSyntaxCells clsOddRow"><b></b></td>
-<td class="clsSyntaxCells clsOddRow">NOTE: Printing via USB is NOT supported from iOS or WM/CE devices.</td>
+<td class="clsSyntaxCells clsOddRow">NOTE: Printing via USB is NOT supported on iOS or WM/CE devices.</td>
 <td class="clsSyntaxCells clsOddRow"><b></b></td>
 <td class="clsSyntaxCells clsOddRow">NOTE: Zebra's QL Plus and QLn series printers DO NOT support Android USB printing.</td>
 </tr>
