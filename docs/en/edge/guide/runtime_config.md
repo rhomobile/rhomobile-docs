@@ -186,7 +186,7 @@ Sample yaml code:
     # CLient SSL Configuration. The path to the p12 formatted certificate file and the password used with the client certificate.
     # The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL
     # connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled.
-    # Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.
+    # Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection will fail.
     # These two settings are only supported for use on Android devices.
     clientSSLCertificate     = 'certificate path'
     clientSSLCertificatePassword = 'password'
@@ -206,7 +206,7 @@ Sample yaml code:
 * It determines features of the RhoElements runtime, including keys that can be intercepted by the application and whether to pre-load modules on startup. 
 * The `CaFile` setting applies only to apps built with RMS 4.0 that use the stock browser.
 
-* Fullscreen mode is currently unavailable for the iOS 7 SDK. For details and other differences, please refer to the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
+* Full screen mode is currently unavailable for the iOS 7 SDK. For details and other differences, please refer to the [Differences in iOS7](build_ios#differences-building-for-ios7) section in the [Build for iOS](build_ios) doc.
 
 
 ###Location on desktops
@@ -225,7 +225,7 @@ Sample yaml code:
 ####All other devices: 
 `<installation root>\Config`
 
-####For persistant installations: 
+####For persistent installations: 
 **On cold boot, `Config.xml` is copied from `\Application\RhoElements\Config\Config.xml`<br> to `\Program Files\RhoElements\Config\Config.xml`**. 
 
 * To persist settings after a cold boot, **store desired settings in both locations**. 
@@ -463,7 +463,7 @@ When enabled, presents a set of controls useful for development and debugging pu
 
 ##DefaultMetaTags
 ###MetaTag
-Permits a default meta tag to be specified so that a tag required by the application need not be present on every HTML page. Set a default tag by specifying the tag's module, followed by the tilda character (~) and the properties of the module you wish to set, as specified in [EMML 1.1](../../2.2.0/rhoelements/EMMLOverview#emml-11-the-current-standard). If the meta tag is present in both the configuration and a loaded page, the page will take priority. Only persistent tags can be set logically in the configuration. Tag persistence is covered in the 'additional information' section in the help file.<br>
+Permits a default meta tag to be specified so that a tag required by the application need not be present on every HTML page. Set a default tag by specifying the tag's module, followed by the tilde character (~) and the properties of the module you wish to set, as specified in [EMML 1.1](../../2.2.0/rhoelements/EMMLOverview#emml-11-the-current-standard). If the meta tag is present in both the configuration and a loaded page, the page will take priority. Only persistent tags can be set logically in the configuration. Tag persistence is covered in the 'additional information' section in the help file.<br>
 
 **Configuration Identifier**: DEFAULTMETATAG<br>
 **Possible Values**: [Module]~[Contents expressed in EMML1.1]<br>
@@ -600,7 +600,7 @@ Stores the name of the application.<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###StartPage
-Defines the start page of a RhoElements application, displayed at launch. This should be a local file to avoid connectivity issues on start-up.<br>
+Defines the start page of a RhoElements application, displayed at launch. This should be a local file to avoid connectivity issues on startup.<br>
 
 **Configuration Identifier**: STARTPAGE<br>
 **Possible Values**: Fully qualified path to start page (case sensitive)<br>
@@ -609,7 +609,7 @@ Defines the start page of a RhoElements application, displayed at launch. This s
 ###UseRegularExpressions
 **Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser**.<br>
 
-Regular Expressions are used to maintain backward compatiblility with PocketBrowser syntax for controlling device capabilities. If backward compatiblility is not required, regular expressions can safely be disabled, possibly improving app performance. 
+Regular Expressions are used to maintain backward compatibility with PocketBrowser syntax for controlling device capabilities. If backward compatibility is not required, regular expressions can safely be disabled, possibly improving app performance. 
 
 **Configuration Identifier**: USEREGULAREXPRESSIONS<br>
 **Possible Values**: 0 - Do Not Use Regular Expressions, 1 - Use Regular Expressions<br>
@@ -678,7 +678,7 @@ Specifies the width (in pixels) of the textbox / text-area caret. If unspecified
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###FontDirectory
-Specifies the font directory containing true type fonts. The default font directory for all Zebra WM/CE devices is `\Windows`. **Not applicable to the Enterprise Tablet**.
+Specifies the font directory containing truetype fonts. The default font directory for all Zebra WM/CE devices is `\Windows`. **Not applicable to the Enterprise Tablet**.
 
 **Configuration Identifier**: FONTDIRECTORY<br>
 **Possible Values**: \Windows<br>
@@ -875,14 +875,14 @@ Specifies the location of a file of CA certificates in PEM format. [See openSSL]
 **Platforms**: Android, WM/CE<br>
 
 ###ClientSSLCertificate
-Specifies location of the '.p12' formatted certificate file used for client SSL authentication. This setting is used in any [Network API](/api/Network) call that sets up a secured SSL connection requiring client authentication, including get, post, downloadFile and uploadFile. This setting takes effect only if `verifyPeerCertificate` is enabled. If `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
+Specifies location of the '.p12' formatted certificate file used for client SSL authentication. This setting is used in any [Network API](/api/Network) call that sets up a secured SSL connection requiring client authentication, including get, post, downloadFile and uploadFile. This setting takes effect only if `verifyPeerCertificate` is enabled. If `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection will fail.<br>
 
 **Configuration Identifier**: CLIENTSSLCERTIFICATE<br>
 **Possible Values**: Fully qualified local path. (case sensitive)<br>
 **Platforms**: Android<br>
 
 ###ClientSSLCertificatePassword
-Specifies the password used with a client certificate. This setting takes effect only if `verifyPeerCertificate` is enabled. If `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection fill fail.<br>
+Specifies the password used with a client certificate. This setting takes effect only if `verifyPeerCertificate` is enabled. If `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection will fail.<br>
 
 **Configuration Identifier**: CLIENTSSLCERTIFICATEPASSWORD<br>
 **Possible Values**: Password<br>
@@ -910,7 +910,7 @@ Controls whether HTTP connections will be maintained between requests. **Enabled
 **Platforms**: Android, iOS, WM/CE<br>
 
 ###NavTimeout
-Defines the amount of time (in milliseconds) the application should wait *to establish communication with the relevant server* (as opposed to waiting for a page to fully load) before displaying the 'bad link' message. If the destination is unreachable, the bad link message might be displayed before the timeout is reached. The navigation timeout will not be invoked when navigating to an application's start page. The recommended best practice is to store the first page locally to avoid connectivity issues at start-up. The app can then redirect to an on-line page if desired.<br>
+Defines the amount of time (in milliseconds) the application should wait *to establish communication with the relevant server* (as opposed to waiting for a page to fully load) before displaying the 'bad link' message. If the destination is unreachable, the bad link message might be displayed before the timeout is reached. The navigation timeout will not be invoked when navigating to an application's start page. The recommended best practice is to store the first page locally to avoid connectivity issues at startup. The app can then redirect to an online page if desired.<br>
 
 **Configuration Identifier**: NAVTIMEOUT<br>
 **Possible Values**: Timeout in Milliseconds (max, value=45000)<br>
@@ -1047,7 +1047,7 @@ Controls whether scanner will be automatically disabled when navigating away fro
 
 ##Screen
 ###FullScreen
-Forces RhoElements to display in fullscreen mode, hiding the OS from the user unless specifically minimized using the [Application API](../api/Application#mminimize). For Windows Mobile devices that include a custom Zebra user interface, access is provided to the status bar at the top of the screen.<br>
+Forces RhoElements to display in full screen mode, hiding the OS from the user unless specifically minimized using the [Application API](../api/Application#minimize). For Windows Mobile devices that include a custom Zebra user interface, access is provided to the status bar at the top of the screen.<br>
 
 **Configuration Identifier**:
 FULLSCREEN<br>
@@ -1208,7 +1208,7 @@ Used to persist data when using Read/WriteUserSetting.<br>
 
 ##VoidConnection
 ###HostURL
-Used to specifiy the URL to which your application will connect. Supports IP addresses, host names and specific ports (when appended to URL with a colon. If no port is specified, default=80).<br>
+Used to specify the URL to which your application will connect. Supports IP addresses, host names and specific ports (when appended to URL with a colon. If no port is specified, default=80).<br>
 
 **Configuration Identifier**: HostURL<br>
 **Possible Values**: Fully qualified host name or IP address, with or without port number<br>
@@ -1302,7 +1302,7 @@ NOTE: Enabling this feature in a production deployment is a potential security r
 ###WebFolder
 Specifies the folder on the device in which the web application and its initial page are stored. By default, the initial page is 'index.html' unless another page is requested.<br>
 
-**Configuration Identifier**: WEBSFOLDER<br>
+**Configuration Identifier**: WEBFOLDER<br>
 **Possible Values**: Fully qualified path to folder containing web application (case sensitive)<br>
 **Platforms**: Android, iOS, WM/CE<br>
 
