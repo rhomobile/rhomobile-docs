@@ -703,7 +703,7 @@ Controls which fonts will be used. When set to '0' (default) the FreeType librar
 * On localized devices from 4.1 and higher, the native font engine will be used by default.
 * The FreeType library cannot render localized characters such as Asian and some accented European characters. 
 * Some early BSPs of CE7 do not support the native font render. 
-* The log file displys the font engine in use on launch. 
+* The log file displays the font engine in use on launch. 
 
 NOTE: This configuration element is currently unavailable on MC92, VC70 or WT41N0 devices.<br>
 
