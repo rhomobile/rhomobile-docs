@@ -1,10 +1,10 @@
-# Migrating your RhoMobile application to 5.X
+# Migrating your RhoMobile application to v5.x
 
-RhoMobile Suite 5.0 and up offers a set of common APIs to access device,system and framework capabilities across JavaScript and Ruby. 
+RhoMobile Suite 5.0 and higher offers a set of common APIs to access device, system and framework capabilities across JavaScript and Ruby apps. 
 
 
 ## RhoConnect Client
-In RhoMobile Suite 5.0 and up, the RhoConnect Client is available via an extension. In order to use the RhoConnect Client, you must specify `rhoconnect-client` in your applications `build.yml` `extensions` section. If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
+In RhoMobile Suite 5.x, the RhoConnect Client is accessed through an extension. To use the RhoConnect Client, you must specify `rhoconnect-client` in your application's `build.yml` `extensions` section. If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
 
 	:::ruby
 	extensions: ["rhoconnect-client"]
