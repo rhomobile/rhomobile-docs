@@ -2,7 +2,7 @@
 
 
 ## Overview
-The PrinterZebra API provides Zebra specific API access Zebra Bluetooth and WiFi Network printers. This API inherits all methods,properties,constants from the [Printer API](#api-printing)
+The PrinterZebra API provides Zebra specific API access Zebra Bluetooth, WiFi Network printers and USB for Android. This API inherits all methods,properties,constants from the [Printer API](#api-printing)
 ## Enabling the API
 There are two methods of enabling the Zebra Printing API:
 
@@ -733,7 +733,7 @@ Synchronous Return:
 ###ID
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Unique printer ID during application lifetime.
 ####Access
@@ -754,7 +754,7 @@ Unique printer ID during application lifetime.
 ###connectionType
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Type of connection to printer.
 ####Access
@@ -775,7 +775,7 @@ Type of connection to printer.
 ###deviceAddress
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial number. If you need to get device mac you can use CPCL command ! U1 getvar "bluetooth.address" 
 ####Access
@@ -796,7 +796,7 @@ IP address for TCP (wireless) connection. Bluetooth(R) mac or device serial numb
 ###deviceName
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Bluetooth/Network name of printer.
 ####Access
@@ -838,7 +838,7 @@ Default port when connecting using TCP/IP.
 ###isConnected
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want to real physical connection - use requestState() method with receive result in the callback. Only this way process real request to device and analyze answer from device.
 ####Access
@@ -859,7 +859,7 @@ Connection status flag. All other properties are valid only if isConnect equals 
 ###printerType
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Type of printer - see PRINTER_TYPE_... constants.
 ####Access
@@ -931,7 +931,7 @@ Type of printer - see PRINTER_TYPE_... constants.
 * PRINTER_TYPE_APDNot supported in 4.1
 * CONNECTION_TYPE_ANY
 * CONNECTION_TYPE_ON_BOARDNot supported in 4.1
-* CONNECTION_TYPE_USBNot supported in 4.1
+* CONNECTION_TYPE_USBsupported in 5.1
 * CONNECTION_TYPE_BLUETOOTH
 * CONNECTION_TYPE_TCP
 * PRINTER_STATUS_SUCCESS
@@ -960,6 +960,7 @@ Type of printer - see PRINTER_TYPE_... constants.
 
 * To use a Bluetooth connection on Android devices you should take into account the following preconditions: Before using the printer you should pair it using the Android system Bluetooth settings.
 * When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then _all_ Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.
+* When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as "USB Host mode" and should reboot device after the configuration. USB connection is not supported on QLn320 printer.searchPrinters should not return any non-printer devices,If USB printers are not supported by SDK or device searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED; (for example executing searchPrinters on Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED);
 
             
 

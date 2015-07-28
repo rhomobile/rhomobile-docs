@@ -4,7 +4,7 @@
 
 <p>When using Enterprise Browser with webkit, any required certificates beyond the pre-loaded ones can be specified using the <code>CaFile</code> configuration setting in Config.xml. This points to a file containing the certificate data. The certificate(s) specified are treated by webkit as trusted authorities. Note this only applies to HTTPS requests made by webkit.</p>
 
-<p>For example, to use certificates in the file &lsquo;mycert.pem&rsquo; the file should be copied to the device and the appropriate entry made in Config.xml, e.g. if the file is in the root directory of the device:</p>
+<p>For example, to use certificates in the file &lsquo;mycert.crt&rsquo; the file should be copied to the device and the appropriate entry made in Config.xml, e.g. if the file is in the root directory of the device:</p>
 
 <pre name="code" class="xml">&lt;CaFile Value=”\\mycert.pem”&gt;
 </pre>
@@ -38,35 +38,27 @@
 <h3>Generating a self-signed certificate:</h3>
 
 <ol>
-<li>You need to have a private key in order to encrypt to the certificate. Either use an existing private key, or generate one for the purpose. The easiest way to generate a basic, no passphrase, one is to use:</li>
-</ol>
+<li><p>You need to have a private key in order to encrypt to the certificate. Either use an existing private key, or generate one for the purpose. The easiest way to generate a basic, no passphrase, one is to use:</p>
 
+<pre name="code" class="term"> openssl genrsa -out privkey.pem
+</pre></li>
+<li><p>A self-signed certificate can then be generated from the key using:</p>
 
-<blockquote><p>openssl genrsa -out privkey.pem</p></blockquote>
-
-<ol>
-<li>A self-signed certificate can then be generated from the key using:</li>
-</ol>
-
-
-<blockquote><p>openssl req -new -x509 -key privkey.pem -out capturableacert.pem -days 365</p></blockquote>
-
-<ol>
-<li>You will be asked a series of questions. For all <em>but</em> Common Name you can press return to leave the field blank, but for Common Name enter the domain name which will serve the certificate. Add the private key to your web server according to the server&rsquo;s documentation, and add the certificate to the web client as described above.</li>
+<pre name="code" class="term"> openssl req -new -x509 -key privkey.pem -out capturableacert.pem -days 365
+</pre></li>
+<li><p>You will be asked a series of questions. For all <em>but</em> Common Name you can press return to leave the field blank, but for Common Name enter the domain name which will serve the certificate. Add the private key to your web server according to the server&rsquo;s documentation, and add the certificate to the web client as described above.</p></li>
 </ol>
 
 
 <h3>Inspecting a certificate</h3>
 
 <ol>
-<li>To decode the contents of a certificate use:</li>
-</ol>
+<li><p>To decode the contents of a certificate use:</p>
 
-
-<blockquote><p>openssl x509 -in cacert.pem -text -noout</p></blockquote>
-
-<ol>
-<li>The Common Name is shown as Subject: CN=. The signing authority is shown as Issuer: CN=, which will be the same as Subject for a self-signed certificate.</li>
+<pre><code>         ::term
+         openssl x509 -in cacert.pem -text -noout
+</pre></li>
+<li><p>The Common Name is shown as Subject: CN=. The signing authority is shown as Issuer: CN=, which will be the same as Subject for a self-signed certificate.</p></li>
 </ol>
 
 
@@ -74,4 +66,5 @@
 
 <p>To convert a .der format certificate to a .pem one use:</p>
 
-<blockquote><p>openssl x509 -inform der -in cacert.der -out cacert.pem</p></blockquote>
+<pre name="code" class="term">openssl x509 -inform der -in cacert.der -out cacert.pem
+</pre>

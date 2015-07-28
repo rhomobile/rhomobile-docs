@@ -52,7 +52,7 @@ Synchronous Return:
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -76,7 +76,7 @@ Synchronous Return:
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 

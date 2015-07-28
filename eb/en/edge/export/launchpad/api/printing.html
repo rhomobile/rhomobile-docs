@@ -939,7 +939,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -971,7 +971,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1003,7 +1003,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1035,7 +1035,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1099,7 +1099,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1131,7 +1131,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1172,7 +1172,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 <li>PRINTER_TYPE_APDNot supported in 4.1</li>
 <li>CONNECTION_TYPE_ANY</li>
 <li>CONNECTION_TYPE_ON_BOARDNot supported in 4.1</li>
-<li>CONNECTION_TYPE_USBNot supported in 4.1</li>
+<li>CONNECTION_TYPE_USBsupported in 5.1</li>
 <li>CONNECTION_TYPE_BLUETOOTH</li>
 <li>CONNECTION_TYPE_TCP</li>
 <li>PRINTER_STATUS_SUCCESS</li>
@@ -1216,6 +1216,6 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
   }
 </pre></li>
 <li><p>When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then <strong>all</strong> Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we cannot detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.</p></li>
-<li>When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as &ldquo;USB Host mode&rdquo; and should reboot device after the configuration. USB connection is not supported on QLn320 printer.</li>
+<li>When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as &ldquo;USB Host mode&rdquo; and should reboot device after the configuration. USB connection is not supported on QLn320 printer.searchPrinters should not return any non-printer devices,If USB printers are not supported by SDK or device searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED; (for example executing searchPrinters on Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED);</li>
 </ul>
 

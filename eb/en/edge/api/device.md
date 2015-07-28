@@ -86,6 +86,31 @@ Synchronous Return:
 	* <code>EB.Device.idle()</code> 
 
 
+### powerOff()
+Puts the device into power off mode. In this mode the device will draw no power. Only supported on SB1. Callback is triggered only for 'failed' status.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Callback
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>If the powerOff was unsuccessful, status will be 'failed'. In all other cases, it will remain empty. </p></li><li>message : <span class='text-info'>STRING</span><p>If 'status' == 'failed', the message will contain an error message. In all other cases, it will remain empty. </p></li></ul></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Windows Mobile
+* Windows CE
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Device.powerOff()</code> 
+
+
 ### reboot(<span class="text-info">STRING</span> bootType)
 It reboots the terminal using either a Warm or Cold software boot (as specified). Note on CE6 devices a "ColdCAD" boot is required to replicate the Coldboot key sequence, e.g. 1+9+Power on an MC3000. Callback is triggered only for 'failed' status.
 

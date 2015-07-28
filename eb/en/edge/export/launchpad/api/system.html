@@ -1387,7 +1387,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1417,7 +1417,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1447,7 +1447,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1476,7 +1476,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1505,7 +1505,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1535,7 +1535,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1565,7 +1565,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1595,7 +1595,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1625,7 +1625,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1655,7 +1655,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1685,7 +1685,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1715,7 +1715,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1745,7 +1745,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1805,7 +1805,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1831,15 +1831,45 @@
 </ul>
 
 
-<h3><span class="text-info">isSymbolDevice</span></h3>
+<h3><span class="text-error">isMotorolaDevice</span></h3>
 
 <h4>Type</h4>
 
-<p><span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
-<p><span class='label label-info'>Replaces:isMotorolaDevice</span> Returns true if the device supports Symbol device capabilities. APIs will indicate if the property or method is available on Symbol devices only. You can use this property to help your application decide when to take advantage of advanced Symbol capabilities.</p>
+<p><span class='label label-important'>Deprecated</span> Returns true if the device supports Motorola device capabilities. APIs will indicate if the property or method is available on Motorola devices only. You can use this property to help your application decide when to take advantage of advanced Motorola capabilities. This property has been deprecated. It is recommended to use &lsquo;isSymbolDevice&rsquo; property.</p>
+
+<h4>Access</h4>
+
+<ul>
+<li>Class: This property can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.System.isMotorolaDevice</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+</ul>
+
+
+<h3>isSymbolDevice</h3>
+
+<h4>Type</h4>
+
+<p><span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span></p>
+
+<h4>Description</h4>
+
+<p>Returns true if the device supports Symbol device capabilities. APIs will indicate if the property or method is available on Symbol devices only. You can use this property to help your application decide when to take advantage of advanced Symbol capabilities.</p>
 
 <h4>Access</h4>
 
@@ -1899,7 +1929,7 @@
 
 <ul>
 <li>Windows Mobile</li>
-<li>Symbol Devices Only</li>
+<li>Zebra Devices Only</li>
 </ul>
 
 
@@ -1907,7 +1937,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1942,7 +1972,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -1999,7 +2029,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2023,7 +2053,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only</li>
+<li>Zebra Devices Only</li>
 </ul>
 
 
@@ -2031,7 +2061,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2061,7 +2091,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2092,7 +2122,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2130,7 +2160,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2160,7 +2190,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2190,7 +2220,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2220,7 +2250,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2284,7 +2314,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2314,7 +2344,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2380,7 +2410,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>INTEGER</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2410,7 +2440,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 
@@ -2434,7 +2464,7 @@
 <li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Symbol Devices Only</li>
+<li>Zebra Devices Only</li>
 </ul>
 
 
@@ -2442,7 +2472,7 @@
 
 <h4>Type</h4>
 
-<p><span class='text-info'>STRING</span> <span class='label'>Read Only</span></p>
+<p><span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span></p>
 
 <h4>Description</h4>
 

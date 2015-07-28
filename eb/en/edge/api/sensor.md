@@ -281,7 +281,7 @@ The minimum amount of time gap between two sensor update events, specified in mi
 ###status
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Current status: not_ready, ready, started, error etc.
 ####Access
@@ -299,7 +299,7 @@ Current status: not_ready, ready, started, error etc.
 ###type
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Type of current sensor: Accelerometer, Magnetometer, etc.
 ####Access

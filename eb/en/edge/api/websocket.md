@@ -129,7 +129,7 @@ This callback is fired when connection is established.
 ###readyState
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Represents the state of the connection.
 ####Access
@@ -140,7 +140,7 @@ Represents the state of the connection.
 ###url
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 URL passed to Websocket constructor.
 ####Access

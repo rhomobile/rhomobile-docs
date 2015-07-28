@@ -63,7 +63,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -85,7 +85,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 

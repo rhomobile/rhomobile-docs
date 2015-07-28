@@ -1,28 +1,15 @@
 # About Enterprise Browser Help
 ## Overview
-Welcome to the Symbol Technologies Enterprise Browser Technical Documentation. This help system allows you to browse the Enterprise Browser documentation on your local computer and features many tools for navigating and searching through the content. The documentation for the latest version is also published to [Launchpad](https://developer.motorolasolutions.com/community/technologies/enterprisebrowser) and may contain additional or updated content. You can also download the [latest documentation](https://s3.amazonaws.com/enterprise-browser/eb.docs.latest.zip) and replace the version you have installed on your computer.
-
-## Updating Local Documentation
-There may be updates to the documentation that is included with the Enterprise browser installation after it has been released. Although the documentation for the latest version is also published to [Launchpad](https://developer.motorolasolutions.com/community/technologies/enterprisebrowser) and may contain additional or updated content. You can also update your local version to contain the latest updates.
-
-### Help Version
-You can check your current help version by looking at the menu on the left hand side of the page (offline version only). This indicates the version of the help documentation. If the number corresponds with the version of the Enterprise Browser (Noted in the page header), then it is the same as what has been released with the software. Updates to the documentation after release will be denoted by an extra version number. For example, say the Enterprise Browser release was 1.1, a documentation update post release may be indicated with a Help version of 1.1-1
-
-![img](images/HelpVersions.jpg)
-
-### Downloading Updated Documentation
-Follow these instructions for updating your local documentation to be the latest.
-
-* [Download the latest documentation](https://s3.amazonaws.com/enterprise-browser/eb.docs.latest.zip)
-* Unzip the contents of the download
-* Copy the contents of the zip folder to the `[InstallationPath]\HelpFile` folder. For example `C:\EnterpriseBrowser\Documentation\HelpFile\`
-* The folder should look something like below
-* Open `index.html`
-
-![img](images/HelpFolder.png)
-
+Welcome to the Zebra Technologies Enterprise Browser Technical Documentation. This help system allows you to view API reference and developer guides for the specific version of Enterprise Browser you are working with. You can also download a copy of this content so you can view it offline.
 
 ## Help Features
+### Changing Versions
+You can click on the `Enterprise Browser` text in the page header to navigate to a version selection page. This page will allow you to select a different version of Enterprise Browser documentation. `Edge` contains in progress documentation for beta or unreleased versions and should not be used for any production deployments.
+
+![img](images/about/select.jpg)
+
+![img](images/about/versions.jpg)
+
 ### Table of Contents:
 The menu on the left hand side of the page can be used to navigate through the varies documents contained inside this help application.
 
@@ -70,15 +57,3 @@ When clicking on a link that is an external website, the url will be opened in a
 * Google Chrome 35 or newer 
 * Internet Explore 9 or newer
 
-## Updating Offline Help Docs
-Use the guide below to update your offline version of the documentation for Enterprise Browser.
-
-### Help Version
-You can check your current help version by looking at the menu on the left hand side of the page (offline version only). This indicates the version of the help documentation. If the number corresponds with the version of the Enterprise Browser (Noted in the page header), then it is the same as what has been released with the software. Updates to the documentation after release will be denoted by an extra version number. For example, say the Enterprise Browser release was 1.1, a documentation update post release may be indicated with a Help version of 1.1-1.
-
-### Downloading Updated Documentation
-Follow these instructions for updating your local documentation to be the latest.
-
-1. [Download the latest documentation](https://s3.amazonaws.com/enterprise-browser/eb.docs.latest.zip)
-2. Unzip the contents of the download
-3. Copy the contents of the zip folder to the `<EB Installation Path>\Documentation\HelpFile` folder. For example `C:\Program Files\Enterprise Browser\Documentation\HelpFile.`

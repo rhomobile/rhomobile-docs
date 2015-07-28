@@ -135,11 +135,17 @@
 
             &lt;Navigation&gt;
                 &lt;BadLinkURI value="file://%INSTALLDIR%/badlink.html"/&gt;
+                &lt;EnableSSL3 value="1"/&gt;
                 &lt;UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/&gt;
                 &lt;NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/&gt;
                 &lt;ViewportEnabled value="1"/&gt;
                 &lt;Cache value="5MB"/&gt;
             &lt;/Navigation&gt;
+            &lt;ZoomKey&gt;
+                &lt;ZoomInKey value="0x70"/&gt; //Any function key can be applied
+                &lt;ZoomOutKey value="0x71"/&gt; //Any function key tag can be applied
+            &lt;/ZoomKey&gt;
+            &lt;isWindowsKey  value="0"/&gt;              
         &lt;/Application&gt;
     &lt;/Applications&gt;
 &lt;/Configuration&gt;
@@ -203,7 +209,7 @@
 
 <h3>HTTP_Proxy</h3>
 
-<p>Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.</p>
+<p>Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Only supported on Windows Mobile/CE using the Zebra Webkit.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -219,7 +225,7 @@
 
 <h3>HTTPS_Proxy</h3>
 
-<p>Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.</p>
+<p>Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead. Only supported on Windows Mobile/CE using the Zebra Webkit.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -832,7 +838,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 <p><strong>Possible Values</strong></p>
 
 <ul>
-<li>Timeout in Milliseconds, maximum value is 45000</li>
+<li>Timeout in Milliseconds &ndash; Default value is 45000</li>
 </ul>
 
 
@@ -881,7 +887,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>WebStorageDBPath</h3>
 
-<p>Path to an existing directory to store Web Storage databases.</p>
+<p>Path to an existing directory to store Web Storage databases. Only supported on Windows Mobile/CE using the Zebra Webkit.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -899,7 +905,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>WebSQLDBQuota</h3>
 
-<p>Web SQL database maximum quota per database.</p>
+<p>Web SQL database maximum quota per database. Only supported on Windows Mobile/CE using the Zebra Webkit.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -915,7 +921,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>WebSQLDBPath</h3>
 
-<p>Path to an existing directory to store Web SQL databases.</p>
+<p>Path to an existing directory to store Web SQL databases. Only supported on Windows Mobile/CE using the Zebra Webkit.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -935,7 +941,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>ApplicationCacheQuota</h3>
 
-<p>Application Cache data maximum quota per application.</p>
+<p>Application Cache data maximum quota per application. Only supported on Windows Mobile/CE using the Zebra Webkit.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -951,7 +957,7 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 <h3>ApplicationCachePath</h3>
 
-<p>Path to an existing directory to store Application Cache data.</p>
+<p>Path to an existing directory to store Application Cache data. Only supported on Windows Mobile/CE using the Zebra Webkit.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1159,7 +1165,11 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>Username</h3>
 
-<p>Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of &ldquo;&rdquo;. The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.</p>
+<p>Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.</p>
+
+<p>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a username of &ldquo;&rdquo;. The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.</p>
+
+<blockquote><p>Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter the credential multiple times.</p></blockquote>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1175,7 +1185,11 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>Password</h3>
 
-<p>Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a password of &ldquo;&rdquo;. The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.</p>
+<p>Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.</p>
+
+<p>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a password of &ldquo;&rdquo;. The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.</p>
+
+<blockquote><p>Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter credential multiple times.</p></blockquote>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1292,7 +1306,9 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>TextSelectionEnabled</h3>
 
-<p>Enables or Disables selection of text when dragging the stylus on the screen.</p>
+<p>Enables or Disables selection of text when dragging the stylus on the screen. When enabled it is recommended to use the scroll bar in order to scroll the page.</p>
+
+<blockquote><p>Note: TextSelectionEnabled should be set to enabled in order to use Copy (Ctrl+C) and Paste(Ctrl+V) feature on Webkit (WM/CE).</p></blockquote>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1396,6 +1412,32 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 <h4>Example</h4>
 
 <pre name="code" class="xml">&lt;DisableScannerDuringNavigation value="1"/&gt;
+</pre>
+
+<h3>DisableScannerInApp</h3>
+
+<p>This configuration option can be used to disable barcode scanning abilities for previos <code>Scanner</code> API. This feature is not applicable for <code>Barcode</code> common API. This setting will not effect the behavior of barcode scanning in the License dialog.</p>
+
+<p><strong>Supported Platforms</strong></p>
+
+<ul>
+<li>Windows Mobile/CE (IE or Zebra Webkit installation)</li>
+</ul>
+
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li>0 &ndash; does not disable the scanner</li>
+<li>1 &ndash; disables the scanner (DefaultMetaTags, Meta Tags in HTML, Javascript API, ActiveXObject)</li>
+</ul>
+
+
+<blockquote><p>Note: The scanner will not be disabled if this parameter does not exist or if it exists and does not contain a value.</p></blockquote>
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;DisableScannerInApp value="1"/&gt;
 </pre>
 
 <h2>Sound</h2>
@@ -1636,6 +1678,30 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 <pre name="code" class="xml">&lt;BadLinkURI value="file://%INSTALLDIR%/badlink.html"/&gt;
 </pre>
 
+<h3>EnableSSL3</h3>
+
+<p>When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability.</p>
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li>0 – Disabled</li>
+<li>1 – Enabled</li>
+</ul>
+
+
+<p><strong>Platforms</strong></p>
+
+<ul>
+<li>WM/CE Zebra Webkit Only</li>
+</ul>
+
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;EnableSSL3 value="1"/&gt;
+</pre>
+
 <h3>UserAgent</h3>
 
 <p>When visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:</p>
@@ -1702,6 +1768,8 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <p>A file of CA certificates in PEM format. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for details.</p>
 
+<blockquote><p>Note: Enteprise Browser only supports single certificate file in <code>pem</code> format. If multiple certificates need to be passed to the Webkit Browser(WM/CE), please add the contents of the <code>.pem</code> certificates to a single file using any standard text editor and then set the path of the updated local file to cafile in config.xml</p></blockquote>
+
 <p><strong>Possible Values</strong></p>
 
 <ul>
@@ -1713,6 +1781,19 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <pre name="code" class="xml">&lt;CaFile value="cert-file-name"/&gt;
 </pre>
+
+<h3>CaPath</h3>
+
+<blockquote><p>Note : This setting is not supported in Enterprise Browser.</p></blockquote>
+
+<p>A directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html">http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html</a> for more information.</p>
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li>Local File path on the device.</li>
+</ul>
+
 
 <h3>VerifyPeerCertificate</h3>
 
@@ -1785,40 +1866,6 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
 <h4>Example</h4>
 
 <pre name="code" class="xml">&lt;EnableCtrlKey_C value="1"/&gt;
-</pre>
-
-<h3>EnableVolumeSlider</h3>
-
-<p>Specific to the MC2100. Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.</p>
-
-<p><strong>Possible Values</strong></p>
-
-<ul>
-<li>0 &ndash; Disabled</li>
-<li>1 &ndash; Enabled</li>
-</ul>
-
-
-<h4>Example</h4>
-
-<pre name="code" class="xml">&lt;EnableVolumeSlider value="1"/&gt;
-</pre>
-
-<h3>EnableBacklightSlider</h3>
-
-<p>Specific to the MC2100. Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.</p>
-
-<p><strong>Possible Values</strong></p>
-
-<ul>
-<li>0 &ndash; Disabled</li>
-<li>1 &ndash; Enabled</li>
-</ul>
-
-
-<h4>Example</h4>
-
-<pre name="code" class="xml">&lt;EnableBacklightSlider value="1"/&gt;
 </pre>
 
 <h2>DefaultMetaTags</h2>
@@ -1909,6 +1956,82 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
 <h4>Example</h4>
 
 <pre name="code" class="xml">&lt;NewTabVirtualMemLimit value="50"/&gt;
+</pre>
+
+<h2>ZoomKey</h2>
+
+<h3>ZoomInKey</h3>
+
+<p>This setting controls zoom behavior for enlarging text using a function key. You must also have the Function key configured to be captured as notes in the <a href="../guide/configreference?Remarks">Remarks section of this document</a>.This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.</p>
+
+<p><strong>Supported Platforms</strong></p>
+
+<ul>
+<li>Windows Mobile/CE (IE or Zebra Webkit)</li>
+</ul>
+
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li>Hexadecimal key code for any function key: F1 to F24</li>
+</ul>
+
+
+<blockquote><p>Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).</p></blockquote>
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;ZoomInKey value="0x70"/&gt;
+</pre>
+
+<h3>ZoomOutKey</h3>
+
+<p>This setting controls zoom behavior for making text smaller using a function key.You must also have the Function key configured to be captured as notes in the <a href="../guide/configreference?Remarks">Remarks section of this document</a>.This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.</p>
+
+<p><strong>Supported Platforms</strong></p>
+
+<ul>
+<li>Windows Mobile/CE (IE or Zebra Webkit)</li>
+</ul>
+
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li>Hexadecimal key code for any function key: F1 to F24</li>
+</ul>
+
+
+<blockquote><p>Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).</p></blockquote>
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;ZoomOutKey value="0x71"/&gt;
+</pre>
+
+<h2>isWindowsKey</h2>
+
+<p>This feature will be supported from Enterprise Browser 1.2 and above when used with either PocketBrowser or RhoElements 2.x KeyCapture API. The <code>isWindowsKey</code> tag has been introduced to mimic Windows Mobile key codes for the device&rsquo;s hardware keys. If enabled then the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would send normally. This can be useful to support both types of devices with one codebase. If it is set as 0 or not present, then the application will get the Android function key code value.</p>
+
+<p><strong>Supported Platforms</strong></p>
+
+<ul>
+<li>Android (with PocketBrowser or RhoElements 2.x Key Capture API)</li>
+</ul>
+
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li>0 &ndash; Send Android Key Codes for F1 to F12</li>
+<li>1 &ndash; Send Windows Mobile Key Codes for F1 to F12</li>
+</ul>
+
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;isWindowsKey value="1"/&gt;
 </pre>
 
 <h2>Remarks</h2>

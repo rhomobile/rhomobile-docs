@@ -52,7 +52,7 @@ Synchronous Return:
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -216,7 +216,7 @@ Synchronous Return:
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -325,7 +325,7 @@ When enabled, appends a carriage return to any data returned as keystrokes by th
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###autoTab
 
@@ -349,7 +349,7 @@ When enabled, appends a tab to any data returned as keystrokes by the cardreader
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###<span class="text-error">moduleName</span>
 
@@ -381,7 +381,7 @@ When enabled, appends a tab to any data returned as keystrokes by the cardreader
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###panData
 
@@ -401,7 +401,7 @@ Sets the card data without the need of a swipe. This accepts any 16 digit number
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Only compatible with DCR7000-x00)
+* Zebra Devices Only(Only compatible with DCR7000-x00)
 
 ###pinEntry
 
@@ -421,7 +421,7 @@ Turns the PIN entry on or off.
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Only compatible with DCR7000-x00)
+* Zebra Devices Only(Only compatible with DCR7000-x00)
 
 ###pinTimeout
 
@@ -443,7 +443,7 @@ PIN entry timeout in milliseconds. A value of 65535 sets the timeout to infinite
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only(Only compatible with DCR7000-x00)
+* Zebra Devices Only(Only compatible with DCR7000-x00)
 
 ##Remarks
 

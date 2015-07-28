@@ -2,7 +2,34 @@
 
 
 ## Overview
-The SmartCradle API is used to set and retrieve attributes of the MC18 CradleTBD.
+The SmartCradle API is used to set and retrieve attributes of the MC18 Cradle
+## Enabling the API
+There are two methods of enabling the SmartCradle API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the SmartCradle API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
+    <script type="text/javascript" charset="utf-8" src="eb.smartcradle.js"></script>
+
+The ebapi.js file is necessary for all single API inclusions.
+        
 
 
 ##Methods
@@ -47,7 +74,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -72,7 +99,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -97,7 +124,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -119,7 +146,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -141,7 +168,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -163,7 +190,7 @@ Synchronous Return:
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ####Method Access:
 
@@ -199,7 +226,7 @@ Synchronous Return:
 ###cApiVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 CAPI version of the cradle. Not Applicable for Android.
 ####Access
@@ -213,7 +240,7 @@ CAPI version of the cradle. Not Applicable for Android.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###chargeState
 
@@ -238,7 +265,7 @@ Sets the charge state of the cradle.  Values can be either 'Fast' or 'Slow'.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###columnId
 
@@ -257,12 +284,12 @@ The current Column ID of the cradle in the matrix. In Android, the range of colu
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###driverVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Driver version of the cradle. Not Applicable for Android.
 ####Access
@@ -276,12 +303,12 @@ Driver version of the cradle. Not Applicable for Android.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###firmwareVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Firmware version of the cradle.
 ####Access
@@ -295,12 +322,12 @@ Firmware version of the cradle.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###hardwareId
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Hardware ID of the cradle
 ####Access
@@ -314,12 +341,12 @@ Hardware ID of the cradle
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###mfgDate
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Manufacture date of the cradle in DD-MM-YY format. Not Applicable for Android.
 ####Access
@@ -333,12 +360,12 @@ Manufacture date of the cradle in DD-MM-YY format. Not Applicable for Android.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###partNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Part number of the cradle.
 ####Access
@@ -352,7 +379,7 @@ Part number of the cradle.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###rowId
 
@@ -371,12 +398,12 @@ The current Row ID of the cradle in the matrix. In Android, the range of rowId i
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###serialNumber
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Serial number of the cradle.
 ####Access
@@ -390,7 +417,7 @@ Serial number of the cradle.
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ###wallId
 
@@ -409,13 +436,12 @@ The current Wall ID of the cradle in the matrix. In Android, the range of wallId
 ####Platforms
 
 * Android
-* Windows Mobile
+* Windows CE
 
 ##Remarks
 
 
 
 ###Flashing the Cradle LEDs
-
-					There is a hardware imposed limit to how quickly the cradle LEDs can be flashed for a quickly flashing LED it is recommended to set the on / off duration to 500ms.
+There is a hardware imposed limit to how quickly the cradle LEDs can be flashed for a quickly flashing LED it is recommended to set the on / off duration to 500ms.
                 

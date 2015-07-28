@@ -825,7 +825,7 @@ Synchronous Return:
 ###country
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Current device country code.
 ####Access
@@ -844,7 +844,7 @@ Current device country code.
 ###deviceName
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android).
 ####Access
@@ -863,7 +863,7 @@ Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' 
 ###deviceOwnerEmail
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Primary email of phone owner. To access this property 'pim' capability must be enabled in your build.yml.
 ####Access
@@ -881,7 +881,7 @@ Primary email of phone owner. To access this property 'pim' capability must be e
 ###deviceOwnerName
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Name(account name) of phone owner. To access this property 'pim' capability must be enabled in your build.yml.
 ####Access
@@ -899,7 +899,7 @@ Name(account name) of phone owner. To access this property 'pim' capability must
 ###<span class="text-info">devicePushId</span>
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 <span class='label label-info'>Replaces:deviceId</span> Push notifications device ID which may be used to receive push messages.To get this ID , Push service should be configured on the device. Please refer to Push documentation.
 ####Access
@@ -918,7 +918,7 @@ Name(account name) of phone owner. To access this property 'pim' capability must
 ###freeServerPort
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Get free local server port, available for binding.
 ####Access
@@ -937,7 +937,7 @@ Get free local server port, available for binding.
 ###hasCalendar
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Returns true if calendar support is available.
 ####Access
@@ -956,7 +956,7 @@ Returns true if calendar support is available.
 ###hasCamera
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Returns true if there is a camera available on the device.
 ####Access
@@ -975,7 +975,7 @@ Returns true if there is a camera available on the device.
 ###<span class="text-error">hasCellNetwork</span>
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 <span class='label label-important'>Deprecated</span> Use Network.hasCellNetwork to tell if device is connected to the cell network.
 ####Access
@@ -994,7 +994,7 @@ Returns true if there is a camera available on the device.
 ###<span class="text-error">hasNetwork</span>
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 <span class='label label-important'>Deprecated</span> Use Network.hasNetwork to tell if the device is connected to the network.
 ####Access
@@ -1013,7 +1013,7 @@ Returns true if there is a camera available on the device.
 ###<span class="text-error">hasSqlite</span>
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 <span class='label label-important'>Deprecated</span> Returns true if the device has sqlite capabilities (previously only BlackBerry did not support this).
 ####Access
@@ -1032,7 +1032,7 @@ Returns true if there is a camera available on the device.
 ###hasTouchscreen
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Returns true if the device has touch screen capabilities.  For Win32 desktop builds this API will return whether mouse support is available.
 ####Access
@@ -1051,7 +1051,7 @@ Returns true if the device has touch screen capabilities.  For Win32 desktop bui
 ###<span class="text-error">hasWifiNetwork</span>
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 <span class='label label-important'>Deprecated</span> Use Network.hasWifiNetwork to tell if the device is connected to the wifi network.
 ####Access
@@ -1089,7 +1089,7 @@ Returns true if the device has touch screen capabilities.  For Win32 desktop bui
 ###isEmulator
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Returns true if the application is running on a platform emulator.
 ####Access
@@ -1105,12 +1105,31 @@ Returns true if the application is running on a platform emulator.
 * Android
 * Windows Mobile
 
-###<span class="text-info">isSymbolDevice</span>
+###<span class="text-error">isMotorolaDevice</span>
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
-<span class='label label-info'>Replaces:isMotorolaDevice</span> Returns true if the device supports Symbol device capabilities. APIs will indicate if the property or method is available on Symbol devices only. You can use this property to help your application decide when to take advantage of advanced Symbol capabilities.
+<span class='label label-important'>Deprecated</span> Returns true if the device supports Motorola device capabilities. APIs will indicate if the property or method is available on Motorola devices only. You can use this property to help your application decide when to take advantage of advanced Motorola capabilities. This property has been deprecated. It is recommended to use 'isSymbolDevice' property.
+####Access
+
+
+* Class: This property can only be accessed via the API class object.
+	* <code>EB.System.isMotorolaDevice</code>
+
+
+
+####Platforms
+
+* Android
+* Windows Mobile
+
+###isSymbolDevice
+
+####Type
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
+####Description
+Returns true if the device supports Symbol device capabilities. APIs will indicate if the property or method is available on Symbol devices only. You can use this property to help your application decide when to take advantage of advanced Symbol capabilities.
 ####Access
 
 
@@ -1150,12 +1169,12 @@ For Windows Mobile and Windows CE the keyboard can be manually shown or hidden a
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###localServerPort
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes. If not specified, the platform will detect a free port on the device and use that one.
 ####Params
@@ -1176,7 +1195,7 @@ Port of the local (embedded) HTTP server. This parameter is mainly for debug pur
 ###locale
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Current device locale Like 'en', 'ru' etc.
 ####Access
@@ -1210,7 +1229,7 @@ Lock / unlock the window size change by the user. When running on RhoSimulator, 
 ###oemInfo
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 The OEM Information string for the terminal.
 ####Access
@@ -1226,12 +1245,12 @@ The OEM Information string for the terminal.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###osVersion
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Version OS of device. Examples:  '4.1' (Android).
 ####Access
@@ -1250,7 +1269,7 @@ Version OS of device. Examples:  '4.1' (Android).
 ###phoneId
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Hardware based ID. It depends on capabilities configured for an application and has to remain same even across application uninstall/install.
 ####Access
@@ -1270,7 +1289,7 @@ Hardware based ID. It depends on capabilities configured for an application and 
 ###platform
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Platform where application is running.
 ####Values
@@ -1297,7 +1316,7 @@ Platform where application is running.
 ###ppiX
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Horizontal PPI (Pixels Per Inch).
 ####Access
@@ -1316,7 +1335,7 @@ Horizontal PPI (Pixels Per Inch).
 ###ppiY
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Vertical PPI (Pixels Per Inch).
 ####Access
@@ -1335,7 +1354,7 @@ Vertical PPI (Pixels Per Inch).
 ###realScreenHeight
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Screen height in real pixels.
 ####Access
@@ -1354,7 +1373,7 @@ Screen height in real pixels.
 ###realScreenWidth
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Screen width in real pixels.
 ####Access
@@ -1393,7 +1412,7 @@ Screen auto rotate.
 ###screenHeight
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Screen height in logical pixels (used for set coordinates).
 ####Access
@@ -1412,7 +1431,7 @@ Screen height in logical pixels (used for set coordinates).
 ###screenOrientation
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Current screen orientation.
 ####Values
@@ -1456,7 +1475,7 @@ If true, then screen will go to sleep by system inactivity timeout. If false the
 ###screenWidth
 
 ####Type
-<span class='text-info'>INTEGER</span> <span class='label'>Read Only</span>
+<span class='text-info'>INTEGER</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Screen width in logical pixels (used for set coordinates).
 ####Access
@@ -1475,7 +1494,7 @@ Screen width in logical pixels (used for set coordinates).
 ###uuid
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 The Unique Unit IDentifier for the terminal.
 ####Access
@@ -1491,12 +1510,12 @@ The Unique Unit IDentifier for the terminal.
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ###webviewFramework
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Browser framework identity string.
 ####Access

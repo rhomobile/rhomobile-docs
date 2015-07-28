@@ -127,11 +127,17 @@ The following is an example of a typical configuration file
 
 				<Navigation>
 					<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
+					<EnableSSL3 value="1"/>
 					<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
 					<NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/>
 					<ViewportEnabled value="1"/>
 					<Cache value="5MB"/>
 				</Navigation>
+				<ZoomKey>
+					<ZoomInKey value="0x70"/> //Any function key can be applied
+					<ZoomOutKey value="0x71"/> //Any function key tag can be applied
+				</ZoomKey>
+				<isWindowsKey  value="0"/>				
 			</Application>
 		</Applications>
 	</Configuration>
@@ -177,7 +183,7 @@ In order to be backwardly compatible with PocketBrowser syntax for controlling d
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy.
+Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -188,7 +194,7 @@ Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead.
+Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -620,7 +626,7 @@ Number of milliseconds before the browser times out and navigates to the page sp
 
 **Possible Values**
 
-* Timeout in Milliseconds, maximum value is 45000
+* Timeout in Milliseconds - Default value is 45000
 
 #### Example
 	:::xml
@@ -652,7 +658,7 @@ Used to persist data when using Read/WriteUserSetting.
 
 ## WebDB
 ### WebStorageDBPath
-Path to an existing directory to store Web Storage databases.
+Path to an existing directory to store Web Storage databases. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -665,7 +671,7 @@ Path to an existing directory to store Web Storage databases.
 	<WebStorageDBPath value="file:///path-to-web-storage"/>
 
 ### WebSQLDBQuota
-Web SQL database maximum quota per database.
+Web SQL database maximum quota per database. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -676,7 +682,7 @@ Web SQL database maximum quota per database.
 	<WebSQLDBQuota value="20000"/>
 
 ### WebSQLDBPath
-Path to an existing directory to store Web SQL databases.
+Path to an existing directory to store Web SQL databases. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -690,7 +696,7 @@ Path to an existing directory to store Web SQL databases.
 
 ## ApplicationCache
 ### ApplicationCacheQuota
-Application Cache data maximum quota per application.
+Application Cache data maximum quota per application. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -701,7 +707,7 @@ Application Cache data maximum quota per application.
 	<ApplicationCacheQuota value="20000"/>
 
 ### ApplicationCachePath
-Path to an existing directory to store Application Cache data.
+Path to an existing directory to store Application Cache data. Only supported on Windows Mobile/CE using the Zebra Webkit.
 
 **Possible Values**
 
@@ -854,7 +860,11 @@ Specifies the technique used to scroll the viewport:
 
 ## Authentication
 ### Username
-Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication. 
+
+If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+
+> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter the credential multiple times.
 
 **Possible Values**
 
@@ -865,7 +875,11 @@ Specifies the username to be provided automatically when the Enterprise Browser 
 	<Username value="username"/>
 
 ### Password
-Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.<P/>If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials.  Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials twice before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.
+
+If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
+
+> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter credential multiple times.
 
 **Possible Values**
 
@@ -947,7 +961,9 @@ Enables or Disables Javascript (Windows Mobile Only).
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Enables or Disables selection of text when dragging the stylus on the screen.
+Enables or Disables selection of text when dragging the stylus on the screen. When enabled it is recommended to use the scroll bar in order to scroll the page. 
+
+> Note: TextSelectionEnabled should be set to enabled in order to use Copy (Ctrl+C) and Paste(Ctrl+V) feature on Webkit (WM/CE).
 
 **Possible Values**
 
@@ -1022,6 +1038,25 @@ By default if you have enabled the Scanner on a page, through either meta tags, 
 #### Example
 	:::xml
 	<DisableScannerDuringNavigation value="1"/>
+
+### DisableScannerInApp
+This configuration option can be used to disable barcode scanning abilities for previos `Scanner` API. This feature is not applicable for `Barcode` common API. This setting will not effect the behavior of barcode scanning in the License dialog. 
+
+**Supported Platforms**
+
+* Windows Mobile/CE (IE or Zebra Webkit installation)
+
+**Possible Values**
+
+* 0 - does not disable the scanner
+* 1 - disables the scanner (DefaultMetaTags, Meta Tags in HTML, Javascript API, ActiveXObject)
+
+> Note: The scanner will not be disabled if this parameter does not exist or if it exists and does not contain a value.
+
+#### Example
+	:::xml
+	<DisableScannerInApp value="1"/>
+
 
 ## Sound
 ### DecodeVolume
@@ -1187,6 +1222,22 @@ There are some platform and engine exclusive issues you may encounter that are k
 	:::xml
 	<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
 
+###EnableSSL3
+When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability.
+
+**Possible Values**
+
+* 0 – Disabled
+* 1 – Enabled
+
+**Platforms** 
+
+* WM/CE Zebra Webkit Only
+
+#### Example
+	:::xml
+	<EnableSSL3 value="1"/>
+
 ### UserAgent
 When visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:
 
@@ -1234,6 +1285,8 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 ### CaFile
 A file of CA certificates in PEM format. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for details.
 
+> Note: Enteprise Browser only supports single certificate file in `pem` format. If multiple certificates need to be passed to the Webkit Browser(WM/CE), please add the contents of the `.pem` certificates to a single file using any standard text editor and then set the path of the updated local file to cafile in config.xml
+
 **Possible Values**
 
 * Local File name on the device.
@@ -1241,6 +1294,15 @@ A file of CA certificates in PEM format. See <a href="http://www.openssl.org/doc
 #### Example
 	:::xml
 	<CaFile value="cert-file-name"/>
+
+### CaPath
+>Note : This setting is not supported in Enterprise Browser.
+
+A directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
+
+**Possible Values**
+
+* Local File path on the device.
 
 ### VerifyPeerCertificate
 Verify the server certificate against the internal certificates. It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development. A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.
@@ -1293,30 +1355,6 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
 #### Example
 	:::xml
 	<EnableCtrlKey_C value="1"/>
-
-### EnableVolumeSlider
-Specific to the MC2100. Allows or prevents the key combination Orange+F1 from bringing up a slider to adjust the volume.  This setting is not application specific and will be applied globally on the device.
-
-**Possible Values**
-
-* 0 - Disabled
-* 1 - Enabled
-
-#### Example
-	:::xml
-	<EnableVolumeSlider value="1"/>
-
-### EnableBacklightSlider
-Specific to the MC2100. Allows or prevents the key combination Orange+F2 from bringing up a slider to adjust the backlight.  This setting is not application specific and will be applied globally on the device.
-
-**Possible Values**
-
-* 0 - Disabled
-* 1 - Enabled
-
-#### Example
-	:::xml
-	<EnableBacklightSlider value="1"/>
 
 ## DefaultMetaTags
 ### MetaTag
@@ -1378,6 +1416,59 @@ This setting controls whether a new Tab will be created using the NativeTabbar.c
 #### Example
 	:::xml
 	<NewTabVirtualMemLimit value="50"/>
+
+## ZoomKey
+### ZoomInKey
+This setting controls zoom behavior for enlarging text using a function key. You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
+
+**Supported Platforms**
+
+* Windows Mobile/CE (IE or Zebra Webkit)
+
+**Possible Values**
+
+* Hexadecimal key code for any function key: F1 to F24
+
+>Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).
+
+#### Example
+	:::xml
+	<ZoomInKey value="0x70"/>
+
+### ZoomOutKey
+This setting controls zoom behavior for making text smaller using a function key.You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
+
+**Supported Platforms**
+
+* Windows Mobile/CE (IE or Zebra Webkit)
+
+**Possible Values**
+
+* Hexadecimal key code for any function key: F1 to F24
+
+>Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).
+
+#### Example
+	:::xml
+	<ZoomOutKey value="0x71"/>
+
+## isWindowsKey
+This feature will be supported from Enterprise Browser 1.2 and above when used with either PocketBrowser or RhoElements 2.x KeyCapture API. The `isWindowsKey` tag has been introduced to mimic Windows Mobile key codes for the device's hardware keys. If enabled then the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would send normally. This can be useful to support both types of devices with one codebase. If it is set as 0 or not present, then the application will get the Android function key code value.
+
+**Supported Platforms**
+
+* Android (with PocketBrowser or RhoElements 2.x Key Capture API)
+
+**Possible Values**
+
+* 0 - Send Android Key Codes for F1 to F12
+* 1 - Send Windows Mobile Key Codes for F1 to F12
+
+
+#### Example
+	:::xml
+	<isWindowsKey value="1"/>
+
 
 ## Remarks
 ### <a name="_caseSensitivity"></a>Case Sensitivity

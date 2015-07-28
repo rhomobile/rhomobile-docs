@@ -243,7 +243,7 @@ Synchronous Return:
 ###appName
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Application name.
 ####Access
@@ -263,7 +263,7 @@ Application name.
 ###badLinkURI
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\BadLinkURI.
 ####Access
@@ -281,7 +281,7 @@ Bad link URI to navigate in browser. This is defined in config.xml: Navigation\\
 ###bundleFolder
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Path to the Enterprise Browser folder on the device.
 ####Access
@@ -301,7 +301,7 @@ Path to the Enterprise Browser folder on the device.
 ###configPath
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Path to the configuration file.
 ####Access
@@ -321,7 +321,7 @@ Path to the configuration file.
 ###databaseBlobFolder
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Path to folder where the database blob files are stored. Blobs are usually images or binary files. In the ORM Model you would specify that the attribute is of type blob Ex. When capturing an image, the actual file is saved in the databaseBlobFolder.
 ####Access
@@ -341,7 +341,7 @@ Path to folder where the database blob files are stored. Blobs are usually image
 ###defaultNativeMenu
 
 ####Type
-<span class='text-info'>ARRAY</span> <span class='label'>Read Only</span>
+<span class='text-info'>ARRAY</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Native Menu items.
 ####Params
@@ -363,7 +363,7 @@ Native Menu items.
 ###invalidSecurityTokenStartPath
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Page to navigate to in case of check of SecurityToken failed. Can be set in rhoconfig.txt: invalid_security_token_start_path; This file is located in the installation folder of the EnetrpriseBrowser application installed on the device.
 ####Access
@@ -383,7 +383,7 @@ Page to navigate to in case of check of SecurityToken failed. Can be set in rhoc
 ###modelsManifestPath
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Path to file with the model list.
 ####Access
@@ -425,7 +425,7 @@ Native Menu items.
 ###publicFolder
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Path to the application's public folder.
 ####Access
@@ -445,7 +445,7 @@ Path to the application's public folder.
 ###securityTokenNotPassed
 
 ####Type
-<span class='text-info'>BOOLEAN</span> <span class='label'>Read Only</span>
+<span class='text-info'>BOOLEAN</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Indicates if the security token check was failed. Security token can be passed as command line parameter '-security_token=token_value' to the application. If security token check failed : if this page exist then application navigate to it, otherwise application will exit.
 ####Access
@@ -485,7 +485,7 @@ Settings page URI. Will be used when Options menu or toolbar item is chosen by u
 ###splash
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Splash screen image display options. This a string with several parameters divided by ';': delay=5;center;hcenter;vcenter;vzoom;hzoom;zoom.
 ####Access
@@ -543,7 +543,7 @@ Define Window caption text. If missed - caption from page used. Not supported on
 ###userFolder
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Path to folder where the application can write files and create subfolders.
 ####Access
@@ -563,7 +563,7 @@ Path to folder where the application can write files and create subfolders.
 ###version
 
 ####Type
-<span class='text-info'>STRING</span> <span class='label'>Read Only</span>
+<span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
 Version of Enterprise Browser.
 ####Access

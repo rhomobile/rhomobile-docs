@@ -40,23 +40,24 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
 
 
 ### batteryDiagnostics()
-The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'
+The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'. In Android, Currently only supported on the MC18 device
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul></ul>
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced. Returns undefined for android. </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul></ul>
 
 ####Returns
 Synchronous Return:
 
-* HASH<ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul>
+* HASH<ul><li>stateOfHealthPercent : <span class='text-info'>STRING</span><p>The current maximum battery capacity as a percentage of the battery rated capacity </p></li><li>batteryCapacityPercent : <span class='text-info'>STRING</span><p>The remaining battery capacity percentage </p></li><li>batteryCapacityMinutes : <span class='text-info'>STRING</span><p>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter </p></li><li>batteryExpirationInMonths : <span class='text-info'>STRING</span><p>Prediction in number of months when the battery should be replaced. Returns undefined for android. </p></li><li>previousBatteryReplacement : <span class='text-info'>STRING</span><p>Duration in days since the battery was last replaced </p></li><li>timeSinceLastColdBoot : <span class='text-info'>STRING</span><p>Time in minutes since the device was last cold booted </p></li><li>requiredChargeTime : <span class='text-info'>STRING</span><p>Calculates the charge time required in minutes based on the tripDuration and averageCurrentConsumption parameters. </p></li><li>chargingTime : <span class='text-info'>STRING</span><p>The duration of time for which the unit was last charging, in minutes </p></li></ul>
 
 ####Platforms
 
-* Windows Mobile
-* Symbol Devices Only
+* Android
+* Windows CE
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -114,7 +115,7 @@ Synchronous Return:
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -138,7 +139,7 @@ Synchronous Return:
 * Android
 * Windows Mobile
 * Windows CE
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -163,7 +164,7 @@ Synchronous Return:
 ####Platforms
 
 * Windows Mobile
-* Symbol Devices Only
+* Zebra Devices Only
 
 ####Method Access:
 
@@ -214,7 +215,8 @@ Only supported by the MC18 device.  Sets an average current consumption in mA th
 
 ####Platforms
 
-* Windows Mobile
+* Android
+* Windows CE
 
 ###refreshInterval
 
@@ -253,7 +255,8 @@ Only supported by the MC18 device.  Sets the desired working time (in minutes) o
 
 ####Platforms
 
-* Windows Mobile
+* Android
+* Windows CE
 
 ##Remarks
 

@@ -123,6 +123,48 @@
 </ul>
 
 
+<h3>powerOff()</h3>
+
+<p>Puts the device into power off mode. In this mode the device will draw no power. Only supported on SB1. Callback is triggered only for &lsquo;failed&rsquo; status.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>If the powerOff was unsuccessful, status will be &lsquo;failed&rsquo;. In all other cases, it will remain empty. </p></li><li>message : <span class='text-info'>STRING</span><p>If &lsquo;status&rsquo; == &lsquo;failed&rsquo;, the message will contain an error message. In all other cases, it will remain empty. </p></li></ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Device.powerOff()</code></li>
+</ul>
+</li>
+</ul>
+
+
 <h3>reboot(<span class="text-info">STRING</span> bootType)</h3>
 
 <p>It reboots the terminal using either a Warm or Cold software boot (as specified). Note on CE6 devices a &ldquo;ColdCAD&rdquo; boot is required to replicate the Coldboot key sequence, e.g. 1+9+Power on an MC3000. Callback is triggered only for &lsquo;failed&rsquo; status.</p>

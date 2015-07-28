@@ -86,7 +86,7 @@ The ebapi.js file is necessary for all single API inclusions.
 				<PLATFORM>WM, CE</PLATFORM>
             </METHOD>
 
-            <METHOD name="powerOff" generateDoc="false" hasCallback="optional">
+            <METHOD name="powerOff" hasCallback="optional">
 				<CALLBACK type="HASH">
                     <PARAMS>
                         <PARAM name="status" type="STRING">

@@ -48,4 +48,7 @@ Disables the touch screen.
 ###Remote Display
 This tag does not affect the behavior of remote display applications for controlling the device
 
+###Devices lacking support
+Due to platform limitations this API is not available on the following Zebra Technologies' devices:
 
+* Workabout Pro 4
