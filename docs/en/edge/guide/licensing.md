@@ -1,15 +1,15 @@
 # Licensing
-Licensing in 5.0 has changed quite a lot, the most significant of these changes being the requirement that building any app what-so-ever requires that you have a subscription from our [rhomobile.com](http://www.rhomobile.com) site. This does not meant that you are required to pay in order to build an app as we have a free subscription level to use for local app builds. Let's go over what is involved in subscribing and building an app locally.
+Licensing in RMS 5.x has changed considerably. Most significant is the requirement to maintain a subscription to [rhomobile.com](http://www.rhomobile.com) before building any app. While you can still build an unlimited number of local apps for free, pricing models apply for cloud-based builds and for most apps that will use RhoConnect or RhoElements. 
 
 ## Subscriptions
-New to 5.0 we are introducing a subscription model for licensing for our products. The new licensing structure has three levels: Free, Silver, and Gold. The details of these plans are listed below.
+Zebra's new subscription licensing model offers three levels: Free, Silver and Gold. The the plans are detailed below.
 
 <img style="border:solid;border-color:#999" src="https://s3.amazonaws.com/rhodocs/cloud/licensing/sub-details.png">
 
-NOTE: This <b>does</b> mean that without a paid subscription your usage of RhoMobile products is limited to Rhodes and RhoStudio for local builds only.
+NOTE: The free subscription is limited to local builds using Rhodes and RhoStudio only.
 
 ## Applying Your Subscription Plan
-Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobile.com/content/rhopricing.html), you'll need to apply your new plan to your copy of RhoStudio or through the command line. There are two ways to do this using either method, you can either manually sign-in (detailed below) or you can attempt to build an app, which will ask for a valid username and password before it will build the app.
+Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobile.com/content/rhopricing.html), you'll need to apply your new plan to your copy of RhoStudio. This can be done through the IDE or the command line. Either method allows the registered user to sign into their rhomobile.com account in advance or at build time. Both methods are detailed below. 
 
 ### Signing In With the Command Line
 <div class="row-fluid">
@@ -17,7 +17,7 @@ Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobi
 		<p>To apply your subscription plan using the command line run the command:</p>
 			<pre>$ rake cloud:login</pre>
 
-		<p>This will ask for your username and password, logging you into your rhomobile.com account and downloading the API token to your machine and stored in the <code>~/.rhomobile/token</code> directory on Mac OS and the <code>/Users/&lt;username&gt;/.rhomobile/token</code> directory on Windows.</p>
+		<p>This will prompt for a username and password, log into the rhomobile.com account and download the API token to the local machine.</p><p>Token storage:</p> <b>On Mac OS X-</b> <code>~/.rhomobile/token</code></p> <p> <b>On Windows-</b> <code>/Users/&lt;username&gt;/.rhomobile/token</code> </p>
 	</div>
 	<div class="span5">
 		<img src="https://s3.amazonaws.com/rhodocs/cloud/licensing/cli-login-dialog.png">
@@ -28,14 +28,14 @@ Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobi
 <!-- Steps -->
 <div class="row-fluid">
 	<div class="span7">
-		<p>To apply your subscription plan using RhoStudio:</p>
-		<ul>
-			<li>Open the preferences pane (<b>&#8984;,</b> on Mac OS, <b>Ctrl+P</b> on Windows).</li>
-			<li>Select <b>RhoMobile -> RhoMobile.com</b> and click the "login to rhomobile.com" button.</li>
-			<li>You will be prompted for your username and password.</li>
-		</ul>
-		<p>Once you enter valid credentials, your API token will be downloaded to your machine and stored in the <code>~/.rhomobile/token</code> directory on Mac OS and the <code>/Users/&lt;username&gt;/.rhomobile/token</code> directory on Windows.</p>
-		<p>If you do not have an account when you are going through these steps, you will be able to sign-up by clicking the "signup" link in the login prompt.</p>
+		<p>To apply your subscription plan using the RhoStudio IDE:</p>
+		<ol>
+			<li>Open the preferences pane (<b>&#8984;,</b> on Mac OS, <b>Ctrl+P</b> on Windows)</li>
+			<li>Select <b>RhoMobile -> RhoMobile.com</b> and click the "login to rhomobile.com" button</li>
+			<li>Enter username and password when prompted</li>
+		</ol>
+		<p>Once valid credentials are entered, an API token will be downloaded and stored on the local machine. </p><p>Token storage:</p> <b>On Mac OS X-</b> <code>~/.rhomobile/token</code></p> <p> <b>On Windows-</b> <code>/Users/&lt;username&gt;/.rhomobile/token</code></p>
+		<p>If you don't have an account while going through these steps, you'll be prompted to sign up on the fly. Just click the "Signup" link in the login prompt and your browser should open and point to <a href="http://rhomobile.com">RhoMobile.com</a>.</p>
 	</div>
 	<!-- Sign-In Picture -->
 	<div class="span5">
@@ -44,4 +44,4 @@ Once you have signed up for a subscription on [rhomobile.com](http://www.rhomobi
 </div>
 
 ### Done!
-Once you have applied your license you are free to build apps. It's **that** easy!
+Once you've applied your license you shouldn't be prompted to log in again. You're now free to use the tools as often as you like. **So let's start building**!

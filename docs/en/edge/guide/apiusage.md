@@ -1,22 +1,22 @@
 # Migrating your RhoMobile application to v5.x
 
-RhoMobile Suite 5.0 and higher offers a set of common APIs to access device, system and framework capabilities across JavaScript and Ruby apps. 
+RhoMobile Suite 5.0 and higher offers a set of common APIs to access device, system and framework capabilities from your JavaScript and Ruby code. 
 
 
 ## RhoConnect Client
-In RhoMobile Suite 5.x, the RhoConnect Client is accessed through an extension. To use the RhoConnect Client, you must specify `rhoconnect-client` in your application's `build.yml` `extensions` section. If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
+In RhoMobile Suite 5.x, the [RhoConnectClient API](../api/rhoconnectclient) is accessed through an extension. To use the RhoConnect Client, you must specify `rhoconnect-client` in the extensions section of your application's `build.yml` (as below). If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
 
 	:::ruby
 	extensions: ["rhoconnect-client"]
 
 ## Android WebKit
-In RhoMobile Suite 5.0 and up, the default webview used for Android is now the stock Android webkit that is included with the Andoid SDK version that you are building with. 5.0 RhoElement APIs will only work using the stock webkit. RhoElement APIs that have [not yet moved](#using-22-apirsquos) to version 5.0, however will only work on the Zebra Webkit for Android.
+RhoMobile Suite 5.x now uses the stock Android WebKit included with the Android SDK you're building with as the default. Version 5.x RhoElement APIs will work only with the stock WebKit. However, [pre-5.x RhoElement APIs](#using-22-apis) **must be used with the Zebra WebKit for Android**.
 
 ## Shared Runtime
-In RhoMobile Suite 2.0, there was a RhoElements Shared Runtime that was included with the installation. This application was a pre-built RhoMobile application that included application configuration options including the Zebra Webkit and RhoElements API extensions. The intention of this runtime was to allow HTML/JS applications to run without having to compile and build a RhoMobile application. Since the RhoMobile suite 5.0 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
+RhoMobile Suite 2.0 included a RhoElements Shared Runtime, a pre-built RhoMobile application that included application configuration options for the Zebra WebKit, RhoElements API extensions and other parameters. This allowed HTML/JS applications to run without the need to compile and build a RhoMobile application. Since the RhoMobile suite 5.0 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
 ## JavaScript Licensing
-In RhoMobile Suite 5.0 and up, more APIs have JavaScript access that did not have this interface before. In addition some APIs previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Zebra Webkit) but not necessarily on ruby. In 5.0 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
+In RhoMobile Suite 5.x, more APIs have JavaScript access that did not have this interface before. In addition some APIs previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Zebra WebKit) but not necessarily on ruby. In 5.0 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
 
 ## API Platform Support
 It is the intention for all APIs to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 5.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [API Summary](apisummary) for an overview.
@@ -354,7 +354,7 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * [Reboot](../../2.2.0/rhoelements/reboot)
 
 ### RhoElements 2.2 APIs
-The 2.2 RhoElement APIS are only supported on Zebra Webkit. This webkit is still available on Windows Mobile/CE and Android platforms, however on Android the default webkit that is used is the stock Android Webkit.
+The 2.2 RhoElement APIS are only supported on Zebra WebKit. This WebKit is still available on Windows Mobile/CE and Android platforms, however on Android the default WebKit that is used is the stock Android WebKit.
 
 ### Rhodes 2.2 APIs
 2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 5.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby APIs will behave exactly as they did before.  Note that some of the Rhodes 2.2 APIs provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
