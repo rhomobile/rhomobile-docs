@@ -1,43 +1,42 @@
-# Migrating your RhoMobile application to v5.x
+# Migrating your RhoMobile application to v5.2
 
-RhoMobile Suite 5.0 and higher offers a set of common APIs to access device, system and framework capabilities from your JavaScript and Ruby code. 
+RhoMobile Suite 5.x and higher offers a set of common APIs to access device, system and framework capabilities from your JavaScript and Ruby code. 
 
 
 ## RhoConnect Client
-In RhoMobile Suite 5.x, the [RhoConnectClient API](../api/rhoconnectclient) is accessed through an extension. To use the RhoConnect Client, you must specify `rhoconnect-client` in the extensions section of your application's `build.yml` (as below). If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
+In RhoMobile Suite 5.2, the [RhoConnectClient API](../api/rhoconnectclient) is accessed through an extension. To use the RhoConnect Client, you must specify `rhoconnect-client` in the extensions section of your application's `build.yml` (as below). If you are using RhoConnect, you should also consult the [RhoConnect Migration Guide](../rhoconnect/migration) for details about migrating your RhoConnect application.
 
 	:::ruby
 	extensions: ["rhoconnect-client"]
 
 ## Android WebKit
-RhoMobile Suite 5.x now uses the stock Android WebKit included with the Android SDK you're building with as the default. Version 5.x RhoElement APIs will work only with the stock WebKit. However, [pre-5.x RhoElement APIs](#using-22-apis) **must be used with the Zebra WebKit for Android**.
+RhoMobile Suite 5.2 now uses the stock Android WebKit included with the Android SDK you're building with as the default. Version 5.x RhoElement APIs will work only with the stock WebKit. However, [pre-5.x RhoElement APIs](#using-22-apis) **must be used with the Zebra WebKit for Android**.
 
 ## Shared Runtime
-RhoMobile Suite 2.0 included a RhoElements Shared Runtime, a pre-built RhoMobile application that included application configuration options for the Zebra WebKit, RhoElements API extensions and other parameters. This allowed HTML/JS applications to run without the need to compile and build a RhoMobile application. Since the RhoMobile suite 5.0 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
+RhoMobile Suite 2.0 included the RhoElements Shared Runtime, a pre-built RhoMobile application that provided application configuration options for the Zebra WebKit and RhoElements API extensions. This allowed HTML/JS applications to run without requiring the developer to build a separate a RhoMobile application. 
+
+Since the RhoMobile suite 5.2 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
 ## JavaScript Licensing
-In RhoMobile Suite 5.x, more APIs have JavaScript access that did not have this interface before. In addition some APIs previously had licensing restrictions on JavaScript (due to the fact of the API only being supported in Zebra WebKit) but not necessarily on ruby. In 5.0 and up, the licensing restrictions are at the API class level not the language level. So for example the use of the Camera API is now free to use on JavaScript or Ruby. [Read more about licensing](licensing).
+RhoMobile Suite 5.2 increases the number of APIs with JavaScript access from prior versions. In addition, JavaScript licensing restrictions associated with some APIs and the Zebra WebKit are removed, and are now in sync with those of ruby. Licensing restrictions are now at the API class level rather than the language level. For example, use of the Camera API is now free on JavaScript *and* Ruby. [Read more about licensing](licensing).
 
 ## API Platform Support
-It is the intention for all APIs to work across the supported platforms. Previously in RhoMobile Suite 2.2, support for platforms were indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. In 5.0 there are less exceptions and the platforms that are supported will be indicated at the individual API property or method level. See the [API Summary](apisummary) for an overview.
+It is the intention for all APIs to work across all supported platforms. In RhoMobile Suite 2.2, support for platforms was indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. Version 5.2 contains fewer exceptions, and the platforms that are supported will be indicated at the individual API property or method level. Please [refer to the API Summary](apisummary) for an overview.
 
 ## Replaced APIs
-In the API reference documentation, new APIs that have replaced previously available APIs will be highlighted in the menu as well as the description. 
+New APIs that have replaced those previously available will be highlighted in the menus and descriptions of the API reference documentation, as below: 
 
-For example [System.applicationInstall](../api/system#mapplicationInstall)
-
-<span class="label label-info">Replaces:app_install</span>
+[System.applicationInstall API](../api/system#mapplicationInstall) <span class="label label-info">Replaces: app_install</span>. 
 
 ## Deprecated APIs
-In the API reference documentation, APIs that have been marked as deprecated will be highlighted in the menu and description. Deprecated means that the API should work, but will no longer be enhanced or supported. The associated description should indicate alternatives.
+Deprecated APIs will be highlighted as such in menus and descriptions of the API reference documentation. While some deprecated APIs might remain functional, they will no longer be supported or enhanced, as below: 
 
-For example [System.hasNetwork](../api/system#phasNetwork)
+[System.hasNetwork](../api/system#phasNetwork) <span class="label label-important">Deprecated</span>
 
-<span class="label label-important">Deprecated</span>
-
+The associated description will indicate alternative API(s).
 
 ## API Migration Table
-The following shows you a summary of these new APIs and how any previous API relates to it.
+The following is a summary of new APIs and how previous APIs relate to it.
 
 <table class="table">
 <thead>	
@@ -327,9 +326,9 @@ Same as <a href="/v/2.2/rhodesapi/webview-api/">Webview</a> class in 2.2. Also C
 </table>
 
 ## Using 2.2 APIs
-Some API classes that may have been available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.0. However these APIs are still available in the 2.2 format. The following API classes will soon be incorporated in furture versions of RhoMobile Suite 5.x in order to supply both a Common API format in both JavaScript and Ruby.
+Below is a list of API classes available in RhoMobile Suite 2.2 and have not yet have been incorporated in the new Common API class set for RhoMobile Suite 5.2. These APIs are still available in the 2.2 format. The following API classes will be incorporated into furture versions of the RhoMobile Suite so as to supply a common API format for in both JavaScript and Ruby.
 
-**NOTE: When using 2.2 APIs in RhoMobile 5.0, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
+**NOTE: When using 2.2 APIs in RhoMobile 5.2, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) still applies.**
 
 * [Mapview](../../2.2.0/rhodesapi/mapview-api)
 * [Contacts](../../2.2.0/rhodesapi/rhocontact-api)
@@ -354,33 +353,36 @@ Some API classes that may have been available in RhoMobile Suite 2.2 and have no
 * [Reboot](../../2.2.0/rhoelements/reboot)
 
 ### RhoElements 2.2 APIs
-The 2.2 RhoElement APIS are only supported on Zebra WebKit. This WebKit is still available on Windows Mobile/CE and Android platforms, however on Android the default WebKit that is used is the stock Android WebKit.
+The 2.2 RhoElement APIs are supported on Zebra WebKit only. This WebKit is still available on Windows Mobile/CE and some Android platforms, but the default for 5.2 is the stock Android WebKit.
 
 ### Rhodes 2.2 APIs
-2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 5.0 API (ex: Camera) are supported on all platforms that were supported previously. Ruby APIs will behave exactly as they did before.  Note that some of the Rhodes 2.2 APIs provided JavaScript support  but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`
+2.2 Rhodes APIs that were not replaced by an equivalent RhoMobile 5.2 API (ex: Camera) are supported on all platforms that were supported previously. Ruby APIs will behave exactly as they did before. Note that some of the Rhodes 2.2 APIs provided JavaScript support, but used a different version of the RhoMobile JavaScript API library: `rho_javascript_api.js`. 
 
-To generate this file you must enable JavaScript by putting `rho-javascript` into extensions in your build.yml.
+To generate this file, you must enable JavaScript by including `rho-javascript` in the extensions section of your `build.yml` file.
 
 	:::yaml
 	extensions: ["rho-javascript"]
 
-And then to use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at build time as part of the application package -- to the .html, .erb, or .js file calling the JavaScript method. This file can coexist with RhoMobile 5.0 JavaScript API file: `rhoapi-modules.js` however it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to properly coexist.
+To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at buildtime as part of the application package -- to the .html, .erb, or .js file that you're using to call the JavaScript method. This file can coexist with RhoMobile 5.2 the JavaScript API file `rhoapi-modules.js`. However, it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to allow it to properly coexist with other files of your 5.2 app.
 
 ### JavaScript ORM
-If you are going to be using the JS ORM API, you'll also need to include this line in any files that will be using it:
+If you're using the JavaScript ORM API, include this line in any files that will be calling it:
 
 	:::html
 	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
-## Backwards Compatibility Notes
+## Backward Compatibility Notes
 
 ### RhoElements Meta Tags
-RhoElement specific Meta tags should still function in a RhoMobile 5.0 application that has
+Meta tags that are specific to RhoElements should continue to function in a RhoMobile 5.2 application, as long as its `build.yml` contains the following:
+
 	:::yaml
 	app_type: 'rhoelements'
 	capabilities: 'motorola_browser'
-in its `build.yml` however the use of Meta tags is a deprecated feature and will not be supported in future versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated JavaScript capability using the new common API classes.
 
+However, the use of Meta tags is a deprecated feature and will not be supported in future versions of RhoMobile. It is recommended that all Meta tags be converted to use the associated JavaScript capability using the new common API classes.
+
+Deprecated format: 
 	:::html
 	<META HTTP-Equiv="scanner" Content="Enable">
 
@@ -389,41 +391,47 @@ Use instead:
 	Rho.Barcode.enable();
 
 ### RhoElements JavaScript APIs
-RhoElement specific JavaScript APIs should still function in a RhoMobile 5.0 application that has
+JavaScript APIs that are specific to RhoElements should continue to function in a RhoMobile 5.2 application, as long as its `build.yml` contains the following:
+
 	:::yaml
 	app_type: 'rhoelements'
 	capabilities: 'motorola_browser'
-in its `build.yml`. It is recommended that JS API calls should be converted to use the associated JavaScript capability using the new common API classes.
 
+It is recommended that JavaScript API calls be converted to use the associated JavaScript capability using the new common API classes.
+
+Old format:
 	:::JavaScript
 	scanner.enable()  // should still work
 
-	Rho.Barcode.enable() // is the current 5.0 equivalent
+New format: 
+	Rho.Barcode.enable() // the current 5.2 equivalent
 
 ### Parameter ordering
-In a few rare cases an API in version 2.2 has the same naming as in 5.0, but the ordering of parameters may have changed. For example :
+In a few rare cases, an API in version 2.2 has the same naming as in 5.2, but the ordering of parameters may have changed. For example:
 
 	:::ruby
 	# In RhoMobile 2.2 Params are callback, paramHash
-	# This will fail in a 5.0 application
+	# This will fail in a 5.2 application
 	Rho::Barcode.enable(url_for(:action => :barcode_callback), {:camera => 'front'})
 
-	# In RhoMobile 5.0 Params are now paramHash, callback
+	# In RhoMobile 5.2 Params are now paramHash, callback
 	Rho::Barcode.enable( {:camera => 'front'},url_for(:action => :barcode_callback))
 
-Callbacks are now specified as the last parameter in all new 5.0 API classes.
+In all new 5.2 API classes, callbacks are now specified as the last parameter.
 
-**NOTE: The benefit of converting these APIs to the current 5.0 methods includes support for additional combinations of supported operating systems and platforms. There are also several [new ways of accessing](api_js) these APIs through instance objects and special common methods that were not there previously.**
+**NOTE: The benefit of converting these APIs to the current 5.2 methods includes support for additional combinations of supported operating systems and platforms. There also are several [new ways of accessing](api_js) these APIs through instance objects and special common methods that were not implemented previously.**
 
 ### API behavior on Page change
-In version 2.2 APIs like Scanner would reset when you navigated between pages however, in 5.0 the APIs are not reset between page navigations, therefore if you have an application say with Page1 enabling barcode scanner with a callbackhandler, and then you navigate to page2 (no barcode scanner) - you should handle setting or disabling the barcode depending on the desired behavior. In 2.2 the barcode would have been disabled upon navigating to Page 2. In 5.0, the scanner is left in the previous state and it will be up to the application to control behavior on page load.
+In version 2.2, some APIs by default will reset the device they control when navigating between app pages. In 5.2, the devices are not reset between page navigations, but is left in the previous state. Therefore, it will be up to the application to control behavior on page load. 
+
+For example, if a 2.2 application activates the barcode scanner on Page1 with a callbackhandler, navigating to a page with no scanner will disable it. Depending on the desired behavior, an equivalent 5.2 app must handle the setting or disabling of the scanner on page load.
 
 ## Removed APIs
-The following APIs have been removed from Rhomobile 5.0
+The following APIs have been removed from Rhomobile 5.2
 
 * [DateTimePicker](../rhodesapi/datetimepicker-api) - There are many HTML5 options available for this
-* [Airbeam](../rhoelements/airbeam)- Can be controlled via [System.runApplication](../api/system#mrunApplication)
-* [BottomCommandArea](../rhoelements/bottomcommandarea) & [TopCommandArea](../rhoelements/topcommandarea) - RhoElements specific APIS used for debugging
-* [History](../rhoelements/historyback2) - Better JS methods exist
+* [Airbeam](../rhoelements/airbeam) - Can be controlled via [System.runApplication](../api/system#mrunApplication)
+* [BottomCommandArea](../rhoelements/bottomcommandarea) & [TopCommandArea](../rhoelements/topcommandarea) - RhoElements-specific APIs used for debugging
+* [History](../rhoelements/historyback2) - Better JavaScript methods exist
 * [ODAX](../rhoelements/odax) - Better HTML5 methods exist
-* [Zoom](../rhoelements/zoom) - Incorporated into the WebView API.
+* [Zoom](../rhoelements/zoom) - Incorporated into the [WebView API](../api/webview)
