@@ -1,4 +1,4 @@
-# Migrating your RhoMobile application to v5.2
+# Migrating Your RhoMobile App to v5.2
 
 RhoMobile Suite 5.x and higher offers a set of common APIs to access device, system and framework capabilities from your JavaScript and Ruby code. 
 
@@ -371,7 +371,7 @@ If you're using the JavaScript ORM API, include this line in any files that will
 	:::html
 	<script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
-## Backward Compatibility Notes
+## Backward Compatibility
 
 ### RhoElements Meta Tags
 Meta tags that are specific to RhoElements should continue to function in a RhoMobile 5.2 application, as long as its `build.yml` contains the following:
@@ -427,7 +427,7 @@ In version 2.2, some APIs by default will reset the device they control when nav
 For example, if a 2.2 application activates the barcode scanner on Page1 with a callbackhandler, navigating to a page with no scanner will disable it. Depending on the desired behavior, an equivalent 5.2 app must handle the setting or disabling of the scanner on page load.
 
 ## Removed APIs
-The following APIs have been removed from Rhomobile 5.2
+The following APIs are no longer included in the RhoMobile Suite:
 
 * [DateTimePicker](../rhodesapi/datetimepicker-api) - There are many HTML5 options available for this
 * [Airbeam](../rhoelements/airbeam) - Can be controlled via [System.runApplication](../api/system#mrunApplication)
