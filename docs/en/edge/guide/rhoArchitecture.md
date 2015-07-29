@@ -13,7 +13,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <th class="clsSyntaxHeadings">Operating System(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="Android_pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Tablets/ET1%20Enterprise%20Tablet/Technical_Product%20Specs/ET1%20Front%20with%20Managers%20Dashboard-TransBkg_%20Enterprise%20Tablet%20Side_095-TransBkg.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.-TV9YMitpn.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="Android_ET1_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_ET1.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Android</b></td>
   <td class="clsSyntaxCells clsOddRow">Zebra devices (see below), third-party devices (ARM and x86)</td>
   <td class="clsSyntaxCells clsOddRow">Android  2.3 to 4.4: Gingerbread, Ice Cream Sandwich, Jelly Bean, KitKat</td>
@@ -25,13 +25,13 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">Android  5.0 Lollipop</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="iOS_pic" src="https://km.zebra.com/library/ZEBRA/V_ISVS/V_ISVS_NA/V_ISVS_NA_LIM/V_ISVS_NA_PRT/AppleiOS/GettingStartedWithAppleiOSGuide/AppRunning%20updated%20for%20apple%20guidelines.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="iOS_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Apple-iPhone-5S.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Apple iOS</b></td>
   <td class="clsSyntaxCells clsOddRow">iPad, iPhone, iPod Touch</td>
   <td class="clsSyntaxCells clsOddRow">iOS 6.0 or higher</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/warehouse_management/photography-product/MC3100.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC3100.jpeg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Windows Mobile/CE</b></td>
   <td class="clsSyntaxCells clsOddRow">Zebra devices (see below), third-party devices</td>
   <td class="clsSyntaxCells clsOddRow">WM6.x Pro, WM 6.0 Std, WinCE 5, WinCE 6, WinCE 7, WinXPe</td>
@@ -63,7 +63,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="et1Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Tablets/ET1%20Enterprise%20Tablet/Technical_Product%20Specs/ET1%20Front%20with%20Managers%20Dashboard-TransBkg_%20Enterprise%20Tablet%20Side_095-TransBkg.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.-TV9YMitpn.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="ET1_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_ET1.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>ET1</b></td>
   <td class="clsSyntaxCells clsOddRow">ET1 (Enterprise Tablet), ET1 WAN</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
@@ -75,7 +75,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Core</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc3100Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/warehouse_management/photography-product/MC3100.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc3100Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC3100.jpeg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC3100</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC3100R, MC3100S, MC3190G, </nobr>MC3190R, MC3190S, MC3190Z</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
