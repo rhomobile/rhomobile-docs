@@ -19,7 +19,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">Android  2.3 to 4.4: Gingerbread, Ice Cream Sandwich, Jelly Bean, KitKat</td>
  </tr>
   <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="Android_LollyPic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Samsung_Galaxy_S6.png?raw=true" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="Android_LollyPic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/samsung-galaxy-s-6-edge.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Android</b></td>
   <td class="clsSyntaxCells clsOddRow">Third-party consumer devices (ARM and x86)</td>
   <td class="clsSyntaxCells clsOddRow">Android  5.0 Lollipop</td>
