@@ -1,6 +1,8 @@
-# RMS 5.1 Supported Platforms
+# RMS 5.2 Supported Platforms
 
 The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
+
+**New in RMS 5.2 is support for Android 5.0 Lollipop**. The RhoMobile suite can now be used to build apps for consumer devices running the latest Android OS. Support for Lollipop on Zebra devices is coming soon. 
 
 ##Supported Mobile-Device Platforms 
 <table class="table table-stripe table-bordered">
@@ -38,7 +40,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
 NOTE: Refer to release notes that accompany the software for more information about supported devices and operating systems.
 
 ##Supported Zebra Devices
-RMA 5.1 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
+RMS 5.2 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
 
 <H4>Mobile Computers</H4>
 <table class="table table-striped table-bordered">
@@ -262,7 +264,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 
 ##Compatibility Alerts
 
-* **RMS 5.1 now supports printing via USB from Android apps** to a subset of [Zebra printers that support USB printing](printing#zebra-printers-with-usb-printing). 
+* **RMS 5.2 supports printing via USB from Android apps** to a subset of [Zebra printers that support USB printing](printing#zebra-printers-with-usb-printing). 
 
 * **The TC55 supports [4.0 APIs](apiusage#api-migration-table) and only a subset of [2.2 APIs](apiusage#using-22-apirsquos)**. Applications developed using certain 2.2 APIs might need to be rebuilt using a newer version of the API. For example, apps built with the [2.2 Scanner API](../../2.2.0/rhoelements/scanner) must now use the [5.x Barcode API](../api/barcode). Please consult the [migration table](apiusage#api-migration-table) for more information.
 
@@ -275,7 +277,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 <br>
 
 ##Deprecated Zebra Devices
-**The following Zebra Devices are not supported in RMS 5.1** (but can still be targeted by prior RMS versions): 
+**The following Zebra Devices are not supported in RMS 5.2** (but can still be targeted by RMS versions earlier than 5.1): 
 
 <H4>Mobile Computers</H4>
 <table class="table table-striped table-bordered">
@@ -353,4 +355,4 @@ Memory constraints are important to consider, particularly when targeting the ol
 </table>
 
 ###Compatibility Alert
->Support for older or deprecated device families such as the MC9000 and MK4000 can be found in versions of RhoElements prior to 5.1. For access, visit [Launchpad](https://developer.motorolasolutions.com/community/rhomobile-suite) and click on **Resources>>Download**. 
+>Support for older or deprecated device families such as the MC9000 and MK4000 can be found in versions of RhoElements prior to 5.1. For access to earlier RMS versions, visit [Launchpad](https://developer.motorolasolutions.com/community/rhomobile-suite) and click on **Resources>>Download**. 
