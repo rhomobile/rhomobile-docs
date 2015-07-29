@@ -57,7 +57,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="es400Pic" src="https://portal.motorolasolutions.com/web/Business/landing_pages/US-EN/WirelessAgility/images/gallery/ES400_Photo_Gallery_0000_A.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="es400Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_ES400.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>ES400</b></td>
   <td class="clsSyntaxCells clsOddRow">ES400</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
@@ -69,7 +69,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc2100Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC2100%20Mobile%20Computer/Technical_Product%20Specs/Merged_MC2180%20CE_Front_Back_LoRes-NoBkg.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.if9vAIakoI.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc2100Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC2100.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC2100*</b></td>
   <td class="clsSyntaxCells clsOddRow">MC2100, MC2180</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Core</td>
@@ -81,55 +81,55 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC32.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC32N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Android 4.1 (JellyBean)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC40.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC40</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC40</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
  </td>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC70.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC70</b></td>
   <td class="clsSyntaxCells clsOddRow">TC70 GA1 (Non rebranded device)</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc18Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc18Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC18.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC18</b></td>
   <td class="clsSyntaxCells clsOddRow">MC18</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wap4Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wap4Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_WAP4.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WAP4</b></td>
   <td class="clsSyntaxCells clsOddRow">WorkAbout Pro 4</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc45Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc45Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC45.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC45</b></td>
   <td class="clsSyntaxCells clsOddRow">MC45</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc55Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc55Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC55.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC55</b></td>
   <td class="clsSyntaxCells clsOddRow">MC5574, MC5590</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc55a0Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc55a0Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC55a.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC55A0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC55A0</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc55n0Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc55n0Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC55n.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC55N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC55N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
