@@ -7,7 +7,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
 ##Supported Mobile-Device Platforms 
 <table class="table table-stripe table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Operating system family</nobr></th>
   <th class="clsSyntaxHeadings">Device(s)</th>
   <th class="clsSyntaxHeadings">Operating System(s)</th>
@@ -38,8 +38,8 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
  </tr>
 <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="winDesk_pic" src="https://www.zebra.com/content/zebra1/gb/en/products/software/mobile-computers/rhomobile-suite/_jcr_content/mainpar/twocol_cb57/rightpar/image_d47f.img.jpg/1428608575311.jpg" height="75"></img></td>
-  <td class="clsSyntaxCells clsOddRow"><b>Windows Desktop</b></td>
-  <td class="clsSyntaxCells clsOddRow">Third-party devices</td>
+  <td class="clsSyntaxCells clsOddRow"><b>Windows</b></td>
+  <td class="clsSyntaxCells clsOddRow">Third-party laptops, tablets and desktops</td>
   <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
  </tr></table>
 
@@ -51,7 +51,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
 <H4>Mobile Computers</H4>
 <table class="table table-striped table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Supported model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
@@ -196,7 +196,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
 <H4>Vehicle Computers</H4>
 <table class="table table-striped table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Supported model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
@@ -218,7 +218,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
 <H4>Micro Kiosks</H4>
 <table class="table table-striped table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Supported model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
@@ -235,7 +235,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
 
 <table class="table table-striped table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Supported model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
@@ -289,7 +289,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 <table class="table table-striped table-bordered">
 <tr>
 <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Deprecated model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
@@ -310,7 +310,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 <H4>Micro Kiosks</H4>
 <table class="table table-striped table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Deprecated model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
@@ -331,7 +331,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 <H4>Vehicle Computers</H4>
 <table class="table table-striped table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Deprecated model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
@@ -347,7 +347,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 <H4>Wearable Computers</H4>
 <table class="table table-striped table-bordered">
  <tr>
-  <th class="clsSyntaxHeadings"></th>
+  <th class="clsSyntaxHeadings">Device image</th>
   <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
   <th class="clsSyntaxHeadings">Deprecated model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
