@@ -18,7 +18,7 @@ RhoMobile Suite 2.0 included the RhoElements Shared Runtime, a pre-built RhoMobi
 Since the RhoMobile suite 5.2 no longer includes a pre-built shared runtime, it is recommended that you build a simple RhoMobile application to point to your HTML application. This will allow you to optimize the application by including only the extensions and capabilities used by your application.
 
 ## JavaScript Licensing
-RhoMobile Suite 5.2 increases the number of APIs with JavaScript access from prior versions. In addition, JavaScript licensing restrictions associated with some APIs and the Zebra WebKit are removed, and are now in sync with those of ruby. Licensing restrictions are now at the API class level rather than the language level. For example, use of the Camera API is now free on JavaScript *and* Ruby. [Read more about licensing](licensing).
+RhoMobile Suite 5.2 increases the number of APIs with JavaScript access from prior versions. In addition, JavaScript licensing restrictions associated with some APIs and the Zebra WebKit are removed, and are now in sync with those of Ruby. Licensing restrictions are now at the API class level rather than the language level. For example, use of the Camera API is now free on JavaScript *and* Ruby. [Read more about licensing](licensing).
 
 ## API Platform Support
 It is the intention for all APIs to work across all supported platforms. In RhoMobile Suite 2.2, support for platforms was indicated using an [API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) at the API class level. Version 5.2 contains fewer exceptions, and the platforms that are supported will be indicated at the individual API property or method level. Please [refer to the API Summary](apisummary) for an overview.
@@ -363,7 +363,8 @@ To generate this file, you must enable JavaScript by including `rho-javascript` 
 	:::yaml
 	extensions: ["rho-javascript"]
 
-To use the JavaScript API, add the `public/js/rho_javascript_api.js` file -- created at buildtime as part of the application package -- to the .html, .erb, or .js file that you're using to call the JavaScript method. This file can coexist with RhoMobile 5.2 the JavaScript API file `rhoapi-modules.js`. However, it has been altered from the version that was built using 2.2. You must re-generate the `rho_javascript_api.js` file to allow it to properly coexist with other files of your 5.2 app.
+To use the JavaScript API, **you must add the `public/js/rho_javascript_api.js` file to the .html, .erb, or .js file that's calling the JavaScript method**. This file is created at build time as part of the application package and can coexist with RhoMobile 5.2 the JavaScript API file `rhoapi-modules.js`. However, it has been altered from the version built using 2.2, and must be regenerated to allow it to properly coexist with other files of your 5.2 app.
+
 
 ### JavaScript ORM
 If you're using the JavaScript ORM API, include this line in any files that will be calling it:
