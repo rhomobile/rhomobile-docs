@@ -37,13 +37,13 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">WM6.x Pro, WM 6.0 Std, WinCE 5, WinCE 6, WinCE 7, WinXPe</td>
  </tr>
 <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="winDesk_pic" src="https://www.zebra.com/content/zebra1/gb/en/products/software/mobile-computers/rhomobile-suite/_jcr_content/mainpar/twocol_cb57/rightpar/image_d47f.img.jpg/1428608575311.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="win_tablet_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Windows_tablet.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Windows</b></td>
   <td class="clsSyntaxCells clsOddRow">Third-party laptops, tablets and desktops</td>
   <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
  </tr></table>
 
-NOTE: Refer to release notes that accompany the software for more information about supported devices and operating systems.
+> NOTE: For more information about supported devices and operating systems, please refer to the accompanying documentation and [RMS release notes](http://rhomobile-suite.s3.amazonaws.com/5.1/5.1.1/Release_Notes_5_1_1.html).
 
 ##Supported Zebra Devices
 RMS 5.2 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
@@ -81,109 +81,109 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/healthcare/photography-products/MC3200-Android-Gun-Right-Straight.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.LMWw8diGq5.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC32N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Android 4.1 (JellyBean)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC40%20Touch%20Computer/Technical_Product%20Specs/MC40%20MSR_Front_Silver_054_AppScreen.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.0WDMYDx7Zf.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC40</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC40</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
  </td>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="https://www.zebra.com/content/zebra1/us/en/products/mobile-computers/handheld/tc70/_jcr_content/mainpar/msiproductfamily_4b4/xproductview.img.productimage.png.pagespeed.ic.SJIMVuWFIZ.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC70</b></td>
   <td class="clsSyntaxCells clsOddRow">TC70 GA1 (Non rebranded device)</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc18Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/Symbol%20MC18%20Personal%20Shopper/Photography%20%E2%80%93%20Product/MC18_Front_039_basket%20screen-MED.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc18Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC18</b></td>
   <td class="clsSyntaxCells clsOddRow">MC18</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wap4Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/Workabout%20Pro%204%20Mobile%20Computer/Technical_Product%20Specs/WAP4_Long%20Front_022-MED.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wap4Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WAP4</b></td>
   <td class="clsSyntaxCells clsOddRow">WorkAbout Pro 4</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc45Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/PTG/Products/Mobile%20Computers/Hand-Held%20Computers/MC45%20Mobile%20Computer/Photography%20%E2%80%93%20Product/MC45_Front_006.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc45Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC45</b></td>
   <td class="clsSyntaxCells clsOddRow">MC45</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc55Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/RFD5500%20RFID%20Reader/Photography%20%E2%80%93%20Product/RFD5500-10_Profile.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc55Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC55</b></td>
   <td class="clsSyntaxCells clsOddRow">MC5574, MC5590</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc55a0Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/healthcare/photography-products/MC55LAN-Right_1280x1280.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc55a0Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC55A0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC55A0</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc55n0Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC55N0%20Mobile%20Computer/Technical_Product%20Specs/006_MC55LANRight_022_653_MC55A0_Qwerty_002.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc55n0Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC55N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC55N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc65Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC65%20Mobile%20Computer/Technical_Product%20Specs/MC65_UIScreen_Front_038%20Lo.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.7ekIdp2nZi.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc65Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC65</b></td>
   <td class="clsSyntaxCells clsOddRow">MC659B</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC67%20Dual%20WAN/Photography%20%E2%80%93%20Product/MC67_Front_WEHH%20Home_038.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC67</b></td>
   <td class="clsSyntaxCells clsOddRow">MC67</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5,<br>Android 4.1 (JelyBean)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc70Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Handheld%20Computers/MC70/_Images/Static%20Files/B2B_Product_MC70_LG_US-EN.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc70Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC70</b></td>
   <td class="clsSyntaxCells clsOddRow">MC7004, MC7090, MC7094, MC7095</td>
   <td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc75Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Handheld%20Computers/MC%2075_Images/staticfile/MC75_LG_US-EN2.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc75Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC75</b></td>
   <td class="clsSyntaxCells clsOddRow">MC7506, MC7508, MC7596, MC7598</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc75aPic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC75A%20Mobile%20Computer/Photography%20%E2%80%93%20Product/MC75A0_Comm3_Home%20LAN_Right_Lo_MC75A8_Comm3_Home%20WAN_Left_Lo_MC75AO_HC_Comm2%20LAN_front_LoRes-TransBkg.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc75aPic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC75a</b></td>
   <td class="clsSyntaxCells clsOddRow">MC75A0, MC75A6, MC75A8</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC9190-G%20Mobile%20Computer/Photography%20%E2%80%93%20Product/MC9190G_Right_079_653_Start_lo-TransBkg.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9100</b></td>
   <td class="clsSyntaxCells clsOddRow">MC9190-G, MC9190-Z</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Mobile_Computers/Handheld_Computers/_IMAGE/_STATIC/MC9200_Front_324X324_Start.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9200</b></td>
   <td class="clsSyntaxCells clsOddRow">MC92N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/MC9500-K%20Mobile%20Computer/Technical_Product%20Specs/MC9500_AlPri_Front%20Comm3Home_small.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9500</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC9590, MC9596, MC9598, MC959B (WM6.1)</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1, Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Hand-Held%20Computers/TC55%20Touch%20Computer/Technical_Product%20Specs/Shleter%20DV2-1.202-1.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.LiS78vu7BR.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC55</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>TC55</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
@@ -202,13 +202,13 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc6090Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Handheld%20Computers/VC6096%20Mobile%20Computer/_Images/_static%20files/VC6096_LG.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc6090Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC6000</b></td>
   <td class="clsSyntaxCells clsOddRow">VC6000, VC6096</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc70Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Vehicle-Mounted/VC70%20Vehicle-mounted%20Computer/Technical_Product%20Specs/VC70N0_Merged.jpg/_jcr_content/renditions/xcq5dam.thumbnail.319.319.png.pagespeed.ic.h25sTvcTK-.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc70Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC70</b></td>
   <td class="clsSyntaxCells clsOddRow">VC70</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -224,7 +224,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/retail/photography-products/MK3100-Front_Price-Check_01.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3100</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3100, MK3190</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -241,7 +241,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
   <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wt41n0Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Mobile%20Computers/Wearable%20Computers/WT41N0%20Wearable%20Terminal/Photography%20%E2%80%93%20Product/WT41N0_Front_044.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wt41n0Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WT41N0</b></td>
   <td class="clsSyntaxCells clsOddRow">WT41N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -294,7 +294,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Deprecated model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Mobile_Computers/Handheld_Computers/_IMAGE/_STATIC/MC3000_324_324.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC3000</b></td>
   <td class="clsSyntaxCells clsOddRow">MC3000 (CE 5.0 only), MC3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
@@ -316,13 +316,13 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="https://portal.motorolasolutions.com/web/Support/US-EN/Mobile_Networks_RFID/Micro_Kiosks/_IMAGE/_STATIC/MK3000_LG.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3000</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3000, MK3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk4000Pic" src="https://www.zebra.com/content/dam/MSI_Rebranded/EN_US/Products/Interactive%20Kiosks/MK4000%20Micro%20Kiosk/Photography%20%E2%80%93%20Product/MK4000StrtOn_017_w-screen_small.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk4000Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK4000</b></td>
   <td class="clsSyntaxCells clsOddRow">MK4000, MK4090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
@@ -337,7 +337,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc5090Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Vehicle-mounted%20Computers/VC5090/_Images/Static%20Files/B2B_Product_VC5090_LG_US-EN.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc5090Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC5090</b></td>
   <td class="clsSyntaxCells clsOddRow">VC5090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
@@ -353,7 +353,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
   <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wt4000Pic" src="https://portal.motorolasolutions.com/web/Business/Products/Mobile%20Computers/Wearable%20Computers/WT4000/_Images/Static%20Files/B2B_Product_WT4000_LG_US-EN.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wt4000Pic" src="" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WT4090</b></td>
   <td class="clsSyntaxCells clsOddRow">WT4070, WT4090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
