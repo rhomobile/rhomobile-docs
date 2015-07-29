@@ -135,55 +135,55 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc65Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc65Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC65.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC65</b></td>
   <td class="clsSyntaxCells clsOddRow">MC659B</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC67.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC67</b></td>
   <td class="clsSyntaxCells clsOddRow">MC67</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5,<br>Android 4.1 (JelyBean)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc70Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc70Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC70.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC70</b></td>
   <td class="clsSyntaxCells clsOddRow">MC7004, MC7090, MC7094, MC7095</td>
   <td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc75Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc75Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC75.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC75</b></td>
   <td class="clsSyntaxCells clsOddRow">MC7506, MC7508, MC7596, MC7598</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc75aPic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc75aPic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC75a.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC75a</b></td>
   <td class="clsSyntaxCells clsOddRow">MC75A0, MC75A6, MC75A8</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc9190Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC9190.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9100</b></td>
   <td class="clsSyntaxCells clsOddRow">MC9190-G, MC9190-Z</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 6.0 Professional,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC92.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9200</b></td>
   <td class="clsSyntaxCells clsOddRow">MC92N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC95.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9500</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC9590, MC9596, MC9598, MC959B (WM6.1)</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1, Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC55.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC55</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>TC55</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
