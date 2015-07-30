@@ -1,4 +1,4 @@
-<div class='tableofcontents'> </div><h2>Enterprise Browser&rsquo;s Feature Demo Application</h2>
+<div class='tableofcontents'> </div><h1>Enterprise Browser's Feature Demo Application</h1>
 
 <h3>Overview</h3>
 
@@ -33,28 +33,28 @@
 <p>The Feature Demo Application for Enterprise Browser uses <code>AJAX</code> to pull in demo files, so the Application must be run from a WebServer. To enable the Local Web Server in Enterprise Browser, do the following:</p>
 
 <ol>
-<li><p>Go into <code>Config.xml</code> and add the following <code>XML</code> snippet right under <code>&lt;Configuration&gt;</code>:</p>
+<li><p>Go into <code>Config.xml</code> and add the following <code>XML</code> snippet right under <code><Configuration></code>:</p>
 
-<pre name="code" class="XML"> &lt;WebServer&gt;
-     &lt;Enabled value="1" /&gt;
-     &lt;Port value="8082" /&gt;
-     &lt;WebFolder value="/fd/" /&gt;
-     &lt;Public value="1" /&gt;
- &lt;/WebServer&gt;   
+<pre name="code" class="XML"> <WebServer>
+     <Enabled value="1" />
+     <Port value="8082" />
+     <WebFolder value="/fd/" />
+     <Public value="1" />
+ </WebServer>   
 </pre></li>
 </ol>
 
 
-<p>  Android Devices &ndash; Config.xml can be found at the path: <code>&lt;root of device&gt;/Android/data/com.symbol.enterprisebrowser/Config.xml</code></p>
+<p>  Android Devices : Config.xml can be found at the path: <code><root of device>/Android/data/com.symbol.enterprisebrowser/Config.xml</code></p>
 
-<p>  WM/CE Devices &ndash; Config.xml can be found at the path: <code>&lt;root of device&gt;\Program Files\EnterpriseBrowser\Config\Config.xml</code></p>
+<p>  WM/CE Devices : Config.xml can be found at the path: <code><root of device>\Program Files\EnterpriseBrowser\Config\Config.xml</code></p>
 
 <ol>
 <li><p>In <code>Config.xml</code> change the start page value to:</p>
 
-<pre name="code" class="HTML"> &lt;StarterPage value="http://127.0.0.1:8082/feature-demo.html" name="Menu"/&gt;
+<pre name="code" class="HTML"> <StarterPage value="http://127.0.0.1:8082/feature-demo.html" name="Menu"/>
 </pre></li>
-<li><p>Create a folder called <code>fd</code> (case sensitive) in the root of your device&rsquo;s SDCard, or if it doesn&rsquo;t have an SDCard, create the folder in the internal memory partition.</p></li>
+<li><p>Create a folder called <code>fd</code> (case sensitive) in the root of your device's SDCard, or if it doesn't have an SDCard, create the folder in the internal memory partition.</p></li>
 <li><p>When you originally installed Enterprise Browser to your desktop, a folder should have been created called <code>EnterpriseBrowser</code>. Inside of that folder there should be a folder called <code>Feature-Demo</code>. Take the contents of that folder and copy it over to your newly created fd folder.</p>
 
 <p> <img style="padding-left:40px;" src="http://i.imgur.com/Gk1rhab.png" width="600" height="480" border="10"></p></li>
@@ -75,11 +75,11 @@
 <p>The Barcode section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2510">Barcode APIs</a>:</p>
 
 <ul>
-<li>Enumerate – Will scan the device for all capable barcode interfaces like 2D imager, Laser, and Camera. Tapping this button will show a list of available scan engines. Tapping select on an item will then make the Enable and Disable buttons active for that scanner</li>
-<li>Enable – Tapping this button will enable the dedicated scanner button on the device. Then when you press the hardware scan trigger and point it at a barcode, the decode information will be presented</li>
-<li>Disable – Tapping this button will disable the active barcode scanner</li>
-<li>Start – Tapping this button will activate the scanner in what is called a ‘soft trigger’ mode. It will remain active until either a barcode is decoded or a timeout occurs. This button will only be active after tapping the Enable button</li>
-<li>Stop – Tapping this button will disable the soft trigger mode.</li>
+<li>Enumerate : Will scan the device for all capable barcode interfaces like 2D imager, Laser, and Camera. Tapping this button will show a list of available scan engines. Tapping select on an item will then make the Enable and Disable buttons active for that scanner</li>
+<li>Enable : Tapping this button will enable the dedicated scanner button on the device. Then when you press the hardware scan trigger and point it at a barcode, the decode information will be presented</li>
+<li>Disable : Tapping this button will disable the active barcode scanner</li>
+<li>Start : Tapping this button will activate the scanner in what is called a 'soft trigger' mode. It will remain active until either a barcode is decoded or a timeout occurs. This button will only be active after tapping the Enable button</li>
+<li>Stop : Tapping this button will disable the soft trigger mode.</li>
 </ul>
 
 
@@ -92,13 +92,13 @@
 <li><p>After selecting a scanner, click <strong>Enable</strong>. This will allow you to start and stop the chosen scanner on your device.</p></li>
 <li><p>Press start and try scanning the image below</p>
 
-<p> <img style="padding-left:0px;" src="http://www.barcodesinc.com/generator/image.php?code=EB.Barcode%20Test&style=197&type=C128B&width=200&height=50&xres=1&font=3" width="380" height="100" border="10"></p></li>
+<p> </p></li>
 </ol>
 
 
 <p>  When done correctly, the Barcode Scanner should return the following</p>
 
-<pre><code>&lt;img style="padding-left:0px;" src="http://i.imgur.com/vHrV660.png" width="380" height="600" border="10"&gt;  
+<pre><code><img style="padding-left:0px;" src="http://i.imgur.com/vHrV660.png" width="380" height="600" border="10">  
 </pre>
 
 <h3>Battery</h3>
@@ -106,10 +106,10 @@
 <p>The Battery section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2511">Battery APIs</a>:</p>
 
 <ul>
-<li>Show Icon – Tapping this button will show a battery icon in the upper left hand corner. You can control more aspects of how it is presented and the location by changing parameters within the code</li>
-<li>Hide Icon – Tapping this button will hide the battery icon</li>
-<li>Start – Tapping this button will begin to monitor for battery status events. For example, when not being charged, it will show the battery level</li>
-<li>Stop – Tapping this button will stop monitoring for battery status events</li>
+<li>Show Icon : Tapping this button will show a battery icon in the upper left hand corner. You can control more aspects of how it is presented and the location by changing parameters within the code</li>
+<li>Hide Icon : Tapping this button will hide the battery icon</li>
+<li>Start : Tapping this button will begin to monitor for battery status events. For example, when not being charged, it will show the battery level</li>
+<li>Stop : Tapping this button will stop monitoring for battery status events</li>
 </ul>
 
 
@@ -118,7 +118,7 @@
 <p>The Camera section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2673">Imager APIs</a>:</p>
 
 <ul>
-<li>Show Camera – Tapping this button will activate the camera and allow you to take a picture. It will show the status information from the performing the action</li>
+<li>Show Camera : Tapping this button will activate the camera and allow you to take a picture. It will show the status information from the performing the action</li>
 </ul>
 
 
@@ -127,10 +127,10 @@
 <p>The Hourglass section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2519">Hourglass APIs</a>:</p>
 
 <ul>
-<li>Show – Tapping this button will show a loading indicator in the position denoted in the <code>Left</code> and <code>Top</code> coordinates field. If nothing is entered, it will show the loading indicator in the center of the screen</li>
-<li>Hide – Tapping this button will hide the loading indicator</li>
-<li>Left – Controls the left coordinates of the screen display used to position the loading indicator</li>
-<li>Stop – Controls the top coordinatre of the screen display used to position the loading indicator</li>
+<li>Show : Tapping this button will show a loading indicator in the position denoted in the <code>Left</code> and <code>Top</code> coordinates field. If nothing is entered, it will show the loading indicator in the center of the screen</li>
+<li>Hide : Tapping this button will hide the loading indicator</li>
+<li>Left : Controls the left coordinates of the screen display used to position the loading indicator</li>
+<li>Stop : Controls the top coordinatre of the screen display used to position the loading indicator</li>
 </ul>
 
 
@@ -139,8 +139,8 @@
 <p>The Key Capture section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2520">Key Capture APIs</a>:</p>
 
 <ul>
-<li>Capture Trigger – Tapping this button will show when the hardware scanner button is pressed along with the keycode that represents the button</li>
-<li>Capture Keys – Tapping this button will show the corresponding keycode for any key pressed (hardware or software)</li>
+<li>Capture Trigger : Tapping this button will show when the hardware scanner button is pressed along with the keycode that represents the button</li>
+<li>Capture Keys : Tapping this button will show the corresponding keycode for any key pressed (hardware or software)</li>
 </ul>
 
 
@@ -149,11 +149,11 @@
 <p>The Screen section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2553">Screen Orientation APIs</a>:</p>
 
 <ul>
-<li>Left – Will force the device to rotate to a left handed orientation</li>
-<li>Right – Will force the device to rotate to a right handed orientation</li>
-<li>Upside Down – Will force the device to rotate to an upside down orientation</li>
-<li>Normal – Will force the device to rotate to a normal orientation</li>
-<li>Auto Rotate – Tapping this will toggle if auto rotation is enabled or disabled</li>
+<li>Left : Will force the device to rotate to a left handed orientation</li>
+<li>Right : Will force the device to rotate to a right handed orientation</li>
+<li>Upside Down : Will force the device to rotate to an upside down orientation</li>
+<li>Normal : Will force the device to rotate to a normal orientation</li>
+<li>Auto Rotate : Tapping this will toggle if auto rotation is enabled or disabled</li>
 </ul>
 
 
@@ -162,11 +162,11 @@
 <p>The Signal section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2554">Signal Indicators APIs</a>:</p>
 
 <ul>
-<li>Show Icon – Tapping this button will show a wifi icon in the upper left hand corner. You can control more aspects of how it is presented and the location by changing parameters within the code</li>
-<li>Hide Icon – Tapping this button will hide the wifi icon</li>
-<li>Start – Tapping this button will begin to monitor for wifi status events. For example when not being charged, it will show the wifi level</li>
-<li>Stop – Tapping this button will stop monitoring for wifi status events</li>
-<li>Status – This section will be populated with the data that comes from the signal event upon a change in status. It will only be displayed when the <code>Start</code> button has been tapped</li>
+<li>Show Icon : Tapping this button will show a wifi icon in the upper left hand corner. You can control more aspects of how it is presented and the location by changing parameters within the code</li>
+<li>Hide Icon : Tapping this button will hide the wifi icon</li>
+<li>Start : Tapping this button will begin to monitor for wifi status events. For example when not being charged, it will show the wifi level</li>
+<li>Stop : Tapping this button will stop monitoring for wifi status events</li>
+<li>Status : This section will be populated with the data that comes from the signal event upon a change in status. It will only be displayed when the <code>Start</code> button has been tapped</li>
 </ul>
 
 
@@ -177,11 +177,11 @@
 <p>The Signature Capture  section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2555">Signature APIs</a>:</p>
 
 <ul>
-<li>Show – Tapping this button will display a full screen signature capture widget. It will use the Color and Width properties that can be changed</li>
+<li>Show : Tapping this button will display a full screen signature capture widget. It will use the Color and Width properties that can be changed</li>
 </ul>
 
 
-<p>When returning from this widget the status of the event will be diplayed as well as the image of the signature if the user pressed ok during capture</p>
+<p>When returning from this widget the status of the event will be displayed as well as the image of the signature if the user pressed ok during capture</p>
 
 <p>Background Color: This is a hex value string that represents the color of the background of the signature capture area. For example, changing it to <code>#FF0000</code> will result in a red background<br/>
 Pen Color: This is a hex value string that represents the color of the pen stroke of the signature capture area. For example, changing it to #FF0000 will result in a red pen color<br/>
@@ -192,10 +192,10 @@ Pen Width: This is an integer value that represents how thick the pen should be 
 <p>The Timer section of the Feature Demo application shows how to use the most common Timer APIs:</p>
 
 <ul>
-<li>Duration – This is how often an event will be fired while the timer is active. The amount is in milliseconds</li>
-<li>Start – Tapping this button will start a timer to be fired at the duration interval</li>
-<li>Stop – Tapping this button will stop the timer</li>
-<li>Status – Will show when timer events have been started or stopped</li>
+<li>Duration : This is how often an event will be fired while the timer is active. The amount is in milliseconds</li>
+<li>Start : Tapping this button will start a timer to be fired at the duration interval</li>
+<li>Stop : Tapping this button will stop the timer</li>
+<li>Status : Will show when timer events have been started or stopped</li>
 </ul>
 
 
@@ -204,10 +204,10 @@ Pen Width: This is an integer value that represents how thick the pen should be 
 <p>The WebSQL section of the Feature Demo application demonstrates basic functionality of the HTML5 WebSQL standard</p>
 
 <ul>
-<li>Input – Enter a string to be stored</li>
-<li>Output – Displays the data retrieved when tapping the <code>Fetch</code> button</li>
-<li>Store – Tapping this button will store the value in the <code>Input</code> field into WebSQL</li>
-<li>Fetch – Tapping this button will retrieve the value from WebSQL</li>
+<li>Input : Enter a string to be stored</li>
+<li>Output : Displays the data retrieved when tapping the <code>Fetch</code> button</li>
+<li>Store : Tapping this button will store the value in the <code>Input</code> field into WebSQL</li>
+<li>Fetch : Tapping this button will retrieve the value from WebSQL</li>
 </ul>
 
 
@@ -216,14 +216,14 @@ Pen Width: This is an integer value that represents how thick the pen should be 
 <p>The Web Storage section of the Feature Demo application demonstrates the basic functionality of the HTML5 LocalStorage and SessionStorage APIs.  This allows you to store basic Name/Value pairs of data</p>
 
 <ul>
-<li>LocalStorage Input – Enter a string to be stored using LocalStorage. This will stay resident after the application is closed.</li>
-<li>LocalStorage Output – Displays the LocalStorage data retrieved when tapping the <code>Local Fetch</code> button</li>
-<li>SessionStorage Input – Enter a string to be stored using SessionStorage. This will not persist through the closing of the application</li>
-<li>SessionStorage Output – Displays the SessionStorage data retrieved when tapping the <code>Local Fetch</code> button</li>
-<li>Local Store – Tapping this button will store the value in the <code>LocalStorage Input</code> field into LocalStorage</li>
-<li>Local Fetch – Tapping this button will retrieve the value from LocalStorage</li>
-<li>Session Store – Tapping this button will store the value in the <code>SessionStorage Input</code> field into SessionStorage</li>
-<li>Session Fetch – Tapping this button will retrieve the value from SessionStorage</li>
+<li>LocalStorage Input : Enter a string to be stored using LocalStorage. This will stay resident after the application is closed.</li>
+<li>LocalStorage Output : Displays the LocalStorage data retrieved when tapping the <code>Local Fetch</code> button</li>
+<li>SessionStorage Input : Enter a string to be stored using SessionStorage. This will not persist through the closing of the application</li>
+<li>SessionStorage Output : Displays the SessionStorage data retrieved when tapping the <code>Local Fetch</code> button</li>
+<li>Local Store : Tapping this button will store the value in the <code>LocalStorage Input</code> field into LocalStorage</li>
+<li>Local Fetch : Tapping this button will retrieve the value from LocalStorage</li>
+<li>Session Store : Tapping this button will store the value in the <code>SessionStorage Input</code> field into SessionStorage</li>
+<li>Session Fetch : Tapping this button will retrieve the value from SessionStorage</li>
 </ul>
 
 
@@ -234,26 +234,27 @@ Pen Width: This is an integer value that represents how thick the pen should be 
 <p>  <img style="padding-left:20px;" src="http://i.imgur.com/rnm2E0R.png" border="10"></p>
 
 <ul>
-<li>apis – folder that contain individual <code>.html</code> files that are associated with each feature</li>
-<li>featurename.html – each file has all associated Javascript that is used to demonstrated the use of the API</li>
-<li>img – folder that contains icons and images used in the demo</li>
-<li>ebapi-modules.js – Enterprise Browser core JavaScript api library</li>
-<li>elements.js – Enterprise Browser JavaScript library used by some of the APIs</li>
-<li>rhoapi-modules.js – Enterprise Browser JavaScript library used by some of the APIs</li>
-<li>feature-demo.html – main application page that controls behavior of the Feature Demo application</li>
-<li>style.css – CSS file used for look and feel of the Feature Demo application</li>
+<li>apis : folder that contain individual <code>.html</code> files that are associated with each feature</li>
+<li>featurename.html : each file has all associated Javascript that is used to demonstrated the use of the API</li>
+<li>img : folder that contains icons and images used in the demo</li>
+<li>ebapi-modules.js : Enterprise Browser core JavaScript api library</li>
+<li>elements.js : Enterprise Browser JavaScript library used by some of the APIs</li>
+<li>rhoapi-modules.js : Enterprise Browser JavaScript library used by some of the APIs</li>
+<li>feature-demo.html : main application page that controls behavior of the Feature Demo application</li>
+<li>style.css : CSS file used for look and feel of the Feature Demo application</li>
 </ul>
 
 
-<p>To learn from the Feature Demo application, it is best to look at the individual HTML files located in the &lsquo;apis&rsquo; folder. In the files you will see a <code>SCRIPT</code> block that contains the associated JavaScript for performing the particular action</p>
+<p>To learn from the Feature Demo application, it is best to look at the individual HTML files located in the 'apis' folder. In the files you will see a <code>SCRIPT</code> block that contains the associated JavaScript for performing the particular action</p>
 
 <h2>Troubleshooting</h2>
 
 <p>If you are still having trouble getting The Feature Demo to work, try the following:</p>
 
 <ul>
-<li><p>If your barcode scanner isn&rsquo;t working, you can fix this by installing the app <a href="http://www.barcodedatalink.com/pages/datawedge.php">DataWedge</a> on your mobile device and <a href="https://serialio.com/support/knowledgebase/software/in-hand_apps/article/TC55">configuring the settings</a> as described</p></li>
-<li><p>If your device won&rsquo;t display the Feature Demo Application screen, make sure that your Config.xml has the right path to your starter page</p></li>
+<li><p>Make sure your device has the latest release BSP available on the <a href="https://www.zebra.com/enterprisesupport">Support Portal</a>.</p></li>
+<li>Check your device's <a href="https://www.zebra.com/enterprisesupport">Integrator Guide</a> for proper DataWedge configuration</li>
+<li><p>If your device won't display the Feature Demo Application screen, make sure that your Config.xml has the right path to your starter page</p></li>
 <li><p>Make sure that the wifi on your device is enabled and connected</p></li>
 </ul>
 
