@@ -300,7 +300,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc9000Pic" src="http://www.symbol.com/assets/images/239_MC9000S.jpg" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc9000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_mc9000.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9000</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC9090, MC9097, MC9094</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
@@ -316,13 +316,13 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC3000.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3000</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3000, MK3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk4000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk4000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MK4000.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK4000</b></td>
   <td class="clsSyntaxCells clsOddRow">MK4000, MK4090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
@@ -337,7 +337,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc5090Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc5090Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_VC5090.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC5090</b></td>
   <td class="clsSyntaxCells clsOddRow">VC5090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
@@ -353,7 +353,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
   <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wt4000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wt4000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_WT4000.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WT4090</b></td>
   <td class="clsSyntaxCells clsOddRow">WT4070, WT4090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
