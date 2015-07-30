@@ -40,3 +40,6 @@ the toc.rb file contains all the links to the docs inside the given version and 
 
 ### apiusage.md and apisummary.md
 these two files ([version]/guide/apisummary.md and [version]/guide/apiusage.md) which document the APIs for a given version need to have any mention of a version updated to make sure it is referencing the correct version.
+
+### rhoArchitecture
+Titled 'RMS 5.x Supported Platforms,' this page details the resources needed to run RhoMobile Suite and contains tables of devices supported (and deprecated) by the current version. Its top-most table lists the operating systems and general sets of devices on which apps made with RMS will run. 

@@ -501,7 +501,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper. In Android, this settings will not overrie beeper and hence not supported.</DESC>
+                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper. In Android, this settings will not override beeper and hence not supported.</DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeSound" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1948,7 +1948,7 @@ function scan_using_default_scanner(){
   Rho.Barcode.take({}, scan_received);
 }
 
-function scan_received(params)
+function scan_received(params){
   // Did we actually find a barcode ?
   // If status is not 'ok', the scan was canceled
 
@@ -2025,10 +2025,9 @@ function scan_using_chosen_scanner(scanner_index) {
     scanner.take({}, scan_received_callback);
 }
 
-function scan_received_callback(params)
-{
-  // Did we actually find a barcode ?
-  // If status is not 'ok', the scan was canceled
+function scan_received_callback(params){
+  // Did we actually find a barcode?
+  // If status is not 'ok' the scan is canceled
   if (params["status"]=="ok") {
             alert('Barcode scanning complete. Scanned barcode: '+params["barcode"]);
         } else {
