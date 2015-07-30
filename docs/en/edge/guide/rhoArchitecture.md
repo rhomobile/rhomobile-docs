@@ -202,13 +202,13 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc6090Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc6000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_VC6000.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC6000</b></td>
   <td class="clsSyntaxCells clsOddRow">VC6000, VC6096</td>
   <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="vc70Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="vc70Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_VC70.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>VC70</b></td>
   <td class="clsSyntaxCells clsOddRow">VC70</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -224,7 +224,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3100Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MK3100.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3100</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3100, MK3190</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -241,7 +241,7 @@ RMS 5.2 has been approved for building apps that target the following Zebra Ente
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
   <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="wt41n0Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="wt41n0Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_WT41n0.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>WT41N0</b></td>
   <td class="clsSyntaxCells clsOddRow">WT41N0</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 7.0</td>
@@ -294,7 +294,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Deprecated model(s)</th>
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mc3000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC3000.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC3000</b></td>
   <td class="clsSyntaxCells clsOddRow">MC3000 (CE 5.0 only), MC3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0<br>Windows Mobile 6.1</td>
