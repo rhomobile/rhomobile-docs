@@ -316,7 +316,7 @@ Memory constraints are important to consider, particularly when targeting the ol
   <th class="clsSyntaxHeadings">Operating system(s)</th>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC3000.jpg?raw=true" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="mk3000Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MK3000.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MK3000</b></td>
   <td class="clsSyntaxCells clsOddRow">MK3000, MK3090</td>
   <td class="clsSyntaxCells clsOddRow">Windows CE 5.0</td>
