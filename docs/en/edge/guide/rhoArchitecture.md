@@ -2,7 +2,7 @@
 
 The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
 
-**New in RMS 5.2 is support for Android 5.0 Lollipop**. The RhoMobile suite can now be used to build apps for consumer devices running the latest Android OS. Support for Lollipop on Zebra devices is coming soon. 
+**New in RMS 5.2 is support for Android 5.1 Lollipop**. The RhoMobile suite can now be used to build apps for consumer devices running the latest Android OS. Support for Lollipop on Zebra devices is coming soon. 
 
 ##Supported Mobile-Device Platforms 
 <table class="table table-stripe table-bordered">
@@ -22,7 +22,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow"><img id="Android_LollyPic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/samsung-galaxy-s-6-edge.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Android</b></td>
   <td class="clsSyntaxCells clsOddRow">Third-party consumer tablets and smartphones (ARM and x86)</td>
-  <td class="clsSyntaxCells clsOddRow">Android  5.0 Lollipop</td>
+  <td class="clsSyntaxCells clsOddRow">Android  5.1 Lollipop</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="iOS_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Apple-iPhone-5S.jpg?raw=true" height="75"></img></td>
