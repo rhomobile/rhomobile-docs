@@ -41,7 +41,7 @@ NOTE: RMS 5.1 is NOT compatible with Android NDK 10; Android NDK 9d is recommend
 
 If the upgrade steps have failed, or if you're installing RhoMobile Suite for the first time, follow the instructions below for a first-time installation. 
 
-## Installing on Windows (32- and 64-bit)
+## Windows First-time Install (32- and 64-bit)
 ### STEP 1: Run the RhoMobile Suite Installer
 [Download the RhoMobile Suite Installer for Windows](http://rhomobile.com/download/) and launch it. This will install Rhodes, RhoStudio, RhoConnect and RhoElements, as well as [Ruby](http://www.ruby-lang.org/en/) and [Redis](http://redis.io/) open source tools. 
 
@@ -99,7 +99,7 @@ NOTE:Before building your first project, you'll be prompted to create a free acc
 <br>
 
 
-## Installing on Mac OS X
+## Mac OS X First-time Install
 
 ### *Apple XCode Required*
 
@@ -207,7 +207,7 @@ A Terminal window will open and execute an installation script.<br>
 RhoStudio permits development of native apps for Android, iOS and Windows Mobile and Windows Phone 8 on the local development host or in the cloud using [Rhohub.com](https://rms.rhomobile.com/). If you plan to build native apps locally, you'll need to install the corresponding SDKs for each. For detailed instructions, please visit RhoMobile's [native SDK setup documentation page](/guide/nativesdksetup).<br>
 <br>
 
-## Troubleshooting Windows
+## Troubleshooting Windows Installs
 
 ###PROBLEM
 >"Failed to create the Java Virtual Machine"<br>
@@ -254,7 +254,7 @@ Install 64-bit Java (see above)<br>
 >Go to **Window>>Preferences>>Startup and Shutdown>>Workspaces** and select a Workspace path that contains no spaces.<br>
 <br>
 
-## Troubleshooting Mac OS X
+## Troubleshooting Mac OS X Installs
 
 ###PROBLEM
 >![img](http://rhomobile-suite.s3.amazonaws.com/install/Cannot_find_Rhodes.png)

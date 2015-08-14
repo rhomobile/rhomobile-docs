@@ -1,8 +1,11 @@
-# Creating a RhoMobile project
-You can create a RhoMobile project either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent.
+# Creating a RhoMobile Project
+A RhoMobile project can be created either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool anyway, so the approaches are equivalent. 
+
+This tutorial assumes that the RhoMobile Suite and other required parts are already installed. If that's not the case, please refer to [RhoMobile Suite installation instructions](rhomobile-install). 
+
 
 ## Prerequisites
-In order to build a Native Application, you will need to have the SDK environments setup on your machine for each targeted mobile platform that you wish to support. In order for RhoStudio to build the final application, these environments must be setup properly and then RhoStudio will need need to know the paths to the build components. 
+To build a native application, you will need to have the SDK environments setup on your machine for each targeted mobile platform that you wish to support. In order for RhoStudio to build the final application, these environments must be setup properly and then RhoStudio will need need to know the paths to the build components. 
 
 ### 1) Setup Mobile Development Environments</b>
 [iPhone/iPad](nativesdksetup#setup-for-ios)
