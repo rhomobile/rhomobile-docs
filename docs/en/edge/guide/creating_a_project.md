@@ -66,32 +66,42 @@ The generated application has the following structure:
 
 Here is an overview of what each file and folder contains.
 
-### Root application folder
-* build.yml
+### /app (folder)
+`/app` <br>
+is a root-level folder that contains all the Ruby code for your application and its views. In a newly-created application, there are two other folders inside:
 
-This file controls compile-time settings such as the name of the application, which extensions to include, which version of the Rhodes SDK to use for compiling, etc.
+`/app/helpers` <br>
+contains view helpers, which are used to extract common functionality into reusable functions. Rhodes generates `application_helper.rb` and `browser_helper.rb` automatically; you can add your own as needed.
 
-* rhoconfig.txt
+`/app/Settings`<br>
+is the default controller that's invoked when the user taps the "Settings" icon in your application. It shows the status of the data sync process, allows sync-server login/logout, and permits maintenance tasks such as clearing the database.
 
+Other files in the `/app` folder:
+
+`application.rb`<br>
+ **is the entry point of your application**. Any startup initialization code should be placed here.
+
+`index.erb`<br>
+ **is the first page that will load when the application starts** (unless changed in `build.yml`).
+
+`layout.erb`<br>
+**contains elements present in all or most pages**. Because normally all the pages of an applications have a similar structure and layout, it is recommended to extract common elements into a single file to make maintenance easier. Rhodes acknowledges this best practice and provides you with a default template so that your pages (views) do not need to contain duplicated HTML code. Instead, each view will only contain the code specific to that view, which will be merged with the layout when the page is rendered.
+
+`loading*.png`<br>
+ - these are splashscreen images for several device orientations and platforms. You will swap these files with your own at some point before deployment
+
+* models / controllers - when you [add a model to your application](local_database), each model will be created in its own folder within `app`. For example, a model called `Product` will produce a `/app/Product` folder.
+
+`build.yml`<br>
+file controls compile-time settings such as the name of the application, which extensions to include, which version of the Rhodes SDK to use for compiling, etc. 
+
+`rhoconfig.txt`<br>
 Runtime settings of the application are configured here, such as which page to load when the application starts, the URL of the synchronization server, how much logging output to keep, etc.
 
-* Rakefile
-
+`Rakefile`<br>
 A standard Ruby rakefile, designed to find the appropriate Rhodes SDK and compile your application with it.
 
 ### app
-`app` contains all the Ruby code for your application, as well as its views. In a newly-created application, there are two other folders inside:
-
-* `app/helpers` contains view helpers, used to extract common functionality into reusable functions. Rhodes generates `application_helper.rb` and `browser_helper.rb` automatically, and you can add your own as needed.
-* `app/Settings` is the default controller that is invoked when the user taps the "Settings" icon in the application. It shows the current status of the data synchronization process and allows the user to log in or out of the sync server, as well as perform some maintenance tasks such as clearing the database.
-
-Apart from these folders, there are several other files in `app`:
-
-* `application.rb` **is the entry point of your application**. Any startup initialization code should be place here.
-* `index.erb` **is the first page that will load when the application starts** (unless changed in `build.yml`).
-* `layout.erb` contains elements present in all or most pages. Because normally all the pages of an applications have a similar structure and layout, it is recommended to extract common elements into a single file to make maintenance easier. Rhodes acknowledges this best practice and provides you with a default template so that your pages (views) do not need to contain duplicated HTML code. Instead, each view will only contain the code specific to that view, which will be merged with the layout when the page is rendered.
-* `loading*.png` - these are splashscreen images for several device orientations and platforms. You will swap these files with your own at some point before deployment
-* models / controllers - when you [add a model to your application](local_database), each model will be created in its own folder within `app`. For example, a model called `Product` will produce `app/Product`
 
 ### framework
 This folder does not exist within your application, but RhoStudio shows it for reference. This is a link to the implementation of the Rhodes framework itself, you should never modify any files in this folder unless you are [contributing to Rhodes](../rhodes/contributing)
