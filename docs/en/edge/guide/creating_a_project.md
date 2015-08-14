@@ -22,7 +22,7 @@ To create your first Rhodes project using RhoStudio:<br>
 ![img](http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard-4.0.png)
 
 ### From the command line
-If you prefer to use the command line or a development environment other than RhoStudio, the `Rhodes` framework can be invoked manually using the commands below:
+If you prefer to use the command line or a development environment other than RhoStudio, the `Rhodes` framework can be invoked manually using the commands and parameters below:
 
 	:::term
 	Usage: rhodes generator_name [options] [args]
@@ -47,13 +47,14 @@ If you prefer to use the command line or a development environment other than Rh
 		--debug                          Do not catch errors
 		--norhoconnect                   Don't include rhoconnect-client in application
 
+
 For example, to create an application called 'storemanager,' do the following:
 
 - Open a terminal window
 - Switch to the directory in which the app is to be saved
-- Execute the following command: <br>
-s
+- Execute the command:
 
+<br>
 	:::term
 	$ rhodes app storemanager
 
