@@ -1,57 +1,28 @@
 # Creating a RhoMobile Project
-A RhoMobile project can be created either from RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool anyway, so the approaches are equivalent. 
+A RhoMobile project can be created either from within RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool anyway, so the approaches are equivalent; both apply the Rhodes open-source framework for building cross-platform apps. 
 
-This tutorial assumes that the RhoMobile Suite and other required parts are already installed. If that's not the case, please refer to [RhoMobile Suite installation instructions](rhomobile-install). 
+This tutorial assumes that the RhoMobile Suite and its related components are already installed on your development machine. If that's not the case, please refer to [RhoMobile Suite installation instructions](rhomobile-install) before beginning this tutorial. 
 
+## Creating a new project
+###  With RhoStudio
+To create your first Rhodes project using RhoStudio:<br>
 
-## Prerequisites
-To build a native application, you will need to have the SDK environments setup on your machine for each targeted mobile platform that you wish to support. In order for RhoStudio to build the final application, these environments must be setup properly and then RhoStudio will need need to know the paths to the build components. 
-
-### 1) Setup Mobile Development Environments</b>
-[iPhone/iPad](nativesdksetup#setup-for-ios)
-
-[Android](nativesdksetup#setup-for-android)
-
-[Windows Mobile](nativesdksetup#setup-for-windows-mobile)
-
-[Windows Phone 8](nativesdksetup#setup-for-windows-phone-8)
-
-### 2) Java Development Kit
-In the [RhoMobile Suite installation instructions](rhomobile-install), review the Java Development Kit instructions for your operating system.
-
-### 3) Install RhoMobile Suite
-Follow operating specific instructions for your development machine:
-
-[Mac OS](rhomobile-install#mac-os)
-
-[Windows 32-bit](rhomobile-install#windows-32-bit)
-
-[Windows 64-bit](rhomobile-install#windows-64-bit)
-
-### 4) Setup RhoStudio Mobile SDK Paths
-Once you have Rhodes, you will need the SDKs for the platform you want to build your app on. 
-
-	:::term
-	C:\> rhodes-setup
-
-This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank. You can find prerequisites for each platform [here](#prerequisites).
-
-### 5) Sign Up For a Subscription Plan at rhomobile.com
-Building any app using Rhodes or RhoElements requires a license, even if it's a free license. Refer to our [licensing doc](licensing) for more information on which plan is right for you.
-
-## Creating a project with RhoStudio
-To create your first Rhodes project using RhoStudio, select File -> New -> Project
-
-The New Project window opens. Select the Rhodes application wizard and click the Next button.
+- **Open RhoStudio** using the appropriate launch script for your development host. <br>
+- **Select File > New > Project**. The New Project window will open. <br>
+- **Select 'RhoMobile application'** from wizard list. <br>
+- **Click Next**.<br>
 
 ![img](http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-project-4.0.png)
 
-Enter the name of your new application in Project name; in this example, we will use "storemanager". If you need to save the project in a particular location on your computer, uncheck "Create application in default workspace" and specify where you want the new files to be stored, otherwise you can accept the defaults and click "Finish".
+- On the next screen, **enter a name for your new project**. In the example below, we use "storemanager." 
+- **Notice that 'Create application in default workspace' is checked**.
+- To save the app in different location, uncheck and Browse to the new location.
+- **Click "Finish" when done**.
 
 ![img](http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard-4.0.png)
 
-## Creating a project from the command line
-If you prefer to use the command line or another development environment instead of RhoStudio, the `rhodes` tool can be invoked manually.
+### From the command line
+If you prefer to use the command line or a development environment other than RhoStudio, the `Rhodes` framework can be invoked manually using the commands below:
 
 	:::term
 	Usage: rhodes generator_name [options] [args]
@@ -76,10 +47,16 @@ If you prefer to use the command line or another development environment instead
 		--debug                          Do not catch errors
 		--norhoconnect                   Don't include rhoconnect-client in application
 
-To create a new application called `storemanager`, switch to the directory where you want it to be saved and run:
+For example, to create an application called 'storemanager,' do the following:
+
+- Open a terminal window
+- Switch to the directory in which the app is to be saved
+- Execute the following command: <br>
+s
 
 	:::term
 	$ rhodes app storemanager
+
 
 ## Project structure
 The generated application has the following structure:
