@@ -103,14 +103,13 @@ Standard Ruby rakefile designed to find the appropriate Rhodes SDK and use it to
 <br>
 <br>
 
->>>>>**RESUME HERE**
-### framework
-This folder does not exist within your application, but RhoStudio shows it for reference. This is a link to the implementation of the Rhodes framework itself, you should never modify any files in this folder unless you are [contributing to Rhodes](../rhodes/contributing)
+### /framework
+**Do not modify any files in this folder** unless you are [contributing to Rhodes](../rhodes/contributing). This is a link to the implementation of the Rhodes framework that RhoStudio shows for reference. The framework folder does not exist within your application. 
 
-### icon
-The icon for your application in different formats, as required for each platform (iOS, Android, Windows Mobile, etc).
+### /icon
+The icon for your application in formats as required for each platform (Android, iOS, Windows Mobile/CE, etc).
 
-### public
+### /public
 Any file linked from a view (or that must be reachable by the embedded web browser for any reason) belongs here. Rhodes organizes the files it generates in several sub-directories:
 
 * `css` - stylesheets
