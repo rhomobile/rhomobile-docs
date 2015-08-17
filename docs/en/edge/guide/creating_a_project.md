@@ -64,7 +64,7 @@ The generated application has the following structure:
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/project-structure-4.0.png)
 
-Here is an overview of what each file and folder contains.
+Here is an overview of the contents of each file and folder.
 
 ### /app (folder)
 `/app` <br>
@@ -100,28 +100,35 @@ Controls runtime settings, such as the app startup page, URL of the synchronizat
 Standard Ruby rakefile designed to find the appropriate Rhodes SDK and use it to compile your application.
 
 **models / controllers** - when you [add a data model to your application](local_database), each model will be created in its own folder within `/app`. For example, a model called 'Product' will produce a folder called `/app/Product`.<br>
-<br>
-<br>
 
 ### /framework
 **Do not modify any files in this folder** unless you are [contributing to Rhodes](../rhodes/contributing). This is a link to the implementation of the Rhodes framework that RhoStudio shows for reference. The framework folder does not exist within your application. 
 
 ### /icon
-The icon for your application in formats as required for each platform (Android, iOS, Windows Mobile/CE, etc).
+Contains your app's icon files in formats as required for each platform (Android, iOS, Windows Mobile/CE, etc).
 
 ### /public
 Any file linked from a view (or that must be reachable by the embedded web browser for any reason) belongs here. Rhodes organizes the files it generates in several sub-directories:
 
-* `css` - stylesheets
-* `images` - image files for toolbars, lists, ok and back buttons, etc.
-* `jqmobile` - [JQuery Mobile](http://jquerymobile.com), a JavaScript library that helps you build touch-optimized HTML applications for mobile devices
-* `jquery` - [JQuery](http://jquery.com), a JavaScript library to manipulate HTML with an easy to use, cross browser syntax
-* `js` - general JavaScript files. Your application-specific JavaScript code should be stored in this folder
+`/public/css`<br>
+Contains the stylesheets for your app's pages.<br>
 
-You can create any other folders and organize your files following any structure you prefer, but it is recommended to stay as close as possible to the default, as this will make things easier when working with a team or asking for help.
+`/public/images`<br>
+Image files for toolbars, lists, 'OK' and 'Back' buttons, etc.<br>
 
-## Running your application
-### Running from RhoStudio
+`/public/jqmobile`<br>
+Files for [JQuery Mobile](http://jquerymobile.com), a JavaScript library that helps you build touch-optimized HTML applications for mobile devices.<br>
+
+`/public/jquery`<br>
+Files for [JQuery](http://jquery.com), a cross-browser JavaScript library for manipulating HTML with an easy-to-use syntax.<br>
+
+`/public/js`<br>
+All of JavaScript code specific to your app should be stored in this folder.<br>
+
+While you can create additional folders and organize your files any way you like, it is recommended that you stay as close to the default as possible to ease support and team development.
+
+## Running your application...
+### ...from RhoStudio
 > Note: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.
 
 To start your application for the first time, right click your project, then click Run As -> Run Configurations...
@@ -134,7 +141,7 @@ Select "RhoMobile Application" and click the "New" button, then click "Run"
 
 After a brief compilation period, the application will start in RhoSimulator.
 
-### Running from the command line
+### ...from the command line
 > Note: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.
 
 To start a Rhodes application from the command line, switch to the folder that contains the application and run
