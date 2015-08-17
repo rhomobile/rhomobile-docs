@@ -1,10 +1,10 @@
 # Creating a RhoMobile Project
-A RhoMobile project can be created either from within RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool anyway, so the approaches are equivalent; both apply the Rhodes open-source framework for building cross-platform apps. 
+A RhoMobile project can be created from within RhoStudio or from the command line. Under the hood, RhoStudio invokes the command-line tool anyway, so the approaches are equivalent; both apply the Rhodes open-source framework for building cross-platform apps. 
 
 This tutorial assumes that the RhoMobile Suite and its related components are already installed on your development machine. If that's not the case, please refer to [RhoMobile Suite installation instructions](rhomobile-install) before beginning this tutorial. 
 
-## Creating a new project
-###  With RhoStudio
+## Creating a new project...
+###  ...with RhoStudio
 To create your first Rhodes project using RhoStudio:<br>
 
 - **Open RhoStudio** using the appropriate launch script for your development host. <br>
@@ -21,7 +21,7 @@ To create your first Rhodes project using RhoStudio:<br>
 
 ![img](http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-application-wizard-4.0.png)
 
-### From the command line
+### ...from the command line
 If you prefer to use the command line or a development environment other than RhoStudio, the `Rhodes` framework can be invoked manually using the commands and parameters below:
 
 	:::term
@@ -161,7 +161,7 @@ where `<platform to be simulated>` can be:
 
 NOTE: Due to memory limitations, RhoSimulator does not support Windows Mobile/CE apps.
 
-The application will start inside RhoSimulator with a different look depending on the selected platform
+The application will start inside RhoSimulator with a different look depending on the selected platform. 
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-rhosimulator-iphone-4.0.png)
 
