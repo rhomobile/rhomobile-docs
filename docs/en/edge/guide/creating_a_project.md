@@ -105,13 +105,13 @@ Standard Ruby rakefile designed to find the appropriate Rhodes SDK and use it to
 **Do not modify any files in this folder** unless you are [contributing to Rhodes](../rhodes/contributing). This is a link to the implementation of the Rhodes framework that RhoStudio shows for reference. The framework folder does not exist within your application. 
 
 ### /icon
-Contains your app's icon files in formats as required for each platform (Android, iOS, Windows Mobile/CE, etc).
+Contains your app's icon files in formats as required for each platform (Android, iOS, Windows Mobile/CE, etc.) that you plan to target.
 
 ### /public
 Any file linked from a view (or that must be reachable by the embedded web browser for any reason) belongs here. Rhodes organizes the files it generates in several sub-directories:
 
 `/public/css`<br>
-Contains the stylesheets for your app's pages.<br>
+Holds the stylesheets for your app's pages.<br>
 
 `/public/images`<br>
 Image files for toolbars, lists, 'OK' and 'Back' buttons, etc.<br>
@@ -123,9 +123,9 @@ Files for [JQuery Mobile](http://jquerymobile.com), a JavaScript library that he
 Files for [JQuery](http://jquery.com), a cross-browser JavaScript library for manipulating HTML with an easy-to-use syntax.<br>
 
 `/public/js`<br>
-All of JavaScript code specific to your app should be stored in this folder.<br>
+All JavaScript code specific to your app should be stored in this folder.<br>
 
-While you can create additional folders and organize your files any way you like, it is recommended that you stay as close to the default as possible to ease support and team development.
+While you can create additional folders and organize your files any way you like, it is recommended that you stay as close to the default as possible to ease support and simplify team development.
 
 ## Running your application...
 ### ...from RhoStudio
