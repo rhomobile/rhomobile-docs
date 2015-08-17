@@ -129,36 +129,37 @@ While you can create additional folders and organize your files any way you like
 
 ## Running your application...
 ### ...from RhoStudio
-> Note: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.
 
-To start your application for the first time, right click your project, then click Run As -> Run Configurations...
+To start your application for the first time:
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/running-application-context-menu-4.0.png)
 
-Select "RhoMobile Application" and click the "New" button, then click "Run"
+1. **Open the RhoStudio Project Explorer** window
+2. **Right-click on your project** name
+3. Select **Run As > Run Configurations...**
+4. **Select "RhoMobile Application"** and click the "New" button
+5. **Click "Run"**
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-configurations-4.0.png)
 
-After a brief compilation period, the application will start in RhoSimulator.
+RhoStudio will compile and launch your app in RhoSimulator.
 
 ### ...from the command line
-> Note: If you have yet to apply your license to your instance of Rhodes / RhoElements, you will be prompted when attempting to build to enter your login credentials to rhomobile.com before you can continue. Refer to our [licensing guide](licensing) to learn how to apply your license.
 
-To start a Rhodes application from the command line, switch to the folder that contains the application and run
+To start a Rhodes application from the command line, switch to the folder that contains the application and execute the following command:
 
 	:::term
 	rake run:<platform to be simulated>:rhosimulator
 
-where `<platform to be simulated>` can be one of
+where `<platform to be simulated>` can be: 
 
-* `android`
-* `bb`
-* `iphone`
-* `win32` for desktop Windows
-* `wm` for Windows Mobile 6
-* `wp8` for Windows Phone 8
+* android
+* iphone
+* win32 (for Windows desktop)
+* wm (for Windows Mobile 6)
+* wp8 (for Windows Phone 8)
 
-> Note: Windows Mobile and Windows CE apps that use the webkit will not be able to run in the RhoSimulator because of the limitations of the memory in the simulator.
+NOTE: Due to memory limitations, RhoSimulator does not support Windows Mobile/CE apps.
 
 The application will start inside RhoSimulator with a different look depending on the selected platform
 
@@ -166,10 +167,14 @@ The application will start inside RhoSimulator with a different look depending o
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/rhosimulator-web-inspector-4.0.png)
 
+##Licensing
+When attempting your first build, a prompt will appear asking for rhomobile.com login credentials. All versions of RhoMobile Suite require registration at rhomobile.com. Licensees of Rhodes / RhoElements also must apply their license to the software before first time use. For more information, please refer to our [licensing guide](licensing).
+
 ## Related reading
 Now that your first application is ready to run, there are some other topics you should become familiar with:
 
 * [Adding models](local_database)
 * [Application configuration](runtime_config)
 * Device capabilities like [Barcode](../api/barcode) or [Native UI Components](native_ui_elements)
-* Using RhoSimulator in [Javascript applications](../guide/debugging_js) and [Ruby Applications](../guide/debugging_ruby)
+* Using RhoSimulator to [debug JavaScript apps](../guide/debugging_js)
+* Using RhoSimulator to [debug Ruby apps](../guide/debugging_ruby)
