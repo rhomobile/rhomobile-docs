@@ -5,9 +5,9 @@ This document describes how other documents need to change whenever a folder con
 Changes required at the docs folder level or higher: 
 
 ### version.rb
-The version.rb file (rhomobile-docs/version.rb) must be changed to reflect a new 'current' version and a new 'previous' version (the version immediately prior to current). 
+The version.rb file (rhomobile-docs/version.rb) controls the upper portion of the version selector drop-down list at the top of all docs pages. **This file must be changed to reflect a new 'current' version and a new 'previous' version (the version immediately prior to the current one)**. 
 
-For example, if the new version is to be 5.0.30 and version immediately prior was 5.0.25, the version.rb file would look like this:
+For example, if the new version is to be 5.0.30 and version it replaces was 5.0.25, the version.rb file would look like this:
 
     :::ruby
     module Version
@@ -16,12 +16,12 @@ For example, if the new version is to be 5.0.30 and version immediately prior wa
       NEXT_VERSION = 'edge'
     end
 
-> Note: NEXT_VERSION always will be 'edge,' so there is never a need to change it.
+> NOTE: NEXT_VERSION always will be 'edge,' so there is never a need to change that.
 
 ### layout.erb
-The layout.erb file (rhomobile-docs/views/layout.erb) controls the version selector drop-down list at the top of all docs pages. This is a list of all supported versions ** *except* ** the current and previous versions. When a new RMS version is added, this list must be edited so that it contains the most recent version *after* the new 'current' and 'previous' versions.
+The layout.erb file (rhomobile-docs/views/layout.erb) controls the lower portion of the version selector drop-down list at the top of all docs pages. This displays the list of all supported versions ** *except* ** the current and previous versions. When a new RMS version is added, **this list must be edited so that it contains the most recent version *after* the new 'current' and 'previous' versions**.
 
-For example, let's say the new version you're adding is version 5.1. If the version it replaces was 5.0.30, and the version immediately prior to that was 5.0.25, then the new layout.erb file should look like this:
+For example, let's say the new version you're adding is version 5.1. If the version it replaces was 5.0.30, and the version immediately prior to that was 5.0.25, then a correctly edited layout.erb file would look like this:
 
     :::erb
     <!-- Keep all previous versions hard-coded -->
@@ -31,16 +31,18 @@ For example, let's say the new version you're adding is version 5.1. If the vers
     <option value='4.0.0' <%=@docversion=='4.0.0' ? 'SELECTED' : ''%>>4.0.0</option>
     <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>2.2.0</option>
 
-Notice that version 5.0.30 does not appear, but that 5.0.25 does. This is because with the introduction of 5.1, version 5.0.30 became the previous version and 5.0.25 was bumped down to 'supported' status. The current and previous versions are injected into the drop-down menu by code that grabs those versions from the version.rb file.
+Notice that version 5.0.30 does not appear, but that 5.0.25 does. This is because with the introduction of 5.1, version 5.0.30 becomes the previous version and causes 5.0.25 to get bumped to the 'supported' list. The current and previous versions are injected into the drop-down menu by code that grabs those version numbers from the version.rb file.
 
 ## In The New Version Folder
-Things that need changing in the new version folder, which was copied from edge.
+The process of publishing new docs includes copying all of the files from the 'edge' folder--where they've been gradually updated as the new version was being developed--to a new folder named for the new version number. 
+
+In the new version's folder, change the following files:
 
 ### toc.rb
-the toc.rb file contains all the links to the docs inside the given version and need to have all instances of the word 'edge' changed to whatever the new version is.
+The toc.rb (table of contents) file contains links to all of the docs inside the given version's folder. During development, that folder was called 'edge.' Now that it has a version number, **all instances of the word 'edge' must be changed (using search-and-replace) to the new version designation**. In other words, we would change 'edge' to '5.1' if following the example from above. 
 
 ### apiusage.md and apisummary.md
-these two files ([version]/guide/apisummary.md and [version]/guide/apiusage.md) which document the APIs for a given version need to have any mention of a version updated to make sure it is referencing the correct version.
+The apiusage.md and apisummary.md files ([version]/guide/apisummary.md and [version]/guide/apiusage.md) document the APIs for a given version. **They must be edited so that all version references are to the current version**.
 
 ### rhoArchitecture
-Titled 'RMS 5.x Supported Platforms,' this page details the resources needed to run RhoMobile Suite and contains tables of devices supported (and deprecated) by the current version. Its top-most table lists the operating systems and general sets of devices on which apps made with RMS will run. 
+The 'RMS 5.x Supported Platforms' (guide/rhoArchitecture) page details the resources needed to run RhoMobile Suite and contains tables of devices supported (and deprecated) by the current version. Its top-most table lists the operating systems and general sets of devices on which apps made with RMS will run. **This page must be updated to reflect the current version number**. 
