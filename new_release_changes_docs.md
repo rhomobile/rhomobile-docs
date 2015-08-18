@@ -2,7 +2,7 @@
 This document describes how other documents need to change whenever a folder containing new RhoMobile docs is added to the RhoMobile docs repository.
 
 ## Top-Level Docs
-Changes required at the docs folder level or higher: 
+Changes required at the docs-folder level or higher: 
 
 ### version.rb
 The version.rb file (rhomobile-docs/version.rb) controls the upper portion of the version selector drop-down list at the top of all docs pages. **This file must be changed to reflect a new 'current' version and a new 'previous' version (the version immediately prior to the current one)**. 
@@ -19,7 +19,7 @@ For example, if the new version is to be 5.0.30 and version it replaces was 5.0.
 > NOTE: NEXT_VERSION always will be 'edge,' so there is never a need to change that.
 
 ### layout.erb
-The layout.erb file (rhomobile-docs/views/layout.erb) controls the lower portion of the version selector drop-down list at the top of all docs pages. This displays the list of all supported versions ** *except* ** the current and previous versions. When a new RMS version is added, **this list must be edited so that it contains the most recent version *after* the new 'current' and 'previous' versions**.
+The layout.erb file (rhomobile-docs/views/layout.erb) controls the lower portion of the version selector drop-down list at the top of all docs pages. This displays the list of all supported versions *except* the current and previous versions. When a new RMS version is added, **this list must be edited so that it contains the most recent version *after* the new 'current' and 'previous' versions**.
 
 For example, let's say the new version you're adding is version 5.1. If the version it replaces was 5.0.30, and the version immediately prior to that was 5.0.25, then a correctly edited layout.erb file would look like this:
 
@@ -31,7 +31,7 @@ For example, let's say the new version you're adding is version 5.1. If the vers
     <option value='4.0.0' <%=@docversion=='4.0.0' ? 'SELECTED' : ''%>>4.0.0</option>
     <option value='2.2.0' <%=@docversion=='2.2.0' ? 'SELECTED' : ''%>>2.2.0</option>
 
-Notice that version 5.0.30 does not appear, but that 5.0.25 does. This is because with the introduction of 5.1, version 5.0.30 becomes the previous version and causes 5.0.25 to get bumped to the 'supported' list. The current and previous versions are injected into the drop-down menu by code that grabs those version numbers from the version.rb file.
+Notice that version 5.0.30 does not appear, but that 5.0.25 does. This is because with the introduction of 5.1, version 5.0.30 becomes the previous version and causes 5.0.25 to get bumped to the 'supported' list. The current and previous versions do not go into this list, but instead are injected into the drop-down menu by code that grabs those version numbers from the version.rb file.
 
 ## In The New Version Folder
 The process of publishing new docs includes copying all of the files from the 'edge' folder--where they've been gradually updated as the new version was being developed--to a new folder named for the new version number. 
