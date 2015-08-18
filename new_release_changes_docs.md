@@ -39,10 +39,10 @@ The process of publishing new docs includes copying all of the files from the 'e
 In the new version's folder, change the following files:
 
 ### toc.rb
-The toc.rb (table of contents) file contains links to all of the docs inside the given version's folder. During development, that folder was called 'edge.' Now that it has a version number, **all instances of the word 'edge' must be changed (using search-and-replace) to the new version designation**. In other words, we would change 'edge' to '5.1' if following the example from above. 
+The toc.rb (table of contents) file contains links to all of the docs inside the given version's folder. During development, that folder was called 'edge.' Now that it has a version number, **all instances of the word 'edge' must be changed (using search-and-replace) to the new version designation**. If using the example above, we would change 'edge' to '5.1' anywhere it occurs in the file. 
 
 ### apiusage.md and apisummary.md
-The apiusage.md and apisummary.md files ([version]/guide/apisummary.md and [version]/guide/apiusage.md) document the APIs for a given version. **They must be edited so that all version references are to the current version**.
+The **apiusage.md and apisummary.md** files ([version]/guide/apisummary.md and [version]/guide/apiusage.md) document the APIs for a given version. **They must be edited so that all version references are to the current version**.
 
 ### rhoArchitecture
-The 'RMS 5.x Supported Platforms' (guide/rhoArchitecture) page details the resources needed to run RhoMobile Suite and contains tables of devices supported (and deprecated) by the current version. Its top-most table lists the operating systems and general sets of devices on which apps made with RMS will run. **This page must be updated to reflect the current version number**. 
+The 'RMS 5.x Supported Platforms' ([version]/guide/rhoArchitecture) page details the resources needed to run RhoMobile Suite and contains tables of devices supported (and deprecated) by the current version. Its top-most table lists the operating systems and general sets of devices on which apps made with RMS will run. **This page must be updated to reflect the current version number**. 
