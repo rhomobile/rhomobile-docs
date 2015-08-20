@@ -2,20 +2,21 @@
 
 RhoStudio is a complete integrated development environment (IDE) that includes a code editor, debugger, simulator and tools for building platform-specific runtimes. The RhoMobile Suite centers around the Rhodes open-source framework for building cross-platform apps. 
 
-Projects can be created from within RhoStudio (an Eclipse-based environment included with the [RhoMobile Suite installation](rhomobile-install)), an IDE of your choosing, from a command line or in the cloud. Under the hood, RhoStudio invokes Rhodes command-line tools anyway, so those approaches are equivalent. 
+Rhodes-based projects can be created in several ways: From within RhoStudio (an Eclipse-based environment included with the [RhoMobile Suite installation](rhomobile-install)), from within Visual Studio or another IDE of your choosing, from a command line, or in the cloud. Under the hood, RhoStudio invokes the Rhodes command-line tools anyway, so those approaches are equivalent. 
 
 ## Developing with RhoStudio
-RhoStudio includes everything needed to build hybrid apps for Android, iOS and Windows Mobile/CE from start to finish. Since it's based on the extensible Eclipse framework, RhoStudio permits developers to customize and enhance its functionality by adding their own plug-ins. However, to build native applications for one or more specific mobile platforms, the developer must also [install native SDK(s)](nativesdksetup) on the development host for each platform to be targeted. Once these have been set up and linked to RhoStudio, the build process takes place completely within RhoStudio.
+RhoStudio includes everything needed to build hybrid apps for Android, iOS and Windows Mobile/CE from start to finish. Since it's based on the extensible Eclipse framework, this option permits developers to customize and enhance IDE functionality by adding their own Eclipse plug-ins. However, to build native applications for one or more specific mobile platforms, the developer also must [install native SDK(s)](nativesdksetup) on the development host for each mobile platform to be targeted. Once these have been set up and linked to RhoStudio, the build process takes place completely within RhoStudio.
+
+The web contains plenty of documentation for building Eclipse Plug-ins. The Eclipse Foundation's [Creating a Plug-in Project](http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.rse.doc.isv%2Fguide%2Ftutorial%2FpdeProject.html) is as good a place to start as any. 
 
 ## Developing with Visual Studio
-A [Visual Studio plugin](visualstudio) is available to allow developers to build RhoMobile applications that are targeted for Windows Phone 8 devices. 
+A [Visual Studio plugin](visualstudio) is available to allow developers to build RhoMobile applications that target devices running Windows Phone 8. 
 
-about how to use and setup the RhoMobile Visual Studio plugin.
+## Using Other IDEs and Editors
+When using text editors or other IDEs, you can use RhoMobile's command line options to run build, deploy and app scaffolding activities.
 
-## Developing with Another IDE/Editor
 Writing code for your RhoMobile application involves writing JavaScript, HTML, CSS or Ruby. You can use your tool of choice for editing your code whether it is your favorite text editor or an IDE that supports these languages. 
 
-When using text editors or other IDE's, you can use RhoMobile's command line options to run build, deploy and app scaffolding activities.
 
 [Read more](nonrhostudio) about how to use a text editor with RhoMobile's command line options
 
