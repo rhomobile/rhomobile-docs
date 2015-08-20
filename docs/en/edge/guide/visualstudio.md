@@ -1,37 +1,43 @@
 #Visual Studio Plug-in
 
-The RhoMobile Visual Studio Plugin allows you to build applications that target Windows Phone 8. The current version allows you to:
+The RhoMobile Visual Studio Plug-in allows you to build Rhodes-based applications that target Windows Phone 8. The current version allows you to:
 
 * Generate an application structure
 * Generate data models
-* Edit code
+* Edit application code
 * Build apps for Windows Phone 8
-* Build, deploy and run
+* Deploy and run the apps
 
 ## Prerequisites
 
 * Visual Studio 2012 Professional
 * Windows Phone 8 SDK
 * RhoMobile Suite 4.0 or higher
-* Silver and Gold RhoMobile subscription
-* There is no dialog to log in or sign up to RhoMobile.com from within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
+* Silver or Gold RhoMobile subscription
+* A copy of the plug-in (see below)
 
 ## Installing
-1. Download the extension's [VSIX file](https://github.com/rhomobile/vsplugin/tree/master/Installer) and double-click it in Windows Explorer
-2. Given the choice of which editions of Visual Studio the extension should be installed for, leave checkmarks next to only those editions where you plan to use the extension and click OK
-3. When the installation finishes, make sure to restart any open instances of Visual Studio
+1. Visit the [RhoMobile vsplugin page](https://github.com/rhomobile/vsplugin/tree/master/Installer) on GitHub and click on the VSIX file to begin the download 
+2. Locate and **double-click the downloaded file** in Windows Explorer
+3. When prompted, **select only the editions of Visual Studio in which the extension will be used**
+4. **Click OK** to begin installation
+5. When finished, **close and re-open any open Visual Studio windows**
 
-NOTE: The current version of the extension installs for all users so you might get a User Account Control prompt in Windows upon both installation and removal of the extension. This is expected behavior.
+NOTE: During installion (and removal) of the extension, a User Account Control prompt might appear in Windows. This expected behavior is because the current version of the extension installs for all users.
 
 ## Generating an application
 
-1. From the Visual Studio 2012 `File Menu` select `New Project`
-2. Select `RhoMobile` then `RhoMobile Windows Phone 8 Project`
-3. Give your project a name then click `Ok`
-4. When prompted either choose `Rhodes` or `RhoElements` frameworks. [Check here](welcome#rhomobile) for more details on the differences.
-5. Click `Finish`
+1. In Visual Studio 2012, **select File > New Project**
+2. **Select RhoMobile** then **RhoMobile Windows Phone 8 Project**
+3. **Name the project, click OK**
+4. When prompted, **select a Rhodes or RhoElements framework** (If you're not sure which to select, read about [the differences between Rhodes and RhoElements](welcome#rhomobile))
+5. **Click Finish**
 
-This generates a set of files and folders to define an application structure. This structure is the same as what is [generated from RhoStudio](creating_a_project)
+This generates a set of files and folders that define your new application's structure. This structure is the same as what is [generated from RhoStudio](creating_a_project). 
+
+* There is no dialog to log in or sign up to RhoMobile.com from within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
+
+
 
 ## Generating data models
 
