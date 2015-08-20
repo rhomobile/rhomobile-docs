@@ -1,19 +1,19 @@
-#Visual Studio Plugin
+#Visual Studio Plug-in
 
-The RhoMobile Visual Studio Plugin allows you to build applications that are targeted for Windows Phone 8. The current version allows you to:
+The RhoMobile Visual Studio Plugin allows you to build applications that target Windows Phone 8. The current version allows you to:
 
 * Generate an application structure
 * Generate data models
-* Code editing
-* Build for Windows Phone 8
-* Launch and Run
+* Edit code
+* Build apps for Windows Phone 8
+* Build, deploy and run
 
 ## Prerequisites
 
 * Visual Studio 2012 Professional
 * Windows Phone 8 SDK
-* RhoMobile Suite 4.0+
-* Only available to Silver and Gold level subscriptions
+* RhoMobile Suite 4.0 or higher
+* Silver and Gold RhoMobile subscription
 * There is no dialog to log in or sign up to RhoMobile.com from within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
 
 ## Installing
