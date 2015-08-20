@@ -23,7 +23,7 @@ The RhoMobile Visual Studio Plug-in allows you to build Rhodes-based application
 4. **Click OK** to begin installation
 5. When finished, **close and re-open any open Visual Studio windows**
 
-NOTE: During installion (and removal) of the extension, a User Account Control prompt might appear in Windows. This expected behavior is because the current version of the extension installs for all users.
+NOTE: During installion (and removal) of the extension, a User Account Control prompt might appear in Windows. This is expected behavior; the current version of the extension installs for all users.
 
 ## Generating an application
 
@@ -33,24 +33,22 @@ NOTE: During installion (and removal) of the extension, a User Account Control p
 4. When prompted, **select a Rhodes or RhoElements framework** (If you're not sure which to select, read about [the differences between Rhodes and RhoElements](welcome#rhomobile))
 5. **Click Finish**
 
-This generates a set of files and folders that define your new application's structure. This structure is the same as what is [generated from RhoStudio](creating_a_project). 
-
-* There is no dialog to log in or sign up to RhoMobile.com from within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
-
-
+This generates a set of files and folders that define your new application's structure. This structure is exactly the same as when [creating a RhoStudio app](creating_a_project). 
 
 ## Generating data models
 
-1. Right Click on the project name
-2. Choose `Add` \ `New Item`
-3. In the `Add New Item` dialog, choose `RhoMobile Model`
-4. Click `Add`
-5. In the `Add new RhoMobile Model` dial enter the `Model Name` an then a list of `Model Attributes` separated by a comma
-6. Click Finish
+1. In Visual Studio, **right-click the project name**
+2. Select **Add New Item**
+3. In the Add New Item dialog, **select RhoMobile Model**
+4. **Click Add**
+5. In the Add New RhoMobile Model dialog, **enter a model name and a list of attributes (separated by commas)**
+6. **Click Finish**
 
-This automatically generates a folder and a corresponding set files that provide CRUD operations for that model. [Read more details](models) about data models.
+This will automatically generate a folder and the corresponding files for handling CRUD operations for the model. For a better understanding of data models, please refer to the RhoMobile [Data Handling Guide](local_database#what-is-a-model).
 
 ## Application changes
+
+>>>>>>>>>>> NEED MORE INFO HERE
 
 * Add to application build.yml productid GUID. For example:
 
@@ -92,6 +90,9 @@ RhoSimulator launches. [Read more details]() about how to use RhoSimulator
 
 NOTE: You may use your computer keyboard with Windows Phone 8 emulator. By default it is disabled, but you can enable it pressing **PgUp** key. While it is enabled a device rotation simulation is not supported. To rotate device you need to disable keyboard support pressing **PgDown** key.  Look [MSDN page](http://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx) for much more details on this topic.
 
+NOTE: There is no dialog or log-in prompt for RhoMobile.com displayed within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
+
+
 ### Run application device using command line:
 
         $rake run:wp8:device
@@ -99,7 +100,6 @@ NOTE: You may use your computer keyboard with Windows Phone 8 emulator. By defau
 * See log in application folder : rholog.txt
 
 NOTE: When running on device you may need to disconnect USB cable from device to see log
-
 
 ## Future plugin features
 We will be adding this features to the plug-in soon. Check back for updates:
