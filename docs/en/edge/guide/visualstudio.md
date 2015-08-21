@@ -66,7 +66,7 @@ Without Rhom, you would issue SQL statements to the database:
 
 This will automatically generate a folder and the corresponding files for handling CRUD operations for the model. For a better understanding of data models, please refer to the [RhoMobile Data Handling Guide](local_database#what-is-a-model).
 
-## Dropping in a Windows Phone 8 UI
+## Adding a Windows Phone 8 UI
 Since RhoMobile apps employ HTML, CSS and JavaScript to define the user interface and application behavior, a Windows Phone 8 app can be designed with a WP-native UI (a.k.a. 'Metro' by using one of these Metro-like frameworks:
 
 * [Bootmetro](http://aozora.github.io/bootmetro/)
@@ -78,28 +78,31 @@ Since RhoMobile apps employ HTML, CSS and JavaScript to define the user interfac
 Follow the instructions that accompany the framework you've chosen to replace the default.
 
 ## Launching your new app
-You're now ready to build and launch your application. You have the following build configuration options:
+Now that you're now ready to build and launch your app, you must select from following build configuration options:
 
-* **RhoSimulator** builds and launches the app in RhoSimulator, which provides a Webkit-enabled window that displays your app along with a Web Inspector tool to help facilitate debugging
+* **RhoSimulator** builds and launches the app in RhoSimulator, a Webkit-enabled window that displays your app along with a Web Inspector tool to help facilitate debugging
 
-* **Device** deploys the app to a Windows Phone 8 device connected to your development machine for on-device debugging using Visual Studio or web inspector tools 
+* **Device** deploys the app to your Windows Phone 8 device connected to the development machine for on-device debugging using Visual Studio or web inspector tools 
 
 * **Emulator** launches the app in the Windows Phone 8 emulator provided by Microsoft
 
 NOTE: RhoSimulator is recommended while initially building your app's UI and establishing its basic behavior; it is the fastest method for testing and debugging web apps. 
 
-You can now launch your application inside of RhoSimulator for testing by:
+##Starting RhoSimulator...
+###...from within Visual Studio
+To launch your new application in the RhoSimulator:
 
-1. From the toolbar make sure `RhoSimulator` is selected in the dropdown
-2. Click `Start`
+1. From the Visual Studio toolbar, **select RhoSimulator in the dropdown**
+2. **Click Start**
 
-RhoSimulator launches. [Read more details]() about how to use RhoSimulator
+###...from the command line:
+To run your the app in RhoSimulator from the command line, execute the following command:  
 
-### Run application simulator using command line:
+	:::term
+        $ rake run:wp8
 
-        $rake run:wp8
-
-NOTE: You may use your computer keyboard with Windows Phone 8 emulator. By default it is disabled, but you can enable it pressing **PgUp** key. While it is enabled a device rotation simulation is not supported. To rotate device you need to disable keyboard support pressing **PgDown** key.  Look [MSDN page](http://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx) for much more details on this topic.
+###Keyboard for Windows Phone 8 Emulator
+The host computer's keyboard can be used with the Windows Phone 8 emulator but is disabled by default. To enable it, press the **PgUp** key. While the host keyboard is enabled,  device rotation simulation is not supported. To rotate device, you must first disable the keyboard by pressing the **PgDown** key. There's more information about this feature on the [MSDN page](http://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx).
 
 NOTE: There is no dialog or log-in prompt for RhoMobile.com displayed within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
 
@@ -112,8 +115,8 @@ NOTE: There is no dialog or log-in prompt for RhoMobile.com displayed within the
 
 NOTE: When running on device you may need to disconnect USB cable from device to see log
 
-## Future plugin features
-We will be adding this features to the plug-in soon. Check back for updates:
+## Plug-in feature roadmap
+The following features are on the Visual Studio Plug-in roadmap:
 
 * JavaScript debugging
 * Building for Windows Mobile/CE
