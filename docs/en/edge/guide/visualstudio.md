@@ -49,13 +49,9 @@ Using Visual Studio or any text editor**, append the `build.yml` file as follows
 
 
 ## Generating data models
+RhoMobile includes Rhom, a database object mapper (ORM) that provides a powerful high level interface to an on-device SQLite database. Rhom works hand in hand with the RhoConnectClient to enable two-way synchronization between your application and a RhoConnect server.
 
-FIXXXXX
-Rhom is a database object mapper or ORM for RhoMobile. It provides a simple but powerful high level interface to use a local (on-device) SQLite database in terms of objects, and works hand in hand with RhoConnectClient to enable two-way synchronization between your application and a RhoConnect server.
-
-One of its main benefits is that, instead of having to write SELECT and UPDATE statements by hand, you can carry out actions in your database by getting and setting properties on model objects.
-
-Without Rhom, you would issue SQL statements to the database:
+To create a data model: 
 
 1. In Visual Studio, **right-click the project name**
 2. Select **Add New Item**
@@ -78,6 +74,9 @@ Since RhoMobile apps employ HTML, CSS and JavaScript to define the user interfac
 Follow the instructions that accompany the framework you've chosen to replace the default.
 
 ## Launching your new app
+
+NOTE: Building RhoMobile apps requires an account on Rhomobile.com and that the user be logged in. This must be done via RhoMobile.com or RhoStudio before your build is attempted; no dialog or log-in prompt will appear within Visual Studio. 
+
 Now that you're now ready to build and launch your app, you must select from following build configuration options:
 
 * **RhoSimulator** builds and launches the app in RhoSimulator, a Webkit-enabled window that displays your app along with a Web Inspector tool to help facilitate debugging
@@ -102,10 +101,7 @@ To run your the app in RhoSimulator from the command line, execute the following
         $ rake run:wp8
 
 ###Keyboard for Windows Phone 8 Emulator
-The host computer's keyboard can be used with the Windows Phone 8 emulator but is disabled by default. To enable it, press the **PgUp** key. While the host keyboard is enabled,  device rotation simulation is not supported. To rotate device, you must first disable the keyboard by pressing the **PgDown** key. There's more information about this feature on the [MSDN page](http://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx).
-
-NOTE: There is no dialog or log-in prompt for RhoMobile.com displayed within the IDE. To create an account you will need to do so via RhoMobile.com, to log in you will have to do so through the command line or in RhoStudio.
-
+The host computer's keyboard can be used with the Windows Phone 8 emulator, but is disabled by default. To enable it, press the **PgUp** key or the **PAUSE/BREAK** key. While the host keyboard is enabled, device rotation simulation is disabled. To rotate the device in the emulator, you must first disable the keyboard by pressing the **PgDown** key. MSDN has more information about [host keyboard use with the WP8 emulator](http://msdn.microsoft.com/en-us/library/ff754352). 
 
 ### Run application device using command line:
 
