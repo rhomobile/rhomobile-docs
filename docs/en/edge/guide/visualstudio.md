@@ -33,13 +33,15 @@ NOTE: During installion (and removal) of the extension, a User Account Control p
 4. When prompted, **select a Rhodes or RhoElements framework** (If you're not sure which to select, read about [the differences between Rhodes and RhoElements](welcome#rhomobile))
 5. **Click Finish**
 
+Once the app is generated, a folder structure like the one below will appear in your workspace in a folder with the name you gave your app. 
+
 ![Anatomy of a Rho app](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/rhoelementstutorial/Anatomy_of_a_Rho_application.png?raw=true =350x)
 
 ## Adding a productid GUID
 
-The process above generates all the files and folders to define the structure of your new application. This structure is the same as when [creating an app using RhoStudio](creating_a_project). However, your new Windows Phone app requires that a 'productid GUID' be added to its `build.yml` file. The [build.yml](build_config) is located in the app's root directory. 
+The process above generates all the files and folders to define the structure of your new application. This structure is the same as when [creating an app using RhoStudio](creating_a_project). However, ro run your new Windows Phone app you'll have to add a 'productid GUID' to its `build.yml` file. As seen above, the [build.yml](build_config) is located in the app's root directory. 
 
-**Append the `build.yml` file as follows** using Visual Studio or any text editor: 
+Using Visual Studio or any text editor**, append the `build.yml` file as follows**: 
 
 
         wp:
@@ -47,6 +49,13 @@ The process above generates all the files and folders to define the structure of
 
 
 ## Generating data models
+
+FIXXXXX
+Rhom is a database object mapper or ORM for RhoMobile. It provides a simple but powerful high level interface to use a local (on-device) SQLite database in terms of objects, and works hand in hand with RhoConnectClient to enable two-way synchronization between your application and a RhoConnect server.
+
+One of its main benefits is that, instead of having to write SELECT and UPDATE statements by hand, you can carry out actions in your database by getting and setting properties on model objects.
+
+Without Rhom, you would issue SQL statements to the database:
 
 1. In Visual Studio, **right-click the project name**
 2. Select **Add New Item**
@@ -66,18 +75,18 @@ Since RhoMobile apps employ HTML, CSS and JavaScript to define the user interfac
 * [Metro-Bootstrap](http://talkslab.github.com/metro-bootstrap/)
 * [jqMetro](http://jqmetro.codeplex.com/)
 
-Follow the instructions that accompany the chosen framework to replace the default.
+Follow the instructions that accompany the framework you've chosen to replace the default.
 
 ## Launching your new app
-You are now ready to build and launch your application by selecting a build configuration option:
+You're now ready to build and launch your application. You have the following build configuration options:
 
-* RhoSimulator - The same RhoSimulator that is used on other platforms, provides a Webkit enabled view as well as a Web Inspector to help with debugging
+* **RhoSimulator** builds and launches the app in RhoSimulator, which provides a Webkit-enabled window that displays your app along with a Web Inspector tool to help facilitate debugging
 
-* Device - You must have a Windows Phone 8 device connected to your machine and have it setup properly so Visual Studio recognizes it
+* **Device** deploys the app to a Windows Phone 8 device connected to your development machine for on-device debugging using Visual Studio or web inspector tools 
 
-* Emulator - Windows Phone 8 emulator provided by Microsoft.
+* **Emulator** launches the app in the Windows Phone 8 emulator provided by Microsoft
 
-NOTE: It is recommended to use RhoSimulator while initially building out your user interface and application behavior. This will give you the most rapid method for testing/debugging that is targeted at web apps.
+NOTE: RhoSimulator is recommended while initially building your app's UI and establishing its basic behavior; it is the fastest method for testing and debugging web apps. 
 
 You can now launch your application inside of RhoSimulator for testing by:
 
