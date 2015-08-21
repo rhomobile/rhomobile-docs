@@ -33,6 +33,8 @@ NOTE: During installion (and removal) of the extension, a User Account Control p
 4. When prompted, **select a Rhodes or RhoElements framework** (If you're not sure which to select, read about [the differences between Rhodes and RhoElements](welcome#rhomobile))
 5. **Click Finish**
 
+![Anatomy of a Rho app](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/rhoelementstutorial/Anatomy_of_a_Rho_application.png?raw=true =350x)
+
 ## Adding a productid GUID
 
 The process above generates all the files and folders to define the structure of your new application. This structure is the same as when [creating an app using RhoStudio](creating_a_project). However, your new Windows Phone app requires that a 'productid GUID' be added to its `build.yml` file. The [build.yml](build_config) is located in the app's root directory. 
@@ -54,9 +56,6 @@ The process above generates all the files and folders to define the structure of
 6. **Click Finish**
 
 This will automatically generate a folder and the corresponding files for handling CRUD operations for the model. For a better understanding of data models, please refer to the [RhoMobile Data Handling Guide](local_database#what-is-a-model).
-
->>>IMAGE
-
 
 ## Dropping in a Windows Phone 8 UI
 Since RhoMobile apps employ HTML, CSS and JavaScript to define the user interface and application behavior, a Windows Phone 8 app can be designed with a WP-native UI (a.k.a. 'Metro' by using one of these Metro-like frameworks:
