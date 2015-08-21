@@ -33,7 +33,16 @@ NOTE: During installion (and removal) of the extension, a User Account Control p
 4. When prompted, **select a Rhodes or RhoElements framework** (If you're not sure which to select, read about [the differences between Rhodes and RhoElements](welcome#rhomobile))
 5. **Click Finish**
 
-This generates a set of files and folders that define your new application's structure. This structure is exactly the same as when [creating a RhoStudio app](creating_a_project). 
+## Adding a productid GUID
+
+The process above generates all the files and folders to define the structure of your new application. This structure is the same as when [creating an app using RhoStudio](creating_a_project). However, your new Windows Phone app requires that a 'productid GUID' be added to its `build.yml` file. The [build.yml](build_config) is located in the app's root directory. 
+
+**Append the `build.yml` file as follows** using Visual Studio or any text editor: 
+
+
+        wp:
+          productid: 632621d0-5ecb-012e-2c97-482a1411c191
+
 
 ## Generating data models
 
@@ -44,19 +53,13 @@ This generates a set of files and folders that define your new application's str
 5. In the Add New RhoMobile Model dialog, **enter a model name and a list of attributes (separated by commas)**
 6. **Click Finish**
 
-This will automatically generate a folder and the corresponding files for handling CRUD operations for the model. For a better understanding of data models, please refer to the RhoMobile [Data Handling Guide](local_database#what-is-a-model).
+This will automatically generate a folder and the corresponding files for handling CRUD operations for the model. For a better understanding of data models, please refer to the [RhoMobile Data Handling Guide](local_database#what-is-a-model).
 
-## Application changes
+>>>IMAGE
 
->>>>>>>>>>> NEED MORE INFO HERE
 
-* Add to application build.yml productid GUID. For example:
-
-        wp:
-          productid: 632621d0-5ecb-012e-2c97-482a1411c191
-
-## Windows Phone 8 User Interface
-Recall that RhoMobile applications utilize web languages like CSS, JavaScript and HTMl to define it's interface and application behavior. Therefore, if you are looking to provide a native Windows Phone 8 (aka Metro) user interface, you may want to consider using one of the the Metro-like frameworks:
+## Dropping in a Windows Phone 8 UI
+Since RhoMobile apps employ HTML, CSS and JavaScript to define the user interface and application behavior, a Windows Phone 8 app can be designed with a WP-native UI (a.k.a. 'Metro' by using one of these Metro-like frameworks:
 
 * [Bootmetro](http://aozora.github.io/bootmetro/)
 * [Metro UI CSS](http://metroui.org.ua/)
@@ -64,9 +67,9 @@ Recall that RhoMobile applications utilize web languages like CSS, JavaScript an
 * [Metro-Bootstrap](http://talkslab.github.com/metro-bootstrap/)
 * [jqMetro](http://jqmetro.codeplex.com/)
 
-[Follow the instructions]() for replacing the default application generation with your own framework.
+Follow the instructions that accompany the chosen framework to replace the default.
 
-## Launch and Run
+## Launching your new app
 You are now ready to build and launch your application by selecting a build configuration option:
 
 * RhoSimulator - The same RhoSimulator that is used on other platforms, provides a Webkit enabled view as well as a Web Inspector to help with debugging
