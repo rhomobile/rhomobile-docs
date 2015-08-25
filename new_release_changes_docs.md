@@ -53,11 +53,11 @@ The 'RMS 5.x Supported Platforms' ([version]/guide/rhoArchitecture) page details
 
 ##Push changes to the Github repository
 
-**In terminal, execute the following commands, in this order 
+**In terminal, execute the following commands, in this order: 
 
-    git add --all (stages your local changes to be committed)
+    git add --all //stages your local changes to be committed
 
-    git commit -m 'note to describe your action' (commits your changes to the repo)
+    git commit -m 'note to describe your action' //commits your changes to the repo
 
-    git push (uploads your changes to the repo)
+    git push //uploads your changes to the repo
 
