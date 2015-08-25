@@ -51,6 +51,8 @@ The 'RMS 5.x Supported Platforms' ([version]/guide/rhoArchitecture) page details
 
 **If not already changed during the development process, update this page and its tables to reflect the current version number, its supported (and deprecated) devices and operating systems and any other relevant information**. 
 
+**Using a local web server ($ 'rake start' command from the local repo), verify that the new guide version appears and that menus are working properly**. 
+
 ##Push changes to the Github repository
 
 **In terminal, execute the following commands, in this order: 
@@ -61,3 +63,4 @@ The 'RMS 5.x Supported Platforms' ([version]/guide/rhoArchitecture) page details
 
     git push //uploads your changes to the repo
 
+The new version of the guide will be visible to the public the next morning. 
