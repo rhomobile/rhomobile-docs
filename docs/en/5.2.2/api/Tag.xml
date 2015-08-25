@@ -1,0 +1,201 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+  <MODULE name="Tag" parent="Rho.NFC" productException='eb'>
+    <HELP_OVERVIEW>NFC Tag</HELP_OVERVIEW>
+    <MORE_HELP>This class representative NFC Tag object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
+
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+    </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the Tag API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Tag API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.tag.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+
+        </MORE_HELP_EB>
+
+    <TEMPLATES>
+    </TEMPLATES>
+
+    <PROPERTIES access="INSTANCE" generateAccessors="true">
+
+      <DESC>list of properties supported by class</DESC>
+
+      <PROPERTY name="ID" type="STRING" readOnly="true">
+        <DESC>object ID</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="type" type="STRING" readOnly="true">
+        <DESC>Tag type</DESC>
+          <VALUES>
+            <VALUE constName="TAG_TYPE_TOPAZ" type="STRING" value = "1">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_FELICA" type="STRING" value = "2">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_CLASSIC" type="STRING" value = "3">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_UL" type="STRING" value = "4">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_DESFIRE" type="STRING" value = "6">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_ISO15693" type="STRING" value = "7">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_B" type="STRING" value = "8">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE" type="STRING" value = "9">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_NXP_I_CODE" type="STRING" value = "10">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS" type="STRING" value = "11">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_ULC" type="STRING" value = "12">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS_S2K" type="STRING" value = "13">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_MIFARE_PLUS_X2K" type="STRING" value = "14">
+              <DESC></DESC>
+            </VALUE>
+            <VALUE constName="TAG_TYPE_UNKNOWN" type="STRING" value = "255">
+              <DESC></DESC>
+            </VALUE>
+          </VALUES>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="serialNumber" type="STRING" readOnly="true">
+        <DESC>The serial number of a tag.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="size" type="INTEGER" readOnly="true">
+        <DESC>size in bytes</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="freeSize" type="INTEGER" readOnly="true">
+        <DESC>free size in bytes</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="isReadOnly" type="BOOLEAN" readOnly="true">
+        <DESC>Indicating if the tag is locked for write operation.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="isNdef" type="BOOLEAN" readOnly="true">
+        <DESC>ndef or not</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      <PROPERTY name="isConnected" type="BOOLEAN" readOnly="true">
+        <DESC>connected or not(if connections between tag and nfc device exists)</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+    </PROPERTIES>
+
+    <METHODS>
+
+      <METHOD name="getTagById" access="STATIC">
+        <DESC>This function returns Tag object</DESC>
+        <PARAMS>
+          <PARAM name="id" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="SELF_INSTANCE">
+          <DESC></DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="makeReadOnly">
+        <DESC>make Tag read only</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="formatNDEF">
+        <DESC>format Tag to NDEF type</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="writeMessage">
+        <DESC>write messages on Tag. On the current moment only 1 message is supported.</DESC>
+        <PARAMS>
+          <PARAM name="messages" type="ARRAY">
+            <DESC></DESC>
+            <PARAM type="STRING">
+              <DESC>id of Rho.NFC.Message object</DESC>
+              <DESC_EB>id of Message object</DESC_EB>
+            </PARAM>
+          </PARAM>
+        </PARAMS>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="exchangeData">
+        <DESC>This function exchanges raw data with Tag. Tag shouldn't be NDEF formated. Only Milfare and Ti tags are supported. When sendData is empty then method reads data from Tag and write into receiveData parameter.</DESC>
+        <PARAMS>
+          <PARAM name="sendData" type="STRING">
+            <DESC></DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="HASH">
+          <DESC></DESC>
+          <PARAMS>
+            <PARAM name="receiveData" type="STRING">
+              <DESC>NFC_SUCCESS if OK</DESC>
+            </PARAM>
+          </PARAMS>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="close">
+        <DESC>release resources, close connection</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+    </METHODS>
+
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+    </PLATFORM>
+  </MODULE>
+</API>

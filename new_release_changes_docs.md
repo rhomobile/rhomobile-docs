@@ -36,7 +36,9 @@ Notice that version 5.0.30 does not appear, but that 5.0.25 does. This is becaus
 ## In The New Version Folder
 The process of publishing new docs includes copying all of the files from the 'edge' folder--where they've been gradually updated as the new version was being developed--to a new folder named for the new version number. 
 
-In the new version's folder, change the following files:
+**Make a copy the Edge folder and rename it to match the new version number**. 
+
+**In the new version's folder, change the following files**:
 
 ### toc.rb
 The toc.rb (table of contents) file contains links to all of the docs inside the given version's folder. During development, that folder was called 'edge.' Now that it has a version number, **all instances of the word 'edge' must be changed (using search-and-replace) to the new version designation**. If using the example above, we would change 'edge' to '5.1' anywhere it occurs in the file. 

@@ -1,0 +1,25 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+
+<DEFAULT_INSTANCE>
+	<METHODS>
+	    <METHOD name="getDefault" access="STATIC" factory="true" nativeName="getDefaultID">
+			<DESC>This method will return an object that represents the default instance of the API Class. For example Camera.getDefault will return a Camera object that represents the default camera.</DESC>
+            <RETURN type="SELF_INSTANCE">
+                <DESC>Default object of Module.</DESC>
+            </RETURN>
+            <PLATFORM usemodule="true"></PLATFORM>
+        </METHOD>
+
+        <METHOD name="setDefault" access="STATIC" nativeName="setDefaultID">
+            <DESC>This method allows you to set the attributes of the default object instance by passing in an object of the same class.</DESC>
+            <PARAMS>
+                <PARAM name="defaultInstance" type="SELF_INSTANCE">
+                    <DESC>An instance object that is of the same class.</DESC>
+                </PARAM>
+            </PARAMS>
+            <PLATFORM usemodule="true"></PLATFORM>
+        </METHOD>
+
+    </METHODS>
+</DEFAULT_INSTANCE>
