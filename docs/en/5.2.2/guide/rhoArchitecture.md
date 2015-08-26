@@ -43,7 +43,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
  </tr></table>
 
-> NOTE: For more information about supported devices and operating systems, please refer to its accompanying documentation and the [latest RMS release notes](http://rhomobile-suite.s3.amazonaws.com/5.1/5.1.1/Release_Notes_5_1_1.html).
+>NOTE: For more information about supported devices and operating systems, please refer to documentation that accompanied the device and to the [latest RMS release notes](http://rhomobile-suite.s3.amazonaws.com/5.2/5.2.2/Release_Notes_5_2_2.html).
 
 ##Supported Zebra Devices
 RMS 5.2 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
