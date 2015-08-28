@@ -14,11 +14,11 @@ The following are required to complete this tutorial:
 
 Enterprise Browser includes an API for scanning barcodes. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working barcode example application using these steps. 
 
-![Barcode API tuturial image 1](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/01_barcodeAPItutorial.png?raw=true)
+![Barcode API tutorial image 1](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Barcode_API_tutorial_01.png?raw=true)
 
 The resulting example application looks like this:
 
-![Barcode API tuturial image 2](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/02_barcodeAPItutorial.png?raw=true)
+![Barcode API tutorial image 2](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Barcode_API_tutorial_02.png?raw=true)
 
 ##Creating the App
 
@@ -142,28 +142,23 @@ In general, here's what is required:
 ##Testing the App
 1. Tap the Enterprise Browser icon on the device. If the device is not yet licensed for Enterprise Browser, you will see the following screen:
 
-03_image
-![Barcode API tuturial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/03_barcodeAPItutorial.png?raw=true)
+![Barcode API tutorial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Barcode_API_tutorial_03.png?raw=true)
 
 2. Click on the cancel button in the upper right hand corner of the screen to dismiss the message and open the Barcode app. If you turn the device sideways it should look like this:
 
-04_image  
-![Barcode API tuturial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/04_barcodeAPItutorial.png?raw=true)
+![Barcode API tutorial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Barcode_API_tutorial_04.png?raw=true)
 
 3. Click on the Enable Scan button.
 
-05_image
-![Barcode API tuturial image 5](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/05_barcodeAPItutorial.png?raw=true)
+![Barcode API tutorial image 5](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Barcode_API_tutorial_05.png?raw=true)
 
 4. Press on the device's hardware trigger button, point the device at a barcode and wait until you hear a beep signaling that the code has been captured. You should see the barcode number displayed in the input field. 
 
-06_image
-![Barcode API tuturial image 6](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/06_barcodeAPItutorial.png?raw=true)
+![Barcode API tutorial image 6](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Barcode_API_tutorial_06.png?raw=true)
 
 5. Click the Disable Scan button. Then try pressing the device's hardware trigger again. This time the device should not scan. 
 
-07_image
-![Barcode API tuturial image 7](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/07_barcodeAPItutorial.png?raw=true)
+![Barcode API tutorial image 7](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Barcode_API_tutorial_07.png?raw=true)
 
 Conclusion
 This completes the Enterprise Browser Barcode API tutorial. For more information on the Barcode API see the Enterprise Browser API documentation on LaunchPad.
