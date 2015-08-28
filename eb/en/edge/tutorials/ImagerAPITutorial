@@ -4,10 +4,10 @@ This tutorial covers the use of the Enterprise Browser Imager API for capturing 
 
 ##Prerequisites
 The following are required to complete this tutorial:
-* A background in HTML, CSS and JavaScript coding. 
-* Enterprise Browser installed on a development PC. 
-* A Zebra mobile device and USB cable.
-* Enterprise Browser installed on the Zebra device. 
+* A background in HTML, CSS and JavaScript coding
+* Enterprise Browser installed on a development PC 
+* A Zebra mobile device and USB cable
+* Enterprise Browser installed on the Zebra device
 
 ##Coding for the Imager API
 
@@ -16,6 +16,8 @@ Enterprise Browser includes an API for capturing images using a device's on boar
 The following tutorial will walk through creating a working example application using these steps. 
 
 IMAGE 01
+![Imager API tutorial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_01.png?raw=true)
+
 
 The resulting example application will look like this:
 
@@ -25,9 +27,9 @@ IMAGE 02
 
 The following HTML template will be used as a starting point for this tutorial. It includes the following features:
 
-* Home button that returns the user to the Enterprise Browser start page. 
-* Quit button that exits Enterprise Browser. 
-* Styling to size components in an appropriate manner for use on a device. 
+* Home button that returns the user to the Enterprise Browser start page 
+* Quit button that exits Enterprise Browser
+* Styling to size components in an appropriate manner for use on a device
 
 HTML Starter Template:
 
