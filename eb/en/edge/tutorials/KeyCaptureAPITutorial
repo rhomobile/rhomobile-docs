@@ -210,7 +210,7 @@ IMAGE 05
   
 IMAGE 06
 
-5. Now we will test the key mapping functions. Try clicking on a few of the device's hardware buttons or a soft button like this one on the TC55   . You should see the key value appear in the key mapping display area. Since we have not yet turned on the mapping what you see here will be the true unmapped value of the key. In this case we've clicked on the up volume key which has an unmapped value of 24 on the TC55 device. The value on your device may be different.
+5. Now we will test the key mapping functions. Try clicking on a few of the device's hardware buttons or a soft button like the Menu button (soft key) on the TC55. You should see the key value appear in the key mapping display area. Since we have not yet turned on the mapping what you see here will be the true unmapped value of the key. In this case we've clicked on the up volume key which has an unmapped value of 24 on the TC55 device. The value on your device may be different.
 
 IMAGE 07
 
