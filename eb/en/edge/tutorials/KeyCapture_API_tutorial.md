@@ -13,11 +13,11 @@ The following are required to complete this tutorial:
 
 Enterprise Browser includes an API for remapping key codes and assigning functions to hardware keys. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps. 
 
-IMAGE 01
+![KeyCapture API tutorial image 1](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_01.png?raw=true)
 
 The resulting example application will look like this:
 
-IMAGE 02
+![KeyCapture API tutorial image 2](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_02.png?raw=true)
 
 ##Creating the App
 
@@ -196,31 +196,32 @@ In general, here's what is required:
 ##Testing the App
 1. Tap the Enterprise Browser icon on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
 
-IMAGE 03
+![KeyCapture API tutorial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_03.png?raw=true)
 
 2. Click on the cancel button in the upper right hand corner of the screen to dismiss the message and open the Key Capture app. If you turn the device sideways it should look like this:
 
-IMAGE 04
+![KeyCapture API tutorial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_04.png?raw=true)
 
 3. We will test the trigger capture first. Click the trigger button on the device. Nothing should happen. If something happens at this point there may be something attached to the trigger via DataWedge. Find the DataWedge application, make sure that any profiles have been deactivated then return to the key capture app. Now click on the TrigCap On button. The text indicator "TrigCap is on" will be displayed  in red. Try clicking the trigger button on the device again. This time it should activate the callback and you should see evidence of the action in the display area like this:
 
-IMAGE 05
+![KeyCapture API tutorial image 5](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_05.png?raw=true)
 
 4. Click the TrigCap Off button. The text indicator "TrigCap is off" should appear in black. Pressing the device's hardware trigger will no longer activate the callback function.
-  
-IMAGE 06
 
 5. Now we will test the key mapping functions. Try clicking on a few of the device's hardware buttons or a soft button like the Menu button (soft key) on the TC55. You should see the key value appear in the key mapping display area. Since we have not yet turned on the mapping what you see here will be the true unmapped value of the key. In this case we've clicked on the up volume key which has an unmapped value of 24 on the TC55 device. The value on your device may be different.
 
-IMAGE 07
+![KeyCapture API tutorial image 6](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_06.png?raw=true)
 
 6. Now click the KeyMap On button. The text indicator "KeyMap is on" should appear in red. Try pressing the up volume key again. If the up volume value before was 24 it will now show as the remapped value of 64. 
 
-IMAGE 07
+![KeyCapture API tutorial image 7](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_07.png?raw=true)
 
 7.  If the key values on your device differ you will need to go back to the fnKeyMapOn() and modify the mappings. For each of the remapKey()  methods set the first parameter to match the actual unmapped value of one of the hardware keys on your device. Set the second parameter to be the value you want to map it to.  
 
-IMAGE 07	
+![KeyCapture API tutorial image 8](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/KeyCapture_API_tutorial_08.png?raw=true)
+
+
+	
 
   :::JavaScript
   function fnKeyMapOn() {
