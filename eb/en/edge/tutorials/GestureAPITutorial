@@ -12,10 +12,11 @@ The following are required to complete this tutorial:
 Enterprise Browser includes an API for recognizing touch screen gestures. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps.
 
 01_IMAGE
+![Gesture API tutorial image 1](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_01.png?raw=true)
 
 The resulting example application looks like this:
 
-02_IMAGE
+![Gesture API tutorial image 2](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_02.png?raw=true)
 
 ##Creating the App
 
@@ -166,27 +167,27 @@ In general, here's what is required:
 ###Testing the App
 1. Tap the Enterprise Browser icon on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
 
-IMAGE
+![Gesture API tutorial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_03.png?raw=true)
 
 2. Click on the cancel button in the upper right hand corner of the screen to dismiss the message and open the Barcode app. If you turn the device sideways it should look like this:
 
-IMAGE
+![Gesture API tutorial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_04.png?raw=true)
 
 3. Click on the Enable button. The status in the lower left hand corner changes to "Gestures Enabled". Now try swiping your finger from left to right across the middle of the screen. The callback function will be activated and you will see an alert dialog displaying the detected "swipe-right" gesture.
 
-IMAGE
+![Gesture API tutorial image 5](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_05.png?raw=true)
 
 4. Click OK to dismiss the alert. Now press and hold a point near the center of the screen. The callback function will be activated and you will see an alert dialog displaying the detected "swipe-right" gesture.
 
-IMAGE
+![Gesture API tutorial image 6](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_06.png?raw=true)
 
 5. Click the Disable button. You will see the status text in the lower left hand corner change to "Gestures Disabled". Now click on the Enable with Diagnostics button. The status will change and the screen will be overlaid with images that display the active gesture areas and paths.  
 
-IMAGE
+![Gesture API tutorial image 7](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_07.png?raw=true)
 
 6. Try slowly tracing the semicircular path with your finger. The Happy-Circle gesture should be detected.   
 
-IMAGE?
+![Gesture API tutorial image 8](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_08.png?raw=true)
 
 Conclusion
 This completes the Enterprise Browser Gesture API tutorial. For more information on the Gesture API see the Enterprise Browser API documentation on LaunchPad.
