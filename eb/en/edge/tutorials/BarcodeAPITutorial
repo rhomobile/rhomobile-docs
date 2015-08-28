@@ -105,7 +105,6 @@ In this method, two parameters are being passed to the enable() method. The firs
  	 document.getElementById('scanData').value = "barcode: " + jsonObject.data;
 	}
 
-
 `fnBarcodeScanned()` is the callback function we passed to enable()in the previous method. The JSON object passed to the function contains data captured during the scan. A console.log() statement is used to show the JSON object's contents for testing purposes. The last line takes the data attribute from the object and displays it in a text input field.
 
 ###Disable the scanner
@@ -150,7 +149,6 @@ In general, here's what is required:
 ![Barcode API tuturial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/03_barcodeAPItutorial.png?raw=true)
 
 2. Click on the cancel button in the upper right hand corner of the screen to dismiss the message and open the Barcode app. If you turn the device sideways it should look like this:
-
 
 04_image  
 ![Barcode API tuturial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/04_barcodeAPItutorial.png?raw=true)
