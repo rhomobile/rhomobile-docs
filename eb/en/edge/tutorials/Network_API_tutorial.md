@@ -6,6 +6,9 @@ This tutorial covers the use of the Enterprise Browser Network API to detect net
 
 The following are required to complete this tutorial:
 
+IMAGE 01
+![Network API tutorial image 1](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_01.png?raw=true)
+
 * A background in HTML, CSS and JavaScript coding. 
 * Enterprise Browser installed on a development PC. 
 * A Zebra mobile device and USB cable.
@@ -15,9 +18,8 @@ Enterprise Browser includes an API for working with WAN and WiFi networks. The s
 
 The resulting example application looks like this:
 
-
-IMAGE 01  
-
+IMAGE 02
+![Network API tutorial image 2](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_02.png?raw=true)
 
 ##Creating the App
 
@@ -79,42 +81,42 @@ Include the API JavaScript file:
 
 7. Open netcon.html for editing and add the following as the first line in the HEAD section. 
 
-
-<script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"></script>
+  :::HTML
+  <script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"></script>
 
 
 Create a hash with settings and start the connection test: 
-1. In the script section between the end body tag and the end html tag add a method called fnDetectConnection () to the script section. 
+8. In the script section between the end body tag and the end html tag add a method called fnDetectConnection () to the script section. 
+
+  :::JavaScript
+  function fnDetectConnection() {
+    var hostval = document.getElementById("host").value;
+    var parms_hash = {
+      host: hostval,
+      pollInterval: 5000,
+      detectionTimeout: 1000
+    };
+    EB.Network.detectConnection(parms_hash, onConnectionStatusChange);
+  }        
 
 
-function fnDetectConnection() {
-  var hostval = document.getElementById("host").value;
-  var parms_hash = {
-    host: hostval,
-    pollInterval: 5000,
-    detectionTimeout: 1000
-  };
-  EB.Network.detectConnection(parms_hash, onConnectionStatusChange);
-}        
-
-
-The params_hash parameter hash includes settings for the host URL, pollInterval and detectionTimeout. The pollInterval sets the time between each check in milliseconds. The detectionTimeout determines how long the connection check waits before determining that the connection is disconnected. 
+The `params_hash` parameter hash includes settings for the host URL, `pollInterval` and `detectionTimeout`. The `pollInterval` sets the time between each check in milliseconds. The `detectionTimeout` determines how long the connection check waits before determining that the connection is disconnected. 
 The hash is passed to the detectConnection method along with the name of a method that will be called whenever the API detects a change in status. 
 
 
-Respond to Status Changes
-1. We need to add the callback function that was passed to detectConnection() in the previous method. Add onConnectionStatusChange() at the end of the script section. This method we displays a message regarding the connection status to the user.  
+##Respond to Status Changes
+9. We need to add the callback function that was passed to detectConnection() in the previous method. Add onConnectionStatusChange() at the end of the script section. This method we displays a message regarding the connection status to the user.  
+
+  :::JavaScript
+  function onConnectionStatusChange(parms) {
+    var msg = (parms.connectionInformation  == "Connected")?"Accessible":"Inaccessible";
+    document.getElementById("constatus").innerHTML = msg + " (" + getDateTime() + ")";
+  }
 
 
-function onConnectionStatusChange(parms) {
-  var msg = (parms.connectionInformation  == "Connected")?"Accessible":"Inaccessible";
-  document.getElementById("constatus").innerHTML = msg + " (" + getDateTime() + ")";
-}
+10. Our callback method uses a utility function to display a date and time along with each status message. Add the following function at the end of the script section.
 
-
-1. Our callback method uses a utility function to display a date and time along with each status message. Add the following function at the end of the script section.
-
-
+ :::JavaScript
 function getDateTime() {
     var now     = new Date(); 
     var year    = now.getFullYear();
@@ -140,82 +142,70 @@ function getDateTime() {
     }   
     var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
      return dateTime;
-}
+  }
 
 
 Stop the Connection Test:
-1. Add the following method to the end of the script section. It will be used to cancel the connection polling that was started by the call to detectConnection():
+11. Add the following method to the end of the script section. It will be used to cancel the connection polling that was started by the call to detectConnection():
 
-
-function fnStopChecking() {
-  EB.Network.stopDetectingConnection();
-  document.getElementById("constatus").innerHTML = "Connectivity status goes here";
-}
+  :::JavaScript
+  function fnStopChecking() {
+    EB.Network.stopDetectingConnection();
+    document.getElementById("constatus").innerHTML = "Connectivity status goes here";
+  }
 
 
 Hook up JavaScript method to buttons: 
-1. Now that the JavaScript functions have been created we can hook them up to the control buttons.  Open netcon.html and add onClick handlers to the button elements as shown here:
+12. Now that the JavaScript functions have been created we can hook them up to the control buttons.  Open netcon.html and add onClick handlers to the button elements as shown here:
+
+    :::HTML
+    <button onClick="fnDetectConnection()">Detect Connectivity</button>
+    <input type=text  id="host" value = "www.zebra.com"><br/>
+    <button onClick="fnStopChecking()">Stop Checking</button>
 
 
-<button onClick="fnDetectConnection()">Detect Connectivity</button>
-<input type=text  id="host" value = "www.zebra.com"><br/>
-<button onClick="fnStopChecking()">Stop Checking</button>
+###Copy Files to the Device
 
+In order to test the application you need to copy the application files to the device and set the StartPage setting in the Enterprise Browser config.xml file. Android- and Windows-based devices use different methods for transferring files. Please see the documentation for your device for specific instructions on copying files:
 
-Copy Files to the Device
-In order to test the application you need to copy the application files to the device and set the StartPage setting in the Enterprise Browser config.xml file. Android and Windows based devices use different methods for transferring files. Please see the documentation for your device for specific instructions on copying files:
+In general, here's what is required:
+
 1. Create a directory on your device for the Network application. Make sure the directory is in an unrestricted location to avoid any permissions issues when Enterprise Browser tries to open the files. 
 2. Copy the netcon.html and any JavaScript API files you have included to the directory you created on the device. 
 3. Copy the config.xml file from the Enterprise Browser install directory on the device to a suitable location on the development machine and open it in a text editor. 
 4. Update the StartPage setting in config.xml to point to the location on the device where you placed netcon.html and then save the changes. 
 5. Copy the config.xml file back to its original location on the device.  
 
-
-Testing the App
+##Testing the App
 1. Tap the Enterprise Browser icon on the device. If the device is not yet licensed for Enterprise Browser you will see the following screen:
 
+IMAGE 03 (licensing)
+![Network API tutorial image 3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_03.png?raw=true)
 
-  
-  
+2. Click on the cancel button in the upper right hand corner of the screen to dismiss the screen and open the Network app. If you turn the device sideways it should look like this:
 
+IMAGE 04
+![Network API tutorial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_04.png?raw=true)
 
+3. Click on the Detect Connectivity button. The API will start checking for a connection to the site www.zebra.com. When it determines the connection status it will activate the callback which will display a message to the user:
 
-1. Click on the cancel button in the upper right hand corner of the screen to dismiss the screen and open the Network app. If you turn the device sideways it should look like this:
+IMAGE 05
+![Network API tutorial image 5](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_05.png?raw=true)
 
+4. Click on Stop Checking to stop polling the connection.
 
-     
-
-
-1. Click on the Detect Connectivity button. The API will start checking for a connection to the site www.zebra.com. When it determines the connection status it will activate the callback which will display a message to the user:
-
-
-     
-
-
-1. Click on Stop Checking to stop polling the connection.
-
-
-    
-
-
-
+IMAGE 06
+![Network API tutorial image 6](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_06.png?raw=true)
 
 1. Try checking with a different URL. 
 
-
-  
-
-
+IMAGE 07
+![Network API tutorial image 7](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_07.png?raw=true)
 
 1. Try checking with an invalid URL. You should get a message saying that the connection is inaccessible.
 
-
-   
-
-
-
-
-
+IMAGE 08
+![Network API tutorial image 8](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Network_API_tutorial_08.png?raw=true)
 
 Conclusion
 This completes the Enterprise Browser Network API tutorial.  For more information on the Network API see the Enterprise Browser API documentation on LaunchPad.
