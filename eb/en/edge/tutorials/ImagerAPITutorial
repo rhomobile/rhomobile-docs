@@ -59,7 +59,6 @@ HTML Starter Template:
   </SCRIPT>
   </HTML>
 
-
 ###Create the application file:
 1. Create a directory on your development machine for application files. 
 2. The Quit button relies on code in the ebapi-modules.js JavaScript file. Copy this file from C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser to your application directory. 
@@ -138,13 +137,11 @@ function onImageCapture(capData){
     fnImgCaptureDisable();
 }
 
-
 This method takes the image that has been passed as data in the capData JSON object and assigns it to the src attribute of the img display element which displays the image on-screen. 
 
 
 Add a method to clear the displayed image:
 14. For convenience we will add a method to clear the displayed image:
-
 
 function fnClearImage() { 
     document.getElementById("content").innerHTML = "<img src='' id=imgdata />";
@@ -159,7 +156,6 @@ Hook up JavaScript method to buttons:
   <input type=button value="Capture" onClick="fnImgCapture()" >
   <input type=button value="Cancel" onClick="fnImgCaptureDisable()" >
   <input type=button value="Clear"   onClick="fnClearImage()" >
-
 
 ##Copy Files to the Device
 
@@ -181,7 +177,6 @@ In general, here's what is required:
 2. Click on the cancel button in the upper right hand corner of the screen to dismiss the message and open the Image Capture app. If you turn the device sideways it should look like this:
 
 ![Imager API tutorial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Imager_API_tutorial_04.png?raw=true)
-
 
 3. Click on the Open Capture Area button to open the capture area. As you move the device around you will see the image change to whatever the device is pointing at. After focusing on the image you want to take click on the Capture button. The image is now fixed and will not change as you move the device around. 
     

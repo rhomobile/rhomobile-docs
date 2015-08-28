@@ -20,7 +20,6 @@ The resulting example application looks like this:
 
 ##Creating the App
 
-
 The following HTML template will be used as a starting point for this tutorial. It includes the following features:
 
 * Home button that returns the user to the Enterprise Browser start page. 
@@ -115,7 +114,6 @@ HTML Starter Template:
           document.getElementById("status").innerHTML = "Gestures Enabled " + diagsTag;
     }
 
-
 Gestures are created by setting several attributes and then executing gesture.create(). Four gestures are created in the first four sections of code. The diagnostics attribute being set for each gesture is used to turn on visual feedback for testing purposes. Toward the end on the line that starts "gesture.detected = ..." we assign a method to be called whenever a gesture is detected. The final two lines display a status message to let the user know that gestures have been enabled.
 
 >NOTE: For more details about defining gestures see the Enterprise Browser API documentation on LaunchPad. 
@@ -151,7 +149,6 @@ When called this function sets and then deletes the current gesture once for eac
     <input type=button value="Enable" onClick="fnGestureEnable(false);">
     <input type=button value="Enable with Diagnostics" onClick="fnGestureEnable(true);">
     <input type=button value="Disable" onClick="fnGestureDisable();">
-
 
 ###Copy Files to the Device
 In order to test the application you need to copy the application files to the device and set the StartPage setting in the Enterprise Browser config.xml file. Android- and Windows-based devices use different methods for transferring files. Please see the documentation for your device for specific instructions on copying files. 
