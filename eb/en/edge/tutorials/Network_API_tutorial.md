@@ -1,9 +1,11 @@
-﻿Network API Tutorial
+﻿# Network API Tutorial
+
 This tutorial covers the use of the Enterprise Browser Network API to detect network connection state.
 
+##Prerequisites
 
-Prerequisites
 The following are required to complete this tutorial:
+
 * A background in HTML, CSS and JavaScript coding. 
 * Enterprise Browser installed on a development PC. 
 * A Zebra mobile device and USB cable.
@@ -11,19 +13,13 @@ The following are required to complete this tutorial:
 Coding for the Network API
 Enterprise Browser includes an API for working with WAN and WiFi networks. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps. The application checks for server connectivity status based on a given URL.  
 
-
-    
-
-
 The resulting example application looks like this:
 
 
-  
+IMAGE 01  
 
 
-
-Creating the App
-
+##Creating the App
 
 The following HTML template will be used as a starting point for this tutorial. It includes the following features:
 * Home button that returns the user to the Enterprise Browser start page. 
@@ -31,58 +27,57 @@ The following HTML template will be used as a starting point for this tutorial. 
 * Styling to size components in an appropriate manner for use on a device. 
 * An element for displaying the status of a connection.
 
-
-
-
 HTML Starter Template:
 
+  :::HTML
+  <HTML>
+  <HEAD>
+  <style>
+  h1{font-size:2.5em;background-color:gray;margin:5px;padding:5px;}
+  h1 button{font-size:.5em;}
+  input{font-size:1.3em;}
+  button{font-size:1.3em;}
+  #content{width:90%;border:black 1px solid;min-height:100px;padding:10px;}
+  </style>
+  </HEAD>
+  <BODY>
+  <h1>Network Connectivity<br/>
+  <button onclick="window.location.href='./index.html'">Home</button>
+  <button onclick="EB.Application.quit();">Quit</button>
+  </h1>
+  <div id=controls >
+  </div>
+  <div id=content >
+   <span id=constatus >Connectivity status goes Here</span>
+  </div>
+  </BODY>
+  <SCRIPT>
+  </SCRIPT>
+  </HTML>
 
-<HTML>
-<HEAD>
-<style>
-h1{font-size:2.5em;background-color:gray;margin:5px;padding:5px;}
-h1 button{font-size:.5em;}
-input{font-size:1.3em;}
-button{font-size:1.3em;}
-#content{width:90%;border:black 1px solid;min-height:100px;padding:10px;}
-</style>
-</HEAD>
-<BODY>
-<h1>Network Connectivity<br/>
-<button onclick="window.location.href='./index.html'">Home</button>
-<button onclick="EB.Application.quit();">Quit</button>
-</h1>
-<div id=controls >
-</div>
-<div id=content >
- <span id=constatus >Connectivity status goes Here</span>
-</div>
-</BODY>
-<SCRIPT>
-</SCRIPT>
-</HTML>
 
+##Create the application file:
 
-Create the application file:
 1. Create a directory on your development machine for application files. 
 2. Create a file named netcon.html in your application directory and open it in a text editor.
 3. Copy the contents of the starter template above into the file and save it.
 
-
 Add URL input and control buttons:
-1. Open netcon.html in a text editor.
-2. Add two buttons and an input area into the controls div. The first button will call the API to start polling the connection. The input element will provide the URL to poll for. The second button will call the API to stop polling the connection. 
+4. Open netcon.html in a text editor.
+5. Add two buttons and an input area into the controls div. The first button will call the API to start polling the connection. The input element will provide the URL to poll for. The second button will call the API to stop polling the connection. 
 
-
-<button>Detect Connectivity</button>
-<input type=text  id="host" value = "www.zebra.com"><br/>
-<button>Stop Checking</button>
+  :::JavaScript
+  <button>Detect Connectivity</button>
+  <input type=text  id="host" value = "www.zebra.com"><br/>
+  <button>Stop Checking</button>
 
 
 Include the API JavaScript file:
-1. The Network API requires the Enterprise Browser API JavaScript file. Copy the ebapi-modules.js file from C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser to your application directory. 
- 
-1. Open netcon.html for editing and add the following as the first line in the HEAD section. 
+6. The Network API requires the Enterprise Browser API JavaScript file. Copy the ebapi-modules.js file from 
+
+`C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser` to your application directory.
+
+7. Open netcon.html for editing and add the following as the first line in the HEAD section. 
 
 
 <script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"></script>

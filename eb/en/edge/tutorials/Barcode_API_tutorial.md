@@ -28,6 +28,7 @@ The following HTML template will be used as a starting point for this tutorial. 
 * Styling to size components in an appropriate manner for use on a device
 
 HTML Starter Template:
+
 	:::html
 	<HTML>
 	<HEAD>
@@ -59,8 +60,9 @@ HTML Starter Template:
 4. Open barcode.html in a text editor
 5. Add an input field with the following definition to the content div
 
-	:::html
-	<input id="scanData" type=text ><br/>
+HTML:
+		:::html
+		<input id="scanData" type=text ><br/>
 
 6. After the input field add two input buttons. The first button will be used to enable scanning, and the second to disable scanning. 
 

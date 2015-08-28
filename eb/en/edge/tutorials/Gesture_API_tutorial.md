@@ -1,4 +1,4 @@
-﻿#Gesture API Tutorial
+#Gesture API Tutorial
 This tutorial covers the use of the Enterprise Browser Gesture API for recognizing touch screen gestures.
 
 ##Prerequisites
@@ -11,7 +11,6 @@ The following are required to complete this tutorial:
 ##Coding for the Gesture API
 Enterprise Browser includes an API for recognizing touch screen gestures. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps.
 
-01_IMAGE
 ![Gesture API tutorial image 1](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/Gesture_API_tutorial_01.png?raw=true)
 
 The resulting example application looks like this:
