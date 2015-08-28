@@ -68,7 +68,6 @@ HTML Starter Template:
 	<input type=button value="Enable Scan">
 	<input type=button value="Disable Scan">        
 
-
 ###Include the API JavaScript file:
 
 7. The Barcode API requires the Enterprise Browser API JavaScript file. Copy the ebapi-modules.js file from `C:\EnterpriseBrowser\JavaScriptFiles\EnterpriseBrowser` to your application directory. 
@@ -77,7 +76,6 @@ HTML Starter Template:
 
 	:::html
 	<script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"></script>
-
 
 ###Configure scanner settings and enable scanner
 9. Add a method called fnScanEnable() to the script section that appears between the end body tag and the end html tag 
@@ -120,7 +118,6 @@ The EB.Barcode.disable() method on the first line is shuts down the scanner and 
 
 1. Make sure to save the file periodically as you edit. 
 
-
 ###Hook up JavaScript method to buttons
 Now that the JavaScript functions have been created we can hook them up to the control buttons.  
 
@@ -152,7 +149,6 @@ In general, here's what is required:
 
 04_image  
 ![Barcode API tuturial image 4](https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/EB_tutorials/04_barcodeAPItutorial.png?raw=true)
-
 
 3. Click on the Enable Scan button.
 
