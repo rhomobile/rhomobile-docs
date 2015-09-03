@@ -7,7 +7,8 @@ Rhodes-based projects can be created in several ways: From within RhoStudio (an 
 ## Developing with RhoStudio
 RhoStudio includes everything needed to build *hybrid* apps for Android, iOS and Windows Mobile/CE from start to finish. To build *native* applications locally for one or more specific mobile platforms, the developer also must [install native SDK(s)](nativesdksetup) on the development host for each mobile platform to be targeted. Once these have been set up and linked to RhoStudio, the build process takes place completely within RhoStudio.
 
->NOTE: For Android builds, please install an Android SDK with API level 22 or lower. To build successfully, RhoMobile 5.2.2 supports Android APIs up to level 22 (Android L). For more information, please refer to the [build-time configuration page](build_config) or visit the [Android API documentation](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels). 
+>NOTE: For Android builds, please install an Android SDK with API level 22 or lower. RhoMobile 5.2.2 will build successfully with Android versions up to and including Android 5.1 (Android L). For more information, please visit the [Android API documentation](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels). 
+
 
 Since it's based on the extensible Eclipse framework, the RhoStudio IDE permits developers to customize and enhance its functionality by adding their own Eclipse plug-ins. The web contains plenty of documentation for building Eclipse Plug-ins. The Eclipse Foundation's [Creating a Plug-in Project](http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.rse.doc.isv%2Fguide%2Ftutorial%2FpdeProject.html) is a good a place to start. 
 

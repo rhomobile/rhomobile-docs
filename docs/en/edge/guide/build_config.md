@@ -1,5 +1,7 @@
 # Build time configuration
-Build time settings are dictated by a file in your app directory called `build.yml`. By default, this file has the most commonly used settings and some defaults that will work fine for most platforms. However, you may need to modify it at certain points. For example, if you need to build for an iOS device, you'll need to change the iphone: sdk: section to use an `iphoneos` SDK instead of an `iphonesimulator` SDK. This doc will provide guidelines and examples of how to modify this file without jeopardizing your app.
+Build time settings are dictated by a file in your app directory called `build.yml`. By default, this file has the most commonly used settings and some defaults that will work fine for most platforms. However, you may need to modify it at certain points. For example, if you need to build for an iOS device, you'll need to change the iphone: sdk: section to use an `iphoneos` SDK instead of an `iphonesimulator` SDK. Other special requirements apply to building for Android. 
+
+This doc will provide guidelines and examples for modifying the `build.yml` file without jeopardizing your app.
 
 ## Default build.yml Settings
 When you create your app, a default version of the build.yml file will be generated and it will look like this:
@@ -133,7 +135,7 @@ When you create your app, a default version of the build.yml file will be genera
         <td>android\\Manifest Template</td>
         <td>It is possible to specify manifest erb template file at build.yml.</td>
         <td>Manifest Template File</td>
-        <td>manifest_template: 'AndroidManifest.erb</td>
+        <td>manifest_template: 'AndroidManifest.erb'</td>
     </tr>
     <tr>
         <td class="clsEvenRow">android\\version</td>
@@ -258,24 +260,24 @@ To enable specific device capabilities, edit your application's build.yml as fol
 
 Rhodes support common plus platform-specific capabilities. They are merged into a single list at build time.
 
-> Note: Right now only Android recognizes these platform specific configuration options. However, we are planning to enable these options across all platforms.
+> Note: Only Android currently recognizes these platform-specific configuration options. Enabling these options across other platforms is planned for a future release.
 
 List of supported capabilities:
 
-* audio: allow using of audio hardware (record audio, modify audio settings)
-* camera: allow use of hardware camera
-* gps: allow use of geo location service
-* network_state: allow read device network state (connected/disconnected)
-* phone: allow make calls/read phone state
-* pim: allow read/modify personal information and contacts
-* push: allow to use PUSH on device
-* record_audio: allow recording audio ('audio' implies it)
-* vibrate: allow to use hardware vibration mechanism
-* bluetooth: allow to use bluetooth hardware
-* calendar: allow access to default device calendar
-* sdcard: allow writing to SD card on Android devices
+* **audio** allows use of audio hardware (record audio, modify audio settings)
+* **camera** allows use of hardware camera
+* **gps** allows use of geo location service
+* **network_state** allows read device network state (connected/disconnected)
+* **phone** allow make calls/read phone state
+* **pim** allow read/modify personal information and contacts
+* **push** allows use of PUSH on device
+* **record_audio** allows the recording of audio ('audio' implies it)
+* **vibrate** allows use of hardware vibration mechanism
+* **bluetooth** allows use of bluetooth hardware
+* **calendar** allows access to default device calendar
+* **sdcard** allows writing to the SD card on Android devices
 
-#### Windows Mobile / Windows CE Specific Settings
+## Windows Mobile/CE-specific Settings
 You can specify where the `config.xml` file will reside on your device using the `config:` option.
 
     :::yaml
@@ -285,8 +287,8 @@ You can specify where the `config.xml` file will reside on your device using the
 
 * config : path to the custom [Config.xml](runtime_config#configxml) file to use. This path is relative to the RhoMobile Project.
 
-#### Android Specific Settings
-The capabilities listed above are directly related to the Android device capabilities that your app will require and that the user will be asked to give permission to when installing the app. You can add capabilities to your Android app by adding a capabilities section to your build.yml in the android heading as such:
+## Android-specific Settings
+The capabilities listed above are directly related to the Android device capabilities that your app will require, and for which the user will be asked to give permission when installing the app. You can add capabilities to your Android app by adding a `capabilities` section to your build.yml in the android heading as such:
 
     :::yaml
     android:
@@ -296,11 +298,28 @@ The capabilities listed above are directly related to the Android device capabil
         extensions:
           - gmaps
 
-* hardware_acceleration: enables the hardware_acceleration capability for Android applications
-* mapping: enables the use of mapping apps.
-* gmaps extension: enables the use of Google maps for mapping. In RhoStudio, you can double-click on your application's build.yml and edit from the text editor; otherwise, you can edit build.yml directly.
+* **hardware_acceleration** enables hardware_acceleration for Android applications
+* **mapping** enables the use of mapping apps
+* **gmaps extension** enables the use of Google maps for mapping 
 
-> Note: Some versions of Android require hardware acceleration to play embedded video.
+NOTE: To play embedded video, some versions of Android require hardware acceleration.
+
+In RhoStudio, you can double-click on your application's `build.yml` and edit from the text editor, or edit it directly using a text editor of your choosing.
+
+RhoMobile 5.2.2 will build successfully with Android versions up to and including Android 5.1 (Android L). **For Android builds, please install an Android SDK with API level 22 or lower**. For information about Android API levels, please visit the [Android API documentation](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels). 
+
+The Android SDK allows you to programatically specify an application's compatibility with one or more versions of the Android platform using an API-Level integer. **The API Level can be specified in the `AndroidManifest.erb`, which must then be specified in the `build.yml`** (see sample, below). Android versions specified here will be compared to that of a given Android target device. 
+
+The **syntax for the Android `<uses-sdk>` parameter**: 
+
+
+    :::Ruby
+    <uses-sdk android:minSdkVersion="integer"
+          android:targetSdkVersion="integer"
+          android:maxSdkVersion="integer" />
+
+For more information about this parameter, please visit the [Android uses-sdk page](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html).  
+
 
 ### RhoStudio Modification
 You can also edit the capabilities that your app will have access to through RhoStudio. To do this, double click your build.yml in your app's project in the project explorer pane in RhoStudio.
@@ -401,5 +420,5 @@ To modify these settings, there are two methods:
 
 1. Modify these settings in the properties of RhoStudio.
 2. Modify the rhobuild.yml file directly.
-    * On mac, the file resides in the rhodes-<version> directory.
-    * on Windows, the file resides in the RhoMobileSuite directory
+    * On Mac OS X, the file resides in `\rhodes\<version>`
+    * On Windows, the file resides in  `\RhoMobileSuite`
