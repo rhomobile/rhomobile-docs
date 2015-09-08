@@ -193,7 +193,8 @@ The BatteryEvent gives an indication of the remaining battery level. Once regist
 	<tr>
 		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow">2</td>
 		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow"><b>batteryLifePercent</b></td>
-		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow">Remaining battery power as a percentage.</td>
+		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow">Remaining battery power as a percentage.  For some Zebra android devices, it will return 255 value while on charge and for few seconds initially, after reboot and discharge. This is by MPA3 hardware design.
+		</td>
 	</tr>
 	<tr>
 		<td style="text-align:left;" class="clsSyntaxCells clsOddRow">3</td>
