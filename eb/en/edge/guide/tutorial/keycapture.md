@@ -1,5 +1,5 @@
 ﻿
-##KeyCapture API Tutorial
+#KeyCapture API Tutorial
 
 This tutorial covers the use of the Enterprise Browser KeyCapture API to remap hardware keys and assign actions to the device hardware trigger.
 
