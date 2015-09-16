@@ -67,11 +67,11 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             </PROPERTY>
             <PROPERTY name="tripDuration" type="INTEGER" generateAccessors="true">
                 <PLATFORM>CE, Android</PLATFORM>
-                <DESC>Supported only by the MC18 device. Sets the desired working time (in minutes) out of the cradle, which is used in subsequent power-related calculations. If set to 0, the driver default value of 45 minutes will be used.</DESC>
+                <DESC>Only supported by the MC18 device.  Sets the desired working time (in minutes) out of the cradle, which is used in subsequent power related calculations. If set to 0, the driver default value of 45 minutes will be used.</DESC>
             </PROPERTY>
             <PROPERTY name="averageCurrentConsumption" type="INTEGER" generateAccessors="true">
                 <PLATFORM>CE, Android</PLATFORM>
-                <DESC>Supported only by the MC18 device. Sets an average current consumption (in mA) that is used in subsequent power-related calculations. If set to 0, the value will be provided by the device driver based on the running average.</DESC>
+                <DESC>Only supported by the MC18 device.  Sets an average current consumption in mA that is used in subsequent power related calculations. If set to 0, the value will be provided by the device driver based on the running average.</DESC>
             </PROPERTY>
         </PROPERTIES>
 
@@ -113,7 +113,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                         </PARAM>
                         <PARAM name="backupBatteryLifePercent" type="INTEGER">
                             <PLATFORM>WM</PLATFORM>
-                            <DESC>The remaining backup battery power as a percentage between 0 and 100. Supported only on Symbol Technologies Windows Mobile / CE / Embedded devices.</DESC>
+                            <DESC>The remaining backup battery power as a percentage between 0 and 100. Only supported on Symbol Technologies Windows Mobile / CE / Embedded devices.</DESC>
                         </PARAM>
                         <PARAM name="trigger" type="STRING">
                             <PLATFORM>WM, CE, Android</PLATFORM>
@@ -121,18 +121,18 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                         </PARAM>
                         <PARAM name="batteryLifeKnown" type="BOOLEAN">
                             <PLATFORM>WM</PLATFORM>
-                            <DESC>Supported only on Symbol Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate.</DESC>
+                            <DESC>Only supported on Symbol Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the batteryLifePercent value is accurate.</DESC>
                         </PARAM>
                         <PARAM name="backupBatteryLifeKnown" type="BOOLEAN">
                             <PLATFORM>WM</PLATFORM>
-                            <DESC>Supported only on Symbol Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate.</DESC>
+                            <DESC>Only supported on Symbol Technologies' Windows Mobile / CE / Embedded devices. The battery life will not be readable for a period of time after removing from an AC power source and this parameter will state whether the backupBatteryLifePercent value is accurate.</DESC>
                         </PARAM>
                     </PARAMS>
                 </RETURN>
             </METHOD>
 
             <METHOD name="stopBatteryStatus" hasCallback="none">
-                <DESC>If the battery status is being retrieved via callback by a previously invoked call to batteryStatus, this method will stop the callback from firing.</DESC>
+                <DESC>If the battery status is being retrieved via callback, by a previously invoked call to batteryStatus, this method will stop the callback from firing.</DESC>
                 <PLATFORM>WM, CE, Android, iOS</PLATFORM>
                 <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
             </METHOD>
@@ -177,9 +177,9 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             </METHOD>
 
             <METHOD name="batteryDiagnostics" hasCallback="optional">
-                <DESC>The BatteryDiagnostics method returns parameters for further battery analysis. Not all return values will be supported by all batteries. Any parameters that cannot be retrieved will return 'undefined'. In Android, Currently supported only on the MC18 device</DESC>
+                <DESC>The BatteryDiagnostics method returns parameters for further battery analysis.  Not all return values will be supported by all batteries.  Any parameters that cannot be retrieved will return 'undefined'. In Android, Currently only supported on the MC18 device</DESC>
                 <PLATFORM>CE, Android</PLATFORM>
-                <APPLIES msiOnly="true">Currently supported only on the MC18 device</APPLIES>
+                <APPLIES msiOnly="true">Currently only supported on the MC18 device</APPLIES>
                 <RETURN type="HASH">
                     <PARAMS>
                         <PARAM name="stateOfHealthPercent" type="STRING">
@@ -189,10 +189,10 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                             <DESC>The remaining battery capacity percentage</DESC>
                         </PARAM>
                         <PARAM name="batteryCapacityMinutes" type="STRING">
-                            <DESC>The remaining battery capacity in minutes. Calculations are based on the averageCurrentConsumption parameter</DESC>
+                            <DESC>The remaining battery capacity in minutes.  Calculates are based on the averageCurrentConsumption parameter</DESC>
                         </PARAM>
                         <PARAM name="batteryExpirationInMonths" type="STRING">
-                            <DESC>Prediction in number of months when the battery should be replaced. Returns undefined for Android.</DESC>
+                            <DESC>Prediction in number of months when the battery should be replaced. Returns undefined for android.</DESC>
                         </PARAM>
                         <PARAM name="previousBatteryReplacement" type="STRING">
                             <DESC>Duration in days since the battery was last replaced</DESC>
@@ -211,9 +211,9 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             </METHOD>
 
             <METHOD name="showIcon" hasCallback="none" runInThread="ui">
-                <DESC>Overlays a small battery icon on top of the view indicating the remaining battery strength. This is particularly useful in full screen applications that cover the system battery level indicator.</DESC>
+                <DESC>Overlays a small battery icon on top of the view indicating the remaining battery strength. This is particularly useful in full screen applications which cover the system battery level indicator.</DESC>
                 <PLATFORM>WM, CE, Android</PLATFORM>
-                <APPLIES msiOnly="true">All platforms support batteryStatus, which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
+                <APPLIES msiOnly="true">All platforms support batteryStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
                 <PARAMS>
                     <PARAM name="propertyMap" type="HASH" propertyHash="true">
                         <DESC>The properties associated with the indicator, its position and color.</DESC>
@@ -242,7 +242,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                                 </VALUES>
                             </PARAM>
                             <PARAM name="color" type="STRING">
-                                <DESC>The color of the icon. This value must be specified as a Hex value in the format #000000 to #FFFFFF. Alpha values are not supported, i.e. you can only use the component parts RRGGBB.</DESC>
+                                <DESC>The color of the icon. This value must be specified as a Hex value in the format #000000 to #FFFFFF. Alpha values are not supported, i.e. You can only use the component parts RRGGBB.</DESC>
                             </PARAM>
                         </PARAMS>
                     </PARAM>
@@ -252,7 +252,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             <METHOD name="hideIcon" hasCallback="none" runInThread="ui">
                 <DESC>Hide the icon if it has been previously set by the 'showIcon' call.</DESC>
                 <PLATFORM>WM, CE, Android</PLATFORM>
-                <APPLIES msiOnly="true">All platforms support batteryStatus, which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
+                <APPLIES msiOnly="true">All platforms support batteryStatus which can be used to draw your own level indicator or display an appropriate graphic.</APPLIES>
             </METHOD>
         </METHODS>
 
@@ -263,7 +263,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             <EXAMPLE title="Retrieve the Battery status">
                 <SECTIONS>
                 <SECTION>
-                <DESC>Synchronously: If you are interested only in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows</DESC>
+                <DESC>Synchronously: If you are only interested in the current battery level, for example to decide whether you have sufficient battery for the worker to start their shift, then you can immediately determine the level as follows</DESC>
                 <CODE>
                     <RUBY>
             <![CDATA[
@@ -284,7 +284,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                 </CODE>
                 </SECTION>
                 <SECTION>
-                <DESC>Asynchronously:  If you want to be notified of changes to the battery level, then you can register to receive values through a callback</DESC>
+                <DESC>Asynchronously:  If you want to be notified of changes to the battery levelthen you can register to receive values through a callback</DESC>
                 <CODE>
                     <RUBY>
             <![CDATA[
@@ -319,7 +319,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             <EXAMPLE title="Working with the Battery indicator">
                 <SECTIONS>
                 <SECTION>
-                <DESC>If you just want to display the battery indicator in the default position and default color, then call as follows.</DESC>
+                <DESC>If you just want to display the battery indicator in the default position and default color then call as follows.</DESC>
                 <CODE>
                     <RUBY>
             <![CDATA[
@@ -362,7 +362,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
             <EXAMPLE title="Show battery icon">
                 <SECTIONS>
                     <SECTION>
-                        <DESC>This example shows how to show/hide the Battery icon as well as a way to adjust for a change in screen orientation. This example assumes that the ebapi-modules.js file is in the same folder as the html file invoking it.</DESC>
+                        <DESC>This example shows how to show/hide the Battery icon as well as a way to adjust for the screen orientation changing. This example assumes that the ebapi-modules.js file is in the same folder as the html file invoking it.</DESC>
                         <CODE>
                             <JAVASCRIPT><![CDATA[
 <head>
@@ -430,7 +430,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
 
         <REMARKS>
             <REMARK title="Icon Layout">
-                <DESC>Windows Mobile / CE and Handheld devices support the display of a small battery icon. This section explains the layout parameter, which can be provided to showIcon(...).
+                <DESC>Windows Mobile / CE and Handheld devices support the display of a small battery icon, this section explains the layout parameter which can be provided to showIcon(...).
 
 Layout:Left
 -----------
@@ -457,7 +457,7 @@ Layout:Down
                 <DESC>The indicator positions are absolute and so when rotating the screen you should also move the indicator positions accordingly to accommodate the new screen layout.</DESC>
             </REMARK>
             <REMARK_EB title="Internet Explorer (IE) Rendering Engine">
-                <DESC>When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around using any of the following options:
+                <DESC>When using the this feature on a CE device using the IE engine, screen distortion may be noticed when scrolling. This is due to a limitation of the IE engine and can be worked around by any of the following options:
 
 * Not using debug buttons - If your app must use the IE engine, do not use debug buttons in the app.
 * If you need to use the signal or battery indicators either:
