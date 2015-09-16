@@ -24,30 +24,30 @@ The Feature Demo Application for Enterprise Browser uses `AJAX` to pull in demo 
 
 1. Go into `Config.xml` and add the following `XML` snippet right under `<Configuration>`:
 
-		:::XML
+    :::XML
 
-		<WebServer>
-			<Enabled value="1" />
-			<Port value="8082" />
-			<WebFolder value="/fd/" />
-			<Public value="1" />
-		</WebServer>   
+    <WebServer>
+      <Enabled value="1" />
+      <Port value="8082" />
+      <WebFolder value="/fd/" />
+      <Public value="1" />
+    </WebServer>   
 
   Android Devices - Config.xml can be found at the path: `<root of device>/Android/data/com.symbol.enterprisebrowser/Config.xml`  
 
   WM/CE Devices - Config.xml can be found at the path: `<root of device>\Program Files\EnterpriseBrowser\Config\Config.xml`  
 
 2. In `Config.xml` change the start page value to:  
-		
-		:::HTML
+    
+    :::HTML
 
-	    <StarterPage value="http://127.0.0.1:8082/feature-demo.html" name="Menu"/>
+      <StarterPage value="http://127.0.0.1:8082/feature-demo.html" name="Menu"/>
 
 3. Create a folder called `fd` (case sensitive) in the root of your device's SDCard, or if it doesn't have an SDCard, create the folder in the internal memory partition.  
 
 4. When you originally installed Enterprise Browser to your desktop, a folder should have been created called `EnterpriseBrowser`. Inside of that folder there should be a folder called `Feature-Demo`. Take the contents of that folder and copy it over to your newly created fd folder.  
 
-	<img style="padding-left:40px;" src="http://i.imgur.com/Gk1rhab.png" width="600" height="480" border="10">
+  <img style="padding-left:40px;" src="http://i.imgur.com/Gk1rhab.png" width="600" height="480" border="10">
 
 5. Start The Enterprise Browser Application on your Device  
 
@@ -80,11 +80,11 @@ The Barcode section of the Feature Demo application shows how to use the most co
 
 5. Press start and try scanning the image below  
 
-	<img style="padding-left:0px;" src="http://www.barcodesinc.com/generator/image.php?code=EB.Barcode%20Test&style=197&type=C128B&width=200&height=50&xres=1&font=3" width="380" height="100" border="10">  
+  <img style="padding-left:0px;" src="http://www.barcodesinc.com/generator/image.php?code=EB.Barcode%20Test&style=197&type=C128B&width=200&height=50&xres=1&font=3" width="380" height="100" border="10">  
 
   When done correctly, the Barcode Scanner should return the following  
 
-	<img style="padding-left:0px;" src="http://i.imgur.com/vHrV660.png" width="380" height="600" border="10">  
+  <img style="padding-left:0px;" src="http://i.imgur.com/vHrV660.png" width="380" height="600" border="10">  
 
 ### Battery  
 The Battery section of the Feature Demo application shows how to use the most common [Battery APIs](https://developer.motorolasolutions.com/docs/DOC-2511):  
@@ -192,7 +192,9 @@ To learn from the Feature Demo application, it is best to look at the individual
 ## Troubleshooting  
 If you are still having trouble getting The Feature Demo to work, try the following:  
 
-* If your barcode scanner isn't working, you can fix this by installing the app [DataWedge](http://www.barcodedatalink.com/pages/datawedge.php) on your mobile device and [configuring the settings](https://serialio.com/support/knowledgebase/software/in-hand_apps/article/TC55) as described  
+* Make sure your device has the latest release BSP available on the [Support Portal](https://www.zebra.com/enterprisesupport).
+
+* Check your device's [Integrator Guide](https://www.zebra.com/enterprisesupport) for proper DataWedge configuration
 
 * If your device won't display the Feature Demo Application screen, make sure that your Config.xml has the right path to your starter page  
 
