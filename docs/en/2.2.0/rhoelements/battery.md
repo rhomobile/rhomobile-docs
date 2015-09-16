@@ -1,5 +1,5 @@
 # Battery Module
-**The Battery Module is used to set the attributes of the battery indicator and retrieve the status of the battery. Check the [indicator layout overview page](IndicatorPositions) for more detail on positioning these indicators.**
+**The Battery Module is used to set the attributes of the battery indicator and retrieve the status of the battery. For more information about positioning these indicators, please refer to the [indicator layout overview page](IndicatorPositions).**
 
 ## Syntax
 <table class="re-table">
@@ -193,7 +193,7 @@ The BatteryEvent gives an indication of the remaining battery level. Once regist
 	<tr>
 		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow">2</td>
 		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow"><b>batteryLifePercent</b></td>
-		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow">Remaining battery power as a percentage.  For some Zebra android devices, it will return 255 value while on charge and for few seconds initially, after reboot and discharge. This is by MPA3 hardware design.
+		<td style="text-align:left;" class="clsSyntaxCells clsEvenRow">Displays the remaining battery power as a percentage. For some Zebra Android devices, the API will return a value of 255 at all times while the battery is being charged. The same value also might be displayed for a few seconds initially after reboot while the battery is being discharged. This is in accordance with hardware design specs and should be taken into account when using the API.
 		</td>
 	</tr>
 	<tr>
