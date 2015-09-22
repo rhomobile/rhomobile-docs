@@ -109,7 +109,7 @@ With the old PocketBrowser APIs, any events, such as `batteryEvent` were cancele
                             <DESC>Whether or not the device is connected to external power.</DESC>
                         </PARAM>
                         <PARAM name="batteryLifePercent" type="INTEGER">
-                            <DESC>The remaining battery power as a value between 0 and 100.</DESC>
+                            <DESC>Displays the remaining battery power as a percentage value between 0 and 100. For some Zebra Android devices, the API will return a value of 255 at all times while the battery is being charged. The same value also might be displayed for a few seconds initially after reboot while the battery is being discharged. This is in accordance with hardware design specs and should be taken into account when using the API.</DESC>
                         </PARAM>
                         <PARAM name="backupBatteryLifePercent" type="INTEGER">
                             <PLATFORM>WM</PLATFORM>
