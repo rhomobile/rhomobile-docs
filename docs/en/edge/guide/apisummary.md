@@ -332,7 +332,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.2, which are recomm
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>
-      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
+      <td style="text-align:center" class=" "></td>
     </tr>
 
     <tr>
