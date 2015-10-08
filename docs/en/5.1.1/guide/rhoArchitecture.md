@@ -20,7 +20,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow"><img id="iOS_pic" src="https://km.zebra.com/library/ZEBRA/V_ISVS/V_ISVS_NA/V_ISVS_NA_LIM/V_ISVS_NA_PRT/AppleiOS/GettingStartedWithAppleiOSGuide/AppRunning%20updated%20for%20apple%20guidelines.jpg" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Apple iOS</b></td>
   <td class="clsSyntaxCells clsOddRow">iPad, iPhone, iPod Touch</td>
-  <td class="clsSyntaxCells clsOddRow">iOS 6.0 or higher</td>
+  <td class="clsSyntaxCells clsOddRow">iOS 6, iOS 7, iOS 8</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://www.zebra.com/content/dam/zebra_new_ia/en-us/solutions_verticals/vertical_solutions/warehouse_management/photography-product/MC3100.jpg/_jcr_content/renditions/cq5dam.thumbnail.319.319.png" height="75"></img></td>
