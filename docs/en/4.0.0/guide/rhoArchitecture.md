@@ -3,7 +3,7 @@
 ## Supported Operating Systems
 
 * iOS 6 (iPhone, iPod Touch, iPad)
-* Android 2.3 and greater (Gingerbread, Ice Cream Sandwich, JellyBean)
+* Android 2.3 (Gingerbread) to 4.3 (JellyBean)
 * Windows Mobile 6.x Professional, 6.0 Standard, Windows CE 5, Windows CE 6, Windows CE 7
 * Latest Windows Phone 8 mobile devices
 * Windows Desktop (XP, XPe, 7)
