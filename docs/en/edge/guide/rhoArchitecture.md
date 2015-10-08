@@ -28,7 +28,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow"><img id="iOS_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Apple-iPhone-5S.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Apple iOS</b></td>
   <td class="clsSyntaxCells clsOddRow">iPad, iPhone, iPod Touch</td>
-  <td class="clsSyntaxCells clsOddRow">iOS 6.0 or higher</td>
+  <td class="clsSyntaxCells clsOddRow">iOS 6, iOS 7, iOS 8</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC3100.jpeg?raw=true" height="75"></img></td>
