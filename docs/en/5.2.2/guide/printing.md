@@ -1,6 +1,6 @@
 # Printing
 ## Overview
-RhoMobile Suite 5.1 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which is **new in version 5.1**. This version also improves performance of Bluetooth device discovery.  
+RhoMobile Suite 5.2 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile. It also supports printing via USB from Android devices, which was released with version 5.1. The latest version also improves performance of Bluetooth device discovery.  
 
 To facilite USB printing from Android, the RhoMobile printing API in 5.1 now incldues the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra Android device must be connected with a USB "On-The-Go" (OTG) cable or adapter to one of [Zebra's supported printers](#zebra-printers-with-usb-printing). Android printing is supported via direct USB OTG connection or through a cradle with OTG adapter. 
 
