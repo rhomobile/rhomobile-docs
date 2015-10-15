@@ -2,7 +2,7 @@
 ## Overview
 RhoMobile Suite 5.3 permits printing via Bluetooth and Wi-Fi from mobile devices running Android, iOS and Windows Mobile/CE. **New in version 5.3 is the ability to print via USB to Windows Mobile/CE devices**, building on similar support for Android devices introduced in 5.1.  
 
-To facilite USB printing, the RhoMobile printing API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra device must be connected with a USB "On-The-Go" (OTG) cable or adapter to one of [Zebra's supported printers](#zebra-printers-with-usb-printing). Android printing is supported via direct USB OTG connection or through a cradle with OTG adapter. 
+To facilite USB printing, the RhoMobile printing API now includes the `CONNECTION_TYPE_USB` parameter. The API is otherwise unchanged, and operates in the same way as in prior editions. To print via USB, the Zebra device must be connected with a USB "On-The-Go" (OTG) cable or adapter to one of [Zebra's supported printers](#zebra-printers-with-usb-printing). Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel.
 
 This guide is designed to provide an overview of the steps necessary to enable printing in a RhoMobile application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build your application using the Zebra printing APIs. 
 
@@ -81,7 +81,7 @@ Sample JavaScript code:
 NOTE: When attepting to connect via Bluetooth or Wi-Fi, be sure the device's corresponding radio is turned on. If using Bluetooth, the printer should be set to "discoverable."
 
 ###Finding via USB
-Printing via USB is supported from Android devices only. To print from a Zebra enterprise mobile computer, it must be connected to one of [Zebra's supported printers](#zebra-printers-with-usb-printing) **using an OTG cable or adapter.**
+Printing via USB is supported on Android and Windows Mobile/CE devices. To print from a Zebra enterprise mobile computer, it must be connected to one of [Zebra's supported printers](#zebra-printers-with-usb-printing) **using an OTG cable or adapter.**  Windows Mobile/CE devices also must be in 'Host Mode,' which is found under USB Config in the Settings panel.
 
 Sample JavaScript code: 
 
@@ -383,31 +383,31 @@ Windows Mobile/CE require that a provided `printing-service` application is inst
 <td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/mobile/mz-220/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/x1426279604956.jpg.pagespeed.ic.F9pw8Srpwb.jpg" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>MZ</b></td>
 <td class="clsSyntaxCells clsOddRow">MZ 220, MZ 320</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="imz220pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/mz-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel_1d2c/image.img.png/x1426276854144.png.pagespeed.ic.OndlAqm5W1.png" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>iMZ</b></td>
 <td class="clsSyntaxCells clsOddRow">iMZ 220, iMZ 320</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows  x86</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>RW</b></td>
 <td class="clsSyntaxCells clsOddRow">RW 220, RW 420, RW 420 Print Station</td>
-<td class="clsSyntaxCells usb comp">Android, Mac OS X, Windows x86</td>
+<td class="clsSyntaxCells usb comp">Android, Mac OS X, Windows Mobile, CE, x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://www.zebra.com/content/zebra1/us/en/support-downloads/passive-rfid/rp4t/_jcr_content/mainpar/twocol/leftpar/image.img.jpg/1426279500551.jpg" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>P4T</b></td>
 <td class="clsSyntaxCells clsOddRow">P4T, RP4T Passive RFID Printer</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
 </tr>
 <tr>
 <td class="clsSyntaxCells clsOddRow"><img id="zd500rpic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/rfid/zd500r/_jcr_content/mainpar/tabscontainer/detailed-specs/content/subtabscontainer_540/zd500r/content/twocol_83b/leftpar/image_236a.img.png/1433356327246.png" height="75"></img></td>
 <td class="clsSyntaxCells clsOddRow"><b>ZD500R</b></td>
 <td class="clsSyntaxCells clsOddRow">ZD500R RFID Printer</td>
-<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows x86</td>
+<td class="clsSyntaxCells clsOddRow">Android, Mac OS X, Windows Mobile, CE, x86</td>
 </tr>
 <td class="clsSyntaxCells clsOddRow"><b></b></td>
 <td class="clsSyntaxCells clsOddRow">NOTE: Printing via USB is NOT supported on iOS devices.</td>
