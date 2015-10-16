@@ -290,7 +290,7 @@ You can specify where the `config.xml` file will reside on your device using the
 ## Android-specific Settings
 The capabilities listed above are directly related to the Android device capabilities that your app will require, and for which the user will be asked to give permission when installing the app. You can add capabilities to your Android app by adding a 'capabilities' section to your `build.yml` in the 'android' heading as below. 
 
-NOTE: To work around build issues related to Android-M, we recommend adding 'version: 4.1.0' in the 'android:' as below.
+NOTE: To work around build issues related to Android-M, we recommend adding 'version: 4.1.0' in the 'android:' section, as below.
 
 So anyone who is using android:version as less than "4.1.0" are supposed to change "4.1.0" to work it properly.
 
