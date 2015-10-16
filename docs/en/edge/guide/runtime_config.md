@@ -176,8 +176,13 @@ Sample yaml code:
 
     :::yaml
     # Address and port of proxy server. This settings uses Network module.
+    # Donot include 'http://' while setting the http_proxy_host 
     http_proxy_host = 'server'
     http_proxy_port = port
+    
+    Example:
+    http_proxy_host = 'wwwxyz123.abc.com'
+    http_proxy_port = 6060
 
     # Login and password for access to proxy server. Only basic authentication is supported
     http_proxy_login  = 'user'
