@@ -292,7 +292,6 @@ The capabilities listed above are directly related to the Android device capabil
 
 NOTE: To work around build issues related to Android-M, we recommend adding 'version: 4.1.0' in the 'android:' section, as below.
 
-So anyone who is using android:version as less than "4.1.0" are supposed to change "4.1.0" to work it properly.
 
 
 
