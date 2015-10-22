@@ -3,7 +3,7 @@
 <p>The Push API provides access to Push messaging functionality. Use this API to give your application the ability to receive server initiated messages.</p>
 <h2>Enabling the API</h2>
 
-<p>In order to use this API you must include the following extension in your <code>build.yml</code>:</p>
+<p>To use this API, you must include the following extension in your <code>build.yml</code>:</p>
 
 <p>For APNS or GCM:</p>
 
@@ -15,8 +15,20 @@ capabilities: ["push"]
 
 <pre><code>:::ruby
 extensions: ["rhoconnect-push", "rhoconnect-client"]
-For Win32(XPE) MSMQ(Microsoft Message Queue) and .Net Framework 3.5 must be installed on device to get it work.
 </code></pre>
+
+<p><strong>NOTES</strong></p>
+
+<p><strong>For Win32(XPE)</strong>, Microsoft Message Queue (MSMQ) and .Net Framework 3.5 also must be installed on the device.</p>
+
+<p><strong>GCM is no longer supported as a standalone jar file</strong> since being moved to Google Play services. If you have trouble building an Android app with RhoElements 4.0.0 and Push capability, try these steps:</p>
+
+<ol>
+<li><a href="http://dl-ssl.google.com/android/repository/gcm_r03.zip">Download the GCM r03 sip file</a> from Google&rsquo;s repository.</li>
+<li>Copy it to sdk/extras and extract it.</li>
+<li>Rename the folder to &lsquo;gcm&rsquo;</li>
+</ol>
+
 
 <h2>JavaScript Usage</h2>
 

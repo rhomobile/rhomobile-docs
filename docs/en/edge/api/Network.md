@@ -328,7 +328,7 @@ Rho::Network.post(
 
 
 
-  </div></div></div></div><a name='r3'></a><div class=' remarks' id='r3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark3"><strong>SSL Connection Failure in iOS Platform</strong></div><div id="cRemark3" class="accordion-body">  <div class="accordion-inner"><p>Due to a limitation in curl for iOS, an appropriate timeout is not used in &lsquo;select&rsquo; system calls for a curl SSL conection. To avoit this SSL connection issue, it is recommended that the iOS native Network library be used instead of curl. To do this, add the two lines below to the rhoconfig.txt file.</p>
+  </div></div></div></div><a name='r3'></a><div class=' remarks' id='r3'><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle"  href="#cRemark3"><strong>SSL Connection Failure in iOS Platform</strong></div><div id="cRemark3" class="accordion-body">  <div class="accordion-inner"><p>Due to a limitation in curl for iOS, an appropriate timeout is not used in &lsquo;select&rsquo; system calls for a curl SSL conection. To avoid this SSL connection issue, it is recommended that the iOS native Network library be used instead of curl. To do this, add the two lines below to the rhoconfig.txt file.</p>
 
 <p>For more information, please refer to <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/CommonPitfalls/CommonPitfalls.html">Avoiding Common Networking Mistakes</a> in the Apple developer reference.</p>
 
