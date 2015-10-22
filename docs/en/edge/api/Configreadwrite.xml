@@ -67,6 +67,17 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
                 </CALLBACK>
 				<PLATFORM>Android</PLATFORM>
             </METHOD>
+            <METHOD name="readFromOriginalConfig" hasCallback="mandatory" generateDoc="false">
+                <DESC>Read from Original xml file</DESC>
+                <CALLBACK type="HASH">
+                    <PARAMS>
+                        <PARAM name="value" type="STRING">
+                            <DESC>Reading the value from temporary config.xml.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
         </METHODS>
         
         <USER_OVERVIEW>

@@ -306,9 +306,9 @@ The ebapi.js file is necessary for all single API inclusions.
             </PROPERTY>
             <PROPERTY name="illuminationMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android</PLATFORM>
+                <PLATFORM>WM, CE</PLATFORM>
                 <APPLIES msiOnly="true">Imager / Camera Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Selects the illumination mode to use.</DESC>
+                <DESC>Selects the illumination mode to use. This property is not currently supported on Android.</DESC>
                 <VALUES>
                     <VALUE constName="ILLUMINATION_AUTO" value="auto">
                         <DESC>Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.</DESC>
