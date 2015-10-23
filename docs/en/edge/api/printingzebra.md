@@ -11,7 +11,7 @@
 
 <h2>Enabling the API</h2>
 
-<p>To use this API you must include the following extensions in your <code>build.yml</code></p>
+<p>To use this API you must include the following extensions in your <code>build.yml</code>:</p>
 
 <pre><code>:::ruby
 extensions: ["printing","printing_zebra"]

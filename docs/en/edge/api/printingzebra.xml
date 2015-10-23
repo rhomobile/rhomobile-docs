@@ -10,7 +10,8 @@
 2. USB printing is supported for Android and Windows Mobile/CE.
 
 ## Enabling the API
-To use this API you must include the following extensions in your `build.yml`
+To use this API you must include the following extensions in your `build.yml`: 
+
     :::ruby
     extensions: ["printing","printing_zebra"]
 
