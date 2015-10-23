@@ -1,25 +1,31 @@
 # Push notifications
 
-## What push notifications are and when to use them
+## Push notifications and when to use them
 
-Traditionally, client/server applications work based on a request/response cycle: The client sends a request to the server and the server sends back a response (the client is said to *pull* information from the server) but there was normally no way for the server to send (push) arbitrary information to the client without outside of a regular request cycle.
+Traditional client/server applications work based on a request/response cycle: The client sends a request to the server and the server sends back a response (the client is said to *pull* information from the server). But there was once no way for the server to send (push) information to the client outside of a regular request cycle.
 
-Push notifications solve this problem: they are a way for the server to initiate a connection and send information to a client whenever an event of interest happens. This mechanism allows for updates to be delivered almost in real-time instead of having to wait for the next synchronization.
+Push notifications solved this problem. They're a way for the server to initiate a connection and send information to a client whenever there's an event of interest. This mechanism allows for updates to be delivered in near real-time instead of having to wait for the next synchronization.
 
 Depending on how they are implemented and delivered, there are two types of push notifications:
 
 * Native push notifications (Android, iOS), provided by the mobile operating system and third party infrastructure (Google / Apple)
 * RhoConnect Push Service, built into RhoConnect Server and deployed in your choice of cloud and/or traditional server provider.
 
-**NOTE: This difference is particularly important on Android because Android's native notifications require accessing Google services (in particular, Google Cloud Messaging) which are linked to the Google Play Store. Enterprise devices may not include the Play Store so if you are deploying your application to the Enterprise Tablet or other professional-grade Android devices, be aware that Google Cloud Messaging may not be available and you will need to use RhoConnect Push Service instead.**
+**NOTE: This difference is particularly important on Android because Android's native notifications require accessing Google services (in particular, Google Cloud Messaging, or GCM) which are linked to the Google Play Store. Enterprise devices might not include access to the Play Store, so if you are deploying your application to the Enterprise Tablet or other professional-grade Android devices, be aware that Google Cloud Messaging may not be available and you will need to use RhoConnect Push Service instead.**
 
 In order to choose one or the other, you need to think about:
 
 * The devices your application will be deployed to, whether they can support platform-specific notifications or not (whether they include the Google Play Store). Be aware that RhoConnect Push Service is not available on iOS.
 * Data protection / compliance with regulatory limitations in specific industries. For example, a law firm could be legally required to never send any of its data to a third party like Google or Apple. In cases like this, RhoConnect Push Service offers a way to keep all parts of the infrastructure under your control, with everything running on your own servers.
 
+>**Having trouble building an Android app with RhoElements 4.0.0 and Push capability?**<br>
+>Since being moved to Google Play services, GCM is no longer supported as a standalone jar file. If you're having trouble building an Android app with RhoElements 4.0.0 and Push capability, try these steps:<br><br>
+>1. [Download the GCM r03 sip file](http://dl-ssl.google.com/android/repository/gcm_r03.zip) from Google's repository.<br> 
+>2. Copy it to sdk/extras and extract it.<br>
+>3. Rename the folder to 'gcm'<br>
+>
 
-## Setting up your app for native push notifications
+## Setting up an app for native push notifications
 
 **NOTE: You only need to complete *one* of the setup sections, either "native" (this section) or ["RhoConnect Push Service"](#setting-up-your-app-for-rhoconnect-push-service-notifications) depending on which delivery backend you want to use. If you are not sure, check [what push notifications are and when to use them](#what-push-notifications-are-and-when-to-use-them). Once you have completed one of these, proceed to [Integrating push notifications in a RhoMobile app](#integrating-push-notifications-in-a-rhomobile-app). **
 
