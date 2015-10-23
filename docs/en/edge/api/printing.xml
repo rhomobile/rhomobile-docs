@@ -8,20 +8,20 @@ The Printer API module provides access to find, connect, and print over Bluetoot
 </HELP_OVERVIEW>
 
 <MORE_HELP>
-This general API does not provide access to manufacturer-specific features such as those found in the [PrintingZebra API](printingzebra). If you wish to have access to both general *and* manufacturer-specific features, you must add both extensions to your `build.yml` file.
+This general API does not provide access to manufacturer-specific features such as those found in the [PrintingZebra API](printingzebra). If you wish to have access to general *and* manufacturer-specific features, you must include this general API as as well as your printer-specific extension in your `build.yml` file.
 
 ###Notes
 
 1. Windows Mobile/CE platforms require the Printing Service application to be running. This is described in the [Printing Guide](../guide/printing#platform-notes).
 2. Unless using the printer's 'line mode' (for sending raw text strings), Zebra recommends sending ZPL only.
-3. USB printing is supported for Android only.
+3. USB printing is supported on Android and Windows Mobile/CE platforms on RMS 5.3 and higher.
 
 ## Enabling the API
 To use this API you must include the following extension in your `build.yml`:
 :::ruby
 extensions: ["printing"]
 
-&gt; Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+&gt; Note: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown in the [built-time settings guide](../guide/build_config#other-build-time-settings).
 
 ## JavaScript Usage
 Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
@@ -31,6 +31,8 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
 </MORE_HELP>
 
 <MORE_HELP_EB>
+## Enabling the API
+
 There are two methods of enabling the Printer API:
 
 * Include all 'ebapi' modules
