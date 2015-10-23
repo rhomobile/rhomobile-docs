@@ -429,3 +429,17 @@ Once your application is submitted successfully you can view its review status b
 
 ### Loading Splash Screen
 Newer iPhones (iPhone 5 and up) have larger screen (longer screen), so applications that want to use whole screen should have a special loading splash screen image - `loading-568h@2x.png` with 640 x 1136 size. Only applications with this loading image use the whole screen. Other applications that detect that the device is older that iPhone 5 should start with reduced screen size splash which is appropriate for that device, most likely equal to old phones' resolution, 640x960.
+
+## ARM v7 Issue
+
+Any RhoMobile app originally built with 4.1 and then later rebuilt with 5.1 to target Apple iPhone 5, 5C or other Apple devices that incorporate the ARM v7 instruction set, might return the error:
+ 
+"**Undefined symbols for architecture armv7 lD: symbol(s) not found for architecture armv7**" 
+
+Although support for the ARMv7 architecture was implemented in RMS 5.1, apps built with previous versions contain incompatible components that will cause the app to fail when rebuilt. 
+
+To solve the problem: 
+
+* **Delete the project and bin folders** under the app folder of the project in question 
+* **Perform a clean build** of the app
+ 
