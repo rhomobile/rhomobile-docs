@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Configreadwrite" parent="Rho">
+    <MODULE name="Configreadwrite" parent="Rho" generatedoc="false">
     <HELP_OVERVIEW>The Configreadwrite API provides access to read and write to temporary config files in Android platform. It also provides capabilities to update the user configured attribute value in actual config file.</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
