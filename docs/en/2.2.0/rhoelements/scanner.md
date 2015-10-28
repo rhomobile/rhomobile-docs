@@ -186,11 +186,11 @@ Items listed in this section indicate parameters, or attributes which can be set
   Use fixed focus.
 <br /><b>auto:</b>
   Use auto focus.</DESCDETAIL><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>illuminationMode:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Selects the illumination mode to use. This parameter is currently being not supported on Android Platform.  
+</b></td><td class="clsSyntaxCells clsOddRow">Selects the illumination mode to use. This parameter is not currently supported on Android (illumination is always on).  
 <DESCDETAIL>
 <br /><b>Possible values:</b>
 <br /><b>auto:</b>(<i>not available on Enterprise Tablet</i>)
-  Auto-exposure algorithms will decide whether illumination is required or not.
+  Auto-exposure algorithms will decide whether illumination is required.
 <br /><b>alwaysOn:</b>
   External illumination is always on.
 <br /><b>alwaysOff:</b>
