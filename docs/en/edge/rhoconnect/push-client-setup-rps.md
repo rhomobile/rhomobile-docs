@@ -83,6 +83,7 @@ You can also configure more advanced settings in RhoConnect push by creating a c
 	:::json
 	{
 		"httpSecure": "n",
+		"rcSecure": "n",
 		"devAuthHost": "localhost",
 		"devAuthUrl": "/rc/v1/app/rps_login",
 		"devAuthPort": "9292",
@@ -108,6 +109,7 @@ To start the server using a config.json file, run the following command.
 The JSON file has the following parameters.
 
 * `httpSecure` - Specify whether the push server will be an https or http server (y/n).
+* `rcSecure` - Specify whether Rhoconnect server instance on https or http (y/n). 
 * `devAuthHost` - RhoConnect instance used to handle device credentials.
 * `devAuthUrl` - Path used on the RhoConnect instance to handle device credentials.
 * `devAuthPort` - Port used on the RhoConnect instance to handle device credentials.
