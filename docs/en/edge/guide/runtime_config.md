@@ -176,7 +176,7 @@ Sample yaml code:
 
     :::yaml
     # Address and port of proxy server. This settings uses Network module.
-    # Donot include 'http://' while setting the http_proxy_host 
+    # Do not include 'http://' while setting the http_proxy_host 
     http_proxy_host = 'server'
     http_proxy_port = port
     
@@ -1378,4 +1378,4 @@ The table below shows the behavior of RhoElements when Function Keys are pressed
 </table>
 
 ### HTTP Authentication Limitations
-On Windows Mobile and Windows CE, using the Webkit, we only support the "Basic" and "Digest" forms of the Authenticate header as described in [This article](https://www.ietf.org/rfc/rfc2617.txt). This means that whenever using WM or WinCE, you'll need to pass the username and password over the network as clear-text. Keep this in mind when thinking about your app's security on these platforms.
+On Windows Mobile/CE with the Zebra Webkit, only "Basic" and "Digest" forms of the Authenticate header are supported. Therefore, usernames and passwords are passed over the network as clear text on those platforms. Keep this in mind when considering app security. For more information, please refer to the IETF article on [HTTP Authentication: Basic and Digest Access Authentication](https://www.ietf.org/rfc/rfc2617.txt). 
