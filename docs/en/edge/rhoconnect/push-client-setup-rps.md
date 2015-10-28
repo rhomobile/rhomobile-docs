@@ -73,6 +73,7 @@ You can control basic settings for RhoConnect push using command line arguments.
 	  -p, --port                  Run the server on this port (defaults to 8675)
 	  -r, --redis REDIS           Redis connection string (i.e. redis://localhost:6379)
 	  -s, --httpSecure            Specify if this server is running over https or http
+	  -R, --rcSecure              Specify if the Rhoconnect server is running over https or http
 	  -t, --timeout TIMEOUT       Time (in ms) before timeout is sent to client
 	  -T, --registrationTimeout   Expiration limit for client registration tokens
 	  -v, --version               Display server version
