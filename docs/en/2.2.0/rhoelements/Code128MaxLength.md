@@ -29,7 +29,7 @@ To Set Code128maxLength parameters via Ruby use the following syntax: Scanner.Pa
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>code128maxLength:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Numeric value (1 - 55)</td><td class="clsSyntaxCells clsOddRow">Numeric value setting the maximum number of characters for the Code128 structure (1 - 55). Supported for aplhanumeric character and not for numeric character.</td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
+</b></td><td class="clsSyntaxCells clsOddRow">Numeric value (1 - 55)</td><td class="clsSyntaxCells clsOddRow">Numeric value setting the maximum number of characters for the Code128 structure (1 - 55). Supported for alphanumeric character and not for numeric character.</td><td class="clsSyntaxCells clsOddRow">Device specific</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
