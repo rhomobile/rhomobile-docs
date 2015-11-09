@@ -263,7 +263,7 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
                         <DESC>The location of the file on the printer (e.g. "E:FORMAT.ZPL").</DESC>
                     </PARAM>
                     <PARAM name="vars" type="HASH">
-                        <DESC>An Hash which contains the key / value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as Strings, i.e. '1':'field1' etc. CPCL format do not supported - only ZPL!</DESC>
+                        <DESC>A Hash containing the key / value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as Strings, i.e. '1':'field1' etc. Only ZPL format is supported; CPCL format is not supported.</DESC>
                     </PARAM>
                 </PARAMS>
                 <CALLBACK type="STRING">
