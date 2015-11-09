@@ -72,7 +72,8 @@ You can control basic settings for RhoConnect push using command line arguments.
 	  -k, --keyFile FILE          Path to private SSL keyfile (https only)
 	  -p, --port                  Run the server on this port (defaults to 8675)
 	  -r, --redis REDIS           Redis connection string (i.e. redis://localhost:6379)
-	  -s, --httpSecure            Specify if this server is running over https or http
+	  -s, --httpSecure            Specify whether server uses HTTPS (or HTTP) 
+	  -R, --rcSecure			  Specify whether Rhoconnect server uses HTTPS (or HTTP)
 	  -t, --timeout TIMEOUT       Time (in ms) before timeout is sent to client
 	  -T, --registrationTimeout   Expiration limit for client registration tokens
 	  -v, --version               Display server version
@@ -83,6 +84,7 @@ You can also configure more advanced settings in RhoConnect push by creating a c
 	:::json
 	{
 		"httpSecure": "n",
+		"rcSecure": "n",
 		"devAuthHost": "localhost",
 		"devAuthUrl": "/rc/v1/app/rps_login",
 		"devAuthPort": "9292",
@@ -107,7 +109,8 @@ To start the server using a config.json file, run the following command.
 
 The JSON file has the following parameters.
 
-* `httpSecure` - Specify whether the push server will be an https or http server (y/n).
+* `httpSecure` - Specify whether to secure the push server (y=HTTPS; n=HTTP).
+* `rcSecure` - Specify whether to secure the Rhoconnect server (y=HTTPS; n=HTTP). 
 * `devAuthHost` - RhoConnect instance used to handle device credentials.
 * `devAuthUrl` - Path used on the RhoConnect instance to handle device credentials.
 * `devAuthPort` - Port used on the RhoConnect instance to handle device credentials.
@@ -163,7 +166,7 @@ If you are using a Windows Mobile or CE device, install the following runtime ap
 
 **NOTE: On Windows CE 7.0, you may see the following warning: "The program is not compatible with the current operating system and, therefore, may not run on this device."  You can safely ignore this warning and click the "Yes" button.**
 
-Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center.
+Connect your device to your Windows computer. You can use a USB cable, Bluetooth or any other method. Start Windows Mobile Device Center (ActiveSync on Windows XP).
 
 Manually copy the .cab files to the device. For example, you can use the device File Explorer to display the .cab files that are on the device. Click on each .cab file and the installation process will be started; after it is finished, you should see the app icon on your device in Programs. You should then create a shortcut in the Startup folder so that this applications runs when the device starts. Or if you are using other methods for ensuring certain applications are always running. If this application is not running, it will not receive RhoConnect Push notifications.
 
@@ -171,19 +174,19 @@ Manually copy the .cab files to the device. For example, you can use the device 
 ### Installing Runtime Apps for Windows XP Embedded
 Windows XPE installation requires that you have the following items installed on your XPE device.
 
-* .NET 3.5 Compact framework
-* .NET 4 Compact framework
+* .NET 3.5 Compact Framework
+* .NET 4 Compact Framework
 
 NOTE: These are both required because the push service for XPE needs parts of both 3.5 and 4 to function properly.
 
 You'll also need to install Microsoft Messaging Queue or [MSMQ](http://msdn.microsoft.com/en-us/library/aa967729\(v=vs.110\).aspx) on your build machine.
 
-Connect your device to your Windows computer. You can use USB-cable, bluetooth or any other method. Start ActiveSync or Windows Mobile Device Center and copy the `rhoconnect-push-service.exe` file to the device. For example, you can use your computer's file explorer to place the .exe file on your device. Once the file is on your device, navigate to the file and click on the .exe file to start the installation process. After it is finished, you should see the app icon on your device in the programs list.
+Connect your device to your Windows computer. You can use a USB cable, Bluetooth or any other method. Start Mobile Device Center (ActiveSync on Windows XP) and copy the `rhoconnect-push-service.exe` file to the device. For example, you can use your computer's file explorer to place the .exe file on your device. Once the file is on your device, navigate to the file and click on the .exe file to start the installation process. After it is finished, you should see the app icon on your device in the programs list.
 
 NOTE: The RhoConnect push service on Windows XP Embedded is a separate program on your device and will not be uninstalled when uninstalling other apps or programs.
 
 ## Setting up the Rhodes Client for RhoConnect Push Service
-To set up your Rhodes client application for RhoConnect Push Service, you configure rhoconfig.txt and build.yml.
+To set up your Rhodes client application for RhoConnect Push Service, you configure `rhoconfig.txt` and `build.yml`.
 
 ### Configuring rhoconfig.txt
 In your client application `rhoconfig.txt` file, set the following options to configure your RhoConnect Push Service.
@@ -206,4 +209,4 @@ When you configure your application `build.yml` file for RhoConnect Push Service
 	extensions: ["rhoconnect-push"]
 
 ## Finishing Client Setup
-Once you have completed the above steps for setting up for RhoConnect Push Service on Android or Windows Mobile/CE client and RhoConnect server, you must still [perform the client setup that is needed for all platforms](push-client-setup).
+Once the above steps for setting up the RhoConnect Push Service on Android or Windows Mobile/CE client and RhoConnect server are completed, you must then perform the [push client setup](push-client-setup) process that's required for all platforms.

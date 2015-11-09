@@ -1,9 +1,9 @@
 # Build for Windows
 
 ## Setup
-Follow the instructions for [setting up the development environment](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
+Follow the [native SDK setup instructions](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
 
-By default the application is built with most recent supported version of Visual Studio installed in the system (either 2012 or 2008). To explicitly specify the version of Visual Studio add `msvc` parameter to `win32` section of `build.yml`:
+By default, the application is built with the most recent supported version of Visual Studio installed in the system (either 2012 or 2008). To explicitly specify the version of Visual Studio, add an `msvc` parameter to the `win32` section of your `build.yml`:
 
     :::yaml
     win32:
@@ -11,14 +11,14 @@ By default the application is built with most recent supported version of Visual
 
 * use either `2012` or `2008`
 
-To optimize Win32 app installer file size by exclusion of Qt DLLs and/or Visual C runtime DLLs add `deployqt` and/or `deploymsvc` boolean parameters to `win32` section of `build.yml`, e.g.:
+The size of a Win32 app installer can be optimized by excluding of Qt DLLs and/or Visual C runtime DLLs. Simply add one or both boolean parameters `deployqt` and/or `deploymsvc` to the `win32` section of your `build.yml` and exclude them as below:
 
     :::yaml
     win32:
       deployqt: 0
       deploymsvc: 0
 
-If you excluded Qt DLLs or VC runtime from app installer, you need to install them separately on every PC before running your app. It is recommended to use our build of the Qt binaries (see [below](#build-for-windows-https)) for development. By doing so you'll be able to use our [RhoRuntimeQt installer](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe) to install all required Qt and Visual Studio Redistributable DLLs. Alternatively you may put Qt5 DLLs to any folder and add its full path to `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
+The excluded Qt DLLs or VC runtime still must be installed separately on every PC that will be running your app. It is therefore recommended to use our build of the Qt binaries, which will enable Zebra's [RhoRuntimeQt installer](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe), which installs all required Qt and Visual Studio Redistributable DLLs. See [below](#build-for-windows-https) for details. Alternatively, Qt5 DLLs can be placed in a folder, the path to which must be added to the `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
 
 ## Build application from the command line
 
