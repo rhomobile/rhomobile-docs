@@ -6,13 +6,13 @@ RhoMobile Suite supports the Qt cross-platform application framework for buildin
 * Qt 5.1.1.0 
 * Qt 5.5.0.0 
 
+NOTE: QT 5.1.1.0 exhibits inconsistent behaviour when a finger or stylus is used.
+
 ###Qt 5.1.1.0 for Visual Studio 2008 
 If using Visual Studio 2008, [download the Qt 5.1.1.0 binaries for VS2008](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z), which are compiled from Qt source and linked against OpenSSL. These binaries are compatible with Windows XP and are the only version  supported for use with Visual Studio 2008. 
 
 ###Qt 5.1.1.0 for Visual Studio 2012 
 If using Visual Studio 2012, [download the Qt 5.1.1.0 binaries for VS2012](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z), which also are compiled from Qt source and linked against OpenSSL. These binaries also are compatible with Windows XP. 
-
-> Note: QT 5.1.1.0 exhibits inconsistent behaviour when attempting to control applications using a finger or stylus.
 
 ###QT 5.5.0.0 for Visual Studio 2012
 QT 5.5.0.0 has been supported only on visual studio 2012. In this version we are using binaries directly provided the QT website. Additionally we have included openssl libraries to support https protocol. We are not compiled QT from source like earlier versions.
@@ -30,14 +30,25 @@ By default, the application is built with the most recent supported version of V
 
 * use either `2012` or `2008`
 
-The size of a Win32 app installer can be optimized by excluding of Qt DLLs and/or Visual C runtime DLLs. Simply add one or both boolean parameters `deployqt` and/or `deploymsvc` to the `win32` section of your `build.yml` and exclude them as below:
+The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/or Visual C runtime DLLs. Simply add one or both boolean parameters `deployqt` and/or `deploymsvc` to the `win32` section of your `build.yml` and exclude them as below:
+
 
     :::yaml
     win32:
       deployqt: 0
       deploymsvc: 0
 
-The excluded Qt DLLs or VC runtime still must be installed separately on every PC that will be running your app. It is therefore recommended to use our build of the Qt binaries, which will enable Zebra's [RhoRuntimeQt installer](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe), which installs all required Qt and Visual Studio Redistributable DLLs. See [below](#build-for-windows-https) for details. Alternatively, Qt5 DLLs can be placed in a folder, the path to which must be added to the `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
+The excluded Qt DLLs and/or VC runtime DLLs must still be installed separately on every PC that will be running your app. It is therefore recommended to use our build of the Qt binaries and thereby enable Zebra's RhoRuntimeQt installers, which installs all required Qt and Visual Studio Redistributable DLLs. For further details, please refer to [set up the build envorinment for Qt libraries](#setup-qt-build-environment) later in this document. 
+
+Alternatively, Qt5 DLLs can be placed in a folder, the path to which must be added to the `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
+
+##RhoRuntime Qt Installers
+
+RhoRuntime Qt Installers can optimize target memory footprint by installing a single  instance of Qt and Microsoft runtime libraries for access by multiple applications. This also can help reduce the size of the applications themselves.
+
+* **[RhoRuntime for QT 5.1.1.0 Visual Studio 2008](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-VS2008Setup.exe)**
+* **[RhoRuntime for QT 5.1.1.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe)**
+* **[RhoRuntime for QT 5.5.0.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5.5.0.0_VS2012-Setup.exe)**
 
 ## Build application from the command line
 
@@ -53,9 +64,11 @@ To clean all temporary and binary files execute command:
 
 ## Create application installer for Windows
 
-Download [NSIS installer tool](http://nsis.sourceforge.net/Download).
+The Nullsoft Scriptable Install System (NSIS) is an open source platform for creating installation files for Windows apps. Follow these instructions to make an installer for your app: 
 
-Add path to NSIS complier to 'rhobuild.yml' in rhodes folder:
+* Download and install the [NSIS installer tool](http://nsis.sourceforge.net/Download).
+
+* Add path to the NSIS complier in your `rhobuild.yml` file, which is in the `\rhodes` folder:
 
 On 32-bit platform:
 
@@ -69,10 +82,10 @@ On 64-bit platform:
       paths:
         nsis: C:/Program Files (x86)/NSIS/makensis.exe
 
-### Readme, license and icon
-* Application License can be provided by application developer. If file with LICENSE.txt name exists in the root of application folder when Installer will display separate page to confirm the license.
-* Application Readme file can be provided by application developer. If file with README.html name exists in the root of application folder when Installer will display show readme at the final page of the Installer
-* Application Icon should be used for Installer and application exe
+### Readme, license and Icon
+* To provide an Application License place the license in a file called `LICENSE.txt` in the root of application folder. This will be displayed on separate page during installation and allows the installer to accept the license.
+* To provide a Readme file, place the readme text in a file called README.html in the root of application folder. It will be displayed by the installer when the installation concludes. 
+* An Application Icon should be used for the Installer and the application executable (.exe)
 
 To build installer bundle use command:
 
@@ -84,11 +97,14 @@ There is separate rake command for Windows XP Embedded platform. To build instal
     :::term
     $ rake device:winxpe:production 
 
-After the build process is finished you can find the installer bundle named `<application-name>-setup.exe` in `<application-root>/bin/target/win32` folder.
+After the build process is finished you will find an installer bundle named:<br> 
+ `<application-name>-setup.exe`<br>
+ in the folder: <br>
+ `<application-root>/bin/target/win32` 
 
 ## Logging
 
-Rholog.txt is placed in `<rhodes folder>\platform\wm\bin\win32\rhodes\Debug\rho`
+Rholog.txt is placed in `<Application folder>\rho`
 
 <a name="build-for-windows-https"></a>
 ## How to enable HTTPS protocol
@@ -236,3 +252,5 @@ To build your own binaries of the Qt libraries for Visual Studio 2008:
 * After the build process is completed exit Visual Studio 2008 Command Prompt
 
 Now when you build your application the usual way, the HTTPS protocol support will be enabled automatically.
+
+
