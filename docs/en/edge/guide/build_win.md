@@ -1,7 +1,26 @@
 # Build for Windows
 
+## Introduction
+RhoMobile Suite supports the Qt cross-platform application framework for building apps for Windows desktop. As of RMS 5.3, the following Qt versions are supported 
+
+* Qt 5.1.1.0 
+* Qt 5.5.0.0 
+
+###Qt 5.1.1.0 for Visual Studio 2008 
+If using Visual Studio 2008, [download the Qt 5.1.1.0 binaries for VS2008](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z), which are compiled from Qt source and linked against OpenSSL. These binaries are compatible with Windows XP and are the only version  supported for use with Visual Studio 2008. 
+
+###Qt 5.1.1.0 for Visual Studio 2012 
+If using Visual Studio 2012, [download the Qt 5.1.1.0 binaries for VS2012](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z), which also are compiled from Qt source and linked against OpenSSL. These binaries also are compatible with Windows XP. 
+
+> Note: QT 5.1.1.0 exhibits inconsistent behaviour when attempting to control applications using a finger or stylus.
+
+###QT 5.5.0.0 for Visual Studio 2012
+QT 5.5.0.0 has been supported only on visual studio 2012. In this version we are using binaries directly provided the QT website. Additionally we have included openssl libraries to support https protocol. We are not compiled QT from source like earlier versions.
+
+NOTE: Zebra has built Qt binaries from source to make them compatible with Windows XP and to support zlib, SSL, .png, .jpg, FreeType fonts, etc. If additional or different binaries are required, please refer to [Qt Configure Options](http://doc.qt.io/qt-5/configure-options.html) and the [Qt docs for Building from Source](http://doc.qt.io/qt-5/windows-building.html). 
+
 ## Setup
-Follow the [native SDK setup instructions](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
+Before getting started here, follow the [native SDK setup instructions](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
 
 By default, the application is built with the most recent supported version of Visual Studio installed in the system (either 2012 or 2008). To explicitly specify the version of Visual Studio, add an `msvc` parameter to the `win32` section of your `build.yml`:
 
