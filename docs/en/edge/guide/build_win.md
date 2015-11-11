@@ -1,36 +1,66 @@
 # Build for Windows
 
 ## Introduction
-RhoMobile Suite supports the Qt cross-platform application framework for building apps for Windows desktop. As of RMS 5.3, the following Qt versions are supported 
+This guide documents the use of Microsoft Visual Studio 2012 or 2008 to build RhoMobile apps for Windows desktop. That tool, as well as the RhoMobile Suite should be installed prior to starting this guide. Further, RhoMobile should be configured according to the [native SDK setup instructions](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
 
+RhoMobile Suite uses the Qt cross-platform application framework for building apps for Windows desktop. As of RMS 5.3, the following Qt versions are supported: 
+
+* **Qt 5.5.0.0** (new in RMS 5.3)
 * Qt 5.1.1.0 
-* Qt 5.5.0.0 
 
-NOTE: QT 5.1.1.0 exhibits inconsistent behaviour when a finger or stylus is used.
+NOTE: Qt 5.1.1.0 exhibits inconsistent behavior when a finger or stylus is used for input.
 
-###Qt 5.1.1.0 for Visual Studio 2008 
-If using Visual Studio 2008, [download the Qt 5.1.1.0 binaries for VS2008](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z), which are compiled from Qt source and linked against OpenSSL. These binaries are compatible with Windows XP and are the only version  supported for use with Visual Studio 2008. 
+###Prerequisites
 
-###Qt 5.1.1.0 for Visual Studio 2012 
-If using Visual Studio 2012, [download the Qt 5.1.1.0 binaries for VS2012](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z), which also are compiled from Qt source and linked against OpenSSL. These binaries also are compatible with Windows XP. 
-
-###QT 5.5.0.0 for Visual Studio 2012
-QT 5.5.0.0 has been supported only on visual studio 2012. In this version we are using binaries directly provided the QT website. Additionally we have included openssl libraries to support https protocol. We are not compiled QT from source like earlier versions.
-
-NOTE: Zebra has built Qt binaries from source to make them compatible with Windows XP and to support zlib, SSL, .png, .jpg, FreeType fonts, etc. If additional or different binaries are required, please refer to [Qt Configure Options](http://doc.qt.io/qt-5/configure-options.html) and the [Qt docs for Building from Source](http://doc.qt.io/qt-5/windows-building.html). 
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) 2012 or 2008
+* [RhoMobile Suite 5.3](http://rhomobile.com/download/)
+* RMS 5.3 [configured for native development](nativesdksetup#setup-for-windows-desktop)
 
 ## Setup
-Before getting started here, follow the [native SDK setup instructions](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
+###Step 1- Download and install Qt
 
-By default, the application is built with the most recent supported version of Visual Studio installed in the system (either 2012 or 2008). To explicitly specify the version of Visual Studio, add an `msvc` parameter to the `win32` section of your `build.yml`:
+_**Regarding Windows XP target support**: Qt 5.1.1.0 is the only Qt version supported for making RhoMobile apps with Visual Studio 2008 or 2012 that target Windows XP. Zebra has built Qt binaries from source to make them compatible with Windows XP and to support zlib, SSL, .png, .jpg, FreeType fonts, etc. If additional or different binaries are required for your app, please refer to Qt's documentation for [Configuring Options](http://doc.qt.io/qt-5/configure-options.html) and for [Building from Source](http://doc.qt.io/qt-5/windows-building.html)._
+
+**Download the approproate version of Qt** based on your Visual Studio version and the target operating system: 
+
+* **Qt 5.1.1.0 for Visual Studio 2008**<br>
+To use Visual Studio 2008, [download Zebra's Qt 5.1.1.0 VS2008 binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z), which are compiled from Qt source and linked against OpenSSL. These binaries can be used to make apps for Windows XP. 
+
+* **Qt 5.1.1.0 for Visual Studio 2012**<br> 
+To use Visual Studio 2012, [download Zebra's Qt 5.1.1.0 VS2012 binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-rhoxp.7z), which are compiled from Qt source and linked against OpenSSL. These binaries can be used to make apps for Windows XP. 
+
+* **QT 5.5.0.0 for Visual Studio 2012**<br>
+To use Qt 5.5.0.0 on Visual Studio 2012, [download the Qt 5.5.0.0 binaries](http://download.qt.io/official_releases/qt/5.5/5.5.0/qt-opensource-windows-x86-msvc2012-5.5.0.exe). Zebra has created OpenSSL libraries that implement the HTTPS protocol; they're included automatically when performing a production build (using the rake command below).
+
+**Install the downloaded version of Qt and note the installation path**. 
+
+###Add Qt binaries to the path
+
+Open Control Panel » System » Advanced system settings » Environment Variables and then:
+
+Create new (or update existing) system variable QTDIR = C:\Qt\Qt5-ssl (this will be the installation folder for the compiled Qt libraries)
+
+Either close all command prompts and Visual Studio instances, or reboot the computer so the new settings take effect.
+
+If you are using Qt 5.1.1.0 for Visual Studio 2008 then QTDIR should point to extracted content from here
+http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z
+
+If you are using Qt 5.1.1.0 for Visual Studio 2012then QTDIR should point to extracted content from here
+http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-rhoxp.7z
+
+If you are using Qt 5.5.0.0 for Visual Studio 2012 then QTDIR should point to extracted content from here
+http://download.qt.io/official_releases/qt/5.5/5.5.0/qt-opensource-windows-x86-msvc2012-5.5.0.exe
+
+
+By default, the application is built with the most recent supported version of Visual Studio installed in the system (either 2012 or 2008). To explicitly specify the version of Visual Studio to use, add an `msvc` parameter to the `win32` section of your `build.yml`:
 
     :::yaml
     win32:
       msvc: 2012
 
-* use either `2012` or `2008`
+* Specify either `2012` or `2008`
 
-The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/or Visual C runtime DLLs. Simply add one or both boolean parameters `deployqt` and/or `deploymsvc` to the `win32` section of your `build.yml` and exclude them as below:
+The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/or Visual C runtime DLLs. Simply add one or both of the boolean parameters `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude them as below:
 
 
     :::yaml
@@ -38,7 +68,7 @@ The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/
       deployqt: 0
       deploymsvc: 0
 
-The excluded Qt DLLs and/or VC runtime DLLs must still be installed separately on every PC that will be running your app. It is therefore recommended to use our build of the Qt binaries and thereby enable Zebra's RhoRuntimeQt installers, which installs all required Qt and Visual Studio Redistributable DLLs. For further details, please refer to [set up the build envorinment for Qt libraries](#setup-qt-build-environment) later in this document. 
+The excluded Qt DLLs and/or VC runtime DLLs must still be installed separately on every PC that will be running your app. It is therefore recommended to use the Zebra build of the Qt binaries and thereby enable Zebra's RhoRuntimeQt installers, which automatically install all required Qt and Visual Studio Redistributable DLLs. For further details, please refer to [set up the build envorinment for Qt libraries](#setup-qt-build-environment) later in this document. 
 
 Alternatively, Qt5 DLLs can be placed in a folder, the path to which must be added to the `PATH` environment variable (make sure there is no `QTDIR` environment variable defined).
 
