@@ -127,7 +127,7 @@ RhoRuntime Qt Installers can optimize target memory footprint by installing a si
 
 * **[RhoRuntime for QT 5.1.1.0 Visual Studio 2008](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-VS2008Setup.exe)**
 * **[RhoRuntime for QT 5.1.1.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe)**
-* **[RhoRuntime for QT 5.5.0.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5.5.0.0_VS2012-Setup.exe)**
+* **[RhoRuntime for QT 5.5.0.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5.5.0.0_VS2012-Setup.exe)** (not compatible with Windows XP/XPE)
 
 >>>>UNDER CONSTRUCTION
 
@@ -140,14 +140,14 @@ RhoRuntime Qt Installers can optimize target memory footprint by installing a si
 >>>>UNDER CONSTRUCTION
 
 Install the RhoruntimeQt Installer for Visual Studio 2008 from here.
-Here =
 http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-VS2008Setup.exe
 
 
-This will install all necessary QT binaries in C:\RhoruntimeQt52008 and this folder location is added to the Windows PATH environment and QT_PLUGIN_PATH also set.
+This will install all necessary QT binaries in C:\RhoruntimeQt52008 
+This folder location must be added to the Windows PATH environment and QT_PLUGIN_PATH also set.
 
-Install Microsoft Visual C++ 2008 SP1 redistributable (link)
-Here 2= http://www.microsoft.com/en-sg/download/confirmation.aspx?id=5582
+Install Microsoft Visual C++ 2008 SP1 redistributable
+http://www.microsoft.com/en-sg/download/confirmation.aspx?id=5582
 
 Install the above application setup.
 
