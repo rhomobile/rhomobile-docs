@@ -89,7 +89,7 @@ Make sure you have installed the following software. Since Rhdoes builds a unifi
 
 * Create new (or update existing) system environment variable `QTDIR` and make sure it points to root folder of the installed Qt libraries, e.g. `C:\Qt\Qt5\5.1.1\msvc2012`
 
-> Note: If your application uses HTTPS protocol, then you need to build Qt libraries with OpenSSL (see <a href="build_win#build-for-windows-https">instructions</a>).
+>Note: If the application uses HTTPS, the Qt binaries must be built against OpenSSL. Please refer to [Build for Windows](build_win) for instructions and links to Zebra's pre-built Qt binaries.
 
 ## Setup for Windows Phone 8
 ### Prerequisites
