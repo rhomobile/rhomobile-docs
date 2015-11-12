@@ -62,8 +62,8 @@ If more than one version of Visual Studio is installed, the system by default wi
 
 **At this point, the development host is ready to build**. 
 
-###Step 4- Configure optimization, if desired
-The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/or Visual C runtime DLLs. Simply add one or both of the boolean parameters `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude them as below:
+##Optimize the runtime (optional)
+The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/or Visual C runtime DLLs. Simply add one or both of the boolean parameters `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude them by setting their values to 0, as below:
 
 
     :::yaml
@@ -71,19 +71,19 @@ The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/
       deployqt: 0
       deploymsvc: 0
 
-The excluded Qt DLLs and/or VC runtime DLLs must still be installed separately on every PC that will be running your app. It is therefore recommended to use the Zebra build of the Qt binaries and thereby enable Zebra's RhoRuntimeQt installers, which automatically install all required Qt and Visual Studio Redistributable DLLs (see next section). 
+**Important**: Excluded Qt DLLs and/or VC runtime DLLs must still be installed on every PC that will be running your app. It is therefore recommended to use the Zebra build of the Qt binaries and thereby enable Zebra's RhoRuntimeQt installers (see next section), which automatically install all required Qt and Visual Studio Redistributable DLLs. 
 
-Alternatively, Qt5 DLLs can be placed in a folder, the path to which must be added to the `PATH` environment variable (in which case the `QTDIR` system variable ahould be removed).
+Alternatively, Qt5 DLLs can be placed in a folder, the path to which must be added to the `PATH` environment variable, and the `QTDIR` system variable removed.
 
 ##RhoRuntime Qt Installers
 
-RhoRuntime Qt Installers can optimize target memory footprint by installing a single  instance of Qt and Microsoft runtime libraries for access by multiple applications. This also can help reduce the size of the applications themselves.
+RhoRuntime Qt Installers can optimize target memory footprint by installing a single  instance of Qt and Microsoft runtime libraries for access by multiple applications. This also can help reduce the size of the application itself.
 
 * **[RhoRuntime for QT 5.1.1.0 Visual Studio 2008](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-VS2008Setup.exe)**
 * **[RhoRuntime for QT 5.1.1.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe)**
 * **[RhoRuntime for QT 5.5.0.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5.5.0.0_VS2012-Setup.exe)**
 
-## Build application from the command line
+## Build from the command line
 
 To build and run the application issue command:
 
@@ -95,7 +95,7 @@ To clean all temporary and binary files execute command:
     :::term
     $ rake clean:win32
 
-## Create application installer for Windows
+## Create an app installer (optional)
 
 The Nullsoft Scriptable Install System (NSIS) is an open source platform for creating installation files for Windows apps. Follow these instructions to make an installer for your app: 
 
@@ -139,24 +139,24 @@ After the build process is finished you will find an installer bundle named:<br>
 
 The application log 'Rholog.txt' is placed in `<Application folder>\rho`
 
-##Switching Versions
-If Visual Studio is the desired IDE, RhoMobile applications can be built only with Visual Studio 2008 or Visual Studio 2012. If after following the steps above a different version of Visual Studio and/or Qt is desired, the following steps will get you there:   
+##Switching Qt versions
+If Visual Studio is preferred over RhoStudio, RhoMobile applications can be built only with Visual Studio 2008 or Visual Studio 2012. If after following the steps above a different version of Qt is desired, follow these steps to make the switch:
 
-1. Go to the Qt website and download the desired Qt version for Visual Studio 2008 or Visual Studio 2012.
+1. Go to the Qt website and download and install the desired Qt version for Visual Studio 2008 or Visual Studio 2012.
 2. Verify the Qt installation path. It should be something like: C:\Qt\<QtVersion>\<VSVersion>
 3. Close RhoStudio and all command-prompt windows. 
 4. Update or create a system variable called 'QTDIR' with the directory verified in Step 2. 
-5. Update the `msvc` parameter in the `Build.yml` to reflect the desired Visual Studio version.
+5. Update the `msvc` parameter in the `Build.yml` to reflect the desired Visual Studio version, if necessary.
 6. Be sure the `deployqt` and `deploymsvc` parameters in the `build.yml` both contain a value of 0. 
 7. Start building the application.
-8. Prepare a target system for testing the newly built application (which must not be the development host):
-    9. On the test target, install the Microsoft Visual C++ Runtime for 2008 or 2012 to coincide with the version being being used for the build.
-    10. Install the same Qt version on target system as installed in Step 1, above.
+8. Prepare a target system for testing the newly built application (**which must not be the development host**):
+    9. On the test target, install the Microsoft Visual C++ Runtime for 2008 or 2012 to coincide with the version being used for the build.
+    10. Install the same Qt version on the target system as installed in Step 1, above.
     11. Add the installed Qt directory from Step 2 to the 'PATH' environment variable (use a semicolon to append to the end of the path).
-    12. On the target system, copy the contents of `<application-root>/bin/target/win32/tmp` to `C:\<application-root>`. This is the newly built application. 
+    12. When the build finishes, copy the contents of `<application-root>/bin/target/win32/tmp` from the development host to the `C:\<application-root>` of the target. This is the newly built application. 
     13. Close all existing command-prompt windows.
-    14. Double click application installed on C:\<application-root>\<Appliation>.exe
-15. Install the new app on the target system and observe, test and explore the application with the new version of Qt.
+    14. Double click application on the target: C:\<application-root>\<Application>.exe
+15. Observe, test and explore the application with the new version of Qt.
 
 
 
