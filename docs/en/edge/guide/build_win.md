@@ -140,7 +140,7 @@ After the build process is finished you will find an installer bundle named:<br>
 The application log 'Rholog.txt' is placed in `<Application folder>\rho`
 
 ##Switching Qt versions
-If Visual Studio is preferred over RhoStudio, RhoMobile applications can be built only with Visual Studio 2008 or Visual Studio 2012. If after following the steps above a different version of Qt is desired, follow these steps to make the switch:
+RhoMobile applications can be built only with Visual Studio 2008 or Visual Studio 2012, and only with Qt 5.1.1.0 or Qt 5.5.0.0. If after following the steps above a different version of Qt is desired, follow these steps to make the switch:
 
 1. Go to the Qt website and download and install the desired Qt version for Visual Studio 2008 or Visual Studio 2012.
 2. Verify the Qt installation path. It should be something like: C:\Qt\<QtVersion>\<VSVersion>
@@ -154,11 +154,8 @@ If Visual Studio is preferred over RhoStudio, RhoMobile applications can be buil
     10. Install the same Qt version on the target system as installed in Step 1, above.
     11. Add the installed Qt directory from Step 2 to the 'PATH' environment variable (use a semicolon to append to the end of the path).
     12. When the build finishes, copy the contents of `<application-root>/bin/target/win32/tmp` from the development host to the `C:\<application-root>` of the target. This is the newly built application. 
-    13. Close all existing command-prompt windows.
-    14. Double click application on the target: C:\<application-root>\<Application>.exe
+    13. Close any command-prompt windows that might be open on the target.
+    14. Double click application on the target: C:\<application-root>\<Application>.exe.
 15. Observe, test and explore the application with the new version of Qt.
-
-
-
 
 
