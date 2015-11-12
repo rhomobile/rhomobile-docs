@@ -1,9 +1,9 @@
 # Build for Windows
 
 ## Introduction
-This guide documents the use of Microsoft Visual Studio 2012 or 2008 to build RhoMobile apps for Windows desktop. That tool, as well as the RhoMobile Suite should be installed prior to starting this guide. Further, RhoMobile should be configured according to the [native SDK setup instructions](nativesdksetup#setup-for-windows-desktop) for building Windows applications.
+This guide documents the use of Microsoft Visual Studio 2012 or 2008 to build RhoMobile apps for Windows desktop, including Windows XP and XP Embedded (XPE). Visual Studio is required to build apps that target Windows desktop and XPE, and along with the RhoMobile Suite should be installed prior to starting this guide. If RhoMobile is already installed, please also make sure that it's configured according to the [native SDK setup instructions](nativesdksetup#setup-for-windows-desktop) for building Windows apps.
 
-RhoMobile Suite uses the Qt cross-platform application framework for building apps for Windows desktop. As of RMS 5.3, the following Qt versions are supported: 
+Building apps for Windows also relies on the Qt cross-platform application framework. As of RMS 5.3, the following Qt versions are supported: 
 
 * **Qt 5.5.0.0** (new in RMS 5.3)
 * Qt 5.1.1.0 
@@ -13,20 +13,20 @@ NOTE: Qt 5.1.1.0 exhibits inconsistent behavior when a finger or stylus is used 
 ###Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) 2012 or 2008
-* [RhoMobile Suite 5.3](http://rhomobile.com/download/)
-* RMS 5.3 [configured for native development](nativesdksetup#setup-for-windows-desktop)
+* [RhoMobile Suite 5.3](http://rhomobile.com/download/) (RMS 5.2 if only targeting Windows XP or XPE)
+* RhoMobile [configured for native development](nativesdksetup#setup-for-windows-desktop)
 
 ## Setup
 ###Step 1- Download and install Qt
 
-_**About Windows XP target support**: Qt 5.1.1.0 is the only Qt version supported for making RhoMobile apps with Visual Studio 2008 or 2012 that target Windows XP. Zebra has built Qt binaries from source to make them compatible with Windows XP and to support zlib, SSL, .png, .jpg, FreeType fonts, etc. These binaries are linked against OpenSSL and implement the HTTPS protocol. If additional or different binaries are required for your app, please refer to Qt's documentation for [Configuring Options](http://doc.qt.io/qt-5/configure-options.html) and for [Building from Source](http://doc.qt.io/qt-5/windows-building.html)._
+_**About Windows XP target support**: Qt 5.1.1.0 is the only Qt version supported for making RhoMobile apps with Visual Studio 2008 or 2012 that target Windows XP and XPE. Zebra has built Qt binaries from source to make them compatible with Windows XP and to support zlib, SSL, .png, .jpg, FreeType fonts, etc. These freely distributable binaries are linked against OpenSSL and implement the HTTPS protocol. If additional or different binaries are required for your app, please refer to Qt's documentation for [Configure Options](http://doc.qt.io/qt-5/configure-options.html) and [Building from Source](http://doc.qt.io/qt-5/windows-building.html)._
 
 1. **Create the directory `C:\Qt\Qt5-ssl`** on the development host.
 2. **Download the appropriate version of Qt**: 
-    * **To target Windows XP with Visual Studio 2008**, [download Zebra's Qt 5.1.1.0 VS2008 binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z).
-    * **To target Windows XP with Visual Studio 2012**, [download Zebra's Qt 5.1.1.0 VS2012 binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-rhoxp.7z).
+    * **To target Windows XP/XPE with Visual Studio 2008**, [download Zebra's Qt 5.1.1.0 VS2008 binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-vs2008.7z).
+    * **To target Windows XP/XPE with Visual Studio 2012**, [download Zebra's Qt 5.1.1.0 VS2012 binaries](http://rhomobile-suite.s3.amazonaws.com/Qt/Qt5-rhoxp.7z).
     * **To target modern Windows versions with Visual Studio 2012**, [download Qt's 5.5.0.0 binaries](http://download.qt.io/official_releases/qt/5.5/5.5.0/qt-opensource-windows-x86-msvc2012-5.5.0.exe). _Note: In this scenario, Zebra OpenSSL libraries implement the HTTPS protocol, and are included automatically when performing a production build (using the rake command below)_.
-3. **Extract (or install, for Qt's binaries) to the new directory**.
+3. **Extract (or install Qt's binaries) to the directory** created in Step 1.1.
 
 ###Step 2- Add the QTDIR System Variable
 
@@ -60,7 +60,53 @@ If more than one version of Visual Studio is installed, the system by default wi
 
 * Specify either `2012` or `2008`
 
-**At this point, the development host is ready to build**. 
+####The development host is now ready to build. 
+
+## Build from the command line
+
+To build and run the application, execute the following command:
+
+    :::term
+    $ rake run:win32
+
+To clean all temporary and binary files, execute the following command:
+
+    :::term
+    $ rake clean:win32
+
+To build an installer bundle:
+
+    :::term
+    $ rake device:win32:production 
+
+After the build process is finished you will find an installer bundle named:<br> 
+ `<application-name>-setup.exe`<br>
+ in the folder: <br>
+ `<application-root>/bin/target/win32` 
+
+## Build for Windows XP Embedded
+The system requirements for building a RhoMobile app to target Windows XP Embedded are the same as those for Windows XP. The commands in this section can be executed after the development host has been configured starting with [Step 1 in the Setup section](#setup) above. 
+
+###Prerequisites
+
+* [RhoMobile Suite 5.2](http://rhomobile.com/download/) or higher [configured for native development](nativesdksetup#setup-for-windows-desktop)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) 2012 or 2008
+* **Qt 5.1.1.0** for the version of Visual Studio being used
+
+Clean out temporary and binary files by executing the following command:
+
+        :::term
+        $ rake clean:winxpe
+
+Build an installer bundle:
+
+        :::term
+        $ rake device:winxpe:production 
+
+After the build process is finished you will find an installer bundle named:<br> 
+ `<application-name>-setup.exe`<br>
+ in the folder: <br>
+ `<application-root>/bin/target/win32` 
 
 ##Optimize the runtime (optional)
 The size of a Win32 app installer can be optimized by excluding the Qt DLLs and/or Visual C runtime DLLs. Simply add one or both of the boolean parameters `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude them by setting their values to 0, as below:
@@ -83,17 +129,27 @@ RhoRuntime Qt Installers can optimize target memory footprint by installing a si
 * **[RhoRuntime for QT 5.1.1.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe)**
 * **[RhoRuntime for QT 5.5.0.0 Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5.5.0.0_VS2012-Setup.exe)**
 
-## Build from the command line
+>>>>UNDER CONSTRUCTION
 
-To build and run the application issue command:
+>>>>UNDER CONSTRUCTION
 
-    :::term
-    $ rake run:win32
+>>>>UNDER CONSTRUCTION
 
-To clean all temporary and binary files execute command:
+>>>>UNDER CONSTRUCTION
 
-    :::term
-    $ rake clean:win32
+>>>>UNDER CONSTRUCTION
+
+Install the RhoruntimeQt Installer for Visual Studio 2008 from here.
+Here =
+http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-VS2008Setup.exe
+
+
+This will install all necessary QT binaries in C:\RhoruntimeQt52008 and this folder location is added to the Windows PATH environment and QT_PLUGIN_PATH also set.
+
+Install Microsoft Visual C++ 2008 SP1 redistributable (link)
+Here 2= http://www.microsoft.com/en-sg/download/confirmation.aspx?id=5582
+
+Install the above application setup.
 
 ## Create an app installer (optional)
 
@@ -119,21 +175,6 @@ On 64-bit platform:
 * To provide an Application License place the license in a file called `LICENSE.txt` in the root of application folder. This will be displayed on separate page during installation and allows the installer to accept the license.
 * To provide a Readme file, place the readme text in a file called README.html in the root of application folder. It will be displayed by the installer when the installation concludes. 
 * An Application Icon should be used for the Installer and the application executable (.exe)
-
-To build installer bundle use command:
-
-    :::term
-    $ rake device:win32:production 
-
-There is separate rake command for Windows XP Embedded platform. To build installer bundle use command:
-
-    :::term
-    $ rake device:winxpe:production 
-
-After the build process is finished you will find an installer bundle named:<br> 
- `<application-name>-setup.exe`<br>
- in the folder: <br>
- `<application-root>/bin/target/win32` 
 
 ## Logging
 
