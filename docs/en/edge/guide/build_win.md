@@ -16,7 +16,7 @@ NOTE: Qt 5.1.1.0 exhibits inconsistent behavior when a finger or stylus is used 
 * [RhoMobile Suite 5.3](http://rhomobile.com/download/) (RMS 5.2 if targeting only Windows XP or XPE)
 * RhoMobile [configured for native development](nativesdksetup#setup-for-windows-desktop)
 
-## Setup
+## Set up development host
 ###Step 1- Download and install Qt
 
 _**About Windows XP target support**: Qt 5.1.1.0 is the only Qt version supported for making RhoMobile apps with Visual Studio 2008 or 2012 that target Windows XP and XPE. Zebra has built binaries from Qt source to make them compatible with Windows XP and to support zlib, SSL, .png, .jpg, FreeType fonts, etc. These freely distributable binaries are linked against OpenSSL and implement the HTTPS protocol. If additional or different binaries are required for your app, please refer to Qt's documentation for [Configure Options](http://doc.qt.io/qt-5/configure-options.html) and [Building from Source](http://doc.qt.io/qt-5/windows-building.html)._
@@ -49,9 +49,9 @@ _**About Windows XP target support**: Qt 5.1.1.0 is the only Qt version supporte
 
 &#56;. **Restart the system** for changes to take effect. 
 
-###Step 3- Select a Visual Studio version
-**Skip to step 4 if only one version of Visual Studio is installed in the development host**. 
+Skip to the [Build section](#build) if the development host has just a single version of Visual Studio installed. Your system is now ready to build. 
 
+###Step 3- Select a Visual Studio version
 If more than one version of Visual Studio is installed, the system by default will build the application using the most recent supported version (2012 or 2008). To explicitly specify the version of Visual Studio to use, add an `msvc` parameter to the `win32` section of your `build.yml` and specify `2012` or `2008`:
 
     :::yaml
@@ -59,7 +59,7 @@ If more than one version of Visual Studio is installed, the system by default wi
       msvc: 2012
 
 
-##### The development host is now ready to build. 
+The system is now ready to build with the selected Visual Studio edition. 
 
 <a name="build"></a>
 ## Build from the command line
@@ -132,7 +132,7 @@ Add one or both of the boolean parameters `deployqt` and `deploymsvc` to the `wi
       deploymsvc: 0
 
 
-###Step 2- Download RhoRuntime Qt installer
+###Step 2- Install RhoRuntime Qt installer
 RhoRuntime Qt installers optimize memory footprint by installing a single instance of the Qt runtime libraries and define a path on the target to allow sharing of the runtime by multiple applications. 
 
 Download **ONE** of these:
@@ -141,7 +141,7 @@ Download **ONE** of these:
 * **[RhoRuntime for QT 5.1.1.0 for Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe)**
 * **[RhoRuntime for QT 5.5.0.0 for Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5.5.0.0_VS2012-Setup.exe)** (not compatible with Windows XP/XPE)
 
-###Step 3- Download the Microsoft runtime 
+###Step 3- Install the Microsoft runtime 
 
 [Download the Microsoft Visual C++ runtime](http://www.microsoft.com/en-sg/download/confirmation.aspx?id=5582) and install it. The installer configures the target to allow sharing of the runtime by multiple applications. 
 
