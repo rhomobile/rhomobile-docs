@@ -50,10 +50,10 @@ _**About Windows XP target support**: Qt 5.1.1.0 is the only Qt version supporte
 
 &#56;. **Restart the system** for changes to take effect. 
 
-Skip to the [Build section](#build) if the development host has just a single version of Visual Studio installed. Your system is now ready to build. 
+If the development host has just a single version of Visual Studio installed, skip to the [Build section](#build); the system is now ready to build. 
 
 ###Step 3- Select a Visual Studio version
-If more than one version of Visual Studio is installed, the system by default will build the application using the most recent supported version (2012 or 2008). To explicitly specify the version of Visual Studio to use, add an `msvc` parameter to the `win32` section of your `build.yml` and specify `2012` or `2008`:
+If more than one version of Visual Studio is installed, the system by default will build the application using the newest supported version (2012 or 2008). To explicitly specify the version of Visual Studio to use, add an `msvc` parameter to the `win32` section of your `build.yml` and specify `2012` or `2008`:
 
     :::yaml
     win32:
@@ -114,13 +114,13 @@ After the build process is finished you will find an installer bundle named:<br>
 ##Minimize the target footprint (optional)
 The size of the Windows executable can be minimized by excluding Qt and/or Visual C runtime libraries, and the target configured to execute multiple apps from a single shared instance of those DLLs.  
 
-**Important: Optimized apps won't run unless the target has been configured as described this section; excluded DLLs still must be installed on every target**. Zebra simplifies this process with a set of target runtime installers that automatically install all required Qt DLLs into a shared location and configure target path settings accordingly. Alternatively, Qt5 DLLs can be copied to a folder on the target, the path to which must be added to the `PATH` environment variable and the `QTDIR` system variable removed.
+**Important: Optimized apps will not run on the target unless it has been configured as described this section; excluded DLLs must be installed separately on every target**. Zebra simplifies this process with a set of target runtime installers that automatically install all required Qt DLLs into a shared location and configure target path settings accordingly. Alternatively, Qt5 DLLs can be copied to a folder on the target, the path to which must be added to the `PATH` environment variable and the `QTDIR` system variable removed.
 
-NOTE: Zebra runtime installers include the Zebra Qt library builds, and should not be used if other Qt DLLs are required.
+NOTE: Zebra runtime installers include Zebra's Qt library builds, and should not be used if different Qt DLLs are required.
 
 ###Step 1- Specify DLL exclusions
 
-**Add one or both of the boolean parameters** `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude the corresponding runtimes by setting their values to 0, as below:
+&#49;. **Add one or both of the boolean parameters** `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude the corresponding runtimes by setting their values to 0, as below:
 
 
     :::yaml
@@ -128,16 +128,18 @@ NOTE: Zebra runtime installers include the Zebra Qt library builds, and should n
       deployqt: 0
       deploymsvc: 0
 
-Newly built apps will exclude the specified DLLs. 
+&#50;. **Rebuild the app**; the resulting executable will exclude the specified DLLs. 
 
 ###Step 2- Install RhoRuntime Qt installer
 RhoRuntime Qt installers optimize memory footprint by installing a single instance of the Qt runtime libraries and define a path on the target to allow sharing of the libraries by multiple applications. 
 
-**On the target(s)**, download and execute the appropriate installer:
+&#49;. **On the target(s)**, download and execute the appropriate installer:
 
 * **[RhoRuntime for QT 5.1.1.0 for Visual Studio 2008](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-VS2008Setup.exe)**
 * **[RhoRuntime for QT 5.1.1.0 for Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe)**
 * **[RhoRuntime for QT 5.5.0.0 for Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5.5.0.0_VS2012-Setup.exe)** (not compatible with Windows XP/XPE)
+
+&#50;. **Restart the target** to activate new path settings. 
 
 ###Step 3- Install the Microsoft runtime 
 
@@ -149,9 +151,9 @@ RhoRuntime Qt installers optimize memory footprint by installing a single instan
 
 The Nullsoft Scriptable Install System (NSIS) is an open source platform for creating installation files for Windows apps. Follow these instructions to make an installer for your app: 
 
-* Download and install the [NSIS installer tool](http://nsis.sourceforge.net/Download).
+&#49;. **Download and install the** [NSIS installer tool](http://nsis.sourceforge.net/Download).
 
-* Add path to the NSIS complier in your `rhobuild.yml` file, which is in the `\rhodes` folder:
+&#50;. **Add path to the NSIS complier** in your `rhobuild.yml` file, which is in the `\rhodes` folder:
 
 On 32-bit platform:
 
@@ -166,9 +168,11 @@ On 64-bit platform:
         nsis: C:/Program Files (x86)/NSIS/makensis.exe
 
 ### Readme, license and Icon
-* To provide an Application License place the license in a file called `LICENSE.txt` in the root of application folder. This will be displayed on separate page during installation and allows the installer to accept the license.
-* To provide a Readme file, place the readme text in a file called README.html in the root of application folder. It will be displayed by the installer when the installation concludes. 
-* An Application Icon should be used for the Installer and the application executable (.exe)
+&#51;. **To present a user license agreement**, place the license in a file called `LICENSE.txt` in the root of application folder. This will be displayed on separate page during installation and allows the installer to accept the license.
+
+&#52;. **To present a Readme file**, place the readme text in a file called README.html in the root of application folder. It will be displayed by the installer when the installation concludes. 
+
+For more information, please refer to the [NSIS User Guide](http://nsis.sourceforge.net/Docs/Contents.html). 
 
 ## Logging
 
