@@ -10,6 +10,7 @@ Building apps for Windows also relies on the Qt cross-platform application frame
 
 NOTE: Qt 5.1.1.0 exhibits inconsistent behavior when a finger or stylus is used for input.
 
+<a name="setup"></a>
 ###Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) 2012 or 2008
@@ -85,16 +86,14 @@ After the build process is finished you will find an installer bundle named:<br>
  `<application-root>/bin/target/win32` 
 
 ###Building for Windows XP Embedded
-The commands in this section can be executed after the development host has been configured according to the [Setup section](#setup) above, as pertains to Windows XP and XP Embedded. However, since embedded targets are more likely than desktops to require the smallest possible runtime footprint, it is recommended that the size of the XPE executable be minimized by excluding their Qt and/or Visual C runtime libraries, and that the target be configured to allow a single instance of those DLLs to be shared among multiple apps. The steps in this section will build XPE apps either way, but optimized apps won't run on the target unless the target has been configured as described that section. 
-
-For optimization instructions, please refer to [Optimize the runtime](#optimize), below. 
+ After the development host has been configured for Windows XP Embedded according to the [Setup section](#setup) above, use the following commands to build for XPE. To optimize the size of the XPE executable and its runtime footprint, please refer to [Minimize the target footprint](#optimize), below. 
 
 
-###Prerequisites
+<!--###Prerequisites
 
 * [RhoMobile Suite 5.2](http://rhomobile.com/download/) or higher [configured for native development](nativesdksetup#setup-for-windows-desktop)
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) 2012 or 2008
-* **Qt 5.1.1.0** for the version of Visual Studio being used
+* **Qt 5.1.1.0** for the version of Visual Studio being used-->
 
 Clean out temporary and binary files by executing the following command:
 
@@ -112,18 +111,16 @@ After the build process is finished you will find an installer bundle named:<br>
  `<application-root>/bin/target/win32` 
 
 <a name="optimize"></a>
-##Optimize the runtime (optional)
-The size of a Win32 app installer can be minimized by excluding the Qt and/or Visual C runtime DLLs, and configuring the target system to execute from a single shared instance of those DLLs. 
+##Minimize the target footprint (optional)
+The size of the Windows executable can be minimized by excluding Qt and/or Visual C runtime libraries, and the target configured to execute multiple apps from a single shared instance of those DLLs.  
 
-**Important: Excluded DLLs still must be installed on every target**. Zebra simplifies this process with its own set of runtime installers that automatically install all required Qt and Visual Studio redistributable DLLs into a shared location and configure the target's path settings accordingly. 
+**Important: Optimized apps won't run unless the target has been configured as described this section; excluded DLLs still must be installed on every target**. Zebra simplifies this process with a set of target runtime installers that automatically install all required Qt and Visual Studio redistributable DLLs into a shared location and configure target path settings accordingly. Alternatively, Qt5 DLLs can be copied to a folder on the target, the path to which must be added to the `PATH` environment variable and the `QTDIR` system variable removed.
 
 NOTE: Zebra runtime installers include the Zebra Qt library builds, and should not be used if other Qt DLLs are required.
 
-Alternatively, Qt5 DLLs can be manually placed in a folder, the path to which must be added to the `PATH` environment variable, and the `QTDIR` system variable removed.
-
 ###Step 1- Specify DLL exclusions
 
-Add one or both of the boolean parameters `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude the corresponding runtimes by setting their values to 0, as below:
+**Add one or both of the boolean parameters** `deployqt` and `deploymsvc` to the `win32` section of your `build.yml` and exclude the corresponding runtimes by setting their values to 0, as below:
 
 
     :::yaml
@@ -131,11 +128,12 @@ Add one or both of the boolean parameters `deployqt` and `deploymsvc` to the `wi
       deployqt: 0
       deploymsvc: 0
 
+Newly built apps will exclude the specified DLLs. 
 
 ###Step 2- Install RhoRuntime Qt installer
-RhoRuntime Qt installers optimize memory footprint by installing a single instance of the Qt runtime libraries and define a path on the target to allow sharing of the runtime by multiple applications. 
+RhoRuntime Qt installers optimize memory footprint by installing a single instance of the Qt runtime libraries and define a path on the target to allow sharing of the libraries by multiple applications. 
 
-Download **ONE** of these:
+**On the target(s)**, download and execute the appropriate installer:
 
 * **[RhoRuntime for QT 5.1.1.0 for Visual Studio 2008](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-VS2008Setup.exe)**
 * **[RhoRuntime for QT 5.1.1.0 for Visual Studio 2012](http://rhomobile-suite.s3.amazonaws.com/Qt/RhoRuntimeQt5-setup.exe)**
@@ -144,6 +142,8 @@ Download **ONE** of these:
 ###Step 3- Install the Microsoft runtime 
 
 [Download the Microsoft Visual C++ runtime](http://www.microsoft.com/en-sg/download/confirmation.aspx?id=5582) and install it. The installer configures the target to allow sharing of the runtime by multiple applications. 
+
+
 
 ## Create an app installer (optional)
 
