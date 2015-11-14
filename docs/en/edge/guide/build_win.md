@@ -114,7 +114,7 @@ After the build process is finished you will find an installer bundle named:<br>
 ##Minimize the target footprint (optional)
 The size of the Windows executable can be minimized by excluding Qt and/or Visual C runtime libraries, and the target configured to execute multiple apps from a single shared instance of those DLLs.  
 
-**Important: Optimized apps won't run unless the target has been configured as described this section; excluded DLLs still must be installed on every target**. Zebra simplifies this process with a set of target runtime installers that automatically install all required Qt and Visual Studio redistributable DLLs into a shared location and configure target path settings accordingly. Alternatively, Qt5 DLLs can be copied to a folder on the target, the path to which must be added to the `PATH` environment variable and the `QTDIR` system variable removed.
+**Important: Optimized apps won't run unless the target has been configured as described this section; excluded DLLs still must be installed on every target**. Zebra simplifies this process with a set of target runtime installers that automatically install all required Qt DLLs into a shared location and configure target path settings accordingly. Alternatively, Qt5 DLLs can be copied to a folder on the target, the path to which must be added to the `PATH` environment variable and the `QTDIR` system variable removed.
 
 NOTE: Zebra runtime installers include the Zebra Qt library builds, and should not be used if other Qt DLLs are required.
 
