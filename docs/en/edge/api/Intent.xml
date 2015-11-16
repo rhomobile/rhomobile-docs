@@ -53,15 +53,9 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
             <METHOD name="send" hasCallback="optional" runInThread="ui">
                 <DESC>Sends an intent. The receiver of the intent can either be another RhoMobile  application that is listening for this Intent characteristic or on Android can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.
 
-> Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI. In most cases it is also needed to add extension of exported file to 'android:no_compression' list at build.yml
+> Note: On Android, the callback should be used only when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass a private file from a package directly to another application is to set the 'uri' parameter with content URI: 
 
-`build.yml:`
-
-    :::ruby
-    android:
-      no_compression: ['pdf','html','css']
-
-`JavaScript:`
+Sample JavaScript:
 
     :::javascript
     var params = {
@@ -70,6 +64,16 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
         uri: "content://com.rhomobile.sample/rhodata/apps/public/sample.pdf"
     }
     Rho.Intent.send(params);
+
+> In most cases the extension of the exported file also must be added to the 'android:no_compression' list in the `build.yml:`
+
+
+Sample Build.yml
+
+    :::ruby
+    android:
+      no_compression: ['pdf','html','css']
+
 
 </DESC>
             <DESC_EB>Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.
@@ -196,15 +200,15 @@ Notice that this looks very similar to a standard AndroidManifest.XML file secti
                     <DESC>Same format as 'params' argument passed to Rho.Intent.send method
                         Android: Developer has to ensure that an intent passed to handler is what he intended to proceed since any other intent may also be passed here.</DESC>
                 </CALLBACK>
-                <PLATFORM_EB>WM</PLATFORM_EB>
+                <PLATFORM_EB>Android, WM</PLATFORM_EB>
             </METHOD>
-            <METHOD name="stopListening" hasCallback="none" productException="eb">
+            <METHOD name="stopListening" hasCallback="none" productException="">
                 <DESC>Stop listening for custom intents.</DESC>
             </METHOD>
         </METHODS>
         <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
         <PLATFORM>iOS, WM, Android</PLATFORM>
-        <PLATFORM_EB>WM, Android</PLATFORM_EB>
+        <PLATFORM_EB>Android, WM</PLATFORM_EB>
         <EXAMPLES>
             <EXAMPLE title="Plot a location on a map">
                 <SECTIONS>

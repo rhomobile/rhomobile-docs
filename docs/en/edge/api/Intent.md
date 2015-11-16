@@ -23,16 +23,9 @@ extensions: ["coreapi"]
 
 <div class="accordion" id="accordion"><a name ='msend'/><div class=' method  js ruby android ios' id='msend'><h3><strong  >send</strong><span style='font-size:.7em;font-weight:normal;'>(<span class="text-info">HASH</span> params, <span class='text-info'>CallBackHandler</span> callback)</span></h3><ul class="nav nav-tabs" style="padding-left:8px"><li class='active'><a href="#msend1" data-toggle="tab">Description</a></li><li ><a href="#msend2" data-toggle="tab">Parameters</a></li><li ><a href="#msend3" data-toggle="tab">Callback</a></li><li ><a href="#msend4" data-toggle="tab">Return</a></li><li ><a href="#msend6" data-toggle="tab">Access</a></li></ul><div class='tab-content' style='padding-left:8px' id='tc-send'><div class="tab-pane fade active in" id="msend1"><p>Sends an intent. The receiver of the intent can either be another RhoMobile  application that is listening for this Intent characteristic or on Android can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.</p>
 
-<blockquote><p>Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set &lsquo;uri&rsquo; parameter with content URI. In most cases it is also needed to add extension of exported file to &lsquo;android:no_compression&rsquo; list at build.yml</p></blockquote>
+<blockquote><p>Note: On Android, the callback should be used only when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass a private file from a package directly to another application is to set the &lsquo;uri&rsquo; parameter with content URI:</p></blockquote>
 
-<p><code>build.yml:</code></p>
-
-<pre><code>:::ruby
-android:
-  no_compression: ['pdf','html','css']
-</code></pre>
-
-<p><code>JavaScript:</code></p>
+<p>Sample JavaScript:</p>
 
 <pre><code>:::javascript
 var params = {
@@ -41,6 +34,15 @@ var params = {
     uri: "content://com.rhomobile.sample/rhodata/apps/public/sample.pdf"
 }
 Rho.Intent.send(params);
+</code></pre>
+
+<blockquote><p>In most cases the extension of the exported file also must be added to the &lsquo;android:no_compression&rsquo; list in the <code>build.yml:</code></p></blockquote>
+
+<p>Sample Build.yml</p>
+
+<pre><code>:::ruby
+android:
+  no_compression: ['pdf','html','css']
 </code></pre>
 <p><div><p><img src="/img/js.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="JavaScript"><img src="/img/ruby.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Ruby"><img src="/img/android.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="Android"><img src="/img/ios.png" style="width: 20px;padding-top: 8px" rel="tooltip" title="iphone, ipod touch, ipad"><img src="/img/windowsmobile.png" style="height: 20px;padding-top: 8px" rel="tooltip" title="Windows Mobile, Windows CE, Windows Embedded"></p></div></p></div><div class="tab-pane fade" id="msend2"><div><p><strong>Parameters</strong></p><ul><li>params : <span class='text-info'>HASH</span><p><p>A hash-map with intent parameters.</p>
  </p></li><ul><li>intentType : <span class='text-info'>STRING</span><p><p>Type of Intent to send.</p>
