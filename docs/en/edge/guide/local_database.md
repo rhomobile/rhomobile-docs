@@ -37,31 +37,38 @@ There are two types of models used with RhoMobile applications: Property Bag and
 
 ## Property Bag Model
 
-In a property bag model, all data is stored in a single table using the object-attribute-value pattern also referred to as the [Entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model). This data is schemaless, which means that you don't need to specify ahead of time what keys exist on each ORM Model. You simply set whatever key-value pairs you want, and Rhom will store and sync it.
+In the property bag model, data is stored as key-value pairs in a single table using the object-attribute-value or [entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model). This model is sometimes referred to as 'open schema' because the fields (or keys) do not have to be defined in advance. Instead, the API stores and syncs all key-value pairs that are input.
 
 ### Advantages
-* Simple to use, it doesn’t require specifying attributes
-* Data migrations are not necessary
+* Simple, doesn’t require advance attribute design 
 * Attributes can be added or removed without modifying the database schema
+* Requires no data migration following a schema change 
 
 ### Disadvantages
-* For some applications, the database size may be significantly larger than fixed schema. This is because each attribute is indexed for fast lookup
-* Sync process may be slightly slower because inserts are performed at attribute level
+* The database size can be significantly larger than that of a fixed schema; all attributed are indexed
+* Sync process can be slower (because database insertions are performed at the attribute level)
 
 ## Fixed Schema Model
 
-In a fixed schema model, each model has a separate database table and each attribute exists as a column in the table. In this sense, fixed schema models are similar to traditional relational tables.
+In a fixed schema model, each model has a separate database table and each attribute exists as a column in the table. In this sense, the fixed schema model is similar to the traditional relational database table.
 
 ### Advantages
-* Smaller database size, indexes can be specified only on specific attributes.
-* Sync process may perform faster because whole objects are inserted at a time.
+* Smaller database size; indexes can be assigned to specific attributes
+* Sync process may be faster because whole objects are inserted at once
 
 ### Disadvantages
-* Schema changes must be handled with data migrations.
-* Database performance may be slow unless you specify proper indexes.
+* Schema changes require data migration
+* Database performance may be slow without careful index specificity
 
 ## Ruby and JavaScript Access
-RhoMobile applications provide definition and CRUD access to your data models in both Ruby and JavaScript, however there are some differences in capabilties between the two. Please consult the API reference and guides for further information:
+
+---------->>> UNDER CONSTRUCTIONS <<<-------------
+
+RhoMobile applications provide definition and access to create, read, update and delete (CRUD) operations on the data models in both Ruby and JavaScript apps. 
+
+Differences in capabilties exist between the two languages. 
+
+Please consult the API reference and guides for further information:
 
 
 * JavaScript [ORM API](../api/Orm) and [ORM Model API](../api/OrmModel) 
