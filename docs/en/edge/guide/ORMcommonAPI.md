@@ -4,7 +4,7 @@ This guide documents the [ORM common API](../api/NewORM), a new API released wit
 
 These database APIs and documents are provided for RMS 5.3:
 
-* [ORM Common API](NewORM) and [ORM Common Model API](NewORMModel) (support JavaScript and Ruby)
+* [ORM Common API](../api/NewORM) and [ORM Common Model API](../api/NewORMModel) (support JavaScript and Ruby)
 * [JavaScript ORM API](../api/Orm) and [JavaScript ORM Model API](../api/OrmModel) 
 * [JavaScript Rhom Guide](rhom_js) 
 * [Ruby Rhom API](../api/rhom-api) 
