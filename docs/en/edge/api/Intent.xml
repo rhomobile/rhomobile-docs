@@ -53,7 +53,7 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
             <METHOD name="send" hasCallback="optional" runInThread="ui">
                 <DESC>Sends an intent. The receiver of the intent can either be another RhoMobile  application that is listening for this Intent characteristic or on Android can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.
 
-> Note: On Android, the callback should be used only when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass a private file from a package directly to another application is to set the 'uri' parameter with content URI: 
+**Android Note**: On Android, the callback should be used only when the intentType is set to START_ACTIVITY. The only valid way for an Android app to pass a private file from a package directly to another application is to set the 'uri' parameter with content URI: 
 
 Sample JavaScript:
 
@@ -65,7 +65,7 @@ Sample JavaScript:
     }
     Rho.Intent.send(params);
 
-> In most cases the extension of the exported file also must be added to the 'android:no_compression' list in the `build.yml:`
+In most cases the extension of the exported file also must be added to the 'android:no_compression' list in the `build.yml:`
 
 
 Sample Build.yml
@@ -76,9 +76,9 @@ Sample Build.yml
 
 
 </DESC>
-            <DESC_EB>Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.
+            <DESC_EB>Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android, the receiver can be a native Android application set up with an Intent-Filter that will trigger based on the parameters of this method.
 
-> Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI.
+**Android Note**: On Android, the callback should be used only when the intentType is set to START_ACTIVITY. The only valid way for an Android app to pass a private file from a package directly to another application is to set the 'uri' parameter with content URI. 
             </DESC_EB>
                 <PARAMS>
                     <PARAM name="params" type="HASH">
@@ -206,6 +206,20 @@ Notice that this looks very similar to a standard AndroidManifest.XML file secti
                 <DESC>Stop listening for custom intents.</DESC>
             </METHOD>
         </METHODS>
+        <REMARKS>
+            <REMARK title="Registering Intent Receiver">
+                <DESC>
+                    <![CDATA[
+For an Android app to receive intent data, the Intent receiver must be registered in the app's `AndroidManifest.erb` file. Please refer to the <a href="../guide/intent">Intent Guide</a> for more information. 
+                    ]]>
+                </DESC>
+                <DESC_EB>
+                    <![CDATA[
+For an Android app to receive intent data, the Intent receiver must be registered in the app's `Config.xml` file. Please refer to the <a href="#guide-configreference?Intent">Intent section of the EB Config Reference</a> for more information. 
+                    ]]>
+                </DESC_EB>
+            </REMARK>
+        </REMARKS>
         <VER_INTRODUCED>4.1.0</VER_INTRODUCED>
         <PLATFORM>iOS, WM, Android</PLATFORM>
         <PLATFORM_EB>Android, WM</PLATFORM_EB>
