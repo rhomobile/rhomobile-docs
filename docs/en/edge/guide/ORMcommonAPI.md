@@ -1,32 +1,23 @@
 # Data Handling: The ORM Common API
 
-This guide documents the [ORM common API](), a new API released with RhoMobile Suite 5.3 that supports both JavaScript and Ruby languages. Versions of RMS prior to 5.3 implemented ORM in two APIs: the [Rhom API](../api/rhom-api) for Ruby apps and the [ORM API](../api/Orm) for JavaScript. All three APIs are supported, but the ORM Common API is recommended for use with all new apps. 
+This guide documents the [ORM common API](), a new API released with RhoMobile Suite 5.3 that supports both JavaScript and Ruby languages. RMS 5.2 and earlier implemented database support for the languages across two APIs: the original [Rhom API](../api/rhom-api) for Ruby apps and the [ORM API](../api/Orm), which integrates the [OPAL library](http://opalrb.org) to add JavaScript support to Rhom. 
+
+All three APIs are currently supported in RMS 5.3, but the ORM Common API exposes more methods to JavaScript, and is therefore recommended for any new JavaScript apps. 
 
 ## What is ORM?
 In general computing, [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) refers to the object-relational mapping technique that permits records of a relational database to be stored and retrieved programatically as objects. For RhoMobile, the ORM API provides a powerful high-level interface to an on-device SQLite database that can work alone or with the [RhoConnectClient](../api/RhoConnectClient) to enable two-way synchronization between your application and a RhoConnect server.
-
-## What's New in 'New ORM'
------------->>> UNDER CONSTRUCTION <<<--------------
-
------------->>> UNDER CONSTRUCTION <<<--------------
-
------------->>> UNDER CONSTRUCTION <<<--------------
-
------------->>> UNDER CONSTRUCTION <<<--------------
-
-
 
 One of the main benefits of using an ORM is the simplicity it brings to database operations. Instead of having to write complex SQL statements by hand, an app can perform database actions by getting and setting properties on model objects. For example: 
 
 Update a record with a SQL command:
 
     :::sql
-    update product set price=119,brand='Motorola' where object='12345'
+    update product set price=119,brand='Symbol' where object='12345'
 
 Update the same record with ORM:
 
     :::javascript
-    product.updateAttibutes({price: 119, brand: "Zebra"});
+    product.updateAttibutes({price: 119, brand: "Symbol"});
 
 Delete a record with SQL:
 
@@ -55,7 +46,7 @@ Each model type has advantages and disadvantages depending on the application.
 
 ## Property Bag Model
 
-In the property bag model, data is stored as key-value pairs in a single table using the object-attribute-value or [entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model). This model is sometimes referred to as 'open schema' because the fields (or keys) do not have to be defined in advance. Instead, the API stores and syncs all key-value pairs that are input.
+In the property bag model, data is stored as key-value pairs in a single table using the object-attribute-value or [entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model). This model is sometimes referred to as 'open schema' because the fields (or keys) do not have to be defined in advance; the API stores and syncs all key-value pairs that are entered.
 
 ### Advantages
 * Simple, doesn’t require advance attribute design 
@@ -63,12 +54,12 @@ In the property bag model, data is stored as key-value pairs in a single table u
 * Requires no data migration following a schema change 
 
 ### Disadvantages
-* The database size can be significantly larger than that of a fixed schema; all attributed are indexed
-* Sync process can be slower (because database insertions are performed at the attribute level)
+* Since all attributes are indexed, the database can be much larger than with fixed schema 
+* Sync process can be slower because database insertions are performed at the attribute level
 
 ## Fixed Schema Model
 
-In a fixed schema model, each model has a separate database table and each attribute exists as a column in the table. In this sense, the fixed schema model is similar to the traditional relational database table.
+In a fixed schema model, each model has a separate database table and attributes exist as columns in that table. In this sense, the fixed schema model is similar to a traditional relational database.
 
 ### Advantages
 * Smaller database size; indexes can be assigned to specific attributes
@@ -84,11 +75,10 @@ By default, RhoMobile apps will be built to use the 'ORM API' (JavaScript). To s
     :::yaml
     use_new_orm = 1  
 
-Options: 
+Possible Values: 
 
-* **use_orm (default)**
-* use_new_orm
-* use_rhom
+* **1 (default)**
+* 0 (use 'old' ORM API)
 
 ## Ruby and JavaScript Access
 

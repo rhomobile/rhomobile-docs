@@ -3,27 +3,27 @@
 
 ## Creating a JavaScript Model
 
-The first step in order to use Rhom is to create a model class with the required attributes. You can create models from JavaScript using the [ORM.addModel](../api/Orm#maddModel) method. What this method does is define a class reference for your model so it is available to the rest of your application. When your application pages load, you must execute the `Rho.ORM.addModel` function for every model that you wish to define in your application.
+The first step in using Rhom is to create a model class with the required attributes. Create models from JavaScript using the [ORM.addModel](../api/Orm#maddModel) method, which defines a class reference for the model and makes it available to the application. 
+
+When the application pages load, execute the `Rho.ORM.addModel` function for every model that to be defined in the application.
 
     :::javascript
     // Models MUST be defined when your HTML pages load
 
-    // You can either set a global reference 
-    var userModel = Rho.ORM.addModel(function(model) {
-        model.modelName('User');
-        model.property('name','string');
-        model.property('email','string');
+    // Either set a global reference 
+    var userModel = Rho.ORM.addModel('User', function(model) {
+        model.setModelProperty('name','string','');
+        model.setModelProperty('email','string','');     
         // optionally enable sync for rhoconnect applications
         // model.enable('sync');
         // optionally, define the model as fixed schema default is propertyBag
-        // model.enable('fixedSchema');
+        // model.fixed_schema = true);
     });
 
-    // Or just define the model without a global reference
-    Rho.ORM.addModel(function(model) {
-        model.modelName('Product');
-        model.property('name','string');
-        model.property('qty','string');
+    // Or define the model without a global reference
+    Rho.ORM.addModel('Product', function(model) {
+        model.setModelProperty('name','string','');
+        model.setModelProperty('qty','string','');
     });
 
 
@@ -97,29 +97,6 @@ You can retrieve objects sorted by one or more attributes using the `order` and 
                     }
                 );
 
-You can also sort with an user defined function.
-
-    :::javascript
-    // order by one attribute
-    var users = userModel.find(
-        'all',
-        {
-            orderFunction: function(a, b) { return a <= b }
-        }
-    ); 
-
-    // order by multiple attributes
-    var users = userModel.find(
-        'all',
-        {
-            orderFunction: function(a, b) {
-                    return a.name <= b.name && a.email <= b.email
-                }
-        }
-    );
-
-**NOTE: Whenever possible, use `order` instead of `orderFunction`. The database will sort objects faster than JavaScript code.**
-
 ### Retrieving specific attributes
 
 If, for a particular action, you do not need every attribute in an object, you can make your application faster by selecting only the specific attributes you need using the `select` parameter.
@@ -161,14 +138,14 @@ JavaScript syntax:
 
 ## Updating
 
-You can update an object’s attributes and save it to the database using the `updateAttributes` method
+You can update an object’s attributes and save it to the database using the `update_attributes` method
 
 NOTE: This is the fastest way to add or update item attributes.
 
 JavaScript syntax:
     :::javascript
     var user = userModel.find('first', {conditions: {name: 'Alice'});
-    user.updateAttributes({
+    user.update_attributes({
             name: 'Bob', 
             email: 'bob@example.com'});
 
@@ -185,15 +162,15 @@ JavaScript syntax:
 
 ### Delete multiple objects
 
-To delete all objects for a model, or only those matching given conditions, use the `deleteAll` method.
+To delete all objects for a model, or only those matching given conditions, use the `delete_all` method.
 
 JavaScript syntax:
     :::javascript
     // delete all objects
-    userModel.deleteAll();
+    userModel.delete_all();
     
     // delete only objects matching :conditions
-    userModel.deleteAll({conditions: {name: 'Alice'}})
+    userModel.delete_all({conditions: {name: 'Alice'}})
 
 ## Transactions
 
@@ -231,11 +208,10 @@ You can execute SQL statements directly on the database by using `Database.execu
 JavaScript syntax:
     :::javascript
     try {
-
-
-    var db = new Rho.Database(Rho.Application.databaseFilePath('app'),'app');
-    var result = db.executeSql('SELECT * FROM User');  // result is an array of hashes, where each hash is a record
-    } finally {
+        var db = new Rho.Database(Rho.Application.databaseFilePath('app'),'app');
+        var result = db.executeSql('SELECT * FROM User');  // result is an array of hashes, where each hash is a record
+    } 
+    finally {
         db.close();
     }
 
@@ -253,7 +229,8 @@ You can use the following method for recovering the database from a bad or corru
 
 JavaScript syntax:
     :::javascript
-    Rho.ORM.databaseFullResetEx({'models': ['User'], 'reset_client_info': true, 'reset_local_models': true});
+    var ary = ['Product','Customer'];
+    Rho.ORM.databaseFullResetEx(ary, false, true);
 
 
 ## Related reading
