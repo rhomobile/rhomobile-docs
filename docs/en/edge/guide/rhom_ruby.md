@@ -363,17 +363,6 @@ You can retrieve all objects matching given conditions using the `conditions` pa
                 :conditions => {:name => 'Alice'}
             )
 
-### Numeric field comparisons in property bag models
-Because, internally, property bag models store all their values in the same column, this column is defined as `varchar`, which means that number comparisons do not work as you would expected. If you need to perform order comparisons on a numeric field in a property bag model, use CAST to convert the value to a number of the desired type:
-
-    :::ruby
-    @accts = Account.find(:all,
-        :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
-    #or using sql query:
-    size = 3
-    @accts = Account.find(:all,
-        :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
-
 ### Ordering the objects
 You can retrieve objects sorted by one or more attributes using the `order` and `orderdir` parameters.
 
@@ -402,20 +391,10 @@ If, for a particular action, you do not need every attribute in an object, you c
             )
 
 ### Paginating results
-NOTE: this section applies to Ruby only
 
-You can pass `offset` and `per_page` parameters to `find` method to retrieve objects in chunks.
+For retrieving objects in chunks, there is a `paginate` method which emulates Rails' classic pagination syntax. The default page size is 10.
 
-    :::ruby
-    # get first 10 records
-    users = User.find(:all, :per_page => 10)
-
-    # get records 21-40
-    users = User.find(:all, :offset => 20, :per_page => 20)
-
-For convenience, there is a `paginate` method which emulates Rails' classic pagination syntax. The default page size is 10.
-
-You can use `:conditions`, `:order` and `select` parameters, similarly to the `find` method.
+You can use `:conditions`, `:order` and `:select` parameters, similarly to the `find` method.
 
     :::ruby
     # get first 10 records
@@ -434,10 +413,10 @@ You can get only the first object matching given conditions using `first` instea
             )
 
 ### Using SQL queries directly
-You can directly retrieve model object(s) using SQL queries with the `findBySql` method. This method works only for fixed schema models.
+You can directly retrieve model object(s) using SQL queries with the `find_by_sql` method. This method works only for fixed schema models.
 
     :::ruby
-    users = User.findBySql('SELECT * FROM User')
+    users = User.find_by_sql('SELECT * FROM User')
 
 ## Counting objects
 You can get the number of objects matching given conditions using the `count` parameter with `find` method.
@@ -449,7 +428,7 @@ You can get the number of objects matching given conditions using the `count` pa
             )
 
 ## Updating
-You can update an object’s attributes and save it to the database using the `updateAttributes` method
+You can update an object’s attributes and save it to the database using the `update_attributes` method
 
 NOTE: This is the fastest way to add or update item attributes.
 
@@ -515,7 +494,8 @@ You can use the following method for recovering the database from a bad or corru
 ### Delete all objects for given models.
 
     :::ruby
-    Rho::ORM.databaseFullResetEx(:models => ['User'], :reset_client_info => true, :reset_local_models => true)
+    ary = ['Product','Customer']
+    Rho::ORM.databaseFullResetEx(ary, false, true)
 
 ## Adding more fields to an existing model
 
@@ -535,7 +515,6 @@ The guide [Using the local database](../rhodes/rhom#fixed-schema) contains all t
 
 ### What is RhoConnect
 RhoConnect is the server-side part of RhoMobile Suite that connects your mobile application to external data sources. Whether your data comes from a relational database, NoSQL data store, RESTful web services or any other data source, RhoConnect bridges the gap between mobile clients and server resources. Using RhoConnect frees you from writing error-prone, hard to maintain synchronization code and takes care of all aspects of data sync.
-
 
 ### Integrating a mobile Rhodes application with RhoConnect
 Once your application can store data about a particular model, enabling two-way synchronization with a RhoConnect server is a one-step process: there is only one line to change, in your model file (`product.rb` in our example), uncomment the line
@@ -621,161 +600,54 @@ For such models if you try to set a property that has not been explicitly define
 ## Resetting the Database
 Rhodes provides the following functions for recovering the database from a bad or corrupt state, or if the RhoConnect server returns errors.
 
-### `Rhom::Rhom.database_full_reset(reset_client_info=false, reset_local_models=true)`
+### `Rho::ORM.databaseFullReset(resetClientInfo=false, resetLocalModels=true)`
 Deletes all records from the property bag and model tables.
 
     :::ruby
-    # reset_client_info   If set to true, client_info
+    # resetClientInfo   If set to true, client_info
     #           table will be cleaned.
     #
-    # reset_local_models  If set to true, local(non-synced models)
+    # resetLocalModels  If set to true, local(non-synced models)
     #           will be cleaned.
-    Rhom::Rhom.database_full_reset(false,true)
+    Rho::ORM.databaseFullReset(false,true)
 
-### `Rhom::Rhom.database_full_reset_and_logout`
+### `Rho::ORM.databaseFullResetAndLogout`
 Perform a full reset and then logout the RhoConnect client.
 
     :::ruby
-    Rhom::Rhom.database_full_reset_and_logout
+    Rho::ORM.databaseFullResetAndLogout
 
-### `Rhom::Rhom.database_fullclient_reset_and_logout`
-Equivalent to `Rhom::Rhom.database_full_reset(true)` followed by `SyncEngine.logout`.
+### `Rho::ORM.databaseFullclientResetAndLogout`
+Equivalent to `Rho::ORM.databaseFullReset(true)` followed by `SyncEngine.logout`.
 
     :::ruby
-    Rhom::Rhom.database_fullclient_reset_and_logout
+    Rho::ORM.databaseFullclientResetAndLogout
 
-**NOTE: If you receive a sync error "Unknown client" message in your sync callback, this means that the RhoConnect server no longer knows about the client and a `Rhom::Rhom.database_fullclient_reset_and_logout` is recommended.  This error requires proper intervention in your app so you can handle the state before resetting the client.  For example, your sync notification could contain the following:**
+**NOTE: If you receive a sync error "Unknown client" message in your sync callback, this means that the RhoConnect server no longer knows about the client and a `Rho::ORM.databaseFullclientResetAndLogout` is recommended.  This error requires proper intervention in your app so you can handle the state before resetting the client.  For example, your sync notification could contain the following:**
 
     :::ruby
     if @params['error_message'].downcase == 'unknown client'
       puts "Received unknown client, resetting!"
-      Rhom::Rhom.database_fullclient_reset_and_logout
+      Rho::ORM.databaseFullclientResetAndLogout
     end
 
-### `Rhom::Rhom.database_local_reset`
-Reset only local(non-sync-enabled) models.
+### `Rho::ORM.databaseLocalReset`
+Reset only local(non sync-enabled) models.
 
     :::ruby
-    Rhom::Rhom.database_local_reset
+    Rho::ORM.databaseLocalReset
 
-### `Rhom::Rhom.database_full_reset_ex( :models => [model_name1, model_name2], :reset_client_info=>false, :reset_local_models => true)`
+### `Rho::ORM.databaseFullResetEx([model_name1, model_name2], false, true)`
 Deletes all records from the property bag and model tables, if models are set then reset only selected models
 
     :::ruby
-    # models                Array of models names to reset
-    # reset_client_info   If set to true, client_info
-    #           table will be cleaned.
+    # models              Array of model names to reset
+    # resetClientInfo     If set to true, client_info
+    #                     table will be cleaned.
     #
-    # reset_local_models  If set to true, local(non-synced models)
-    #           will be cleaned.
-    Rhom::Rhom.database_full_reset_ex(:models => ['Product', 'Customer'])
-
-## Advanced Queries
-### `find(*args)` (advanced conditions)
-Rhom also supports advanced find `:conditions`.  Using advanced `:conditions`, rhom can optimize the query for the property bag table.
-
-Let's say we have the following SQL fragment condition:
-
-    :::ruby
-    Product.find(
-     :all,
-     :conditions => [
-       "LOWER(description) like ? or LOWER(title) like ?",
-       query,
-       query
-     ],
-     :select => ['title','description']
-    )
-
-Using advanced `:conditions`, this becomes:
-
-    :::ruby
-    Product.find(
-      :all,
-      :conditions => {
-      {
-        :func => 'LOWER',
-        :name => 'description',
-        :op => 'LIKE'
-      } => query,
-        {
-        :func => 'LOWER',
-        :name => 'title',
-        :op => 'LIKE'
-      } => query
-      },
-      :op => 'OR',
-      :select => ['title','description']
-    )
-
-You can also use the 'IN' operator:
-
-    :::ruby
-    Product.find(
-      :all,
-      :conditions => {
-        {
-        :name => "image_uri",
-        :op => "IN"
-      } => "'15704','15386'"
-      }
-    )
-
-    # or use array notation
-    Product.find(
-      :all,
-      :conditions => {
-        {
-        :name => "image_uri",
-        :op => "IN"
-      } => ["15704","15386"]
-      }
-    )
-
-You can also group `:conditions`:
-
-    :::ruby
-    cond1 = {
-      :conditions => {
-        {
-        :func => 'UPPER',
-        :name => 'name',
-        :op => 'LIKE'
-      } => query,
-        {
-        :func => 'UPPER',
-        :name => 'industry',
-        :op => 'LIKE'
-      } => query
-      },
-      :op => 'OR'
-    }
-
-    cond2 = {
-      :conditions => {
-        {
-        :name => 'description',
-        :op => 'LIKE'
-        } => 'Hello%'
-      }
-    }
-
-    @accts = Account.find(
-      :all,
-      :conditions => [cond1, cond2],
-      :op => 'AND',
-      :select => ['name','industry','description']
-    )
-
-## Find by numeric field
-To use number comparison conditions in find use CAST :
-    :::ruby
-    @accts = Account.find(:all,
-        :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
-    #or using sql query:
-    size = 3
-    @accts = Account.find(:all,
-        :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
+    # resetLocalModels    If set to true, local(non-synced models)
+    #                     will be cleaned.
+    Rho::ORM.databaseFullResetEx(['Product', 'Customer'], false, true)
 
 ## Database Encryption
 
