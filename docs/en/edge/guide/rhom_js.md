@@ -5,7 +5,7 @@
 
 The first step in using Rhom is to create a model class with the required attributes. Create models from JavaScript using the [ORM.addModel](../api/Orm#maddModel) method, which defines a class reference for the model and makes it available to the application. 
 
-When the application pages load, execute the `Rho.ORM.addModel` function for every model that to be defined in the application.
+When the application pages load, execute the `Rho.ORM.addModel` function for every model to be defined in the application.
 
     :::javascript
     // Models MUST be defined when your HTML pages load
