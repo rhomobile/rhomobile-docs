@@ -1,10 +1,18 @@
 # Data Handling: The ORM Common API
 
-This guide documents the [ORM common API](), a new API released with RhoMobile Suite 5.3 that supports both JavaScript and Ruby languages. RMS 5.2 and earlier implemented database support for the languages across two APIs: the original [Rhom API](../api/rhom-api) for Ruby apps and the [ORM API](../api/Orm), which integrates the [OPAL library](http://opalrb.org) to add JavaScript support to Rhom. 
+This guide documents the [ORM common API](../api/NewORM), a new API released with RhoMobile Suite 5.3 that supports both JavaScript and Ruby languages. RMS 5.2 and earlier versions implemented database support for the languages in separate APIs: the original [Rhom API](../api/rhom-api) for Ruby apps and the [ORM API](../api/Orm), which integrates the [OPAL library](http://opalrb.org) to add JavaScript support to Rhom. 
 
-All three APIs are currently supported in RMS 5.3, but the ORM Common API exposes more methods to JavaScript, and is therefore recommended for any new JavaScript apps. 
+These database APIs and documents are provided for RMS 5.3:
 
-## What is ORM?
+* [ORM Common API](NewORM) and [ORM Common Model API](NewORMModel) (support JavaScript and Ruby)
+* [JavaScript ORM API](../api/Orm) and [JavaScript ORM Model API](../api/OrmModel) 
+* [JavaScript Rhom Guide](rhom_js) 
+* [Ruby Rhom API](../api/rhom-api) 
+* [Ruby Rhom Guide](rhom_ruby)
+
+The ORM Common API documented here exposes more methods to JavaScript than the ORM API, and is therefore recommended for building new JavaScript apps. 
+
+## Why use ORM?
 In general computing, [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) refers to the object-relational mapping technique that permits records of a relational database to be stored and retrieved programatically as objects. For RhoMobile, the ORM API provides a powerful high-level interface to an on-device SQLite database that can work alone or with the [RhoConnectClient](../api/RhoConnectClient) to enable two-way synchronization between your application and a RhoConnect server.
 
 One of the main benefits of using an ORM is the simplicity it brings to database operations. Instead of having to write complex SQL statements by hand, an app can perform database actions by getting and setting properties on model objects. For example: 
@@ -79,17 +87,6 @@ Possible Values:
 
 * **1 (default)**
 * 0 (use 'old' ORM API)
-
-## Ruby and JavaScript Access
-
----------->>> UNDER CONSTRUCTION <<<-------------
-
-RhoMobile applications provide definition and access to create, read, update and delete (CRUD) operations on the data models in both Ruby and JavaScript apps. Languages differ in terms of capabilties. For further information, please refer to the API reference and guides:
-
-* [JavaScript ORM API](../api/Orm) and [JavaScript ORM Model API](../api/OrmModel) 
-* [JavaScript Rhom Guide](rhom_js) 
-* [Ruby Rhom API](../api/rhom-api) 
-* [Ruby Rhom Guide](rhom_ruby) 
 
 ## Database Encryption
 
