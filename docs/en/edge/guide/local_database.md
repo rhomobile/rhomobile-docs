@@ -4,7 +4,7 @@ This document describes the [Rhom API](../api/rhom-api), a database object mappe
 
 These database APIs and documents are provided for RMS 5.3:
 
-* JavaScript [ORM API](../api/Orm) and [ORM Model API](../api/OrmModel) 
+* [JavaScript ORM API](../api/Orm) and [JavaScript ORM Model API](../api/OrmModel) 
 * [JavaScript Rhom Guide](rhom_js) 
 * [Ruby Rhom API](../api/rhom-api) 
 * [Ruby Rhom Guide](rhom_ruby)
