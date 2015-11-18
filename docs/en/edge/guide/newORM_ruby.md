@@ -4,62 +4,67 @@ The RhoMobile Suite provides several methods of handling device data. For RhoMob
 
 ## Creating a Ruby Data Model
 
-There are two ways to generate a Ruby model: one is using RhoStudio and the other is with the command-line generator. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent. Together with the model class itself, the generator will output a default set of views that you can customize as needed.
+Ruby models can be generated using RhoStudio or from the command line. The approaches are functionally equivalent; the generator outputs the model class itself along with a set of sample views that can be customized as needed.
 
-### Adding a Model from RhoStudio
-To generate a model, right-click on the application project in the Project Explorer and select New -> RhoMobile model.
+### From RhoStudio
+
+&#49;. In Project Explorer, **right-click on the application project and select New -> RhoMobile model**.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/new-rhodes-model-menu-4.0.png"/>
 
-In the Model Information window, enter the name for your model: in this case, `Product`.
+&#50;. **Enter the model name in the Model Information window**.
 
-**NOTE: Do not use the following for model names: `Config, Settings, helpers, test, Client, Sync` or any built-in Ruby class name. It is also a good programming practice to avoid using generic names, such as `time` or `print`. Using descriptive names in your models will help you grow your application more easily in the future**
+**NOTE: <b>Models MAY NOT have the same name as any of Ruby's built-in classes</b>. These include: `Config, Settings, helpers, test, Client, Sync`. Best practices call for descriptive model names such as `Product` and `Service`, and to avoid generic names such as `time` and `print`. Descriptive model names will help in the future when the application grows or changes**.
 
-The other required piece of information is the list of attributes, which must be entered as a string with no spaces, each attribute separated by a comma: in this `Product` example, `name,brand,price,quantity,sku`.
+&#51;. **Enter the model attributes separated by commas only (no spaces)**.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/model-information-4.0.png"/>
 
-After pressing the Finish button, you'll see the results of the RhoMobile model generator in the output console.
+&#52;. **Click Finish**. Model generator results will appear in the output console window similar to the image below.
 
 <img src="http://rhodocs.s3.amazonaws.com/rhostudio-tutorial/rhodes-model-generator-output-4.0.png"/>
 
-### Adding a Model from the command line
-If you prefer to use the command line or another development environment instead of RhoStudio, the `rhodes` tool can be invoked manually. To create the `Product` model with `name, brand, price, quantity` and `sku` as the attributes, switch to the root directory of your application (the one that contains `app` as a child) and run:
+### From the command line
+
+The 'Rhodes' tool can be invoked manually to allow use of the command line or an IDE other than RhoStudio. The two steps below are functionally identical to the four above. 
+
+&#49;. **Open a command prompt** and switch to the root directory of your application (the directory that contains `app` as a child). 
+
+&#50;. **Execute the commmand** below:
 
     :::term
     $ rhodes model Product name,brand,price,quantity,sku
 
 
-### What a generated model consists of
-Output from the model generator will contain the following files:
+### What's inside a generated model
 
-* app/Product/index.erb - the html view template to display the list of objects
-* app/Product/edit.erb - the html view template to edit an object
-* app/Product/new.erb - the html view template to supply values to create a new object
-* app/Product/show.erb - the html view template to displays the selected object
-* app/Product/product_controller.rb - contains the the business logic for the model, the basic CRUD actions: index, new, create, edit, update and delete.
-* app/Product/product.rb - contains the Product model definition
-* app/test/product_spec.rb - placeholder for Product test specs
+Output from the model generated in the 'Product' example will contain the following files, which can be updated to suit the application: 
 
-You are free to update all these files to suit your application
+* **app/Product/index.erb** - the html view template to display the list of objects
+* **app/Product/edit.erb** - the html view template to edit an object
+* **app/Product/new.erb** - the html view template to supply values to create a new object
+* **app/Product/show.erb** - the html view template to displays the selected object
+* **app/Product/product_controller.rb** - contains the the business logic for the model, the basic CRUD actions of create, read, update and delete plus indexing.
+* **app/Product/product.rb** - contains the Product model definition
+* **app/test/product_spec.rb** - placeholder for Product test specs
 
-**NOTE: Why does the `product.rb` file not mention the attributes at all? Rhodes provides two model storage schemes, called PropertyBag and FixedSchema. FixedSchema stores data for each model in its own database table, with one column per attribute, and requires the model to explicitly list the attributes it supports. PropertyBag stores everything in a single table and is more flexible: it determines the list of attributes dynamically at run time, the model does not need to declare them. The generator outputs PropertyBag models by default; that is why there is no mention of the attributes in the generated model file, PropertyBag does not require them. For a discussion of the benefits and drawbacks of each approach, see [Using the local database](local_database).**
+**IMPORTANT: Depending on the data model being used, model attributes might not be visible in the `product.rb` file**. Rhodes offers a choice of FixedSchema and PropertyBag model storage schemes. FixedSchema stores data for each model in a database table, with columns for each attribute to be defined in advance. PropertyBag, the default scheme, stores data in a table that's built dynamically as needed, so there are no attributes present in the generated model. For more information about these schema types and the benefits and drawbacks of each, please refer to the [Data Handling](local_database) guide.
 
 ## Using Models
 <a name="property_bag"></a>
 ### Property Bag
-With a property bag model, all data is stored in a single table using the object-attribute-value pattern also referred to as the [Entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model).
+In the property bag model, data is stored as key-value pairs in a single table using the object-attribute-value or [entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model). This model is sometimes referred to as 'open schema' because the fields (or keys) do not have to be defined in advance; the API stores and syncs all key-value pairs that are entered.
 
-#### Property Bag Advantages
-* Simple to use, it doesn't require specifying attributes.
-* Data migrations are not necessary.
-* Attributes can be added or removed without modifying the database schema.
+#### Advantages
+* Simple, doesn’t require advance attribute design 
+* Attributes can be added or removed without modifying the database schema
+* Requires no data migration following a schema change 
 
-#### Property Bag Disadvantages
-* For some applications, the database size may be significantly larger than fixed schema.  This is because each attribute is indexed for fast lookup.
-* Sync process may be slightly slower because inserts are performed at attribute level.
+#### Disadvantages
+* Since all attributes are indexed, the database can be much larger than with fixed schema 
+* Sync process can be slower because database insertions are performed at the attribute level
 
-In a property bag model, Rhom groups objects by their source id and object id.  The following example illustrates this idea:
+In a property bag model, Rhom groups objects by their source ID and object ID.  The following example illustrates this idea:
 
 <pre>
 Source ID: 1, Model Name: Account
@@ -73,7 +78,7 @@ Source ID: 1, Model Name: Account
 +-----------+----------+--------------+----------------------+
 </pre>
 
-Here, Rhom will expose a class `Account` with two attributes: `name` and `industry`
+Here, Rhom will expose a class `Account` with the attributes `name` and `industry`:
 
     :::ruby
     account = Account.find('48f39f63741b')
@@ -84,12 +89,12 @@ Here, Rhom will expose a class `Account` with two attributes: `name` and `indust
       #=> "Entertainment"
 
 #### Using Property Bag Models
-To use a property bag model, simply generate a new model with some attributes:
+To use a Property Bag model, simply generate a new model with some attributes:
 
     :::term
     $ rhodes model product name,brand,price,quantity,sku
 
-This will generate a file called `product.rb` which looks like:
+This will generate a file called `product.rb` that looks like this:
 
     :::ruby
     class Product
@@ -101,7 +106,8 @@ This will generate a file called `product.rb` which looks like:
       #add model specific code here
     end
 
-There are several features you can enable or disable in the model, below is a complete list:
+Several features can be enabled or disabled in the model. Below is a complete list:
+
 
     :::ruby
     class SomeModel
@@ -161,25 +167,31 @@ There are several features you can enable or disable in the model, below is a co
 
 <a name="fixed_schema"></a>
 ### Fixed Schema
-With a fixed schema model, each model has a separate database table and each attribute exists as a column in the table.  In this sense, fixed schema models are similar to traditional relational tables.
+In a fixed schema model, each model has a separate database table and attributes form the columns of that table. In this sense, the fixed schema model is similar to a traditional relational database.
 
-#### Fixed Schema Advantages
-* Smaller database size, indexes can be specified only on specific attributes.
-* Sync process may perform faster because whole objects are inserted at a time.
+#### Advantages
+* Smaller database size; indexes can be assigned to specific attributes
+* Sync process may be faster because whole objects are inserted at once
 
-#### Fixed Schema Disadvantages
-* Schema changes must be handled with data migrations.
-* Database performance may be slow unless you specify proper indexes.
+#### Disadvantages
+* Schema changes require data migration
+* Database performance may be slow without careful index specificity
+
 
 #### Using Fixed Schema Models
-Using a fixed schema model involves an additional step to using a property bag model.
+Using a fixed schema model involves one more step than the Property Bag model.
 
-First, generate the model using the `rhodes` command:
+&#49;. **Generate the model using the 'rhodes' command**:
 
     :::term
     $ rhodes model product name,brand,price,quantity,sku
 
-Next, change the include statement in `product.rb` to `include Rhom::FixedSchema` and add the attributes:
+&#50;. **Change the include statement in `product.rb` to**: 
+
+    :::ruby
+    include Rhom::FixedSchema
+
+&#51;. **Add the attributes**:
 
     :::ruby
     class Product
@@ -201,7 +213,7 @@ Next, change the include statement in `product.rb` to `include Rhom::FixedSchema
 
     end
 
-That's it!  Now your model is a fixed schema model, the table will be generated automatically for you when the application launches.
+A table with a fixed schema model will be generated automatically when the application launches.
 
 Below is a full list of options available to fixed schema models:
 
@@ -278,11 +290,14 @@ Below is a full list of options available to fixed schema models:
       property :mycustomproperty, 'hello'
     end
 
-## Data Migrations
-### Fixed Schema Data Migrations
-Rhom provides an application hook to migrate the data manually.  You can also use this hook to run business logic related to updating the database.  For example, your application may want to display a customized alert notifying the user that a migration is in progress and it may take a few moments.
+## Data Migration
+Changes to the data model in a fixed-schema database requires that data be migrated from the old schema to the new one (a requirement not shared by the Property Bag model because of its 'open schema' construction). 
 
-To use this hook, first we need to track the `:schema_version` in our model:
+For this reason, Rhom provides an application hook for manually migrating data in the event of a model change. The hook also can be used to run business logic related to updates to a database. For example, it is sometimes desireable to display a custom alert notifying the user to wait a few moments while a data migration is in progress. 
+
+To use this hook:
+
+&#49;. **Track the `:schema_version`** in the model:
 
     :::ruby
     class Product
@@ -291,10 +306,9 @@ To use this hook, first we need to track the `:schema_version` in our model:
       set :schema_version, '1.1'
     end
 
-Next, we will implement the following hook in our `application.rb` class:
+&#49;. **Open the `application.rb` class** for editing. 
 
-#### `on_migrate_source(old_version, new_src)`
-This is called on application start when `:schema_version` has changed.
+&#49;. **Implement the hook `on_migrate_source(old_version, new_src)`** as follows: 
 
     :::ruby
     class AppApplication < Rho::RhoApplication
@@ -313,9 +327,11 @@ This is called on application start when `:schema_version` has changed.
       end
     end
 
-**NOTE: To modify schema without recreate table, you can use only ADD COLUMN command, you cannot remove column or change type(This is sqlite limitation) **
+This will call the hook on application start whenever `:schema_version` has changed. 
 
-Return `false` to run the custom sql specified by the new_src['schema']['sql'] string:
+**NOTE: To modify schema without recreating the table, you can use only ADD COLUMN command, you cannot remove column or change type (this is a limitation fo SQLite)**
+
+&#49;. **Return `false` to run the custom SQL** specified by the new_src['schema']['sql'] string:
 
     :::ruby
     def on_migrate_source(old_version, new_src)
