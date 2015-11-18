@@ -1,5 +1,6 @@
 # Using Rhom in JavaScript
 
+The RhoMobile Suite provides several methods of handling device data. For RhoMobile Suite 5.3 and higher is the [ORM common API](../api/NewORM), which supports JavaScript and Ruby. RMS 5.2 and lower support the original [Rhom API](../api/rhom-api) (for Ruby) and the [ORM API](../api/Orm) documented here, which adds JavaScript support to Rhom via the [OPAL library](http://opalrb.org).
 
 ## Creating a JavaScript Model
 

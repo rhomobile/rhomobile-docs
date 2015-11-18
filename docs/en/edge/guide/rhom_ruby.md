@@ -1,5 +1,9 @@
 # Using Rhom in Ruby
+
+The RhoMobile Suite provides several methods of handling device data. For RhoMobile Suite 5.3 and higher is the [ORM common API](../api/NewORM), which supports JavaScript and Ruby. RMS 5.2 and lower support the original [Rhom API](../api/rhom-api) (for Ruby) documented here, and the [ORM API](../api/Orm), which adds JavaScript support to Rhom via the [OPAL library](http://opalrb.org).
+
 ## Creating a Ruby Data Model
+
 There are two ways to generate a Ruby model: one is using RhoStudio and the other is with the command-line generator. Under the hood, RhoStudio invokes the command-line tool, so both approaches are equivalent. Together with the model class itself, the generator will output a default set of views that you can customize as needed.
 
 ### Adding a Model from RhoStudio
