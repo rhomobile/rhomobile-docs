@@ -1,6 +1,6 @@
 # Data Handling with Rhom and ORM
 
-The RhoMobile Suite provides several methods of handling device data. Released with RhoMobile Suite 5.3 is the [ORM common API](../api/NewORM), which supports JavaScript and Ruby. RMS 5.2 and earlier versions support the original [Rhom API](../api/rhom-api) for Ruby apps and the [ORM API](../api/Orm), which adds JavaScript support to Rhom via the [OPAL library](http://opalrb.org). 
+The RhoMobile Suite provides several APIs for handling device data. Released with RhoMobile Suite 5.3 is the [ORM common API](../api/NewORM), which supports JavaScript and Ruby. RMS 5.2 and earlier versions support the original [Rhom API](../api/rhom-api) for Ruby apps and the [ORM API](../api/Orm), which adds JavaScript support to Rhom via the [OPAL library](http://opalrb.org). 
 
 **RMS 5.3 and higher**:
 
@@ -19,7 +19,7 @@ The RhoMobile Suite provides several methods of handling device data. Released w
 * [JavaScript 'Rhom' Guide](rhom_js)
 * [Ruby Rhom Guide](rhom_ruby)
 
-NOTE: While the earler Rhom and ORM APIs are supported in RMS 5.3, the ORM common API exposes more methods to JavaScript than the ORM API, and is therefore recommended for building new JavaScript apps. Ruby developers can use Rhom or the ORM common API. 
+NOTE: The ORM common API exposes more methods to JavaScript than the ORM API, and is therefore recommended for building new JavaScript apps. Ruby developers can use Rhom or the ORM common API. 
 
 ## What is ORM?
 In general computing, [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) refers to the object-relational mapping technique that permits records of a relational database to be stored and retrieved programatically as objects. For RhoMobile, the ORM API provides a powerful high-level interface to an on-device SQLite database that can work alone or with the [RhoConnectClient](../api/RhoConnectClient) to enable two-way synchronization between your application and a RhoConnect server.
@@ -86,7 +86,7 @@ In a fixed schema model, each model has a separate database table and attributes
 * Schema changes require data migration
 * Database performance may be slow without careful index specificity
 
-## How to Specify the ORM API
+## How to Include the ORM API
 By default, RhoMobile apps will be built to use the 'ORM API' (JavaScript). To specify a one of the other two object-relational mapping APIs, add the following line to the application's `rhoconfig.txt` file: 
 
     :::yaml
