@@ -4,23 +4,25 @@ The RhoMobile Suite provides several methods of handling device data. For RhoMob
 
 ## Creating a JavaScript Model
 
-The first step in order to use Rhom is to create a model class with the required attributes. You can create models from JavaScript using the [ORM.addModel](../api/Orm#maddModel) method. What this method does is define a class reference for your model so it is available to the rest of your application. When your application pages load, you must execute the `Rho.ORM.addModel` function for every model that you wish to define in your application.
+The first step in using Rhom is to create a model class with the required attributes. Models are created in JavaScript using the [ORM.addModel](../api/Orm#maddModel) method, which defines a class reference for the model and makes it available to the application. 
+
+When your application pages load, execute the `Rho.ORM.addModel` function for every model defined in the application.
 
     :::javascript
     // Models MUST be defined when your HTML pages load
 
-    // You can either set a global reference 
+    // Either set a global reference... 
     var userModel = Rho.ORM.addModel(function(model) {
         model.modelName('User');
         model.property('name','string');
         model.property('email','string');
-        // optionally enable sync for rhoconnect applications
+        // optionally enable sync for rhoconnect applications:
         // model.enable('sync');
-        // optionally, define the model as fixed schema default is propertyBag
+        // optionally define model as fixedSchema (default is propertyBag):
         // model.enable('fixedSchema');
     });
 
-    // Or just define the model without a global reference
+    // ...or define the model without a global reference
     Rho.ORM.addModel(function(model) {
         model.modelName('Product');
         model.property('name','string');
@@ -28,25 +30,24 @@ The first step in order to use Rhom is to create a model class with the required
     });
 
 
-Once created, models can be retrieved using the `ORM.getModel` method.
+Once created, models can be retrieved using the `ORM.getModel` method:
 
     :::javascript
     var productModel = Rho.ORM.getModel('Product');
 
-**NOTE: It is advised that you either use the Ruby or JavaScript methods for handling model definition and access and not do this from <b>both</> languages. **
+**NOTE: It is advisable to use either the Ruby or JavaScript methods for handling model definition and access. <b>DO NOT do this from _both_ languages</b>**.
 
 ## Adding new items
 
-Use the `create` method to create a new model object and save it to the database. 
+The fastest way to insert a single item into the database is to use the `create` method to create a new model object and save it to the database:
 
-NOTE: This is the fastest way to insert a single item into the database.
 
     :::javascript
     var user = userModel.create({
                 name: 'Alice', 
                 email: 'alice@example.com'});
 
-You can also create the new model object without saving it automatically and then explicitly use the `save` method. This is useful when you want to update some of the object attributes before saving.
+You also can create a new model object without saving it automatically, and then explicitly use the `save` method. This is useful for updating some of the object attributes before saving:
 
     :::javascript
     var user = userModel.make({name: 'Alice'});
@@ -56,7 +57,7 @@ You can also create the new model object without saving it automatically and the
 
 ## Retrieving objects
 
-You can retrieve all objects for a model or only those matching given conditions using the `find` method.
+Use the `find` method to retrieve all objects for a model or only those matching given conditions:
 
 ### Getting all objects for a model 
 
@@ -75,7 +76,7 @@ You can retrieve all objects for a model or only those matching given conditions
 
 ### Ordering the objects
 
-You can retrieve objects sorted by one or more attributes using the `order` and `orderdir` parameters.
+Use the `order` and `orderdir` parameters to retrieve objects sorted by one or more attributes: 
 
     :::javascript
     // order by one attribute
@@ -98,7 +99,7 @@ You can retrieve objects sorted by one or more attributes using the `order` and 
                     }
                 );
 
-You can also sort with an user defined function.
+You can also sort with a user-defined function.
 
     :::javascript
     // order by one attribute
@@ -123,7 +124,7 @@ You can also sort with an user defined function.
 
 ### Retrieving specific attributes
 
-If, for a particular action, you do not need every attribute in an object, you can make your application faster by selecting only the specific attributes you need using the `select` parameter.
+If only some attributes in an object are needed for a particular action, increase app performance by using the `select` parameter to choose only the required attributes: 
 
 JavaScript syntax:
     :::javascript
@@ -137,7 +138,7 @@ JavaScript syntax:
 
 ### Retrieving only the first object matching conditions
 
-You can get only the first object matching given conditions using `first` instead of `all` when calling `find`.
+Use the `first` method (instead of `all`) when calling `find` to get only the first object matching the given condition(s):
 
     :::javascript
     var user = userModel.find(
@@ -149,7 +150,7 @@ You can get only the first object matching given conditions using `first` instea
 
 ## Counting objects
 
-You can get the number of objects matching given conditions using the `count` parameter with `find` method.
+Use the `count` parameter with `find` method to get a count of objects matching given condition(s): 
 
 JavaScript syntax:
     :::javascript
@@ -162,9 +163,7 @@ JavaScript syntax:
 
 ## Updating
 
-You can update an object’s attributes and save it to the database using the `updateAttributes` method
-
-NOTE: This is the fastest way to add or update item attributes.
+The fastest way to add or update object attributes is to save to the database using the `update_attributes` method: 
 
 JavaScript syntax:
     :::javascript
@@ -175,9 +174,9 @@ JavaScript syntax:
 
 ## Deleting
 
-### Deleting one object
+### Delete one object
 
-To delete one model object use the `destroy` method on the object to be deleted.
+To delete one model object, use the `destroy` method on the object to be deleted:
 
 JavaScript syntax:
     :::javascript
@@ -186,7 +185,7 @@ JavaScript syntax:
 
 ### Delete multiple objects
 
-To delete all objects for a model, or only those matching given conditions, use the `deleteAll` method.
+Use the `deleteAll` method to delete all objects for a model or only those matching given condition(s):
 
 JavaScript syntax:
     :::javascript
@@ -198,8 +197,7 @@ JavaScript syntax:
 
 ## Transactions
 
-Use transactions to group together database operations that must either succeed or fail as a group, without leaving any partially completed operations. You can combine any set of object/model operations like insert/update/delete under a transaction.
-
+For database operations that must either succeed or fail as a group without leaving any partially completed operations, use transactions to group them together. Combine any set of object/model operations, such as 'insert/update/delete' under a transaction: 
 
     :::javascript
     // open 'app' partition
@@ -226,8 +224,7 @@ Use transactions to group together database operations that must either succeed 
 
 ## Executing SQL
 
-You can execute SQL statements directly on the database by using `Database.executeSql` method.
-
+Use the `Database.executeSql` method to execute SQL statements directly on the database:
 
 JavaScript syntax:
     :::javascript
@@ -240,7 +237,7 @@ JavaScript syntax:
         db.close();
     }
 
-You can execute a series of SQL statements in a single method call by using `Database.executeBatchSql` method.
+Use the `Database.executeBatchSql` to execute a series of SQL statements in a single method call:
 
     :::javascript
     db.executeBatchSql("UPDATE User set valid=0; Update Account set active=0");
@@ -248,9 +245,7 @@ You can execute a series of SQL statements in a single method call by using `Dat
 
 ## Resetting database
 
-You can use the following method for recovering the database from a bad or corrupt state or if the RhoConnect server returns errors.
-
-### Delete all objects for given models.
+To recover the database from a bad or corrupt state or if the RhoConnect server returns errors, use the following method to delete all objects for given model(s): 
 
 JavaScript syntax:
     :::javascript
