@@ -12,7 +12,7 @@ The RhoMobile Suite provides several APIs for handling device data. Released wit
 * [ORM API](../api/Orm) and [ORM Model API](../api/OrmModel) (JavaScript)
 * [Rhom API](../api/rhom-api) (Ruby)
 
-**Documentation:**
+**Documentation**:
 
 * [ORM Common API Guide](newORM_js) (JavaScript)
 * [ORM Common API Guide](newORM_ruby) (Ruby)
