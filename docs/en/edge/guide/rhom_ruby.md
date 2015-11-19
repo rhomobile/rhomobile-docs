@@ -14,7 +14,7 @@ Ruby models can be generated using RhoStudio or from the command line. The appro
 
 &#50;. **Enter the model name in the Model Information window**.
 
-**NOTE: <b>Models MAY NOT have the same name as any of Ruby's built-in classes</b>. These include: `Config, Settings, helpers, test, Client, Sync`. Best practices call for descriptive model names such as `Product` and `Service`, and to avoid generic names such as `time` and `print`. Descriptive model names will help in the future when the application grows or changes**.
+**NOTE: <b>Models MUST NOT have the same name as any of Ruby's built-in classes</b>. These include: `Config, Settings, helpers, test, Client, Sync`. Best practices call for descriptive model names such as `Product` and `Service`, and to avoid generic names such as `time` and `print`. Descriptive naming will be helpful when the application grows or changes in the future**.
 
 &#51;. **Enter the model attributes separated by commas only (no spaces)**.
 
@@ -48,12 +48,13 @@ Output from the model generated in the 'Product' example will contain the follow
 * **app/Product/product.rb** - contains the Product model definition
 * **app/test/product_spec.rb** - placeholder for Product test specs
 
-These files can be freely updated to suit the application. 
+**NOTE: Depending on the data model being used, <b>model attributes might not be visible</b> in the `product.rb` file. See [Using Models (below)](#property_bag) for more information.**
 
-**IMPORTANT: Depending on the data model being used, model attributes might not be visible in the `product.rb` file**. Rhodes offers a choice of FixedSchema and PropertyBag model storage schemes. FixedSchema stores data for each model in a database table, with columns for each attribute to be defined in advance. PropertyBag, the default scheme, stores data in a table that's built dynamically as needed, so there are no attributes present in the generated model. For more information about these schema types and the benefits and drawbacks of each, please refer to the [Data Handling](local_database) guide.
-
-## Using Models
 <a name="property_bag"></a>
+## Using Models
+
+Rhodes offers a choice of PropertyBag and FixedSchema model storage schemes. PropertyBag, the default scheme, stores data in a table that's built dynamically as needed, so no attributes are present in a newly generated model. FixedSchema stores data for each model in a database table, with columns for each attribute defined in advance. Please refer to the [Data Handling](local_database) guide for more information.  
+
 ### Property Bag
 In the property bag model, data is stored as key-value pairs in a single table using the object-attribute-value or [entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model). This model is sometimes referred to as 'open schema' because the fields (or keys) do not have to be defined in advance; the API stores and syncs all key-value pairs that are entered.
 
@@ -311,6 +312,7 @@ To use this hook:
 &#49;. **Implement the hook** in the `application.rb` class:
 
 #### `on_migrate_source(old_version, new_src)`
+
 This is called on application start when `:schema_version` has changed.
 
     :::ruby

@@ -48,10 +48,13 @@ Output from the model generated in the 'Product' example will contain the follow
 * **app/Product/product.rb** - contains the Product model definition
 * **app/test/product_spec.rb** - placeholder for Product test specs
 
-**IMPORTANT: Depending on the data model being used, model attributes might not be visible in the `product.rb` file**. Rhodes offers a choice of FixedSchema and PropertyBag model storage schemes. FixedSchema stores data for each model in a database table, with columns for each attribute to be defined in advance. PropertyBag, the default scheme, stores data in a table that's built dynamically as needed, so there are no attributes present in the generated model. For more information about these schema types and the benefits and drawbacks of each, please refer to the [Data Handling](local_database) guide.
+**NOTE: Depending on the data model being used, <b>model attributes might not be visible</b> in the `product.rb` file. See [Using Models (below)](#property_bag) for more information.**
 
-## Using Models
 <a name="property_bag"></a>
+## Using Models
+
+Rhodes offers a choice of PropertyBag and FixedSchema model storage schemes. PropertyBag, the default scheme, stores data in a table that's built dynamically as needed, so no attributes are present in a newly generated model. FixedSchema stores data for each model in a database table, with columns for each attribute defined in advance. Please refer to the [Data Handling](local_database) guide for more information.  
+
 ### Property Bag
 In the property bag model, data is stored as key-value pairs in a single table using the object-attribute-value or [entity-attribute-value model](http://en.wikipedia.org/wiki/Entity-attribute-value_model). This model is sometimes referred to as 'open schema' because the fields (or keys) do not have to be defined in advance; the API stores and syncs all key-value pairs that are entered.
 
