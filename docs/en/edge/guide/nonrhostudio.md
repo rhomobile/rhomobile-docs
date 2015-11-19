@@ -145,4 +145,4 @@ If your IDE or Text-Editor provides a means to launch an external executable, yo
 	rake uninstall:android                   # uninstall from emulator
 	rake uninstall:android:device            # uninstall from device
 
-> Note: Windows Mobile/CE apps that use the Webkit will not be able to run in the Windows Mobile Emulator due to memory limitations.
+> Note: Windows Mobile/CE apps that use the Webkit will not be able to run in the Windows Mobile Emulator due to memory limitations in the emulator.
