@@ -92,7 +92,7 @@ Here, Rhom will expose a class `Account` with the attributes `name` and `industr
       #=> "Entertainment"
 
 #### Using Property Bag Models
-To use a Property Bag model, simply generate a new model with some attributes:
+&#49;. **Generate a new model** with some attributes:
 
     :::term
     $ rhodes model product name,brand,price,quantity,sku
@@ -109,7 +109,7 @@ This will generate a file called `product.rb` that looks like this:
       #add model specific code here
     end
 
-Several features can be enabled or disabled in the model. Below is a complete list:
+&#50;. **Enable the requiured features in the model** from the following feature list:
 
 
     :::ruby
