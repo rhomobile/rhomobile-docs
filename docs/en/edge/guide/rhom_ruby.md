@@ -309,11 +309,7 @@ To use this hook:
       set :schema_version, '1.1'
     end
 
-&#49;. **Implement the hook** in the `application.rb` class:
-
-#### `on_migrate_source(old_version, new_src)`
-
-This is called on application start when `:schema_version` has changed.
+&#50;. **Implement the hook `on_migrate_source(old_version, new_src)`** in the `application.rb` class as follows:
 
     :::ruby
     class AppApplication < Rho::RhoApplication
@@ -332,7 +328,9 @@ This is called on application start when `:schema_version` has changed.
       end
     end
 
-**NOTE: To modify schema without recreate table, you can use only ADD COLUMN command, you cannot remove column or change type(This is sqlite limitation) **
+The code above will call the hook on application start whenever `:schema_version` has changed. 
+
+**NOTE: To modify the schema without recreating the table, use the ADD COLUMN command. Limitations of SQLlite prevent the removal of columns or changes to the type**.
 
 Return `false` to run the custom sql specified by the new_src['schema']['sql'] string:
 

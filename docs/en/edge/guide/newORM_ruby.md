@@ -309,9 +309,7 @@ To use this hook:
       set :schema_version, '1.1'
     end
 
-&#49;. **Open the `application.rb` class** for editing. 
-
-&#49;. **Implement the hook `on_migrate_source(old_version, new_src)`** as follows: 
+&#50;. **Implement the hook `on_migrate_source(old_version, new_src)`** in the `application.rb` class as follows: 
 
     :::ruby
     class AppApplication < Rho::RhoApplication
@@ -330,9 +328,9 @@ To use this hook:
       end
     end
 
-This will call the hook on application start whenever `:schema_version` has changed. 
+The code above will call the hook on application start whenever `:schema_version` has changed. 
 
-**NOTE: To modify schema without recreating the table, you can use only ADD COLUMN command, you cannot remove column or change type (this is a limitation fo SQLite)**
+**NOTE: To modify the schema without recreating the table, use the ADD COLUMN command. Limitations of SQLlite prevent the removal of columns or changes to the type**.
 
 &#49;. **Return `false` to run the custom SQL** specified by the new_src['schema']['sql'] string:
 
@@ -342,7 +340,9 @@ This will call the hook on application start whenever `:schema_version` has chan
       false # create table by source schema - useful only for non-synced models
     end
 
-**NOTE: For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time. **
+**NOTE: When recreating a table with source data that is synchronized, data must be copied to the new table before the first sync can occur. The sync function will not populate a blank table**. 
+
+For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time.**
 
 ### Property Bag Data Migrations
 No data migration required, since all attributes are dynamic.
