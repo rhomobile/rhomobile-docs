@@ -309,7 +309,8 @@ To use this hook:
       set :schema_version, '1.1'
     end
 
-&#50;. **Implement the hook `on_migrate_source(old_version, new_src)`** in the `application.rb` class as follows:
+&#50;. **In the `application.rb` class, implement the hook `on_migrate_source(old_version, new_src)`** as follows: 
+
 
     :::ruby
     class AppApplication < Rho::RhoApplication
@@ -340,10 +341,15 @@ Return `false` to run the custom sql specified by the new_src['schema']['sql'] s
       false # create table by source schema - useful only for non-synced models
     end
 
-**NOTE: For sync sources, you cannot just recreate table without data copy. Because server will not send this data at sync time. **
+**NOTE: When migrating a table with source data that was synchronized, data must be copied to the new table before the first sync can occur. The sync function will not populate a blank table**. 
 
 ### Property Bag Data Migrations
-No data migration required, since all attributes are dynamic.
+Since its attributes are dynamic, the Property Bag database requires no data migrations when changes are made to its schema.  
+
+### Removing Local Data From a Device
+
+Removing data from a device 
+
 If you want to remove all local data when upgrading to new application version: change `app_db_version` in `rhoconfig.txt`.
 
 This scenario will work for Property Bag and Fixed Schema models.
