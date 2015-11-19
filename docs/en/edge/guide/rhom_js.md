@@ -99,7 +99,7 @@ Use the `order` and `orderdir` parameters to retrieve objects sorted by one or m
                     }
                 );
 
-You can also sort with a user-defined function.
+Sorting also can be done with a user-defined function:
 
     :::javascript
     // order by one attribute
@@ -120,7 +120,7 @@ You can also sort with a user-defined function.
         }
     );
 
-**NOTE: Whenever possible, use `order` instead of `orderFunction`. The database will sort objects faster than JavaScript code.**
+**NOTE: Use `order` instead of `orderFunction` whenever possible; the `order` database command will sort objects faster than the JavaScript `orderFunction` code.**
 
 ### Retrieving specific attributes
 
