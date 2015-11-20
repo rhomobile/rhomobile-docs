@@ -28,7 +28,7 @@ Ruby models can be generated using RhoStudio or from the command line. The appro
 
 The 'Rhodes' tool can be invoked manually to allow use of the command line or an IDE other than RhoStudio. The two steps below are functionally identical to the four above. 
 
-&#49;. **Open a command prompt** and switch to the root directory of your application (the directory that contains `app` as a child). 
+&#49;. **Open a command prompt** and switch to the root directory of the application (the directory that contains `app` as a child). 
 
 &#50;. **Execute the commmand** below:
 
@@ -347,24 +347,21 @@ Return `false` to run the custom sql specified by the new_src['schema']['sql'] s
 Since its attributes are dynamic, the Property Bag database requires no data migrations when changes are made to its schema.  
 
 ### Removing Local Data From a Device
-
-Removing data from a device 
-
-If you want to remove all local data when upgrading to new application version: change `app_db_version` in `rhoconfig.txt`.
-
 This scenario will work for Property Bag and Fixed Schema models.
 
-## Adding new objects
-Use the `create` method to create a new model object and save it to the database.
+To remove all local data when upgrading to new application version, simply change `app_db_version` in the `rhoconfig.txt` file.
 
-NOTE: This is the fastest way to insert a single item into the database.
+## Adding new objects
+To create a new model object and save it to the database, use the `create` method: 
 
     :::ruby
     user = User.create(
             :name => 'Alice',
             :email => 'alice@example.com')
 
-You can also create the new model object without saving it automatically and then explicitly use the `save` method. This is useful when you want to update some of the object attributes before saving.
+NOTE: This is the fastest way to insert a single item into the database.
+
+It's possible to create the new model object without saving it automatically, and then explicitly use the `save` method. This is useful for updating some of the object attributes before saving: 
 
     :::ruby
     user = User.new(:name => 'Alice')
@@ -373,16 +370,16 @@ You can also create the new model object without saving it automatically and the
     user.save
 
 ## Retrieving objects
-You can retrieve all objects for a model or only those matching given conditions using the `find` method.
+Use the find method to retrieve all objects for a model or only those matching given conditions.
 
 ### Getting all objects for a model
-You can retrieve all objects for a model using the `all` parameter.
+To retrieve all objects for a model using the `all` parameter:
 
     :::ruby
     users = User.find(:all)
 
 ### Finding objects matching conditions
-You can retrieve all objects matching given conditions using the `conditions` parameter.
+To retrieve all objects matching given conditions using the `conditions` parameter:
 
     :::ruby
     users = User.find(
@@ -391,7 +388,7 @@ You can retrieve all objects matching given conditions using the `conditions` pa
             )
 
 ### Numeric field comparisons in property bag models
-Because, internally, property bag models store all their values in the same column, this column is defined as `varchar`, which means that number comparisons do not work as you would expected. If you need to perform order comparisons on a numeric field in a property bag model, use CAST to convert the value to a number of the desired type:
+Because Property Bag models internally store all their values in the same column, this column is defined as `varchar`, which means that a number comparisons might not work as expected. To perform order comparisons on a numeric field in a Property Bag model, use CAST to convert the value to a number of the desired type:
 
     :::ruby
     @accts = Account.find(:all,
@@ -402,7 +399,7 @@ Because, internally, property bag models store all their values in the same colu
         :conditions => ["CAST(rating as INTEGER)< ?", "#{size}"], :select => ['rating'] )
 
 ### Ordering the objects
-You can retrieve objects sorted by one or more attributes using the `order` and `orderdir` parameters.
+Use the `order` and `orderdir` parameters to retrieve objects sorted by one or more attributes:
 
     :::ruby
     # order by one attribute
@@ -420,7 +417,7 @@ You can retrieve objects sorted by one or more attributes using the `order` and 
             )
 
 ### Retrieving specific attributes
-If, for a particular action, you do not need every attribute in an object, you can make your application faster by selecting only the specific attributes you need using the `select` parameter.
+If only some attributes in an object are needed for a particular action, increase app performance by using the `select` parameter to choose only the required attributes:
 
     :::ruby
     users = User.find(
@@ -429,9 +426,8 @@ If, for a particular action, you do not need every attribute in an object, you c
             )
 
 ### Paginating results
-NOTE: this section applies to Ruby only
 
-You can pass `offset` and `per_page` parameters to `find` method to retrieve objects in chunks.
+Pass `offset` and `per_page` parameters to the `find` method to retrieve objects in chunks.
 
     :::ruby
     # get first 10 records
@@ -440,9 +436,9 @@ You can pass `offset` and `per_page` parameters to `find` method to retrieve obj
     # get records 21-40
     users = User.find(:all, :offset => 20, :per_page => 20)
 
-For convenience, there is a `paginate` method which emulates Rails' classic pagination syntax. The default page size is 10.
+The `paginate` method emulates Rails' classic pagination syntax. The default page size is 10.
 
-You can use `:conditions`, `:order` and `select` parameters, similarly to the `find` method.
+Use `:conditions`, `:order` and `select` parameters in a way similar to the `find` method: 
 
     :::ruby
     # get first 10 records
@@ -452,7 +448,7 @@ You can use `:conditions`, `:order` and `select` parameters, similarly to the `f
     users = User.paginate(:page => 1, :per_page => 20)
 
 ### Retrieving only the first object matching conditions
-You can get only the first object matching given conditions using `first` instead of `all` when calling `find`.
+Retrieve only the first object matching given conditions using `first` instead of `all` when calling `find`:
 
     :::ruby
     user = User.find(
@@ -461,13 +457,13 @@ You can get only the first object matching given conditions using `first` instea
             )
 
 ### Using SQL queries directly
-You can directly retrieve model object(s) using SQL queries with the `findBySql` method. This method works only for fixed schema models.
+Retrieve model object(s) directly using SQL queries with the `find_by_sql` method. This method works only for fixed schema models: 
 
     :::ruby
     users = User.findBySql('SELECT * FROM User')
 
 ## Counting objects
-You can get the number of objects matching given conditions using the `count` parameter with `find` method.
+Get the number of objects matching given condition(s) using the `count` parameter with `find` method:
 
     :::ruby
     count = User.find(
@@ -476,26 +472,25 @@ You can get the number of objects matching given conditions using the `count` pa
             )
 
 ## Updating
-You can update an object’s attributes and save it to the database using the `updateAttributes` method
-
-NOTE: This is the fastest way to add or update item attributes.
+Update an object’s attributes and save to the database using the `update_attributes` method:
 
     :::ruby
     user = User.find(:first, :conditions => {:name => 'Alice'})
     user.update_attributes(
                 :name => 'Bob',
                 :email => 'bob@example.com')
+NOTE: This is the fastest way to add or update item attributes.
 
 ## Deleting
 ### Deleting one object
-To delete one model object use the `destroy` method on the object to be deleted.
+To delete a single model object, use the `destroy` method on the object to be deleted: 
 
     :::ruby
     user = User.find(:first)
     user.destroy
 
 ### Delete multiple objects
-To delete all objects for a model, or only those matching given conditions, use the `delete_all` method.
+To delete all objects for a model, or only those matching given condition(s), use the `delete_all` method:
 
     :::ruby
     # delete all objects
@@ -505,7 +500,7 @@ To delete all objects for a model, or only those matching given conditions, use 
     User.delete_all(:conditions => {:name => 'Alice'})
 
 ## Transactions
-Use transactions to group together database operations that must either succeed or fail as a group, without leaving any partially completed operations. You can combine any set of object/model operations like insert/update/delete under a transaction.
+For database operations that must either succeed or fail as a group without leaving any partially completed operations, use transactions to group them together. Combine any set of object/model operations, such as ‘insert/update/delete’ under a transaction:
 
     :::ruby
     db = Rho::Database.new
@@ -523,7 +518,7 @@ Use transactions to group together database operations that must either succeed 
     end
 
 ## Executing SQL
-You can execute SQL statements directly on the database by using `Database.executeSql` method.
+To execute SQL statements directly on the database, use the `Database.executeSql` method:
 
     :::ruby
     begin
@@ -537,7 +532,7 @@ You can execute SQL statements directly on the database by using `Database.execu
     db.executeBatchSql("UPDATE User set valid=0; Update Account set active=0")
 
 ## Resetting database
-You can use the following method for recovering the database from a bad or corrupt state or if the RhoConnect server returns errors.
+To recover the database from a bad or corrupt state or if the RhoConnect server returns errors, use the following method to delete all objects for given model(s):
 
 ### Delete all objects for given models.
 
@@ -546,36 +541,37 @@ You can use the following method for recovering the database from a bad or corru
 
 ## Adding more fields to an existing model
 
-The list of attributes in a model can be updated as development progresses. If you are using the PropertyBag storage scheme (the default), the only thing you need to do is add the relevant code to the views (`index.erb`, `edit.erb`, `new.erb` and `show.erb`)  and Rhodes will take care of the rest. If you have switched to FixedSchema, however, you also need to add the appropriate lines in your model `.rb` file:
+The list of attributes (fields) in a model can be updated as development progresses. If using the Property Bag storage scheme (the default), all that's required is to add the relevant code to the views (`index.erb`, `edit.erb`, `new.erb` and `show.erb`); Rhodes will take care of the rest. If using Fixed Schema, add the appropriate lines in the `<model name>.rb` file:
 
     :::ruby
     property :<property_name> :<data_type>
 
-In our example `Product` model, for example, we could add
+For example, in the `Product` model, we could add:
 
     :::ruby
     property :color, :string
 
-The guide [Using the local database](../rhodes/rhom#fixed-schema) contains all the details on which data types are supported, as well as other ways to fine-tune data synchronization.
+For further details, please refer to the [Using the local database](../rhodes/rhom#fixed-schema) guide, which also contains methods to fine-tune data synchronization.
 
 ## Linking a model to a RhoConnect synchronization server
 
-### What is RhoConnect
-RhoConnect is the server-side part of RhoMobile Suite that connects your mobile application to external data sources. Whether your data comes from a relational database, NoSQL data store, RESTful web services or any other data source, RhoConnect bridges the gap between mobile clients and server resources. Using RhoConnect frees you from writing error-prone, hard to maintain synchronization code and takes care of all aspects of data sync.
+### What is RhoConnect?
+RhoConnect is the server-side component of the RhoMobile Suite that connects mobile applications to external data sources and handles all aspects of data synchronization. Whether data comes from a relational database, NoSQL data store, RESTful web services or any other data source, RhoConnect bridges the gap between mobile clients and server resources. RhoConnect frees the developer from having to write complex synchronization code that's error-prone and hard to maintain. 
 
+### Integrating a RhoMobile app with RhoConnect
+Once an application can store data about a particular model, enabling two-way synchronization with a RhoConnect server is a one-step process. 
 
-### Integrating a mobile Rhodes application with RhoConnect
-Once your application can store data about a particular model, enabling two-way synchronization with a RhoConnect server is a one-step process: there is only one line to change, in your model file (`product.rb` in our example), uncomment the line
+To enable synchronization in a RhoMobile app, simply open the model file (i.e. `product.rb`) and uncomment the line:
 
     :::ruby
     enable :sync
 
-As long as your RhoConnect server is properly configured, this is all that is required to benefit from automatic, two-way synchronization. See the [RhoConnect Tutorial](../tutorial/rhoconnect) for in-depth information about the benefits RhoConnect provides, as well as [Using the local database](../rhodes/rhom#fixed-schema) to find out how to tune data synchronization according to the needs of your application.
+As long as RhoConnect server is properly configured, this is all that is required to benefit from automatic, two-way synchronization. See the [RhoConnect Tutorial](../tutorial/rhoconnect) for in-depth information about the benefits RhoConnect provides, as well as [Using the local database](../rhodes/rhom#fixed-schema) to find out how to tune data synchronization according to the needs of the application.
 
 ## Associations
-Rhom has a `sync association` called `belongs_to` which you can use to trigger updates on sync-enabled models. This is useful where you have relationships between backend service objects.
+Rhom has a `sync association` called `belongs_to` which can be used to trigger updates on sync-enabled models. This is useful when relationships between backend service objects exists.
 
-For example, you can have a list of customers who are assigned to a sales person:
+For example, an app might contain a list of customers assigned to a sales person:
 
     :::ruby
     class Customer
@@ -585,7 +581,7 @@ For example, you can have a list of customers who are assigned to a sales person
       belongs_to :salesrep_id, 'SalesRep'
     end
 
-The value you must use as the identifier to link objects is the `object` property
+The value used as the identifier for linking objects is the `object` property:
 
     :::ruby
     def create
@@ -598,25 +594,24 @@ The value you must use as the identifier to link objects is the `object` propert
       redirect :action => :index
     end
 
-You can also define polymorphic sync associations, or sync associations across multiple classes.
+Polymorphic sync associations, or associations across multiple classes, also can be defined using array notations or multiple declarations:
 
 Using array notation:
 
     :::ruby
     belongs_to :parent_id, ['Product', 'Case']
 
-Or multiple declarations:
+Using multiple declarations:
 
     :::ruby
     belongs_to :parent_id, 'Product'
     belongs_to :parent_id, 'Case'
 
 
-If you are planning to use the bulk sync feature for your associated models, then you should take into consideration the
-corresponding support on the RhoConnect Server side. See [RhoConnect Bulk Sync associations](../rhoconnect/bulk-sync#bulk-sync-associations).
+If planning to use the bulk sync feature for associated models, consider the corresponding support on the RhoConnect Server side. See [RhoConnect Bulk Sync associations](../rhoconnect/bulk-sync#bulk-sync-associations).
 
 ## Freezed models
-If you want to limit model attributes by specific list - you can 'freeze' model:
+To limit model attributes to a specific list, the model can be 'freezed':
 
     :::ruby
     class Customer
@@ -631,7 +626,7 @@ If you want to limit model attributes by specific list - you can 'freeze' model:
         property :email, :string
     end
 
-For such models if you try to set a property that has not been explicitly defined, you will get ArgumentError exception:
+If an attempt is made to set a property on a freezed model that has not been explicitly defined, an ArgumentError exception will result:
 
     :::ruby
     obj = Customer.new( :wrong_address => 'test') #will raise ArgumentError exception
@@ -643,7 +638,7 @@ For such models if you try to set a property that has not been explicitly define
     obj = Customer.new
     obj.update_attributes(:wrong_address => 'test') #will raise ArgumentError exception
 
-**NOTE: FixedSchema models are 'freezed' by default. This is only supported in Ruby models.**
+**NOTE: FixedSchema models are 'freezed' by default.**
 
 ## Resetting the Database
 Rhodes provides the following functions for recovering the database from a bad or corrupt state, or if the RhoConnect server returns errors.
@@ -671,7 +666,7 @@ Equivalent to `Rhom::Rhom.database_full_reset(true)` followed by `SyncEngine.log
     :::ruby
     Rhom::Rhom.database_fullclient_reset_and_logout
 
-**NOTE: If you receive a sync error "Unknown client" message in your sync callback, this means that the RhoConnect server no longer knows about the client and a `Rhom::Rhom.database_fullclient_reset_and_logout` is recommended.  This error requires proper intervention in your app so you can handle the state before resetting the client.  For example, your sync notification could contain the following:**
+**NOTE: If the sync error "Unknown client" is displayed in the sync callback, this means that the RhoConnect server no longer knows about the client and a `Rhom::Rhom.database_fullclient_reset_and_logout` is recommended.  This error requires proper intervention in the app to handle the state before resetting the client.  For example, a sync notification could contain the following:**
 
     :::ruby
     if @params['error_message'].downcase == 'unknown client'
@@ -795,7 +790,7 @@ You can also group `:conditions`:
     )
 
 ## Find by numeric field
-To use number comparison conditions in find use CAST :
+To use number comparison conditions in `find`, use `CAST`:
     :::ruby
     @accts = Account.find(:all,
         :conditions => { {:func=> 'CAST', :name=>'rating as INTEGER', :op=>'<'} => 3 } )
@@ -806,19 +801,19 @@ To use number comparison conditions in find use CAST :
 
 ## Database Encryption
 
-**NOTE: As of Rhodes version 3.3.3, [Rhom data encryption](#database-encryption) is removed from Rhodes. This feature is only supported in Zebra RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](build_config#other-build-time-settings). Additionally, a [RhoElements license](licensing) is required.**
+**NOTE: [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is no longer available as of Rhodes 3.3.3 and higher. This feature is now supported only in Zebra RhoMobile Suite and requires the purchase of a [RhoElements license](licensing).**
 
-If your application requires that the local database is encrypted on the filesystem, you can enable it by setting a flag in `build.yml`:
+If the application requires local (on-device) database encryption, enable it by setting a flag in `build.yml`:
 
     :::yaml
     encrypt_database: 1
 
-**NOTE: Database encryption is not supported for applications that use bulk sync at this time.**
+**NOTE: Database encryption is not currently supported for applications that use bulk sync.**
 
 ### Platform Notes
-* iOS: Uses AES 128 encryption algorithm from iOS SDK.
-* Android: Uses AES 128 ecryption algorithm from Android SDK.
-* Windows Mobile: Uses RC4 algorithm from Windows Mobile SDK.
+* iOS uses an AES 128 encryption algorithm from the iOS SDK.
+* Android uses an AES 128 ecryption algorithm from the Android SDK.
+* Windows Mobile uses an RC4 algorithm from Windows Mobile SDK.
 
 ## Related reading
 

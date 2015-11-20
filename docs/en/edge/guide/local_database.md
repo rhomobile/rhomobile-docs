@@ -110,9 +110,9 @@ If your application requires local (on-device) database encryption, enable it by
 **NOTE: Database encryption is not currently supported for applications that use bulk sync.**
 
 ### Platform Notes
-* iOS: Uses AES 128 encryption algorithm from iOS SDK.
-* Android: Uses AES 128 ecryption algorithm from Android SDK.
-* Windows Mobile: Uses RC4 algorithm from Windows Mobile SDK.
+* iOS uses an AES 128 encryption algorithm from the iOS SDK.
+* Android uses an AES 128 ecryption algorithm from the Android SDK.
+* Windows Mobile uses an RC4 algorithm from Windows Mobile SDK.
 
 
 **NOTE: [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is no longer available as of Rhodes 3.3.3 and higher. This feature is now supported only in Zebra RhoMobile Suite and requires the purchase of a [RhoElements license](licensing).**
