@@ -95,8 +95,8 @@ By default, RhoMobile apps will be built to use the older Rhom implementation (f
 
 Possible Values: 
 
-* 1 = use newer ORM Common API (shown)
 * **0 = use 'old' Rhom/ORM API (default)**
+* 1 = use newer ORM Common API
 
 NOTE: If this parameter is left unspecified, the older Rhom/ORM API will be used. 
 
