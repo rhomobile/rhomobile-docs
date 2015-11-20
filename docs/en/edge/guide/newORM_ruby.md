@@ -2,6 +2,20 @@
 
 The RhoMobile Suite provides several methods of handling device data. For RhoMobile Suite 5.3 and higher is the [ORM common API](../api/NewORM), which supports JavaScript and Ruby (documented here). RMS 5.2 and lower support the original [Rhom API](../api/rhom-api) (for Ruby), and the [ORM API](../api/Orm), which adds JavaScript support to Rhom via the [OPAL library](http://opalrb.org).
 
+## How to Include the ORM API
+
+By default, RhoMobile apps will be built to use the older Rhom implementation (for Ruby) and ORM implementation (for JavaScript). To activate the newer ORM Common API (which supports both JavaScript _and_ Ruby), add the following line to application’s `rhoconfig.txt` file:
+
+    :::yaml
+    use_new_orm = 1  
+
+Possible Values: 
+
+* **0 = use 'old' Rhom/ORM API (default)**
+* 1 = use newer ORM Common API
+
+NOTE: If this parameter is left unspecified, the older Rhom/ORM API will be used. 
+
 ## Creating a Ruby Data Model
 
 Ruby models can be generated using RhoStudio or from the command line. The approaches are functionally equivalent; the generator outputs the model class itself along with a set of sample views that can be customized as needed.
