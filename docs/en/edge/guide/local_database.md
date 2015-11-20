@@ -76,7 +76,7 @@ In the property bag model, data is stored as key-value pairs in a single table u
 
 ## Fixed Schema Model
 
-In a fixed schema model, each model has a separate database table and attributes exist as columns in that table. In this sense, the fixed schema model is similar to a traditional relational database.
+In a fixed schema model, each model has a separate database table and attributes forms the columns of that table. In this sense, the fixed schema model is similar to a traditional relational database.
 
 ### Advantages
 * Smaller database size; indexes can be assigned to specific attributes
@@ -87,15 +87,18 @@ In a fixed schema model, each model has a separate database table and attributes
 * Database performance may be slow without careful index specificity
 
 ## How to Include the ORM API
-By default, RhoMobile apps will be built to use the 'ORM API' (JavaScript). To specify a one of the other two object-relational mapping APIs, add the following line to the application's `rhoconfig.txt` file: 
+
+By default, RhoMobile apps will be built to use the older Rhom implementation (for Ruby) and ORM implementation (for JavaScript). To activate the newer ORM Common API (which supports both JavaScript _and_ Ruby), add the following line to application’s `rhoconfig.txt` file:
 
     :::yaml
     use_new_orm = 1  
 
 Possible Values: 
 
-* **1 (default)**
-* 0 (use 'old' ORM API)
+* 1 = use newer ORM Common API (shown)
+* **0 = use 'old' Rhom/ORM API (default)**
+
+NOTE: If this parameter is left unspecified, the older Rhom/ORM API will be used. 
 
 ## Database Encryption
 
