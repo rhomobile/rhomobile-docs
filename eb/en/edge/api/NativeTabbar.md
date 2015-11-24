@@ -103,7 +103,7 @@ Synchronous Return:
 
 
 ### remove()
-Removes the current tabbar. Does nothing if there is no active tabbar.
+Removes all tabbar except the default tabbar whose index value is 0. Does nothing if there is no active tabbar other than tab 0.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>

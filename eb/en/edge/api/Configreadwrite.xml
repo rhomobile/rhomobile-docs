@@ -1,0 +1,90 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Configreadwrite" parent="Rho" generatedoc="false">
+    <HELP_OVERVIEW>The Configreadwrite API provides access to read and write to temporary config files in Android platform. It also provides capabilities to update the user configured attribute value in actual config file.</HELP_OVERVIEW>
+        <MORE_HELP>
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+    :::ruby
+    extensions: ["configreadwrite"]
+
+The `configreadwrite` extension is also included automatically if you specify the following in your `build.yml`
+    :::ruby
+    app_type: "rhoelements"
+
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
+
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        </MORE_HELP> 
+
+        <VER_INTRODUCED>5.3.0</VER_INTRODUCED>
+        <PLATFORM>Android</PLATFORM>
+		
+        <METHODS access="STATIC">    
+            <METHOD name="writeToConfig" hasCallback="mandatory" generateDoc="false">
+                <DESC>Write to actual xml file</DESC>
+                <PARAMS>
+                    <PARAM name="jsonString" type="STRING">
+                    </PARAM>
+                </PARAMS>
+				<CALLBACK type="HASH">
+                    <PARAMS>
+                        <PARAM name="status" type="STRING">
+                            <DESC>Get the status whether updation was done properly or not.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
+            <METHOD name="writeToTempConfig" hasCallback="mandatory" generateDoc="false">
+                <DESC>Write to temporary xml file</DESC>
+                <PARAMS>
+                    <PARAM name="jsonString" type="STRING">
+                    </PARAM>
+                </PARAMS>
+				<CALLBACK type="HASH">
+                    <PARAMS>
+                        <PARAM name="status" type="STRING">
+                            <DESC>Get the status whether updation was done properly or not.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>			
+			<METHOD name="readFromTempConfig" hasCallback="mandatory" generateDoc="false">
+                <DESC>Read from temporary xml file</DESC>
+                <CALLBACK type="HASH">
+                    <PARAMS>
+                        <PARAM name="value" type="STRING">
+                            <DESC>Reading the value from temporary config.xml.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
+            <METHOD name="readFromOriginalConfig" hasCallback="mandatory" generateDoc="false">
+                <DESC>Read from Original xml file</DESC>
+                <CALLBACK type="HASH">
+                    <PARAMS>
+                        <PARAM name="value" type="STRING">
+                            <DESC>Reading the value from temporary config.xml.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
+        </METHODS>
+        
+        <USER_OVERVIEW>
+        </USER_OVERVIEW>
+
+        <VER_INTRODUCED>5.3.0</VER_INTRODUCED>
+        <PLATFORM>
+         </PLATFORM>
+    </MODULE>
+</API>

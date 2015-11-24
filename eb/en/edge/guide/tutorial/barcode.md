@@ -1,4 +1,4 @@
-#Barcode API Tutorial
+# Barcode API Tutorial
 
 This tutorial covers the use of the Enterprise Browser Barcode API.
 
@@ -64,8 +64,8 @@ HTML Starter Template:
 
 Sample HTML:
 
-		:::html
-			<input id="scanData" type=text ><br/>
+	:::html
+	<input id="scanData" type=text ><br/>
 
 
 Next we'll add two buttons: one to enable scanning and another to disable scanning. We'll append these two lines of code in a later step. For now: 

@@ -84,7 +84,7 @@ Synchronous Return:
 
 
 ### detectConnection(<span class="text-info">HASH</span> propertyMap)
-Begins polling the specified host on the specified URL to check if there is a network connection available. The connection status is reported back via the provided callback. Note that callback will be called only if connection status has changed compared to previous polling.
+Begins polling the specified host on the specified URL to check if there is a network connection available. The connection status is reported back via the provided callback. Note that callback will be called only if connection status has changed compared to previous polling. Multiple concurrent detectionConnection is not supported.
 
 ####Parameters
 <ul><li>propertyMap : <span class='text-info'>HASH</span><p>Properties map. </p></li><ul><li>host : <span class='text-info'>STRING</span><span class='label '> Default: www.motorolasolutions.com</span><p>When detecting a network connection, this is the URL or IP address of the server to attempt to connect to. </p></li><li>port : <span class='text-info'>INTEGER</span><span class='label '> Default: 80</span><p>When detecting a network connection, this is the port on the host to connect to. </p></li><li>pollInterval : <span class='text-info'>INTEGER</span><span class='label '> Default: 30000</span><p>The time, in milliseconds, between each check for a connection. Note that the actual connection report interval will be the sum of the poll interval and the detection timeout.  The minimum allowed value is 5000ms. </p></li><li>detectionTimeout : <span class='text-info'>INTEGER</span><span class='label '> Default: 1000</span><p>The amount of time to attempt to connect to the specified URL before giving up and assuming 'disconnected'.  Value is specified in milliseconds. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -311,7 +311,7 @@ Synchronous Return:
 
 
 ### stopDetectingConnection()
-Ceases the network detection identified by the given callback.
+Ceases network detection. Callback is no longer supported; it has been made optional to preserve backward compatibility.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -586,4 +586,16 @@ Receiving phone calls or texts whilst running RhoElements will cause the start b
 "HardwareDoneKeyEnabled"=dword:00000001                     Prevents the 'X' icon from appearing in the bottom right
 </pre>
 
+                    
+
+###SSL Connection Failure in iOS Platform
+
+Due to a limitation in curl for iOS, an appropriate timeout is not used in 'select' system calls for a curl SSL conection. To avoid this SSL connection issue, it is recommended that the iOS native Network library be used instead of curl. To do this, add the two lines below to the rhoconfig.txt file. 
+
+For more information, please refer to <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/CommonPitfalls/CommonPitfalls.html">Avoiding Common Networking Mistakes</a> in the Apple developer reference.
+
+<pre>
+ios_net_curl = 0
+ios_direct_local_requests = 0
+</pre>
                     

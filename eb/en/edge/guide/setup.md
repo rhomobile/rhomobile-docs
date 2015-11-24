@@ -1,139 +1,300 @@
-# Installation
-## Desktop Installation
-To install the EB on your device, there are two requirements:
+# Enterprise Browser Installation
+## Installation on Host PC 
 
-* Your device must be a **Symbol Device**.
-* Your device's OS must be either **Windows Mobile, Windows CE, or Android**.
+Installing Enterprise Browser on your system will provide all the software necessary to start making your own Enterprise Browser apps. All that's needed is a **desktop or laptop that connects via ADB or Mobile Device Center (or ActiveSync on WinXP) to one or more [supported Zebra devices](index.html) running Android, Windows Mobile or Windows CE**. See the Prerequisites section for connection details. 
 
-Installing Enterprise Browser on your desktop will provide you will all you need to get started.
+#####Mac OS X Support
+Enterprise Browser now offers limited support for Mac OS X. The Enterprise Browser 1.3 device installer packages can now be downloaded as a disk image (.dmg) file, permitting Mac users to: 
 
-1. Download the Enterprise Browser MSI.
-2. Install the MSI.
+* Copy EnterpriseBrowser .apk files to Android devices
+* Copy EnterpriseBrowser .cab files to an MDM system for mass deployment
+* Create shortcuts to Android apps using the EB native widget (in device after installing the EB app)
+* Access the EB demo app
+* Easily link to EB online help
 
-![img](images/getting-started/setup/setup-msi-install.png)
+<!-- * Copy EnterpriseBrowser .cab files to Windows Mobile/CE devices -->
 
-At this point you should now have an item in the start menu structured as follows:
+### Prerequisites
 
-* Enterprise Browser
-	* Documentation
-	* Enterprise Browser Installer
-	* Enterprise Browser Runtimes
-	* JavaScript Files
+* A computer running Windows or Mac OS X (Macs offer a subset of functions)
+* USB driver for targeting Zebra devices (required on Windows only)
+* Android Debug Bridge (if targeting Android devices)
+* Microsoft Mobile Device Center (if targeting Windows Mobile/CE devices; included with Windows 7)
 
-![img](images/getting-started/setup/setup-start-menu-items.png)
+Note: Mobile Device Center replaced Microsoft ActiveSync starting with Windows Vista. Installation from Windows XP systems requires ActiveSync. 
 
-## Device Deployment
-To install the Enterprise Browser runtime onto your device, follow the steps below:
+### Windows Installation
 
-1. Connect your device to you PC via the USB cable and wait for Microsoft ActiveSync/Device Center to connect.
-2. From your Start Menu browse to the "Enterprise Browser \ Enterprise Browser Installer" and select it.
-3. You will be presented with options to choose which variant of Enterprise Browser they wants to install on the device.
-4. Information pertaining to each of these options is available on the screen so you can select the appropriate Runtime.
-5. Depending on the device operating system, you will have different steps. See below for your device specific operating system.
+####If upgrading from a prior version...
 
-Here is what the Installer looks like; options on the left, explanations on the right.
+![img](images/getting-started/setup/ebsetup_00.jpg)
 
-![img](images/getting-started/setup/setup-eb-installer-platform-select.png)
+####...uninstall the older version of Enterprise Browser before installing the new one.
 
-> Note: Once the Enterprise Browser is deployed to your device, it is recommended that you restart the device to properly generate any file / folder structures necessary for proper EB operations.
+If not upgrading, skip to step 3. 
 
-### Android Devices
-To connect your Android device to your Windows computer, you'll need two things:
+1. **Backup any data stored in the C:\EnterpriseBrowser directory**; step 2 will cause it to be lost. 
+2. To install, select **Start Menu -> Enterprise Browser -> Uninstall Enterprise Browser** and follow the prompts. 
+3. [Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) installation package (.msi).  
+4. Launch the installer file; accept the licence agreement and follow the other prompts. When the installation finishes, a screen will appear similar to the image below. 
+5. Click "Close" to quit the installer and launch Enterprise Browser. (Be sure the 'Launch' box is checked). 
 
-1. USB Drivers for your device. - Drivers to allow your device to interface with your computer.
-2. Android ADT bundle with platform-tools (adb). - Tools to let other programs on your computer interface with your device.
+<!--![img](images/getting-started/setup/setup-msi-install.png)-->
 
-#### USB Drivers
-To install the drivers for that device. Usually this is done by simply plugging the device into the machine. Most of the time, the device driver will install automatically and you'll be good to go. If not, you'll need to download the drivers for that device. To get the drivers for your device, you'll need to find the device page on [motorolasolutions.com](http://www.motorolasolutions.com/). The best way to do this is enter your device's model number into the search bar at the top of the landing page. Once you have found your device, you should see a tab to download software. For instance, the drivers for the TC55 are [here](http://goo.gl/mjrqMM).
+![img](images/getting-started/setup/ebsetup_01.jpg)
 
-The page you want should look something like this:
+This will display the Enterprise Browser's 'Installer' screen, which looks similar to the one below. Supported platforms are the left with a description when selected on the right. 
 
-![img](images/getting-started/setup/setup-device-drivers-download.png)
+To bring up this screen at a later time, select **Start Menu -> Enterprise Browser -> Enterprise Browser Installer**. 
 
-#### Android ADT Bundle
-To get the ADT bundle, which includes the Android SDK, you can go [here](http://developer.android.com/sdk/index.html). You'll specify your build of Windows (32-bit or 64-bit) and agree to the terms and download the bundle. This will come as an archive and you'll need to extract it somewhere where you'll remember it as you'll need to refer to it later.
+For Windows-only shops, instructions continue in the 'Deployment to Device(s)' section, below. 
 
-Once you have extracted all the files in the ADT bundle, you'll need to add the platform-tools path to your path environment variable so that Windows can access it without referring to the entire path each time you use it. To do this, open your environment variables settings: right-click "Computer" -> Properties -> "Advanced System Settings" -> "Environment Variables" button. The window should look similar to this.
+![img](images/getting-started/setup/ebsetup_02.jpg)
 
-![img](images/getting-started/setup/setup-environment-variables-window.png)
+<!--[img](images/getting-started/setup/setup-start-menu-items.png)-->
 
-In the lower part of the window, find the "Path" System variable, click on it, and click the "Edit" button. Now you'll need to add a semi-colon (;) and the path to your android "platform-tools" folder to this string.
+### Mac OS X Installation
+1. [Download the Enterprise Browser disk image](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) (.dmg) file. 
+2. Double-click the .dmg file to open it. A window will open like the image below. 
+3. Drag and drop the Enterprise Browser icon onto the Applications folder (in the direction of the arrow). 
 
-For example:
-if your platform-tools directory path is `C:\android\sdk\platform-tools`, you would add `;C:\android\sdk\platform-tools` to the end of the Path System variable.
+![img](images/getting-started/setup/setup-dmg-install.png)
 
-Now you should be able to access the adb command from any directory using your command-prompt. To make sure that your device is setup and will interface with the EB Installer, connect your device via USB, ensure that USB debugging is enabled, open a command prompt (cmd.exe) and run the command:
+The Enterprise Browser files and folders will be copied into the Application folder on the host Mac, creating a directory structure similar to the one shown in the image below: 
 
-	:::term
-	$ adb devices
+![img](images/getting-started/setup/setup-macosx-directories.png)
 
-Which, if your device is setup correctly, you should see something like this:
+It's important to note that **files in the 'Runtimes' folder (red arrows) match up with those deployed by the Windows version**; they correspond to runtimes listed on the left side of the [Windows 'Installer' screen](images/getting-started/setup/ebsetup_02.jpg) (above). 
 
-![img](images/getting-started/setup/setup-adb-devices-output.png)
+## Deployment to Device(s)
+###From a Windows host
+On Windows host systems, communication from the host to target device(s) is handled by the [Android Debug Bridge](http://developer.android.com/tools/help/adb.html) (ADB) for Android devices and by Mobile Device Center (or ActiveSync on WinXP) for Windows Mobile/CE. It also might be necessary to **install an OEM USB driver to make a USB-attached Android device visible to Windows**. If the device isn't visible to Windows, refer to the [Connections section](../guide/setup?Connections), below. 
 
-Now that you have your android device connected to your computer through adb, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
+* ADB supports USB connections only
+* Mobile Device Center supports USB and Bluetooth connections 
 
-When you choose to deploy to your android device you'll see a message asking you to make sure that your device is recognized by the `adb devices` command then, you should see something like this.
+Once a connection has been established, install the Enterprise Browser runtime onto a device:
 
-![img](images/getting-started/setup/setup-deploying-android.png)
+![img](images/getting-started/setup/setup-eb-installer-platform-select.jpg)
 
-After this step. the EB should be deployed on your Android device.
+1. Select **Start -> Enterprise Browser -> Enterprise Browser Installer** to bring up the EB Installer. A window will appear similar to the image above.  
+2. **Select the platform that matches the device, OS and web view being targeted**. Information in the right-hand pane will vary according to the selection.
+3. **Click 'Deploy' and follow prompts**. A window will appear similar to the image below. 
+4. **Restart the device to complete the installation**.
 
-### Windows Mobile/Windows CE Devices
-To connect your WinMo/WinCE device to your computer, all you need to do is connect the device. Upon connecting your device, the drivers and mobile Device Center application should be installed, allowing you to connect to your device. Once the software installs, be sure to reboot your computer and your device to make sure there are no complications.
+> **Note: For persistent installations on Windows CE (the lowermost two options on the 'Installer' screen above), a cold boot/cleanPS (clean persistent storage) is required to complete the installation**.
 
-> Note: Connecting your device to a USB 3.0 port may result in the device not being recognized by your computer. Be sure to connect the device to a USB 2.0 port.
+![img](images/getting-started/setup/WM_setup_01.jpg)
 
-With your device connected and recognized by the OS and the Mobile Device Center application, you should see something like this.
+> **Note**: Prior to installation, some Windows devices might prompt for the installation location on the device. **Enterprise Browser overrides any selection made here; it will always be installed in `\Program Files\EnterpriseBrowser\`**.
+
+###From a Mac to Android
+The preferred deployment method of Enterprise Browser runtimes from a Mac OS host system to Android target devices is with the Android File Transfer utility. **If Android File Transfer is already installed, skip to step 5**.  
+
+&#49;. Visit the [Android File Transfer page](https://www.android.com/filetransfer/).
+
+&#50;. Download and open the Android File Transfer .dmg file. 
+
+&#51;. Drag the Android File Transfer app into the Applications folder on the host Mac.
+
+&#52;. Plug in the Android target device and unlock the screen. The device file system should automatically appear on the Mac in a window similar to the image below (It's sometimes necessary to launch the app manually.). 
+
+&#53;. Copy the Enterprise Browser runtime for Android to internal storage, which is opened by default. Storage buttons (red arrow) will be shown only if an additional storage card is present in the device.
+
+![img](images/getting-started/setup/AndroidFileTransfer.png)
+
+**Note: All connected devices must be unlocked before any file transfers can be performed**. 
+
+&#54;. Using the File Browser app on the device, navigate to and execute the runtime to unpackage its files and directories. 
+
+&#55;.  Restart the device to complete the installation. 
+
+Refer to the [On-device Configuration guide](../guide-OndeviceConfig) for help configuring Enterprise Browser following installation.  
+
+###From a Mac to Windows Mobile/CE
+The preferred deployment method of Enterprise Browser runtimes from a Mac OS host system to Windows Mobile/CE devices is using Bluetooth. 
+
+&#49;. Set the Windows Mobile/CE device as discoverable in the MotoBTUI app. 
+
+&#50;. Pair the device with the Mac using the Mac's Bluetooth Preferences panel. Enter pairing code and follow additional prompts as necessary. 
+
+&#51;. Right-click the newly paired device and select 'Send File to Device...' (as below). 
+
+![img](images/getting-started/setup/PocketPCsend.png)
+
+&#52;. A file dialog will apppear. Navigate to and select the Enterprise Browser runtime to be deployed to the WM/CE device and click Send.   
+
+While the file is in transit, a dialog will appear on the Mac similar to the image below: 
+
+![img](images/getting-started/setup/BluetoothDeploy.png)
+
+&#53;. When the transfer is complete, tap 'Yes' on the device to save the file.
+
+&#54;. Using the File Explorer app, navigate to and execute the runtime to unpackage its files and directories. 
+
+&#55;. Restart the device to complete the installation. 
+
+**Note: Copy Enterprise Runtimes to internal storage only**.
+
+Refer to the [On-device Configuration guide](../guide-OndeviceConfig) for help configuring Enterprise Browser following installation.  
+
+## Connections
+### Android devices
+
+Requirements for using the Enterprise Browser Installer on a Windows system to target an Android device:
+
+* USB drivers for the specific hardware device being targeted
+* The Android ADT bundle to make devices visible and to push files 
+* A path to `adb.exe` in the host system's environment variable
+
+####STEP 1: Get USB drivers
+Visit the [Zebra Support Portal](https://portal.motorolasolutions.com/Support/US-EN/Search?searchType=simple&searchTerm=android%20usb%20drivers), download and install the latest driver from the list. 
+
+For non-Zebra hardware, visit [Google’s OEM USB Driver page](http://developer.android.com/tools/extras/oem-usb.html) for instructions and links to OEM drivers for your brand of device.
+
+#### STEP 2: Get Android ADT 
+Visit the [Android Developer Tools page](http://developer.android.com/sdk/index.html), download and install the Android SDK to match your system (Mac OS X, Linux or Windows 32/64). 
+
+#### STEP 3: Update system path
+Add the full path to `adb.exe` to your system path. The EB installer and its utilities use adb to push files to Android devices. Since its location could vary with any given system, the path to adb.exe **must** be available system-wide so that EB can simply execute 'abd.exe' rather than repeating the explicit path with every push function. 
+
+To add the platform-tools path to your system's environment variable: 
+
+* Right-click 'Computer' and **select -> Properties**
+* Select 'Advanced System Settings' in the System Properties window
+* In the 'Advanced' tab, Click the 'Environment Variables' button to bring up a window similar to the one below:
+
+![img](images/getting-started/setup/setup-environment-variables-window.jpg)
+
+* In the <u>LOWER</u> window, scroll down to 'Path'
+* Select Path and click 'Edit...' to bring up the path for editing
+* Add a semicolon (;) to the end of the line followed by the path to 'abd.exe'
+* If you're not sure of the path, the following DOS command will reveal it: 
+
+
+		:::term
+		c:\> dir /s adb.exe 
+
+This command should result in something like this: 
+
+![img](images/getting-started/setup/dos_dir_command.png)
+
+* If there's more than one path to adb.exe, enter the one that ends with `\platform-tools`
+* The correct string for this example would be `;C:\Users\AppData\Local\Android\sdk\platform-tools` (notice the semicolon separator at the beginning of the line)
+* Close the dialog and restart the system 
+
+* To confirm that the path is correct, connect the device and run the following command:  
+
+		:::term
+		$ adb devices
+
+
+If everything is setup correctly, you should see something like this:
+
+![img](images/getting-started/setup/adb_devices_command.png)
+
+<!-- ![img](images/getting-started/setup/setup-deploying-android.png)-->
+
+The system is now ready to deploy Enterprise Browser apps and shortcuts to an Android device.
+
+### Windows Mobile/CE devices
+Upon connecting a Windows Mobile/CE device to a Windows 7 (or higher) PC, the Mobile Device Center application and all necessary drivers are supposed to install automatically and recognize the device. If that doesn't happen immediately, try one or more of the following:   
+
+* Be sure the device is plugged into a _USB 2.0_ port (not USB 3.0)
+* Allow Windows to search for updates if prompted after plugging in the device
+* If no such prompt appears, go to Device Manager and select Action -> 'Scan for hardware changes' When USB drivers are installed correctly, a box like the image below will appear.  
+* Restart Windows after any software or driver is installed or updated 
+
+![img](images/getting-started/setup/WM_setup_00.jpg)
+
+> **Note: If Windows doesn't recognize a devices connected to a USB 3.0 port, try connecting it to a USB 2.0 port**.
+
+When a device is properly connected and recognized, the Mobile Device Center application should appear something like this:
 
 ![img](images/getting-started/setup/setup-mobile-device-center-connected.png)
 
-Now that your device is connected and recognized by your computer, you are ready to deploy the EB onto your device using the Enterprise Browser Installer.
-
-1. The ActiveSync installer will install the selected Enterprise Browser runtime files to your device. 
-2. If you have chosen to install the Persistent Runtime for Windows then you are required to Cold Boot/Clean PS the device after installation.
-
-> Note if you are given a choice of which directory to install to select the default option, regardless of what you select, Enterprise Browser will install into the default location.
-
-![img](images/getting-started/setup/setup-deploying-winmo.png)
-
-Once you have finished the deploying process on your computer, there is another installation process you must complete on your device.
+The system is now ready to deploy Enterprise Browser using the Enterprise Browser installer. 
 
 ## Manual Deployment
-The Enterprise Browser runtime can also be installed manually by the user. Please follow the following steps to carry out manual installation.
+Enterprise Browser runtimes can be individually pushed to devices from Windows or Mac OS machines and unpackaged by hand on the device. 
 
-1. Download the Enterprise Browser MSI.
-2. Install the MSI. 
-3. You should see the following Start Menu Entries after MSI installation is complete.
-	* Enterprise Browser
-		* Documentation
-		* Enterprise Browser Installer
-		* Enterprise Browser Runtimes
-		* JavaScript Files
-4. Click on the Enterprise Browser Runtimes Start Menu item. This will open up Windows Explorer and point to a folder where all the Runtimes are available.
-5. Choose the appropriate Runtime.
-6. Copy and Paste to your connected device.
-7. Open the File location on your device where you have copied the Runtime and click to install.
-8. If you are installing a Persistent Runtime then you are required to Coldboot/CleanPS the device after installation.
+After installing the Enterprise Browser (.msi or .dmg) as above: 
+
+&#49;. On Windows, go to **Start Menu -> Enterprise Browser -> Resources ->Enterprise Browser Runtimes**. On Mac, open the **Applications -> Enterprise Browser -> Runtimes** folder. 
+
+![img](images/getting-started/setup/EB_resources_menu.jpg)
+
+On Windows, this will bring up a window that looks similar to the image below: 
 
 ![img](images/getting-started/setup/setup-enterprise-browser-runtimes.png)
 
-Once the installation is completed on your device, you can start Enterprise Browser on your device by clicking the associated icon form the programs group/Apps.
+&#50;. Copy the desired runtime to the root directory of the device. 
 
-## Launching Enterprise Browser
-Launching Enterprise Browser after installing on the device, will launch a default welcome start page that is included with the installation
+&#51;. From the device, use a file explorer to locate and execute the runtime. 
 
->Note: On Android, if you do not disconnect the device from your laptop, you will see the application being forced closed. The USB storage option needs to be turned off so that Enterprise Browser can launch properly.
+&#52;. Reboot the device to complete the installation. 
 
-After launching, a default [configuration file](../guide/configreference) will be created. You will need to modify this to make Enterprise Browser [start with your application](../guide/launching).
+&#53;. If a persistent runtime was installed, perform a cold boot/cleanPS on the device to activate the runtime.
 
-## Removing Enterprise Browser
+## Launching the EB App 
+After installation, an Enterprise Browser app icon will appear **in the all-apps section of Android devices** and **in the Main app menu of Windows Mobile/CE**. The first time an Enterprise Browser 1.3 app is launched, it starts with default runtime settings as defined in the Config.xml file on the device. Refer to the [Config.xml Reference guide](../guide/configreference) for complete details.  
+
+By default, a screen like the one below will appear: 
+
+![img](images/OndeviceConfig/On-device_config_01.png)
+
+Pressing the "Return to OS" button will skip settings configuration and bring up the operating system. To display the Settings button again, simply relaunch the Enterprise Browser app. 
+
+**Press the "Settings" button to edit the on-device config.xml file**. A screen like the image below will appear:
+
+![img](images/OndeviceConfig/On-device_config_02.png)
+
+###Activating your start page
+**To activate your EB app's start page, enter the URL in the Value field of the StartPage parameter**, as highlighted above, but **do not apply the changes yet**. Applying changes immediately will cause the new start page to be displayed next time EB is launched and will remove access to the Settings panel. 
+
+**WARNING: Free-form text fields such as 'username' and 'password' can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields (except in a URL field) will corrupt the Config.xml file**. 
+
+If on-device access to runtime settings is desired after you've set your start page (for example, to experiment with various settings before deployment), set the SettingsButtonEnabled parameter to 'Enable' (as below). This will cause a Settings button to appear in the UI at all times. Passwords also can be set here, if desired. 
+
+![img](images/OndeviceConfig/On-device_config_03.png)
+
+Press 'Apply' to update the Config.xml file with the new settings. A screen like the one below will be displayed. Restart the app to activate the changes. 
+
+![img](images/OndeviceConfig/On-device_config_04.png)
+
+The Settings button, if enabled, appears in the UI like the one in the red box below.
+
+![img](images/OndeviceConfig/On-device_config_05.png)
+
+**Note: When the IE engine is used on a Windows CE device**, displaying the Settings button in this way might cause screen distortion when scrolling.
+
+**WARNING: Free-form text fields such as 'username' and 'password' can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields (except in a URL field) will corrupt the Config.xml file**. 
+
+The on-device settings panel provides access to just a small subset of Enterprise Browser runtime settings. For access to all settings, please refer to the [On-device Configuration guide](../guide-OndeviceConfig).
+
+<!--## Removing Enterprise Browser
 
 ### Windows Mobile
 Remove Enterprise Browser by removing the application.
 
 ### Windows CE
-If you installed the persistant version of Enterprise Browser, it will not be removed after a cold boot. To remove it, you will need to manually remove the folder and CPY files that are found in the non-volatile area of memory.
+If you installed the persistent version of Enterprise Browser, it will not be removed after a cold boot. To remove it, you will need to manually remove the folder and copy files that are found in the non-volatile area of memory.
 
 ### Android
-Use Android Settings applet to remove the Enterprise Browser from the device.
+Use Android Settings applet to remove the Enterprise Browser from the device.-->
+
+<!-- To install the drivers for that device. Usually this is done by simply plugging the device into the machine. Most of the time, the device driver will install automatically and you'll be good to go. If not, you'll need to download the drivers for that device. To get the drivers for your device, you'll need to find the device page on [motorolasolutions.com](http://www.motorolasolutions.com/). The best way to do this is enter your device's model number into the search bar at the top of the landing page. Once you have found your device, you should see a tab to download software. For instance, the drivers for the TC55 are [here](http://goo.gl/mjrqMM).
+
+The page you want should look something like this:
+
+![img](images/getting-started/setup/setup-device-drivers-download.png) 
+
+1. The ActiveSync installer will deploy the selected Enterprise Browser runtime files to the device. 
+2. If installing one of the the persistent runtimes for Windows CE, a cold boot/clean PS will be required after installation.
+
+> **Note**: Prior to installation, some Windows devices might prompt for the installation location on the device. **Enterprise Browser overrides any selection made here; it will always be installed in `\Program Files\EnterpriseBrowser\`**.
+
+![img](images/getting-started/setup/WM_setup_01.jpg)
+
+<!-- ![img](images/getting-started/setup/setup-deploying-winmo.png)-->
+

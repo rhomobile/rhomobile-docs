@@ -1,7 +1,9 @@
 # Config.XML Reference
-Runtime configuration of the Enterprise Browser is managed through an XML file called Config.xml. This file is *mandatory* for proper Enterprise Browser execution: not every setting has a default and if the configuration file cannot be found, the Enterprise Browser will *not* start. An example configuration file is provided as part of the installation and contains sensible defaults, this page explains the meanings of each of the settings and their possible values. The example `Config.xml` file is bundled your installation or the Enterprise Browser on your device.
+Runtime configuration settings of Enterprise Browser apps are managed through the Config.xml file. The Config.xml file is required; your app will not start without it. Config.xml determines features and behavior of the EB runtime, such as the keys that can be intercepted by an app and whether to pre-load modules on startup. A sample configuration file is provided as part of the Enterprise Browser installation, and contains defaults for many (though not all) of the most common settings. 
 
-## Configuration File Location
+The sample Config.xml file also is displayed below, and is followed by explanations of all settings. The EB Config.xml can be edited with an ordinary text editor or with the Config Editor utility included with the installation of Enterprise Browser 1.3. For more information, please refer to the [Config Editor utility guide](../guide/ConfigEditor). 
+
+## Configuration file location
 The location of the configuration file loaded by the Enterprise Browser is dependent on a number of factors:
 
 * When running on the Enterprise Tablet the configuration file is read from `/Android/data/com.symbol.enterprisebrowser/Config.xml`.
@@ -10,7 +12,9 @@ The location of the configuration file loaded by the Enterprise Browser is depen
 
 For persistent installations, on cold boot the `Config.xml` file is copied from `\Application\EnterpriseBrowser\Config\Config.xml` to `\Program Files\EnterpriseBrowser\Config\Config.xml`; bear this in mind if you want your configuration to persist across cold boot. <!-- This behavior may be modified by changing `\Application\RhoElements.cpy`. --> <!-- Need to verify this -->
 
-## Substitution Variables
+>Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
+
+## Substitution variables
 The following substitution variables are available in the configuration file
 <table class="re-table">
 	<tr>
@@ -23,134 +27,244 @@ The following substitution variables are available in the configuration file
 	</tr>
 </table>
 
-## Config.xml File Format
-The following is an example of a typical configuration file
+## Config.xml file format
+The following is an example of a typical configuration file, Android edition. **Important differences exist between Android and Windows Mobile/CE settings in the Config.xml file**, mainly involving directory struture and file naming. Use care when setting these values. 
+
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
 
 	:::xml
 	<?xml version="1.0"?>
-	<!-- Enterprise Browser Configuration file -->
+	<!-- Enterprise Browser 1.3 Configuration file for Android-->
+	<!-- IMPORTANT: Differences exist in Windows Mobile/CE version--> 
 	<Configuration>
-		<DebugButtons>
-			<DebugButtonsEnabled value="0"/>
-		</DebugButtons>
-
-		<Logger>
-			<LogProtocol value="FILE"/>
-			<LogPort value="80"/>
-			<LogURI value="file://%INSTALLDIR%/log.txt"/>
-			<LogError value="1"/>
-			<LogWarning value="0"/>
-			<LogInfo value="0"/>
-			<LogUser value="1"/>
-			<LogMemory value="0"/>
-			<LogMemPeriod value="5000"/>
-			<LogMaxSize value="10"/>
-		</Logger>
-
-		<FileLocations>
-			<RegEXFile value="file://%INSTALLDIR%/RegEx.xml"/>
-		</FileLocations>
-
-		<Screen>
-			<FullScreen value="1"/>
-			<ShowLicenseConfirmation value="1"/>
-			<EnableZoom value="1"/>
-		</Screen>
-
-		<WebServer>
-			<Enabled VALUE="0"/>
-			<Port VALUE="8080"/>
-			<WebFolder VALUE="\www"/>
-			<Public VALUE="0"/>
-		</WebServer>
-
-		<DeviceKeys>
-			<EnableFunctionKey_F1 value="0"/>
-			<EnableFunctionKey_F2 value="0"/>
-			<EnableFunctionKey_F3 value="0"/>
-		</DeviceKeys>
-
-		<Navigation>
-			<NavTimeout value="45000"/>
-		</Navigation>
-
-		<Geolocation>
-			<GeolocationEnabled value="1"/>
-		</Geolocation>
-
-		<Engine>
-			<EngineInUse value="IE"/>
-		</Engine>
-
-		<Applications>
-			<Application>
-				<General>
-					<Name value="Menu"/>
-					<StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/>
-				</General>
-
-				<HTTP_Proxy value=""/>
-				<HTTPS_Proxy value=""/>
-
-				<WebDB>
-					<WebStorageDBPath value="file://%INSTALLDIR%"/>
-					<WebSQLDBQuota value="5000000"/>
-					<WebSQLDBPath value="file://%INSTALLDIR%"/>
-				</WebDB>
-
-				<ApplicationCache>
-					<ApplicationCachePath value="file://%INSTALLDIR%"/>
-					<ApplicationCacheQuota value="5000000"/>
-				</ApplicationCache>
-
-				<NPAPI>
-					<Preloads>
-						<PreloadLegacyGeneric value="1"/>
-						<PreloadLegacyODAX value="1"/>
-						<PreloadLegacyAirBeam value="1"/>
-						<PreloadLegacyAPD value="1"/>
-						<PreloadJSObjects value="1"/>
-					</Preloads>
-				</NPAPI>
-
-				<HTMLStyles>
-					<TextSelectionEnabled value="0"/>
-					<FontFamily value="Droid Sans Fallback"/>
-				</HTMLStyles>
-
-				<GUI>
-					<SignalRefresh value="5000"/>
-					<HourglassEnabled value="1"/>
-					<HourglassLeft value=""/>
-					<HourglassTop value=""/>
-				</GUI>
-
-				<Navigation>
-					<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
-					<EnableSSL3 value="1"/>
-					<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
-					<NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/>
-					<ViewportEnabled value="1"/>
-					<Cache value="5MB"/>
-				</Navigation>
-				<ZoomKey>
-					<ZoomInKey value="0x70"/> //Any function key can be applied
-					<ZoomOutKey value="0x71"/> //Any function key tag can be applied
-				</ZoomKey>
-				<isWindowsKey  value="0"/>				
-			</Application>
-		</Applications>
+	  <DebugButtons>
+	    <DebugButtonsEnabled value="0" />
+	  </DebugButtons>
+	
+	  <ExitPassword>
+	    <ExitPasswordEnabled value="0" />
+	    <ExitPasswordValue value="123" />
+	  </ExitPassword>
+	
+	  <Settings>
+	    <SettingsButtonEnabled value="0" />
+	    <SettingsPageProtectionEnabled value="0" />
+	    <SettingsPagePassword value="" />
+	  </Settings>
+	
+	  <Shortcut>
+	    <ShortcutCreationEnabled value="0" />
+	  </Shortcut>
+	
+	  <ZoomKey>
+	    <ZoomInKey value="" />
+	    <ZoomOutKey value="" />
+	  </ZoomKey>
+	
+	  <Logger>
+	    <LogProtocol value="FILE" />
+	    <LogPort value="80" />
+	    <LogURI value="file://%INSTALLDIR%/Log.txt" />
+	    <LogError value="1" />
+	    <LogWarning value="1" />
+	    <LogInfo value="1" />
+	    <LogUser value="0" />
+	    <LogMemory value="0" />
+	    <LogMemPeriod value="5000" />
+	    <LogMaxSize value="5000" />
+	  </Logger>
+	
+	  <FileLocations>
+	    <RegEXFile value="file://%INSTALLDIR%/RegEx.xml" />
+	  </FileLocations>
+	
+	  <Screen>
+	    <FullScreen value="1" />
+	    <PageZoom value="1.0" />
+	    <EnableZoom value="1" />
+	  </Screen>
+	
+	  <SplashScreen>
+	    <SplashScreenPath value="file://%INSTALLDIR%/rho/apps/app/loading.png" />
+	    <SplashScreenDuration value="0" />
+	  </SplashScreen>
+	
+	  <VoidConnection>
+	    <TrackConnection value="0" />
+	    <HostURL value="192.168.1.1" />
+	    <Message value="Establishing Connection..." />
+	    <Timeout value="30000" />
+	    <PollInterval value="5000" />
+	  </VoidConnection>
+	
+	  <DeviceKeys>
+	    <FunctionKeysCapturable value="0" />
+	    <EnableFunctionKey_F1 value="1" />
+	    <EnableFunctionKey_F2 value="1" />
+	    <EnableFunctionKey_F3 value="1" />
+	    <EnableFunctionKey_F4 value="1" />
+	    <EnableFunctionKey_F5 value="1" />
+	    <EnableFunctionKey_F6 value="1" />
+	    <EnableFunctionKey_F7 value="1" />
+	    <EnableFunctionKey_F8 value="1" />
+	    <EnableFunctionKey_F9 value="1" />
+	    <EnableFunctionKey_F10 value="1" />
+	    <EnableFunctionKey_F11 value="1" />
+	    <EnableFunctionKey_F12 value="1" />
+	    <EnableApplicationKey_A1 value="1" />
+	    <EnableApplicationKey_A2 value="1" />
+	    <EnableApplicationKey_A3 value="1" />
+	    <EnableApplicationKey_A4 value="1" />
+	    <EnableApplicationKey_A5 value="1" />
+	    <EnableApplicationKey_A6 value="1" />
+	    <EnableApplicationKey_A7 value="1" />
+	    <EnableApplicationKey_A8 value="1" />
+	  </DeviceKeys>
+	 
+	  <Navigation>
+	    <NavTimeout value="45000" />
+	  </Navigation>
+	
+	  <Geolocation>
+	    <GeolocationEnabled value="1" />
+	  </Geolocation>
+	
+	  <ScreenOrientation>
+	    <AutoRotate value="1" />
+	  </ScreenOrientation>
+	 
+	  <TabInstance>
+	    <NewTabPhysicalMemLimit value="90" />
+	    <NewTabVirtualMemLimit value="80" />
+	  </TabInstance>
+	
+	  <UserData>
+	  </UserData>
+	 
+	  <Applications>
+	    <Application>
+	      <HTTP_Proxy value="" />
+	      <HTTPS_Proxy value="" />
+	      <isWindowsKey value="0" />
+	      <IntentReceiver>
+	        <EnableReceiver value="0" />
+	        <IntentAction value="" />
+	        <IntentCategory value="" />
+	      </IntentReceiver>
+	     
+	      <General>
+	        <Name value="Menu" />
+	        <StartPage value="file://%INSTALLDIR%/menu.html" name="Menu" />
+	        <UseRegularExpressions value="REGULAR_EXPRESSIONS_FLAG" />
+	      </General>
+	      
+	      <Scanner>
+	        <DisableScannerDuringNavigation value="1" />
+	      </Scanner>
+	     
+	      <WebDB>
+	        <WebStorageDBPath value="file://%INSTALLDIR%" />
+	        <WebSQLDBQuota value="5000000" />
+	        <WebSQLDBPath value="file://%INSTALLDIR%" />
+	      </WebDB>
+	     
+	      <ApplicationCache>
+	        <ApplicationCachePath VALUE="file://%INSTALLDIR%" />
+	        <ApplicationCacheQuota VALUE="5000000" />
+	      </ApplicationCache>
+	     
+	      <NPAPI>
+	        <NPAPIDirectory value="file://%INSTALLDIR%/NPAPI/" />
+	        <Preloads>
+	          <PreloadLegacyActiveX value="0" />
+	          <PreloadLegacyGeneric value="1" />
+	          <PreloadLegacyODAX value="1" />
+	          <PreloadLegacyNoSIP value="1" />
+	          <PreloadLegacyAirBeam value="1" />
+	          <PreloadLegacyAPD value="1" />
+	          <PreloadJSObjects value="1" />
+	        </Preloads>
+	      </NPAPI>
+	     
+	      <Preloads>
+	        <Preload value="Hourglass" />
+	        <Preload value="SIP" />
+	        <Preload value="ScreenOrientation" />
+	      </Preloads>
+	     
+	      <Scrolling>
+	        <ScrollTechnique VALUE="FingerScroll" />
+	      </Scrolling>
+	      
+	      <Authentication>
+	        <Username VALUE="" />
+	        <Password VALUE="" />
+	      </Authentication>
+	     
+	      <HTMLStyles>
+	        <FitToScreenEnabled value="1" />
+	        <ClearTypeEnabled value="1" />
+	        <JavascriptEnabled value="1" />
+	        <TextSelectionEnabled value="0" />
+	        <FontFamily value="Droid Sans Fallback" />
+	      </HTMLStyles>
+	      
+	      <SIP>
+	        <ResizeOnSIP value="0" />
+	      </SIP>
+	      
+	      <System>
+	        <LowBatteryScan value="0" />
+	      </System>
+	     
+	      <Sound>
+	        <DecodeVolume value="5" />
+	        <DecodeFrequency value="0xBB8" />
+	        <InvalidDecodeFrequency value="0x9C4" />
+	        <DecodeDuration value="250" />
+	        <ScanDecodeWav value="" />
+	        <ScanInvalidWav value="" />
+	        <ImagerCaptureWav value="" />
+	      </Sound>
+	     
+	      <GUI>
+	        <SignalRefresh value="5000" />
+	        <BatteryRefresh value="5000" />
+	        <HourglassEnabled value="1" />
+	        <HourglassLeft value="" />
+	        <HourglassTop value="" />
+	      </GUI>
+	     
+	      <Navigation>
+	        <BadLinkURI value="file://%INSTALLDIR%/badlink.html" />
+	        <UserAgent value="Mozilla/5.0 (AndroidWebKit; U; /%p) AppleWebKit/%w (KHTML, like Gecko) Version/%e Mobile Safari/%w" />
+	        <NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db" />
+	        <ViewportEnabled value="1" />
+	        <VerifyPeerCertificate value="1" />
+	        <Cache VALUE="5MB" />
+	      </Navigation>
+	     
+	      <DeviceKeys>
+	        <EnableCtrlKey_A value="1" />
+	        <EnableCtrlKey_C value="1" />
+	        <EnableCtrlKey_V value="1" />
+	        <EnableCtrlKey_O value="0" />
+	        <EnableCtrlKey_P value="0" />
+	      </DeviceKeys>
+	      <DefaultMetaTags>
+	      </DefaultMetaTags>
+	      <CustomDOMElements value="" />
+	    </Application>
+	  </Applications>
 	</Configuration>
 
 ## General
 ### StartPage
-Defines the start page of the Enterprise Browser application, the first page to be displayed when the Enterprise Browser is launched. This should be a local file to avoid connectivity issues on start up.
-
->Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
+Defines the start page of the Enterprise Browser application displayed at launch. A device-resident file is recommended to avoid connectivity issues on startup. **StartPage entry must be a fully qualified local path using `file://` or URL using `http://`**. Case sensitive. 
 
 **Possible Values**
 
-* Fully qualified path to start page.
+* Fully qualified path to start page
 
 #### Example
 	:::xml
@@ -161,7 +275,8 @@ Defines the start page of the Enterprise Browser application, the first page to 
 	<StartPage value="http://www.hostsite.com/my_app_menu.html" name="Menu"/>
 
 ### Name
-The name of the application
+Stores the name of the application.
+
 **Possible Values**
 
 * ASCII text
@@ -171,7 +286,7 @@ The name of the application
 	<Name value="My App"/>
 
 ### UseRegularExpressions
-In order to be backwardly compatible with PocketBrowser syntax for controlling device capabilities the Enterprise Browser uses a Regular Expression engine to apply a series of transformations to each meta tag or JavaScript call being processed, as defined in RegEx.xml. If you are developing applications without the need to be backwardly compatible with PocketBrowser syntax you can disable regular expressions, this can result in an improvement in application performance, depending on how the application is structured. This setting is only applicable to RhoMobile Suite version 2.2 and above on Windows devices.
+Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the KeyCapture API. When disabled, keys revert to the device’s default behavior. This setting is not specific to an application. When enabled, settings are applied globally to the device. Regular Expressions are used to maintain backward compatibility with PocketBrowser syntax for controlling device capabilities. If backward compatibility is not required, regular expressions can safely be disabled, possibly improving app performance. **Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser**.
 
 **Possible Values**
 
@@ -183,7 +298,7 @@ In order to be backwardly compatible with PocketBrowser syntax for controlling d
 	<UseRegularExpressions value='1'/>
 
 ### HTTP_Proxy
-Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Only supported on Windows Mobile/CE using the Zebra Webkit.
+Specifies the URL and port number for the HTTP proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra Webkit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used; proxy settings for Internet Explorer are picked up from the Windows connection manager.
 
 **Possible Values**
 
@@ -194,7 +309,7 @@ Specifies the HTTP Proxy settings to use in the format URL:port.  Note that this
 	<HTTP_Proxy value="http://my.proxy.com:8080"/>
 
 ### HTTPS_Proxy
-Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that this setting only applies to the Zebra WebKit engine, proxy settings for the Internet Explorer engine are picked up from the Windows connection manager.  Leave this field blank to not use a proxy. Not supported on Windows Mobile/Windows CE, use HTTP_Proxy instead. Only supported on Windows Mobile/CE using the Zebra Webkit.
+Specifies the URL and port number for the HTTPS proxy. Leave this field blank if no proxy is to be used. **Applies to the Zebra Webkit engine on WM/CE devices and to the stock webkit on Android**. Supported on WM/CE only when Zebra Webkit is used. Not otherwise supported on WM/CE; use HTTP_Proxy instead.
 
 **Possible Values**
 
@@ -205,7 +320,7 @@ Specifies the HTTPS Proxy settings to use in the format URL:port.  Note that thi
 	<HTTPS_Proxy value="https://my.proxy.com:8181"/>
 
 ### No_Proxy
-Sets the sites that should be accessed directly. This should be a comma-separated list of host names, domain names (starting with a dot), IP addresses, or CIDR format IP network addresses eg. myhost, .mydomain.com, 192.168.1.1,192.168.0.0/24. Note this configuration setting is usable with the Webkit browser only.
+Used to specify sites to be accessed directly rather than through a proxy. Accepts a comma-separated list of host names, domain names (beginning with a dot), IP addresses, or CIDR-format IP network addresses. Examples: myhost, .mydomain.com, 192.168.1.1 and 192.168.0.0/24. **Applies only to the Zebra Webkit engine**.
 
 **Possible Values**
 
@@ -215,13 +330,85 @@ Sets the sites that should be accessed directly. This should be a comma-separate
 	:::xml
 	<No_Proxy value="*.my_app.com,http://internal.site.com"/>
 
+### SplashScreenPath
+Specifies the fully qualified path of an image to be displayed at app start-up. If tag is removed or left unspecified, default EB splash screen will be displayed. Default values for Android and WM/CE are shown in the examples below. Image file must reside in device internal storage; removable storage (i.e. SD card) is not supported. Supported file formats for WM/CE are .bmp, .png; for Android are .bmp, .gif, .jpg, .png. A 640 x 960 .png file is recommended; other resolutions may not display correctly. 
+
+**Possible Values**
+
+* fully qualified path and file name
+
+#### Example Android
+
+	:::xml
+	<SplashScreenPath value="file://%INSTALLDIR%/rho/apps/app/loading.png"/>
+
+#### Example WM/CE
+
+ 	:::xml
+
+	<SplashScreenPath value="file://%INSTALLDIR%\rho\apps\app\loading.png"/>
+
+
+### SplashScreenDuration
+**Applies only to Android devices**. Specifies the length of time (in milliseconds) to display the image defined by the SplashScreenDuration tag. It is recommended that the duration be greater than 3000 ms (3 seconds) to compensate for image loading time. If tag is removed or left unspecified, will default to 0 seconds. 
+
+**Possible Values**
+
+* time in milliseconds (default = 0)
+ 
+#### Example: 
+
+	:::xml
+	<SplashScreenDuration value="0"/> //Applies to Android only
+
+
+## Intent
+### EnableReceiver
+Determines whether Enterprise Browser will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions. For more information about Intent, please refer to [the Android Developer Forum](http://developer.android.com/reference/android/content/Intent.html). 
+
+**Possible values**
+
+* **0 - Disabled (default)**
+* 1 - Enabled
+
+#### Example 
+	:::xml
+	<EnableReceiver  value="1"/>
+
+
+### IntentAction  	 
+Specifies the Action for which the receiver is to be registered. There must be at least one IntentAction value for a Receiver to be registered. IntentAction value can be an Android-defined or custom. 
+
+**Possible values**
+
+* string
+
+#### Example 
+	:::xml
+	<IntentAction  value="android.intent.action.VIEW"/>
+
+
+### IntentCategory  
+Specifies the Category under which the receiver is to be registered. There can be zero or many IntentCategory tags. IntentCategory values are Android-defined.
+
+**Possible values**
+
+* string
+
+#### Example
+	:::xml
+	<IntentCategory value="android.intent.category.LAUNCHER"/>
+
+
 ## DebugButtons
 ### DebugButtonsEnabled
-When enabled, a set of controls useful for development and debugging purposes will be present in the interface.
+When enabled, presents a set of controls useful for development and debugging purposes.
+Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling.
 
-> Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling
+**Notes**
 
-> Note: When debug buttons are enabled, [Gestures](../api/Gesture) will not function as expected.
+* When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling.<br>
+* When debug buttons are enabled, [Gestures](../api/Gesture) may not function as expected.<br>
 
 **Possible Values**
 
@@ -234,11 +421,11 @@ When enabled, a set of controls useful for development and debugging purposes wi
 
 ## Logger
 ### LogProtocol
-Sets the protocol over which the logging data will be sent
+Sets the protocol over which the logging data will be sent.
 
 **Possible Values**
 
-* File or
+* File
 * HTTP
 
 #### Example
@@ -246,7 +433,7 @@ Sets the protocol over which the logging data will be sent
 	<LogProtocol value="FILE"/>
 
 ### LogPort
-The port over which the logging data will be sent (ignored for File protocol)
+The port over which the logging data will be sent when HTTP is set in LogProtocol (ignored otherwise).
 
 **Possible Values**
 
@@ -257,7 +444,7 @@ The port over which the logging data will be sent (ignored for File protocol)
 	<LogPort value="80"/>
 
 ### LogURI
-The URL or File name and path to which logged data should be sent.
+The URL or file name and path to which logged data should be sent or saved.
 
 **Possible Values**
 
@@ -271,7 +458,7 @@ The URL or File name and path to which logged data should be sent.
 	<LogURI value="file://%INSTALLDIR%/log.txt"/>
 
 ### LogError
-Enables or Disables the logging of ERROR messages generated by the Enterprise Browser. If we set this to 1, it enables the Error level only.
+Controls logging of ERROR messages generated by the Enterprise Browser.  If set to 1, it enables error-level logging only (can be overridden by LogWarning).
 
 **Possible Values**
 
@@ -283,7 +470,7 @@ Enables or Disables the logging of ERROR messages generated by the Enterprise Br
 	<LogError value="1"/>
 
 ### LogWarning
-Enables or Disables the logging of WARNING messages generated by the Enterprise Browser. If we set this to 1, it enables the following levels i.e. Warning & Error, even if Error level is not set to 1.
+Controls the logging of WARNING messages generated by the Enterprise Browser. If set to 1, enables warning and error messages (overrides LogError setting; can be overridden by LogInfo).
 
 **Possible Values**
 
@@ -295,7 +482,7 @@ Enables or Disables the logging of WARNING messages generated by the Enterprise 
 	<LogWarning value="1"/>
 
 ### LogInfo
-Enables or Disables the logging of INFORMATION messages generated by the Enterprise Browser. If we set this to 1, it enables the following levels i.e. Info, Warning & Error, even if Warning or Error levels is not set to 1.
+Controls the logging of INFORMATION messages generated by the Enterprise Browser. If set to 1, enables Info, Warning and Error logging (Overrides LogWarning and/or LogError settings; can be overridden by LogUser). 
 
 **Possible Values**
 
@@ -307,7 +494,7 @@ Enables or Disables the logging of INFORMATION messages generated by the Enterpr
 	<LogInfo value="1"/>
 
 ### LogUser
-Enables or Disables the logging of messages from the user application. If we set this to 1, it enables the following levels i.e. User, Info, Warning & Error, even if Info or Warning or Error levels is not set to 1. Data can be logged using the Log API
+Controls logging of User, Info, Warning and Error messages from the user application. Overrides LogWarning, LogError and/or LogInfo settings. Data can be logged using the Log API.
 
 **Possible Values**
 
@@ -319,9 +506,7 @@ Enables or Disables the logging of messages from the user application. If we set
 	<LogUser value="1"/>
 
 ### LogMemory
-Enables or Disables the logging of memory usage in the system.
-
-> Note: Not applicable to the Enterprise Tablet.
+Controls the logging of memory usage in the system. Supports Android, WM/CE; does not apply to the Enterprise Tablet.
 
 **Possible Values**
 
@@ -333,9 +518,7 @@ Enables or Disables the logging of memory usage in the system.
 	<LogMemory value="1"/>
 
 ### LogMemPeriod
-Specifies the time interval at which memory logs will be generated periodically.
-
-> Note: Not applicable to the Enterprise Tablet.
+Specifies the time interval after which memory logs will be generated. Supports Android and WM/CE; does not apply to the Enterprise Tablet.
 
 **Possible Values**
 
@@ -346,7 +529,7 @@ Specifies the time interval at which memory logs will be generated periodically.
 	<LogError value="5000"/>
 
 ### LogMaxSize
-The maximum size the log file should be allowed to reach, once the maximum size is reached no more logs will be saved.
+Specifies the maximum allowable size of the log file, after which no more logs will be saved.
 
 **Possible Values**
 
@@ -356,23 +539,24 @@ The maximum size the log file should be allowed to reach, once the maximum size 
 	:::xml
 	<LogMaxSize value="100"/>
 
-## FileLocations
+## File locations
 ### RegExFile
-In order to enable backward compatibility with pages written in EMML 1.0 regular expressions are used to convert to EMML1.1 meta tags. This setting defines the location of the XML file which contains the conversions to be used. This setting is only applicable to Windows
+**Applies to Android and Windows Mobile/CE**. Defines the location of RegEx.xml, which contains conversions to be used for backward compatibility with EMML 1.0. Case sensitive. **Changing this file or its location is not recommended, and might prevent an app from launching**.   
 
 **Possible Values**
 
-* Fully qualified path to file defining the regular expressions.
+* Fully qualified path to file defining the regular expressions
 
-> Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
-
-#### Example
+#### Example - Android
 	:::xml
 	<RegEXFile value="file://%INSTALLDIR%/RegEx.xml"/>
 
+#### Example - Windows Mobile/CE
+	:::xml
+	<RegEXFile value="file://%INSTALLDIR%\Config\RegEx.xml"/>
+
 ### PluginFile
-Not applicable to the Enterprise Tablet:
-The Enterprise Browser has a plugin based architecture so functionality can be tailored to the individual application, lessening the memory footprint on the device. It is necessary for the Enterprise Browser to have a mapping between modules, plugins and the physical location of the Plugin DLL on the device; this mapping is stored in the Plug-in file and the location of that file is defined by this setting.
+**Applies only to Windows Mobile/CE. Not applicable to the Enterprise Tablet**. Specifies location of the plug-in file (a .DLL on the device), which facilitates mapping between modules and plug-ins on the device. **Changing this file or its location is not recommended, and might prevent an app from launching**. 
 
 **Possible Values**
 
@@ -382,11 +566,11 @@ The Enterprise Browser has a plugin based architecture so functionality can be t
 
 #### Example
 	:::xml
-	<PluginFile value="file://path-to-plugin-file"/>
+	<PluginFile value="file://%INSTALLDIR%\Config\Plugin.xml"/>
 
 ## Screen
 ### FullScreen
-Sets the Enterprise Browser to fullscreen mode, locking out the OS to the user unless specifically minimized using the Application API. Some Windows Mobile devices feature a customized user interface; in this case access is provided to the status bar at the top of the screen.
+Sets the Enterprise Browser app to display in full screen mode, hiding the OS from the user unless specifically minimized using the Application API. For Windows Mobile devices that include a custom Zebra user interface, access is provided to the status bar at the top of the screen. Enabled by default. 
 
 **Possible Values**
 
@@ -398,7 +582,7 @@ Sets the Enterprise Browser to fullscreen mode, locking out the OS to the user u
 	<FullScreen value="0"/>
 
 ### ShowLicenseConfirmation
-On a licensed device, this setting will enable or disable the display of the "licensed to..." dialog on launch. On unlicensed devices there will be no effect. This option is only applicable on Windows Mobile and Windows CE, not Android.
+**Applies to Windows Mobile/CE only**. Controls the display of the “Licensed to…” dialog at launch (on licensed devices only). Has no effect on unlicensed devices. 
 
 **Possible Values**
 
@@ -410,7 +594,7 @@ On a licensed device, this setting will enable or disable the display of the "li
 	<ShowLicenseConfirmation value="1"/>
 
 ### EnableZoom
-Sets whether the WebView should use its built-in zoom mechanisms. Only supported on Android.
+**Applies to Android only**. Sets whether the WebView should use its built-in zoom mechanisms. Enabled by default. 
 
 **Possible Values**
 
@@ -422,19 +606,11 @@ Sets whether the WebView should use its built-in zoom mechanisms. Only supported
 	<EnableZoom value="1"/>
 
 ### PageZoom
-Sets the zoom factor of the page. Default zoom is 1.0. In Android, negative values and 0.0 is not supported. In Windows, zoom value less than 1.0 is defaulted to 1.0 because below 1.0 zoom value, the page doesn't look in readable format.* (see remark)
-
-> Note: Sometimes, while navigating from any page to any other page, the actual page zoom setting reflects after few milliseconds delay. This doesn't happens every time.
-
-Setting page zoom property on page load event doesn't reflect the set value for the Application start page for the first time. Users are advised to set the page zoom property with a minimum of 1 second delay on page load.
-
-Setting page zoom property on page load will reflect only for that page.
+Sets the zoom factor of the page. Default zoom value is 1.0 (if unspecified). On Android, zero and negative values are not supported. On Windows, zoom value less than 1.0 reverts to 1.0 since lower values would not be readable. Page zoom settings will sometimes be reflected a few milliseconds after navigating from one page to another. A one-second delay should be anticipated. Not Supported when using Internet Explorer as the rendering engine.
 
 **Possible Values**
 
-* Zoom factor of the page.
-
-> Not Supported when using Internet Explorer as the rendering engine.
+* Zoom factor of the page
 
 #### Example
 	:::xml
@@ -442,7 +618,7 @@ Setting page zoom property on page load will reflect only for that page.
 
 ## VoidConnection
 ### TrackConnection
-This value should be 0 or 1. By default it's value is 0. It implies whether the application is going to use this feature or not. When its value is 0 it is NOT going to use the feature else otherwise. The feature is to try to connect to a particular URL mentioned in the "HostURL" element. Whenever connectivity is lost, it will display a pop up message. Whenever Connectivity is established the pop up message will disappear. If connection is not established during timeout value, it will navigate to the badlink page. On windows, if this feature is enabled, it will display a non modal dialog whenever connectivity goes, whereas in case of Android it will display a modal dialog and user will be blocked from performing any UI actions. On Windows as it is a non modal dialog, user still can continue work on the parent screen until the timeout occurs. However it is not recommended to access the back ground application when the  connection checking window is being shown.
+Controls whether the application will monitor connection to the server specified by the HostURL tag. Will display a pop-up when connectivity is lost and navigate to a "bad link" page if the timeout interval is reached. Modal pop-up on Android prevents further UI actions. Non-modal Windows pop-up allows user to access background apps, which is not recommended.
 
 **Possible Values**
 
@@ -454,40 +630,40 @@ This value should be 0 or 1. By default it's value is 0. It implies whether the 
 	<TrackConnection value="0"/>
 
 ### HostURL
-This is the URL to which the application will try to connect to. The default port is 80. It can take both dotted ip and host name. Mentioning of port no is also optional. The port no should be appended to i after appending  colon to the ip.
+Used to specify the URL to which your application will connect. Supports IP addresses, host names and specific ports (when appended to URL with a colon. If no port is specified, default=80).
 
 **Possible Values**
 
-* Fully qualified URL for the host.
+* Fully qualified URL for the host
 
 #### Example
 	:::xml
 	<HostURL value="http://my.host.com"/>
 
 ### Message
-Message is the customized Message to be shown in the pop up window.
+Use to specify a custom message to be displayed in a pop-up window.
 
 **Possible Values**
 
-* Customized Message
+* Customized message
 
 #### Example
 	:::xml
 	<Message value="Connection message!"/>
 
 ### Timeout
-This value indicates for how many milliseconds the application should try to connect to the URL before navigating to badlink page. The minimum value is 30000. If specified less than 30000, it will take 30000. The value of this parameter should be at least 3 times bigger than PollInterval, else both will take default  values.
+Defines the amount of time (in milliseconds) the application should wait for a connection to the URL specified in ‘HostURL’ before displaying the ‘bad link’ message. The minimum value is 30000; lower values will revert to 30000. Value should be a multiple of the value set in PollInterval.
 
 **Possible Values**
 
-* Timeout in milliseconds.
+* Timeout in milliseconds
 
 #### Example
 	:::xml
 	<Timeout value="20000"/>
 
 ### PollInterval
-This value indicates for how many milliseconds the application should pause from trying to connect to the URL between consecutive checking. This value should be small enough and  Timeout value should be some multiple of this value. The minimum value is 5000. If specified less than 5000, it will take 5000. It is a non-testable parameter.
+Defines the amount of time (in milliseconds) the application should pause before subsequently checking for a connection to the URL specified in ‘HostURL.’ The minimum value is 5000; lower values will revert to 5000. The value in ‘Timeout’ should be a multiple of this number. NOTE: This parameter is not testable.
 
 **Possible Values**
 
@@ -499,7 +675,7 @@ This value indicates for how many milliseconds the application should pause from
 
 ## WebServer
 ### Enabled
-Enables or Disables an internal web server to run locally on the device.  If running multiple applications with internal web servers consideration should be made over whether a single server should be used or multiple servers running on different ports.
+Determines whether a web server will be running locally on the device to service the application. When multiple Webview applications are deployed, all can run from a single embedded server or use discrete servers, each running on a different port.
 
 **Possible Values**
 
@@ -511,30 +687,29 @@ Enables or Disables an internal web server to run locally on the device.  If run
 	<Enabled value="1"/>
 
 ### Port
-By default should be left at 8080, This specifies the IP port the Web Server is running on.
+Specifies the port number of the web server running locally on the device (default= 8080). **Port 80 is NOT suported on Android**. 
+
 **Possible Values**
 
-* Port of the web server.
+* Port of the web server
 
 #### Example
 	:::xml
 	<Port value="8080"/>
 
 ### WebFolder
-Specifies a folder on the device where the web application is stored, Index.html is the default page if no other page is requested.
-
-> Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
+Specifies the folder on the device in which the web application and its initial page are stored. By default, the initial page is ‘index.html’ unless another page is requested. Note: this parameter is case sensitive.
 
 **Possible Values**
 
-* Fully qualified path to folder containing web application.
+* Fully qualified path to folder containing web application
 
 #### Example
 	:::xml
 	<WebFolder value="file:///path/to/WebFolder/"/>
 
 ### Public
-Enables or Disables access to the local WebServer from an external device, it is recommended that the setting is only used for debugging purposes. ***Enabling this feature in a production deployment is a potential security risk. Make sure to check this value before deployment.***
+Controls access to the local web server from an external device. Generally used only for debugging; could case serious security risks if enabled in production. **It is highly recommended that this feature be disabled before deployment**.
 
 **Possible Values**
 
@@ -546,9 +721,9 @@ Enables or Disables access to the local WebServer from an external device, it is
 	<Public value="0"/>
 
 ## DeviceKeys
-> Note: On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system any settings applied will persist until the device is next warm booted.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behavior.
+> Note: On Windows Mobile and Windows CE devices, full control is given to the developer over how their application handles function keys. Settings applied will persist until the device is warm-booted. Function key default behavior will vary from by device and operating system. On the Zebra MC75a, F3 and F4 represent the red and green phone keys. On many devices, the volume keys are also mapped as Function keys. Not all function keys will have default behavior.
 
-Unblocking function keys may expose the underlying operating system, particularly the red and green phone keys will give access to the start menu and programs.
+Unblocking function keys may expose underlying operating system functions. On some devices, for example, red and green phone keys provide access to the start menu and programs.
 
 The list below shows the behavior of the Enterprise Browser when Function Keys are pressed given the possible configuration settings:
 
@@ -573,9 +748,7 @@ The list below shows the behavior of the Enterprise Browser when Function Keys a
 	</DeviceKeys>
 
 ### FunctionKeysCapturable
-This parameter is specific to Windows Mobile and Windows CE. When disabled (default) this parameter will allow enabled Function keys to have their default Windows system behavior (e.g. F6/F7 controls the volume on some devices whilst F3/F4 represent the Red / Green phone keys). When enabled, function keys will be capturable by the Key Capture module.
-
-The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown below.  This setting is not specific to the current application and will be applied globally on the device.
+**Applies to Android and WM/CE**. Determines behavior of function keys on Android and Windows Mobile/CE devices. When enabled, device Function keys are capturable using the Key Capture API. When disabled, keys revert to the device’s default behavior. This setting is not specific to an application. When enabled, settings are applied globally to the device. Refer to the EnableFunctionKey_X tag and complete documentation for more information about the interaction between the FunctionKeysCapturable and EnableFunctionKey_X parameters.  
 
 **Possible Values**
 
@@ -587,13 +760,13 @@ The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown 
 	<FunctionKeysCapturable value="1"/>
 
 ### EnableFunctionKey_X
-By default all function keys are disabled (e.g. F1, F2) but this setting is used to specify which function keys should be enabled.  For each key you wish to enable define a EnableFunctionKey_X tag but replace 'X' with the key being enabled, so for example to enable F1 specify EnableFunctionKey_F1.  The maximum function key you can enable is F24.  In order to use this configuration setting you must preload the KeyCapture module
+**Applies to Android and WM/CE**. This setting is used to specify which function keys (numbered F1 through F24) should be enabled in the Enterprise Browser app and **override** the system function key assignments (all function keys are assigned to the system by default). For each key to be enabled in EB, define a tag using EnableFunctionKey_X, replacing the ‘X’ with the key number being enabled. For example, to enable F1, your tag will include EnableFunctionKey_F1 as below. See the sample Config.xml in the user guide for correct branch placement. Requires a preload of the KeyCapture module.
 
-On the Enterprise tablet, this tag can be used to enable the 'P' keys. For compatibility with other devices the 'P' keys are referred to as 'F' keys in the config file. Therefore in order to enable P2 key on the enterprise tablet, the tag EnableFunctionKey_F2 should be set to 1.  For Windows Mobile / CE this setting is not specific to the current application and will be applied globally on the device, ***only being unset when a device warm boot is performed.**
+**On the Enterprise tablet**, this tag can be used to enable the 'P' keys. For compatibility with other devices, the 'P' keys are referred to as 'F' keys in the config file. To enable P2 key on the Enterprise Tablet, the tag EnableFunctionKey_F2 should be set to 1. **For WM/CE**, this setting is not specific to the current application and will be applied globally on the device. **This feature can only be reset by performing a device warm boot**.
 
-> Note: MC40, F1 is mapped to the Volume Down button, F2 to the Volume UP button and F3 to the Search button.
+> Note: On the Zebra MC40, F1 is mapped to the Volume Down button, F2 to the Volume UP button and F3 to the Search button.
 
-The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown at below.
+Interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown in the table below.
 
 **Possible Values**
 
@@ -605,9 +778,16 @@ The interaction between FunctionKeysCapturable and EnableFunctionKey_X is shown 
 	<EnableFunctionKey_F1 value="1"/>
 
 ### EnableApplicationKey_X
-This parameter is specific to Windows Mobile and Windows CE:
+**Applies to Android and WM/CE**. Specifies which Application keys (numbered A1 through A16) should be enabled (all are disabled by default). For each key to be enabled, define a tag using EnableApplicationKey_X, replacing the ‘X’ with the key being enabled. For example, to enable key A5, your tag will include EnableApplicationKey_A5 as below. See the sample Config.xml file in user docs for correct branch placement. The "P" keys on Enterprise Tablet will be referred to as "F" keys in config file.
 
-Some devices have keys to access specific applications on the device, e.g. Calendar, Outlook etc, all of which are disabled by default.  This setting is used to specify which application keys should be enabled, numbered A1 to A16.  For each key you wish to enable define a EnableApplicationKey_X tag but replace 'X' with the key being enabled, e.g. EnableApplicationKey_A1.  Note that the mapping of keys to applications is device specific so A1 may have two functions on two different devices.  In order to use this configuration setting you must preload the KeyCapture module. This setting is not specific to the current application and will be applied globally on the device. **Once set, this will persist across multiple Enterprise Browser executions and can only be unset by performing a device warm boot.**
+**Notes**
+
+* Requires a preload of the KeyCapture module; disabled by default.
+* Applies to Android and WM/CE devices.  
+* Application-key mapping is device-specific; behavior may vary from one device to another.
+* This setting is not specific to an application. When enabled, settings are applied globally to the device. 
+* On Zebra MC40, F1 is mapped to the Volume Down button, F2 to the Volume UP button and F3 to the Search button.
+* This feature can only be reset by performing a device warm boot. 
 
 **Possible Values**
 
@@ -615,24 +795,26 @@ Some devices have keys to access specific applications on the device, e.g. Calen
 * 1 - Enabled
 
 #### Example
+
 	:::xml
 	<EnableApplicationKey_A5 value="1"/>
 
+
 ## Navigation
 ### NavTimeout
-Number of milliseconds before the browser times out and navigates to the page specified in the badlink setting. If it is determined that the destination is unreachable regardless of wait time, the 'badlink' page may be loaded before NAVTIMEOUT. This is the time taken to establish communication with the server, not the time taken to fully load the page.
-
-> Note: The navigation timeout will not be invoked when navigating to the start page, best practice is to store your first page locally to avoid connectivity issues at start up, you can then redirect to an on-line page if desired.
+Defines the amount of time (in milliseconds) the application should wait to establish communication with the relevant server (as opposed to waiting for a page to fully load) before displaying the ‘bad link’ message. If the destination is unreachable, the bad link message might be displayed before the timeout is reached. The navigation timeout will not be invoked when navigating to an application’s start page. The recommended best practice is to store the first page locally to avoid connectivity issues at startup. The app can then redirect to an online page if desired.
 
 **Possible Values**
 
-* Timeout in Milliseconds - Default value is 45000
+* Timeout in milliseconds (default value = 45000)
 
 #### Example
+
 	:::xml
 	<NavTimeout value="30000"/>
 
-## ScreenOrientation
+
+## Screen orientation
 ### AutoRotate
 When disabled the orientation of the screen will not change as the device is rotated and vice versa. This is a screen rotation lock.
 
@@ -640,29 +822,34 @@ When disabled the orientation of the screen will not change as the device is rot
 
 * 0 - Disabled
 * 1 - Enabled
-8
+
 #### Example
+
 	:::xml
 	<AutoRotate value="0"/>
 
+
 ## UserData
+###UserData
 Used to persist data when using Read/WriteUserSetting.
 
 **Possible Values**
 
-* Any valid user setting.
+* Any valid user setting
 
-<!-- #### Example
+#### Example
+
 	:::xml
-	<UserData value="1"/> -->
+	<UserData value="1"/>
+
 
 ## WebDB
 ### WebStorageDBPath
-Path to an existing directory to store Web Storage databases. Only supported on Windows Mobile/CE using the Zebra Webkit.
+Sets the path to an existing directory for storage of web storage databases. **Applies to Windows Mobile/CE using the Zebra Webkit only**. Case sensitive. 
 
 **Possible Values**
 
-* Fully qualified local path.
+* Fully qualified local path
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -671,7 +858,7 @@ Path to an existing directory to store Web Storage databases. Only supported on 
 	<WebStorageDBPath value="file:///path-to-web-storage"/>
 
 ### WebSQLDBQuota
-Web SQL database maximum quota per database. Only supported on Windows Mobile/CE using the Zebra Webkit.
+Sets the maximum per-database quota for Web SQL databases. **Applies only to Windows Mobile/CE using the Zebra Webkit**.
 
 **Possible Values**
 
@@ -682,11 +869,11 @@ Web SQL database maximum quota per database. Only supported on Windows Mobile/CE
 	<WebSQLDBQuota value="20000"/>
 
 ### WebSQLDBPath
-Path to an existing directory to store Web SQL databases. Only supported on Windows Mobile/CE using the Zebra Webkit.
+Path to an existing directory to store Web SQL databases. **Applies only to Windows Mobile/CE using the Zebra Webkit. Case sensitive**. 
 
 **Possible Values**
 
-* Fully qualified local path.
+* Fully qualified local path
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -696,7 +883,7 @@ Path to an existing directory to store Web SQL databases. Only supported on Wind
 
 ## ApplicationCache
 ### ApplicationCacheQuota
-Application Cache data maximum quota per application. Only supported on Windows Mobile/CE using the Zebra Webkit.
+Application Cache data maximum quota per application. **Applies only to Windows Mobile/CE using the Zebra Webkit**.
 
 **Possible Values**
 
@@ -707,11 +894,11 @@ Application Cache data maximum quota per application. Only supported on Windows 
 	<ApplicationCacheQuota value="20000"/>
 
 ### ApplicationCachePath
-Path to an existing directory to store Application Cache data. Only supported on Windows Mobile/CE using the Zebra Webkit.
+Path to an existing directory to store Application Cache data. **Applies only to Windows Mobile/CE using the Zebra Webkit**.
 
 **Possible Values**
 
-* Fully qualified local path.
+* Fully qualified local path
 
 #### Example
 	:::xml
@@ -721,11 +908,11 @@ Path to an existing directory to store Application Cache data. Only supported on
 ### NPAPIDirectory
 Not applicable to the Enterprise Tablet:<br>
 
-Path to an existing directory where the NPAPI Plugins are stored.
+Path to an existing directory containing the NPAPI Plug-ins. **Not applicable to the Enterprise Tablet.** Case sensitive. 
 
 **Possible Values**
 
-* Fully qualified local path.
+* Fully qualified local path
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -733,8 +920,20 @@ Path to an existing directory where the NPAPI Plugins are stored.
 	:::xml
 	<NPAPIDirectory value="file:///path-to-NPAPI-dir"/>
 
-### Preloads \\ PreloadLegacyActiveX
-Whether or not to preload the ActiveX object in WebKit. You'll need to use this if you want backwards compatibility with code written in PocketBrowser that used the ActiveXObject. This setting is supported on Windows Mobile / CE with the webkit only.
+## Preloads
+### Preload
+Defines plug-ins to be pre-loaded rather than loading as needed by a program function. Pre-loading prevents application lag when a program function is called for the first time. For example, when Barcode.enable is called by an app, a slight lag will be seen as the Barcode DLL loads into memory. Specify a Preload tag for each module to be loaded when Enterprise Browser starts up. While multiple modules may be defined in the same DLL, list all pre-loaded modules for maximum benefit. For memory-constrained devices, pre-load all required modules to prevent an out-of-memory condition during execution. Does not apply to the Enterprise Tablet; plug-ins are integral to Enterprise Browser on this platform.
+
+**Possible Values**
+
+* Module name
+
+#### Example
+	:::xml
+	<Preload value="MyModule"/>
+
+### PreloadLegacyActiveX
+Determines whether to preload the ActiveX object in webkit. Use this for backward compatibility with code written in PocketBrowser that used the ActiveXObject. **Applies to WM CE with the Zebra Webkit only**.
 
 **Possible Values**
 
@@ -745,8 +944,8 @@ Whether or not to preload the ActiveX object in WebKit. You'll need to use this 
 	:::xml
 	<PreloadLegacyActiveX value="1"/>
 
-### Preloads \\ PreloadLegacyGeneric
-Whether or not to preload the NPAPI plugin to mimic the Generic ActiveX object in WebKit. On the Enterprise Tablet this plugin is automatically loaded when the JSObjects plugin is preloaded.
+### PreloadLegacyGeneric
+Determines whether to preload the NPAPI plugin to mimic the Generic ActiveX object in Webkit. On the Enterprise Tablet this plugin is automatically loaded when the JSObjects plugin is preloaded.
 
 **Possible Values**
 
@@ -757,10 +956,8 @@ Whether or not to preload the NPAPI plugin to mimic the Generic ActiveX object i
 	:::xml
 	<PreloadLegacyGeneric value="1"/>
 
-### Preloads \\ PreloadLegacyODAX
-Not applicable to the Enterprise Tablet:
-
-Whether or not to preload the NPAPI plugin to mimic the ODAX ActiveX object in WebKit.
+### PreloadLegacyODAX
+Determines whether to preload the NPAPI plug-in to mimic the ODAX ActiveX object in Webkit. Does not apply to the Enterprise Tablet. 
 
 **Possible Values**
 
@@ -772,7 +969,7 @@ Whether or not to preload the NPAPI plugin to mimic the ODAX ActiveX object in W
 	<PreloadLegacyODAX value="1"/>
 
 <!-- ### Preloads \\ PreloadLegacyNoSIP
-Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in WebKit.
+Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in Webkit.
 
 > Note: We recommend using the [Sip API](../api-Sip?Disabling%20the%20SIP) instead of this NOSIP setting.
 
@@ -786,10 +983,8 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 	<PreloadLegacyNoSIP value="1"/>
  -->
 
-### Preloads \\ PreloadLegacyAirBeam
-Not applicable to the Enterprise Tablet:
-
-Whether or not to preload the NPAPI plugin to mimic the AirBeam ActiveX object in WebKit
+### PreloadLegacyAirBeam
+Determines whether to preload the NPAPI plugin to mimic the AirBeam ActiveX object in Webkit. Not applicable to the Enterprise Tablet.
 
 **Possible Values**
 
@@ -800,8 +995,8 @@ Whether or not to preload the NPAPI plugin to mimic the AirBeam ActiveX object i
 	:::xml
 	<PreloadLegacyAirBeam value="1"/>
 
-### Preloads \\ PreloadLegacyAPD
-Whether or not to preload the NPAPI plugin to mimic the APD ActiveX object in WebKit.
+### PreloadLegacyAPD
+Determines whether to preload the NPAPI plugin to mimic the APD ActiveX object in Webkit.
 
 **Possible Values**
 
@@ -812,8 +1007,8 @@ Whether or not to preload the NPAPI plugin to mimic the APD ActiveX object in We
 	:::xml
 	<PreloadLegacyAPD value="1"/>
 
-### Preloads \\ 2PreloadJSObjects
-Whether or not to preload the NPAPI plugin to provide native JavaScript objects for each of the modules.
+### PreloadJSObjects
+Determines whether to preload the NPAPI plug-in to provide native JavaScript objects for each of the modules. On the Enterprise Tablet, this plug-in will be included if the JSObjects plug-in is preloaded.
 
 **Possible Values**
 
@@ -822,37 +1017,17 @@ Whether or not to preload the NPAPI plugin to provide native JavaScript objects 
 
 #### Example
 	:::xml
-	<2PreloadJSObjects value="1"/>
-
-## Preloads
-### Preload
-By default plug-ins will be loaded into memory when needed, e.g. when `Barcode.enable` is called, the `Barcode` plugin DLL will be loaded into memory. This loading operation takes takes a certain amount of time when it is performed for the first time; to prevent the user from noticing any lag when using their application, modules can be loaded in the background when the Enterprise Browser starts.  Specify a Preload tag for each module you wish to load at Enterprise Browser startup; note that multiple modules may be defined in the same DLL but you still need to list all modules to preload here to see maximum benefit.
-
-> Note: On low memory devices, it is recommended to preload all your required modules to avoid your program running out of memory during execution.
-
-Preloads are not applicable to the enterprise tablet, as plugins are integral to the Enterprise Browser on this platform.
-
-**Possible Values**
-
-* Module name
-
-#### Example
-	:::xml
-	<Preload value="MyModule"/>
+	<PreloadJSObjects value="1"/>
 
 ## Scrolling
 ### ScrollTechnique
-Specifies the technique used to scroll the viewport:
-
->Note: This setting is not supported on Android.
+Specifies the technique used to scroll the viewport. **'FingerScroll'** is an Android-only feature that permits scrolling around a page with finger swiping. **'Scrollbars'** will be presented when the page is too large to fit the viewport (not available on Android). **'None'** displays no scrollbars and the page will not respond to finger swipes. This setting is not supported on Windows CE using the IE rendering engine. FingerScroll may interfere with drawing on a Canvas element. 
 
 **Possible Values**
 
-* FingerScroll : You can scroll around the page using finger swiping.
-* Scrollbars : When the size of the page is too large to fit into the viewport, scrollbars will be presented which can be used to scroll the page (Not available on Android)
-* None : No scrollbars will be displayed and the page will not respond to finger swipes.
-
-> Note: This setting is not supported on Windows CE using the IE rendering engine.
+* FingerScroll
+* Scrollbars 
+* None 
 
 #### Example
 	:::xml
@@ -860,11 +1035,9 @@ Specifies the technique used to scroll the viewport:
 
 ## Authentication
 ### Username
-Specifies the username to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication. 
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
 
-If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a username of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
-
-> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter the credential multiple times.
+Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (“”). Enterprise Browser will permit multiple incorrect entries before presenting the 'HTTP 401 Unauthorized' page. **Applies to Android and WM/CE.** 
 
 **Possible Values**
 
@@ -875,35 +1048,104 @@ If this setting is absent from the configuration file a popup dialog will be dis
 	<Username value="username"/>
 
 ### Password
-Specifies the password to be provided automatically when the Enterprise Browser is instructed to navigate to any page which requires basic or digest HTTP authentication.
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
 
-If this setting is absent from the configuration file a popup dialog will be displayed prompting the user to enter their own credentials. Leaving the value blank will provide a password of "". The Enterprise Browser will only permit the user to enter incorrect credentials once before presenting the HTTP 401 Unauthorized page, the application should be designed to handle this scenario.
-
-> Note: This configuration setting is not applicable for IE engine. In case of IE, Enterprise Browser will permit the user to enter credential multiple times.
+Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (“”). Enterprise Browser will permit multiple incorrect entries before presenting the 'HTTP 401 Unauthorized' page. When used with IE engine, will permit multiple incorrect entries. **Applies to Android and WM/CE**. 
 
 **Possible Values**
 
-* Password string
+* Password string (**alpha-numeric characters only**)
 
 #### Example
 	:::xml
 	<Password value="password"/>
 
+
+### ExitPasswordEnabled 
+When enabled, prompts for a password when quitting an Enterprise Browser app. Password is stored using the ExitPasswordValue tag. Disabled by default. 
+
+**Possible Values**
+
+* **0 - Disabled (default)**
+* 1 - Enabled
+
+#### Example
+
+	:::xml
+	<ExitPasswordEnabled value="0"/>
+
+### ExitPasswordValue 
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
+Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to "1" and cannot be left empty.  
+
+**Possible Values**
+
+* Password string (**alpha-numeric characters only**) 
+
+#### Example
+
+	:::xml
+	<ExitPasswordValue value="zebra123"/>
+
+### SettingsButtonEnabled 
+When enabled, places a settings button at the bottom right corner of all screens that routes to the settings page. NOTE: When the IE engine is used on a Windows CE device, this feature might cause screen distortion when scrolling. 
+
+**Possible Values**
+
+* 0 - Disabled (default)
+* 1 - Enabled
+
+
+#### Example
+
+	:::xml
+	<SettingsButtonEnabled value="1"/>
+
+### SettingsPageProtectionEnabled 
+When enabled, prompts for a password before allowing access to the Settings page. Password is stored using the SettingsPagePassword tag. 
+
+**Possible Values**
+
+* 0 - Disabled
+* 1 - Enabled
+
+#### Example 
+
+	:::xml
+	<SettingsPageProtectionEnabled value="0"/>
+
+### SettingsPagePassword 
+**WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (< > \ / " ') in these fields will corrupt the Config.xml file**. 
+
+Contains the password for accessing the Settings page when password function is enabled using the SettingsPageProtectionEnabled tag. Can be edited only when SettingsPageProtectionEnabled tag is set to "1" and cannot be left empty. 
+
+**Possible Values**
+
+* string (password, empty by default)
+
+#### Example
+
+	:::xml
+	<SettingsPagePassword value="zebra"/>
+
+
 ## HTMLStyles
 ### CaretWidth
-This setting is a number which specifies the width of the textbox / text area caret, in pixels. The default value if you don't specify anything is '1'.  Prior to this release the width was fixed at '1' and you could not change it. This setting only applies to the Webkit on Windows Mobile or Windows CE.
+Specifies the width (in pixels) of the textbox / text-area caret. If unspecified, defaults to ‘1’. **Applies only to Webkit on Windows Mobile or Windows CE**. 
 
 **Possible Values**
 
 * Integer values for caret width in pixels
 
 #### Example
+
 	:::xml
 	<CaretWidth value="3"/>
 
 
 ###ClearTypeEnabled
-Enables or Disables ClearType (Windows Mobile Only).
+Controls whether ClearType is used. **Applies to Windows Mobile only**.
 
 **Possible Values**
 
@@ -915,7 +1157,7 @@ Enables or Disables ClearType (Windows Mobile Only).
 	<ClearTypeEnabled value="0"/>
 
 ###FitToScreenEnabled
-Automatically expands the application window to fit the screen (Windows Mobile with Internet Explorer Rendering Engine Only).
+Automatically expands the application window to fit the screen. Apples to Windows Mobile with Internet Explorer rendering engine only.
 
 **Possible Values**
 
@@ -927,7 +1169,7 @@ Automatically expands the application window to fit the screen (Windows Mobile w
 	<FitToScreenEnabled value="0"/>
 
 ### FontFamily
-Specifies the default font to use when rendering text in web pages.  The specified font should be a TrueType font present on the device. On Windows, the default font has been set to 'Tahoma' as this is present on all Symbol Technologies WM / CE devices. Note that Tahoma has no italic or oblique variants. On the Enterprise Tablet the default is Droid Sans Fallback. The specified font must be stored in `\Windows` for Windows WM / CE devices, or `/system/fonts for Enterprise Tablet`.
+**Applies to Android and WM/CE**. Specifies the default font to use when rendering text in web pages. Should be a TrueType font present on the device. Default font for all Zebra Technologies WM/CE devices is preset to ‘Tahoma’ and on Android--including Enterprise Tablet--is 'Droid Sans Fallback.' The specified font must be stored in \Windows for WM/CE, and /system/fonts for Android, Enterprise Tablet. Note that Tahoma has no italic or oblique variants. 
 
 **Possible Values**
 
@@ -938,18 +1180,18 @@ Specifies the default font to use when rendering text in web pages.  The specifi
 	<FontFamily value="Tahoma"/>
 
 ### FontDirectory
-Specifies the font directory where true type fonts can be found.  On Windows the default font directory is `\Windows` on all Symbol Technologies WM / CE devices.  Not applicable to the Enterprise Tablet.
+Specifies the location of TrueType fonts on the device. For Zebra Technologies WM/CE devices, the default font directory is \Windows. Does not apply to Enterprise Tablet.
 
 **Possible Values**
 
-* Relative directory containing the font files.
+* Relative directory containing the font files
 
 #### Example
 	:::xml
 	<FontDirectory value="\\Windows"/>
 
 ###JavascriptEnabled
-Enables or Disables Javascript (Windows Mobile Only).
+Controls whether JavaScript is enabled on Windows Mobile devices. **Applies only to Windows Mobile with IE engine**. JavaScript is always enabled on Android and WM/CE with Zebra webkit. 
 
 **Possible Values**
 
@@ -961,9 +1203,7 @@ Enables or Disables Javascript (Windows Mobile Only).
 	<JavascriptEnabled value="0"/>
 
 ###TextSelectionEnabled
-Enables or Disables selection of text when dragging the stylus on the screen. When enabled it is recommended to use the scroll bar in order to scroll the page. 
-
-> Note: TextSelectionEnabled should be set to enabled in order to use Copy (Ctrl+C) and Paste(Ctrl+V) feature on Webkit (WM/CE).
+**Applies only to WM/CE with Zebra Webkit**. Controls whether text selection is enabled when dragging the stylus on the screen. When enabled, the scroll bar is recommended for scrolling the page. Should be set to '1' for access to Copy (Ctrl+C) and Paste (Ctrl+V) functions on Webkit for WM/CE.  
 
 **Possible Values**
 
@@ -974,10 +1214,8 @@ Enables or Disables selection of text when dragging the stylus on the screen. Wh
 	:::xml
 	<TextSelectionEnabled value="0"/>
 
-
-
 ### UseNativeFonts
-When set to 0 (default) the FreeType library is used, this is the same as behavior on RMS 2.x. When set to 1 the native font engine on the device is used to render fonts and the 'FontFamily' setting will have no effect. By default, on localized devices from 4.1 onwards the native font engine will be used as the FreeType library can not render localized characters (e.g. Italian accented characters, Korean characters, Chinese characters etc). Some early BSPs of CE7 do not support the native font render unfortunately. The log file will show the font engine in use on launch if there is doubt. This setting is specific to Windows Mobile / Windows CE. NOTE: This config item is not currently available on the latest BSPs for MC92, VC70 or WT41N0.
+**Applies only to Windows Mobile and Windows CE**. Controls which fonts will be used. When set to ‘0’ (default) the FreeType library will be used as on apps built with RMS 2.x. When set to ‘1’ the native font engine on the device is used. A setting of ‘1’ overrides the ‘FontFamily’ setting. On localized devices from 4.1 and higher, the native font engine will be used by default. The FreeType library cannot render localized characters such as Asian and some accented European characters. The log file displays the font engine in use on launch. Some early BSPs of CE7 do not support the native font render. This config element is not currently available on the MC92, VC70 or WT41N0 devices.
 
 **Possible Values**
 
@@ -988,9 +1226,9 @@ When set to 0 (default) the FreeType library is used, this is the same as behavi
 	:::xml
 	<UseNativeFonts value="1"/>
 
-## SIP
+## Soft Input Panel (SIP)
 ### ResizeOnSIP
-When enabled the browser window will resize to accommodate the SIP (Soft Input Panel, the on-screen virtual keyboard) when displayed.  If the SIP has been moved to the top half of the screen the browser window will reduce in size from the top.  In order to use this configuration setting you must preload the SIP module.  (Windows Mobile Only.  This option is not compatible with CE or Finger Scrolling, the SIP will always appear at the bottom of the screen)
+Controls window resizing when the soft input panel (on-screen keyboard, or SIP) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. **Applies only to Android and Windows Mobile**. Requires SIP module preload. Not compatible with Windows CE. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen. 
 
 **Possible Values**
 
@@ -1002,7 +1240,7 @@ When enabled the browser window will resize to accommodate the SIP (Soft Input P
 	<ResizeOnSIP value="1"/>
 
 ### EnableSIP
-Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard).  (Android Only, on Windows the Left & Top parameters of the SIP module can be used to position the SIP off the screen.)
+Controls whether soft input panel (on-screen keyboard, or SIP) will appear. **Applies to Android only**. This feature can be mimicked on WM/CE by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby ‘disabling’ its use.
 
 **Possible Values**
 
@@ -1015,7 +1253,7 @@ Disables or Enables the SIP (Soft Input Panel, the on-screen virtual keyboard). 
 
 ## System
 ### LowBatteryScan
-Windows Mobile and CE only. Set to 0 to disable scanning when the battery is low or set to 1 to enable it.  Once disabled the scanner can be enabled again by calling `Barcode.enable`.
+Controls whether the scanner can be used when battery charge level is low. Set to ‘0’ to disable scanning with low battery and ‘1’ to enable. Can be overridden by calling `Barcode.enable`. **Applies to Android and WM/CE**.
 
 **Possible Values**
 
@@ -1028,19 +1266,19 @@ Windows Mobile and CE only. Set to 0 to disable scanning when the battery is low
 
 ## Scanner
 ### DisableScannerDuringNavigation
-By default if you have enabled the Scanner on a page, through either meta tags, JavaScript or Ruby and navigate to a new page the Scanner will automatically disable.  To override this behavior you can set this option to '0' and once enabled the Scanner will remain so in the foreground application until you disable it.  This setting is only applicable to RhoMobile Suite version 2.2 and above.
+Controls whether scanner will be automatically disabled when navigating away from a page on which it was enabled. A setting of '0' will override this default behavior. Once enabled, the scanner will remain enabled in the foreground application until manually disabled. **Applies to Android and WM/CE**.
 
 **Possible Values**
 
-* 0 - The Scanner will remain enabled during page navigation
-* 1 - The Scanner will disable during a page navigation
+* 0 - The scanner will remain enabled during page navigation
+* 1 - The scanner will be disabled during page navigation
 
 #### Example
 	:::xml
 	<DisableScannerDuringNavigation value="1"/>
 
 ### DisableScannerInApp
-This configuration option can be used to disable barcode scanning abilities for previos `Scanner` API. This feature is not applicable for `Barcode` common API. This setting will not effect the behavior of barcode scanning in the License dialog. 
+Used to disable barcode scanning capabilities for a previous scanner API. Does not apply to the [common Barcode API](#api-barcode), and will not effect the behavior of barcode scanning in the License dialog. Supported on WM/CE with IE or Zebra Webkit. Note: **The scanner will not be disabled if this parameter does not exist or does not contain a value**.
 
 **Supported Platforms**
 
@@ -1051,8 +1289,6 @@ This configuration option can be used to disable barcode scanning abilities for 
 * 0 - does not disable the scanner
 * 1 - disables the scanner (DefaultMetaTags, Meta Tags in HTML, Javascript API, ActiveXObject)
 
-> Note: The scanner will not be disabled if this parameter does not exist or if it exists and does not contain a value.
-
 #### Example
 	:::xml
 	<DisableScannerInApp value="1"/>
@@ -1060,18 +1296,18 @@ This configuration option can be used to disable barcode scanning abilities for 
 
 ## Sound
 ### DecodeVolume
-The volume of the device beeper when a barcode is scanned.
+Controls the volume of the device beeper when a barcode is scanned.
 
 **Possible Values**
 
-* 0 to 5 with 5 being the loudest
+* 0 – 5 (0 = off; 1 – 5 = lowest to loudest)
 
 #### Example
 	:::xml
 	<DecodeVolume value="3"/>
 
 ### DecodeFrequency
-The frequency of the device beeper when a barcode is successfully decoded.  This should be within the range of the beeper.
+Controls the frequency of the device beeper when a barcode is successfully decoded. Must be within the range of the beeper.
 
 **Possible Values**
 
@@ -1081,8 +1317,8 @@ The frequency of the device beeper when a barcode is successfully decoded.  This
 	:::xml
 	<DecodeFrequency value="0xFFFF"/>
 
-### InvalidDecodeFrequency<
-The frequency of the device beeper when a barcode is scanned but not successfully decoded.  This should be within the range of the beeper. Not applicable to the Enterprise Tablet.
+### InvalidDecodeFrequency
+Controls the frequency of the device beeper sound when a scanned barcode is not successfully decoded. This value (in hex) must be a frequency within the range of the device beeper. Not applicable to the Enterprise Tablet.
 
 **Possible Values**
 
@@ -1093,54 +1329,53 @@ The frequency of the device beeper when a barcode is scanned but not successfull
 	<InvalidDecodeFrequency value="0xFFFF"/>
 
 ### DecodeDuration
-The duration of the device beeper when a barcode is scanned.
+Controls the duration (in milliseconds) of the device beeper sound when a barcode is scanned.
 
 **Possible Values**
 
-* Milliseconds
+* number of milliseconds
 
 #### Example
 	:::xml
 	<DecodeDuration value="500"/>
 
 ### ScanDecodeWav
-Wave file to be played when the scanner successfully decodes a barcode.  This setting overrides the scanner beeper.
+Specifies a .wav file to be played when a scanned barcode is successfully decoded. File must be resident on the device. Overrides all scanner beeper settings. Not applicable to the Enterprise Tablet. Case sensitive.
 
 **Possible Values**
 
-* File name and path stored locally on the device.
+* Fully qualified path and file name
 
 #### Example
 	:::xml
 	<ScanDecodeWav value="file://path-to-success-wav-file"/>
 
 ### ScanInvalidWav
-.Wav file to be played when a barcode is scanned but not successfully decoded.  This setting overrides the scanner beeper. Not applicable to the Enterprise Tablet.
+Specifies a .wav file to be played when a scanned barcode is not successfully decoded. File must be resident on the device. Overrides all scanner beeper settings. Not applicable to the Enterprise Tablet. Case sensitive. 
 
 **Possible Values**
 
-* File name and path stored locally on the device.
+* Fully qualified path and file name
 
 #### Example
 	:::xml
 	<ScanInvalidWav value="file://path-to-fail-wav-file"/>
 
 ### ImagerCaptureWav
-.Wav file to be played when the Imager captures an image
+Specifies a .wav file to be played when the Imager captures an image. File must be resident on the device. Case sensitive. 
 
 **Possible Values**
 
-* File name and path stored locally on the device.
-
-> Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
+* Fully qualified path and file name
 
 #### Example
 	:::xml
 	<ImageCaptureWav value="file://path-to-capture-wav-file"/>
 
 ## GUI
+
 ### SignalRefresh
-Specifies the refresh rate of the signal display, see the Signal API for more information.
+Specifies the refresh rate (in milliseconds) of the signal display. See the [Signal API](#api-signalindicators) for more information. 
 
 **Possible Values**
 
@@ -1151,9 +1386,7 @@ Specifies the refresh rate of the signal display, see the Signal API for more in
 	<SignalRefresh value="1000"/>
 
 ### BatteryRefresh
-Specifies the refresh rate of the battery display, see the Battery API for more information. Not applicable to the Enterprise Tablet
-
-> Note: On Android devices the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on Android devices. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.
+Specifies the refresh rate (in milliseconds) of the battery display. See the Battery API for more information. Does not apply to the Enterprise Tablet. Note: Not supported on Android devices, which employ an asynchronous battery notification scheme that fires a batteryEvent only when the battery level changes, and is more power-efficient than polling.
 
 **Possible Values**
 
@@ -1164,57 +1397,67 @@ Specifies the refresh rate of the battery display, see the Battery API for more 
 	<BatteryRefresh value="1000"/>
 
 ### HourglassEnabled
-By default an Hourglass will be displayed whilst navigating between pages, this setting can be used to disable that behavior.
+Controls whether the Hourglass icon will be displayed while navigating between pages (enabled by default). 
 
 **Possible Values**
 
 * 0 - Disabled
-* 1 - Enabled
+* **1 - Enabled**
 
 #### Example
 	:::xml
 	<HourglassEnabled value="1"/>
 
 ### HourglassLeft
-By default an Hourglass will be displayed whilst navigating between pages, this setting can be used to adjust its horizontal position. If not specified the hourglass will appear at the horizontal center of the screen.
+Controls the horizontal position of the Hourglass icon, which is displayed by default while navigating between pages. If not specified, the Hourglass will appear at the center of the screen.
 
 **Possible Values**
 
-* Horizontal position in pixels.
+* Horizontal position in pixels
 
 #### Example
 	:::xml
 	<HourglassLeft value="100"/>
 
 ### HourglassTop
-By default an Hourglass will be displayed whilst navigating between pages, this setting can be used to adjust its vertical position. If not specified the hourglass will appear in the vertical center of the screen.
+Controls the vertical position of the Hourglass icon, which is displayed by default while navigating between pages. If not specified, the Hourglass will appear at the center of the screen.
 
 **Possible Values**
 
-* Vertical position in pixels.
+* Vertical position in pixels
 
 #### Example
 	:::xml
 	<HourglassTop value="200"/>
 
+## DOM injection
+### CustomDOMElements 
+Specifies the path of a device-resident file containing data for injected DOM elements. This feature permits the injection of one or more DOM elements (i.e. JavaScript, CSS or meta tags) into a running application without modifying the underlying application. Injected JavaScript can be local or server-based. For more information, please refer to the [DOM Injection guide](#DOMInjection). **Applies to Android and Windows Mobie/CE webkit engines**. 
+
+**Possible values**
+
+* fully qualified path and file name
+
+####Example
+	:::xml 
+	<CustomDOMElements value="file://%INSTALLDIR%\rho\apps\app\mytags.txt"/>
+
+
 ## Navigation
 ### BadLinkURI
-Navigates to the specified badlink uri when one of the following occurs:
+Specifies the ‘badlink’ URI file to be displayed when: 
 
-* There is an error attempting to navigate to the page, e.g. the device has no network connection.
-* The timeout occurs when navigating to the page.  You can adjust the value of the timeout using the NavTimeout setting.
-* The user presses the stop button.
+1. An error occurs when attempting to navigate to a page (i.e. there's no network connection)
+2. A page times out (according to the timeout interval set in NavTimeout)
+3. The user presses the stop button. 
 
-The browser will automatically append the querystring value "badlink" containing the url of the page which could not be reached and "stop=true" if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be an offline file using the `file://` protocol, this way the browser can always access the file.
+The browser will automatically append the querystring value 'badlink' containing the URL of the page that could not be reached, and 'stop=true' if the page was loaded because the user pressed the stop button. The page specified in the badlink setting should be a device-resident file using the `file://` protocol so it’s accessible by the browser. 
 
-There are some platform and engine exclusive issues you may encounter that are known issues. These include:
-
-* On Windows mobile devices when using IE engine, if device has no network connection, navigation timeout message may be displayed.
-* IE engine, CE5 & CE6 truncate the request variables when a navigation to badlink occurs so, badlink page will be navigated to, but the reason for the failure may not be displayed.
+**Known issues**: If the device has no network connection, a navigation timeout message may be displayed on Windows Mobile devices using the IE engine. On CE5 and CE6, the IE engine will truncate the request variables when a navigation to badlink occurs and the reason for the failure may not be displayed. 
 
 **Possible Values**
 
-* File name and path stored locally on the device.
+* Fully qualified path and file name 
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -1223,33 +1466,26 @@ There are some platform and engine exclusive issues you may encounter that are k
 	<BadLinkURI value="file://%INSTALLDIR%/badlink.html"/>
 
 ###EnableSSL3
-When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability.
+When enabled, SSL 3.0 is used. The Zebra Webkit is shipped with SSL3 disabled by default to protect against the POODLE attack vulnerability. **Applies to WM/CE with Zebra Webkit only**. 
 
 **Possible Values**
 
 * 0 – Disabled
 * 1 – Enabled
 
-**Platforms** 
-
-* WM/CE Zebra Webkit Only
-
 #### Example
 	:::xml
 	<EnableSSL3 value="1"/>
 
 ### UserAgent
-When visiting a web server the WebKit browser will report its User-Agent header as the specified value.  Use the following substitution variables:
+Stores information about the device’s operating environment. Can be used to spoof the device to a web server, for example to view content designed for the desktop on the mobile screen. When visiting a web server, the WebKit browser can be used to report its User-Agent header as the value specified. 
 
-* %p - platform name ("Windows CE " + version number)
-* %w - WebKit version number
-* %e - WebKit version number.
+Use the following substitution variables:
+%p – Platform name (“Windows CE ” + version number)
+%w – WebKit version number
+%e – Zebra WebKit version number
 
-Use the UserAgent setting to spoof your device to the server, e.g. to view content designed for the desktop on your mobile screen.
-
-From PB 2.1 onwards the default value was changed to work out of the box with a greater number of server configurations, prior to PB 2.1 the default user agent was: "Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"
-
-> Note: This attribute cannot be set to a custom value for apps using Internet Explorer as their rendering engine. If using IE, please leave this value as the default value.
+In PocketBrowser 2.1 and higher, the default value was changed to work out of the box with a greater number of server configurations. Prior to PocketBrowser 2.1, the default user agent was “Mozilla/5.0, AppleWebKit (KHTML, i.e. Gecko), Motorola Webkit, Safari.” This attribute cannot be set to a custom value for apps using Internet Explorer as their rendering engine. If using IE, please leave this value as the default value. Android does not support a custom UserAgent. 
 
 **Possible Values**
 
@@ -1260,7 +1496,7 @@ From PB 2.1 onwards the default value was changed to work out of the box with a 
 	<UserAgent value="Mozilla/5.0 (%p) AppleWebKit/%w (KHTML, like Gecko) Safari/%w"/>
 
 ### ViewportEnabled
-Whether to enable or disable viewport meta tag processing (default is enabled)
+Controls viewport meta tag processing (enabled by default).
 
 **Possible Values**
 
@@ -1272,24 +1508,24 @@ Whether to enable or disable viewport meta tag processing (default is enabled)
 	<ViewportEnabled value="1"/>
 
 ### ViewportWidth
-Default viewport width to use for pages that do not have a viewport meta tag (uses 1:1 scaling if not specified). Specified using numbers, 1 being 1:1, < 1 being smaller than default, > 1 being larger than default.
+Sets the default viewport width for pages that do not have a viewport meta tag. If not specified, uses 1:1 scaling. 
 
 **Possible Values**
 
-* A number > 0 specifying the width scale.
+* A number > 0 specifying the width scale
 
 #### Example
 	:::xml
 	<ViewportWidth value="1"/>
 
 ### CaFile
-A file of CA certificates in PEM format. See <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html" target="_blank">openssl</a> for details.
+Specifies the location of a device-resident file containing CA certificates in PEM format. Please [refer to openSSL](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. **Applies to Android and Windows Mobile/CE**. 
 
-> Note: Enteprise Browser only supports single certificate file in `pem` format. If multiple certificates need to be passed to the Webkit Browser(WM/CE), please add the contents of the `.pem` certificates to a single file using any standard text editor and then set the path of the updated local file to cafile in config.xml
+> Note: Enteprise Browser only supports only a single certificate file in PEM format. If multiple certificates must be passed to the Webkit browser on WM/CE, the contents of multiple `.pem` certificates can be combined into a single file using any standard text editor. The combined file can then be specified in the CaFile parameter. 
 
 **Possible Values**
 
-* Local File name on the device.
+* file name
 
 #### Example
 	:::xml
@@ -1298,30 +1534,30 @@ A file of CA certificates in PEM format. See <a href="http://www.openssl.org/doc
 ### CaPath
 >Note : This setting is not supported in Enterprise Browser.
 
-A directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
+Specifies a fully qualified path to the directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
 
 **Possible Values**
 
-* Local File path on the device.
+* Local File path on the device
 
 ### VerifyPeerCertificate
-Verify the server certificate against the internal certificates. It is strongly recommended not to set this to 0 in deployment situations, but it can be useful during development. A value of 0 is equivalent to automatically clicking 'OK' on a web browser's dialog querying an untrusted certificate.
+Controls whether server certificates will be verified against the internal certificates. Enabled by default. Useful for debugging, a value of 0 (disabled) is equivalent to automatically clicking ‘OK’ on a web browser’s dialog when requesting approval for an untrusted certificate. **It is strongly recommended that this feature be enabled for deployment**. 
 
 **Possible Values**
 
-* 0 - Disable Peer certificate verification.
-* 1 - Enable Peer certificate verification.
+* 0 - Disable Peer certificate verification
+* 1 - Enable Peer certificate verification
 
 #### Example
 	:::xml
 	<VerifyPeerCertificate value="1"/>
 
 ### NetworkCookieDatabase
-If you want your cookies to persist across device boots then specify a file name here for the database used to hold the cookies. If the specified file does not already exist then one will be created. The cookies will be loaded in from this file and saved back to it when the Enterprise Browser exits, unless the file is read only in which case it will not be overwritten. If not specified cookies will not persist.
+Specifies the location of the database to hold persistent cookies, if desired. If the specified file does not exist, one will be created. Persistent cookies will be loaded from this file and saved back to it when Enterprise Browser exits. If the file is read-only, it will not be overwritten. If not specified, cookies will not persist. Case sensitive. 
 
 **Possible Values**
 
-* Fully qualified local path.
+* Fully qualified local path
 
 > Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.
 
@@ -1340,12 +1576,9 @@ The browser cache size, in whole MBs.
 	:::xml
 	<Cache value="5"/>
 
-## DeviceKeys
+## Device keys
 ### EnableCtrlKey_X
-This setting is used to specify which CTRL+Key combinations should be enabled.  For each combination you wish to enable define a EnableCtrlKey_X tag but replace 'X' with the key being enabled, so for example to enable text copying specify EnableCtrlKey_C as enabled or to enable text pasting specify EnableCtrlKey_V as enabled.
-> Note CE Only:
-By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTRL+V to paste text).
-
+Specifies which control-key combinations (copy, paste, etc.) should be enabled. To enable a control-key combination, define a tag using EnableCtrlKey_X, replacing the ‘X’ with the key being enabled. For example, to enable copying with control-C, your tag will include EnableCtrlKey_C as below. See the sample Config.xml file in user guide for correct branch placement. **All CTRL key combinations are disabled on Windows CE by default**. 
 
 **Possible Values**
 
@@ -1356,9 +1589,9 @@ By default all CTRL+Key combinations are disabled (e.g. CTRL+C to copy text; CTR
 	:::xml
 	<EnableCtrlKey_C value="1"/>
 
-## DefaultMetaTags
+## Default MetaTags
 ### MetaTag
-All Enterprise Browser Meta Tags can be set by default in the configuration, meaning if a common tag is required by the application it need not be present on every HTML page. Set a default tag by specifying the tag's module, followed by a tilde (~) character and then the properties of the module you wish to set, specified in EMML 1.1. If the meta tag is present in both the configuration and a loaded page then the page will take priority. Logically only persistent tags can be set in the configuration, a tag's persistence being stated in the 'additional information' section in the help file. Meta tag properties and their possible values are explained in the corresponding API.
+Permits a default meta tag to be specified so that a tag required by the application need not be present on every HTML page. Set a default tag by specifying the tag’s module, followed by the tilde character (~) and the properties of the module you wish to set, as specified in EMML 1.1. If the meta tag is present in both the configuration and a loaded page, the page will take priority. Only persistent tags can be set logically in the configuration. Tag persistence is covered in the ‘additional information’ section in the help file. Meta tag properties and their possible values are explained in the corresponding API.
 
 **Possible Values**
 
@@ -1370,7 +1603,7 @@ All Enterprise Browser Meta Tags can be set by default in the configuration, mea
 
 ## Geolocation
 ### GeolocationEnabled
-Enables / disables HTML5 Geolocation. When enabled on a device supporting geolocation and under GPS/network coverage, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called notifying that the permission to using Geolocation is disabled.
+Controls HTML5 Geolocation. When enabled on a device that supports geolocation and is in range of a GPS network, the geolocation data is returned to the defined JavaScript callback. When disabled the defined JavaScript error callback is called, notifying the app that the permission to using Geolocation is disabled.
 
 **Possible Values**
 
@@ -1383,7 +1616,7 @@ Enables / disables HTML5 Geolocation. When enabled on a device supporting geoloc
 
 ## Engine
 ### EngineInUse
-If you are deploying a Webkit installation of EB to Windows CE6 or Windows Mobile 6.5 and above, you can select which engine to use (IE or Webkit) by editing this field in your `Config.xml` file. If you are deploying an IE only installation, Webkit will **not** be available as an option.
+Permits the selection of a rendering engine (IE or Webkit) when deploying a Webkit installation of Enterprise Browser to Windows CE6 or Windows Mobile 6.5 and above. If you are deploying an IE-only installation, Webkit will not be available as an option.
 
 **Possible Values**
 
@@ -1394,24 +1627,24 @@ If you are deploying a Webkit installation of EB to Windows CE6 or Windows Mobil
 	:::xml
 	<EngineInUse value="IE"/>
 
-## TabInstance
+## Tab instance
 ### NewTabPhysicalMemLimit
-This setting controls whether a new Tab will be created using the NativeTabbar.create API when a physical memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is &gt;= 80%. If the tab is unable to be created due to this limit being reached the NativeTabbar.create API callback will contain a `tabEvent` = `onTabNewError`.
+Controls whether a new Tab will be created using the [NativeTabbar.create API](#api-NativeTabbar) when physical memory percentage hits a specific threshold. For example, if set to 80, new tabs will stop being created when physical memory usage on the device reaches or exceeds 80 percent the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
 
 **Possible Values**
 
-* 0 - 100 (percent). 100 means unlimited.
+* 0 - 100 (percent; 100 = unlimited)
 
 #### Example
 	:::xml
 	<NewTabPhysicalMemLimit value="50"/>
 
 ### NewTabVirtualMemLimit
-This setting controls whether a new Tab will be created using the NativeTabbar.create API when a virtual memory usage percentage is hit. Ex: if it is set to 80 - then the tab instance will not be created if the physical memory usage on the device is &gt;= 80%.If the tab is unable to be created due to this limit being reached the NativeTabbar.create API callback will contain a `tabEvent` = `onTabNewError`
+Controls whether a new Tab will be created using the [NativeTabbar.create API](#api-NativeTabbar) when a virtual memory usage percentage is hit. For example, if set to 80, new tabs will stop being created when the virtual memory usage reaches or exceeds 80 percent of the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
 
 **Possible Values**
 
-* 0 - 100 (percent). 100 means unlimited.
+* 0 - 100 (percent; 100 = unlimited).
 
 #### Example
 	:::xml
@@ -1419,45 +1652,29 @@ This setting controls whether a new Tab will be created using the NativeTabbar.c
 
 ## ZoomKey
 ### ZoomInKey
-This setting controls zoom behavior for enlarging text using a function key. You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
-
-**Supported Platforms**
-
-* Windows Mobile/CE (IE or Zebra Webkit)
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](#guide-configreference?Remarks).
 
 **Possible Values**
 
-* Hexadecimal key code for any function key: F1 to F24
-
->Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).
+* Hexadecimal key code for any function key (F1 to F24)
 
 #### Example
 	:::xml
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-This setting controls zoom behavior for making text smaller using a function key.You must also have the Function key configured to be captured as notes in the [Remarks section of this document](../guide/configreference?Remarks).This setting will not be applied if the parameter does not exists, exists but is blank or contains an invalid key code.
-
-**Supported Platforms**
-
-* Windows Mobile/CE (IE or Zebra Webkit)
+Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](#guide-configreference?Remarks).
 
 **Possible Values**
 
-* Hexadecimal key code for any function key: F1 to F24
-
->Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the Key Capture API (current and previous versions).
+* Hexadecimal key code for any function key (F1 to F24)
 
 #### Example
 	:::xml
 	<ZoomOutKey value="0x71"/>
 
 ## isWindowsKey
-This feature will be supported from Enterprise Browser 1.2 and above when used with either PocketBrowser or RhoElements 2.x KeyCapture API. The `isWindowsKey` tag has been introduced to mimic Windows Mobile key codes for the device's hardware keys. If enabled then the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would send normally. This can be useful to support both types of devices with one codebase. If it is set as 0 or not present, then the application will get the Android function key code value.
-
-**Supported Platforms**
-
-* Android (with PocketBrowser or RhoElements 2.x Key Capture API)
+Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for the device’s hardware keys when used with the KeyCapture API of PocketBrowser or RhoElements 2.x. When enabled, the application will substitute its normal Android kewys with the Windows Mobile function key code values for keys F1 through F12. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will get the Android function key code value. Supported on Android devices with PocketBrowser or RhoElements 2.x Key Capture API. 
 
 **Possible Values**
 
@@ -1468,6 +1685,21 @@ This feature will be supported from Enterprise Browser 1.2 and above when used w
 #### Example
 	:::xml
 	<isWindowsKey value="1"/>
+
+## Shortcut Creation
+###ShortcutCreationEnabled
+**Applicable only when using the Enterprise Browser Shortcut Creator utility;** otherwise ignored. Controls automatic creation of app shortcuts on Android and Windows Mobile/CE target devices when Enterprise Browser is launched. When option 1 is selected, checks for and creates new shortcuts at every launch. Setting persists following EB uninstall/re-install. Setting is lost after cold reboot. Disabled by default.  For more information, please refer to the [Shortcut Creator guide](../guide/ShortcutCreator). 
+
+**Possible Values**
+
+* Possible Values 
+* **0 - Shortcut creation disabled**
+* 1 - Shortcuts created at every launch
+* 2 - Shortcuts created on initial launch only
+
+#### Example
+	:::xml
+	<ShortcutCreationEnabled value="1"/>
 
 
 ## Remarks
@@ -1481,11 +1713,11 @@ On the Enterprise Tablet the battery notification is asynchronous. For this reas
 If you plan on enabling the Ctrl+O or Ctrl+P (open dialog and print dialog, respectively) shortcut key combinations in your app, be aware that they do not work on Windows CE7 devices.
 
 ### <a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings
-On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system any settings applied will persist until the device is next warm booted.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as Function keys.  Not all function keys will have default operating system behavior.
+On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system any settings applied will persist until the device is next warm booted.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as function keys.  Not all function keys will have default operating system behavior.
 
 Unblocking function keys may expose the underlying operating system, particularly the red and green phone keys will give access to the start menu and programs.
 
-The table below shows the behavior of the Enterprise Browser when Function Keys are pressed given the possible configuration settings:
+The table below shows the behavior of the Enterprise Browser when function Keys are pressed given the possible configuration settings:
 
 <table border=1 width="100%" class="re-table">
 	<tr>

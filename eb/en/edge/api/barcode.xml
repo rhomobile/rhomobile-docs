@@ -7,7 +7,7 @@
             <ALIAS new="Barcode" deprecated="true"/>
         </ALIASES>
 
-        <HELP_OVERVIEW>The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Symbol Technologies' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Symbol Technologies devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Symbol Technologies Windows Mobile / CE devices.Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode.</HELP_OVERVIEW>
+        <HELP_OVERVIEW>The Barcode Module provides access to control the functionality of the device's scanner. Because RhoMobile Suite is designed to run on both Consumer devices and Symbol Technologies' enterprise devices support for the Barcode API will vary for each method and properties depending on which platform you are running on. Please note that a lot these APIs are optimized for the extended functionality that Symbol Technologies devices provide. Check the platform indicators in each property or method section. In general if you are developing for a consumer device the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). The Barcode API will not run on non-Symbol Technologies Windows Mobile / CE devices.Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically.In VC70 scanner will work only if connected in SSI Mode. In  Symbol android devices, it is recommended to use EMDK for KitKat devices and not to use EMDK in JellyBean devices.</HELP_OVERVIEW>
 
         <HELP_OVERVIEW_EB>The Barcode Module provides access to control the functionality of the device's scanner. Check the platform indicators in each property or method section. In general if you are developing for a device with only a camera, the number of symbologies available to you will be limited to just the most common ones, eg EAN13, UPCA etc and your scanning will be via the device camera. If your application is running on more traditional Symbol Technologies' hardware you will have much finer control over a more fully featured Scanner, often with a choice of scanner hardware on the device. In general if you wish to capture a single barcode in a 'one shot' use case, eg your App just wants to capture a single barcode to be submitted to a price comparison website then use Barcode.take(callback); if your application is expecting a number of barcodes to be received, common in enterprise scenarios for example a user in a warehouse then use Barcode.enable(callback). Only the foreground application is given access to the scanning hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the scanner. When brought back to the foreground, an application previously using the barcode API will have its previous configuration reapplied automatically. A VC70 scanner will work only if connected in SSI Mode.
         </HELP_OVERVIEW_EB>
@@ -306,12 +306,12 @@ The ebapi.js file is necessary for all single API inclusions.
             </PROPERTY>
             <PROPERTY name="illuminationMode" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
-                <PLATFORM>WM, CE, Android</PLATFORM>
-                <APPLIES msiOnly="true">Imager / Camera Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Selects the illumination mode to use.</DESC>
+                <PLATFORM>WM, CE</PLATFORM>
+                <APPLIES msiOnly="true">Imager / Camera Scanners on Symbol Technologies devices</APPLIES>
+                <DESC>Selects the illumination mode to use. Not currently supported on Android (illumination is always on).</DESC>
                 <VALUES>
                     <VALUE constName="ILLUMINATION_AUTO" value="auto">
-                        <DESC>Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.</DESC>
+                        <DESC>Auto-exposure algorithms will decide whether illumination is required. Not currently supported on Android.</DESC>
                     </VALUE>
                     <VALUE constName="ILLUMINATION_ALWAYS_ON" value="alwaysOn">
                         <DESC>External illumination is always on.</DESC>
@@ -501,7 +501,7 @@ The ebapi.js file is necessary for all single API inclusions.
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
                 <PLATFORM>WM, CE, Android</PLATFORM>
                 <APPLIES msiOnly="true">Scanners on Symbol Technologies' devices</APPLIES>
-                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</DESC>
+                <DESC>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper. In Android, this settings will not override beeper and hence not supported.</DESC>
             </PROPERTY>
             <PROPERTY name="invalidDecodeSound" type="STRING" generateAccessors="true">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
@@ -1948,7 +1948,7 @@ function scan_using_default_scanner(){
   Rho.Barcode.take({}, scan_received);
 }
 
-function scan_received(params)
+function scan_received(params){
   // Did we actually find a barcode ?
   // If status is not 'ok', the scan was canceled
 
@@ -2025,10 +2025,9 @@ function scan_using_chosen_scanner(scanner_index) {
     scanner.take({}, scan_received_callback);
 }
 
-function scan_received_callback(params)
-{
-  // Did we actually find a barcode ?
-  // If status is not 'ok', the scan was canceled
+function scan_received_callback(params){
+  // Did we actually find a barcode?
+  // If status is not 'ok' the scan is canceled
   if (params["status"]=="ok") {
             alert('Barcode scanning complete. Scanned barcode: '+params["barcode"]);
         } else {

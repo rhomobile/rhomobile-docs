@@ -4,31 +4,35 @@
 ## Overview
 The Intent API provides an inter-application broadcast message-passing framework.
 ## Enabling the API
+
 There are two methods of enabling the Intent API:
 
-* Include all ebapi modules or
+* Include all 'ebapi' modules
 * Include only the API modules you need
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+Both methods are explained below. 
+
+Either way, the included files will be found in: 
+`/Enterprise Browser/JavaScript Files/Enterprise Browser`,
+a directory on the computer that contains the Enterprise Browser installation.
 
 ### Include all JS API modules
-To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location accessible by your app's files and include the JavaScript modules file in your app. For instance, to include the modules file in your `index.html`, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:
 
     :::html
     <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-> Note: that the pathing for this file is relative to the current page.
-
-This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+> This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
 
 ### Include only the modules you need
-To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Intent API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+To include individual APIs, you must first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the Intent API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
 
     :::html
     <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
     <script type="text/javascript" charset="utf-8" src="eb.intent.js"></script>
 
-The ebapi.js file is necessary for all single API inclusions.
+> In the code lines above, notice that `ebapi.js` is included first, followed by `eb.intent.js`, which is the Intent API for Enterprise Browser. **This coding is required on each HTML page whenever an individual API will be called from that page**.
+
         
 
 
@@ -37,9 +41,9 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 ### send(<span class="text-info">HASH</span> params)
-Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android the receiver can be a native Android application setup with an Intent-Filter that will trigger based on the parameters of this method.
+Sends an intent. The receiver of the intent can be another application that is listening for this Intent characteristic or, on Android, the receiver can be a native Android application set up with an Intent-Filter that will trigger based on the parameters of this method.
 
-> Note: On Android, the callback should only be used when the intentType is set to START_ACTIVITY. On Android, the only valid way to pass private file from package directly to another application is set 'uri' parameter with content URI.
+**Android Note**: On Android, the callback should be used only when the intentType is set to START_ACTIVITY. The only valid way for an Android app to pass a private file from a package directly to another application is to set the 'uri' parameter with content URI. 
             
 
 ####Parameters
@@ -116,9 +120,44 @@ Synchronous Return:
 
 ####Platforms
 
+* Android
 * Windows Mobile
 
 ####Method Access:
 
 * Class Method: This method can only be accessed via the API class object. 
 	* <code>EB.Intent.startListening()</code> 
+
+
+### stopListening()
+Stop listening for custom intents.
+
+####Parameters
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+####Returns
+Synchronous Return:
+
+* Void
+
+####Platforms
+
+* Android
+* Windows Mobile
+
+####Method Access:
+
+* Class Method: This method can only be accessed via the API class object. 
+	* <code>EB.Intent.stopListening()</code> 
+
+
+##Remarks
+
+
+
+###Registering Intent Receiver
+
+                    
+For an Android app to receive intent data, the Intent receiver must be registered in the app's `Config.xml` file. Please refer to the <a href="#guide-configreference?Intent">Intent section of the EB Config Reference</a> for more information. 
+                    
+                

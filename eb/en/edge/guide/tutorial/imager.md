@@ -1,7 +1,10 @@
 ﻿
-#Imager API Tutorial
 
+
+#Imager API Tutorial
 This tutorial covers the use of the Enterprise Browser Imager API for capturing images using a device's camera hardware.
+
+
 
 ##Prerequisites
 

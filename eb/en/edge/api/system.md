@@ -413,7 +413,7 @@ Synchronous Return:
 
 
 ### openUrl(<span class="text-info">STRING</span> url)
-Open the application associated with the URL. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix will execute the Web Browser installed on system and open URL in executed browser. Note: Opening pdf files on Android devices is not supported.
+Open the application associated with the URL. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix will execute the Web Browser installed on system and open URL in executed browser. Note: Opening pdf files on Android devices is not supported. In android, "sms:","mailto:","tel:","http:","https:","file:" are supported.  Hence it is recommended to use storage space or userFolder for the file uri.
                 
 
 ####Parameters
@@ -971,6 +971,7 @@ Returns true if there is a camera available on the device.
 
 * Android
 * Windows Mobile
+* Windows CE
 
 ###<span class="text-error">hasCellNetwork</span>
 
@@ -1072,7 +1073,7 @@ Returns true if the device has touch screen capabilities.  For Win32 desktop bui
 ####Type
 <span class='text-info'>STRING</span> 
 ####Description
-<span class='label label-info'>Replaces:http_proxy_url</span> Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password). To set proxy for WebKit for Windows Mobile/CE use config.xml settings.
+<span class='label label-info'>Replaces:http_proxy_url</span> Set HTTP proxy parameters for using the Network module. Example: 'user:password@url:port'. Supports basic authentication only. Do not include 'http://'. Setting this property overrides http_proxy_uri, http_proxy_host, http_proxy_port, http_proxy_user and http_proxy_password. Proxy settings for Windows Mobile/CE with Zebra WebKit should be configured in the config.xml file.
 ####Access
 
 

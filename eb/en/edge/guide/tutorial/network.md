@@ -1,4 +1,6 @@
 ﻿
+
+
 # Network API Tutorial
 
 This tutorial covers the use of the Enterprise Browser Network API to detect network connection state.
@@ -120,11 +122,11 @@ We need to add the callback function that was passed to `detectConnection()` in 
 
 Sample JavaScript: 
 
-      :::JavaScript
-      function onConnectionStatusChange(parms) {
-        var msg = (parms.connectionInformation  == "Connected")?"Accessible":"Inaccessible";
-        document.getElementById("constatus").innerHTML = msg + " (" + getDateTime() + ")";
-      }
+    :::JavaScript
+    function onConnectionStatusChange(parms) {
+      var msg = (parms.connectionInformation  == "Connected")?"Accessible":"Inaccessible";
+      document.getElementById("constatus").innerHTML = msg + " (" + getDateTime() + ")";
+    }
 
 
 
@@ -187,10 +189,10 @@ Now that the JavaScript functions have been created, we can hook them to the con
 
 Sample HTML: 
 
-      :::HTML
-      <button onClick="fnDetectConnection()">Detect Connectivity</button>
-      <input type=text  id="host" value = "www.zebra.com"><br/>
-      <button onClick="fnStopChecking()">Stop Checking</button>
+    :::HTML
+    <button onClick="fnDetectConnection()">Detect Connectivity</button>
+    <input type=text  id="host" value = "www.zebra.com"><br/>
+    <button onClick="fnStopChecking()">Stop Checking</button>
 
 
 ###STEP 8: Copy files to the device
