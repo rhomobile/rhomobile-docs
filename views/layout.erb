@@ -100,6 +100,7 @@
               <optgroup label="Previous Releases">
                 <option value=<%= Version::PREV_VERSION %> <%=@docversion == Version::PREV_VERSION ? 'SELECTED' : ''%>><%= Version::PREV_VERSION %></option>
                 <!-- Keep all previous versions hard-coded -->
+               <option value='5.1.1' <%=@docversion=='5.1.1' ? 'SELECTED' : ''%>>5.1.1</option>
                <option value='5.0.38' <%=@docversion=='5.0.38' ? 'SELECTED' : ''%>>5.0.38</option>
                <option value='5.0.30' <%=@docversion=='5.0.30' ? 'SELECTED' : ''%>>5.0.30</option>
                 <option value='5.0.25' <%=@docversion=='5.0.25' ? 'SELECTED' : ''%>>5.0.25</option>
