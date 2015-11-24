@@ -2,46 +2,48 @@
 
 <h2>Overview</h2>
 
-<p>The Printer Module provides access to find, connect, and print to Bluetooth and WiFi Network printers.</p>
+<p>The Printer API module provides access to find, connect, and print over Bluetooth, Wi-Fi and USB from Android and Windows Mobie/CE devices.</p>
 
 <h2>Enabling the API</h2>
 
-<p>There are two methods of enabling the Printing API:</p>
+<p>There are two methods of enabling the Printer API:</p>
 
 <ul>
-<li>Include all ebapi modules or</li>
+<li>Include all &lsquo;ebapi&rsquo; modules</li>
 <li>Include only the API modules you need</li>
 </ul>
 
 
-<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
+<p>Both methods are explained below.</p>
+
+<p>Either way, the included files will be from:
+<code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code>,
+a directory on the computer that contains the Enterprise Browser installation.</p>
 
 <h3>Include all JS API modules</h3>
 
-<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
+<p>To include all JavaScript APIs, copy the <code>ebapi-modules.js</code> file to a location accessible by your app&rsquo;s files and include the JavaScript modules file in your app. For instance, to include the modules file in your <code>index.html</code>, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:</p>
 
 <pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
-<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
-
-<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
+<blockquote><p>This will define the EB class within the page. <strong>Note that the path for this file is relative to the current page</strong> (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.</p></blockquote>
 
 <h3>Include only the modules you need</h3>
 
-<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the Printing API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
+<p>To include individual APIs, you must first include the <code>ebapi.js</code> in your HTML, and then the additional required API file(s). For instance, to use the Printer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.</p>
 
 <pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" charset="utf-8" src="eb.printer.js"&gt;&lt;/script&gt;
 </pre>
 
-<p>The ebapi.js file is necessary for all single API inclusions.</p>
+<blockquote><p>In the code lines above, notice that <code>ebapi.js</code> is included first, followed by <code>eb.printer.js</code>, which is the Printer API for Enterprise Browser. <strong>This coding is required on each HTML page whenever an individual API will be called from that page</strong>.</p></blockquote>
 
 <h2>Methods</h2>
 
 <h3>connect()</h3>
 
-<p>Connect to a printer using default options. Works asynchronously; use callback to check the result. If connection is successful printer state and properties are automatically updated. NB: default options are defined by printer SDK and platform and may vary between different devices.</p>
+<p><strong>Connect to a printer using default options</strong>. Works asynchronously; use callback to check the result. If connection is successful printer state and properties are automatically updated. **Note: Default options are defined by printer SDK and platform and may vary between different devices.</p>
 
 <h4>Parameters</h4>
 
@@ -90,12 +92,12 @@
 
 <h3>connectWithOptions(<span class="text-info">HASH</span> options)</h3>
 
-<p>Connect to a printer using user options. Works asynchronously; use callback to check the result. After this function call  the printer state is automatically updated.</p>
+<p><strong>Connect to a printer with user options</strong>. Works asynchronously; use callback to check the result. After this function call, the printer state is automatically updated.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>options : <span class='text-info'>HASH</span><p>Connect options. </p></li><ul><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 15000</span><p>Connection timeout in milliseconds. Must be larger than 0! Platforms:
-WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Any additional info. This is currently not being used. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>options : <span class='text-info'>HASH</span><p>Connect options. </p></li><ul><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 15000</span><p>Connection timeout in milliseconds. Must be larger than 0. Platforms:
+WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Any additional info; currently unused. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -189,7 +191,7 @@ WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>ST
 
 <h3>enumerateSupportedControlLanguages()</h3>
 
-<p>Return array with languages supported by this printer.</p>
+<p><strong>Returns an array with languages supported by this printer</strong>.</p>
 
 <h4>Parameters</h4>
 
@@ -238,7 +240,7 @@ WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>ST
 
 <h3>enumerateSupportedTypes()</h3>
 
-<p>Returns array with supported printer types immediately. The result depends on your build configuration. Each extension is linked to application during build. If you want to add or remove support of any printer type please update extension list in the build.yml.</p>
+<p><strong>Immediately returns an array with supported printer types</strong>. The result depends on your build configuration. Each extension is linked to application during build. To add or remove support for any printer type, update extension list in the <code>build.yml</code>.</p>
 
 <h4>Parameters</h4>
 
@@ -254,7 +256,7 @@ WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>ST
 <p>Synchronous Return:</p>
 
 <ul>
-<li>ARRAY : Array of currently supported printer types. Depends on build settings. May contain PRINTER_TYPE_ZEBRA, PRINTER_TYPE_EPSON, PRINTER_TYPE_APD, PRINTER_TYPE_NATIVE or any combination of them.<ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>Type of device. </p></li></ul></li>
+<li>ARRAY : Array of currently supported printer types. Depends on build settings. May contain PRINTER_TYPE_ZEBRA, PRINTER_TYPE_EPSON, PRINTER_TYPE_APD, PRINTER_TYPE_NATIVE in any combination.<ul><li><i>Object</i> : <span class='text-info'>STRING</span><p>Type of device. </p></li></ul></li>
 </ul>
 
 
@@ -373,7 +375,7 @@ WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>ST
 
 <h3>getPrinterByID(<span class="text-info">STRING</span> printerId)</h3>
 
-<p>Return printer instance specified by printerId. If there is no printers with this ID null is returned. To get valid printerId please use searchPrinters function.</p>
+<p><strong>Returns printer instance specified by printerId</strong>. Returns null is no printers contains the ID. To get valid printerId, use searchPrinters function.</p>
 
 <h4>Parameters</h4>
 
@@ -514,11 +516,11 @@ WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>ST
 
 <h3>printFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">HASH</span> options)</h3>
 
-<p>Prints file. Works asynchronously; use callback to check the result. File extension is used to determine its type. Supported image types: JPEG and PNG.</p>
+<p><strong>Prints file</strong>. Works asynchronously; use callback to check the result. File extension is used to determine its type. Supported image types: JPEG and PNG.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>filePathOnDevice : <span class='text-info'>STRING</span><p>Full path to local image file on the device. </p></li><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p> Not providing properties to this function will print with default settings. Reserved for future use.</p></li><ul><li>propertyWithStringValue : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li><li>propertyWithIntValue : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>filePathOnDevice : <span class='text-info'>STRING</span><p>Full path to local image file on the device. </p></li><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p> Providing no properties to this function will print with default settings. Reserved for future use.</p></li><ul><li>propertyWithStringValue : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li><li>propertyWithIntValue : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>Currently unused. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -563,7 +565,7 @@ WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>ST
 
 <h3>printImageFromFile(<span class="text-info">STRING</span> filePathOnDevice, <span class="text-info">INTEGER</span> x, <span class="text-info">INTEGER</span> y, <span class="text-info">HASH</span> options)</h3>
 
-<p>Prints an image from mobile digital device&rsquo;s file system to the connected printer as a monochrome image. Works asynchronously; use callback to check the result. Note that if the image resolution is large (e.g. 1024x768) this method may take a long time to execute. It is not guaranteed that files larger than 1024x1024 could be printed correctly.</p>
+<p><strong>Prints an image from a device&rsquo;s file system to the connected printer as a monochrome image</strong>. Works asynchronously; use callback to check the result. Images larger than 1024x768 might take a long time or print incorrectly. Consult printer documentation for image printing parameters.</p>
 
 <h4>Parameters</h4>
 
@@ -612,11 +614,11 @@ WM, CE, Android </p></li><li>additionalStringOption : <span class='text-info'>ST
 
 <h3>printRawString(<span class="text-info">STRING</span> command, <span class="text-info">HASH</span> options)</h3>
 
-<p>Send raw string to printer. Works asynchronously, use callback to check the result. NOTE that on Windows Mobile/CE using Zebra printers, this will not print ZPL commands, but just line mode (or raw text).</p>
+<p><strong>Send raw string to printer</strong>. Works asynchronously, use callback to check the result. **Note: This method will not print ZPL commands from Windows Mobile/CE devices to Zebra printers; compatible with line mode or raw text only.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>command : <span class='text-info'>STRING</span><p>Raw string to print. Could be any valid command in printer supported programming language. </p></li><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p> Not providing properties to this function will print with default settings.</p></li><ul><li>propertyWithStringValue : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li><li>propertyWithIntValue : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>command : <span class='text-info'>STRING</span><p>Raw string to print. Could be any valid command in printer supported programming language. </p></li><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p> Providing no properties to this function will print with default settings.</p></li><ul><li>propertyWithStringValue : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li><li>propertyWithIntValue : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>Currently unused. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
@@ -663,15 +665,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h3>requestState(<span class="text-info">ARRAY</span> listOfParameters)</h3>
 
-<p>Requests printer state with a list of parameters.</p>
-
-<ul>
-<li>Works asynchronously and uses the callback to check the result.</li>
-<li>Returns hash with status, and parameters as keys.</li>
-</ul>
-
-
-<p>NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a bluetooth connection.</p>
+<p><strong>Requests printer state with a list of parameters</strong>. Works asynchronously and uses the callback to check the result. Returns hash with status and parameters as keys. **NOTE: On the Windows Mobile / Windows CE platform, this method does not work in the case of a Bluetooth and USB connection.</p>
 
 <h4>Parameters</h4>
 
@@ -680,7 +674,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. </p></li><li>message : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Error message, only if status = ERROR. </p></li><li>propertyWithIntValue : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>This is currently not being used. </p></li></ul></ul></p>
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR. </p></li><li>message : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Error message, only if status = ERROR. </p></li><li>propertyWithIntValue : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><p>Currently unused. </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
@@ -720,22 +714,22 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h3>searchPrinters(<span class="text-info">HASH</span> options)</h3>
 
-<p>Search printers connected to the device, available Bluetooth&reg;, or Network printers. It is highly recommended to search for a particular Bluetooth&reg; address or IP address for Network connections. Also this method could be used to get printerID for known network / bluetooth printer, in this case you should specify deviceAddress parameter in options. Result is returned asynchronously using callback. The callback is called for each discovered printer. Search is finished if printerID is not set in callback hash. Note that discovery is not guaranteed to return all the available devices. Please run this method at least 2-3 times to get result with good accuracy.</p>
+<p><strong>Searches for printers connected to the device via Bluetooth&reg;, Wi-Fi or USB</strong>. To reduce search times, it is highly recommended that searches for wireless connections be done by specific MAC address (Bluetooth) or IP address (Wi-Fi). This method also can be used to retrieve the printerID for a known Bluetooth or network printer specifying the <code>deviceAddress</code> options parameter. Result is returned asynchronously using a callback called for each discovered printer. Search is finished if printerID is not set in callback hash. Note that discovery is not guaranteed to return all the available devices. It is therefore recommended that this method run 2-3 times for maximum accuracy.</p>
 
-<p>NOTE: on Android platform due to HW specific, when you call searchPrinters() for Bluetooth or for TCP and Bluetooth both, Application can freeze for few seconds &ndash; if user touch screen Android system can show Alert about &ldquo;application not responded&rdquo; &ndash; user should select [continue waiting] button.</p>
+<p><strong>Note</strong>: On certain Android devices, calling searchPrinters() over Bluetooth or TCP can cause the application to freeze momentarily or to display an alert that &ldquo;The application has stopped responding.&rdquo; In such cases, it is recommended that the user tap the &ldquo;Continue waiting&rdquo; button.</p>
 
 <h4>Parameters</h4>
 
-<ul><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Options for discover. </p></li><ul><li>printerType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: PRINTER_TYPE_ANY</span><p>Printer types to search. Make sure that Printer type is supported by calling enumerateSupportedTypes method. </p></li><li>connectionType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: CONNECTION_TYPE_ANY</span><p>Interfaces for search (Bluetooth/TCP/All). </p></li><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 30000</span><p>Maximum search interval in milliseconds, applies to network discovery. This is the maximum interval for wait during connection attempt. Note that if no printer was found, even with timeout property, status will be set to PRINTER_STATUS_SUCCESS, but without any printerId. </p></li><li>deviceAddress : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Printer address (mac, device serial or ip) can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search.  </p></li><li>devicePort : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 6101</span><p>Override default printer port number. Applicable for network discovery only. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+<ul><li>options : <span class='text-info'>HASH</span> <span class='label label-info'>Optional</span><p>Options for discover. </p></li><ul><li>printerType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: PRINTER_TYPE_ANY</span><p>**Printer types to search**. Make sure that Printer type is supported by calling enumerateSupportedTypes method. </p></li><li>connectionType : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><span class='label '> Default: CONNECTION_TYPE_ANY</span><p>Interfaces for search (Bluetooth/TCP/All). </p></li><li>timeout : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 30000</span><p>**Maximum search interval in milliseconds, applies to network discovery**. This is the maximum interval for wait during connection attempt. Note that if no printer was found, even with timeout property, status will be set to PRINTER_STATUS_SUCCESS, but without any printerId. </p></li><li>deviceAddress : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>**Printer address (MAC, device serial number or IP address)** can be used for setting either subnet mask or full address of printer. For TCP if address is not specified /8 subnet will be used for search.  </p></li><li>devicePort : <span class='text-info'>INTEGER</span> <span class='label label-info'>Optional</span><span class='label '> Default: 6101</span><p>Override default printer port number. Applicable for network discovery only. </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 
 <h4>Callback</h4>
 
-<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p>Status of network discovery, can be following:
+<p>Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>status : <span class='text-info'>STRING</span><p><strong>Status of network discovery</strong>, can be the following:
 * PRINTER_STATUS_SUCCESS &ndash; when printer is discovered or operation is finished;
 * PRINTER_STATUS_ERROR &ndash; general error
 * PRINTER_STATUS_ERR_UNSUPPORTED &ndash; in case if printer type is not supported
-* PRINTER_STATUS_ERR_NOT_CONNECTED &ndash; in case if deviceAddress was specified in options and device was unable to connect to printer. </p></li><li>printerID : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Printer ID, valid only if status equals to &lsquo;PRINTER_STATUS_SUCCESS&rsquo;. If there are no more printers available printerID will not be defined. </p></li><li>message : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Error message, only if status = ERROR. </p></li></ul></ul></p>
+* PRINTER_STATUS_ERR_NOT_CONNECTED &ndash; in case if deviceAddress was specified in options and device was unable to connect to printer. </p></li><li>printerID : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p><strong>Printer ID, valid only if status equals = &lsquo;PRINTER_STATUS_SUCCESS&rsquo;. If no more printers are available, printerID will be undefined. </p></li><li>message : <span class='text-info'>STRING</span> <span class='label label-info'>Optional</span><p>Error message if status = ERROR</strong>. </p></li></ul></ul></p>
 
 <h4>Returns</h4>
 
@@ -898,7 +892,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h3>stopSearch()</h3>
 
-<p>Stop all active and pending search requests. Function does not return any results. All running search requests are canceled immediately.</p>
+<p><strong>Immediately stops all active search requests and cancels pending search requests</strong>. Does not return a result.</p>
 
 <h4>Parameters</h4>
 
@@ -1007,7 +1001,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Description</h4>
 
-<p>IP address for TCP (wireless) connection. Bluetooth&reg; mac or device serial number. If you need to get device mac you can use CPCL command ! U1 getvar &ldquo;bluetooth.address&rdquo;</p>
+<p>IP address for Wi-Fi connection, Bluetooth&reg; MAC or device serial number. To get a device MAC, use CPCL command ! U1 getvar &ldquo;bluetooth.address&rdquo;</p>
 
 <h4>Access</h4>
 
@@ -1071,7 +1065,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Description</h4>
 
-<p>Default port when connecting using TCP/IP.</p>
+<p>Default port when connecting with TCP/IP.</p>
 
 <h4>Access</h4>
 
@@ -1103,7 +1097,7 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 
 <h4>Description</h4>
 
-<p>Connection status flag. All other properties are valid only if isConnect equals to true. Please keep in mind: this property do not guarantee real connection, because all real device functionality processed in separated thread asynchronously. If you want to real physical connection &ndash; use requestState() method with receive result in the callback. Only this way process real request to device and analyze answer from device.</p>
+<p><strong>Connection status flag</strong>. All other properties are valid only if isConnect = true. Note: This property does not guarantee a real connection, because all real device functionality is processed in separate thread asynchronously. If you want a real physical connection, use <code>requestState()</code> method with receive result in the callback. This is the only guaranteed method of processing real requests to the device and analyzing answers from the device.</p>
 
 <h4>Access</h4>
 
@@ -1162,17 +1156,17 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 <h2>Constants</h2>
 
 <ul>
-<li>PRINTER_LANGUAGE_ZPLPrinter control language ZPL.</li>
-<li>PRINTER_LANGUAGE_CPCLPrinter control language CPCL.</li>
-<li>PRINTER_LANGUAGE_EPSPrinter control language EPS. Not Supported in 4.1</li>
+<li>PRINTER_LANGUAGE_ZPL Printer control language ZPL</li>
+<li>PRINTER_LANGUAGE_CPCL Printer control language CPCL</li>
+<li>PRINTER_LANGUAGE_EPS Printer control language EPS. Not Supported in RMS 4.1</li>
 <li>PRINTER_TYPE_ANY</li>
-<li>PRINTER_TYPE_NATIVENot supported in 4.1</li>
+<li>PRINTER_TYPE_NATIVE Not supported in RMS 4.1</li>
 <li>PRINTER_TYPE_ZEBRA</li>
-<li>PRINTER_TYPE_EPSONNot supported in 4.1</li>
-<li>PRINTER_TYPE_APDNot supported in 4.1</li>
+<li>PRINTER_TYPE_EPSON Not supported in RMS 4.1</li>
+<li>PRINTER_TYPE_APD Not supported in RMS 4.1</li>
 <li>CONNECTION_TYPE_ANY</li>
-<li>CONNECTION_TYPE_ON_BOARDNot supported in 4.1</li>
-<li>CONNECTION_TYPE_USBsupported in 5.1</li>
+<li>CONNECTION_TYPE_ON_BOARD Not supported in RMS 4.1</li>
+<li>CONNECTION_TYPE_USB Supported in RMS 5.1, EB 1.3</li>
 <li>CONNECTION_TYPE_BLUETOOTH</li>
 <li>CONNECTION_TYPE_TCP</li>
 <li>PRINTER_STATUS_SUCCESS</li>
@@ -1187,11 +1181,11 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 <li>PRINTER_STATUS_ERR_RESPONSE</li>
 <li>PRINTER_STATUS_ERR_TIMEOUT</li>
 <li>PRINTER_STATUS_ERR_UNSUPPORTED</li>
-<li>PRINTER_STATE_IS_READY_TO_PRINTUse this name for requestState(), return true if printer ready to print.</li>
-<li>PRINTER_STATE_IS_COVER_OPENEDUse this name for requestState(), return true if cover is opened.</li>
-<li>PRINTER_STATE_IS_DRAWER_OPENEDUse this name for requestState(), return true if drawer is opened.</li>
-<li>PRINTER_STATE_IS_PAPER_OUTUse this name for requestState(), return true if paper out.</li>
-<li>PRINTER_STATE_IS_BATTERY_LOWUse this name for requestState(), return true if battery low.</li>
+<li>PRINTER_STATE_IS_READY_TO_PRINT Use this name for requestState(), return true if printer ready to print.</li>
+<li>PRINTER_STATE_IS_COVER_OPENED Use this name for requestState(), return true if cover is opened.</li>
+<li>PRINTER_STATE_IS_DRAWER_OPENED Use this name for requestState(), return true if drawer is opened.</li>
+<li>PRINTER_STATE_IS_PAPER_OUT Use this name for requestState(), return true if paper out.</li>
+<li>PRINTER_STATE_IS_BATTERY_LOW Use this name for requestState(), return true if battery low.</li>
 </ul>
 
 
@@ -1200,14 +1194,15 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
 <h3>Android Notes</h3>
 
 <ul>
-<li>When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then <em>all</em> Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we can not detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.</li>
+<li><p>When calling searchPrinters() with Bluetooth search (CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH), all local Bluetooth devices&mdash;including non-printers&mdash;will be discovered and send pairing requests. Just cancel or ignore them. This happens because the software cannot detect non-printers until after the device is paired. It is recommended that the BT or Wi-Fi MAC address also be used when searching for printers.</p></li>
+<li><p>When calling searchPrinters() with USB search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB), all USB Printers connected to the device will be discovered. If USB printers are not supported by SDK or device, searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED.</p></li>
 </ul>
 
 
 <h3>Windows Mobile/CE Notes</h3>
 
 <ul>
-<li>Requires a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a></li>
+<li><p>Requires a Printing Service application to be running. This is described in the <a href="../guide/printing#platform-notes">Printing Guide</a>.</p></li>
 <li><p>You should avoid navigating from the current page using the printer without disconnecting from the printer first. You can use the window.onunload event:</p>
 
 <pre><code>  :::javascript
@@ -1215,7 +1210,9 @@ Android </p></li><ul><li><i>Object</i> : <span class='text-info'>INTEGER</span><
       printer.disconnect();
   }
 </pre></li>
-<li><p>When you call searchPrinters() with Bluetooth search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH) then <strong>all</strong> Bluetooth devices around you will be discovered. You may see a lot of pairing requests to non-printer devices and should just cancel or ignore them. This happens because we cannot detect that the device is a printer until the device is paired. It is recommended that the BT Address or WiFi MAC Address is also used when searching for printers.</p></li>
-<li>When you call searchPrinters() with Usb search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB) then you should configure your device USB controller as &ldquo;USB Host mode&rdquo; and should reboot device after the configuration. USB connection is not supported on QLn320 printer.searchPrinters should not return any non-printer devices,If USB printers are not supported by SDK or device searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED; (for example executing searchPrinters on Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED);</li>
+<li><p>When calling searchPrinters() with Bluetooth search (CONNECTION_TYPE_ANY or CONNECTION_TYPE_BLUETOOTH), all local Bluetooth devices&mdash;including non-printers&mdash;will be discovered and send pairing requests. Just cancel or ignore them. This happens because the software cannot detect non-printers until after the device is paired. It is recommended that the BT or Wi-Fi MAC address also be used when searching for printers.</p></li>
+<li><p>Before calling searchPrinters() with USB search (CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB), you should configure the device&rsquo;s USB controller for &ldquo;USB Host mode&rdquo; and reboot.</p></li>
+<li><p>When calling searchPrinters() with USB search (with CONNECTION_TYPE_ANY or CONNECTION_TYPE_USB), all USB Printers connected to the device will be discovered. If USB printers are not supported by SDK or device, searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED.</p></li>
+<li><p>USB connection is not supported on QLn320; <code>printer.searchPrinters</code> should return no non-printer devices. If USB printers are not supported by SDK or device, searchPrinters function should return PRINTER_STATUS_ERR_UNSUPPORTED; For example, executing searchPrinters on Android device with connectionType set to CONNECTION_TYPE_USB should return PRINTER_STATUS_ERR_UNSUPPORTED.</p></li>
 </ul>
 

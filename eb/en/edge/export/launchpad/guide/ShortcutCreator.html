@@ -1,0 +1,230 @@
+<div class='tableofcontents'> </div><h1>Enterprise Browser Shortcut Utility for Windows</h1>
+
+<h2>Shortcut Utility</h2>
+
+<p>Shortcut Utility is a Windows tool that quickly creates shortcuts for Enterprise Browser apps for Android and Windows Mobile/CE and can deploy them directly to devices. From a single screen, the tool can create and deploy multiple shortcuts, each with a unique name, startpage URL and Config.xml file, if desired. For Android, each shortcut also can have a unique icon. Shortcuts for different platforms can be created at one time and easily deployed en masse to their respective platforms using a Mobile Device Management (MDM) system.</p>
+
+<p>Shortcut Utility is included with Zebra Enterprise Browser 1.3.</p>
+
+<blockquote><p><strong>IMPORTANT: This tool relies on settings in the Config.xml</strong>, a device-resident file that controls all runtime settings for Enterprise Browser. For help editing Config.xml files, please refer to the <a href="https://developer.motorolasolutions.com/docs/DOC-3666">Config Editor utility guide</a> and the <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml Reference</a>.</p></blockquote>
+
+<h3>QUICK STEPS</h3>
+
+<ol>
+<li>Use these instructions only after <a href="../guide-setup">installing Enterprise Browser</a> (version 1.3 is required).</li>
+<li>Open Shortcut Utility and <strong>select a platform</strong> (Android or Windows Mobile/CE).</li>
+<li><strong>Select Default or Custom</strong> Config.xml (if Custom, navigate to the file).</li>
+<li><strong>Enter a name</strong> for the shortcut.</li>
+<li><strong>Specify a start page</strong> (fully qualified path or URL).</li>
+<li><strong>Select an icon</strong> for your shortcut (Android only).</li>
+<li>Click <strong>Add to List</strong> to store settings and create another, if desired.</li>
+<li>Click <strong>Save Shortcut</strong> to save all shortcut settings for later retrieval.</li>
+<li>Click <strong>Push to Device</strong> to deploy (via ADB or ActiveSync).</li>
+<li><strong>Launch Enterprise Browser</strong> to create shortcut(s) on device.&#42;</li>
+</ol>
+
+
+<p>&#42; <em>Shortcut creation behavior is determined by the <strong>&lt;shortcut&gt; tag</strong> in the Config.xml file on the target device. This tag must be configured prior to shortcut deployment</em>.</p>
+
+<h2>Prerequisites</h2>
+
+<ul>
+<li><strong>Windows development host</strong></li>
+<li><strong>Zebra Enterprise Browser 1.3</strong></li>
+<li><strong>USB driver for targeting Zebra devices</strong></li>
+<li><strong>Android Debug Bridge (if targeting Android devices)</strong></li>
+<li><strong>Microsoft ActiveSync (if targeting Windows Mobile/CE devices)</strong></li>
+</ul>
+
+
+<p>EB Shortcut Utility is included with Zebra Enterprise Browser 1.3. If you don&rsquo;t already have EB 1.3, please <a href="https://developer.motorolasolutions.com/docs/DOC-2576">install Enterprise Browser</a>, then resume from here.</p>
+
+<h2>Using Shortcut Utility</h2>
+
+<ul>
+<li><strong>Launch the &ldquo;Shortcuts Utility&rdquo;</strong> from the Enterprise Browser folder of the Windows Start Menu, as below.</li>
+</ul>
+
+
+<p>!</p>
+
+<p>A Shortcut Utility window will appear, similar to the one below.</p>
+
+<p>!</p>
+
+<h3>Create shortcut(s)</h3>
+
+<ol>
+<li><strong>Select the platform</strong> (Android or Windows Mobile/CE) to be targeted by the shortcut.</li>
+<li><strong>Select Default or Custom</strong> for the Config.xml to be used with the shortcut (selecting Custom will cause the Startpage field to change to a navigation box).</li>
+<li><strong>Enter a name</strong> for the shortcut.</li>
+<li><strong>Specify a start page</strong>. Must be a fully qualified local path using <code>file://</code> or URL using <code>http://</code>. (<strong>If &lsquo;Custom&rsquo; was chosen in step 3, navigate to the Config.XML file to be used</strong>).</li>
+<li><strong>Select an icon</strong> for your shortcut (Android only). If left blank, the default Enterprise Browser shortcut icon will be used.</li>
+<li>Click <strong>Add to List</strong> to store settings in the list at right.</li>
+</ol>
+
+
+<p>After creating your first shortcut and adding it to the list, your screen should look something like this:</p>
+
+<p>!</p>
+
+<p>&#55;. <strong>Repeat Steps 1-6</strong> until all the desired shortcuts are created and added to the list.</p>
+
+<p>&#56;. <strong>Click Save Shortcut</strong> button to save all shortcut settings to the development host for later retrieval and/or mass deployment.</p>
+
+<p>Shortcut data is stored in a file called <code>EBShortcuts.xml</code> in the path:</p>
+
+<p><code>C:\EnterpriseBrowserShortcutFiles\EnterpriseBrowserShortcutFiles\EBShortcuts.xml</code></p>
+
+<p>In the same location are custom folders named for each shortcut created, with that shortcut&rsquo;s Config.xml inside. For more information, see the Mass Deployment section, below.</p>
+
+<h3>Deployment (to single device)</h3>
+
+<ol>
+<li>After desired shortcuts have been created (using steps 1-8 above), <strong>click Push to Device</strong>. A screen similar the one below will appear.</li>
+<li><strong>Select the desired platform and click Deploy Shortcuts</strong> to deploy through ADB (Android via USB) or ActiveSync (WM/CE via USB or Bluetooth). Shortcut(s) will be pushed to the device.</li>
+<li><strong>Launch Enterprise Browser</strong> to create shortcut(s) on the device.</li>
+</ol>
+
+
+<p>!</p>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+<li><strong>Shortcut(s) appear on the device <em>after</em> Enterprise Browser is launched following deployment</strong>.</li>
+<li><strong>Shortcuts are created <em>only</em> if the &lt;ShortcutCreationEnabled&gt; tag value = 1 or 2</strong>. See <a href="https://developer.motorolasolutions.com/docs/DOC-3667#Troubleshooting">Troubleshooting section</a>.</li>
+<li><strong>Shortcuts are placed in the Home Screen on Android and in the Main Screen of WM/CE</strong>.</li>
+</ul>
+
+
+<h3>Mass Deployment (via MDM)</h3>
+
+<p>Shortcuts can be packaged with an Enterprise Browser app (.apk or .cab) and the corresponding Config.xml file and easily deployed across an enterprise using a mobile device management (MDM) system.</p>
+
+<p><strong>IMPORTANT</strong>:</p>
+
+<ul>
+<li><strong>Shortcut creation requires Enterprise Browser 1.3 (the latest) on the deployment PC and the device(s)</strong>. The vast majority of installations will therefore require an upgrade.</li>
+<li><strong>Upgrading overwrites the Config.xml on target device(s)</strong>. Previous runtime settings should be replicated in the new Config.xml before deployment.</li>
+<li><strong>Shortcut creation behavior is controlled by settings in the Config.xml</strong>. Be sure to read, understand and configure shortcut settings before deployment.</li>
+<li><strong>Shortcut(s) must be deployed to an individual device before they can be deployed via MDM</strong>. The instructions below cover this scenario.</li>
+</ul>
+
+
+<p><strong>To prepare an Enterprise Browser app for MDM deployment</strong>:</p>
+
+<p>&#49;. <strong>Deploy an app for Android (.apk) or Windows Mobile/CE (.cab)</strong> using the <a href="https://developer.motorolasolutions.com/docs/DOC-2576">standard device deployment procedures</a>.</p>
+
+<p>&#50;. <strong>Copy the <code>Config.xml</code> file from the device to the host PC</strong> and open it in a text editor. <strong>Its location varies by platform</strong>:</p>
+
+<p><strong>Android</strong>: <code>&lt;internal storage&gt;/Android/data/com.symbol.enterprisebrowser/</code></p>
+
+<p><strong>WM/CE</strong>: <code>&lt;internal storage&gt;\Program Files\EnterpriseBrowser\Config\</code></p>
+
+<p>&#51;. <strong>Set the &lt;ShortcutCreationEnabled&gt; value to either 1 or 2</strong>. For behavior of these options, refer to the <a href="https://developer.motorolasolutions.com/docs/DOC-3667#Troubleshooting">Troubleshooting section</a> (below) or the <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml reference</a>.</p>
+
+<p>&#52;. <strong>Push the <code>Config.xml</code> file to its original location on the device</strong>, replacing the original.</p>
+
+<p>&#53;. If not done earlier, <strong>create the desired shortcut(s) (using steps 1-8 above)</strong>. Shortcut data is stored on the PC in a file called <code>EBShortcuts.xml</code> in the following path:</p>
+
+<p><code>C:\EnterpriseBrowserShortcutFiles\EnterpriseBrowserShortcutFiles\EBShortcuts.xml</code></p>
+
+<p>In the same location are custom folders named for each shortcut created, with that shortcut&rsquo;s Config.xml inside:</p>
+
+<p>!</p>
+
+<p>&#54;. To deploy shortcuts <em><strong>and</strong></em> the Enterprise Browser app using an MDM system, <strong>components <u>MUST</u> be deployed by the MDM in the following order</strong>:</p>
+
+<h4>MDM Deployment Order</h4>
+
+<p>a. <strong>Deploy the desired .apk or .cab file to the device</strong>.</p>
+
+<p>b. <strong>Unpackage the .apk or .cab file on the device</strong>. This will generate the Enteprise Browser directory structure on the device and create a default Config.xml file.</p>
+
+<p>c. <strong>Deploy Config.xml modified in step 3 <u>to its original location (as below) on the target device</u></strong> (replacing the default Config.xml file generated in step b).</p>
+
+<p><strong>Location of Config.xml file</strong>:</p>
+
+<ul>
+<li><strong>Android</strong>: <code>&lt;internal storage&gt;/Android/data/com.symbol.enterprisebrowser/</code></li>
+<li><strong>WM/CE</strong> <code>&lt;internal storage&gt;\Program Files\EnterpriseBrowser\Config\</code></li>
+</ul>
+
+
+<p><strong><u>DO NOT deploy to removeable storage</u></strong>.</p>
+
+<p>d. <strong>Copy directory structure (in the red box) to the target device</strong>:</p>
+
+<ul>
+<li><p><strong>Android</strong>: <code>&lt;internal storage&gt;/EnterpriseBrowserShortcutFiles/</code></p></li>
+<li><p><strong>WM/CE</strong>: <code>&lt;internal storage&gt;\Application\EnterpriseBrowserShortcutFiles\</code></p></li>
+</ul>
+
+
+<p><strong><u>DO NOT deploy to removeable storage</u></strong>.</p>
+
+<p>e. <strong>Launch Enterprise Browser on the device to create shortcut(s)</strong>.</p>
+
+<p>Shortcut icons will be visible to the user in the device&rsquo;s main application area or menu. From a system perspective, shortcut files are stored this way:</p>
+
+<p><strong>Android</strong>: shortcut files are not exposed to the end-user.</p>
+
+<p><strong>Windows Mobile</strong>: <code>.lnk</code> files are deployed in the <code>\​Windows\StartMenu\Programs</code> directory and named after the shortcut.</p>
+
+<p><strong>Windows CE</strong>: <code>.lnk</code> files are deployed in <code>\​Windows\Programs</code> and <code>\​Windows\Desktop</code> directories  and named after the shortcut.</p>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+<li><strong>File structure must be replicated exactly</strong> for proper shortcut operation.</li>
+<li><strong>Shortcut files for all platforms (Android, WM, CE) are copied to the device</strong>.</li>
+<li><strong>When created on the device, shortcuts for other platforms are ignored</strong>.</li>
+<li>Automatically generated shortcut <strong>files and folders must not be modified by hand</strong>.</li>
+<li><strong>Customizing shortcut data files manually could result in unknown failures</strong>.</li>
+<li><strong>To change shortcut settings, use the Shortcut Utility</strong> and redeploy.</li>
+<li>Existing <strong>shortcuts on target device(s) will be overwritten</strong> when redeployed.</li>
+</ul>
+
+
+<h2>Troubleshooting</h2>
+
+<p>Shortcut Utility communicates with Android devices via ADB (USB only) and with Windows Mobile/CE devices through Mobile Device Center (or ActiveSync on WinXP) over USB or Bluetooth. If you&rsquo;re seeing a message like the one below or having other communication-related issues, please <strong>refer to the Connections section of the <a href="../guide-setup?Connections">Enterprise Browser installation guide</a></strong>.</p>
+
+<p>!</p>
+
+<h3>Config.xml</h3>
+
+<p>If shortcuts are being deployed to the device but not showing up, <strong>check the Config.xml to ensure that the &lt;ShortcutCreationEnabled&gt; tag has a value or 1 or 2</strong>.</p>
+
+<pre name="code" class="xml">&lt;shortcut&gt;
+    &lt;ShortcutCreationEnabled value = "1"/&gt;
+&lt;/shortcut&gt;
+</pre>
+
+<p>On-device shortcut creation is determined by this setting, and behavior thereafter depends which value is selected. Available options:</p>
+
+<ul>
+<li><strong>0= create no shortcuts (default)</strong></li>
+<li>1= check for and create new shortcuts at every launch</li>
+<li>2= check for and create new shortcuts only at initial launch</li>
+</ul>
+
+
+<!-- &#55;. Shortcuts will be created on the device the next time Enteprise Browser is launched following deployment. **Optionally, launch Enterprise Browser from the MDM using one of the following commands**: 
+
+Android: 
+
+        :::term
+        adb shell am start com.symbol.enterprisebrowser
+
+Windows Mobile/CE: 
+
+        :::term
+        ( --->
+
+
+<pre><code>o to come &lt;--- ) 
+</pre>
+
+<p>&mdash;></p>

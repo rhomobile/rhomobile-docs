@@ -5,11 +5,15 @@
 
 <h2>Windows Mobile/CE</h2>
 
-<p>You can setup Windows Mobile shortcut files to launch the Enterprise Browser runtime with different startup options that will override the default settings. You set these parameters in a shortcut (.lnk) file for Windows Mobile/CE; you must create this shortcut file. You can use a text editor such as Notepad on Windows CE, or use the File menu in Platform Builder (New Project or File, Text File type). Edit the file for command line parameters and save it to \Windows\Start Menu (Windows Mobile) and \Windows\Programs (Windows CE). This will put the shortcut at the top level in your Start Menu.</p>
+<p>You can set up Windows Mobile shortcut files to launch the Enterprise Browser runtime with different startup options that will override the default settings. You set these parameters in a shortcut (.lnk) file for Windows Mobile/CE; you must create this shortcut file. You can use a text editor such as Notepad on Windows CE, or use the File menu in Platform Builder (New Project or File, Text File type). Edit the file for command line parameters and save it to \Windows\Start Menu (Windows Mobile) and \Windows\Programs (Windows CE). This will put the shortcut at the top level in your Start Menu.</p>
 
-<p>The Enterprise Browser installation path on Windows CE/Mobile devices is <code>\Program Files\Enterprise Browser</code> and the path to the executable is <code>\Program Files\Enterprise Browser\EnterpriseBrowser.exe</code>.</p>
+<p>The Enterprise Browser installation path on Windows Mobile/CE devices:<br>
+<code>\Program Files\Enterprise Browser</code><br></p>
 
-<p>The shortcut file supports the following command line parameters.</p>
+<p>The path to the executable:<br>
+<code>\Program Files\Enterprise Browser\EnterpriseBrowser.exe</code><br></p>
+
+<p>The shortcut file supports the following command line parameters:</p>
 
 <p><code>/C:</code> specifies the location of the configuration file for the Enterprise Browser application. This will override all default configuration settings. If the full file name contains spaces, surround URL with single or double quotes, e.g.:</p>
 
@@ -28,7 +32,7 @@
 
 <p>If neither the <code>/S</code> nor <code>/C</code> parameters are specified in the shortcut file, then the default values for the location of the configuration file and the start page of the Enterprise Browser application will be used.</p>
 
-<blockquote><p>Note: URLs that contain query string parameters (?name=value) can not be used within a shortcut on Windows Mobile / CE. This is a limitation on Windows Mobile/CE for creating shortcuts.</p></blockquote>
+<blockquote><p>Note: URLs that contain query string parameters (?name=value) cannot be used within a shortcut on Windows Mobile/CE. This is a limitation on Windows Mobile/CE for creating shortcuts.</p></blockquote>
 
 <p>The format in the .lnk file is:</p>
 
@@ -52,4 +56,4 @@
 <pre name="code" class="bash">66#\Program Files\Enterprise Browser\EnterpriseBrowser.exe /S:file://\helloscan.html
 </pre>
 
-<blockquote><p>Note: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application the runtime simply changes the starting URL.</p></blockquote>
+<blockquote><p>Note: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application, the runtime simply changes the starting URL.</p></blockquote>

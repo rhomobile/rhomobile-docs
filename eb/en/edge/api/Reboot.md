@@ -22,7 +22,7 @@ This API does not use the `EB` namespace. It is simply referenced using the API 
 ####Type
 <span class='text-info'>STRING</span>
 ####Description
-Reboots the terminal using either a Warm or Cold software boot (as specified). Note on CE6 devices a 'ColdCAD' boot is required to replicate the Coldboot key sequence, e.g. 1+9+Power on an MC3000.
+Reboots the device using either a Warm or Cold software boot (as specified). Note on CE6 devices a 'ColdCAD' boot is required to replicate the Coldboot key sequence, e.g. 1+9+Power on an MC3000. **Not all Windows Mobile/CE devices support Cold or ColdCAD features. If a cold boot is attempted on such devices, a warm boot will be performed instead**.
 
 ####Possible Values
 
@@ -40,5 +40,5 @@ Reboots the terminal using either a Warm or Cold software boot (as specified). N
 The Reboot tag can be used to apply new settings after downloading files (eg. .REG) or applications from a server.
 
 ###Windows Mobile
-Note that in WM5.0 and up there is no software difference between a warm and a cold boot as the device uses persistent storage; both the file and registry will remain the same after boot.
+In WM 5.0 and higher, there is no software difference between a warm and a cold boot as the device uses persistent storage; both the file and registry will remain the same after boot.
 

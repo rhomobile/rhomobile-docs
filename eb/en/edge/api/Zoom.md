@@ -37,7 +37,7 @@ Sets the font size to be displayed on the page, set to 0 for the smallest font a
 ####Type
 <span class='text-info'>FLOAT</span> 
 ####Description
-Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. In android,zoom will take effect after page refresh or page transition.
+**Applies to Android with stock webkit and WM/CE with Zebra Webkit**. Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. On Android, zoom will take effect after a page refresh or page transition. **Not supported on WM/CE with IE engine**. 
 
 #### Possible Value
 
@@ -45,5 +45,6 @@ Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 ar
 
 ####Platforms
 
+* Android
 * Windows Mobile/CE
 

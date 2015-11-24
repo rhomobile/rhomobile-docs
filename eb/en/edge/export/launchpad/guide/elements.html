@@ -1,6 +1,6 @@
 <div class='tableofcontents'> </div><h1>RhoElements 2.x Migration Guide</h1>
 
-<p>This guide is meant to assist in migration from RhoElements 2.x to the Enterprise Browser. For online documentation specific to RhoElements 2.x, please see the <a href="http://docs.rhomobile.com/en/2.2.0">online RE 2.x docs</a>.</p>
+<p>This guide is meant to assist in migration from RhoElements 2.x to the Enterprise Browser. For online documentation specific to RhoElements 2.x, please see the .</p>
 
 <h2>Overview</h2>
 
@@ -11,7 +11,7 @@
 <p>You will need to replace the version of the Config.xml with the version of Config.xml that comes with Enterprise Browser. Be sure to make the necessary changes to this file to point to your application and customize any other options that you had in PocketBrowser and RhoElements. Consult the <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Configuration Reference</a> for more information.</p>
 
 <ol>
-<li><p>Set the <a href="../guide/configreference?StartPage">StartPage</a>.</p>
+<li><p>Set the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#StartPage">StartPage</a>.</p>
 
 <pre name="code" class="xml"> &lt;Configuration&gt;
      &lt;Applications&gt;
@@ -68,8 +68,8 @@ generic.InvokeMETAFunction('SignatureCapture', 'Visibility:Visible');
 <ul>
 <li>Generic methods RasConnect &amp; RasDisconnect are not supported.</li>
 <li>NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser. To disable the SIP, see the <a href="../api-Sip?Disabling%20the%20SIP">disabling the SIP</a> section in the SIP API reference.</li>
-<li><a href="../guide/configreference?FitToScreenEnabled">FitToScreenEnabled</a> not supported. This is a function for Windows Mobile only.</li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2571#FitToScreenEnabled">FitToScreenEnabled</a> not supported. This is a function for Windows Mobile only.</li>
 <li>EMML profiles do not work.</li>
-<li>Check the device for hardware compatibility, especially the <a href="http://docs.rhomobile.com/en/2.2.0/rhoelements/scanner">barcode scanning</a> options.</li>
+<li>Check the device for hardware compatibility, especially the  options.</li>
 </ul>
 

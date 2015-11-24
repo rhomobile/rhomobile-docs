@@ -1,11 +1,11 @@
 <?xml version = "1.0"?>
 <?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
 <API>
-    <MODULE name="Camera" parent="Rho"  productException="eb">
-        <HELP_OVERVIEW>The Camera API provides access to your device's Camera(s). Use this API to give users the ability to take a photo via one of the device's cameras and return it to the application. Photos can either be stored on the device and optionally transfered to an online server using the Network API or can be returned as a DataURI object for storing or display.</HELP_OVERVIEW>
+    <MODULE name="Camera" parent="Rho"  productException="">
+        <HELP_OVERVIEW>The Camera API provides access to the device camera(s). Use this API to give users the ability to take a photo via one of the cameras and return it to the application. Photos can either be stored on the device as an image file or returned as a DataURI object for storage and/or display. Optionally, image files also can be transfered to online storage using the Network API.</HELP_OVERVIEW>
         <MORE_HELP>
 ## Enabling the API
-In order to use this API you must include the following extension in your `build.yml`
+To use this API, the following extension must be included in the `build.yml`:
     :::ruby
     extensions: ["mediacapture"]
 
@@ -18,31 +18,35 @@ Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important info
         </MORE_HELP>
         <MORE_HELP_EB>
 ## Enabling the API
+
 There are two methods of enabling the Camera API:
 
-* Include all ebapi modules or
+* Include all 'ebapi' modules
 * Include only the API modules you need
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+Both methods are explained below. 
+
+Either way, the included files will be found in: 
+`/Enterprise Browser/JavaScript Files/Enterprise Browser`,
+a directory on the computer that contains the Enterprise Browser installation.
 
 ### Include all JS API modules
-To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location accessible by your app's files and include the JavaScript modules file in your app. For instance, to include the modules file in your `index.html`, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:
 
     :::html
     &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 
-> Note: that the pathing for this file is relative to the current page.
-
-This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+&gt; This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
 
 ### Include only the modules you need
-To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Camera API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+To include individual APIs, you must first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the Camera API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
 
     :::html
     &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
     &lt;script type="text/javascript" charset="utf-8" src="eb.camera.js"&gt;&lt;/script&gt;
 
-The ebapi.js file is necessary for all single API inclusions.
+&gt; In the code lines above, notice that `ebapi.js` is included first, followed by `eb.camera.js`, which is the Camera API for Enterprise Browser. **This coding is required on each HTML page whenever an individual API will be called from that page**.
+
         </MORE_HELP_EB>
         <PLATFORM>Android, iOS, WM, CE, WP8</PLATFORM>
         <PLATFORM_EB>WM, Android</PLATFORM_EB>
@@ -80,10 +84,13 @@ The ebapi.js file is necessary for all single API inclusions.
 			</CONSTANT>
 			 <!-- Camera Output Image Format -->
 			<CONSTANT name="OUTPUT_FORMAT_IMAGE" value="image" type="STRING">
-				<DESC>This shall provide the image path.</DESC>
+				<DESC>This shall provide the image uri. This can be used to display image directly on the page. An example is shown in the example section</DESC>
 			</CONSTANT>
 			<CONSTANT name="OUTPUT_FORMAT_DATAURI" value="dataUri" type="STRING">
 				<DESC>This is a base 64 encoding of the image and can be used to easily embed the image on the page or store the image in a database. On some consumer devices, captured image will be rotated 90 degrees while displaying.</DESC>
+			</CONSTANT>
+			<CONSTANT name="OUTPUT_FORMAT_IMAGE_PATH" value="imagePath" type="STRING">
+				<DESC>If this value used for setting the outputFormat property, the takePicture or capture API will return imageUri as the path to the saved image in the device. User can use this image path to transfer the file to an http server if required. An example is given to demonstrate, transferring a file to http server.This property is not applicable for Android and windows phone 8.</DESC>
 			</CONSTANT>
 			<!-- Camera Color Model -->
 			<CONSTANT name="COLOR_MODEL_RGB" value="rgb" type="STRING">
@@ -158,7 +165,7 @@ The ebapi.js file is necessary for all single API inclusions.
                         <PARAM name="height" type="INTEGER"/>
                     </PARAMS>
                 </PARAM>
-                <PLATFORM>Android, WP8, WM, CE</PLATFORM>
+                <PLATFORM>Android, WP8, WM, CE, iOS</PLATFORM>
                 <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
                 <DESC>List of resolutions (width and height in pixels) supported by the camera. On WM/CE devices this feature is supported only by color camera and it is not supported by imager. Refer example section for more details.</DESC>
             </PROPERTY>
@@ -194,7 +201,7 @@ The ebapi.js file is necessary for all single API inclusions.
 				</DESC_EB>
                 
             </PROPERTY>
-            <PROPERTY name="outputFormat" type="STRING" default="image">
+            <PROPERTY name="outputFormat" type="STRING" default="imagePath">
                 <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
 				<PLATFORM>Android, iOS, WM, CE, WP8</PLATFORM>
                 <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
@@ -339,7 +346,8 @@ The ebapi.js file is necessary for all single API inclusions.
                         <PARAM name="imageUri" type="STRING">
 						    <PLATFORM>Android, WM, CE, iOS, WP8</PLATFORM>
                             <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
-                            <DESC>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device.On wp8,wm when 'outputFormat' is 'image' then imageUri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image', this image will have an auto-generated name. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, In Wp8 dataUri shall provide the thumbnail for the picture taken, It is recommended to use Image over dataUri </DESC>
+                            <DESC>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device.On wp8,wm when 'outputFormat' is 'image' then imageUri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image', this image will have an auto-generated name. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, In Wp8 dataUri shall provide the thumbnail for the picture taken, It is recommended to use Image over dataUri. If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http. </DESC>
+							<DESC_EB>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http.</DESC_EB>
                         </PARAM>
                         <PARAM name="imageHeight" type="INTEGER">
 						    <PLATFORM>Android, WM, CE, iOS, WP8</PLATFORM>
@@ -364,7 +372,8 @@ The ebapi.js file is necessary for all single API inclusions.
                         <PARAM name="image_uri" type="STRING" deprecated="true">
 						    <PLATFORM>Android, WM, CE, iOS, WP8</PLATFORM>
                             <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
-                            <DESC>It is recommended to use imageUri in preference to this parameter.On wp8,wm when 'outputFormat' is 'image' then image_uri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image'</DESC>
+                            <DESC>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device.On wp8,wm when 'outputFormat' is 'image' then imageUri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image', this image will have an auto-generated name. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, In Wp8 dataUri shall provide the thumbnail for the picture taken, It is recommended to use Image over dataUri. If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http. </DESC>
+							<DESC_EB>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http.</DESC_EB>
                         </PARAM>
                         <PARAM name="image_height" type="INTEGER" deprecated="true">
 						    <PLATFORM>Android, WM, CE, iOS, WP8</PLATFORM>
@@ -412,7 +421,8 @@ The ebapi.js file is necessary for all single API inclusions.
                             <DESC>Whether or not the image was successfully captured. The returned string will be one of 'ok' or 'error'.</DESC>
                         </PARAM>
                         <PARAM name="imageUri" type="STRING">
-                            <DESC>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device, this image will have an auto-generated name.On wm when 'outputFormat' is 'image' then this field shall have only Image name with \ sign, If the specified 'outputFormat' was 'dataUri',then this field will be the image encoded as a Data URI.</DESC>
+                            <DESC>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, In Wp8 dataUri shall provide the thumbnail for the picture taken, It is recommended to use Image over dataUri. If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http. </DESC>
+							<DESC_EB>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http.</DESC_EB>
                         </PARAM>
                         <PARAM name="imageHeight" type="INTEGER">
                             <DESC>The actual height of the image that was captured, this may differ from the requested height as the Camera will only support a finite resolutions.</DESC>
@@ -451,7 +461,8 @@ The ebapi.js file is necessary for all single API inclusions.
                         <PARAM name="imageUri" type="STRING">
 						<PLATFORM>Android, WM, CE, iOS, WP8</PLATFORM>
                         <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
-                            <DESC>The URI to the chosen image.</DESC>
+                            <DESC>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device.On wp8,wm when 'outputFormat' is 'image' then imageUri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image', this image will have an auto-generated name. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, In Wp8 dataUri shall provide the thumbnail for the picture taken, It is recommended to use Image over dataUri. If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http. </DESC>
+							<DESC_EB>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http.</DESC_EB>
                         </PARAM>
                         <PARAM name="imageHeight" type="INTEGER">
                             <DESC>The height of the image.</DESC>
@@ -468,7 +479,8 @@ The ebapi.js file is necessary for all single API inclusions.
                         <PARAM name="image_uri" type="STRING" deprecated="true">
 						<PLATFORM>Android, WM, CE, iOS, WP8</PLATFORM>
                         <PLATFORM_EB>Android, WM, CE</PLATFORM_EB>
-                            <DESC>It is recommended to use imageUri in preference to this parameter.</DESC>
+                           <DESC>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device.On wp8,wm when 'outputFormat' is 'image' then imageUri shall have only Image name with \ sign, on WP8 ImageName shall be suffixed by DTF when 'outputFormat' is 'image', this image will have an auto-generated name. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, In Wp8 dataUri shall provide the thumbnail for the picture taken, It is recommended to use Image over dataUri. If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http. </DESC>
+						   <DESC_EB>If the specified 'outputFormat' was 'image' then this field is the URI to the taken image stored on the device. If the specified 'outputFormat' was 'dataUri' then this field will be the image encoded as a Data URI, If the specified 'outputFormat' was 'imagePath' then this field will have the image path on the device. User can use image path to transfer image over http.</DESC_EB>
                         </PARAM>
                         <PARAM name="image_height" type="INTEGER" deprecated="true">
                             <DESC>It is recommended to use imageHeight in preference to this parameter.</DESC>
@@ -854,50 +866,146 @@ alert(reslnArray[1].height);
               </SECTION>
             </SECTIONS>
           </EXAMPLE>
-        </EXAMPLES>
+          <EXAMPLE title="Transfering an image to HTTP server">
+            <SECTIONS>
+              <SECTION>
+                <DESC>This example demonstrate how user can transfer an image to http server. This will be useful when application is running on a remote server.</DESC>
+                <CODE>
+                  <JAVASCRIPT>
+                    <![CDATA[
+//enumerate the available cameras on the device
+var camArray = EB.Camera.enumerate();
+
+//below is the callback fired by network api after image upload to the server is completed
+var upload_file_callback = function (args){
+        status = args['status'];
+		//a status ok indicates image transferred successfully
+        alert(status);
+       }
+
+//below is the camera call back fired after takePicture is called
+var camera_callbackFunc = function(cbData){ 
+  alert(cbData.imageUri); 
+  //set the upload file properties; Refer network module for more details
+  var uploadfileProps = {
+           url: 'http://10.233.82.51:8081/upload_image_file',
+          //authType: "basic",
+          //authUser: "admin",
+          //authPassword: "password",
+          filename: cbData.imageUri,
+          body: "uploading file",
+          fileContentType: "image/jpeg"
+        };
+   
+   //below is the network module API used for uploading images when camera fire the callback
+   EB.Network.uploadFile(uploadfileProps, upload_file_callback);      
+ };
+ 
+ //below is the test function which is used for capturing an image with outputFormat set as imagePath
+function Test_image_transfer1()
+{ 
+  //invoke takePicture API with outputFormat as imagePath and set the callback method
+  camArray[0].takePicture({'fileName' : '/Application/Test/myImagename', 'outputFormat': 'imagePath'}, camera_callbackFunc);
+}
+ //below is the test function which is used for choosing a picture from device with outputFormat set as imagePath
+function Test_image_transfer2()
+{ 
+  //invoke choosePicture API with outputFormat as imagePath and set the callback method
+  EB.Camera.choosePicture({'outputFormat': 'image'}, camera_callbackFunc);
+}
+      
+
+                   ]]>
+                  </JAVASCRIPT>
+                </CODE>
+              </SECTION>
+            </SECTIONS>
+          </EXAMPLE>
+		            <EXAMPLE title="Dispalying an image using image uri.">
+            <SECTIONS>
+              <SECTION>
+                <DESC>This example demonstrate how user can dispaly an image using image uri. The callback will return a image uri when outputFormat is set to 'image'</DESC>
+                <CODE>
+                  <JAVASCRIPT>
+                    <![CDATA[
+//enumerate the available cameras on the device
+var camArray = EB.Camera.enumerate();
+
+
+
+//below is the camera call back fired after takePicture is called
+var camera_callbackFunc = function(cbData){ 
+
+  //uri will have relative path info only
+  //user has to form the absolute local server path as shown below
+  uri = 'http://localhost:'+EB.System.localServerPort + cbData.imageUri;
+  //set the image uri to the image element
+  document.getElementById('imageUri').src = uri ;
+  
+ };
+ 
+ //below is the test function which is used for capturing an image with outputFormat set as image
+function Test_image_uri()
+{ 
+  //invoke takePicture API with outputFormat as image and set the callback method
+  camArray[0].takePicture({'outputFormat': 'image'}, camera_callbackFunc);
+}
+      
+
+                   ]]>
+                  </JAVASCRIPT>
+                </CODE>
+              </SECTION>
+            </SECTIONS>
+          </EXAMPLE>
+		</EXAMPLES>
         <REMARKS>
-            <REMARK title="SDCard Access">
-                <DESC>The capability for SDCard has already been granted on build, and any capability added by you will be ignored. This being the case, the following extensions will always be able to write to the SD card by default.</DESC>
+            <REMARK title="SD Card Access">
+                <DESC>SD Card access is enabled by default; grants of additional access will be ignored. The following extensions are able to write to the SD card by default.</DESC>
             </REMARK>
 			<REMARK title="Camera Preview">
-                <DESC>In some of the WM/CE devices, though user has opted for a full screen, preview rendering size is decided by the driver.</DESC>
+                <DESC>Despite a user-selected full screen mode, preview rendering size will be overridden by the driver on some WM/CE devices.</DESC>
             </REMARK>
 			<REMARK title="DataUri">
-                <DESC>DataUri output is highly dependent on virtual space availability. DataUri may fail(Unresponsive/Reboot/Degraded Performance/Never load) in certain devices; recommended to use image path in such devices.</DESC>
+                <DESC>DataUri output is dependent on availability of virtual space. DataUri may fail, be unresponsive, cause reboot, degraded performance or fail to load in certain devices. In such cases, image path is recommended.</DESC>
             </REMARK>
 			<REMARK title="ImageUri">
-                <DESC>Image uri display is dependent on browser capability.</DESC>
+                <DESC>Image Uri display is dependent on browser capability.</DESC>
             </REMARK>
 			<REMARK title="GetSupportedProperties in WP8">
-                <DESC>WP8 does not support getSupportedProperties and SetSupportedProperties</DESC>
+                <DESC>WP8 does not support getSupportedProperties or SetSupportedProperties.</DESC>
             </REMARK>
 		    <REMARK title="colorModel as Grayscale in Android">
-                <DESC>Grayscale is supported only in consumer android devices for front camera</DESC>
+                <DESC>Grayscale is supported only in the front camera of Android consumer devices.</DESC>
             </REMARK>
             <REMARK title="Invalid/Null values for properties in Android and iOS">
-                <DESC>Only valid and non-empty values for properties are supported in Android and iOS</DESC>
+                <DESC>Only valid and non-empty values for properties are supported in Android and iOS.</DESC>
             </REMARK>
 			<REMARK title="Ruby Support">
-            <DESC>Due to platform limitation imager and color camera is not supported in ruby applications for CE5 and CE6 devices.</DESC>
+            <DESC>Due to platform limitations, imager and color camera are not supported in ruby applications for CE5 and CE6 devices.</DESC>
             </REMARK>
             <REMARK title="Camera in Suspend mode">
-              <DESC>All WM and CE7 devices automatically turn off both color and imager cameras when the device is suspended. User has to restart the camera on resume. Whereas CE5 (eg:MC9000) and CE6 (eg: MC31) devices retain the preview on resuming from suspend state.</DESC>
+              <DESC>All WM and CE7 devices automatically turn off both color and imager cameras when the device is suspended. User must restart the camera to resume. Whereas CE5 (eg: MC9000) and CE6 (eg: MC31) devices retain the preview on resuming from suspend state.</DESC>
             </REMARK>
-            <REMARK title="Image saving while take picture">
-              <DESC>Image captured in few devices(eg: Samsung), irrespective of picture taken (Landscape/Portrait) , will always save in Landscape Mode, Even though on the device it appears as captured(landscape/Portrait), when the same is copied to Desktop, you can see that it will be in Landscape Mode.This is default behaviour of the device</DESC>
+            <REMARK title="Image saving after taking picture">
+              <DESC>In some devices (eg: Samsung), an image will be saved in landscape mode even if captured in portrait mode. This behavior is determined by the device's default settings.</DESC>
             </REMARK>
-			<REMARK title="Devices lacking support">
-            <DESC>Due to platform limitation devices such as ES400, MC65 and MC67 does not support color camera.</DESC>
+			<REMARK title="WM/CE devices lacking support">
+            <DESC>Due to platform limitations, the ES400, MC65 and MC67 do not support the color camera.</DESC>
             </REMARK>
-            <REMARK title="takepicture Resolution Issue on Low Memory Device WP8">
-            <DESC>In devices having low processor, lower resolution image capture may show a small area of preview on black background at the time of transition back to application.</DESC>
+            <REMARK title="takePicture resolution issue on low-memory devices with WM">
+            <DESC>Due to platform limitations, the ES400, MC65 and MC67 do not support a color camera. The imager on the MC55 with WM does not support the Fullscreen window (eg: takePicture). Parameters such as previewLeft, previewWidth, previewTop and previewHeight are supported by the device to set up a user-defined viewer window.</DESC>
             </REMARK>
-            <REMARK title="Android Choose Picture List">
-            <DESC>Choose picture List must contain atleast 4 Images Name to show the list.</DESC>
+            <REMARK title="takePicture resolution issue on low-memory devices with WM">
+            <DESC>Processor limitations of some devices may cause a low-resolution image captures to appear as a small preview with a black background when transitioning back to the application.</DESC>
             </REMARK>
-            <REMARK title="Android  Black Image in Gallery for kitkat">
-            <DESC>Whenever an image is taken from Rho camera,on opening galery or choose picture, we can see a black image, when system refreshes the gallery this will be gone.</DESC>
+            <REMARK title="Android KitKat gallery displays black image">
+            <DESC>For images captured with the camera using a Rho app, the image might initially appear black. Refresh the view to correct the problem.</DESC>
             </REMARK>
+            <REMARK title="Android preview">
+            <DESC>High-resolution settings are not recommended for low-memory devices. Image previews on tablet devices might appear stretched or shrunken.</DESC>
+            </REMARK>
+           
         </REMARKS>
     </MODULE>
 </API>

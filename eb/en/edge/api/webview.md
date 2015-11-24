@@ -334,6 +334,7 @@ Sets the font size to be displayed on the page, set to 0 for the smallest font a
 
 ####Platforms
 
+* Android
 * Windows Mobile(WebKit)
 
 ###userAgent
@@ -405,7 +406,7 @@ Default viewport width to use for pages that do not have a viewport meta tag (us
 ####Type
 <span class='text-info'>FLOAT</span> 
 ####Description
-Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in. In Windows, it is recommended to not to use the zoom value less than 1.0 because the page doesn't look in readable format.
+Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 are zoomed out and values greater than 1.0 are zoomed in.It is recommended to not to use the zoom value less than 1.0 because the page doesn't look in readable format.In Android new Zoom value takes effect on current page, Previous page has to be revisited for the new zoom values to take effect 
 ####Access
 
 
@@ -416,4 +417,5 @@ Sets the zoom factor of the page. Factor 1.0 is no zoom, values less than 1.0 ar
 
 ####Platforms
 
+* Android
 * Windows Mobile(WebKit)

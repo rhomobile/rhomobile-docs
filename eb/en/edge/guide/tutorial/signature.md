@@ -1,5 +1,7 @@
 ﻿
-#Signature API Tutorial
+
+
+# Signature API Tutorial
 
 This tutorial covers the use of the Enterprise Browser Signature API for capturing signatures on touch screen devices.
 
@@ -32,30 +34,30 @@ The following HTML template will be used as a starting point for this tutorial. 
 
 HTML Starter Template:
 
-      :::HTML
-      <HTML>
-        <HEAD>
-          <style>
-            h1{font-size:2.5em;background-color:lightgray;margin:5px;padding:5px;}
-            button{font-size:.5em;}
-            input{font-size:1.3em;}
-            #content{width:90%;border:black 1px solid;min-height:100px;}
-            #SigData{margin:10px;width:66%;}
-          </style>
-        </HEAD>
-      <BODY>
-        <h1>Signature Capture
-          <button onclick="window.location.href='./index.html'">Home</button>
-          <button onclick="EB.Application.quit();">Quit</button>
-        </h1>
-        <div id=controls >
-        </div>
-        <div id=content >
-        </div>
-      </BODY>
-      <SCRIPT>
-      </SCRIPT>
-      </HTML>
+    :::HTML
+    <HTML>
+      <HEAD>
+        <style>
+          h1{font-size:2.5em;background-color:lightgray;margin:5px;padding:5px;}
+          button{font-size:.5em;}
+          input{font-size:1.3em;}
+          #content{width:90%;border:black 1px solid;min-height:100px;}
+          #SigData{margin:10px;width:66%;}
+        </style>
+      </HEAD>
+    <BODY>
+      <h1>Signature Capture
+        <button onclick="window.location.href='./index.html'">Home</button>
+        <button onclick="EB.Application.quit();">Quit</button>
+      </h1>
+      <div id=controls >
+      </div>
+      <div id=content >
+      </div>
+    </BODY>
+    <SCRIPT>
+    </SCRIPT>
+    </HTML>
 
 
 
@@ -72,17 +74,17 @@ HTML Starter Template:
 
 Sample HTML:
 
-      :::HTML
-      <input type=button value="Capture Signature">
-      <input type=button value="Clear Signature">
+    :::HTML
+    <input type=button value="Capture Signature">
+    <input type=button value="Clear Signature">
 
 
 * **Add an img element to the content div** that can be used to display captured signatures: 
 
 Sample HTML:
 
-      :::HTML
-      <img src="" id="SigData" alt="Waiting for capture..." />
+    :::HTML
+    <img src="" id="SigData" alt="Waiting for capture..." />
 
 
 
@@ -95,9 +97,9 @@ Sample HTML:
 
 Sample HTML: 
 
-      :::HTML
-      <script type="text/javascript" charset="utf-8" src="./ebapi-modules.js">
-      </script> 
+    :::HTML
+    <script type="text/javascript" charset="utf-8" src="./ebapi-modules.js">
+    </script> 
 
 
 ###STEP 4: Initialize capture settings, display capture area
@@ -106,14 +108,14 @@ Sample HTML:
 
 Sample JavaScript:
 
-      :::JavaScript
-      function fnSigCaptureStart() {
-        EB.ScreenOrientation.autoRotate=false;
-        EB.Signature.penWidth=10;
-        EB.Signature.bgColor = "#90ee90";
-        var params_hash = {'outputFormat': EB.Signature.OUTPUT_FORMAT_DATAURI};
-        EB.Signature.takeFullScreen(params_hash,onSigCapture);
-      }
+    :::JavaScript
+    function fnSigCaptureStart() {
+      EB.ScreenOrientation.autoRotate=false;
+      EB.Signature.penWidth=10;
+      EB.Signature.bgColor = "#90ee90";
+      var params_hash = {'outputFormat': EB.Signature.OUTPUT_FORMAT_DATAURI};
+      EB.Signature.takeFullScreen(params_hash,onSigCapture);
+    }
 
 
 
@@ -135,11 +137,11 @@ In the SCRIPT section between the end body tag and the end html tag
 
 Sample JavaScript: 
 
-      :::JavaScript
-      function onSigCapture(capData){
-        console.log(JSON.stringify(capData));
-        document.getElementById("SigData").src = capData.imageUri;
-      }
+    :::JavaScript
+    function onSigCapture(capData){
+      console.log(JSON.stringify(capData));
+      document.getElementById("SigData").src = capData.imageUri;
+    }
 
 
 `onSigCapture(capData)` is the callback function we passed to the `takeFullScreen()` method earlier. It is executed when the user clicks on the Capture button in the signature capture area. The capData variable passed to the function here is a JSON object that contains data representing the captured image. The `console.log()` debug statement will display a long base64 string of image data in the JavaScript console. The log statement is strictly for debugging purposes and should be commented out for production builds. The last line assigns the image data to the src attribute of the img element, which causes the signature to be displayed. 
@@ -150,10 +152,10 @@ Sample JavaScript:
 
 Sample JavaScript:
 
-      :::JavaScript
-      function fnSigCaptureClear() { 
-          document.getElementById("content").innerHTML = "<img src='' id=SigData alt='Waiting for capture...' />";
-      }
+    :::JavaScript
+    function fnSigCaptureClear() { 
+        document.getElementById("content").innerHTML = "<img src='' id=SigData alt='Waiting for capture...' />";
+    }
 
 
 This method will be called by the Clear Signature button to reset the signature display area. 

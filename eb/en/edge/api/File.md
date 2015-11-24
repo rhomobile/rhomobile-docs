@@ -63,7 +63,7 @@ Synchronous Return:
 
 
 ### <span class="label label-inverse"> Destructor</span> close()
-Closes file.
+Closes file. Once Close method is invoked, no file object will be alive.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>

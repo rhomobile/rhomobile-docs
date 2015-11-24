@@ -1,4 +1,5 @@
-#Gesture API Tutorial
+# Gesture API Tutorial
+
 This tutorial covers the use of the Enterprise Browser Gesture API for recognizing touch screen gestures.
 
 ##Prerequisites
