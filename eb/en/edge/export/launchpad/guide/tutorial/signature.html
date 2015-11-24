@@ -20,11 +20,11 @@
 
 <p>Enterprise Browser includes an API for capturing signatures. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps.</p>
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_01.png" alt="img" /></p>
+<p>!</p>
 
 <p>The resulting example application will look like this:</p>
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_02.png" alt="img" /></p>
+<p>!</p>
 
 <h2>Creating the App</h2>
 
@@ -39,30 +39,29 @@
 
 <p>HTML Starter Template:</p>
 
-<pre><code>  :::HTML
-  &lt;HTML&gt;
-    &lt;HEAD&gt;
-      &lt;style&gt;
-        h1{font-size:2.5em;background-color:lightgray;margin:5px;padding:5px;}
-        button{font-size:.5em;}
-        input{font-size:1.3em;}
-        #content{width:90%;border:black 1px solid;min-height:100px;}
-        #SigData{margin:10px;width:66%;}
-      &lt;/style&gt;
-    &lt;/HEAD&gt;
-  &lt;BODY&gt;
-    &lt;h1&gt;Signature Capture
-      &lt;button onclick="window.location.href='./index.html'"&gt;Home&lt;/button&gt;
-      &lt;button onclick="EB.Application.quit();"&gt;Quit&lt;/button&gt;
-    &lt;/h1&gt;
-    &lt;div id=controls &gt;
-    &lt;/div&gt;
-    &lt;div id=content &gt;
-    &lt;/div&gt;
-  &lt;/BODY&gt;
-  &lt;SCRIPT&gt;
-  &lt;/SCRIPT&gt;
-  &lt;/HTML&gt;
+<pre name="code" class="HTML">&lt;HTML&gt;
+  &lt;HEAD&gt;
+    &lt;style&gt;
+      h1{font-size:2.5em;background-color:lightgray;margin:5px;padding:5px;}
+      button{font-size:.5em;}
+      input{font-size:1.3em;}
+      #content{width:90%;border:black 1px solid;min-height:100px;}
+      #SigData{margin:10px;width:66%;}
+    &lt;/style&gt;
+  &lt;/HEAD&gt;
+&lt;BODY&gt;
+  &lt;h1&gt;Signature Capture
+    &lt;button onclick="window.location.href='./index.html'"&gt;Home&lt;/button&gt;
+    &lt;button onclick="EB.Application.quit();"&gt;Quit&lt;/button&gt;
+  &lt;/h1&gt;
+  &lt;div id=controls &gt;
+  &lt;/div&gt;
+  &lt;div id=content &gt;
+  &lt;/div&gt;
+&lt;/BODY&gt;
+&lt;SCRIPT&gt;
+&lt;/SCRIPT&gt;
+&lt;/HTML&gt;
 </pre>
 
 <h3>STEP 1: Create the application file</h3>
@@ -84,9 +83,8 @@
 
 <p>Sample HTML:</p>
 
-<pre><code>  :::HTML
-  &lt;input type=button value="Capture Signature"&gt;
-  &lt;input type=button value="Clear Signature"&gt;
+<pre name="code" class="HTML">&lt;input type=button value="Capture Signature"&gt;
+&lt;input type=button value="Clear Signature"&gt;
 </pre>
 
 <ul>
@@ -96,8 +94,7 @@
 
 <p>Sample HTML:</p>
 
-<pre><code>  :::HTML
-  &lt;img src="" id="SigData" alt="Waiting for capture..." /&gt;
+<pre name="code" class="HTML">&lt;img src="" id="SigData" alt="Waiting for capture..." /&gt;
 </pre>
 
 <h3>STEP 3: Include the API JavaScript file</h3>
@@ -111,9 +108,8 @@
 
 <p>Sample HTML:</p>
 
-<pre><code>  :::HTML
-  &lt;script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"&gt;
-  &lt;/script&gt; 
+<pre name="code" class="HTML">&lt;script type="text/javascript" charset="utf-8" src="./ebapi-modules.js"&gt;
+&lt;/script&gt; 
 </pre>
 
 <h3>STEP 4: Initialize capture settings, display capture area</h3>
@@ -125,14 +121,13 @@
 
 <p>Sample JavaScript:</p>
 
-<pre><code>  :::JavaScript
-  function fnSigCaptureStart() {
-    EB.ScreenOrientation.autoRotate=false;
-    EB.Signature.penWidth=10;
-    EB.Signature.bgColor = "#90ee90";
-    var params_hash = {'outputFormat': EB.Signature.OUTPUT_FORMAT_DATAURI};
-    EB.Signature.takeFullScreen(params_hash,onSigCapture);
-  }
+<pre name="code" class="JavaScript">function fnSigCaptureStart() {
+  EB.ScreenOrientation.autoRotate=false;
+  EB.Signature.penWidth=10;
+  EB.Signature.bgColor = "#90ee90";
+  var params_hash = {'outputFormat': EB.Signature.OUTPUT_FORMAT_DATAURI};
+  EB.Signature.takeFullScreen(params_hash,onSigCapture);
+}
 </pre>
 
 <p>This method sets up and displays the capture area. The first few lines of code set parameters that will be used by the API. The settings disable automatic screen rotation for the duration of the capture, set the width of the line that users will draw with in the capture area, and set the background color for the capture area.</p>
@@ -156,11 +151,10 @@
 
 <p>Sample JavaScript:</p>
 
-<pre><code>  :::JavaScript
-  function onSigCapture(capData){
-    console.log(JSON.stringify(capData));
-    document.getElementById("SigData").src = capData.imageUri;
-  }
+<pre name="code" class="JavaScript">function onSigCapture(capData){
+  console.log(JSON.stringify(capData));
+  document.getElementById("SigData").src = capData.imageUri;
+}
 </pre>
 
 <p><code>onSigCapture(capData)</code> is the callback function we passed to the <code>takeFullScreen()</code> method earlier. It is executed when the user clicks on the Capture button in the signature capture area. The capData variable passed to the function here is a JSON object that contains data representing the captured image. The <code>console.log()</code> debug statement will display a long base64 string of image data in the JavaScript console. The log statement is strictly for debugging purposes and should be commented out for production builds. The last line assigns the image data to the src attribute of the img element, which causes the signature to be displayed.</p>
@@ -174,10 +168,9 @@
 
 <p>Sample JavaScript:</p>
 
-<pre><code>  :::JavaScript
-  function fnSigCaptureClear() { 
-      document.getElementById("content").innerHTML = "&lt;img src='' id=SigData alt='Waiting for capture...' /&gt;";
-  }
+<pre name="code" class="JavaScript">function fnSigCaptureClear() { 
+    document.getElementById("content").innerHTML = "&lt;img src='' id=SigData alt='Waiting for capture...' /&gt;";
+}
 </pre>
 
 <p>This method will be called by the Clear Signature button to reset the signature display area.</p>
@@ -228,14 +221,14 @@
 </ul>
 
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_03.png" alt="img" /></p>
+<p>!</p>
 
 <ul>
 <li><strong>Click on the cancel button</strong> in the upper right hand corner of the Product Registration screen to dismiss the screen and open the Signature app. If you turn the device sideways it should look like this:</li>
 </ul>
 
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_04.png" alt="img" /></p>
+<p>!</p>
 
 <p>  [a]   [b]</p>
 
@@ -244,21 +237,21 @@
 </ul>
 
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_05.png" alt="img" /></p>
+<p>!</p>
 
 <ul>
 <li><strong>Use your finger to draw a signature</strong> on the screen.</li>
 </ul>
 
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_06.png" alt="img" /></p>
+<p>!</p>
 
 <ul>
 <li><strong>Click the checkmark-capture button</strong> to capture the signature and display the signature in the application.</li>
 </ul>
 
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_07.png" alt="img" /></p>
+<p>!</p>
 
 <ul>
 <li><strong>Click Clear Signature to reset</strong> the application display</li>
@@ -267,7 +260,7 @@
 
 <p> [c][d]</p>
 
-<p><img src="http://ebzebra.github.io/docs/1.2/images//eb_tutorials/Signature_API_tutorial_08.png" alt="img" /></p>
+<p>!</p>
 
 <h3>Conclusion</h3>
 

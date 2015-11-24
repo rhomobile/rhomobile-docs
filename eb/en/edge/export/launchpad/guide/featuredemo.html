@@ -35,14 +35,13 @@
 <ol>
 <li><p>Go into <code>Config.xml</code> and add the following <code>XML</code> snippet right under <code>&lt;Configuration&gt;</code>:</p>
 
-<p> :::XML</p>
-
-<p> <WebServer>
-   <Enabled value="1" />
-   <Port value="8082" />
-   <WebFolder value="/fd/" />
-   <Public value="1" />
- </WebServer></p></li>
+<pre name="code" class="XML"> &lt;WebServer&gt;
+     &lt;Enabled value="1" /&gt;
+     &lt;Port value="8082" /&gt;
+     &lt;WebFolder value="/fd/" /&gt;
+     &lt;Public value="1" /&gt;
+ &lt;/WebServer&gt;   
+</pre></li>
 </ol>
 
 
@@ -53,18 +52,13 @@
 <ol>
 <li><p>In <code>Config.xml</code> change the start page value to:</p>
 
-<p> :::HTML</p>
-
-<p>   <StarterPage value="http://127.0.0.1:8082/feature-demo.html" name="Menu"/></p></li>
+<pre name="code" class="HTML"> &lt;StarterPage value="http://127.0.0.1:8082/feature-demo.html" name="Menu"/&gt;
+</pre></li>
 <li><p>Create a folder called <code>fd</code> (case sensitive) in the root of your device&rsquo;s SDCard, or if it doesn&rsquo;t have an SDCard, create the folder in the internal memory partition.</p></li>
-<li><p>When you originally installed Enterprise Browser to your desktop, a folder should have been created called <code>EnterpriseBrowser</code>. Inside of that folder there should be a folder called <code>Feature-Demo</code>. Take the contents of that folder and copy it over to your newly created fd folder.</p></li>
-</ol>
+<li><p>When you originally installed Enterprise Browser to your desktop, a folder should have been created called <code>EnterpriseBrowser</code>. Inside of that folder there should be a folder called <code>Feature-Demo</code>. Take the contents of that folder and copy it over to your newly created fd folder.</p>
 
-
-<p>  <img style="padding-left:40px;" src="http://i.imgur.com/Gk1rhab.png" width="600" height="480" border="10"></p>
-
-<ol>
-<li>Start The Enterprise Browser Application on your Device</li>
+<p> <img style="padding-left:40px;" src="http://i.imgur.com/Gk1rhab.png" width="600" height="480" border="10"></p></li>
+<li><p>Start The Enterprise Browser Application on your Device</p></li>
 </ol>
 
 
@@ -78,7 +72,7 @@
 
 <h3>Barcode Scanning</h3>
 
-<p>The Barcode section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2510">Barcode APIs</a>:</p>
+<p>The Barcode section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Enumerate – Will scan the device for all capable barcode interfaces like 2D imager, Laser, and Camera. Tapping this button will show a list of available scan engines. Tapping select on an item will then make the Enable and Disable buttons active for that scanner</li>
@@ -96,19 +90,20 @@
 <li><p>Click <strong>Enumerate</strong> to be presented with a list of available scanners</p></li>
 <li><p>Select a scanner to use</p></li>
 <li><p>After selecting a scanner, click <strong>Enable</strong>. This will allow you to start and stop the chosen scanner on your device.</p></li>
-<li><p>Press start and try scanning the image below</p></li>
+<li><p>Press start and try scanning the image below</p>
+
+<p> <img style="padding-left:0px;" src="http://www.barcodesinc.com/generator/image.php?code=EB.Barcode%20Test&style=197&type=C128B&width=200&height=50&xres=1&font=3" width="380" height="100" border="10"></p></li>
 </ol>
 
 
-<p>  <img style="padding-left:0px;" src="http://www.barcodesinc.com/generator/image.php?code=EB.Barcode%20Test&style=197&type=C128B&width=200&height=50&xres=1&font=3" width="380" height="100" border="10"></p>
-
 <p>  When done correctly, the Barcode Scanner should return the following</p>
 
-<p>  <img style="padding-left:0px;" src="http://i.imgur.com/vHrV660.png" width="380" height="600" border="10"></p>
+<pre><code>&lt;img style="padding-left:0px;" src="http://i.imgur.com/vHrV660.png" width="380" height="600" border="10"&gt;  
+</pre>
 
 <h3>Battery</h3>
 
-<p>The Battery section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2511">Battery APIs</a>:</p>
+<p>The Battery section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Show Icon – Tapping this button will show a battery icon in the upper left hand corner. You can control more aspects of how it is presented and the location by changing parameters within the code</li>
@@ -120,7 +115,7 @@
 
 <h3>Camera</h3>
 
-<p>The Camera section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2673">Imager APIs</a>:</p>
+<p>The Camera section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Show Camera – Tapping this button will activate the camera and allow you to take a picture. It will show the status information from the performing the action</li>
@@ -129,7 +124,7 @@
 
 <h3>Hourglass</h3>
 
-<p>The Hourglass section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2519">Hourglass APIs</a>:</p>
+<p>The Hourglass section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Show – Tapping this button will show a loading indicator in the position denoted in the <code>Left</code> and <code>Top</code> coordinates field. If nothing is entered, it will show the loading indicator in the center of the screen</li>
@@ -141,7 +136,7 @@
 
 <h3>Key Capture</h3>
 
-<p>The Key Capture section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2520">Key Capture APIs</a>:</p>
+<p>The Key Capture section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Capture Trigger – Tapping this button will show when the hardware scanner button is pressed along with the keycode that represents the button</li>
@@ -151,7 +146,7 @@
 
 <h3>Screen</h3>
 
-<p>The Screen section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2553">Screen Orientation APIs</a>:</p>
+<p>The Screen section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Left – Will force the device to rotate to a left handed orientation</li>
@@ -164,7 +159,7 @@
 
 <h3>Signal</h3>
 
-<p>The Signal section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2554">Signal Indicators APIs</a>:</p>
+<p>The Signal section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Show Icon – Tapping this button will show a wifi icon in the upper left hand corner. You can control more aspects of how it is presented and the location by changing parameters within the code</li>
@@ -179,7 +174,7 @@
 
 <h3>Signature Capture</h3>
 
-<p>The Signature Capture  section of the Feature Demo application shows how to use the most common <a href="https://developer.motorolasolutions.com/docs/DOC-2555">Signature APIs</a>:</p>
+<p>The Signature Capture  section of the Feature Demo application shows how to use the most common :</p>
 
 <ul>
 <li>Show – Tapping this button will display a full screen signature capture widget. It will use the Color and Width properties that can be changed</li>
@@ -257,8 +252,8 @@ Pen Width: This is an integer value that represents how thick the pen should be 
 <p>If you are still having trouble getting The Feature Demo to work, try the following:</p>
 
 <ul>
-<li><p>Make sure your device has the latest release BSP available on the <a href="https://www.zebra.com/enterprisesupport">Support Portal</a>.</p></li>
-<li><p>Check your device&rsquo;s <a href="https://www.zebra.com/enterprisesupport">Integrator Guide</a> for proper DataWedge configuration</p></li>
+<li><p>Make sure your device has the latest release BSP available on the .</p></li>
+<li><p>Check your device&rsquo;s  for proper DataWedge configuration</p></li>
 <li><p>If your device won&rsquo;t display the Feature Demo Application screen, make sure that your Config.xml has the right path to your starter page</p></li>
 <li><p>Make sure that the wifi on your device is enabled and connected</p></li>
 </ul>

@@ -1,0 +1,136 @@
+<div class='tableofcontents'> </div><h1>Enterprise Browser On-device Config</h1>
+
+<h2>On-device Config Editor</h2>
+
+<p>The on-device configuration feature permits several key runtime settings contained in the Config.xml file to be edited on-device, <em>without</em> the aid of a PC. Settings in the Config.xml file control all runtime behavior of an Enterprise Browser app. The file must reside on the target device for an EB app to launch.</p>
+
+<p>EB 1.3 and higher apps for Android and Windows Mobile/CE can configure keycapture, zoom in/out, start page and other settings listed below. The settings panel can be secured with a password, can assign an exit password to other EB apps, and can be shown or hidden from the user interface.</p>
+
+<h2>Using On-Device Config</h2>
+
+<p><strong>WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (&lt; > \ / &ldquo; &lsquo;) in these fields will corrupt the Config.xml file</strong>.</p>
+
+<p>A button for accessing on-device configuration is displayed by default following an initial Enterprise Browser 1.3 installation. Thereafter, it&rsquo;s displayed whenever the EB app is restarted until a different start page is assigned in the Startpage parameter of the Config.xml.</p>
+
+<p><strong>The first time an Enterprise Browser 1.3 app is launched, a screen like the one below will appear</strong>.</p>
+
+<p>!</p>
+
+<p><strong>Press the &ldquo;Settings&rdquo; button to edit the config.xml file that&rsquo;s on the device</strong>. This will bring up a screen like the one below.</p>
+
+<p>Pressing the &ldquo;Return to OS&rdquo; button will skip settings configuration and bring up the operating system. To display the Settings button again, simply relaunch the Enterprise Browser app.</p>
+
+<p>!</p>
+
+<p><strong>To activate your EB app&rsquo;s start page, enter the URL in the Value field of the StartPage parameter</strong>, as highlighted above, but <strong>do not apply the changes yet</strong>.</p>
+
+<p>Applying changes immediately will display its intended start page and remove access to the Settings panel the next time the app is launched. If access to settings is still desired, you must enable it with the SettingsButtonEnable paramter.</p>
+
+<p><strong>Set the SettingsButtonEnabled parameter to &lsquo;Enabled&rsquo;</strong> as in the screen below. This will cause a Settings button to appear in the UI at all times. Notice also in the screen that the field that follows enables a password to be applied to the Settings panel, if desired.</p>
+
+<p>!</p>
+
+<p><strong>Press &lsquo;Apply&rsquo; to update the Config.xml file with the new settings</strong>. A screen like the one below will be displayed. Restart the app to activate the changes.</p>
+
+<p>!</p>
+
+<p>Next time the app launches, a Settings button will appear in the UI like the one in the red box below.</p>
+
+<p>!</p>
+
+<p><strong>Note: When the IE engine is used on a Windows CE device, this feature might cause screen distortion when scrolling</strong>.</p>
+
+<h2>Action Buttons</h2>
+
+<p>The on-device settings panel presents four buttons at the bottom of the Settings panel. Here&rsquo;s now they behave.</p>
+
+<ul>
+<li><p><strong><u>Apply</u> updates the config.xml</strong> with new values entered in the Value fields.</p></li>
+<li><p><strong><u>Quit</u> exits the app without saving</strong>. Unsaved changes will be lost. If ExitPasswordEnabled parameter is Enabled, the Quit button also will cause a password prompt to appear.</p></li>
+<li><p><strong><u>Back</u> navigates to the previous page</strong> with no prompt. Unsaved changes will be lost.</p></li>
+<li><p><strong><u>Reset</u> will revert all values to their factory defaults</strong> as described in the <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml reference guide</a>.</p></li>
+</ul>
+
+
+<h2>Configurable Settings</h2>
+
+<p>Below is the list of settings that can be configured on-device for an EB 1.3 app. For the descriptions and instructions for configuring the full set of runbtime configuration parameters please refer to the <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml reference guide</a>.</p>
+
+<p><strong>WARNING: Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (&lt; > \ / &ldquo; &lsquo;) in these fields will corrupt the Config.xml file</strong>.</p>
+
+<h3>Debugbuttons</h3>
+
+<p>When enabled, presents a set of controls useful for development and debugging purposes. <strong>Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling</strong>.</p>
+
+<h3>HTTP_Proxy</h3>
+
+<p>Specifies the URL and port number for the HTTP proxy. Leave this field blank if no proxy is to be used. <strong>Applies only to WM/CE devices with the Zebra WebKit engine or Android with the stock webkit</strong>. When Internet Explorer is used, proxy settings are picked up from Windows connection manager.</p>
+
+<h3>HTTPS_Proxy</h3>
+
+<p>Specifies the URL and port number for the HTTPS proxy. Leave this field blank if no proxy is to be used. <strong>Applies only to WM/CE devices with the Zebra WebKit engine or Android with the stock webkit</strong>. For otherwise configured WM/CE devices, use HTTP_Proxy.</p>
+
+<h3>VerifyPeerCertificate</h3>
+
+<p>Controls whether server certificates will be verified against the internal certificates. Enabled by default. Useful for debugging, a value of 0 (disabled) is equivalent to automatically clicking ‘OK’ on a web browser’s dialog when requesting approval for an untrusted certificate. It is strongly recommended that this feature be enabled for deployment.</p>
+
+<h3>Username</h3>
+
+<p>Specifies the username to be provided automatically when Enterprise Browser is instructed to navigate to a page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a username of (&ldquo;&rdquo;). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. Applies to Android and WM/CE.</p>
+
+<p><strong>Important: Use alpha-numeric characters only</strong>.</p>
+
+<h3>Password</h3>
+
+<p>Specifies the password to be provided automatically when Enterprise Browser is instructed to navigate to any page that requires basic or digest HTTP authentication. If this setting is absent, a login prompt will be displayed with a password of (&ldquo;&rdquo;). In most cases, Enterprise Browser will permit one incorrect entry of credentials before presenting the HTTP 401 Unauthorized page. When used with IE engine, will permit multiple incorrect entries. <strong>Applies to Android and WM/CE</strong>.</p>
+
+<p><strong>Important: Use alpha-numeric characters only</strong>.</p>
+
+<h3>ExitPasswordEnabled</h3>
+
+<p>When enabled, prompts for a password when quitting an Enterprise Browser app. Password is stored using the ExitPasswordValue tag. Disabled by default.</p>
+
+<h3>ExitPasswordValue</h3>
+
+<p>Contains the password for quitting Enterprise Browser when function is enabled using the ExitPasswordEnabled tag. Can be edited only when ExitPasswordEnabled tag is set to &lsquo;1&rsquo; and cannot be left empty. <strong>Applies to Android and WM/CE</strong>.</p>
+
+<p><strong>Important: Use alpha-numeric characters only</strong>.</p>
+
+<h3>SettingsButtonEnabled</h3>
+
+<p>When enabled, places a settings button at the bottom right corner of all screens that routes to the settings page. <strong>Note: When using this feature with the IE engine on a CE device, screen distortion may be noticed when scrolling</strong>.</p>
+
+<h3>SettingsPageProtectionEnabled</h3>
+
+<p>When enabled, prompts for a password before allowing access to the Settings page. Password is stored using the SettingsPagePassword tag.</p>
+
+<h3>SettingsPagePassword</h3>
+
+<p>Contains the password for accessing the Settings page when password function is enabled using the SettingsPageProtectionEnabled tag. Can be edited only when SettingsPageProtectionEnabled tag is set to &lsquo;1&rsquo; and cannot be left empty.</p>
+
+<h3>FunctionKeysCapturable</h3>
+
+<p>Determines behavior of Function keys on Windows Mobile/CE and Android devices. When enabled, device Function keys are capturable using the Key Capture API. When disabled, keys revert to the device’s default behavior. This setting is not specific to an application. When enabled, settings are applied globally to the device. Refer to the EnableFunctionKey_X tag and complete documentation for more information about the interaction between the FunctionKeysCapturable and EnableFunctionKey_X parameters.</p>
+
+<h3>ZoomInKey</h3>
+
+<p>Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies only to WM/CE with IE or Zebra Webkit. Other requirements are detailed in the Remarks section at the bottom of this guide. Read more.</p>
+
+<h3>ZoomOutKey</h3>
+
+<p>Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. Applies only to WM/CE with IE or Zebra Webkit. Other requirements are detailed in the Remarks section at the bottom of this guide.Read more.</p>
+
+<h3>StartPage</h3>
+
+<p>Defines the start page of the Enterprise Browser application displayed at launch. A device-resident file is recommended to avoid connectivity issues on startup. <strong>StartPage entry must be a fully qualified local path using <code>file://</code> or URL using <code>http://</code></strong>. Case sensitive.</p>
+
+<h2>Notes</h2>
+
+<ul>
+<li><p>On-device configuration is supported on Android with the stock webkit and on Windows Mobile/CE platforms with the Zebra webkit or IE engine.</p></li>
+<li><p>Settings edited on the device take effect the next time Enterprise Browser is launched.</p></li>
+<li><p>Configuring the full set of <a href="https://developer.motorolasolutions.com/docs/DOC-2571">runtime settings in the Config.xml</a> still requires a computer.</p></li>
+<li><p>To simplify PC-based set up of Config.xml files, please refer to the <a href="https://developer.motorolasolutions.com/docs/DOC-3666">Config Editor utility</a> for Windows desktops than can edit and deploy Config.xml files from a single panel.</p></li>
+<li><p>Free-form text fields (i.e. username and password) can accept alpha-numeric characters only. Entering non-text characters (&lt; > \ / &ldquo; &lsquo;) in these fields may corrupt the Config.xml file.</p></li>
+</ul>
+

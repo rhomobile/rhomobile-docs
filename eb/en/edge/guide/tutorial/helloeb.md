@@ -149,4 +149,4 @@ And here is the app after scanning a barcode.
 
 ![img](images/getting-started/helloeb/helloeb-app-barcode-scanned.png)
 
-You can also opt to add only the APIs that you plan on using if you want to minimize the amount of device storage you use. We discuss strategies like this in the [Optimization](#guide-optimization) guide.
+You can also opt to add only the APIs that you plan on using if you want to minimize the amount of device storage you use. We discuss strategies like this in the [Optimization](../guide/optimization) guide.

@@ -1,6 +1,6 @@
 <div class='tableofcontents'> </div><h1>PocketBrowser 3.x Migration Guide</h1>
 
-<p>This guide is meant to assist in migration from PocketBrowser 3.x to the Enterprise Browser. For online documentation specific to PocketBrowser 3.x, please see the <a href="http://goo.gl/H8G4IW">online PB3 docs</a>.</p>
+<p>This guide is meant to assist in migration from PocketBrowser 3.x to the Enterprise Browser. For online documentation specific to PocketBrowser 3.x, please see the .</p>
 
 <h2>Overview</h2>
 
@@ -14,7 +14,7 @@
 
 <h3>Installation</h3>
 
-<p>To install Enterprise Browser please take a look at the <a href="../guide/setup?Device%20Deployment">installation section</a>.  If deploying to a Windows CE device, a persistent installation for Webkit should be selected so that Enterprise Browser persists over a cold boot.</p>
+<p>To install Enterprise Browser please take a look at the <a href="https://developer.motorolasolutions.com/docs/DOC-2576#Device%20Deployment">installation section</a>.  If deploying to a Windows CE device, a persistent installation for Webkit should be selected so that Enterprise Browser persists over a cold boot.</p>
 
 <blockquote><p>Note: Do not forget to cold boot the device to complete the installation.</p></blockquote>
 
@@ -23,7 +23,7 @@
 <p>The <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml</a> file needs to be updated:</p>
 
 <ol>
-<li><p>Set the <a href="../guide/configreference?StartPage">StartPage</a>.</p>
+<li><p>Set the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#StartPage">StartPage</a>.</p>
 
 <pre name="code" class="xml"> &lt;Configuration&gt;
      &lt;Applications&gt;
@@ -33,7 +33,7 @@
                  &lt;StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/&gt;
              &lt;/General&gt;
 </pre></li>
-<li><p>Switch backwards compatibility on. The regular expressions engine can be activated from within the configuration file by setting the value of <a href="../guide/configreference?UseRegularExpressions">UseRegularExpressions</a> to 1.</p>
+<li><p>Switch backwards compatibility on. The regular expressions engine can be activated from within the configuration file by setting the value of <a href="https://developer.motorolasolutions.com/docs/DOC-2571#UseRegularExpressions">UseRegularExpressions</a> to 1.</p>
 
 <pre name="code" class="xml"> &lt;Configuration&gt;
      &lt;Applications&gt;
@@ -61,7 +61,7 @@
 <ul>
 <li>Generic methods RasConnect &amp; RasDisconnect are not supported.</li>
 <li>NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser. To disable the SIP, see the <a href="../api-Sip?Disabling%20the%20SIP">disabling the SIP</a> section in the SIP API reference.</li>
-<li><a href="../guide/configreference?FitToScreenEnabled">FitToScreenEnabled</a> not supported. This is a function for Windows Mobile only.</li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2571#FitToScreenEnabled">FitToScreenEnabled</a> not supported. This is a function for Windows Mobile only.</li>
 </ul>
 
 
@@ -71,7 +71,7 @@
 
 <h3>Installation</h3>
 
-<p>To install Enterprise Browser please take a look at the <a href="../guide/setup?Device%20Deployment">installation section</a>.  If deploying to a Windows CE device, a persistent installation for IE should be selected so that Enterprise Browser persists over a cold boot.</p>
+<p>To install Enterprise Browser please take a look at the <a href="https://developer.motorolasolutions.com/docs/DOC-2576#Device%20Deployment">installation section</a>.  If deploying to a Windows CE device, a persistent installation for IE should be selected so that Enterprise Browser persists over a cold boot.</p>
 
 <blockquote><p>Note: Do not forget to cold boot the device to complete the installation.</p></blockquote>
 
@@ -80,7 +80,7 @@
 <p>The <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml</a> file needs to be updated:</p>
 
 <ol>
-<li><p>Set the <a href="../guide/configreference?StartPage">StartPage</a>.</p>
+<li><p>Set the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#StartPage">StartPage</a>.</p>
 
 <pre name="code" class="xml"> &lt;Configuration&gt;
      &lt;Applications&gt;
@@ -90,7 +90,7 @@
                  &lt;StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/&gt;
              &lt;/General&gt;
 </pre></li>
-<li><p>Switch backwards compatibility on.The regular expressions engine can be activated from within the configuration file by setting the value of <a href="../guide/configreference?UseRegularExpressions">UseRegularExpressions</a> to 1.</p>
+<li><p>Switch backwards compatibility on.The regular expressions engine can be activated from within the configuration file by setting the value of <a href="https://developer.motorolasolutions.com/docs/DOC-2571#UseRegularExpressions">UseRegularExpressions</a> to 1.</p>
 
 <pre name="code" class="xml"> &lt;Configuration&gt;
      &lt;Applications&gt;
@@ -117,7 +117,7 @@
 
 <ul>
 <li>Generic methods RasConnect &amp; RasDisconnect are not supported.</li>
-<li><a href="../guide/configreference?PageZoom">PageZoom</a> is not supported on IE. This web view supports text zoom only.</li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2571#PageZoom">PageZoom</a> is not supported on IE. This web view supports text zoom only.</li>
 <li>Javascript events onkeydown, onkeypress, onkeyup are not supported in Windows mobile devices running Internet explorer. Use EnterpriseBrowser <a href="https://developer.motorolasolutions.com/docs/DOC-2520">Keycapture APIs</a> instead to capture the hardware keypresses.</li>
 </ul>
 
@@ -132,14 +132,14 @@
 
 <h3>Installation</h3>
 
-<p>To install Enterprise Browser please take a look at the <a href="../guide/setup?Device%20Deployment">installation section</a>.</p>
+<p>To install Enterprise Browser please take a look at the <a href="https://developer.motorolasolutions.com/docs/DOC-2576#Device%20Deployment">installation section</a>.</p>
 
 <h3>Configuration Settings</h3>
 
 <p>The <a href="https://developer.motorolasolutions.com/docs/DOC-2571">Config.xml</a> file needs to be updated:</p>
 
 <ol>
-<li><p>Set the <a href="../guide/configreference?StartPage">StartPage</a>.</p>
+<li><p>Set the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#StartPage">StartPage</a>.</p>
 
 <pre name="code" class="xml"> &lt;Configuration&gt;
      &lt;Applications&gt;
@@ -149,7 +149,7 @@
                  &lt;StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/&gt;
              &lt;/General&gt;
 </pre></li>
-<li><p>Switch backwards compatibility on.The regular expressions engine can be activated from within the configuration file by setting the value of <a href="../guide/configreference?UseRegularExpressions">UseRegularExpressions</a> to 1.</p>
+<li><p>Switch backwards compatibility on.The regular expressions engine can be activated from within the configuration file by setting the value of <a href="https://developer.motorolasolutions.com/docs/DOC-2571#UseRegularExpressions">UseRegularExpressions</a> to 1.</p>
 
 <pre name="code" class="xml"> &lt;Configuration&gt;
      &lt;Applications&gt;
@@ -178,9 +178,9 @@
 <ul>
 <li>Generic methods RasConnect &amp; RasDisconnect are not supported.</li>
 <li>NOSIP not supported. The NOSIP control was a solution for placing a text box onto the page that did not trigger the Soft Input Panel. This predates the APIs that now allow us to hide the SIP or place it off screen. There is no support for NOSIP on Enterprise Browser. To disable the SIP, see the <a href="../api-Sip?Disabling%20the%20SIP">disabling the SIP</a> section in the SIP API reference.</li>
-<li><a href="../guide/configreference?FitToScreenEnabled">FitToScreenEnabled</a> not supported. This is a function for Windows Mobile only.</li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2571#FitToScreenEnabled">FitToScreenEnabled</a> not supported. This is a function for Windows Mobile only.</li>
 <li>EMML profiles do not work.</li>
-<li>Check the device for hardware compatibility, especially the <a href="http://docs.rhomobile.com/en/2.2.0/rhoelements/scanner">barcode scanning</a> options.</li>
+<li>Check the device for hardware compatibility, especially the  options.</li>
 </ul>
 
 

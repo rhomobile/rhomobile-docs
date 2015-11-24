@@ -2955,7 +2955,7 @@
 
 <h4>Description</h4>
 
-<p>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper.</p>
+<p>Path to a local wave file to be played when the scanner successfully decodes a barcode. This setting overrides the scanner beeper. In Android, this settings will not override beeper and hence not supported.</p>
 
 <h4>Access</h4>
 
@@ -3792,14 +3792,14 @@
 
 <h4>Description</h4>
 
-<p>Selects the illumination mode to use.</p>
+<p>Selects the illumination mode to use. Not currently supported on Android (illumination is always on).</p>
 
 <h4>Values</h4>
 
 <p><strong>Possible Values</strong> (<span class='text-info'>STRING</span>):</p>
 
 <ul>
-<li>Constant: EB.Barcode.ILLUMINATION_AUTO &ndash; String: auto Auto-exposure algorithms will decide whether illumination is required or not. Not available on Android.</li>
+<li>Constant: EB.Barcode.ILLUMINATION_AUTO &ndash; String: auto Auto-exposure algorithms will decide whether illumination is required. Not currently supported on Android.</li>
 <li>Constant: EB.Barcode.ILLUMINATION_ALWAYS_ON &ndash; String: alwaysOn External illumination is always on.</li>
 <li><p>Constant: EB.Barcode.ILLUMINATION_ALWAYS_OFF &ndash; String: alwaysOff External illumination is always off.</p>
 
@@ -3817,10 +3817,9 @@
 <h4>Platforms</h4>
 
 <ul>
-<li>Android</li>
 <li>Windows Mobile</li>
 <li>Windows CE</li>
-<li>Zebra Devices Only(Imager / Camera Scanners on Symbol Technologies' devices)</li>
+<li>Zebra Devices Only(Imager / Camera Scanners on Symbol Technologies devices)</li>
 </ul>
 
 

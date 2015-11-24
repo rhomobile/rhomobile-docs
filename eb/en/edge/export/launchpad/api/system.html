@@ -682,7 +682,7 @@
 
 <h3>openUrl(<span class="text-info">STRING</span> url)</h3>
 
-<p>Open the application associated with the URL. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix will execute the Web Browser installed on system and open URL in executed browser. Note: Opening pdf files on Android devices is not supported.</p>
+<p>Open the application associated with the URL. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix will execute the Web Browser installed on system and open URL in executed browser. Note: Opening pdf files on Android devices is not supported. In android, &ldquo;sms:&rdquo;,&ldquo;mailto:&rdquo;,&ldquo;tel:&rdquo;,&ldquo;http:&rdquo;,&ldquo;https:&rdquo;,&ldquo;file:&rdquo; are supported.  Hence it is recommended to use storage space or userFolder for the file uri.</p>
 
 <h4>Parameters</h4>
 
@@ -1618,6 +1618,7 @@
 <ul>
 <li>Android</li>
 <li>Windows Mobile</li>
+<li>Windows CE</li>
 </ul>
 
 
@@ -1779,7 +1780,7 @@
 
 <h4>Description</h4>
 
-<p><span class='label label-info'>Replaces:http_proxy_url</span> Set HTTP proxy parameters for using by Network module. Example: user:password@url:port . Support only basic authentication. Setting the property overrides http_proxy_uri (or http_proxy_host, http_proxy_port, http_proxy_user, http_proxy_password). To set proxy for WebKit for Windows Mobile/CE use config.xml settings.</p>
+<p><span class='label label-info'>Replaces:http_proxy_url</span> Set HTTP proxy parameters for using the Network module. Example: &lsquo;user:password@url:port&rsquo;. Supports basic authentication only. Do not include &lsquo;http://&rsquo;. Setting this property overrides http_proxy_uri, http_proxy_host, http_proxy_port, http_proxy_user and http_proxy_password. Proxy settings for Windows Mobile/CE with Zebra WebKit should be configured in the config.xml file.</p>
 
 <h4>Access</h4>
 

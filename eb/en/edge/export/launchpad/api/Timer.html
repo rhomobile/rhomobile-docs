@@ -1,0 +1,208 @@
+<div class='tableofcontents'> </div><h1>Timer</h1>
+
+<h2>Overview</h2>
+
+<p>The Timer API is used to create, start, stop and check the existence of timers.</p>
+
+<h2>Enabling the API</h2>
+
+<p>There are two methods of enabling the Timer API:</p>
+
+<ul>
+<li>Include all &lsquo;ebapi&rsquo; modules</li>
+<li>Include only the API modules you need</li>
+</ul>
+
+
+<p>Both methods are explained below.</p>
+
+<p>Either way, the included files will be found in:
+<code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code>,
+a directory on the computer that contains the Enterprise Browser installation.</p>
+
+<h3>Include all JS API modules</h3>
+
+<p>To include all JavaScript APIs, copy the <code>ebapi-modules.js</code> file to a location accessible by your app&rsquo;s files and include the JavaScript modules file in your app. For instance, to include the modules file in your <code>index.html</code>, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+</pre>
+
+<blockquote><p>This will define the EB class within the page. <strong>Note that the path for this file is relative to the current page</strong> (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.</p></blockquote>
+
+<h3>Include only the modules you need</h3>
+
+<p>To include individual APIs, you must first include the <code>ebapi.js</code> in your HTML, and then the additional required API file(s). For instance, to use the Timer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.timer.js"&gt;&lt;/script&gt;
+</pre>
+
+<blockquote><p>In the code lines above, notice that <code>ebapi.js</code> is included first, followed by <code>eb.timer.js</code>, which is the Timer API for Enterprise Browser. <strong>This coding is required on each HTML page whenever an individual API will be called from that page</strong>.</p></blockquote>
+
+<h2>Methods</h2>
+
+<h3>create()</h3>
+
+<p>Create a timers objects.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>SELF_INSTANCE</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>SELF_INSTANCE</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Timer.create()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>isAlive()</h3>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>BOOLEAN : Return alive state of a timer. If callback doesnt fired return true, otherwise return false</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.isAlive()</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>start(<span class="text-info">INTEGER</span> interval)</h3>
+
+<p>Start timer with preset interval. Callback fired only one time.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>interval : <span class='text-info'>INTEGER</span><p>timer interval in ms </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Callback</h4>
+
+<p>Async Callback Returning Parameters: <span class='text-info'>STRING</span></p><ul></ul></p>
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.start(<span class="text-info">INTEGER</span> interval)</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>stop()</h3>
+
+<p>Stop started timer</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
+
+<ul>
+<li>Void</li>
+</ul>
+
+
+<h4>Platforms</h4>
+
+<ul>
+<li>Android</li>
+<li>Windows Mobile</li>
+<li>Windows CE</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Instance Method: This method can be accessed via an instance object of this class:
+
+<ul>
+<li><code>myObject.stop()</code></li>
+</ul>
+</li>
+</ul>
+

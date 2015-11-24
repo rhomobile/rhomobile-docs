@@ -132,25 +132,34 @@ class Launchpad
       # if starts with ../ then use the string minus the ../ for the index
       if index_key.start_with?('../') 
         index_key.gsub!('../','')
-      end
-      # otherwise use the match for the lookup
-      if url_map[index_key].nil?
-        # do nothing, myable external url or one we do not know
-        m
-      else
-        # if exisrts in mapping but is blank then we need to create it
-        if url_map[index_key]["url"][env] == ""
-          puts "\nERROR: #{index_key} missing url"
+        pageanchor = ""
+        if index_key.include?("?")
+          puts "------index key:" + index_key
+          anchor =  index_key.split("?")
+          index_key = anchor[0]
+          pageanchor = "#" + anchor[1]
+        end
+        # otherwise use the match for the lookup
+        if url_map[index_key].nil?
+          # do nothing, myable external url or one we do not know
           m
         else
-          # get the lookup for the real LP url
-          # then replace the a href tag with the lookup
-          matched = true
-          newurl = url_map[index_key]["url"][env]
-          # puts "\nMATCH: #{index_key} => #{newurl}"
-          m.gsub(match,url_map[index_key]["url"][env])
-        end
-      end      
+          # if exisrts in mapping but is blank then we need to create it
+          if url_map[index_key]["url"][env] == ""
+            puts "\nERROR: #{index_key} missing url"
+            m
+          else
+            # get the lookup for the real LP url
+            # then replace the a href tag with the lookup
+            matched = true
+            newurl = url_map[index_key]["url"][env] + pageanchor
+            if(index_key == 'guide/ShortcutCreator')
+              puts "\nMATCH: #{index_key} => #{newurl}"
+            end
+            m.gsub(match,url_map[index_key]["url"][env] + pageanchor)
+          end
+        end      
+      end
       
     end
     return md_mod 

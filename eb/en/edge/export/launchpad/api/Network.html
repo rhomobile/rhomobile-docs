@@ -121,7 +121,7 @@
 
 <h3>detectConnection(<span class="text-info">HASH</span> propertyMap)</h3>
 
-<p>Begins polling the specified host on the specified URL to check if there is a network connection available. The connection status is reported back via the provided callback. Note that callback will be called only if connection status has changed compared to previous polling.</p>
+<p>Begins polling the specified host on the specified URL to check if there is a network connection available. The connection status is reported back via the provided callback. Note that callback will be called only if connection status has changed compared to previous polling. Multiple concurrent detectionConnection is not supported.</p>
 
 <h4>Parameters</h4>
 
@@ -500,7 +500,7 @@
 
 <h3>stopDetectingConnection()</h3>
 
-<p>Ceases the network detection identified by the given callback.</p>
+<p>Ceases network detection. Callback is no longer supported; it has been made optional to preserve backward compatibility.</p>
 
 <h4>Parameters</h4>
 
@@ -917,6 +917,18 @@
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Shell\BubbleTiles]   Location in Registry
 "HardwareStartKeyEnabled"=dword:00000001                    Prevents the Start icon from appearing in the bottom left
 "HardwareDoneKeyEnabled"=dword:00000001                     Prevents the 'X' icon from appearing in the bottom right
+</pre>
+
+
+<h3>SSL Connection Failure in iOS Platform</h3>
+
+<p>Due to a limitation in curl for iOS, an appropriate timeout is not used in &lsquo;select&rsquo; system calls for a curl SSL conection. To avoid this SSL connection issue, it is recommended that the iOS native Network library be used instead of curl. To do this, add the two lines below to the rhoconfig.txt file.</p>
+
+<p>For more information, please refer to <a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/CommonPitfalls/CommonPitfalls.html">Avoiding Common Networking Mistakes</a> in the Apple developer reference.</p>
+
+<pre>
+ios_net_curl = 0
+ios_direct_local_requests = 0
 </pre>
 
 

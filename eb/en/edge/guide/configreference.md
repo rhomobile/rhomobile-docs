@@ -1278,7 +1278,7 @@ Controls whether scanner will be automatically disabled when navigating away fro
 	<DisableScannerDuringNavigation value="1"/>
 
 ### DisableScannerInApp
-Used to disable barcode scanning capabilities for a previous scanner API. Does not apply to the [common Barcode API](#api-barcode), and will not effect the behavior of barcode scanning in the License dialog. Supported on WM/CE with IE or Zebra Webkit. Note: **The scanner will not be disabled if this parameter does not exist or does not contain a value**.
+Used to disable barcode scanning capabilities for a previous scanner API. Does not apply to the [common Barcode API](../api/barcode), and will not effect the behavior of barcode scanning in the License dialog. Supported on WM/CE with IE or Zebra Webkit. Note: **The scanner will not be disabled if this parameter does not exist or does not contain a value**.
 
 **Supported Platforms**
 
@@ -1375,7 +1375,7 @@ Specifies a .wav file to be played when the Imager captures an image. File must 
 ## GUI
 
 ### SignalRefresh
-Specifies the refresh rate (in milliseconds) of the signal display. See the [Signal API](#api-signalindicators) for more information. 
+Specifies the refresh rate (in milliseconds) of the signal display. See the [Signal API](../api/signalindicators) for more information. 
 
 **Possible Values**
 
@@ -1432,7 +1432,7 @@ Controls the vertical position of the Hourglass icon, which is displayed by defa
 
 ## DOM injection
 ### CustomDOMElements 
-Specifies the path of a device-resident file containing data for injected DOM elements. This feature permits the injection of one or more DOM elements (i.e. JavaScript, CSS or meta tags) into a running application without modifying the underlying application. Injected JavaScript can be local or server-based. For more information, please refer to the [DOM Injection guide](#DOMInjection). **Applies to Android and Windows Mobie/CE webkit engines**. 
+Specifies the path of a device-resident file containing data for injected DOM elements. This feature permits the injection of one or more DOM elements (i.e. JavaScript, CSS or meta tags) into a running application without modifying the underlying application. Injected JavaScript can be local or server-based. For more information, please refer to the [DOM Injection guide](../guide/DOMInjection). **Applies to Android and Windows Mobie/CE webkit engines**. 
 
 **Possible values**
 
@@ -1629,7 +1629,7 @@ Permits the selection of a rendering engine (IE or Webkit) when deploying a Webk
 
 ## Tab instance
 ### NewTabPhysicalMemLimit
-Controls whether a new Tab will be created using the [NativeTabbar.create API](#api-NativeTabbar) when physical memory percentage hits a specific threshold. For example, if set to 80, new tabs will stop being created when physical memory usage on the device reaches or exceeds 80 percent the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
+Controls whether a new Tab will be created using the [NativeTabbar.create API](../api/NativeTabbar) when physical memory percentage hits a specific threshold. For example, if set to 80, new tabs will stop being created when physical memory usage on the device reaches or exceeds 80 percent the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
 
 **Possible Values**
 
@@ -1640,7 +1640,7 @@ Controls whether a new Tab will be created using the [NativeTabbar.create API](#
 	<NewTabPhysicalMemLimit value="50"/>
 
 ### NewTabVirtualMemLimit
-Controls whether a new Tab will be created using the [NativeTabbar.create API](#api-NativeTabbar) when a virtual memory usage percentage is hit. For example, if set to 80, new tabs will stop being created when the virtual memory usage reaches or exceeds 80 percent of the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
+Controls whether a new Tab will be created using the [NativeTabbar.create API](..api/NativeTabbar) when a virtual memory usage percentage is hit. For example, if set to 80, new tabs will stop being created when the virtual memory usage reaches or exceeds 80 percent of the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.
 
 **Possible Values**
 
@@ -1652,7 +1652,7 @@ Controls whether a new Tab will be created using the [NativeTabbar.create API](#
 
 ## ZoomKey
 ### ZoomInKey
-Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](#guide-configreference?Remarks).
+Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
 
 **Possible Values**
 
@@ -1663,7 +1663,7 @@ Controls zoom-IN behavior for application text using function key(s) configured 
 	<ZoomInKey value="0x70"/>
 
 ### ZoomOutKey
-Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](#guide-configreference?Remarks).
+Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. **Applies only to WM/CE with IE or Zebra Webkit**. Other requirements are detailed in the Remarks section at the bottom of this guide. [Read more](../guide/configreference?Remarks).
 
 **Possible Values**
 

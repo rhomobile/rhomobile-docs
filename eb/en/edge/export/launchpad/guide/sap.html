@@ -4,7 +4,7 @@
 
 <h3>Setting Start Page</h3>
 
-<p>To point Enterprise Browser to start with SAP ITS Mobile application, <a href="../guide/configreference?General">startPage</a> parameter of the <code>Config.xml</code> must be set to the URL of SAP ITS Mobile application.</p>
+<p>To point Enterprise Browser to start with SAP ITS Mobile application, <a href="https://developer.motorolasolutions.com/docs/DOC-2571#General">startPage</a> parameter of the <code>Config.xml</code> must be set to the URL of SAP ITS Mobile application.</p>
 
 <h3>Enabling JavaScript APIs</h3>
 
@@ -206,7 +206,7 @@
 
 <p>Function Keys are meant for performing some per-configured tasks on the device. We can capture Function Keys in Enterprise Browser Application just like any other keys which we capture as mentioned in previous section.</p>
 
-<p>However in some devices, some function keys are predefined by OS to perform the default OS behavior (e.g. F6/F7 controls the volume on some devices). In such cases, the respective function keys cannot be captured from Enterprise Browser Application. In order to capture the function keys in our application, we must ensure to follow the Enterprise Browser 1.2 configuration guidelines i.e. <code>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings</code> explained under <a href="../guide/configreference?Remarks">Remarks section of Config Reference</a>.</p>
+<p>However in some devices, some function keys are predefined by OS to perform the default OS behavior (e.g. F6/F7 controls the volume on some devices). In such cases, the respective function keys cannot be captured from Enterprise Browser Application. In order to capture the function keys in our application, we must ensure to follow the Enterprise Browser 1.2 configuration guidelines i.e. <code>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings</code> explained under <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Remarks">Remarks section of Config Reference</a>.</p>
 
 <h3>Android Function Keys</h3>
 
@@ -238,7 +238,7 @@
 
 <h3>Using Webkit Engine</h3>
 
-<p>It is recommended to configure SAP credentials through the <a href="../guide/configreference?Authentication">Authentication tag</a>config.xml.</p>
+<p>It is recommended to configure SAP credentials through the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Authentication">Authentication tag</a>config.xml.</p>
 
 <pre name="code" class="xml">&lt;Authentication&gt;
   &lt;Username VALUE="user1"/&gt;
@@ -383,7 +383,7 @@ scannerObj.InvokeMETAFunction('Scanner', 'enabled');
 
 <h2>Handling Badlink and Navigation</h2>
 
-<p>You application may want to handle if a user encounters a link that no longer exists so that they are not stuck and can gracefully return back to the application. You can write their own badlink html page and then configure <a href="../guide/configreference?General">this option</a> in the config.xml. This page should consider either a link to return to the home page of the application or utilize the Quit, Back &amp; Reload buttons that are provided with Enterprise Browser.</p>
+<p>You application may want to handle if a user encounters a link that no longer exists so that they are not stuck and can gracefully return back to the application. You can write their own badlink html page and then configure <a href="https://developer.motorolasolutions.com/docs/DOC-2571#General">this option</a> in the config.xml. This page should consider either a link to return to the home page of the application or utilize the Quit, Back &amp; Reload buttons that are provided with Enterprise Browser.</p>
 
 <p>On the badlink page, on clicking <code>Reload</code> button, should redirect to SAP authentication page.</p>
 

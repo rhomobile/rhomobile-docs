@@ -1,71 +1,148 @@
-<div class='tableofcontents'> </div><h1>About Enterprise Browser</h1>
+<div class='tableofcontents'> </div><h1>Enterprise Browser 1.3</h1>
 
-<h2>Welcome To the Enterprise Browser</h2>
+<h2>Welcome to the Enterprise Browser</h2>
 
-<p>Enterprise Browser is a powerful, next generation industrial browser enabling developers to build feature rich web applications that integrate seamlessly with the features in Symbol Technologies mobile computers and peripherals &ndash; such as barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3, and JavaScript) to run and integrate with virtually any Symbol Technologies devices running Microsoft&copy; Windows Mobile, Windows&copy; CE or Android. With support for the legacy Application Programming Interfaces (APIs) used in PocketBrowser and RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with todays highly-graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reducing costs and making the transition to next generation devices and operating systems fast, easy and affordable &ndash; especially in high volume mobile environments.</p>
+<p>Enterprise Browser is a powerful, next-generation industrial browser enabling developers to build feature-rich web applications that integrate seamlessly with the features in Zebra Technologies mobile computers and peripherals. The EB base installation includes everything needed to quickly make devices for barcode scanning, signature capture, printing and more. Enterprise Browser applications leverage standard web technologies (HTML5, CSS3 and JavaScript) to run and integrate with virtually any Zebra Technologies device running Android, Microsoft&copy; Windows Mobile and Windows&copy; CE.</p>
 
-<h2>What&rsquo;s New</h2>
+<p>With support for the legacy application programming interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today&rsquo;s highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable&mdash;especially in high-volume mobile environments.</p>
 
-<ul>
-<li>SAP ITS Mobile Compliance
+<h2>What&rsquo;s New in v1.3</h2>
 
-<ul>
-<li><a href="https://developer.motorolasolutions.com/docs/DOC-3442">SAP ITS Mobile Usage guide</a></li>
-<li>JavaScript keyCode support for SAP Apps.</li>
-</ul>
-</li>
-<li>New Device Support
+<h3>Zebra Device Support</h3>
 
 <ul>
-<li>WorkAbout Pro 4 CE 6.0</li>
-<li>MC18 Android KitKat</li>
-</ul>
-</li>
-<li>New APIs
-
-<ul>
-<li><a href="https://developer.motorolasolutions.com/docs/DOC-2847">SmartCradle API</a></li>
-<li>New BatteryDiagnostics method in the <a href="https://developer.motorolasolutions.com/docs/DOC-2511">Battery API</a></li>
-<li><a href="https://developer.motorolasolutions.com/docs/DOC-3430">Database API</a></li>
-<li><a href="../api/device">SymbolDevice API</a></li>
-</ul>
-</li>
-<li>New Feature Demo Application.</li>
-<li>New configuration tags
-
-<ul>
-<li>&amp;ltZoomInKey&amp;gt &amp; &amp;ltZoomOutKey&amp;gt &ndash; To ease the usage of Applications running on Enterprise Browser, users can now configure Hardware Function Keys to perform ZoomIn and ZoomOut operations without having to make changes to the application. Applicable to Windows devices only</li>
-<li>&amp;ltDisableScannerInApp&amp;gt &ndash; This tag has been introduced to disable barcode scanning abilities for legacy Scanner API. This setting will not effect the behavior of barcode scanning in the License dialogue. Applicable to Windows devices only</li>
-<li>&amp;ltisWindowsKey&amp;gt &ndash; This tag has been introduced to mimic Windows Mobile key codes for the device&rsquo;s hardware keys. If enabled then the application will get the Windows Mobile function key code value for F1 to F12 keys instead of what Android would send normally. This can be useful to support both types of devices with one codebase. Applicable to Android devices only which consists of hardware keys.</li>
-</ul>
-</li>
+<li><strong>MC40</strong> Android KitKat</li>
+<li><strong>TC55</strong> Android KitKat</li>
+<li><strong>TC70 (GA2)</strong> Android KitKat</li>
+<li><strong>TC75</strong> Android KitKat</li>
 </ul>
 
 
-<h2>Key Features</h2>
+<h3>New APIs</h3>
+
+<ul>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2512">Camera API</a></li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2525">Intent API</a></li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-3665">Timer API</a></li>
+<li><a href="https://developer.motorolasolutions.com/docs/DOC-2546">SIP API</a></li>
+</ul>
+
+
+<h3>New Features</h3>
+
+<ul>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3668">DOM Injection</a></strong> provides ability to include/inject JavaScript, Meta Tags and CSS into the DOM of an Enterprise Browser application, allowing application behavior to be changed at runtime without modifying the source code.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#Intent">Android Intent Broadcast Receiver Support</a></strong> enables Enterprise Browser applications to register as a receiver and listen for broadcast messages.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3666">Configuration Editor Tool</a></strong> is a desktop utility that simplifies configuration of Enterprise Browser runtime settings.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3667">Custom Shortcut Creation Tool</a></strong> simplifies the creation of shortcuts for different Enterprise Browser applications from the desktop.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SplashScreenPath">Custom Splash Screen Support</a></strong> provides the option of displaying a custom screen when the app starts up.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ExitPasswordEnabled">Password On Exit</a></strong> can be used to prevent an end-user from exiting an Enterprise Browser application without a password.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3671">On-Device Configuration</a></strong> enables on-demand editing of key Enterprise Browser configuration settings in real time, without connecting the device to the desktop.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2576">Installer for Mac OS</a></strong> provides access to Enterprise Browser device executables, JavaScript include files, help docs and other resources for Mac OS developers and users.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2542">USB Printing Support in Printer API</a></strong> provides support for direct output to Zebra printers via USB cable.</p></li>
+<li><p><strong>New WiFi and Battery Indicators for High Resolution Zebra Android Devices</strong> provide new icons that are easier to read on high-resolution screens.</p></li>
+<li><p><strong>New UI graphics for Control/Debug buttons</strong>.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2572">On-Device Debugging</a></strong> provides a view into a running application for advanced debugging and optimization.</p></li>
+</ul>
+
+
+<h3>New Tags for Android and WM/CE</h3>
+
+<p><em>These configuration tags apply to both platforms unless otherwise noted</em>.</p>
+
+<p><strong>Splash Screen Configuration</strong></p>
+
+<ul>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SplashScreenPath">&lt;SplashScreenPath&gt;</a></strong> specifies the fully qualified path of an image to be displayed when the app starts up.</li>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SplashScreenDuration">&lt;SplashScreenDuration&gt;</a></strong> specifies the length of time (in milliseconds) to display the splash screen image <strong>(Android only)</strong>.</li>
+</ul>
+
+
+<p><strong>Shortcut Creation Configuration</strong></p>
+
+<ul>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ShortcutCreationEnabled">&lt;ShortcutCreationEnabled&gt;</a></strong> controls the automatic creation of shortcuts on the device.</li>
+</ul>
+
+
+<p><strong>DOM Injection Configuration</strong></p>
+
+<ul>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#CustomDOMElements">&lt;CustomDOMElements&gt;</a></strong> specifies the path of a device-resident file containing data for injected DOM elements.</li>
+</ul>
+
+
+<p><strong>Settings Screen Configuration</strong></p>
+
+<ul>
+<li><strong>&lt;<a href="https://developer.motorolasolutions.com/docs/DOC-2571#SettingsPageProtectionEnabled">SettingsButtonEnabled&gt;</a></strong> places a button at the bottom-right corner of all screens that invokes the Settings page.</li>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SettingsPageProtectionEnabled">&lt;SettingsPageProtectionEnabled&gt;</a></strong> prompts for a password before allowing access to the Settings page.</li>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SettingsPagePassword">&lt;SettingsPagePassword&gt;</a></strong> contains the password for accessing the Settings page when password function is enabled using the &lt;SettingsPageProtectionEnabled&gt; tag.</li>
+</ul>
+
+
+<p><strong>Password On Exit Prompt</strong></p>
+
+<ul>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ExitPasswordEnabled">&lt;ExitPasswordEnabled&gt;</a></strong> prompts for a password when quitting an Enterprise Browser application.</li>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ExitPasswordValue">&lt;ExitPasswordValue&gt;</a></strong> contains the password for quitting Enterprise Browser when function is enabled using the &lt;ExitPasswordEnabled&gt; tag.</li>
+</ul>
+
+
+<p><strong>Intent Configuration Option</strong> (Android only)</p>
+
+<ul>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#EnableReceiver">&lt;EnableReceiver&gt;</a></strong> enables a mechanism through which the application can be called upon by other apps to perform Actions.</li>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#IntentAction">&lt;IntentAction&gt;</a></strong> specifies the Action for which the receiver is to be registered.</li>
+<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#IntentCategory">&lt;IntentCategory&gt;</a></strong> specifies the Category under which the receiver is to be registered.</li>
+</ul>
+
+
+<p>Intent is supported on Android only. For more information, please refer to the .</p>
+
+<h3>New Tags for Android</h3>
+
+<p><em>These configuration tags were previously supported only on WM/CE</em>.</p>
+
+<ul>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ZoomInKey">&lt;ZoomInKey&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#ZoomOutKey">&lt;ZoomOutKey&gt;</a></strong> enable Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#HTTP_Proxy">&lt;HTTP_Proxy&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#HTTPS_Proxy">&lt;HTTPS_Proxy&gt;</a></strong> enable the specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#Username">&lt;Username&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Password">&lt;Password&gt;</a></strong> enable credentials to be entered automatically when navigating to a login page. Configurable on-device.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#LogMemory">&lt;LogMemory&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#LogMemPeriod">&lt;LogMemPeriod&gt;</a></strong> control memory used by logging and the time intervals between entries.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ResizeOnSIP">&lt;ResizeOnSIP&gt;</a></strong> controls automatic window resizing when the soft input panel is displayed.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#LowBatteryScan">&lt;LowBatteryScan&gt;</a></strong> controls whether the scanner can be used when battery charge level is low.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#DisableScannerDuringNavigation">&lt;DisableScannerDuringNavigation&gt;</a></strong> controls whether the scanner will be disabled when navigating away from a scanning page on which it was used.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#FunctionKeysCapturable">&lt;FunctionKeysCapturable&gt;</a></strong> works with the Key Capture API to enable function keys to be capturable globally on the device.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#EnableFunctionKey_X">&lt;EnableFunctionKey_X&gt;</a></strong> specifies which Function keys (numbered F1 through F24) should be enabled.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#EnableApplicationKey_X">&lt;EnableApplicationKey_X&gt;</a></strong> specifies which Application keys (numbered A1 through A16) should be enabled.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#FontFamily">&lt;FontFamily&gt;</a></strong> specifies the default font to use when rendering text in web pages.</p></li>
+</ul>
+
+
+<h2>Key EB Features</h2>
 
 <h3>Enterprise Browser: An application development toolkit for mobile cross-platform enterprise apps</h3>
 
 <ul>
-<li>Supports all enterprise devices: mobile computers, tablets, kiosks, wearables and vehicle mount</li>
-<li>Supports multiple operating systems: Windows&copy; Embedded Handheld, Windows&copy; CE, Windows&copy; Mobile and Android&copy;</li>
+<li>Supports all enterprise devices: mobile computers, tablets, kiosks, wearables and vehicle-mounted devices</li>
+<li>Supports multiple operating systems: Android&copy;, Windows&copy; Embedded Handheld, Windows&copy; CE and Windows&copy; Mobile</li>
 </ul>
 
 
 <h3>Build apps using HTML5, CSS and JavaScript</h3>
 
 <ul>
-<li>Use web skills to create beautiful applications</li>
+<li>Use web skills to create great-looking applications</li>
 <li>Based on open source and standard technologies, not proprietary toolkits</li>
-<li>Access the world&rsquo;s largest developer community</li>
+<li>Access to the world&rsquo;s largest developer community</li>
 </ul>
 
 
 <h3>Common APIs across all enterprise devices</h3>
 
 <ul>
-<li>Single code base; does not require different APIs for different OSs to create a true write once, run anywhere experience</li>
-<li>Easily access device capabilities with JavaScript APIs</li>
+<li>Single code base; does not require different APIs for different OSs to create a true write-once, run-anywhere apps with a consistent UI</li>
+<li>Easily access native device hardware with JavaScript APIs</li>
 </ul>
 
 
@@ -80,32 +157,33 @@
 <h3>Backward compatible with RhoElements</h3>
 
 <ul>
-<li>Enterprise Browser is compatible with legacy RhoElements JavaScript APIs enabling a clear path forward for &ldquo;RhoElements Shared Runtime&rdquo; users</li>
+<li>Enterprise Browser is compatible with legacy RhoElements JavaScript APIs, enabling a clear path forward for &ldquo;RhoElements Shared Runtime&rdquo; users</li>
 </ul>
 
 
 <h3>Unparalleled access to device capabilities</h3>
 
 <ul>
-<li>Access all device features, including bar code scanning, signature capture, printing, RFID and much more.</li>
+<li>Access all device features, including bar code scanning, signature capture, printing, RFID and much more</li>
 </ul>
 
 
 <h3>Thin client architecture</h3>
 
 <ul>
-<li>Simplifies device deployment and management by enabling instant application updates on devices; ensures version consistency.</li>
+<li>Simplifies device deployment and management by enabling instant application updates on devices; ensures version consistency</li>
 </ul>
 
 
-<h3>Operating system &ldquo;lock out&rdquo;</h3>
+<h3>Offers operating system &ldquo;lock out&rdquo;</h3>
 
 <ul>
-<li>Hides access to distractions, such as web-browsing and games; simplifies user interface and eliminates risk of unauthorized changes to device settings.</li>
+<li>Hides access to distractions, such as web-browsing and games; simplifies user interface and eliminates risk of unauthorized changes to device settings</li>
+<li>Password-protect settings screen and prevent any app from exiting</li>
 </ul>
 
 
-<h3>Full screen display</h3>
+<h3>Full-screen display</h3>
 
 <ul>
 <li>Maximizes available display space for a richer, more effective user interface; hides command bar and Start menu</li>
@@ -123,11 +201,11 @@
 
 <h3>Reduce application and development costs</h3>
 
-<p>Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices/operating systems, providing highly cost effective support for a mixed-OS environment.</p>
+<p>Eliminates the need to develop, manage and maintain multiple versions of an application to support different types of devices and operating systems;  provides highly cost effective support for a mixed-OS environment.</p>
 
 <h3>Protect the business from OS market uncertainty</h3>
 
-<p>Devices and platforms can continue to churn without impacting your business &ndash; these OS-agnostic applications work on then Symbol Technologies platforms of yesterday (MPA2), today and tomorrow.</p>
+<p>Devices and platforms can continue to churn without impacting your business. These OS-agnostic applications work on Symbol, Motorola and Zebra Technologies platforms of yesterday (MPA2), today and tomorrow.</p>
 
 <h3>Reduce end-user training costs</h3>
 
@@ -139,7 +217,7 @@
 
 <h3>Create consumer-style apps &ndash; for business</h3>
 
-<p>Without OS constraints to impact app design, a graphical user interface can be created that is every bit as engaging, intuitive and interactive as today&rsquo;s consumer applications. Completely control application behavior on different devices: You control how an application behaves on a given device. With automatic screen sizing, apps can look, feel and behave identically on all devices &ndash; or you can add new features or expand the presentation of existing features to take advantage of larger screens.</p>
+<p>Without OS constraints to impact app design, a graphical user interface can be created that is every bit as engaging, intuitive and interactive as today&rsquo;s consumer applications. Provides complete control of application behavior on different devices. With automatic screen resizing, apps can look, feel and behave identically on all devices, or display new features or expand the presentation of existing features to take advantage of larger screens.</p>
 
 <h3>Faster time to market</h3>
 
@@ -147,7 +225,7 @@
 
 <h2>Supported Devices</h2>
 
-<h3>Mobile Computers</h3>
+<h3>Mobile</h3>
 
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
@@ -168,7 +246,7 @@
   <td class="clsSyntaxCells clsOddRow"><img id="et1Pic" src="images/et1.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>ET1</b></td>
   <td class="clsSyntaxCells clsOddRow">ET1 (Enterprise Tablet), ET1 WAN</td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.1 (Jelly Bean)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  </tr>
  <tr>
@@ -196,14 +274,14 @@
   <td class="clsSyntaxCells clsOddRow"><img id="mc32Pic" src="images/mc3200.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC32N0</td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)<br>Windows CE 7.0</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.1 (Jelly Bean)<br>Windows CE 7.0</td>
   <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit, Android Stock</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="images/mc40.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC40</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC40</nobr></td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  
  </tr><tr>
@@ -245,7 +323,7 @@
   <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="images/mc67.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC67</b></td>
   <td class="clsSyntaxCells clsOddRow">MC67</td>
-  <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5<br>Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5<br>Android 4.1 (Jelly Bean)</td>
   <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit, Android Stock</td>
  </tr>
  <tr>
@@ -301,17 +379,24 @@
   <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="images/tc55.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC55</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>TC55</nobr></td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.1 (JellyBean)</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="images/tc70.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC70</b></td>
-  <td class="clsSyntaxCells clsOddRow"><nobr>TC70 GA1</nobr></td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.3 (KitKat)</td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC70 (GA1, GA2)</nobr></td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
   <td class="clsSyntaxCells clsOddRow">Android Stock</td>
  </tr>
-<tr>
+ <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc75Pic" src="images/tc75.png" height="75"></td>
+  <td class="clsSyntaxCells clsOddRow"><b>TC75</b></td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC75</nobr></td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock</td>
+ </tr>
+ <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="images/workaboutpro.png" ></td>
   <td class="clsSyntaxCells clsOddRow"><b>Workabout</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>Workabout Pro 4</nobr></td>
@@ -321,7 +406,7 @@
 </tbody></table>
 
 
-<h3>Vehicle Computers</h3>
+<h3>Vehicle</h3>
 
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
@@ -355,7 +440,7 @@
 </tbody></table>
 
 
-<h3>Micro-Kiosks</h3>
+<h3>Micro-Kiosk</h3>
 
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>
@@ -389,7 +474,7 @@
 </tbody></table>
 
 
-<h3>Wearable Computers</h3>
+<h3>Wearable</h3>
 
 <table cellspacing="0" cellpadding="0" class="table table-striped">
  <tbody><tr>

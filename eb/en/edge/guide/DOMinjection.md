@@ -79,7 +79,7 @@ In the sample tag file below, notice a syntax similar to that of ordinary HTML t
 
 Attributes of DOM Injection tags: 
 
-**Note that the 'pages' attribute specifies the <u>file name</u> of the page into which the element defined in the tag will be injected**. The following rules apply: 
+**Note that the 'pages' attribute specifies the file name of the page into which the element defined in the tag will be injected**. The following rules apply: 
 
 * Assumes an '.html' file extention; specify extension if different
 * For local files, works from directory relative to the installation root; include qualified path if different 
@@ -95,7 +95,7 @@ Attributes of DOM Injection tags:
 
 The tags file created in Step 1 must reside on the device. 
 
- * **Specify the path to the tags file** by adding a line like the one below in the <Application> section in the app's `Config.xml` file:  
+ * **Specify the path to the tags file** by adding a line like the one below in the `<Application>` section in the app's `Config.xml` file:  
 
 		:::xml
 		<Application>
@@ -105,7 +105,7 @@ The tags file created in Step 1 must reside on the device.
 		</Application>
 
 
-All runtime settings of Enterprise Browser apps are managed through the `Config.xml` file. For information about how to configure this file, please refer to the [Config.xml Reference Guide](#guide-configreference). The CustomDOMElements tag cannot be configured using the [on-device Config Editor utility](#guide-OndeviceConfig).  
+All runtime settings of Enterprise Browser apps are managed through the `Config.xml` file. For information about how to configure this file, please refer to the [Config.xml Reference Guide](../guide/configreference). The CustomDOMElements tag cannot be configured using the [on-device Config Editor utility](../guide/OndeviceConfig).  
 
 > **This attribute's value is empty by default. DOM injection cannot function if this setting is blank**. 
 

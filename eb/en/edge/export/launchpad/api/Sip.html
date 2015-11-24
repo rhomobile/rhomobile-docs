@@ -2,54 +2,55 @@
 
 <h2>Overview</h2>
 
-<p>The Sip Module is used to control attributes of the soft input panel. Note that these settings apply to both text boxes on the current page as well as the <a href="https://developer.motorolasolutions.com/docs/DOC-2506">address bar</a>.</p>
+<p>The SIP API is used to show and hide the default software keyboard available in the respective Android Device.</p>
 
 <h2>Enabling the API</h2>
 
-<p>In order to use this API you must include reference to the following JavaScript file that is included with the Enterprise Browser installation:</p>
+<p>There are two methods for SIP API:</p>
 
 <ul>
-<li>elements.js</li>
+<li>Include all ebapi modules or</li>
+<li>Include only the API modules you need</li>
 </ul>
 
 
-<blockquote><p>Note: this file either needs to be on the device in a relative folder from where your HTML page is, or it must be copied to your web server appropriately.</p></blockquote>
+<p>For either of these methods, you&rsquo;ll need to include files from the <code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code> directory on the computer that you installed the Enterprise Browser.</p>
 
-<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="elements.js"&gt;&lt;/script&gt;;
+<h3>Include all JS API modules</h3>
+
+<p>To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app&rsquo;s files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
 </pre>
 
-<h3>API Usage</h3>
+<blockquote><p>Note: that the pathing for this file is relative to the current page.</p></blockquote>
 
-<p>This API does not use the <code>EB</code> namespace. It is simply referenced using the API name:</p>
+<p>This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.</p>
 
-<pre name="code" class="javascript">sip.manual();
+<h3>Include only the modules you need</h3>
+
+<p>To include single APIs, you must first include the <code>ebapi.js</code> in your HTML as well as the API file you want to use. For instance, to use the SIP API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.sip.js"&gt;&lt;/script&gt;
 </pre>
+
+<p>The ebapi.js file is necessary for all single API inclusions.</p>
 
 <h2>Methods</h2>
 
-<h3>manual()</h3>
+<h3>hide()</h3>
 
-<p>The SIP will show or hide only when the SIP button is pressed.</p>
+<p>Hides the software keyboard which is available by default with the device.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
 
 <h4>Returns</h4>
 
-<ul>
-<li>Void</li>
-</ul>
-
-
-<h4>Platforms</h4>
-
-<ul>
-<li>Windows Mobile/CE</li>
-</ul>
-
-
-<h3>automatic()</h3>
-
-<p>Shows and hides the SIP when editable fields have focus.</p>
-
-<h4>Returns</h4>
+<p>Synchronous Return:</p>
 
 <ul>
 <li>Void</li>
@@ -60,94 +61,64 @@
 
 <ul>
 <li>Android</li>
-<li>Windows Mobile/CE</li>
 </ul>
 
 
-<h2>Properties</h2>
-
-<h3>left</h3>
-
-<h4>Type</h4>
-
-<p><span class='text-info'>INTEGER</span></p>
-
-<h4>Description</h4>
-
-<p>Sets the horizontal position of the SIP in pixels.</p>
-
-<blockquote><p>Note: Note compatible with Finger Scrolling on Windows devices</p></blockquote>
-
-<h3>Possible Values</h3>
+<h4>Method Access:</h4>
 
 <ul>
-<li>Horizontal position, in pixels &ndash; Default: Center of Screen</li>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Sip.hide()</code></li>
+</ul>
+</li>
 </ul>
 
 
-<h4>Platforms</h4>
+<h3>show()</h3>
+
+<p>Displays the software keyboard which is available by default with the device.</p>
+
+<h4>Parameters</h4>
+
+<ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
+
+
+<h4>Returns</h4>
+
+<p>Synchronous Return:</p>
 
 <ul>
-<li>Windows Mobile/CE</li>
-</ul>
-
-
-<h3>top</h3>
-
-<h4>Type</h4>
-
-<p><span class='text-info'>INTEGER</span></p>
-
-<h4>Description</h4>
-
-<p>Sets the vertical position of the SIP in pixels.</p>
-
-<blockquote><p>Note: Note compatible with Finger Scrolling on Windows devices</p></blockquote>
-
-<h3>Possible Values</h3>
-
-<ul>
-<li>Vertical position, in pixels &ndash; Default: Bottom of Screen</li>
+<li>Void</li>
 </ul>
 
 
 <h4>Platforms</h4>
 
 <ul>
-<li>Windows Mobile/CE</li>
+<li>Android</li>
+</ul>
+
+
+<h4>Method Access:</h4>
+
+<ul>
+<li>Class Method: This method can only be accessed via the API class object.
+
+<ul>
+<li><code>EB.Sip.show()</code></li>
+</ul>
+</li>
 </ul>
 
 
 <h2>Remarks</h2>
 
-<h3>Multi Instance</h3>
+<h3>Focus on calling show method</h3>
 
-<p>When multiple Enterprise Browser applications are running the following considerations should be made: The SIP settings are application specific. Switching to another application which uses the SIP module will apply the focused application’s settings to it, e.g. the SIP may move position.</p>
+<p>Focus on input field will not be reflected automatically when show method of SIP module is called.</p>
 
-<h3>Disabling the SIP</h3>
+<h3>Software keyboard behavior after hide method</h3>
 
-<p>If you want to completely disable to the use of the SIP, set it to appear off the visible area of the screen by setting the Left and Top coordinates to be off the device&rsquo;s display size. Alternatively on Android, call the manual method.</p>
-
-<h3>Interaction with Hardware Keyboard</h3>
-
-<p>The SIP used is the standard keyboard input panel supplied with Windows. Certain incompatibilities exist when using the software keyboard on a device which also has a hardware keyboard though this will have no impact on the average user. For example moving the SIP will reset the alpha or function key (orange or blue key) lock and using the orange or blue keys may reset the position of the SIP on certain devices. Also note that if you press a hardware key the SIP will disappear if you are using the Internet Explorer engine and you will need to press the SIP button again or return focus to an editable field to get it to appear</p>
-
-<h3>Interaction with Screen Rotation</h3>
-
-<p>Depending on the underlying operating system the SIP position may change following screen rotation. The SIP left and top parameters can be applied in a ScreenOrientationEvent to bypass this feature if required.</p>
-
-<h3>IE Rendering Engine</h3>
-
-<p>The SIP behavior have slightly different behavior when using Internet Explorer as the rendering engine:</p>
-
-<ul>
-<li>Manual: When shown by the SIP Button, will show and hide when text boxes have focus.</li>
-<li>Automatic: Shows and hides when text boxes have focus. Applying SIP control Automatic will prevent SIP control Manual being applied in the same application. To return to Manual SIP control you can press a hardware key.</li>
-<li>Manual and Automatic do not apply for Windows CE, only Windows Mobile.</li>
-<li>On Windows CE devices which do not have a physical keyboard, the SIP is set to automatic and is not configurable. Some examples of these devices are MK4000, MK3100, MK3000, and MC18.</li>
-</ul>
-
-
-<h3>Webkit Rendering Engine</h3>
-
-<p>When using the webkit rendering engine, the SIP is by default, manually controlled, not automatic. Keep this in mind when using the SIP on devices which use the webkit rendering engine.</p>
+<p>The hide method will not permanently disable the software keyboard. For Ex: After calling hide method, if we focus again on any text area, then software keyboard will be shown again.</p>
