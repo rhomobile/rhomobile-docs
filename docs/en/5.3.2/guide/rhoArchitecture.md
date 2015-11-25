@@ -2,9 +2,7 @@
 
 The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
 
-**New in RMS 5.3 is support for Android 5.1 Lollipop**. The RhoMobile suite can now be used to build apps for consumer devices running the latest Android OS. Support for Lollipop on Zebra devices is coming soon. 
-
-[What else is new in RMS 5.3](Release_Notes_5_3_2.html)? 
+**Among the new features in RMS 5.3 are support for Qt 5.5.0.0 and USB printing for Windows Mobile/CE**. The latest version also implements an ORM API that supports both JavaScript and Ruby languages, and KitKat support has been added to five Zebra devices. For a complete description of the latest features, please [download the RMS 5.3.2 release notes](http://rhomobile-suite.s3.amazonaws.com/5.3/5.3.2/Release_Notes_5_3_2.html).  
 
 ##Supported Mobile-Device Platforms 
 <table class="table table-stripe table-bordered">
@@ -45,7 +43,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
  </tr></table>
 
-> NOTE: For more information about supported devices and operating systems, please refer to its accompanying documentation and the [latest RMS release notes](http://rhomobile-suite.s3.amazonaws.com/5.1/5.1.1/Release_Notes_5_1_1.html).
+**NOTE: For more information about supported devices and operating systems, please refer to its accompanying documentation and [download the latest RMS release notes](http://rhomobile-suite.s3.amazonaws.com/5.3/5.3.2/Release_Notes_5_3_2.html).**
 
 ##Supported Zebra Devices
 RMS 5.3 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
