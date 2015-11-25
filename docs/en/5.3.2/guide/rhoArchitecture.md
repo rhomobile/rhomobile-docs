@@ -4,6 +4,8 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
 
 **New in RMS 5.3 is support for Android 5.1 Lollipop**. The RhoMobile suite can now be used to build apps for consumer devices running the latest Android OS. Support for Lollipop on Zebra devices is coming soon. 
 
+[What else is new in RMS 5.3](https://github.com/rhomobile/rhomobile-docs/blob/master/public/Release_Notes_5_3_2.html)? 
+
 ##Supported Mobile-Device Platforms 
 <table class="table table-stripe table-bordered">
  <tr>
