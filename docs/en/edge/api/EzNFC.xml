@@ -1,0 +1,249 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="EzNFC" parent="Rho">
+        <HELP_OVERVIEW>This API is used for enabling/disabling the NFC Adapter and reading the NFC Tags. This API is currently supported on Android Platform only.</HELP_OVERVIEW>
+        <MORE_HELP>
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+    extensions: ["eznfc"]
+        </MORE_HELP> 		
+	<MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the EzNFC API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the EzNFC API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.eznfc.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+        </MORE_HELP_EB>
+        <VER_INTRODUCED>1.4.0</VER_INTRODUCED>
+        <PLATFORM>Android</PLATFORM>
+        <TEMPLATES>
+        </TEMPLATES>
+
+        <PROPERTIES access="STATIC">
+            <PROPERTY name="isSupported" type="BOOLEAN" default="false" generateAccessors="true">
+                <PLATFORM>Android</PLATFORM>
+                <DESC>This property is used for identifying whether the NFC is supported or not. Returns true, if the NFC is supported in the device.</DESC>
+            	<PLATFORM>Android</PLATFORM>
+            </PROPERTY>
+			
+	    <PROPERTY name="isEnabled" type="BOOLEAN" default="false" generateAccessors="true">
+                <PLATFORM>Android</PLATFORM>
+                <DESC>This property is used to detect if the NFC adapter is enabled or not. Returns true, if the NFC adapter is enabled.</DESC>
+            	<PLATFORM>Android</PLATFORM>
+            </PROPERTY>
+        </PROPERTIES>
+
+        <METHODS access="STATIC">
+
+            <METHOD name="enableAdapter" hasCallback="none">
+				<DESC>Navigates to device NFC Adapter settings screen if device's NFC Adapter is not enabled</DESC>
+				<PLATFORM>Android</PLATFORM>
+                <RETURN type="BOOLEAN"/>
+            </METHOD>
+			
+			<METHOD name="enableRead" hasCallback="mandatory">
+				<DESC>Enables NFC read of the application if device is NFC supported</DESC>
+				<PLATFORM>Android</PLATFORM>
+                <CALLBACK type="HASH">
+                    <DESC>List of callback data after the NFC Tag is read</DESC>
+                    <PARAMS>
+						<PARAM name="Type" type="STRING">
+                            <DESC>The Type of NFC Tag that has been read</DESC>
+                        </PARAM>
+                        <PARAM name="ID" type="STRING">
+                            <DESC>The ID of the Tag that has been read.</DESC>
+                        </PARAM>
+                        <PARAM name="Payload" type="STRING">
+                            <DESC>Payload is the data overall data of NFC Tag</DESC>
+                        </PARAM>
+                        <PARAM name="TNF" type="STRING">
+                            <DESC>TNF ia las 3 bits of Payload</DESC>
+                        </PARAM>
+                        <PARAM name="EncodingFormat " type="STRING">
+                            <DESC>Text encoding format applied</DESC>
+                        </PARAM>
+                        <PARAM name="data" type="STRING">
+                            <DESC>The String data that is read from Tag.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+			
+			<METHOD name="disableRead" hasCallback="none">
+				<DESC>Disables NFC read of the Application</DESC>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
+
+        </METHODS>
+        <REMARKS>
+			<REMARK title="General">
+                <DESC>
+                    <![CDATA[
+1. NFC read happens only when the application is in foreground.
+2. It is mandatory to disable default NFC Application of the device before using this API.
+3. The APIs are designed to read NON-Secure NFC Tags.
+4. The NFC APIs are designed to work Reader Mode only.
+                    ]]>
+                </DESC>
+			</REMARK>
+	</REMARKS>
+        <USER_OVERVIEW>
+        </USER_OVERVIEW>
+        <EXAMPLES_EB>
+            <EXAMPLE title="Usage Guide">
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>This example shows how to use the EzNFC API.</DESC>
+                        <CODE>
+                            <JAVASCRIPT><![CDATA[
+<html>
+<head>
+  <title>Enterprise Browser NFC API Test</title>
+<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+<script type="text/javascript">
+/*
+EB.EzNFC.isSupported
+Property to check if NFC is supported on the device or not.
+Return
+	true - if supported
+	false - if not supported
+*/
+function isNfcSupported()
+{
+	var x=EB.EzNFC.isSupported;
+	document.getElementById("demo1").innerHTML = x;
+}
+/*
+EB.EzNFC.isEnabled
+Property to check if NFC Adapter is enabled on the device or not.
+Return
+	true - if enabled
+	false - if not enabled
+*/
+function isNfcEnabled()
+{
+	var x=EB.EzNFC.isEnabled;
+	document.getElementById("demo2").innerHTML = x;
+}
+/*
+EB.EzNFC.enableAdapter();
+Method to enable NFC Adapter. Invoking this method brings up the Device settings Activity so user can manually enable the NFC adapter.
+Calling this methos when NFC adapter is already enabled does not do anything.
+*/
+function EnableNfcAdapter()
+{
+	EB.EzNFC.enableAdapter();
+}
+/*
+enableRead(enableNfcCallback1)
+Method to enable NFC Tag Reading.
+*/
+function EnableNfcRead()
+{
+	EB.EzNFC.enableRead(enableNfcCallback1);
+}
+/*
+disableRead();
+Method to disable NFC Tag Reading.
+*/
+function DisableNfcRead()
+{
+	EB.EzNFC.disableRead();
+	/* Clearing the div of previously read data*/
+	document.getElementById("demo5").innerHTML = "";
+}
+/*
+enableRead(enableNfcCallback1).
+User defined callback with the enableRead() method.
+Gets fired when NFC Tag is Read.
+Returns Tag
+ID
+Type
+TNF
+Payload
+EncodingFormat
+Result
+*/
+function enableNfcCallback1(dat) {
+	var ID = dat.id;
+	var Type = dat.type;
+	var TNF = dat.tnf;
+	var Payload = dat.payload;
+	var EncodingFormat = dat.encodingformat;
+	var Result = dat.result;
+	
+	var ShowData = "ID:" + ID + "<BR>Type:" + Type + "<BR>TNF:" + TNF + "<BR>Payload:" + Payload + "<BR>EncodingFormat:" + EncodingFormat + "<BR>Result:" + Result;
+	
+	document.getElementById("demo5").innerHTML = ShowData;
+}
+</script>
+</head>
+<body>
+<h2  align="center">Enterprise Browser NFC API Test</h2>
+<hr>
+<br>
+<DIV>
+<table border=1>
+	<tr>
+		<td>
+			<button onclick="isNfcSupported();">isSupported</button>:
+		</td>
+		<td><div id="demo1"></div></td>
+	</tr>
+	<tr>
+		<td>
+			<button onclick="isNfcEnabled();">isEnabled</button>:
+		</td>
+		<td><div id="demo2"></div></td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			<button onclick="EnableNfcAdapter();">enableAdapter</button>:
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			<button onclick="EnableNfcRead();">enableRead</button>:</td>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			<button onclick="DisableNfcRead();">disableRead</button>:</td>
+		</td>
+	</tr>
+</table>
+</DIV>
+<DIV id="demo5"></DIV>
+</body>
+</html>
+                                ]]>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+        </EXAMPLES_EB>
+    </MODULE>
+</API>    
