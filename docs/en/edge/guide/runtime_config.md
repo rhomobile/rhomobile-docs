@@ -1094,7 +1094,7 @@ Acts as a rotation lock. When AutoRotate is disabled, screen will remain in a fi
 ###ScrollTechnique
 Specifies the technique used to scroll the viewport:<br/>
 
-* **FingerScroll (Android only):** Permits scrolling around a page with finger swiping<br>
+* **FingerScroll:** Permits scrolling around a page with finger swiping<br>
 * **Scrollbars:** Scrollbars will be presented when the page is too large to fit the viewport<br>
 * **None:** No scrollbars will be displayed and the page will not respond to finger swipes<br>
 
@@ -1102,7 +1102,7 @@ NOTE: FingerScroll may interfere with drawing on a Canvas element.<br>
 
 **Configuration Identifier**: SCROLLTECHNIQUE<br>
 **Possible Values**: FingerScroll, Scrollbars, None<br>
-**Platforms**: Android, iOS, WM/CE<br>
+**Platforms**: iOS, WM/CE<br>
 
 ##SIP
 ###EnableSIP
