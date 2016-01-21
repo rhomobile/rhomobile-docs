@@ -2,9 +2,9 @@
 
 The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
 
-**New in RMS 5.4 is support for Apple iOS 9.0 and for the [TC8000](https://www.zebra.com/us/en/products/mobile-computers/handheld/tc8000.html), Zebra's revolutionary new touch mobile computer** running Android KitKat. The latest version also supports the MC92 with Android KitKat and can remap the Android keyboard to produce Windows Mobile keycodes or a customized list as needs dictate.      
+**New in RMS 5.4 is support for the MC92 with Android KitKat and the [TC8000](https://www.zebra.com/us/en/products/mobile-computers/handheld/tc8000.html), Zebra's revolutionary new touch mobile computer** running Android KitKat. The latest version also supports Apple iOS 9.0 and can remap the Android keyboard to produce keycodes for Windows Mobile or for custom needs as required. 
 
-an ORM API that supports both JavaScript and Ruby languages, and KitKat support has been added to five Zebra devices. For a complete description of the latest features, please [download the RMS 5.3.2 release notes](http://).  
+For more information about this and prior releases, including bug fixes and issue resolutions, please [download the RMS 5.4 release notes](http://rhomobile-suite.s3.amazonaws.com/5.4/5.4.0/Release_Notes_RMS_5_4.html). 
 
 ##Supported Mobile-Device Platforms 
 <table class="table table-stripe table-bordered">
@@ -45,7 +45,7 @@ an ORM API that supports both JavaScript and Ruby languages, and KitKat support 
   <td class="clsSyntaxCells clsOddRow">Windows 7, Windows 8, Windows 8.1</td>
  </tr></table>
 
-**NOTE: For more information about supported devices and operating systems, please refer to its accompanying documentation and [download the latest RMS release notes](http://rhomobile-suite.s3.amazonaws.com/5.3/5.3.2/Release_Notes_5_3_2.html).**
+**NOTE: For more information about supported devices and operating systems, please refer to its accompanying documentation and [download the latest RMS release notes](http://rhomobile-suite.s3.amazonaws.com/5.4/5.4.0/Release_Notes_RMS_5_4.html).**
 
 ##Supported Zebra Devices
 RMS 5.3 has been approved for building apps that target the following Zebra Enterprise Mobility devices:
@@ -94,6 +94,12 @@ RMS 5.3 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow"><nobr>MC40</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
  </td>
+  <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC55.jpg?raw=true" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><b>TC55</b></td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC55</nobr></td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
+ </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC70.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC70</b></td>
@@ -101,9 +107,15 @@ RMS 5.3 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
  </tr>
  <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC75.png?raw=true" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc75Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC75.png?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC75</b></td>
   <td class="clsSyntaxCells clsOddRow">TC75</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
+ </tr>
+ <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc8000pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC8000.png?raw=true" height="75"></img></td>
+  <td class="clsSyntaxCells clsOddRow"><b>TC8000</b></td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC8000</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
  </tr>
  <tr>
@@ -189,12 +201,6 @@ RMS 5.3 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow"><b>MC9500</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>MC9590, MC9596, MC9598, MC959B (WM6.1)</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Windows Mobile 6.1, Windows Embedded Handheld 6.5</td>
- </tr>
- <tr>
-  <td class="clsSyntaxCells clsOddRow"><img id="tc55Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_TC55.jpg?raw=true" height="75"></img></td>
-  <td class="clsSyntaxCells clsOddRow"><b>TC55</b></td>
-  <td class="clsSyntaxCells clsOddRow"><nobr>TC55</nobr></td>
-  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
  </tr>
 </table>
 
@@ -291,7 +297,7 @@ Memory constraints are important to consider, particularly when targeting the ol
 <br>
 
 ##Deprecated Zebra Devices
-**The following Zebra Devices are not supported in RMS 5.3** (but can still be targeted by RMS versions earlier than 5.1): 
+**The following Zebra Devices are not supported in RMS 5.3 and later** (but can still be targeted by RMS versions earlier than 5.1): 
 
 <H4>Mobile Computers</H4>
 <table class="table table-striped table-bordered">
