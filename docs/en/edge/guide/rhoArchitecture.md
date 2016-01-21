@@ -1,8 +1,10 @@
-# RMS 5.3 Supported Platforms
+# RMS 5.4 Supported Platforms
 
 The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X and Windows development hosts that can target multiple mobile-device platforms from a single code base. RhoMobile apps employ an HTML front-end that presents the UI component and passes device calls through to the underlying hardware. RhoStudio also supports native app development. 
 
-**Among the new features in RMS 5.3 are support for Qt 5.5.0.0 and USB printing for Windows Mobile/CE**. The latest version also implements an ORM API that supports both JavaScript and Ruby languages, and KitKat support has been added to five Zebra devices. For a complete description of the latest features, please [download the RMS 5.3.2 release notes](http://rhomobile-suite.s3.amazonaws.com/5.3/5.3.2/Release_Notes_5_3_2.html).  
+**New in RMS 5.4 is support for Apple iOS 9.0 and for the [TC8000](https://www.zebra.com/us/en/products/mobile-computers/handheld/tc8000.html), Zebra's revolutionary new touch mobile computer** running Android KitKat. The latest version also supports the MC92 with Android KitKat and can remap the Android keyboard to produce Windows Mobile keycodes or a customized list as needs dictate.      
+
+an ORM API that supports both JavaScript and Ruby languages, and KitKat support has been added to five Zebra devices. For a complete description of the latest features, please [download the RMS 5.3.2 release notes](http://).  
 
 ##Supported Mobile-Device Platforms 
 <table class="table table-stripe table-bordered">
@@ -28,7 +30,7 @@ The RhoMobile Suite (RMS) is an integrated development environment for Mac OS X 
   <td class="clsSyntaxCells clsOddRow"><img id="iOS_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Apple-iPhone-5S.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>Apple iOS</b></td>
   <td class="clsSyntaxCells clsOddRow">iPad, iPhone, iPod Touch</td>
-  <td class="clsSyntaxCells clsOddRow">iOS 6, iOS 7, iOS 8</td>
+  <td class="clsSyntaxCells clsOddRow">iOS 6, iOS 7, iOS 8, iOS 9</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="WM_pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC3100.jpeg?raw=true" height="75"></img></td>
@@ -180,7 +182,7 @@ RMS 5.3 has been approved for building apps that target the following Zebra Ente
   <td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC92.jpg?raw=true" height="75"></img></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9200</b></td>
   <td class="clsSyntaxCells clsOddRow">MC92N0</td>
-  <td class="clsSyntaxCells clsOddRow">Windows CE 7.0,<br>Windows Embedded Handheld 6.5</td>
+  <td class="clsSyntaxCells clsOddRow">Android KitKat, <br>Windows CE 7.0,<br>Windows Embedded Handheld 6.5</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="https://github.com/rhomobile/rhomobile-docs/blob/master/public/images/supported_devices/Zebra_MC95.png?raw=true" height="75"></img></td>
