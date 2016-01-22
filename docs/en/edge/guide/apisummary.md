@@ -1159,6 +1159,25 @@ If you're using the JavaScript ORM API, include this line in any files that will
     :::html
     <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules-ORM.js"></script>
 
+### Using older JavaScript APIs
+In the event that a pre-4.0 JavaScript API is required to work with one of the new Common JavaScript APIs, it is possible to create a compatibility layer this way:
+
+    :::html
+    <!-- required for pre-4.0 JS API: -->
+    <script type="text/javascript" src="/public/jquery/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="/public/jquery/jquery.json-2.3.min.js"></script>
+
+    <!-- pre-4.0 JS API: -->
+    <script type="text/javascript" src="/public/js/rho_javascript_api.js"></script>
+    
+    <!-- compatibility layer: -->
+    <script type="text/javascript" src="/public/js/rho_common_api_noconflict.js"></script>
+    
+    <!-- new Common JS API: -->
+    <script type="text/javascript" charset="utf-8" src="/public/api/rhoapi-modules.js"></script>
+
+NOTE: Important: Modules must be loaded in this order!
+
 ##Future Common APIs
 Toward the goal of supplying a Common API format for both JavaScript and Ruby, the following API classes will be included in future versions of RhoMobile Suite 5.x.
 

@@ -179,8 +179,9 @@ Sample yaml code:
     # When set to '1' the Android version of the application will generate Windows Mobile
     # keycode values for all keys in place of normal Android keycodes. This can be 
     # useful for supporting both Android and Windows device platforms with a single 
-    # Codebase. Works with the KeyCapture API of RhoElements 4.x or 2.x. When isWindowsKey=0
-    # (default) or is left unspecified, the standard keycodes of the platform will be used.
+    # codebase. When tag value is '0' (default) or is left unspecified, the standard 
+    # keycodes of the platform will be used. Works with the KeyCapture API of RhoElements 
+    # 4.x or 2.x. 
 
     http_proxy_host = 'server'
     http_proxy_port = port
