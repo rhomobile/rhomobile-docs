@@ -175,26 +175,34 @@ Sample yaml code:
 ### Additional parameters that can be used in rhoconfig.txt
 
     :::yaml
-    # Address and port of proxy server. This settings uses Network module.
-    # Do not include 'http://' while setting the http_proxy_host 
+    iswindowskey=1
+    # When set to '1' the Android version of the application will use Windows Mobile
+    # function keycode values for all keys in place of normal Android keycodes. This can be 
+    # useful for supporting both Android and Windows device platforms with a single 
+    # Codebase. Works with the KeyCapture API of RhoElements 2.x or 4.x. When 
+    # iswindowskey=0 #(default) or left unspecified, the platform's standard keycodes will be used.
+
     http_proxy_host = 'server'
     http_proxy_port = port
-    
+    # Address and port of proxy server. This settings uses Network module.
+    # Do not include 'http://' while setting the http_proxy_host 
+
     Example:
     http_proxy_host = 'wwwxyz123.abc.com'
     http_proxy_port = 6060
 
-    # Login and password for access to proxy server. Only basic authentication is supported
     http_proxy_login  = 'user'
     http_proxy_password = 'password'
+    # Login and password for access to proxy server. Only basic authentication is supported
 
+    clientSSLCertificate     = 'certificate path'
+    clientSSLCertificatePassword = 'password'
     # CLient SSL Configuration. The path to the p12 formatted certificate file and the password used with the client certificate.
     # The path to the p12 formatted certificate file used for client SSL authentication. This setting is used in any Network API calls which setting up secured SSL
     # connections requiring client authentication (get, post, downloadFile, uploadFile). This setting only takes effect if `verifyPeerCertificate` is enabled.
     # Therefore, if `verifyPeerCertificate` is set to fail and remote server requests the client certificate, connection will fail.
     # These two settings are only supported for use on Android devices.
-    clientSSLCertificate     = 'certificate path'
-    clientSSLCertificatePassword = 'password'
+  
 
     ios_net_curl=0
     #If true, an old libCURL-based Net request will be used. This option can be enabled for regression testing or if custom proxy support is required. Default is TRUE, but to support per-app VPN (i.e. MobileIron) this option should be set to FALSE.
