@@ -309,7 +309,7 @@ URL schemes can be used by an app to provide a service, pass data or launch anot
         ...
 
 
-
+<a name="android_specific"></a>
 ## Android-specific Settings
 The capabilities listed above are directly related to the Android device capabilities that your app will require, and for which the user will be asked to give permission when installing the app. You can add capabilities to your Android app by adding a 'capabilities' section to your `build.yml` in the 'android' heading as below. 
 
