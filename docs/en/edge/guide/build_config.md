@@ -22,6 +22,7 @@ When you create your app, a default version of the build.yml file will be genera
       entitlements: ""
       BundleIdentifier: com.rhoappbuildersinc.myrhodesapp
       BundleURLScheme: buildymltest
+      ApplicationQueriesSchemes: 
     wp8:
       productid: '4ff21ee0-8ef1-0132-ec69-7831c1c374dc'
     android:
@@ -124,6 +125,12 @@ When you create your app, a default version of the build.yml file will be genera
         <td>Bundle URL scheme of your app (used for opening your application from another application by using custom URL scheme).</td>
         <td>String</td>
         <td>My Rhodes App</td>
+    </tr>
+     <tr>
+        <td>iphone\\ApplicationQueriesSchemes</td>
+        <td>Whitelist of URLs that can be called from your app and opened with a browser. Added during build to the LSApplicationQueriesSchemes key in the app's info.plist.</td>
+        <td>String</td>
+        <td>["scheme1", "scheme2"]</td>
     </tr>
     <tr>
         <td class="clsEvenRow">wp8\\productid</td>
