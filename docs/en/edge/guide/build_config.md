@@ -129,7 +129,7 @@ When you create your app, a default version of the build.yml file will be genera
      <tr>
         <td>iphone\\ApplicationQueriesSchemes</td>
         <td>Whitelist of URLs that can be called from your app and opened with a browser. Added during build to the LSApplicationQueriesSchemes key in the app's info.plist.</td>
-        <td>String</td>
+        <td>Array of strings</td>
         <td>["scheme1", "scheme2"]</td>
     </tr>
     <tr>
