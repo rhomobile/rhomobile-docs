@@ -175,7 +175,7 @@ The following are some non-default settings that you may add to the build.yml in
     </tr>
     <tr>
         <td>Android Title</td>
-        <td>If you want your app to hide the default android title bar, you need to set <code>android_title</code> to '0' in your build.yml file.</td>
+        <td>If you want your app to hide the default Android title bar, you need to set <code>android_title</code> to '0' in your build.yml file.</td>
         <td>0 - Hidden</br>1 - Visible</td>
         <td>android_title: 0</td>
     </tr>
@@ -328,11 +328,9 @@ NOTE: To work around build issues related to Android-M, we recommend adding 'ver
         version: "4.1.0"
 
 
-* **hardware_acceleration** enables hardware_acceleration for Android applications
+* **hardware_acceleration** enables video playback and other resource-intensive apps
 * **mapping** enables the use of mapping apps
 * **gmaps extension** enables the use of Google maps for mapping 
-
-NOTE: To play embedded video, some versions of Android require hardware acceleration.
 
 In RhoStudio, you can double-click on your application's `build.yml` and edit from the text editor, or edit it directly using a text editor of your choosing.
 
@@ -349,6 +347,135 @@ The **syntax for the Android `<uses-sdk>` parameter**:
           android:maxSdkVersion="integer" />
 
 For more information about this parameter, please visit the [Android uses-sdk page](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html).  
+
+### Android Keycode Mapping
+Keycodes are constants that uniquely identify the ASCII values of device keypresses (hard or soft). On Android devices, the keycode values of certain keys are sometimes not returned as expected or desired. To ensure control and accuracy of key presses, the desired keycode value(s) can be assigned through the current [KeyCapture 4.x API](../api/keycapture) as well as legacy 2.x versions. The steps below apply to all API versions. 
+
+RhoMobile apps for Android can have some or all of their default keycode values assigned from a file when the app starts up. 
+
+**This section applies to Android only**.
+
+
+The following facts apply generally to keycode mapping: 
+
+* Keycode mapping **requires RhoMobile Suite 5.4** or higher.
+* Mapping **requires a KeyCapture API**. [Read more](../api/keycapture). 
+* Keycode mappings are contained in the `keycodemapping.xml` file.
+* The `keycodemapping.xml` file is the same for all versions of the KeyCapture API.
+* The mapping file is read each time the RhoMobile app is launched.
+* Upon app install, a mapping-file template is placed in the app's installation directory, usually `sdcard0/android/data/com.rhomobile.appName`.
+* Keycodes not mapped (or left blank in the mapping file) retain their default values. 
+* [Additional restrictions](../api/keycapture#Remarks) apply to keycapture and keycode mapping. 
+
+## Mapping Keycodes 
+To assign custom keycodes to Android hard or soft keys, follow these simple steps:  
+
+&#49;. Deploy the app to the device. 
+
+&#50;. Navigate to the installation directory on the device. 
+This is usually `sdcard0/android/data/com.rhomobile.appName`
+
+&#51;. Copy the `keycodemapping.xml` template to a PC and open it for editing. 
+
+The template should look similar to the image below:  
+
+    :::xml
+    <?xml version = "1.0"?>
+    <!--
+    .....KeyCode Mapping File....
+    -->
+    <KeyCodeConfiguration>
+
+        <KeyCodes>
+
+            <!-- Example -->
+            <!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->
+      
+        </KeyCodes>
+
+    </KeyCodeConfiguration>
+
+&#52;. Copy and paste the example KEYCODE tag (omitting the comment tags) as shown:
+
+    :::xml
+    ...
+    <KeyCodes>
+
+        <!-- Example -->
+        <!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->
+
+        <KEYCODE  name="KEYCODE_0" from="7" to="0x30" />
+
+    </KeyCodes>
+    ...
+
+&#53;. Replace the values (within the quotes) for 'name,' 'from' and 'to' fields, as required. 
+
+> **Note**: The 'from' field refers to the key's current keycode value; the 'to' will hold the value that replaces it. In the example above, pressing the '0' key (after mapping) will generate a keycode value of '0x30' instead of its former value of '7.' <!--For help with the 'name' field, please refer to the [Android KeyEvent documentation](http://developer.android.com/reference/android/view/KeyEvent.html) for the complete list of Android key names. -->For help exposing the keycodes, **see the Handling Incorrect Keycodes section**, below.
+
+&#54;. Repeat steps 4 and 5 until all required keycodes are mapped.
+
+For example:  
+
+        :::xml     
+        <?xml version = "1.0"?>
+        <!--
+        .....KeyCode Mapping File....
+        -->
+        <KeyCodeConfiguration>
+            <KeyCodes>
+                <!-- Example -->
+                <!-- <KEYCODE  name="KEYCODE_0" from="7" to="0x30" /> -->
+                <KEYCODE  name="KEYCODE_F1" from="131" to="20" />
+                <KEYCODE  name="KEYCODE_ENTER" from="46" to="76" />
+                <KEYCODE  name="KEYCODE_E" from="33" to="7" />
+                <KEYCODE  name="KEYCODE_BKSC" from="46" to="32" /> 
+                <KEYCODE  name="KEYCODE_VOL_DOWN" from="25" to="175" /> 
+            </KeyCodes>
+        </KeyCodeConfiguration>
+
+
+&#55;. Copy the modified `keycodemapping.xml` file to its original location on the device, replacing the template. 
+
+&#56;. Relaunch the app and check that its keycodes are mapped as specified.  
+
+##Handling Incorrect Keycodes
+Once it is determined that correct keypresses are generating incorrect keycodes, the incorrect keycode value must be determined before the correct one can be substituted. This process uses JavaScript to expose the keycodes that appear when pressing one or more keys. 
+
+The first step is to confirm that Windows keycodes are not being forced as a result of the &lt;isWindowsKey&gt; tag:
+
+&#49;. In the app's Config.xml file, **confirm that the &lt;isWindowsKey&gt; tag has a value of 0**. 
+
+&#50;. Using one of the KeyCapture APIs, **reveal the keycodes generated by keypresses** to identify incorrect keycode value(s). The test code might look something like this: 
+
+        :::javascript
+        // KeyCapture API 4.x: 
+        EB.KeyCapture.captureKey(false,'all',function(obj){alert(obj.keyValue)
+        });
+
+        // KeyCapture API 2.x: 
+        <META HTTP-Equiv="KeyCapture" Content="KeyValue:All; Dispatch:False; KeyEvent:url('JavaScript:alert('Key Pressed: %s');')"> 
+
+
+&#51;. **Map the incorrect keycode values to the correct ones** using the same syntax described in the earlier section: 
+        
+    :::xml
+    <KEYCODE  name="[KEYCODE_X]" from="[incorrect_keycode]" to="[correct_keycode]" />
+
+For example, if Step 2 determined that the keycode value being generated is 0x05 and the desired value is 0x06, then the correct mapping statement would be: 
+
+    :::xml 
+    <KEYCODE  name="KEYCODE_X" from="0x05" to="0x06" />
+
+where "KEYCODE_X" = the actual name of the keycode. 
+
+&#52;. Relaunch the app and **repeat Step 2 to confirm** that correct code(s) are generated.  
+
+##More Information
+
+* [KeyCapture API](../api/keycapture)
+* [Keys that cannot be captured](../api/keycapture#Remarks) 
+* [Android KeyEvents documentation](http://developer.android.com/reference/android/view/KeyEvent.html)
 
 
 ### RhoStudio Modification
@@ -387,7 +514,7 @@ Run application with special parameter:
     System::run_app( 'app_name', "security_token=123" )
 
 ## Rhobuild.yml Configuration
-After installing the RhoMobile Suite, you must tell the software where you have certain files on your machine. To do this, we generate a bunch of default setting in a file called rhobuild.yml. Below is the default appearance of that file:
+After installing the RhoMobile Suite, you must tell the software where you have certain files on your machine. To do this, a file called `rhobuild.yml` is built that contains those file locations and other settings. The default version of the file is shown below:
 
     :::yaml
     env:
@@ -452,3 +579,4 @@ To modify these settings, there are two methods:
 2. Modify the rhobuild.yml file directly.
     * On Mac OS X, the file resides in `\rhodes\<version>`
     * On Windows, the file resides in  `\RhoMobileSuite`
+
