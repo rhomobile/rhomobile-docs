@@ -128,9 +128,9 @@ When you create your app, a default version of the build.yml file will be genera
     </tr>
      <tr>
         <td>iphone\\ApplicationQueriesSchemes</td>
-        <td>Whitelist of URLs that can be called from your app and opened with a browser. Added during build to the LSApplicationQueriesSchemes key in the app's info.plist.</td>
+        <td>Whitelist of URL schemes that can be used by your app to provide a service, pass data or launch another app. URL schemes specified here are added during build to the LSApplicationQueriesSchemes key in the app's info.plist. For more information, refer to the iOS-specific Settings section, below.</td>
         <td>Array of strings</td>
-        <td>["scheme1", "scheme2"]</td>
+        <td>["http", "sms", "tel", "facetime"]</td>
     </tr>
     <tr>
         <td class="clsEvenRow">wp8\\productid</td>
@@ -293,6 +293,11 @@ You can specify where the `config.xml` file will reside on your device using the
         config: "/Config/Config.xml"
 
 * config : path to the custom [Config.xml](runtime_config#configxml) file to use. This path is relative to the RhoMobile Project.
+
+<a name="ios_specific"></a>
+## iOS-specific Settings
+
+Beginning with iOS 9, Apple now requires that apps declare in advance which URL schemes they would like to access when using the 'canOpenURL' method. According to Apple, this improves privacy by preventing an app from scanning a list of 'known' URL schemes on a device in an attempt to compile a list of installed apps. This is intended to apply only to the 'canOpenURL' method, but the 'openURL' method also might generate a “This app is not allowed to query for scheme [scheme]” syslog entry. To change a URL whitelist, an update must be submitted to Apple.  
 
 ## Android-specific Settings
 The capabilities listed above are directly related to the Android device capabilities that your app will require, and for which the user will be asked to give permission when installing the app. You can add capabilities to your Android app by adding a 'capabilities' section to your `build.yml` in the 'android' heading as below. 
