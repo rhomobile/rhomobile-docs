@@ -186,7 +186,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.3, which are recomm
         <a href="../api/cardreader">CardReader<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Zebra Devices Only">
       </td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
-      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check-empty icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
@@ -730,7 +730,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.3, which are recomm
         <a href="../api/Notification">Notification</a>
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
@@ -1093,8 +1093,8 @@ Below is a list of the new common APIs for RhoMobile Suite 5.3, which are recomm
       <td>
         <a href="../../2.2.0/rhoelements/VideoCapture">VideoCapture *</a>
       </td>
-      <td style="text-align:center" class=" "><span class="icon-check-empty icon-primary"></span></td>
-      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
+      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check-empty icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-shopping-cart icon-primary"  rel="tooltip" title="Requires License"></span></td>
       <td style="text-align:center" class=" "></td>
       <td style="text-align:center" class=" "></td>
@@ -1143,7 +1143,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.3, which are recomm
   </tbody>
 </table>
 
-**These API classes are implemented in RhoMobile Suite 2.2 but are not yet included in the new Common API class set for RhoMobile Suite 5.3. They use the older 2.2 format and support Ruby only.*
+**These API classes are implemented in RhoMobile Suite 2.2 but are not yet included in the new Common API class set for RhoMobile Suite 5.3. They use the older 2.2 format and support Ruby only except as noted.*
 
 **NOTE: When using 2.2 APIs in RhoMobile 5.3, the [2.2 API compatibility matrix](../../2.2.0/rhoelements/apicompatibility) applies.**
 
