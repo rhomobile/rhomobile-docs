@@ -428,8 +428,8 @@ For example:
                 <KEYCODE  name="KEYCODE_F1" from="131" to="20" />
                 <KEYCODE  name="KEYCODE_ENTER" from="46" to="76" />
                 <KEYCODE  name="KEYCODE_E" from="33" to="7" />
-                <KEYCODE  name="KEYCODE_BKSC" from="46" to="32" /> 
-                <KEYCODE  name="KEYCODE_VOL_DOWN" from="25" to="175" /> 
+                <KEYCODE  name="KEYCODE_BACK" from="4" to="32" /> 
+                <KEYCODE  name="KEYCODE_VOLUME_DOWN" from="25" to="175" /> 
             </KeyCodes>
         </KeyCodeConfiguration>
 
