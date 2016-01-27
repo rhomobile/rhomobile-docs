@@ -349,12 +349,9 @@ The **syntax for the Android `<uses-sdk>` parameter**:
 For more information about this parameter, please visit the [Android uses-sdk page](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html).  
 
 ### Android Keycode Mapping
-Keycodes are constants that uniquely identify the ASCII values of device keypresses (hard or soft). On Android devices, the keycode values of certain keys are sometimes not returned as expected or desired. To ensure control and accuracy of key presses, the desired keycode value(s) can be assigned through the current [KeyCapture 4.x API](../api/keycapture) as well as legacy 2.x versions. The steps below apply to all API versions. 
-
-RhoMobile apps for Android can have some or all of their default keycode values assigned from a file when the app starts up. 
+Keycodes are constants that uniquely identify the ASCII values of device keypresses (hard or soft). On Android devices, the keycode values of certain keys are sometimes not returned as expected or desired. To ensure control and accuracy of key presses, RhoMobile apps for Android can have some or all of their default keycode values assigned from a file when the app starts up. Keycode value(s) can be assigned through the current [KeyCapture 4.x API](../api/keycapture) as well as legacy 2.x versions. The steps below apply to all API versions. 
 
 **This section applies to Android only**.
-
 
 The following facts apply generally to keycode mapping: 
 
@@ -411,7 +408,9 @@ The template should look similar to the image below:
 
 &#53;. Replace the values (within the quotes) for 'name,' 'from' and 'to' fields, as required. 
 
-> **Note**: The 'from' field refers to the key's current keycode value; the 'to' will hold the value that replaces it. In the example above, pressing the '0' key (after mapping) will generate a keycode value of '0x30' instead of its former value of '7.' <!--For help with the 'name' field, please refer to the [Android KeyEvent documentation](http://developer.android.com/reference/android/view/KeyEvent.html) for the complete list of Android key names. -->For help exposing the keycodes, **see the Handling Incorrect Keycodes section**, below.
+> **Note**: The 'from' field refers to the key's current keycode value; the 'to' will hold the value that replaces it. In the example above, pressing the '0' key (after mapping) will generate a keycode value of '0x30' instead of its former value of '7.' The 'name' field can hold any value; [standard Android key names](http://developer.android.com/reference/android/view/KeyEvent.html) are recommended. 
+
+NOTE: For help exposing keycodes, see Handling Incorrect Keycodes section below.
 
 &#54;. Repeat steps 4 and 5 until all required keycodes are mapped.
 
@@ -467,10 +466,9 @@ For example, if Step 2 determined that the keycode value being generated is 0x05
     :::xml 
     <KEYCODE  name="KEYCODE_X" from="0x05" to="0x06" />
 
-where "KEYCODE_X" = the actual name of the keycode. 
+where "KEYCODE_X" = the desired keycode name. [Standard Android key names](http://developer.android.com/reference/android/view/KeyEvent.html) are recommended.
 
 &#52;. Relaunch the app and **repeat Step 2 to confirm** that correct code(s) are generated.  
-
 ##More Information
 
 * [KeyCapture API](../api/keycapture)
