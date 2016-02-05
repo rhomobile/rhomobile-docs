@@ -41,7 +41,7 @@ To include individual APIs, you must first include the `ebapi.js` in your HTML, 
 
 
 ### create()
-Create a timers objects.
+Create timer object(s).
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -78,7 +78,7 @@ Async Callback Returning Parameters: <span class='text-info'>BOOLEAN</span></p><
 ####Returns
 Synchronous Return:
 
-* BOOLEAN : Return alive state of a timer. If callback doesnt fired return true, otherwise return false
+* BOOLEAN : Return alive state of a timer. If callback doesn't return true, returns false.
 
 ####Platforms
 
@@ -92,7 +92,7 @@ Synchronous Return:
 	* <code>myObject.isAlive()</code>
 
 ### start(<span class="text-info">INTEGER</span> interval)
-Start timer with preset interval. Callback fired only one time.
+Start timer with preset interval. Callback fired one time only.
 
 ####Parameters
 <ul><li>interval : <span class='text-info'>INTEGER</span><p>timer interval in ms </p></li><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -117,7 +117,7 @@ Synchronous Return:
 	* <code>myObject.start(<span class="text-info">INTEGER</span> interval)</code>
 
 ### stop()
-Stop started timer
+Stop the timer.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>

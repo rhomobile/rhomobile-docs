@@ -1,7 +1,10 @@
-# Enterprise Browser Shortcut Utility for Windows
+# Shortcuts and the Shortcut Utility
+
+##Overview
+Shortcuts on a mobile device are small files that launch an application with a set of specific settings contained in the shortcut file. Depending on the app, some shortcuts can even invoke some of the app's functions, such as the phone dialer or sound recorder. On Enterprise Browser, each shortcut can contain a separate start page for the app and also can link to a custom config.xml file with as many runtime settings as required. On devices running Android, EB shortcuts also can have separate icons. 
 
 ## Shortcut Utility
-Shortcut Utility is a Windows tool that quickly creates shortcuts for Enterprise Browser apps for Android and Windows Mobile/CE and can deploy them directly to devices. From a single screen, the tool can create and deploy multiple shortcuts, each with a unique name, startpage URL and Config.xml file, if desired. For Android, each shortcut also can have a unique icon. Shortcuts for different platforms can be created at one time and easily deployed en masse to their respective platforms using a Mobile Device Management (MDM) system. 
+Shortcut Utility is a Windows tool that quickly creates shortcuts for Enterprise Browser apps for Android and Windows Mobile/CE and can deploy them directly to devices. From a single screen, the tool can create and deploy multiple shortcuts, each with a unique name, startpage URL and Config.xml file, if desired. Shortcuts for different platforms can be created at one time and easily deployed en masse to their respective platforms using a Mobile Device Management (MDM) system. 
 
 Shortcut Utility is included with Zebra Enterprise Browser 1.3. 
 
@@ -190,3 +193,59 @@ Windows Mobile/CE:
 		( ---> info to come <--- ) 
 -->
 
+## Platform Notes
+
+### Windows Mobile/CE
+Windows Mobile/CE shortcut (.lnk) files launch the Enterprise Browser runtime with startup options that override EB's default settings. A text editor such as Notepad on Windows CE can be used to create shortcuts. It's also possible to use the File menu in Platform Builder (New Project or File, Text File type). Edit the file for command line parameters and save it to \Windows\Start Menu on Windows Mobile, or \Windows\Programs for Windows CE. This will put the shortcut at the top level in the Start Menu.
+
+The Enterprise Browser installation path on Windows Mobile/CE devices:<br>
+`\Program Files\Enterprise Browser`<br>
+
+The path to the executable:<br> 
+`\Program Files\Enterprise Browser\EnterpriseBrowser.exe`<br>
+
+The shortcut file supports the following command line parameters:
+
+`/C:` specifies the location of the configuration file for the Enterprise Browser application. This will override all default configuration settings. If the full file name contains spaces, surround URL with single or double quotes:
+
+        /C:file://\application\config.xml
+        /C:'file://\Program Files\application\Config.xml'
+        /C:"file://\Program Files\My Application\config.xml"
+        
+`/S:` specifies the start page of the Enterprise Browser application. Other configuration parameters will be used from the default config.xml file. If the full file name contains spaces, surround URL with single or double quotes:
+
+        /S:"file://\HTML\index.html"
+        /S:"file://\RE App\index.html"
+        /S:"file://\Program Files\MyApp\index.html"
+        /S:"http://www.google.com"
+
+If neither the `/S` nor `/C` parameters are specified in the shortcut file, the default values for the location of the configuration file and the start page of the Enterprise Browser application will be used. 
+
+**Note**: URLs that contain query string parameters (?name=value) cannot be used within a shortcut on Windows Mobile/CE. 
+
+The format in the .lnk file is:
+
+	:::xml
+	<line-length>#<runtime-exe> <command-line-parameter> <app-folder>
+
+For example, to change the startup page in the .lnk file to a local HTML file:
+
+	:::bash
+	70#"\Program Files\Enterprise Browser\EnterpriseBrowser.exe" /S:file://\helloscan.html
+
+###Android
+In devices running Android, shortcut files are created and stored in an OS-manageable location that is not exposed to the end-user.
+
+
+<!-- ### Running Multiple Web Apps
+Create shortcuts that link to two separate Enterprise Browser web apps like this:
+
+	:::bash
+	68#\Program Files\Enterprise Browser\EnterpriseBrowser.exe /S:file://\helloscan.html
+
+And another could be:
+
+	:::bash
+	66#\Program Files\Enterprise Browser\EnterpriseBrowser.exe /S:file://\helloscan.html
+
+> Note: The last application will launch using the same runtime container. Only one application will be running at a time. When launching the second application, the runtime simply changes the starting URL. -->

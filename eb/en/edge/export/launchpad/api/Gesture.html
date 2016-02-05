@@ -40,7 +40,7 @@
 
 <p>A linear gesture is defined by its Start and End points, and values called Tolerance, Sensitivity, Skew and Deviation. Start, End and Tolerance (all expressed in pixels) define a rectangle which is the active gesture area; this area is divided into smaller rectangles. The region-width parameter specifies the width of the rectangles.</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/gestures/linear1.gif" alt="img" /></p>
 
 <p>Enterprise Browser detects how many rectangles the mouse passes through as the cursor is swept across the screen. If the track passes through the rectangles in the wrong order at any point then the gesture is not detected.</p>
 
@@ -48,7 +48,7 @@
 
 <p>Enterprise Browser then calculates the difference between the tracked line and the line defined by the gesture; the angle must be less than the Skew parameter (expressed in degrees) for the gesture to be detected. The deviation parameter gives the tolerance that the tracked line can deviate from being straight, there are no particular units for this parameter and it should be treated as an abstract value.</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/gestures/linear2.gif" alt="img" /></p>
 
 <h3>Circle Gesture</h3>
 
@@ -60,7 +60,7 @@
 
 <p>Detection of the gesture from the mouse point track is done in a similar way to the linear gesture: the function counts the number of small circles crossed in the correct order and compares this to the Sensitivity threshold.</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/gestures/circle.gif" alt="img" /></p>
 
 <h3>Hold Gesture</h3>
 
@@ -70,7 +70,7 @@
 
 <p>If the Interval is set to zero only the initial gesture will be detected.</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/gestures/hold.gif" alt="img" /></p>
 
 <h3>Tilt Gesture</h3>
 

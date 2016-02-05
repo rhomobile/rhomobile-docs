@@ -35,8 +35,8 @@ If not upgrading, skip to step 3.
 
 1. **Backup any data stored in the C:\EnterpriseBrowser directory**; step 2 will cause it to be lost. 
 2. To install, select **Start Menu -> Enterprise Browser -> Uninstall Enterprise Browser** and follow the prompts. 
-3. [Download Enterprise Browser](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) installation package (.msi).  
-4. Launch the installer file; accept the licence agreement and follow the other prompts. When the installation finishes, a screen will appear similar to the image below. 
+3. Visit the [Enterprise Browser download page](https://developer.motorolasolutions.com/community/technologies/enterprisebrowser/downloads), click on the Windows installation package and accept the end-user license agreement to begin the download.
+4. Launch the installer file and follow the prompts. When the installation finishes, a screen will appear similar to the image below. 
 5. Click "Close" to quit the installer and launch Enterprise Browser. (Be sure the 'Launch' box is checked). 
 
 <!--![img](images/getting-started/setup/setup-msi-install.png)-->
@@ -54,7 +54,7 @@ For Windows-only shops, instructions continue in the 'Deployment to Device(s)' s
 <!--[img](images/getting-started/setup/setup-start-menu-items.png)-->
 
 ### Mac OS X Installation
-1. [Download the Enterprise Browser disk image](https://atgsupportcentral.motorolasolutions.com/ewa/pub/getFile.do?fileName=ssi/emb/downloads/EnterpriseBrowser_v1.2.9.0.msi) (.dmg) file. 
+1. Visit the [Enterprise Browser download page](https://developer.motorolasolutions.com/community/technologies/enterprisebrowser/downloads) click on the Mac installation package and accept the end-user license agreement to begin the download.
 2. Double-click the .dmg file to open it. A window will open like the image below. 
 3. Drag and drop the Enterprise Browser icon onto the Applications folder (in the direction of the arrow). 
 

@@ -198,3 +198,6 @@ On Android, the maximum duration for vibrate is 15 seconds (15000ms).
 
 ###Spuriously reported hardware
 Some Windows Mobile or CE devices may report hardware which is not present on the device such as a pager or LEDs. This is a limitation of the underlying driver layer reporting spurious results to the application, though all real hardware will be controllable.
+
+###Maximum Button text size
+It is recommend to use maximum 15 Character for the button text in pop up , above to this limit it behave as per OS Behavior.

@@ -21,11 +21,11 @@ class Launchpad
       }
     },
     "prod" =>{
-      "server" => "developer.motorolasolutions.com/api/core/v3",
+      "server" => "developer.zebra.com/api/core/v3",
       "parent_places" => {
-        "api/" => "https://developer.motorolasolutions.com/api/core/v3/places/38912",
-        "guide/" => "https://developer.motorolasolutions.com/api/core/v3/places/38904",
-        "guide/tutorial/" => "https://developer.motorolasolutions.com/api/core/v3/places/38904",
+        "api/" => "https://developer.zebra.com/api/core/v3/places/38912",
+        "guide/" => "https://developer.zebra.com/api/core/v3/places/38904",
+        "guide/tutorial/" => "https://developer.zebra.com/api/core/v3/places/38904",
       }
     }
 
@@ -36,12 +36,12 @@ class Launchpad
   def self.generate_html(topic,parent_source)
     #open Markdown content
     md = File.read(topic)
+
 		
     md = replace_images(md)
     
     # Replace html
     md = replace_url_md (md)
-
     #Change APi links 
     if topic.start_with?('docs/api')
       # basename = topic.gsub(AppConfig['api_eb'],'')
@@ -129,6 +129,7 @@ class Launchpad
     md_mod = md.gsub(/\[.*?\]\((.*?)\)/) do |m|
       match = $1
       index_key = $1
+    #   puts "Match: #{match} Index_Key: #{index_key}"
       # if starts with ../ then use the string minus the ../ for the index
       if index_key.start_with?('../') 
         index_key.gsub!('../','')
@@ -153,12 +154,13 @@ class Launchpad
             # then replace the a href tag with the lookup
             matched = true
             newurl = url_map[index_key]["url"][env] + pageanchor
-            if(index_key == 'guide/ShortcutCreator')
-              puts "\nMATCH: #{index_key} => #{newurl}"
-            end
+            
+            # puts "\nMATCH: #{index_key} #{match} => #{newurl}"
             m.gsub(match,url_map[index_key]["url"][env] + pageanchor)
           end
         end      
+      else
+       m
       end
       
     end
@@ -179,7 +181,7 @@ class Launchpad
       match = $1
       #strip leading path
       new_url = match.gsub('(images/',"(#{ENV['imageVersion']}/")
-      # puts "#{match} => #{new_url}"
+    #    puts "#{match} => #{new_url}"
       m.gsub(match,new_url)
       end
     end

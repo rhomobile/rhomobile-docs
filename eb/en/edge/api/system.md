@@ -846,7 +846,7 @@ Current device country code.
 ####Type
 <span class='text-info'>STRING</span> <span class='label label-warning'>Read Only</span>
 ####Description
-Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android).
+Name of device application running on. Examples: '9000' (BB), 'iPhone', 'dream' (Android). In Consumer Android device, name of the Industrial Design along with manufacturer name shall be shown. 
 ####Access
 
 

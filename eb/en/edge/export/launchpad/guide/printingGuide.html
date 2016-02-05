@@ -1,0 +1,459 @@
+<div class='tableofcontents'> </div><h1>Printing With Enterprise Browser</h1>
+
+<h2>Overview</h2>
+
+<p>Enterprise Browser permits printing via Bluetooth, USB and Wi-Fi from mobile devices running Android and Windows Mobile/CE. To facilite USB printing, the Enterprise Browser 1.3 printing API now includes the <code>CONNECTION_TYPE_USB</code> parameter. The API is otherwise unchanged, and operates in the same way as in prior editions.</p>
+
+<p><strong>Printing via USB requires a USB &ldquo;On-The-Go&rdquo; (OTG) cable or adapter and one of <a href="../?Printers">Zebra&rsquo;s printers with USB printing support</a></strong> or a compatible third-party printer. Android and Windows Mobile/CE printing is supported via direct USB OTG connection or through a cradle with OTG adapter. Windows Mobile/CE devices also must be in &lsquo;Host Mode,&rsquo; which is found under USB Config in the Settings panel. Connecting an OTG cable to an Android device invokes host mode automatically.</p>
+
+<p>This guide is designed to provide an overview of the steps necessary to enable printing in an Enterprise Browser application. Where appropriate, it contains links to details for the calls, methods, parameters, constants and other specifics necessary to build an application using JavaScript and the Zebra printing APIs.</p>
+
+<p>For more information, please refer to the <a href="../guide-tutorial-printing">Printing Tutorial</a> and to the Platform Notes section later in this guide. <strong>All code samples are JavaScript</strong>.</p>
+
+<h2>Platform Notes</h2>
+
+<h3>Windows Mobile/CE</h3>
+
+<p>Windows Mobile and Windows CE require that the <code>PrintingService</code> application is installed and always running whenever the <a href="https://developer.motorolasolutions.com/docs/DOC-2541">Printing</a> and <a href="https://developer.motorolasolutions.com/docs/DOC-2542">PrintingZebra</a> APIs are to be used. This service (<code>PrintingService.cab</code>) is included with the Enterprise Browser installation, but requires the following Microsoft software to be on the device before the service can be deployed:</p>
+
+<ul>
+<li><p><strong>For Windows Mobile/CE devices</strong>, the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=65">.NET Compact Framework</a> must be present before installing the PrintingService app. Before downloading .NET CF, it might already be present on the build machine in <code>C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\NETCFv35.wm.armv4i.cab</code>.</p></li>
+<li><p>In addition, <strong>Windows CE devices</strong> also require the messaging framework, which can be found on the build machine in <code>C:\Program Files (x86)\Microsoft.NET\SDK\CompactFramework\v3.5\WindowsCE\Diagnostics\NETCFv35.Messages.EN.cab</code>.</p></li>
+</ul>
+
+
+<h3>PrintingService App Installation</h3>
+
+<ul>
+<li><strong>The PrintingService installer (.cab) file</strong> can be found in <code>C:\&lt;path to Enterprise Browser&gt;\Printing-Service\PrintingService.cab</code>.</li>
+</ul>
+
+
+<h4>Limitations</h4>
+
+<ul>
+<li>The PrintingService app currently supports a single client at a time.</li>
+<li>The method <a href="../api/printing#mrequestState"><code>Printer.requestState()</code></a> is not compatible with Bluetooth printers.</li>
+<li>The method <a href="../api/printing#mstopSearchSTATIC"><code>Printer.stopSearch()</code></a> is disabled.</li>
+</ul>
+
+
+<h3>USB Compatibility Notes</h3>
+
+<ul>
+<li><p>A USB On-the-Go (OTG) cable or adapter permits a mobile device to act as &lsquo;host&rsquo; to client peripherals such as flash drives, keyboards and printers.</p></li>
+<li><p><strong>On Android devices</strong>, connecting an OTG cable invokes host mode automatically.</p></li>
+<li><p><strong>On Windows Mobile/CE devices</strong> &lsquo;Host Mode&rsquo; must be invoked manually (under USB Config in the Settings panel).</p></li>
+<li><p>Some <a href="https://www.zebra.com/us/en/products/accessories/mobile-computer/cradles/sharecradle-system.html">Zebra TC7X single/dual slot cradles</a> present a USB micro &ldquo;AB&rdquo; receptacle that allows the TC7X to act as host or client, depending on the cable.</p></li>
+<li><p>The Zebra OTG implementation lacks Session Request Protocol (SRP) and Host Negotiation Protocol (HNP), portions of the spec that allow connected devices to control power consumption and switch dynamically between host and client modes.</p></li>
+<li><p>Printing via USB from a cradled device is possible by inserting an OTG Micro Type A connector to the cradle and connecting the USB-B (or Mini-B) end to the printer.</p></li>
+<li><p>OTG supports direct USB connections only; the use of USB hubs is not supported by the OTG spec.</p></li>
+</ul>
+
+
+<h2>1- Enable Print APIs</h2>
+
+<p>Enterprise Browser provides two APIs for printing. The <a href="https://developer.motorolasolutions.com/docs/DOC-2541">Printer API</a> is a parent class that defines common class attributes that specific printer-type APIs will inherit. The <a href="https://developer.motorolasolutions.com/docs/DOC-2542">PrinterZebra API</a> is the printer-type API for Zebra printers.</p>
+
+<p>There are two methods of enabling the Printer API:</p>
+
+<ul>
+<li>Include all &lsquo;ebapi&rsquo; modules</li>
+<li>Include only the API required modules</li>
+</ul>
+
+
+<p>Both methods are explained below.</p>
+
+<p>Either way, the included files can be found in:
+<code>/Enterprise Browser/JavaScript Files/Enterprise Browser</code>,
+a directory on the computer that contains the Enterprise Browser installation.</p>
+
+<h3>Include all JS API modules</h3>
+
+<p>To include all JavaScript APIs, copy the <code>ebapi-modules.js</code> file to a location accessible by an app&rsquo;s files and include the JavaScript modules file in the app. For instance, to include the modules file in <code>index.html</code>, copy the file to the same directory as index.html and add the following line to the HEAD section of that index.html file:</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+</pre>
+
+<blockquote><p>This will define the EB class within the page. <strong>Note that the path for this file is relative to the current page</strong> (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.</p></blockquote>
+
+<h3>Include only the required modules</h3>
+
+<p>To include individual APIs, first include the <code>ebapi.js</code> in the HTML, and then the additional required API file(s). For instance, to use the Printer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.</p>
+
+<pre name="code" class="html">&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="eb.printer.js"&gt;&lt;/script&gt;
+</pre>
+
+<blockquote><p>In the code lines above, notice that <code>ebapi.js</code> is included first, followed by <code>eb.printer.js</code>, which is the Printer API for Enterprise Browser. <strong>This coding is required on each HTML page whenever an individual API will be called from that page</strong>.</p></blockquote>
+
+<h2>2- Find a Printer</h2>
+
+<p>Before an app can print, it must first discover and connect to a printer. There are a few ways to discover printers, but all use the <a href="https://developer.motorolasolutions.com/docs/DOC-2541#searchPrinters(HASH%20options">searchPrinters method</a>).</p>
+
+<h3>Finding via Bluetooth</h3>
+
+<p>Printing via Bluetooth is supported for Android and Windows Mobile/CE apps. During Bluetooth discovery, the printer must be set to &ldquo;discoverable.&rdquo;</p>
+
+<p><strong>Look for any &lsquo;discoverable&rsquo; Zebra printer via Bluetooth by specifying the <code>connectionType</code> and <code>printerType</code> in the <code>options</code> parameter</strong>:</p>
+
+<pre name="code" class="javascript">var printers = [];
+
+EB.Printer.searchPrinters({ 
+    connectionType:EB.Printer.CONNECTION_TYPE_BLUETOOTH,  
+    printerType: EB.Printer.PRINTER_TYPE_ZEBRA
+     }, function (cb){
+        if(cb.status == 'PRINTER_STATUS_SUCCESS')
+        {
+            if (typeof cb.printerID != "undefined")
+            {
+                console.log('Found: ' + cb.printerID)
+                // &gt; Found ZEBRA_PRINTER_1
+
+                printers.push(cb.printerID);
+            }
+            else
+            {
+                console.log('Done Searching');
+            }
+        }
+        else
+        {
+            console.log(cb.status);
+        }
+    });
+</pre>
+
+<p><strong>TIP: To minimize search time, code should provide as many search parameters as possible</strong>.</p>
+
+<p>The Bluetooth MAC address consists of six pairs of hexadecimal digits separated by colons.</p>
+
+<p><strong>Specify the Bluetooth MAC address (if known) as a <code>deviceAddress</code> using the <code>options</code> parameter</strong>:</p>
+
+<pre name="code" class="javascript">EB.PrinterZebra.searchPrinters({ 
+    connectionType:EB.Printer.CONNECTION_TYPE_BLUETOOTH,  
+    deviceAddress: '00:03:7A:4C:F2:DB'
+    ... 
+</pre>
+
+<p><strong>NOTE</strong>: When pairing with a Bluetooth device for the first time, a prompt might appear for a pairing PIN. Commonly used PINs: 0000, 1111 and 1234. Check the printer manufacturer&rsquo;s specifications.</p>
+
+<h3>Finding via Wi-Fi</h3>
+
+<p><strong>Quickly identify known Wi-Fi printers, search using the <code>deviceAddress</code> and <code>devicePort</code> parameters</strong>:</p>
+
+<pre name="code" class="javascript">EB.Printer.searchPrinters({ 
+    connectionType:EB.Printer.CONNECTION_TYPE_TCP,  
+    deviceAddress: '192.168.1.121',
+    devicePort: 6101
+    ...
+</pre>
+
+<p><strong>NOTE</strong>: When attepting to connect via Bluetooth or Wi-Fi, be sure the device&rsquo;s corresponding radio is turned on. If using Bluetooth, the printer should be set to &ldquo;discoverable.&rdquo;</p>
+
+<h3>Finding via USB</h3>
+
+<p>Printing via USB is supported from Zebra enterprise mobile computers only to <a href="../?Printers">Zebra&rsquo;s supported printers</a>, which must be connected <strong>using an OTG cable or adapter.</strong>  Windows Mobile/CE devices also must be in &lsquo;Host Mode,&rsquo; which is found under USB Config in the Settings panel.</p>
+
+<p><strong>Use the <code>search.Printers</code> method and the <code>CONNECTION_TYPE_USB</code> parameter to search for printer(s) connected to the mobile device&rsquo;s USB port</strong>:</p>
+
+<pre name="code" class="javascript">var printers = [];
+
+EB.Printer.searchPrinters({ 
+    connectionType:EB.Printer.CONNECTION_TYPE_USB,  
+    printerType: EB.Printer.PRINTER_TYPE_ZEBRA
+     }, function (cb){
+        if(cb.status == 'PRINTER_STATUS_SUCCESS')
+        {
+            if (typeof cb.printerID != "undefined")
+            {
+                console.log('Found: ' + cb.printerID)
+                // &gt; Found ZEBRA_PRINTER_1
+
+                printers.push(cb.printerID);
+            }
+            else
+            {
+                console.log('Done Searching');
+            }
+        }
+        else
+        {
+            console.log(cb.status);
+        }
+    });
+</pre>
+
+<p>For more information about USB connections, please refer to the Platform Notes section later in this guide.</p>
+
+<h2>3- Connect to a Printer</h2>
+
+<p>The script in STEP 2 executes the callback function of the <a href="https://developer.motorolasolutions.com/docs/DOC-2541#searchPrinters(HASH%20options">searchPrinters method</a>), which returns a unique printerID property for each printer found and places them in the <code>printers</code> array variable. These IDs will be used to establish a connection with the desired printer. After the last printer is found, an additional callback will be triggered that contains no printerID, signaling that the app has found all available printers and can begin the selection process.</p>
+
+<p><strong>NOTE</strong>: This <code>printerID</code> is a unique identifier that is tracked by the Enterprise Browser framework. It has no relation to ID numbers that a printer manufacturer might be using.</p>
+
+<p><strong>Select a <code>printerID</code> value from the <code>printers</code> array variable by creating an instance of the Printer class. Then call the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#getPrinterByID(STRING%20printerId">getPrinterByID method</a>) and pass the <code>printerID</code> as a string to the vairable <code>myPrinter</code></strong>:</p>
+
+<pre name="code" class="javascript">// Ex: printers[0] = 'ZEBRA_PRINTER_1'
+
+var myPrinter = EB.Printer.getPrinterByID(printers[0]);
+
+// myPrinter is now an instance class of Printer
+// and can use the Instance Methods and properties 
+// associated with that class
+</pre>
+
+<p><strong>Next, connect to the instantiated printer using the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#connect(">connect method</a>)</strong>:</p>
+
+<pre name="code" class="javascript">myPrinter.connect(function (cb){
+
+    console.log(cb);
+    // &gt; PRINTER_STATUS_SUCCESS
+    //cb = PRINTER_STATUS... constant
+
+    console.log(myPrinter.deviceName);
+    // &gt; 'XXXX09-10-5799'
+    // deviceName will be Zebra's 'Friendly Name'
+
+    console.log(myPrinter.deviceAddress);
+    // &gt; '00:03:7A:4C:F2:DB'
+    // deviceAddress will equal the Bluetooth Address
+
+});
+</pre>
+
+<p>The <code>callback</code> object in the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#connect(">connect method</a>) will be a <code>string</code> containing a <a href="https://developer.motorolasolutions.com/docs/DOC-2542#Constants">PRINTER_STATUS&hellip;</a> constant such as:</p>
+
+<ul>
+<li>PRINTER_STATUS_SUCCESS</li>
+<li>PRINTER_STATUS_ERR_NETWORK</li>
+<li>PRINTER_STATUS_ERR_TIMEOUT</li>
+</ul>
+
+
+<h2>4- Retrieve Printer State</h2>
+
+<p>The first parameter of the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#requestState(ARRAY%20listOfParameters">requestState method</a>) is an array that lists the items available to find.</p>
+
+<p><strong>Use the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#requestState(ARRAY%20listOfParameters">requestState method</a>) check the printer state</strong>:</p>
+
+<pre name="code" class="javascript">// Assumes you have created the instance 'myPrinter'
+// from previous methods described above
+
+myPrinter.requestState(['PRINTER_STATE_IS_READY_TO_PRINT',
+'PRINTER_STATE_IS_PAPER_OUT'],function (cb){
+    console.log(cb.status);
+    console.log(cb.PRINTER_STATE_IS_PAPER_OUT);
+    console.log(cb.PRINTER_STATE_IS_READY_TO_PRINT);
+
+    });
+</pre>
+
+<p>The returned <a href="https://developer.motorolasolutions.com/docs/DOC-2541#Constants">PRINTER_STATE&hellip;</a> callback objects are constants such as:</p>
+
+<ul>
+<li>PRINTER_STATE_IS_COVER_OPENED</li>
+<li>PRINTER_STATE_IS_DRAWER_OPENED</li>
+<li>PRINTER_STATE_IS_PAPER_OUT</li>
+</ul>
+
+
+<h2>5- Retrieve Supported Printer Languages</h2>
+
+<p>The printer languages supported by the printer must be known before sending commands. Languages supported by Zebra printers include ZPL, CPCL and EPS.</p>
+
+<p><strong>To retrieve a list of supported languages, use the <a href="https://developer.motorolasolutions.com/docs/DOC-2541#enumerateSupportedControlLanguages(">enumerateSupportedControlLanguages</a>) method</strong>:</p>
+
+<pre><code>    :::javascript
+//assumes a printer instance from previous instructions:
+
+myPrinter.enumerateSupportedControlLanguages(function(cb){
+
+    // cb = Array of strings 
+    // PRINTER_LANGUAGE_ZPL
+    // PRINTER_LANGUAGE_CPCL
+    // PRINTER_LANGUAGE_EPS
+});
+</pre>
+
+<p>The callback will be an array of <a href="https://developer.motorolasolutions.com/docs/DOC-2541#Constants">PRINTER_LANGUAGE&hellip;</a> constants such as:</p>
+
+<ul>
+<li>PRINTER_LANGUAGE_ZPL</li>
+<li>PRINTER_LANGUAGE_CPCL</li>
+<li>PRINTER_LANGUAGE_EPS</li>
+</ul>
+
+
+<p><strong>WARNING</strong>: Ruby is NOT supported for use with the CPCL printer language.</p>
+
+<h2>6- Send Printer Commands</h2>
+
+<p>Once the app finds and connects to a printer, it can begin sending commands. Printer behavior will vary depending on printer make, model and current state. Consult your printer&rsquo;s technical documentation for printer-specific commands and syntax.</p>
+
+<p>In general, there are two fundamental ways to send commands:</p>
+
+<ul>
+<li>In a string that includes raw printer commands</li>
+<li>In a series of commands stored in a file (i.e. ZPL, CPCL)</li>
+</ul>
+
+
+<h3>Sending a Raw String</h3>
+
+<p><strong>To send a string to the printer, use the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#printRawString(STRING%20command,%20HASH%20options">printRawString</a>) method</strong>:</p>
+
+<pre name="code" class="javascript">// If printer is in line mode, this text would be printed:
+
+myPrinter.printRawString('This is a test print');
+
+// To sendi a Zebra CPCL command 
+// and change from line mode to ZPL mode:
+
+myPrinter.printRawString('! U1 setvar "device.languages" "ZPL"\r\n');
+</pre>
+
+<h3>Sending a Series of Commands</h3>
+
+<p>When a series of commands is used repeatedly by an app&mdash;for example, to print an address label&mdash;the commands can be stored in a file (i.e. ZPL, CPCL) and called and/or modified programatically to perform the task. Command files can be generated manually or made using a tool provided by Zebra. They can be created in advance and delivered with the application.</p>
+
+<p>For example, let&rsquo;s say a file called <code>address.cpcl</code> is stored in the application&rsquo;s <code>public</code> folder and contains some CPCL commands that are used to print an address. Such a file might look something like the one below, which is a sample terminal script file with embedded CPCL commands:</p>
+
+<pre name="code" class="term">! U1 SETLP 5 2 46
+AURORA'S FABRIC SHOP
+! U1 SETLP 7 0 24
+123 Castle Drive, Kingston, RI 02881
+(401) 555-4CUT
+</pre>
+
+<p>To access the <code>address.cpcl</code> file, use the <a href="https://developer.motorolasolutions.com/docs/DOC-2515#join">RhoFile.join</a> helper function and the <a href="https://developer.motorolasolutions.com/docs/DOC-2508#publicFolder">Application.publicFolder property</a> to create a fully qualified path to the file.</p>
+
+<p><strong>Pass the fully qualified path created above to the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#sendFileContents(STRING%20path">sendFileContents method</a>)</strong>:</p>
+
+<pre name="code" class="javascript">var addressFile = EB.RhoFile.join(EB.Application.publicFolder, 'address.cpcl');
+
+//assuming you made an instance and connected per the previous instructions
+
+myPrinter.sendFileContents(addressFile,function(e){
+    console.log(e);
+
+    // Will return a PRINTER_STATUS... CONSTANT String
+
+    });
+</pre>
+
+<h2>7- Disconnect</h2>
+
+<p>Whenever an app is finished printing, it&rsquo;s important to disconnect from the printer. This is especially important for Bluetooth connections.</p>
+
+<p><strong>To disconnect, use the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#disconnect(">disconnect method</a>)</strong>:</p>
+
+<pre name="code" class="javacript">//assumes you already created an instance object from previous instructions
+
+myPrinter.disconnect();
+</pre>
+
+<h2>Using Files Stored On The Printer</h2>
+
+<p>Some printers have the ability to store command-file templates or other files useful for performaing print operations.</p>
+
+<p><strong>Retrieve a list of files that exist on the printer using the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#retrieveFileNames(">retrieveFileNames method</a>)</strong>:</p>
+
+<pre name="code" class="javascript">myPrinter.retrieveFileNames(function (e){
+
+    // e.status : PRINTER_STATUS_SUCCESS, PRINTER_STATUS_ERROR
+    // e.fileNames : ARRAY of file names
+
+});
+</pre>
+
+<p>Once the file names are known, your app can print with them, passing variables as specified within the ZPL or CPCL files themselves. This is done using either the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#printStoredFormatWithArray(STRING%20formatPathOnPrinter,%20Array%20vars">printStoredFormatWithArray method</a>) or the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#printStoredFormatWithHash(STRING%20formatPathOnPrinter,%20HASH%20vars">printStoredFormatWithHash method</a>).</p>
+
+<p>Both methods above include the three parameters below.</p>
+
+<h3>Parameter 1- formatPathOnPrinter</h3>
+
+<p>This will be <strong>&lsquo;E:&lt;filename&gt;&rsquo;</strong> where &lsquo;filename&rsquo; is the name of one of the files found using the steps above or another file on the device (assuming the file is stored in the printer&rsquo;s &lsquo;E&rsquo; partition).</p>
+
+<h3>Parameter 2- vars</h3>
+
+<p>This represents the data to be passed to the label, and uses <code>printStoredFormatWithArray</code>, an array of strings representing the data to fill into the format. For ZPL formats, index 0 of the array corresponds to field number 2 (<sup>FN2).</sup> For CPCL, the variables are passed in the order that they are found in the format.</p>
+
+<p><strong>Pass some address data to the array</strong>:</p>
+
+<pre name="code" class="javascript">myPrinter.printStoredFormatWithArray('E:LABEL.ZPL',['John Doe','123 East Main St','Smalltown, NY 11766'],function (e){
+
+        // Will return a PRINTER_STATUS... CONSTANT String
+    });
+</pre>
+
+<p>Supported by ZPL only is <code>printStoredFormatWithHash</code>, a hash that contains the key/value pairs for the stored format. For ZPL formats, the key number should correspond directly to the number of the field in the format. Number keys should be passed as strings (i.e.&lsquo;1&rsquo;:&lsquo;field1&rsquo;, &lsquo;2&rsquo;:&lsquo;field2&rsquo;, etc).</p>
+
+<p><strong>Pass some address data to the hash</strong>:</p>
+
+<pre name="code" class="javascript">myPrinter.printStoredFormatWithHash('E:LABEL.ZPL',{ '1':'John Doe','2': '123 East Main St','3': Smalltown, NY 11766'},function (e){
+
+    // e = PRINTER_STATUS... CONSTANT String
+
+    if(e == 'PRINTER_STATUS_SUCCESS')
+        {
+
+        }
+    });
+</pre>
+
+<h3>Parameter 3- callback</h3>
+
+<p>This parameter will return a <a href="https://developer.motorolasolutions.com/docs/DOC-2542#Constants">PRINTER_STATUS&hellip;</a> constant as a string.</p>
+
+<h2>Printing Images</h2>
+
+<p>For printers with graphics support, images are printed using the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#printImageFromFile(STRING%20filePathOnDevice,%20INTEGER%20x,%20INTEGER%20y,%20HASH%20options">printImageFromFile method</a>). For example, an image called <code>myImage.jpg</code> in your application&rsquo;s <code>public</code> folder could use the same <a href="../api/File#mjoinSTATIC">RhoFile.join</a> helper function and <a href="https://developer.motorolasolutions.com/docs/DOC-2508#publicFolder">Application.publicFolder property</a> described above to create a fully qualified path to the <code>myImage.jpg</code> file.</p>
+
+<p><strong>After creating the fully qualified path, pass the file to the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#printImageFromFile(STRING%20filePathOnDevice,%20INTEGER%20x,%20INTEGER%20y,%20HASH%20options">printImageFromFile method</a>)</strong>:</p>
+
+<pre name="code" class="javascript">var imagefile = EB.RhoFile.join(EB.Application.publicFolder, 'myImage.jpg');
+
+//assuming you made an instance and connected per the previous instructions
+
+myPrinter.printImageFromFile(imagefile,0,0,{},function(e){
+
+    // e = PRINTER_STATUS... CONSTANT String
+
+    if(e == 'PRINTER_STATUS_SUCCESS')
+        {
+
+        }
+    });
+</pre>
+
+<p>A callback for the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#Constants">PRINTER_STATUS</a> constant would return a string indicating whether the operation was successful.</p>
+
+<p><strong>NOTE</strong>: Images larger than 1024x768 might take a long time or print incorrectly. Consult the printer manufacturer&rsquo;s documentation for image printing parameters.</p>
+
+<h3>Storing Images</h3>
+
+<p>For Zebra printers that support the storage of images, this can be done by creating a ZPL or CPL command set or by using the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#storeImage(STRING%20printerDriveAndFileName,%20STRING%20imageFilePathOnDevice,%20INTEGER%20width,%20INTEGER%20height">storeImage method</a>).</p>
+
+<p><strong>To store an image on the printer using the <a href="https://developer.motorolasolutions.com/docs/DOC-2542#storeImage(STRING%20printerDriveAndFileName,%20STRING%20imageFilePathOnDevice,%20INTEGER%20width,%20INTEGER%20height">storeImage method</a>)</strong>:</p>
+
+<pre name="code" class="javascript">//location of image on device:
+
+var imagefile = EB.RhoFile.join(EB.Application.publicFolder, 'myImage.jpg');
+
+//destination of image on the printer. Must have partion specified:
+
+var destination = "E:LOGO.GRF"
+
+//assuming you made an instance and connected per the previous instructions:
+
+myPrinter.storeImageFromFile(destination,imagefile,0,0,{},function(e){
+
+    // e = PRINTER_STATUS... CONSTANT String
+    if(e == 'PRINTER_STATUS_SUCCESS')
+        {
+
+        }
+    });
+</pre>

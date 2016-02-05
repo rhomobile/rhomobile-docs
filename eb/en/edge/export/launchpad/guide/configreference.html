@@ -19,18 +19,18 @@
 
 <blockquote><p>Note: The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.</p></blockquote>
 
-<h2>Substitution variables</h2>
+<h2>Substitution Variables</h2>
 
-<p>The following substitution variables are available in the configuration file</p>
+<p>The following substitution variables are available in the configuration file:</p>
 
 <table class="re-table">
     <tr>
-        <th>Substitution Variable</th>
-        <th>Expanded Value</th>
+        <th>Variable</th>
+        <th>-> Expanded Value</th>
     </tr>
     <tr>
         <td>%INSTALLDIR%</td>
-        <td>The directory into which the Enterprise Browser has been installed.</td>
+        <td>-> The directory into which the Enterprise Browser has been installed.</td>
     </tr>
 </table>
 
@@ -45,226 +45,242 @@
 &lt;!-- Enterprise Browser 1.3 Configuration file for Android--&gt;
 &lt;!-- IMPORTANT: Differences exist in Windows Mobile/CE version--&gt; 
 &lt;Configuration&gt;
+
   &lt;DebugButtons&gt;
     &lt;DebugButtonsEnabled value="0" /&gt;
   &lt;/DebugButtons&gt;
 
   &lt;ExitPassword&gt;
     &lt;ExitPasswordEnabled value="0" /&gt;
-    &lt;ExitPasswordValue value="123" /&gt;
+    &lt;ExitPasswordValue value="" /&gt;
   &lt;/ExitPassword&gt;
 
   &lt;Settings&gt;
-    &lt;SettingsButtonEnabled value="0" /&gt;
-    &lt;SettingsPageProtectionEnabled value="0" /&gt;
-    &lt;SettingsPagePassword value="" /&gt;
+    &lt;SettingsButtonEnabled value="0"/&gt;
+    &lt;SettingsPageProtectionEnabled value="1"/&gt;
+    &lt;SettingsPagePassword value="admin"/&gt;
   &lt;/Settings&gt;
 
   &lt;Shortcut&gt;
-    &lt;ShortcutCreationEnabled value="0" /&gt;
+    &lt;ShortcutCreationEnabled value="0"/&gt;
   &lt;/Shortcut&gt;
 
   &lt;ZoomKey&gt;
-    &lt;ZoomInKey value="" /&gt;
-    &lt;ZoomOutKey value="" /&gt;
-  &lt;/ZoomKey&gt;
+        &lt;ZoomInKey value=""/&gt; 
+        &lt;ZoomOutKey value=""/&gt; 
+   &lt;/ZoomKey&gt;
 
   &lt;Logger&gt;
-    &lt;LogProtocol value="FILE" /&gt;
-    &lt;LogPort value="80" /&gt;
-    &lt;LogURI value="file://%INSTALLDIR%/Log.txt" /&gt;
-    &lt;LogError value="1" /&gt;
-    &lt;LogWarning value="1" /&gt;
-    &lt;LogInfo value="1" /&gt;
-    &lt;LogUser value="0" /&gt;
-    &lt;LogMemory value="0" /&gt;
-    &lt;LogMemPeriod value="5000" /&gt;
-    &lt;LogMaxSize value="5000" /&gt;
+    &lt;LogProtocol   value="FILE"/&gt;
+    &lt;LogPort       value="80"/&gt;
+    &lt;LogURI        value="file://%INSTALLDIR%/Log.txt"/&gt;
+    &lt;LogError      value="1"/&gt;
+    &lt;LogWarning    value="1"/&gt;
+    &lt;LogInfo       value="1"/&gt;
+    &lt;LogTrace      value="0"/&gt;
+    &lt;LogUser       value="0"/&gt;
+    &lt;LogMemory     value="0"/&gt;
+    &lt;LogMemPeriod  value="5000"/&gt;
+    &lt;LogMaxSize    value="5000"/&gt;
   &lt;/Logger&gt;
 
   &lt;FileLocations&gt;
-    &lt;RegEXFile value="file://%INSTALLDIR%/RegEx.xml" /&gt;
+    &lt;RegEXFile  value="file://%INSTALLDIR%/RegEx.xml"/&gt;
   &lt;/FileLocations&gt;
 
   &lt;Screen&gt;
-    &lt;FullScreen value="1" /&gt;
+    &lt;FullScreen value="1"/&gt;
     &lt;PageZoom value="1.0" /&gt;
-    &lt;EnableZoom value="1" /&gt;
+    &lt;EnableZoom value="1"/&gt;
   &lt;/Screen&gt;
 
+  &lt;WebServer&gt;  
+    &lt;Enabled VALUE="0"/&gt;  
+    &lt;Port VALUE="8082"/&gt;  
+    &lt;WebFolder VALUE=""/&gt;  
+    &lt;Public VALUE="0"/&gt;  
+  &lt;/WebServer&gt;
+
   &lt;SplashScreen&gt;
-    &lt;SplashScreenPath value="file://%INSTALLDIR%/rho/apps/app/loading.png" /&gt;
-    &lt;SplashScreenDuration value="0" /&gt;
+    &lt;SplashScreenPath value="file://%INSTALLDIR%/rho/apps/app/loading.png"/&gt;
+    &lt;SplashScreenDuration value="0"/&gt;
   &lt;/SplashScreen&gt;
 
   &lt;VoidConnection&gt;
-    &lt;TrackConnection value="0" /&gt;
-    &lt;HostURL value="192.168.1.1" /&gt;
-    &lt;Message value="Establishing Connection..." /&gt;
-    &lt;Timeout value="30000" /&gt;
-    &lt;PollInterval value="5000" /&gt;
+    &lt;TrackConnection value="0"/&gt;
+    &lt;HostURL value="192.168.1.1"/&gt;
+    &lt;Message value="Establishing Connection..."/&gt;
+    &lt;Timeout value="30000"/&gt;
+    &lt;PollInterval value="5000"/&gt;
   &lt;/VoidConnection&gt;
 
   &lt;DeviceKeys&gt;
-    &lt;FunctionKeysCapturable value="0" /&gt;
-    &lt;EnableFunctionKey_F1 value="1" /&gt;
-    &lt;EnableFunctionKey_F2 value="1" /&gt;
-    &lt;EnableFunctionKey_F3 value="1" /&gt;
-    &lt;EnableFunctionKey_F4 value="1" /&gt;
-    &lt;EnableFunctionKey_F5 value="1" /&gt;
-    &lt;EnableFunctionKey_F6 value="1" /&gt;
-    &lt;EnableFunctionKey_F7 value="1" /&gt;
-    &lt;EnableFunctionKey_F8 value="1" /&gt;
-    &lt;EnableFunctionKey_F9 value="1" /&gt;
-    &lt;EnableFunctionKey_F10 value="1" /&gt;
-    &lt;EnableFunctionKey_F11 value="1" /&gt;
-    &lt;EnableFunctionKey_F12 value="1" /&gt;
-    &lt;EnableApplicationKey_A1 value="1" /&gt;
-    &lt;EnableApplicationKey_A2 value="1" /&gt;
-    &lt;EnableApplicationKey_A3 value="1" /&gt;
-    &lt;EnableApplicationKey_A4 value="1" /&gt;
-    &lt;EnableApplicationKey_A5 value="1" /&gt;
-    &lt;EnableApplicationKey_A6 value="1" /&gt;
-    &lt;EnableApplicationKey_A7 value="1" /&gt;
-    &lt;EnableApplicationKey_A8 value="1" /&gt;
+    &lt;FunctionKeysCapturable   value="0"/&gt;
+    &lt;EnableFunctionKey_F1     value="1"/&gt;
+    &lt;EnableFunctionKey_F2     value="1"/&gt;
+    &lt;EnableFunctionKey_F3     value="1"/&gt;
+    &lt;EnableFunctionKey_F4     value="1"/&gt;
+    &lt;EnableFunctionKey_F5     value="1"/&gt;
+    &lt;EnableFunctionKey_F6     value="1"/&gt;
+    &lt;EnableFunctionKey_F7     value="1"/&gt;
+    &lt;EnableFunctionKey_F8     value="1"/&gt;
+    &lt;EnableFunctionKey_F9     value="1"/&gt;
+    &lt;EnableFunctionKey_F10    value="1"/&gt;
+    &lt;EnableFunctionKey_F11    value="1"/&gt;
+    &lt;EnableFunctionKey_F12    value="1"/&gt;
+    &lt;EnableApplicationKey_A1  value="1"/&gt;
+    &lt;EnableApplicationKey_A2  value="1"/&gt;
+    &lt;EnableApplicationKey_A3  value="1"/&gt;
+    &lt;EnableApplicationKey_A4  value="1"/&gt;
+    &lt;EnableApplicationKey_A5  value="1"/&gt;
+    &lt;EnableApplicationKey_A6  value="1"/&gt;
+    &lt;EnableApplicationKey_A7  value="1"/&gt;
+    &lt;EnableApplicationKey_A8  value="1"/&gt;
   &lt;/DeviceKeys&gt;
 
   &lt;Navigation&gt;
-    &lt;NavTimeout value="45000" /&gt;
+    &lt;NavTimeout value="45000"/&gt;
   &lt;/Navigation&gt;
 
   &lt;Geolocation&gt;
-    &lt;GeolocationEnabled value="1" /&gt;
-  &lt;/Geolocation&gt;
+    &lt;GeolocationEnabled value="1"/&gt;
+  &lt;/Geolocation&gt; 
 
-  &lt;ScreenOrientation&gt;
+    &lt;ScreenOrientation&gt;
     &lt;AutoRotate value="1" /&gt;
   &lt;/ScreenOrientation&gt;
 
   &lt;TabInstance&gt;
-    &lt;NewTabPhysicalMemLimit value="90" /&gt;
-    &lt;NewTabVirtualMemLimit value="80" /&gt;
+    &lt;NewTabPhysicalMemLimit value="90"/&gt;
+    &lt;NewTabVirtualMemLimit value="80"/&gt;
   &lt;/TabInstance&gt;
 
-  &lt;UserData&gt;
-  &lt;/UserData&gt;
+  &lt;Engine&gt;
+    &lt;EngineInUse value="ENGINE_TO_USE"/&gt;
+  &lt;/Engine&gt;
 
   &lt;Applications&gt;
     &lt;Application&gt;
-      &lt;HTTP_Proxy value="" /&gt;
-      &lt;HTTPS_Proxy value="" /&gt;
-      &lt;isWindowsKey value="0" /&gt;
+
+      &lt;HTTP_Proxy value=""/&gt;
+      &lt;HTTPS_Proxy value=""/&gt;
+      &lt;isWindowsKey  value="0"/&gt;
+      &lt;usedwforscanning  value="0"/&gt;
+
       &lt;IntentReceiver&gt;
-        &lt;EnableReceiver value="0" /&gt;
-        &lt;IntentAction value="" /&gt;
-        &lt;IntentCategory value="" /&gt;
+        &lt;EnableReceiver  value="0"/&gt;
+        &lt;IntentAction  value=""/&gt;
+        &lt;IntentCategory  value=""/&gt;
       &lt;/IntentReceiver&gt;
 
       &lt;General&gt;
-        &lt;Name value="Menu" /&gt;
-        &lt;StartPage value="file://%INSTALLDIR%/menu.html" name="Menu" /&gt;
-        &lt;UseRegularExpressions value="REGULAR_EXPRESSIONS_FLAG" /&gt;
+        &lt;Name value="Menu"/&gt;
+        &lt;StartPage value="file://%INSTALLDIR%/menu.html" name="Menu"/&gt;
+        &lt;UseRegularExpressions value="REGULAR_EXPRESSIONS_FLAG"/&gt;
       &lt;/General&gt;
 
       &lt;Scanner&gt;
-        &lt;DisableScannerDuringNavigation value="1" /&gt;
+        &lt;DisableScannerDuringNavigation value="1"/&gt;
       &lt;/Scanner&gt;
 
       &lt;WebDB&gt;
-        &lt;WebStorageDBPath value="file://%INSTALLDIR%" /&gt;
-        &lt;WebSQLDBQuota value="5000000" /&gt;
-        &lt;WebSQLDBPath value="file://%INSTALLDIR%" /&gt;
+        &lt;WebStorageDBPath value="file://%INSTALLDIR%"/&gt;
+        &lt;WebSQLDBQuota value="5000000"/&gt;
+        &lt;WebSQLDBPath value="file://%INSTALLDIR%"/&gt;
       &lt;/WebDB&gt;
 
       &lt;ApplicationCache&gt;
-        &lt;ApplicationCachePath VALUE="file://%INSTALLDIR%" /&gt;
-        &lt;ApplicationCacheQuota VALUE="5000000" /&gt;
+        &lt;ApplicationCachePath VALUE="file://%INSTALLDIR%"/&gt;
+        &lt;ApplicationCacheQuota VALUE="5000000"/&gt;
       &lt;/ApplicationCache&gt;
 
       &lt;NPAPI&gt;
-        &lt;NPAPIDirectory value="file://%INSTALLDIR%/NPAPI/" /&gt;
+        &lt;NPAPIDirectory value="file://%INSTALLDIR%/NPAPI/"/&gt;
         &lt;Preloads&gt;
-          &lt;PreloadLegacyActiveX value="0" /&gt;
-          &lt;PreloadLegacyGeneric value="1" /&gt;
-          &lt;PreloadLegacyODAX value="1" /&gt;
-          &lt;PreloadLegacyNoSIP value="1" /&gt;
-          &lt;PreloadLegacyAirBeam value="1" /&gt;
-          &lt;PreloadLegacyAPD value="1" /&gt;
-          &lt;PreloadJSObjects value="1" /&gt;
+          &lt;PreloadLegacyActiveX value="0"/&gt;
+          &lt;PreloadLegacyGeneric value="1"/&gt;
+          &lt;PreloadLegacyODAX    value="1"/&gt;
+          &lt;PreloadLegacyNoSIP   value="1"/&gt;
+          &lt;PreloadLegacyAirBeam value="1"/&gt;
+          &lt;PreloadLegacyAPD     value="1"/&gt;
+          &lt;PreloadJSObjects     value="1"/&gt;
         &lt;/Preloads&gt;
       &lt;/NPAPI&gt;
 
       &lt;Preloads&gt;
-        &lt;Preload value="Hourglass" /&gt;
-        &lt;Preload value="SIP" /&gt;
-        &lt;Preload value="ScreenOrientation" /&gt;
+        &lt;Preload value="Hourglass"/&gt;
+        &lt;Preload value="SIP"/&gt;
+        &lt;Preload value="ScreenOrientation"/&gt;
       &lt;/Preloads&gt;
 
-      &lt;Scrolling&gt;
-        &lt;ScrollTechnique VALUE="FingerScroll" /&gt;
-      &lt;/Scrolling&gt;
 
-      &lt;Authentication&gt;
-        &lt;Username VALUE="" /&gt;
-        &lt;Password VALUE="" /&gt;
-      &lt;/Authentication&gt;
+     &lt;Authentication&gt;
+        &lt;!--  Used for Digest Access Authentication and Basic Access Authentication --&gt;
+        &lt;!--  Global  --&gt;
+        &lt;!--Username VALUE=""/--&gt;
+        &lt;!--Password VALUE=""/--&gt;
+    &lt;/Authentication&gt;
 
       &lt;HTMLStyles&gt;
-        &lt;FitToScreenEnabled value="1" /&gt;
-        &lt;ClearTypeEnabled value="1" /&gt;
-        &lt;JavascriptEnabled value="1" /&gt;
-        &lt;TextSelectionEnabled value="0" /&gt;
-        &lt;FontFamily value="Droid Sans Fallback" /&gt;
+        &lt;FitToScreenEnabled    value="1" /&gt;
+        &lt;ClearTypeEnabled      value="1" /&gt;
+        &lt;JavascriptEnabled     value="1" /&gt;
+        &lt;TextSelectionEnabled  value="0" /&gt;
+        &lt;FontFamily            value="Droid Sans Fallback" /&gt;
       &lt;/HTMLStyles&gt;
 
       &lt;SIP&gt;
-        &lt;ResizeOnSIP value="0" /&gt;
+        &lt;ResizeOnSIP  value="1"/&gt;
       &lt;/SIP&gt;
 
       &lt;System&gt;
-        &lt;LowBatteryScan value="0" /&gt;
+        &lt;LowBatteryScan  value="0"/&gt;
       &lt;/System&gt;
 
       &lt;Sound&gt;
-        &lt;DecodeVolume value="5" /&gt;
-        &lt;DecodeFrequency value="0xBB8" /&gt;
-        &lt;InvalidDecodeFrequency value="0x9C4" /&gt;
-        &lt;DecodeDuration value="250" /&gt;
-        &lt;ScanDecodeWav value="" /&gt;
-        &lt;ScanInvalidWav value="" /&gt;
-        &lt;ImagerCaptureWav value="" /&gt;
+        &lt;DecodeVolume           value="5"/&gt;
+        &lt;DecodeFrequency        value="0xBB8"/&gt;
+        &lt;InvalidDecodeFrequency value="0x9C4"/&gt;
+        &lt;DecodeDuration         value="250"/&gt;
+        &lt;ScanDecodeWav          value=""/&gt;
+        &lt;ScanInvalidWav         value=""/&gt;
+        &lt;ImagerCaptureWav       value=""/&gt;
       &lt;/Sound&gt;
 
       &lt;GUI&gt;
-        &lt;SignalRefresh value="5000" /&gt;
-        &lt;BatteryRefresh value="5000" /&gt;
-        &lt;HourglassEnabled value="1" /&gt;
-        &lt;HourglassLeft value="" /&gt;
-        &lt;HourglassTop value="" /&gt;
+        &lt;SignalRefresh      value="5000"/&gt;
+        &lt;BatteryRefresh     value="5000"/&gt;
+        &lt;HourglassEnabled   value="1" /&gt;
+        &lt;HourglassLeft      value="" /&gt;
+        &lt;HourglassTop       value="" /&gt;
       &lt;/GUI&gt;
 
       &lt;Navigation&gt;
-        &lt;BadLinkURI value="file://%INSTALLDIR%/badlink.html" /&gt;
-        &lt;UserAgent value="Mozilla/5.0 (AndroidWebKit; U; /%p) AppleWebKit/%w (KHTML, like Gecko) Version/%e Mobile Safari/%w" /&gt;
-        &lt;NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db" /&gt;
-        &lt;ViewportEnabled value="1" /&gt;
-        &lt;VerifyPeerCertificate value="1" /&gt;
-        &lt;Cache VALUE="5MB" /&gt;
+        &lt;BadLinkURI value="file://%INSTALLDIR%/badlink.html"/&gt;
+        &lt;UserAgent  value="Mozilla/5.0 (AndroidWebKit; U; /%p) AppleWebKit/%w (KHTML, like Gecko) Version/%e Mobile Safari/%w" /&gt;
+            &lt;NetworkCookieDatabase value="file://%INSTALLDIR%/cookies.db"/&gt;
+            &lt;ViewportEnabled value="1"/&gt;
+            &lt;VerifyPeerCertificate value="1"/&gt;
+        &lt;Cache      VALUE="5MB"/&gt;
       &lt;/Navigation&gt;
 
-      &lt;DeviceKeys&gt;
-        &lt;EnableCtrlKey_A value="1" /&gt;
-        &lt;EnableCtrlKey_C value="1" /&gt;
-        &lt;EnableCtrlKey_V value="1" /&gt;
-        &lt;EnableCtrlKey_O value="0" /&gt;
-        &lt;EnableCtrlKey_P value="0" /&gt;
-      &lt;/DeviceKeys&gt;
+
+    &lt;DeviceKeys&gt;
+        &lt;EnableCtrlKey_A    value="1"/&gt;
+        &lt;EnableCtrlKey_C    value="1"/&gt;
+        &lt;EnableCtrlKey_V    value="1"/&gt;
+        &lt;EnableCtrlKey_O    value="0"/&gt;
+        &lt;EnableCtrlKey_P    value="0"/&gt;
+     &lt;/DeviceKeys&gt;
+
       &lt;DefaultMetaTags&gt;
       &lt;/DefaultMetaTags&gt;
-      &lt;CustomDOMElements value="" /&gt;
-    &lt;/Application&gt;
-  &lt;/Applications&gt;
-&lt;/Configuration&gt;
+
+      &lt;CustomDOMElements value=""/&gt;
+
+      &lt;/Application&gt;
+     &lt;/Applications&gt;
+    &lt;/Configuration&gt;
 </pre>
 
 <h2>General</h2>
@@ -307,7 +323,7 @@
 
 <h3>UseRegularExpressions</h3>
 
-<p>Determines behavior of Function keys on Windows Mobile and Windows CE devices. When enabled, F-keys on WM/CE devices are capturable using the KeyCapture API. When disabled, keys revert to the device’s default behavior. This setting is not specific to an application. When enabled, settings are applied globally to the device. Regular Expressions are used to maintain backward compatibility with PocketBrowser syntax for controlling device capabilities. If backward compatibility is not required, regular expressions can safely be disabled, possibly improving app performance. <strong>Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser</strong>.</p>
+<p>Regular Expressions are used to maintain backward compatibility with PocketBrowser syntax for controlling device capabilities. This is accomplished through a Regular Expression engine, which applies a series of transformations as defined in <code>RegEx.xml</code> to each meta tag or JavaScript call being processed. If backward compatibility is not required, regular expressions can be safely disabled to help improve app performance (depending on app structure). <strong>Applies only to apps for Windows Mobile/CE devices built with RhoMobile Suite 2.2 or higher that need backward compatibility with PocketBrowser</strong>.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -402,16 +418,16 @@
 </ul>
 
 
-<h4>Example:</h4>
+<h4>Example</h4>
 
 <pre name="code" class="xml">&lt;SplashScreenDuration value="0"/&gt; //Applies to Android only
 </pre>
 
-<h2>Intent</h2>
+<h2>IntentReceiver</h2>
 
 <h3>EnableReceiver</h3>
 
-<p>Determines whether Enterprise Browser will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions. For more information about Intent, please refer to .</p>
+<p>Determines whether an Enterprise Browser app will recieve Intent actions, which work with the Intent function for interapplication communication. When enabled, the application can be called upon by other apps to perform Actions, such as capturing an image or scanning a barcode. For more information about the IntentReceiver tag, please refer to the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Remarks">Remarks section</a> and the <a href="http://developer.android.com/reference/android/content/Intent.html">Android Developer Forum</a>.</p>
 
 <p><strong>Possible values</strong></p>
 
@@ -423,7 +439,7 @@
 
 <h4>Example</h4>
 
-<pre name="code" class="xml">&lt;EnableReceiver  value="1"/&gt;
+<pre name="code" class="xml">    &lt;EnableReceiver value="1"/&gt;
 </pre>
 
 <h3>IntentAction</h3>
@@ -546,8 +562,11 @@ Note: When using this feature with the IE engine on a CE device, screen distorti
 
 <p><strong>Possible Values</strong></p>
 
-<p>0 &ndash; Disabled
-1 &ndash; Enabled</p>
+<ul>
+<li>0 &ndash; Disabled</li>
+<li>1 &ndash; Enabled</li>
+</ul>
+
 
 <h4>Example</h4>
 
@@ -586,6 +605,23 @@ Note: When using this feature with the IE engine on a CE device, screen distorti
 <h4>Example</h4>
 
 <pre name="code" class="xml">&lt;LogInfo value="1"/&gt;
+</pre>
+
+<h3>LogTrace</h3>
+
+<p>Controls the logging of the Trace messages generated by Enterprise Browser. If set to 1, enables Trace, Info, Warning and Error logging. <strong>Applies to Android and Windows Mobile/CE</strong>.</p>
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li><strong>0 &ndash; Disabled (default)</strong></li>
+<li>1 &ndash; Enabled</li>
+</ul>
+
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;LogTrace value="0"/&gt;
 </pre>
 
 <h3>LogUser</h3>
@@ -1054,7 +1090,7 @@ Note: When using this feature with the IE engine on a CE device, screen distorti
 
 <h3>AutoRotate</h3>
 
-<p>When disabled the orientation of the screen will not change as the device is rotated and vice versa. This is a screen rotation lock.</p>
+<p>Controls automatic rotation of screen orientation. When disabled, the orientation of the screen will not change when the device is rotated.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1337,7 +1373,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>ScrollTechnique</h3>
 
-<p>Specifies the technique used to scroll the viewport. <strong>&lsquo;FingerScroll&rsquo;</strong> is an Android-only feature that permits scrolling around a page with finger swiping. <strong>&lsquo;Scrollbars&rsquo;</strong> will be presented when the page is too large to fit the viewport (not available on Android). <strong>&lsquo;None&rsquo;</strong> displays no scrollbars and the page will not respond to finger swipes. This setting is not supported on Windows CE using the IE rendering engine. FingerScroll may interfere with drawing on a Canvas element.</p>
+<p>Specifies the technique used to scroll the viewport. The <strong>FingerScroll</strong> setting permits scrolling around a page with finger swiping (may interfere with drawing on a Canvas element). <strong>Scrollbars</strong> will be presented when the page is too large to fit the viewport. The <strong>None</strong> setting will display no scrollbars and the page will not respond to finger swipes. <strong>The ScrollingTechnique setting is not supported on Android or on Windows CE devices that use the IE rendering engine</strong>.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1617,7 +1653,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>ResizeOnSIP</h3>
 
-<p>Controls window resizing when the soft input panel (on-screen keyboard, or SIP) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. <strong>Applies only to Android and Windows Mobile</strong>. Requires SIP module preload. Not compatible with Windows CE. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen.</p>
+<p>Controls window resizing when the soft input panel (on-screen keyboard, or SIP) is displayed. When enabled, the browser window will resize to accommodate the SIP, when displayed. If the SIP has been moved to the top half of the screen, the browser window will reduce in size from the top. <strong>Applies to Android and Windows Mobile</strong>. Requires SIP module preload. Not compatible with Windows CE. Not compatible with Finger Scrolling. The SIP always appears at the bottom of the screen.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -1634,20 +1670,19 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>EnableSIP</h3>
 
-<p>Controls whether soft input panel (on-screen keyboard, or SIP) will appear. <strong>Applies to Android only</strong>. This feature can be mimicked on WM/CE by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby ‘disabling’ its use.</p>
+<p>Beginning with EB 1.3, the soft input panel (SIP; i.e. on-screen keyboard) is controlled on Android through the <a href="../api-Sip">SIP API</a>. On Windows Mobile/CE, soft input can be disabled by manipulating the top and left position parameters of the SIP module to position the SIP off the screen, thereby making it inaccessible to the user. For the possible values and example syntax of this tag, please refer to the EB 1.2 Config.xml Reference.</p>
 
-<p><strong>Possible Values</strong></p>
+<!--
+**Possible Values**
 
-<ul>
-<li>0 &ndash; Disabled</li>
-<li>1 &ndash; Enabled</li>
-</ul>
+* 0 - Disabled
+* 1 - Enabled
 
+#### Example
+    :::xml
+    <EnableSIP value="1"/>
+-->
 
-<h4>Example</h4>
-
-<pre name="code" class="xml">&lt;EnableSIP value="1"/&gt;
-</pre>
 
 <h2>System</h2>
 
@@ -2016,7 +2051,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>ViewportWidth</h3>
 
-<p>Sets the default viewport width for pages that do not have a viewport meta tag. If not specified, uses 1:1 scaling.</p>
+<p>Sets the default viewport width for pages that do not have a viewport meta tag. If not specified, uses 1:1 scaling. <strong>Applies only to Windows Mobile/CE; this setting is not supported in Android</strong>.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -2032,9 +2067,9 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>CaFile</h3>
 
-<p>Specifies the location of a device-resident file containing CA certificates in PEM format. Please  for more information. <strong>Applies to Android and Windows Mobile/CE</strong>.</p>
+<p>Specifies the location of a device-resident file containing CA certificates in PEM format. Please <a href="http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html">refer to openSSL</a> for more information. <strong>Applies only to Windows Mobile/CE</strong>.</p>
 
-<blockquote><p>Note: Enteprise Browser only supports only a single certificate file in PEM format. If multiple certificates must be passed to the Webkit browser on WM/CE, the contents of multiple <code>.pem</code> certificates can be combined into a single file using any standard text editor. The combined file can then be specified in the CaFile parameter.</p></blockquote>
+<blockquote><p>Note: Enteprise Browser supports only a single PEM certificate file. If multiple certificates must be passed to the Webkit browser on WM/CE, the contents of multiple <code>.pem</code> certificates can be combined into a single file using a text editor. The combined file can then be specified in the CaFile parameter.</p></blockquote>
 
 <p><strong>Possible Values</strong></p>
 
@@ -2048,17 +2083,15 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 <pre name="code" class="xml">&lt;CaFile value="cert-file-name"/&gt;
 </pre>
 
-<h3>CaPath</h3>
+<!--### CaPath
+>Note : This setting is not supported in Enterprise Browser.
 
-<blockquote><p>Note : This setting is not supported in Enterprise Browser.</p></blockquote>
+Specifies a fully qualified path to the directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See [http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html](http://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html) for more information. 
 
-<p>Specifies a fully qualified path to the directory containing CA certificates in PEM format (one certificate per file). The OpenSSL c_rehash utility must be used to generate appropriately named links to the certificate files. See  for more information.</p>
+**Possible Values**
 
-<p><strong>Possible Values</strong></p>
-
-<ul>
-<li>Local File path on the device</li>
-</ul>
+* Local File path on the device
+-->
 
 
 <h3>VerifyPeerCertificate</h3>
@@ -2207,7 +2240,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>NewTabVirtualMemLimit</h3>
 
-<p>Controls whether a new Tab will be created using the  when a virtual memory usage percentage is hit. For example, if set to 80, new tabs will stop being created when the virtual memory usage reaches or exceeds 80 percent of the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.</p>
+<p>Controls whether a new Tab will be created using the <a href="..api/NativeTabbar">NativeTabbar.create API</a> when a virtual memory usage percentage is hit. For example, if set to 80, new tabs will stop being created when the virtual memory usage reaches or exceeds 80 percent of the total available. Once the defined limit is reached, the NativeTabbar.create API callback will contain tabEvent = onTabNewError.</p>
 
 <p><strong>Possible Values</strong></p>
 
@@ -2225,12 +2258,12 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>ZoomInKey</h3>
 
-<p>Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. <strong>Applies only to WM/CE with IE or Zebra Webkit</strong>. Other requirements are detailed in the Remarks section at the bottom of this guide. <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Remarks">Read more</a>.</p>
+<p>Controls zoom-IN behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid keycode. <strong>Note</strong>: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Remarks">Remarks section</a> at the bottom of this guide. <strong>Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit</strong>.</p>
 
 <p><strong>Possible Values</strong></p>
 
 <ul>
-<li>Hexadecimal key code for any function key (F1 to F24)</li>
+<li>Hexadecimal keycode for any function key (F1 to F24)</li>
 </ul>
 
 
@@ -2241,12 +2274,12 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h3>ZoomOutKey</h3>
 
-<p>Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing or left blank or contains an invalid key code. Note: The function keys used for Zoom IN or Zoom OUT operation will not be accessible via the current and previous Key Capture APIs. <strong>Applies only to WM/CE with IE or Zebra Webkit</strong>. Other requirements are detailed in the Remarks section at the bottom of this guide. <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Remarks">Read more</a>.</p>
+<p>Controls zoom-OUT behavior for application text using function key(s) configured with the EnableFunctionKey_X parameter. This setting will not be applied if the parameter is missing, left blank or contains an invalid keycode. <strong>Note</strong>: The function keys used for Zoom-IN or Zoom-OUT operation will not be accessible via the current or previous Key Capture APIs. Other requirements are detailed in the <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Remarks">Remarks section</a> at the bottom of this guide. <strong>Applies to Android with stock webkit and WM/CE with IE or Zebra Webkit</strong>.</p>
 
 <p><strong>Possible Values</strong></p>
 
 <ul>
-<li>Hexadecimal key code for any function key (F1 to F24)</li>
+<li>Hexadecimal keycode for any function key (F1 to F24)</li>
 </ul>
 
 
@@ -2257,13 +2290,13 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 
 <h2>isWindowsKey</h2>
 
-<p>Allows Enterprise Browser 1.2 and later to mimic Windows Mobile key codes for the device’s hardware keys when used with the KeyCapture API of PocketBrowser or RhoElements 2.x. When enabled, the application will substitute its normal Android kewys with the Windows Mobile function key code values for keys F1 through F12. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will get the Android function key code value. Supported on Android devices with PocketBrowser or RhoElements 2.x Key Capture API.</p>
+<p>Allows hardware keys of an Android device running Enterprise Browser 1.2 (or later) to mimic Windows Mobile keycodes when used with the KeyCapture API of PocketBrowser or RhoElements 2.x or 4.x. When enabled, the application will substitute normal Android keycodes with the Windows Mobile function keycode values for all keys. This can be useful for supporting both Android and Windows device platforms with a single codebase. If set to 0 or not present, the application will receive Android function keycode values. <strong>Applies to Android devices with PocketBrowser or RhoElements 2.x or 4.x KeyCapture API only</strong>.</p>
 
 <p><strong>Possible Values</strong></p>
 
 <ul>
-<li>0 &ndash; Send Android Key Codes for F1 to F12</li>
-<li>1 &ndash; Send Windows Mobile Key Codes for F1 to F12</li>
+<li><strong>0 &ndash; Disabled (default); Android keycodes are used for all function keys</strong></li>
+<li>1 &ndash; Enabled; Windows Mobile keycodes are substituted for all Android function keys</li>
 </ul>
 
 
@@ -2281,8 +2314,7 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 <p><strong>Possible Values</strong></p>
 
 <ul>
-<li>Possible Values</li>
-<li><strong>0 &ndash; Shortcut creation disabled</strong></li>
+<li><strong>0 &ndash; Shortcut creation disabled (default)</strong></li>
 <li>1 &ndash; Shortcuts created at every launch</li>
 <li>2 &ndash; Shortcuts created on initial launch only</li>
 </ul>
@@ -2293,27 +2325,63 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 <pre name="code" class="xml">&lt;ShortcutCreationEnabled value="1"/&gt;
 </pre>
 
+<h2>KeepAlive</h2>
+
+<p>Controls whether HTTP connections will be maintained between requests. When enabled (default), maintains a connection between the web server and client. When disabled, connection is closed when the request is complete. <strong>Applies to Windows Mobile/CE with Webkit engine only</strong>.</p>
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li>0 &ndash; Disabled</li>
+<li><strong>1 &ndash; Enabled (default)</strong></li>
+</ul>
+
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;KeepAlive value="1"/&gt;
+</pre>
+
+<h2>usedwforscanning</h2>
+
+<p><strong>Applies only to Android</strong>. Controls whether to &lsquo;use DataWedge (DW) for scanning&rsquo; or to go through <a href="https://developer.motorolasolutions.com/docs/DOC-2510">Enterprise Browser APIs</a>. Additional settings adjustments might be required to use this tag. Please refer to the <a href="../guide/datawedge">DataWedge Usage Guide</a> for important details about DataWedge configuration and potential conflicts with Enterprise Browser.</p>
+
+<p><strong>Possible Values</strong></p>
+
+<ul>
+<li><strong>0 &ndash; Enable scanning through Enterprise Browser APIs (default; DataWedge disabled)</strong></li>
+<li>1 &ndash; Enable scanning through Datawedge (Enterprise Browser scanning disabled)</li>
+</ul>
+
+
+<h4>Example</h4>
+
+<pre name="code" class="xml">&lt;useDWforScanning value="0"/&gt;
+</pre>
+
 <h2>Remarks</h2>
+
+<h3><a name="_batteryRefresh"></a>Battery Polling on Enterprise Tablet</h3>
+
+<p>Due to its asynchronous battery notification, the Enterprise Tablet does not support BatteryRefresh. This has the effect of launching a bateryEvent only when the battery level changes. This functionality has been implemented in place of polling as a means of maximizing battery power.</p>
 
 <h3><a name="_caseSensitivity"></a>Case Sensitivity</h3>
 
-<p>The operating systems of some devices have case sensitive file systems. Therefore it is good practice to always keep URL values in the Config.xml file case identical to the names of the actual files.</p>
+<p>The file systems of some operating systems are case-sensitive. Best practices for cross-platform compatibility therefore dictate that the use of upper and lower case for URL, file and path references in the Config.XML file be identical to those of the actual sources.</p>
 
-<h3><a name="_batteryRefresh"></a>Battery Polling on the Enterprise Tablet</h3>
+<h3><a name="_datawedge"></a>DataWedge-Enterprise Browser Conflicts</h3>
 
-<p>On the Enterprise Tablet the battery notification is asynchronous. For this reason, BatteryRefresh is not supported on the Enterprise Tablet. The effect of this is that a batteryEvent is fired only when the battery level changes. This has been done to save battery power compared to polling.</p>
+<p>Under certain conditions involving Enterprise Browser, scanning with the DataWedge application on Zebra Android devices is disabled. For complete details, please refer to the <a href="../guide/datawedge">DataWedge Usage Guide</a>. <strong>This issue applies to Android only</strong>.</p>
 
-<h3>Open and Print</h3>
+<h3><a name="_fnbehavior"></a>FunctionKeysCapturable-EnableFunctionKey Interaction</h3>
 
-<p>If you plan on enabling the Ctrl+O or Ctrl+P (open dialog and print dialog, respectively) shortcut key combinations in your app, be aware that they do not work on Windows CE7 devices.</p>
+<p><strong>Applies to Windows Mobile/CE devices only</strong>.</p>
 
-<h3><a name="_fnbehavior"></a>Interaction between FunctionKeysCapturable and EnableFunctionKey configuration settings</h3>
+<p>On Windows Mobile/CE, full control is given to the developer over how the application handles function keys, but such settings persist only until the next warm boot. Also, the default behavior of function keys will vary from one device to another. On the MC75a, for example, the red and green phone keys also represent F3 and F4 keys, and on many devices the volume keys also can be mapped as function keys.</p>
 
-<p>On Windows Mobile and Windows CE devices full control is given to the developer over how their application handles function keys.  Because of the limitations of the operating system any settings applied will persist until the device is next warm booted.  Which function keys have default operating system behavior will vary from device to device, e.g. on the MC75a F3 and F4 represent the red and green phone keys and on many devices the volume keys are also mapped as function keys.  Not all function keys will have default operating system behavior.</p>
+<p>Not all function keys will revert to default operating system behavior, however, and unblocking certain function keys might expose the underlying operating system. For example, exposing the red and green phone keys on some devices will grant access to the WM/CE Start menu.</p>
 
-<p>Unblocking function keys may expose the underlying operating system, particularly the red and green phone keys will give access to the start menu and programs.</p>
-
-<p>The table below shows the behavior of the Enterprise Browser when function Keys are pressed given the possible configuration settings:</p>
+<p>The table below shows the behavior of Enterprise Browser when function keys are pressed given certain configuration settings:</p>
 
 <table border=1 width="100%" class="re-table">
     <tr>
@@ -2357,4 +2425,29 @@ Whether or not to preload the NPAPI plugin to mimic the NoSIP ActiveX object in 
 </table>
 
 
+<p><em>This table applies to Windows Mobile and Windows CE devices only</em>.</p>
 
+<h3><a name="intent"></a>IntentReceiver</h3>
+
+<p>The <code>IntentReciever</code> tag includes parameters to enable/disable the Intent function and to define the Action and Catagory of the Intent itself. The syntax for these parameters is as follows:</p>
+
+<pre name="code" class="xml">&lt;IntentReceiver&gt;
+    &lt;EnableReceiver value="1"/&gt;
+    &lt;IntentAction   value="com.zebra.sample.action"/&gt;
+    &lt;IntentCategory value="android.intent.category.LAUNCHER"/&gt;
+&lt;/IntentReceiver&gt;
+</pre>
+
+<p>From the target side, here&rsquo;s what the relevant JavaScript code for sending an intent might look like:</p>
+
+<pre><code>    :::javascript
+    Intent intent = new Intent("com.zebra.sample.action");
+    intent.putExtra("key", "intent");
+    sendBroadcast(intent);   
+</pre>
+
+<p>Learn more about Intent at the <a href="http://developer.android.com/reference/android/content/Intent.html">Android Developer Forum</a>.</p>
+
+<h3><a name="_openAndPrint"></a>Open and Print Key Commands</h3>
+
+<p>For apps that enable the Open (Ctrl+O) or Print (Ctrl+P) key combinations, such functions are inoperable on Windows CE7 devices.</p>

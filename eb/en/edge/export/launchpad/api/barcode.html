@@ -5070,7 +5070,7 @@
 <ul>
 <li>Constant: EB.Barcode.PICKLIST_DISABLED &ndash; String: disabled Disables picklist mode so any barcode within the field of view can be decoded.</li>
 <li>Constant: EB.Barcode.PICKLIST_HARDWARE_RETICLE &ndash; String: hardwareReticle Enables picklist mode so that only the barcode under the projected reticle can be decoded. On Windows, if the imager does not support a projected reticle then the behavior is the same as softwareReticle. On Android, this is only supported for Imager (non-viewfinder) based scanners.</li>
-<li><p>Constant: EB.Barcode.PICKLIST_SOFTWARE_RETICLE &ndash; String: softwareReticle Enables picklist mode so that only the barcode in the center of the image is decoded. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. On Android, this is only supported for Camera (viewfinder) based scanners.</p>
+<li><p>Constant: EB.Barcode.PICKLIST_SOFTWARE_RETICLE &ndash; String: softwareReticle Enables picklist mode so that only the barcode in the center of the image is decoded. This is most useful when used in conjunction with static and dynamic reticle viewfinder modes. This value is not supported on Android Platform.</p>
 
 <h4>Access</h4></li>
 <li><p>Instance: This property can be accessed via an instance object of this class: <code>myObject.picklistMode</code></p></li>

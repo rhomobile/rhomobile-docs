@@ -82,7 +82,7 @@ As most of the JavaScript based key handling for SAP ITS Mobile applications is 
           <MetaTag VALUE="KeyCapture~KeyValue:All;Dispatch:True;KeyEvent:url('javascript:fireKeyEvent(%json);');" /> 
         </DefaultMetaTags>
 
-2. Add JavaScript method as mentioned below in SAP html page. The same method `fireKeyEvent` has been configured in config.xml under `DefaultMetaTags` attribute.
+2. Add JavaScript method as described in the [DOM Injection guide](../guide-DOMinjection). The same method `fireKeyEvent` has been configured in config.xml under `DefaultMetaTags` attribute.
 
         :::javascript
         //Add the fireKeyEvent in the HTML page for handling in WM device with IE Engine
@@ -255,6 +255,8 @@ Log-on fail:
 
 * It is recommended to use Module Specific JS files for API access through EB namespace. See the [Optimization Guide](../guide/optimization) for more details.
 
+<!--
+
 ##DataWedge Usage and Compatibility
 
 ###DataWedge Interaction with Enterprise Browser
@@ -327,6 +329,7 @@ Example:
 
 However it is still possible to fetch the barcode data in Enterprise Browser application even if the application doesn’t want to use the Enterprise Browser Scanner or Barcode API’s. The application just needs to enable the scanner via DataWedge application and the application will be able to get the barcode data in Enterprise Browser by having DataWedge send keystrokes. The resulting data will then be entered into any input field.
 
+-->
 
 ##Handling Badlink and Navigation
 You application may want to handle if a user encounters a link that no longer exists so that they are not stuck and can gracefully return back to the application. You can write their own badlink html page and then configure [this option](../guide/configreference?General) in the config.xml. This page should consider either a link to return to the home page of the application or utilize the Quit, Back & Reload buttons that are provided with Enterprise Browser.

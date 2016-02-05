@@ -102,7 +102,7 @@
    &lt;MetaTag VALUE="KeyCapture~KeyValue:All;Dispatch:True;KeyEvent:url('javascript:fireKeyEvent(%json);');" /&gt; 
  &lt;/DefaultMetaTags&gt;
 </pre></li>
-<li><p>Add JavaScript method as mentioned below in SAP html page. The same method <code>fireKeyEvent</code> has been configured in config.xml under <code>DefaultMetaTags</code> attribute.</p>
+<li><p>Add JavaScript method as described in the <a href="../guide-DOMinjection">DOM Injection guide</a>. The same method <code>fireKeyEvent</code> has been configured in config.xml under <code>DefaultMetaTags</code> attribute.</p>
 
 <pre name="code" class="javascript"> //Add the fireKeyEvent in the HTML page for handling in WM device with IE Engine
  function fireKeyEvent(event)
@@ -285,101 +285,82 @@ Log-on fail:</p>
 </ul>
 
 
-<h2>DataWedge Usage and Compatibility</h2>
+<!--
 
-<h3>DataWedge Interaction with Enterprise Browser</h3>
+##DataWedge Usage and Compatibility
 
-<p>In order to use the scanner with Enterprise Browser App you will need to either disable DataWedge or create a DataWedge profile for your app.</p>
+###DataWedge Interaction with Enterprise Browser
+In order to use the scanner with Enterprise Browser App you will need to either disable DataWedge or create a DataWedge profile for your app.
 
-<h3>Disabling DataWedge</h3>
+###Disabling DataWedge
 
-<ol>
-<li>Start the DataWedge app</li>
-<li>Click the menu button > <code>Settings</code> and un-tick <code>DataWedge enabled</code>.</li>
-</ol>
+1. Start the DataWedge app
+2. Click the menu button > `Settings` and un-tick `DataWedge enabled`.
 
+###Enterprise Browser Datawedge Profile
+1. Install your Enterprise Browser App,
+2. Start the DataWedge app
+3. Click the menu button > `New Profile` and enter a name,
+4. Click on the link to the new profile in the profile list,
+5. Click on `Associated apps` in the `Applications` section,
+6. Click the menu button > `New app/activity`,
+7. Select the package name for your app,
+8. Select `*`,
+9. Click the `Back` capacitive button,
+10. Make sure the `Profile enabled` checkbox is ticked.
+11. Uncheck all three `Enabled` checkboxes under the sections of: `Barcode input`, `Keystroke output` and `Intent output`.
 
-<h3>Enterprise Browser Datawedge Profile</h3>
+Ensure to turn off the scanner functionality from DataWedge application when Enterprise Browser Scanner or Barcode API’s is used from web page directly.
 
-<ol>
-<li>Install your Enterprise Browser App,</li>
-<li>Start the DataWedge app</li>
-<li>Click the menu button > <code>New Profile</code> and enter a name,</li>
-<li>Click on the link to the new profile in the profile list,</li>
-<li>Click on <code>Associated apps</code> in the <code>Applications</code> section,</li>
-<li>Click the menu button > <code>New app/activity</code>,</li>
-<li>Select the package name for your app,</li>
-<li>Select <code>*</code>,</li>
-<li>Click the <code>Back</code> capacitive button,</li>
-<li>Make sure the <code>Profile enabled</code> checkbox is ticked.</li>
-<li>Uncheck all three <code>Enabled</code> checkboxes under the sections of: <code>Barcode input</code>, <code>Keystroke output</code> and <code>Intent output</code>.</li>
-</ol>
+Enterprise Browser application consists of Scanner API which provides backward compatibility for PocketBrowser & RhoElements application. Enterprise Browser application also provides Barcode API which is new way of invoking scanner functionality.
 
+###Barcode Scanning Options
 
-<p>Ensure to turn off the scanner functionality from DataWedge application when Enterprise Browser Scanner or Barcode API’s is used from web page directly.</p>
+####Enteprise Browser Barcode API
+This is a new and recommended API to use barcode scanning capability in Enterprise Browser.
 
-<p>Enterprise Browser application consists of Scanner API which provides backward compatibility for PocketBrowser &amp; RhoElements application. Enterprise Browser application also provides Barcode API which is new way of invoking scanner functionality.</p>
+* API: Barcode
 
-<h3>Barcode Scanning Options</h3>
+Example: 
 
-<h4>Enteprise Browser Barcode API</h4>
+    :::javascript
+    EB.Barcode.enable();
 
-<p>This is a new and recommended API to use barcode scanning capability in Enterprise Browser.</p>
+####META Tags
+This API provides backward compatibility for PocketBrowser & RhoElements application.
 
-<ul>
-<li>API: Barcode</li>
-</ul>
+* API: Scanner
 
+Example: 
 
-<p>Example:</p>
+    :::html
+    <META HTTP-Equiv="scanner" Content="enabled">
 
-<pre name="code" class="javascript">EB.Barcode.enable();
-</pre>
+####ActiveXObject
+This API provides backward compatibility for PocketBrowser & RhoElements application.
 
-<h4>META Tags</h4>
+* API: Scanner
 
-<p>This API provides backward compatibility for PocketBrowser &amp; RhoElements application.</p>
+Example: 
 
-<ul>
-<li>API: Scanner</li>
-</ul>
+    :::javascript
+    var scannerObj = new ActiveXObject("PocketBrowser.Generic"); 
+    scannerObj.InvokeMETAFunction('Scanner', 'enabled');
 
+####Javascript Object (backwards compatibility)
+This API provides backward compatibility for PocketBrowser & RhoElements application.
 
-<p>Example:</p>
+* API: Scanner
 
-<pre name="code" class="html">&lt;META HTTP-Equiv="scanner" Content="enabled"&gt;
-</pre>
+Example: 
 
-<h4>ActiveXObject</h4>
+    :::javascript
+    scanner.enable();
 
-<p>This API provides backward compatibility for PocketBrowser &amp; RhoElements application.</p>
+However it is still possible to fetch the barcode data in Enterprise Browser application even if the application doesn’t want to use the Enterprise Browser Scanner or Barcode API’s. The application just needs to enable the scanner via DataWedge application and the application will be able to get the barcode data in Enterprise Browser by having DataWedge send keystrokes. The resulting data will then be entered into any input field.
 
-<ul>
-<li>API: Scanner</li>
-</ul>
+-->
 
-
-<p>Example:</p>
-
-<pre name="code" class="javascript">var scannerObj = new ActiveXObject("PocketBrowser.Generic"); 
-scannerObj.InvokeMETAFunction('Scanner', 'enabled');
-</pre>
-
-<h4>Javascript Object (backwards compatibility)</h4>
-
-<p>This API provides backward compatibility for PocketBrowser &amp; RhoElements application.</p>
-
-<ul>
-<li>API: Scanner</li>
-</ul>
-
-
-<p>Example:</p>
-
-<pre name="code" class="javascript">scanner.enable();
-</pre>
-
-<p>However it is still possible to fetch the barcode data in Enterprise Browser application even if the application doesn’t want to use the Enterprise Browser Scanner or Barcode API’s. The application just needs to enable the scanner via DataWedge application and the application will be able to get the barcode data in Enterprise Browser by having DataWedge send keystrokes. The resulting data will then be entered into any input field.</p>
 
 <h2>Handling Badlink and Navigation</h2>
 

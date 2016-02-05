@@ -2,7 +2,7 @@
 Using the Viewport configuration setting in your app's config.xml, as well as in the HTML source of your app, you can configure the way your app will appear on a device based on either the device's width or a width you otherwise specify. We will go over a few of the less intuitive parts of the viewport configuration here.
 
 ## Enabling Viewport Modification
-This will enable you to use your stnadard viewport settings within the Symbol Technologies Webkit. For more information on the Viewport metatag see the [Mozilla Viewport Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
+This will enable you to use your standard viewport settings within the Symbol Technologies Webkit. For more information on the Viewport metatag see the [Mozilla Viewport Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
 
 Firstly, to enable the viewport in Symbol Technologies WebKit on Windows Mobile / CE you need to specify the following configuration option:
 

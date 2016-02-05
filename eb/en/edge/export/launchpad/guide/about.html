@@ -1,4 +1,4 @@
-<div class='tableofcontents'> </div><h1>Enterprise Browser 1.3</h1>
+<div class='tableofcontents'> </div><h1>Enterprise Browser 1.4</h1>
 
 <h2>Welcome to the Enterprise Browser</h2>
 
@@ -6,116 +6,47 @@
 
 <p>With support for the legacy application programming interfaces (APIs) used in PocketBrowser and the RhoElements Shared Runtime, Enterprise Browser is the ideal path forward for developers looking to migrate legacy applications to newer devices or to create applications with today&rsquo;s highly graphical and intuitive user interfaces. Enterprise Browser features will speed up your application development time, reduce costs and make the transition to next-generation devices and operating systems fast, easy and affordable&mdash;especially in high-volume mobile environments.</p>
 
-<h2>What&rsquo;s New in v1.3</h2>
+<h2>What&rsquo;s New in v1.4</h2>
 
 <h3>Zebra Device Support</h3>
 
 <ul>
-<li><strong>MC40</strong> Android KitKat</li>
-<li><strong>TC55</strong> Android KitKat</li>
-<li><strong>TC70 (GA2)</strong> Android KitKat</li>
-<li><strong>TC75</strong> Android KitKat</li>
+<li><strong>MC92N0</strong> Android KitKat</li>
+<li><strong>TC8000</strong> Android KitKat</li>
 </ul>
 
+
+<p><a href="https://developer.motorolasolutions.com/docs/DOC-2566#Mobile">See all supported devices</a></p>
 
 <h3>New APIs</h3>
 
 <ul>
-<li><a href="https://developer.motorolasolutions.com/docs/DOC-2512">Camera API</a></li>
-<li><a href="https://developer.motorolasolutions.com/docs/DOC-2525">Intent API</a></li>
-<li><a href="https://developer.motorolasolutions.com/docs/DOC-3665">Timer API</a></li>
-<li><a href="https://developer.motorolasolutions.com/docs/DOC-2546">SIP API</a></li>
+<li><strong><a href="../api/EzNFC">EzNFC API</a></strong></li>
+<li><strong><a href="../api/settingsButton">SettingsButton API</a></strong></li>
 </ul>
 
 
 <h3>New Features</h3>
 
 <ul>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3668">DOM Injection</a></strong> provides ability to include/inject JavaScript, Meta Tags and CSS into the DOM of an Enterprise Browser application, allowing application behavior to be changed at runtime without modifying the source code.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#Intent">Android Intent Broadcast Receiver Support</a></strong> enables Enterprise Browser applications to register as a receiver and listen for broadcast messages.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3666">Configuration Editor Tool</a></strong> is a desktop utility that simplifies configuration of Enterprise Browser runtime settings.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3667">Custom Shortcut Creation Tool</a></strong> simplifies the creation of shortcuts for different Enterprise Browser applications from the desktop.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SplashScreenPath">Custom Splash Screen Support</a></strong> provides the option of displaying a custom screen when the app starts up.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ExitPasswordEnabled">Password On Exit</a></strong> can be used to prevent an end-user from exiting an Enterprise Browser application without a password.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-3671">On-Device Configuration</a></strong> enables on-demand editing of key Enterprise Browser configuration settings in real time, without connecting the device to the desktop.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2576">Installer for Mac OS</a></strong> provides access to Enterprise Browser device executables, JavaScript include files, help docs and other resources for Mac OS developers and users.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2542">USB Printing Support in Printer API</a></strong> provides support for direct output to Zebra printers via USB cable.</p></li>
-<li><p><strong>New WiFi and Battery Indicators for High Resolution Zebra Android Devices</strong> provide new icons that are easier to read on high-resolution screens.</p></li>
-<li><p><strong>New UI graphics for Control/Debug buttons</strong>.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2572">On-Device Debugging</a></strong> provides a view into a running application for advanced debugging and optimization.</p></li>
+<li><strong><a href="../guide/keycapture">Keycode Mapping</a></strong> allows a custom set of Android keycode values to be assigned from a file, replacing some or all of the system&rsquo;s default keycode values. <strong>Applies to Android only</strong>.</li>
 </ul>
 
 
-<h3>New Tags for Android and WM/CE</h3>
-
-<p><em>These configuration tags apply to both platforms unless otherwise noted</em>.</p>
-
-<p><strong>Splash Screen Configuration</strong></p>
+<h3>New Tags</h3>
 
 <ul>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SplashScreenPath">&lt;SplashScreenPath&gt;</a></strong> specifies the fully qualified path of an image to be displayed when the app starts up.</li>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SplashScreenDuration">&lt;SplashScreenDuration&gt;</a></strong> specifies the length of time (in milliseconds) to display the splash screen image <strong>(Android only)</strong>.</li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#KeepAlive">&lt;KeepAlive&gt;</a></strong> provides the option of maintaining a connection from client to server between HTTP requests. <strong>For Windows Mobile/CE with Webkit engine only</strong>.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#LogTrace">&lt;LogTrace&gt;</a></strong> provides logging of the Trace messages generated by Enterprise Browser. <strong>For Android and Windows Mobile/CE</strong>.</p></li>
+<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#usedwforscanning">&lt;usedwforscanning&gt;</a></strong> controls whether to &lsquo;use DataWedge (DW) for scanning&rsquo; or to go through Enterprise Browser APIs. Refer to the <a href="../guide/datawedge">DataWedge Usage Guide</a> for details. <strong>For Android only</strong>.</p></li>
 </ul>
 
 
-<p><strong>Shortcut Creation Configuration</strong></p>
+<h3>New Guides</h3>
 
 <ul>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ShortcutCreationEnabled">&lt;ShortcutCreationEnabled&gt;</a></strong> controls the automatic creation of shortcuts on the device.</li>
-</ul>
-
-
-<p><strong>DOM Injection Configuration</strong></p>
-
-<ul>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#CustomDOMElements">&lt;CustomDOMElements&gt;</a></strong> specifies the path of a device-resident file containing data for injected DOM elements.</li>
-</ul>
-
-
-<p><strong>Settings Screen Configuration</strong></p>
-
-<ul>
-<li><strong>&lt;<a href="https://developer.motorolasolutions.com/docs/DOC-2571#SettingsPageProtectionEnabled">SettingsButtonEnabled&gt;</a></strong> places a button at the bottom-right corner of all screens that invokes the Settings page.</li>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SettingsPageProtectionEnabled">&lt;SettingsPageProtectionEnabled&gt;</a></strong> prompts for a password before allowing access to the Settings page.</li>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#SettingsPagePassword">&lt;SettingsPagePassword&gt;</a></strong> contains the password for accessing the Settings page when password function is enabled using the &lt;SettingsPageProtectionEnabled&gt; tag.</li>
-</ul>
-
-
-<p><strong>Password On Exit Prompt</strong></p>
-
-<ul>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ExitPasswordEnabled">&lt;ExitPasswordEnabled&gt;</a></strong> prompts for a password when quitting an Enterprise Browser application.</li>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ExitPasswordValue">&lt;ExitPasswordValue&gt;</a></strong> contains the password for quitting Enterprise Browser when function is enabled using the &lt;ExitPasswordEnabled&gt; tag.</li>
-</ul>
-
-
-<p><strong>Intent Configuration Option</strong> (Android only)</p>
-
-<ul>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#EnableReceiver">&lt;EnableReceiver&gt;</a></strong> enables a mechanism through which the application can be called upon by other apps to perform Actions.</li>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#IntentAction">&lt;IntentAction&gt;</a></strong> specifies the Action for which the receiver is to be registered.</li>
-<li><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#IntentCategory">&lt;IntentCategory&gt;</a></strong> specifies the Category under which the receiver is to be registered.</li>
-</ul>
-
-
-<p>Intent is supported on Android only. For more information, please refer to the .</p>
-
-<h3>New Tags for Android</h3>
-
-<p><em>These configuration tags were previously supported only on WM/CE</em>.</p>
-
-<ul>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ZoomInKey">&lt;ZoomInKey&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#ZoomOutKey">&lt;ZoomOutKey&gt;</a></strong> enable Enterprise Browser apps to use hardware function keys to perform ZoomIn and ZoomOut operations without changing the application. Formerly WM/CE-only. Configurable on-device.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#HTTP_Proxy">&lt;HTTP_Proxy&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#HTTPS_Proxy">&lt;HTTPS_Proxy&gt;</a></strong> enable the specification of a URL and port number for an HTTP/S proxy connection. Configurable on-device.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#Username">&lt;Username&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#Password">&lt;Password&gt;</a></strong> enable credentials to be entered automatically when navigating to a login page. Configurable on-device.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#LogMemory">&lt;LogMemory&gt;</a> <a href="https://developer.motorolasolutions.com/docs/DOC-2571#LogMemPeriod">&lt;LogMemPeriod&gt;</a></strong> control memory used by logging and the time intervals between entries.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#ResizeOnSIP">&lt;ResizeOnSIP&gt;</a></strong> controls automatic window resizing when the soft input panel is displayed.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#LowBatteryScan">&lt;LowBatteryScan&gt;</a></strong> controls whether the scanner can be used when battery charge level is low.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#DisableScannerDuringNavigation">&lt;DisableScannerDuringNavigation&gt;</a></strong> controls whether the scanner will be disabled when navigating away from a scanning page on which it was used.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#FunctionKeysCapturable">&lt;FunctionKeysCapturable&gt;</a></strong> works with the Key Capture API to enable function keys to be capturable globally on the device.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#EnableFunctionKey_X">&lt;EnableFunctionKey_X&gt;</a></strong> specifies which Function keys (numbered F1 through F24) should be enabled.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#EnableApplicationKey_X">&lt;EnableApplicationKey_X&gt;</a></strong> specifies which Application keys (numbered A1 through A16) should be enabled.</p></li>
-<li><p><strong><a href="https://developer.motorolasolutions.com/docs/DOC-2571#FontFamily">&lt;FontFamily&gt;</a></strong> specifies the default font to use when rendering text in web pages.</p></li>
+<li><p><strong><a href="../guide/datawedge">DataWedge Usage Guide</a></strong> details the steps required to use DataWedge for barcode scanning instead of the Enterprise Browser APIs and for switching between the two.</p></li>
+<li><p><strong><a href="../guide/keycapture">Keycode Mapping Guide</a></strong> explains how to remap Android keys to ensure that  keycode values are delivered to apps as expected.</p></li>
 </ul>
 
 
@@ -275,7 +206,7 @@
   <td class="clsSyntaxCells clsOddRow"><b>MC32N0</b></td>
   <td class="clsSyntaxCells clsOddRow">MC32N0</td>
   <td class="clsSyntaxCells clsOddRow">Android 4.1 (Jelly Bean)<br>Windows CE 7.0</td>
-  <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit, Android Stock</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock Webkit,<br> Internet Explorer, Webkit</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc40Pic" src="images/mc40.jpeg" height="75"></td>
@@ -323,8 +254,8 @@
   <td class="clsSyntaxCells clsOddRow"><img id="mc67Pic" src="images/mc67.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC67</b></td>
   <td class="clsSyntaxCells clsOddRow">MC67</td>
-  <td class="clsSyntaxCells clsOddRow">Windows Embedded Handheld 6.5<br>Android 4.1 (Jelly Bean)</td>
-  <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit, Android Stock</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.1 (Jelly Bean), <br>Windows Embedded Handheld 6.5</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock Webkit,<br>Internet Explorer, Webkit</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc70Pic" src="images/mc70.jpeg" height="75"></td>
@@ -365,8 +296,8 @@
   <td class="clsSyntaxCells clsOddRow"><img id="mc92Pic" src="images/mc9100.jpeg" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>MC9200</b></td>
   <td class="clsSyntaxCells clsOddRow">MC92N0</td>
-  <td class="clsSyntaxCells clsOddRow">Windows CE 7.0<br>Windows Embedded Handheld 6.5</td>
-  <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit</td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 KitKat,<br> Windows CE 7.0,<br> Windows Embedded Handheld 6.5</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock Webkit,<br> Internet Explorer, Webkit</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="mc95Pic" src="images/mc9500.gif" height="75"></td>
@@ -387,14 +318,21 @@
   <td class="clsSyntaxCells clsOddRow"><b>TC70</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>TC70 (GA1, GA2)</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
-  <td class="clsSyntaxCells clsOddRow">Android Stock</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc75Pic" src="images/tc75.png" height="75"></td>
   <td class="clsSyntaxCells clsOddRow"><b>TC75</b></td>
   <td class="clsSyntaxCells clsOddRow"><nobr>TC75</nobr></td>
   <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
-  <td class="clsSyntaxCells clsOddRow">Android Stock</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
+ </tr>
+ <tr>
+  <td class="clsSyntaxCells clsOddRow"><img id="tc8000Pic" src="images/tc8000.png" height="75"></td>
+  <td class="clsSyntaxCells clsOddRow"><b>TC8000</b></td>
+  <td class="clsSyntaxCells clsOddRow"><nobr>TC8000</nobr></td>
+  <td class="clsSyntaxCells clsOddRow">Android 4.4 (KitKat)</td>
+  <td class="clsSyntaxCells clsOddRow">Android Stock Webkit</td>
  </tr>
  <tr>
   <td class="clsSyntaxCells clsOddRow"><img id="tc70Pic" src="images/workaboutpro.png" ></td>
@@ -499,4 +437,58 @@
   <td class="clsSyntaxCells clsOddRow">Internet Explorer, Webkit</td>
  </tr>
 </tbody></table>
+
+
+<h3>Printers</h3>
+
+<table cellspacing="0" cellpadding="0" class="table table-striped">
+ <tbody><tr>
+  <th class="clsSyntaxHeadings">These printers have been tested for USB printing compatibility. Zebra supports wireless printing on many other models.</th>
+  <th class="clsSyntaxHeadings"><nobr>Device family</nobr></th>
+  <th class="clsSyntaxHeadings">Device models</th>
+  <th class="clsSyntaxHeadings">Operating System(s)</th>
+  <th class="text-centered">Interface(s)</th>
+ </tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="mz220pic" src="https://raw.githubusercontent.com/EBZebra/docs/d05601dc71f2531672f39c00238de2ea250d851f/edge/images/zebra-mz220.jpg" width="175"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>MZ</b></td>
+<td class="clsSyntaxCells clsOddRow">MZ 220, MZ 320</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="imz220pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/mz-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel_1d2c/image.img.png/x1426276854144.png.pagespeed.ic.OndlAqm5W1.png" width="175"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>iMZ</b></td>
+<td class="clsSyntaxCells clsOddRow">iMZ 220, iMZ 320</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="rw420pic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/mobile/rw-series/_jcr_content/mainpar/tabscontainer/overview/content/productmodel/image.img.jpg/1426276849211.jpg" width="175"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>RW</b></td>
+<td class="clsSyntaxCells clsOddRow">RW 220, RW 420, RW 420 Print Station</td>
+<td class="clsSyntaxCells usb comp">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="rp4tpic" src="https://raw.githubusercontent.com/EBZebra/docs/d05601dc71f2531672f39c00238de2ea250d851f/edge/images/zebra-p4t.jpg" width="175"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>P4T</b></td>
+<td class="clsSyntaxCells clsOddRow">P4T, RP4T Passive RFID Printer</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
+</tr>
+<tr>
+<td class="clsSyntaxCells clsOddRow"><img id="zd500rpic" src="https://www.zebra.com/content/zebra1/us/en/products/printers/rfid/zd500r/_jcr_content/mainpar/tabscontainer/detailed-specs/content/subtabscontainer_540/zd500r/content/twocol_83b/leftpar/image_236a.img.png/1433356327246.png" width="175"></img></td>
+<td class="clsSyntaxCells clsOddRow"><b>ZD500R</b></td>
+<td class="clsSyntaxCells clsOddRow">ZD500R RFID Printer</td>
+<td class="clsSyntaxCells clsOddRow">Android, Windows Mobile/CE</td>
+<td class="clsSyntaxCells clsOddRow">Bluetooth, USB, Wi-Fi</td>
+</tr>
+<td class="clsSyntaxCells clsOddRow"><b>NOTE</b>: Zebra's QL Plus and QLn series<br>printers do not support USB printing.</td>
+<td class="clsSyntaxCells clsOddRow"></td>
+<td class="clsSyntaxCells clsOddRow"></td>
+<td class="clsSyntaxCells clsOddRow"></td>
+<td class="clsSyntaxCells clsOddRow"></td>
+</tr>
+</tbody>
 
