@@ -1,0 +1,858 @@
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+  <MODULE name="MobilePayment" parent="Rho">
+    <HELP_OVERVIEW>The Mobile Payment module implements the functions required to work with the PD40 Bluetooth Payment MPOS. We need to include the emdk jar in the add-ons directory of android sdk in order to build it.</HELP_OVERVIEW>
+    <MORE_HELP>Before an application can use this module, the device must be paired via Bluetooth the mobile device requesting use.  
+	If this is not done, no functions will work and the Open function will return an error of not paired. Only One PD40 device should be worked with one device. emdk3-manager extension has to be included before mobile_payment.
+	
+    ## Enabling the API
+    In order to use this API you must include the following extension in your `build.yml`.
+    :::ruby
+    extensions: ["mobile_payment"]
+  ## JavaScript Usage
+    Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
+
+    ## Ruby Usage
+    Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+
+    </MORE_HELP>
+    
+    <TEMPLATES>
+      <DEFAULT_INSTANCE/>
+      <PROPERTY_BAG/>
+    </TEMPLATES>
+
+    <CONSTANTS>
+      <!-- PD40 Specific constants -->
+
+      <!-- READMODE -->
+      <CONSTANT name="SWIPE" value="0" type="INTEGER">
+        <DESC>swipe Read Mode for use in readCardData</DESC>
+      </CONSTANT>
+      <CONSTANT name="INSERT" value="1" type="INTEGER">
+        <DESC>insert Read Mode for use in readCardData</DESC>
+      </CONSTANT>
+      
+      <CONSTANT name="TOUCH" value="2" type="INTEGER" genrerateDoc="false" >
+        <DESC>touch Read Mode for use in readCardData. Currently this is not supported.</DESC>
+      </CONSTANT>
+	  <CONSTANT name="MANUAL" value="3" type="INTEGER">
+        <DESC>Manual Mode for use in readCardData</DESC>
+      </CONSTANT>
+      <CONSTANT name="ALL" value="4" type="INTEGER">
+        <DESC>all Read Mode for use in readCardData</DESC>
+      </CONSTANT>
+	  
+	  <!--HOST DECISION-->
+	  <CONSTANT name="HOST_AUTHORIZED" value="0" type="INTEGER" >
+        <DESC>Host Decision is HOST_AUTHORIZED</DESC>
+      </CONSTANT>
+	  <CONSTANT name="HOST_DECLINE" value="1" type="INTEGER">
+        <DESC>Host Decision is HOST_DECLINE</DESC>
+      </CONSTANT>
+      <CONSTANT name="CONNECT_FAILED" value="2" type="INTEGER">
+        <DESC>Host Decision is CONNECT_FAILED</DESC>
+      </CONSTANT>
+	  
+	  <!--MERCHANT DECISION-->
+	  <CONSTANT name="FORCE_DECLINE" value="0" type="INTEGER" >
+        <DESC>Merchant Decision is FORCE_DECLINE</DESC>
+      </CONSTANT>
+	  <CONSTANT name="FORCE_ONLINE" value="1" type="INTEGER">
+        <DESC>Merchant Decision is FORCE_ONLINE</DESC>
+      </CONSTANT>
+      <CONSTANT name="REQUEST_TC" value="2" type="INTEGER">
+        <DESC>Merchant Decision is REQUEST_TC</DESC>
+      </CONSTANT>
+	  
+     <!-- LANGUAGE CODES -->
+      <CONSTANT name="USA" value="0" type="INTEGER"/>
+      <CONSTANT name="FRANCE" value="1" type="INTEGER"/>
+      <CONSTANT name="GERMANY" value="2" type="INTEGER"/>
+      <CONSTANT name="UK" value="3" type="INTEGER"/>
+      <CONSTANT name="DENMARK" value="4" type="INTEGER"/>
+      <CONSTANT name="SWEDEN" value="5" type="INTEGER"/>
+      <CONSTANT name="ITALY" value="6" type="INTEGER"/>
+      <CONSTANT name="SPAIN" value="7" type="INTEGER"/>
+      <CONSTANT name="JAPAN" value="8" type="INTEGER"/>
+      <CONSTANT name="NORWAY" value="9" type="INTEGER"/>
+      <CONSTANT name="DENMARK2" value="10" type="INTEGER"/>
+      <CONSTANT name="CHINA" value="11" type="INTEGER"/>
+	  
+	  
+	  <CONSTANT name="ALREADY_CLOSED" value="ALREADY_CLOSED" type="STRING"/>
+	  <CONSTANT name="ALREADY_ENABLED" value="ALREADY_ENABLED" type="STRING"/>
+	  <CONSTANT name="AUTHENTICATION_FAILED" value="AUTHENTICATION_FAILED" type="STRING"/>
+	  <CONSTANT name="AUTHORIZATION_FAILED" value="AUTHORIZATION_FAILED" type="STRING"/>
+	  <CONSTANT name="CARD_INSERTION_ERROR" value="CARD_INSERTION_ERROR" type="STRING"/>
+	  <CONSTANT name="CARD_REMOVED" value="CARD_REMOVED" type="STRING"/>
+	  <CONSTANT name="CHIP_READ_ERROR" value="CHIP_READ_ERROR" type="STRING"/>
+	  <CONSTANT name="CHIP_READ_NO_APP_ERROR" value="CHIP_READ_NO_APP_ERROR" type="STRING"/>
+	  <CONSTANT name="COMMUNICATION_ERROR" value="COMMUNICATION_ERROR" type="STRING"/>
+	  <CONSTANT name="DEVICE_DISCONNETED" value="DEVICE_DISCONNETED" type="STRING"/>
+	  <CONSTANT name="DEVICE_NOT_ENABLED" value="DEVICE_NOT_ENABLED" type="STRING"/>
+	  <CONSTANT name="DEVICE_NOT_PAIRED" value="DEVICE_NOT_PAIRED" type="STRING"/>
+	  <CONSTANT name="DISABLE_FAILED" value="DISABLE_FAILED" type="STRING"/>
+	  <CONSTANT name="ENABLE_FAILED" value="ENABLE_FAILED" type="STRING"/>
+	  <CONSTANT name="FAILURE" value="FAILURE" type="STRING"/>
+	  <CONSTANT name="FEATURE_NOT_SUPPORTED" value="FEATURE_NOT_SUPPORTED" type="STRING"/>
+	  <CONSTANT name="INVALID_CONFIGURATION" value="INVALID_CONFIGURATION" type="STRING"/>
+	  <CONSTANT name="INVALID_DATA_LENGTH" value="INVALID_DATA_LENGTH" type="STRING"/>
+	  <CONSTANT name="INVALID_MAC_KEY_LENGTH" value="INVALID_MAC_KEY_LENGTH" type="STRING"/>
+	  <CONSTANT name="INVALID_OBJECT" value="INVALID_OBJECT" type="STRING"/>
+	  <CONSTANT name="INVALID_PIN_LENGTH" value="INVALID_PIN_LENGTH" type="STRING"/>
+	  <CONSTANT name="INVALID_VALUE" value="INVALID_VALUE" type="STRING"/>
+	  <CONSTANT name="LOW_POWER_OPERATION_CANCELLED" value="LOW_POWER_OPERATION_CANCELLED" type="STRING"/>
+	  <CONSTANT name="MAC_BLOCK_CREATE_ERROR" value="MAC_BLOCK_CREATE_ERROR" type="STRING"/>
+	  <CONSTANT name="MAC_KEY_CREATE_ERROR" value="MAC_KEY_CREATE_ERROR" type="STRING"/>
+	  <CONSTANT name="MAC_VALIDATION_ERROR" value="MAC_VALIDATION_ERROR" type="STRING"/>
+	  <CONSTANT name="NO_DATA_LISTENER" value="NO_DATA_LISTENER" type="STRING"/>
+	  <CONSTANT name="NULL_POINTER" value="NULL_POINTER" type="STRING"/>
+	  <CONSTANT name="OK_KEY_PRESSED" value="OK_KEY_PRESSED" type="STRING"/>
+	  <CONSTANT name="CANCEL_KEY_PRESSED" value="CANCEL_KEY_PRESSED" type="STRING"/>
+	  <CONSTANT name="OPERATION_CANCELLED" value="OPERATION_CANCELLED" type="STRING"/>
+	  <CONSTANT name="PREVIOUS_COMMAND_PENDING" value="PREVIOUS_COMMAND_PENDING" type="STRING"/>
+	  <CONSTANT name="SUCCESS" value="SUCCESS" type="STRING"/>
+	  <CONSTANT name="TIMED_OUT" value="TIMED_OUT" type="STRING"/>
+	  <CONSTANT name="TLV_DATA_ERROR" value="TLV_DATA_ERROR" type="STRING"/>
+	  <CONSTANT name="UNDEFINED" value="UNDEFINED" type="STRING"/>
+    </CONSTANTS>
+
+    
+
+    <METHODS>
+      <METHOD name="open" hasCallback="mandatory">
+        <DESC>Opens the PD40 Payment reader.  Will fail if not paired manually beforehand.</DESC>
+		<PARAMS>
+			<PARAM name="deviceName" type="STRING">
+			<DESC>The name of the PD40 device which is paired and to be worked with.</DESC>
+			</PARAM>
+		</PARAMS>
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Will contain either success or error.</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+				</DESC>
+            </PARAM>
+            
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="close" hasCallback="mandatory">
+        <DESC>Close unitializes and disconnects the PD40 payment device.    
+       </DESC>
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Will contain either success or error.</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+      <METHOD name="isOpened" >
+        		<DESC>Returns whether the PD40 device is enabled or not.</DESC>
+			<RETURN type="BOOLEAN">
+			<DESC>Returns true if PD40 is opened,otherwise false.</DESC>
+			</RETURN>
+      </METHOD>
+      <METHOD name="readCardData" hasCallback="mandatory">
+        <DESC>Reads the card data from the PAYMENT device through a swipe (MagStripe), insert (for smart cards). 
+		This is asynchronous so the return data is passed back through the callback.</DESC>
+        <PARAMS>
+    		  <PARAM name="propertyMap" type="HASH" propertyHash="true">
+    			<DESC>The properties associated with reading card data.</DESC>
+      			<PARAMS>
+					  <PARAM name="amount" type="FLOAT">
+						<DESC>Amount for the transaction; this value is required to enable EMV contactless transactions.  Allowed upto a maximum of 7 digits.</DESC>
+					  </PARAM>
+					  <PARAM name="otherAmount" type="FLOAT">
+						<DESC>Any additional amount information for the transaction; this value is used only if EMV Contactless is supported.  Allowed upto a maximum of 7 digits</DESC>
+					  </PARAM>
+					  <PARAM name="readMode" type="INTEGER">
+								<DESC>Use the constants defined in the XML for use with READMODE</DESC>
+					  </PARAM>
+					  <PARAM name="messageTitle" type="STRING">
+						<DESC>The message Title to be displayed on the card data request. The maximum length is 18 characters. The character "|" not allowed. Please see remarks section.</DESC>
+					  </PARAM>
+					  <PARAM name="message1" type="STRING">
+						<DESC>The custom message  to be displayed on the card data request. The maximum length is 18 characters. The character "|" not allowed.Please see remarks section.</DESC>
+					  </PARAM>
+					  <PARAM name="message2" type="STRING">
+						<DESC>The custom message  to be displayed on the card data request. The maximum length is 18 characters. The character "|" not allowed.
+						Please see remarks section.
+						</DESC>
+					  </PARAM>
+					  <PARAM name="readTimeOut" type="INTEGER">
+						<DESC>Read timeout in milliseconds.  App can set the timeout, but value used must be within the threshold set by the payment device.</DESC>
+					  </PARAM>
+      			</PARAMS>
+    		  </PARAM>
+        </PARAMS>
+
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Will contain either success or error depending on outcome of call.</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+            <PARAM name="accountNumber" type="INTEGER">                            
+            </PARAM>
+            <PARAM name="cardHolderName" type="STRING">
+            </PARAM>
+            <PARAM name="expiryDate" type="STRING">
+            </PARAM>
+            <PARAM name="track1Data" type="STRING">
+            </PARAM>
+            <PARAM name="track2Data" type="STRING">
+            </PARAM>
+            <PARAM name="track3Data" type="STRING">
+            </PARAM>
+            <PARAM name="tlvStrings" type="ARRAY">
+            </PARAM>
+			<PARAM name="maskedPan" type="STRING">
+            </PARAM>
+           
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="promptPin" hasCallback="mandatory">
+        <DESC>Requests for a PIN and gets the encrypted PIN block. The encrypted data will be returned only if a debit key is injected into the payment device. This is asynchronous call  Note: The character "|" not allowed in the message strings for PD40-100 payment device and it is used as special character in the in the EMDK for PD40-100 device. Requesting promptPin() continuously may pop up the timer on PD40-100 payment device for security reasons and application should wait for this before performing any other actions.</DESC>
+        <PARAMS>
+   			<PARAM name="propertyMap" type="HASH" propertyHash="true">
+    			<DESC>The properties associated with promptPin.</DESC>    			
+      			
+      			<PARAMS>
+					<PARAM name="accountNumber" type="STRING">
+        				<DESC>The account number used with the entered PIN to create the encrypted PIN Block (8 to 19 alphanumeric digits inclusive).</DESC>
+              		</PARAM>
+              
+					<PARAM name="minPINLength" type="INTEGER">
+        				<DESC>Minimum PIN Length.  A minimum length of 4 digits is required.</DESC>
+              		</PARAM>
+              		
+              		<PARAM name="maxPINLength" type="INTEGER">
+        				<DESC>Maximum PIN Length.  A maximum length of 12 digits is allowed.</DESC>
+              		</PARAM>
+              		<PARAM name="isPinOptional" type="BOOLEAN">
+        				<DESC>isPinOptional is always false. It is kept for future modification.</DESC>
+              		</PARAM>
+				
+              
+              		<PARAM name="message1" type="STRING">
+						<DESC>Message 1 to be displayed on the PINPad (alternates with Message 2).  Maximum message length 21 characters.</DESC>
+              		</PARAM>
+              
+              		<PARAM name="message2" type="STRING">
+						<DESC>Message 2 to be displayed on the PINPad (alternates with Message 1).  Maximum message length 21 characters.</DESC>
+              		</PARAM>
+              		
+              		<PARAM name="messageTitle" type="STRING">
+						<DESC>Message Title to be displayed during PIN entry.</DESC>
+              		</PARAM>
+              
+              		<PARAM name="readTimeOut" type="INTEGER">
+      					<DESC>Read timeout in milliseconds.  App can set the timeout, but value must be within threshold set by the payment device.</DESC>
+              		</PARAM>
+      			</PARAMS>
+      			
+			</PARAM>
+        </PARAMS>
+
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Success for Error depending upon the outcome of the call.</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+            <PARAM name="pinBlockStr" type="STRING">
+			<DESC>returns the pin block string</DESC>
+            </PARAM>
+            <PARAM name="serialNumber" type="STRING">
+			<DESC>Returns the serial number</DESC>
+			      </PARAM>
+				  <PARAM name="isPinEntered" type="BOOLEAN">
+			<DESC>returns true or false on whether the pin is entered by the user or not</DESC>
+			      </PARAM>
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="promptMenu" hasCallback="mandatory">
+        <DESC>Displays two lines of messages on the PAYMENT device and provides a menu with a maximum of 4 choices. This is asynchronous call. The character "|" not allowed in the message strings and it is used as special character in the EMDK for PD40-100.</DESC>
+		<PARAMS>
+	    	<PARAM name="propertyMap" type="HASH" propertyHash="true">
+	        	<DESC>The properties associated with the promptMessage function.</DESC>
+				<PARAMS>
+				  <PARAM name="messageLine1" type="STRING">
+					<DESC>Message Line1 to display on the PINPad screen.  Maximum characters allowed for Choice + Message = 18 characters.  
+					For example, if Choice is 6 characters, maximum message length is 12 characters.  
+					Messages longer than maximum message length will be truncated.</DESC>
+				  </PARAM>
+				  <PARAM name="messageLine2" type="STRING">
+					<DESC>Message Line2 to display on the PINPad screen.  Maximum characters allowed for Choice + Message = 18 characters.  
+					For example, if Choice is 6 characters, maximum message length is 12 characters.  
+					Messages longer than maximum message length will be truncated.</DESC>
+				  </PARAM>
+				  <PARAM name="choice1" type="STRING">
+					<DESC>Choice text for selection from the PINPad using the function keys.  
+					Choice string can consist of up to 8 characters.</DESC>
+				  </PARAM>
+				  <PARAM name="choice2" type="STRING">
+					<DESC>Choice text for selection from the PINPad using the function keys.  
+					Choice string can consist of up to 8 characters.</DESC>
+				  </PARAM>
+				  <PARAM name="choice3" type="STRING">
+					<DESC>Choice text for selection from the PINPad using the function keys.  
+					Choice string can consist of up to 8 characters.</DESC>
+				  </PARAM>
+				  <PARAM name="choice4" type="STRING">
+					<DESC>Choice text for selection from the PINPad using the function keys.  
+					Choice string can consist of up to 8 characters.</DESC>
+				  </PARAM>
+				  <PARAM name="timeout" type="INTEGER">
+					<DESC>Timeout in milliseconds.  App can set the timeout, 
+					but value must be within threshold set by the payment device.</DESC>
+				  </PARAM>
+				</PARAMS>
+			</PARAM>
+		</PARAMS>
+
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Success or Failure depending upon the outcome of the function</DESC>
+            </PARAM>
+            <PARAM name="choice" type="STRING">
+              <DESC>The choice that was decided by the user on status is success.</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="promptAdditionalInfo" hasCallback="mandatory" >
+        <DESC>Requests the user to confirm the amount and surcharge passed by the application and prompts the user to provide tip and cashback. The tip, cashback values and the confirmation if surcharge was accepted, will be returned to the application via  callback. If the user presses OK or CANCEL keys, or the call times out, the corresponding message is returned. This is asynchronous call.</DESC>
+        	<PARAMS>
+				<PARAM name="propertyMap" type="HASH" propertyHash="true">
+		   			<DESC>The properties associated with the promptMessage function.</DESC>
+					<PARAMS>
+						<PARAM name="amount" type="FLOAT">
+							<DESC>Transaction amount value that is displayed, valid range is from 0.01 to 999999.99</DESC>
+						</PARAM>
+						<PARAM name="langCode" type="INTEGER">
+							<DESC>Numeric value denoting the language code for determining language of the pre-defined prompt. Languages currently supported are listed in the constants section. Other languages can be used, but all information relating to that is the responsibility of the calling application. Currenly supported only 0 i.e. US</DESC>
+				       	</PARAM>
+						<PARAM name="promptForTip" type="BOOLEAN">
+							<DESC>Indicates whether or not to prompt for tip and return the amount desired.</DESC>
+						</PARAM>
+						<PARAM name="cashBack" type="BOOLEAN">
+							<DESC>Indicates whether or not to prompt for cashback and return the amount selected.  The user would select cashback amount from 4 pre-defined - $20, $40, $60 and $100.  These choices cannot be modified.</DESC>
+						</PARAM>
+						<PARAM name="surcharge" type="FLOAT">
+							<DESC>An optional surcharge amount that is to be displayed and confirmed (valid range is from 0.01 to 99.99).  A zero amount will cause this prompt to be bypassed.</DESC>
+						</PARAM>
+						<PARAM name="timeout" type="INTEGER">
+							<DESC>Read timeout in milliseconds.  The app can set the timeout, but the value must be within the threshold set by the payment device.</DESC>
+						</PARAM>
+					</PARAMS>
+	        	</PARAM>
+        	</PARAMS>
+
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Success or Failure depending upon outcome of function</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+            <PARAM name="tip" type="FLOAT">
+              <DESC>If a tip was input, this will contain that value, 0.00 otherwise</DESC>
+            </PARAM>
+            <PARAM name="cashBack" type="FLOAT">
+              <DESC>If cashback is asked for, this contains the amount given.</DESC>
+            </PARAM>
+            <PARAM name="surchargeIndicator" type="STRING">
+            </PARAM>
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="promptMessage" hasCallback="mandatory">
+        <DESC>Displays a maximum of 4 line messages on the PAYMENT device.  This method also allows a user confirmation.  
+		This can be done by setting the 5th parameter to true, in which case a string containing OK, CANCEL, CORR or TIMEOUT (after 15 seconds).  
+		This is an asynchronous call and all data is returned in the callback.</DESC>
+		<PARAMS>
+	    	<PARAM name="propertyMap" type="HASH" propertyHash="true">
+	        	<DESC>The properties associated with the promptMessage function.</DESC>
+				<PARAMS>
+		          <PARAM name="messageLine1" type="STRING">
+		            <DESC>A message to display on line 1 of the PINPad screen, may consist of up to 16 characters.</DESC>
+		          </PARAM>
+		          <PARAM name="messageLine2" type="STRING">
+		            <DESC>A message to display on line 1 of the PINPad screen, may consist of up to 16 characters.</DESC>
+		          </PARAM>
+		          <PARAM name="messageLine3" type="STRING">
+		            <DESC>A message to display on line 1 of the PINPad screen, may consist of up to 16 characters.</DESC>
+		          </PARAM>
+		          <PARAM name="messageLine4" type="STRING">
+		            <DESC>A message to display on line 1 of the PINPad screen, may consist of up to 16 characters.</DESC>
+		          </PARAM>
+		          <PARAM name="getUserConfirmation" type="BOOLEAN">
+		            <DESC>true or false.  Allows the user to press OK (Enter Key), CANCEL or CORR keys in response to the displayed message. If getUserConfirmation is false, this is a synchronous call.</DESC>
+		          </PARAM>
+		          <PARAM name="timeout" type="INTEGER">
+		            <DESC>Read timeout in milliseconds.  The app can set the timeout, but the value must be within the threshold set by the payment device.</DESC>
+		          </PARAM>
+		        </PARAMS>	        	
+	    	</PARAM>
+		</PARAMS>
+
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Success or Error depending on outcome of function.</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+            <PARAM name="userConfirmationMessage" type="STRING">
+              <DESC>Will contain OK, CANCEL or CORR depending upon what the user pressed.</DESC>
+            </PARAM>
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="abort" hasCallback="mandatory">
+        <DESC>Cancel previously issued method and display welcome screen on PAYMENT device.</DESC>
+        <CALLBACK>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Success or Failure depending on outcome of function.</DESC>                            
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="getBatteryLevel" hasCallback="none" >
+        <DESC>Query the battery level of the payment device.</DESC>
+         <RETURN type="HASH">
+          <PARAMS>
+            
+			<PARAM name="status" type="STRING">
+              <DESC>success or error.
+          </DESC>
+            </PARAM>
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+			  </DESC>
+            </PARAM>
+			<PARAM name="batteryLevel" type="INTEGER">
+              <DESC>If the status is success, this contains the battery level. Value would be 1,2,3,4.
+			  </DESC>
+            </PARAM>
+			</PARAMS>
+        </RETURN>      
+      </METHOD>
+	  <METHOD name="getDeviceInfo" hasCallback="none" >
+        <DESC>Returns information about the payment device.</DESC>
+        <RETURN type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>success or error.
+          </DESC>
+            </PARAM>
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+			<PARAM name="applicationVersion" type="STRING">
+              <DESC>Application Version of PD40.
+          </DESC>
+            </PARAM>
+			<PARAM name="firmwareVersion" type="STRING">
+              <DESC>Firmware Version of PD40.
+			  </DESC>
+            </PARAM>
+			<PARAM name="connectionType" type="STRING">
+              <DESC>Connection Type Version of PD40.
+			  </DESC>
+            </PARAM>
+			<PARAM name="deviceType" type="STRING">
+              <DESC>Device Type of PD40.
+			  </DESC>
+            </PARAM>
+			<PARAM name="friendlyName" type="STRING">
+              <DESC>Friendlyname of PD40.
+			  </DESC>
+            </PARAM>
+           
+          </PARAMS>
+        </RETURN>      
+      </METHOD>
+
+      <METHOD name="createMac" hasCallback="none" >
+	  <DESC>This is a required transaction for Canada. Accepts a String of data to be MACed using the ANSI x9.91 standard and the MAC Working Key. This is used for MACing credit transactions when the PINPad is configured to support both credit and debit. This is synchronous call.</DESC>
+	  <PARAMS>
+	  <PARAM name="u8MacData" type="STRING">
+	  <DESC>String of data to be MACed. The length of the key should be 16 or 32 or 48  in HEX format.
+	  </DESC>
+	  </PARAM>
+	  </PARAMS>
+        <DESC>This is a required transaction for Canada. Accepts a String of data to be MACed using the ANSI x9.91 standard and the MAC Working Key. This is used for MACing credit transactions when the PINPad is configured to support both credit and debit.</DESC>
+        <RETURN type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>SUCCESS or ERROR.
+			</DESC>
+            </PARAM>
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+			</DESC>
+			</PARAM>
+			<PARAM name="macBlock" type="STRING">
+              <DESC>If the status is succes, it returns macBlock.
+			</DESC>
+            </PARAM>
+           
+          </PARAMS>
+        </RETURN>      
+      </METHOD>
+
+      <METHOD name="validateMac" hasCallback="mandatory" >
+        <DESC>Validates the response MAC and displays any authorization messages returned by the host. This method is made Asynchronous call because it is taking more processing time and response will be returned via callback.</DESC>
+        <PARAMS>
+          <PARAM name="u8MACBlock" type="STRING">
+            <DESC>8-character MAC Block to verify. This is the mac block returned by createMac api.</DESC>
+          </PARAM>
+          <PARAM name="langCode" type="INTEGER">
+            <DESC>Numeric value denoting the language code to use.  Refer to the constants section to see what code to use. Currently only 0 is supported.</DESC>
+          </PARAM>
+          <PARAM name="u8TPKKey" type="STRING">
+            <DESC>PIN (TPK) Key</DESC>
+          </PARAM>
+          <PARAM name="u8TAKKey" type="STRING">
+            <DESC>MAC (TAK) Key</DESC>
+          </PARAM>
+          <PARAM name="message1" type="STRING">
+            <DESC>Message Line 1 (0-16 characters)</DESC>
+          </PARAM>
+          <PARAM name="message2" type="STRING">
+            <DESC>Message Line 2 (0-16 characters)</DESC>
+          </PARAM>
+          <PARAM name="u8MACData" type="STRING">
+            <DESC>Buffer to hold all data to be MACd</DESC>
+          </PARAM>
+        </PARAMS>
+
+        <CALLBACK type="HASH">
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>SUCCESS or ERROR.
+			</DESC>
+            </PARAM>
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+			</DESC>
+			</PARAM>
+			<!--<PARAM name="macBlock" type="STRING">
+              <DESC>If the status is succes, it returns macBlock.
+			</DESC>
+			
+            </PARAM>
+			-->
+           
+          </PARAMS>
+        </CALLBACK>          
+      </METHOD>
+
+      <METHOD name="completeOnlineEmv" hasCallback="mandatory" >
+        <DESC>Completes an online EMV transaction for PIN management. The application must call authorizeCard before calling this API. This is an asynchronous call. After the processing, the response (i.e., EmvData object) is returned through the registered Callback. </DESC>
+        <PARAMS>
+          <PARAM name="hostDescision" type="INTEGER">
+            <DESC>HostDecision enum value which is the decision indicator from the host response. Use the constants "HOST DEFINED" defined in the XML document.</DESC>
+          </PARAM>
+          <PARAM name="displayResult" type="BOOLEAN">
+            <DESC>Indicator to note whether or not to display the final response message. False for  Do not display and true to Display.</DESC>
+          </PARAM>
+          <PARAM name="tlvStrings" type="ARRAY">
+            <DESC>List of EMV data which contains EMV tag and its values.</DESC>
+          </PARAM>
+          
+        </PARAMS>
+
+        <CALLBACK type="HASH">
+          <PARAMS>
+           <PARAM name="status" type="STRING">
+              <DESC>Either SUCCESS or ERROR</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+            <PARAM name="tlvStrings" type="ARRAY">
+              <DESC>An array of the returned Tags requested.</DESC>
+            </PARAM>
+            
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="getEmvTags" hasCallback="mandatory" >
+        <DESC>Gets tag information from the inserted card. This is an asynchronous call. After the processing, the response (TagData contains TLV raw data as per EMV specification)and also its parsed tag, length and value format is returned through the registered Callback.Before calling this method,readcarddata has to be called.</DESC>
+        <PARAMS>
+          <PARAM name="emvTags" type="ARRAY">
+            <DESC>Array containing EMV tag IDs to be retrieved from the inserted card.  Refer to the EMV Tags section in the documentation to 
+			know which TAG IDs can be requested with this call.  Any number of Tag IDs are allowed and the number of Tag IDs will match the number of tag values.</DESC>
+          </PARAM>
+        </PARAMS>
+
+        <CALLBACK>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Either SUCCESS or ERROR</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            
+            <PARAM name="tlvStrings" type="ARRAY">
+              <DESC>An array of the returned Tags requested.</DESC>
+            </PARAM>
+            
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+
+      <METHOD name="setEmvTags" hasCallback="none" >
+		<DESC>Sets tag information for the inserted card. Valid EMV tag IDs and tag values should be passed. Passing invalid EMV tag IDs or tag values may cause the payment device to go into unstable state or unknown behavior. The payment device has to be rebooted in order to continue normal operation.Before calling this method,readcarddata has to be called.</DESC>
+        <PARAMS>
+          <PARAM name="tagIds" type="ARRAY">
+            <DESC>Array containing valid EMV tag IDs to be set on the inserted card.Before calling this method,readcarddata has to be called.</DESC>
+          </PARAM>
+          
+        </PARAMS>
+        <RETURN type="HASH">
+		 <PARAM name="status" type="STRING">
+              <DESC>Either SUCCESS or ERROR</DESC>
+            </PARAM>
+            
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+		</RETURN>
+      </METHOD>
+
+
+	  <METHOD name="authorizeCard" hasCallback="mandatory" >
+        <DESC>Authorizes the EMV transaction amounts using the inserted chip (EMV) card. This is an asynchronous call. Before calling this method,readcarddata has to be called.</DESC>
+        <PARAMS>
+          <PARAM name="amount" type="FLOAT">
+            <DESC>Transaction amount value.</DESC>
+          </PARAM>
+          <PARAM name="otherAmount" type="FLOAT">
+            <DESC>Other transaction amount value.</DESC>
+          </PARAM>
+          <PARAM name="merchantDecision" type="INTEGER">
+            <DESC>The merchant decision notes additional handling for the EMV request based on required processor handling.  
+			Please use the constants for Merchant Decision.</DESC>
+          </PARAM>
+          <PARAM name="tags" type="ARRAY">
+            <DESC>EMV tags that are required at this transaction stage to be retrieved.</DESC>
+          </PARAM>
+          <PARAM name="displayResult" type="BOOLEAN">
+            <DESC>true or false.  Display result on Payment device.</DESC>
+          </PARAM>
+          <PARAM name="pinTryExceedStatus" type="BOOLEAN">
+            <DESC>true or false.  Displays when PIN tries have exceeded value on Payment device.</DESC>
+          </PARAM>
+          <PARAM name="displayAmount" type="BOOLEAN">
+            <DESC>true or false.  Displays amount of Payment device.</DESC>
+          </PARAM>
+          <PARAM name="displayAppExpired" type="BOOLEAN">
+            <DESC>true or false.  Displays if app is expired on Payement display.</DESC>
+          </PARAM>
+		  <PARAM name="timeout" type="INTEGER">
+            <DESC>Card authorization timeout. Application must set the timeout.</DESC>
+          </PARAM>
+        </PARAMS>
+
+        <CALLBACK>
+          <PARAMS>
+            <PARAM name="status" type="STRING">
+              <DESC>Either SUCCESS or ERROR</DESC>
+            </PARAM>
+            <PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+          </DESC>
+            </PARAM>
+            <PARAM name="tlvStrings" type="ARRAY">
+              <DESC>An array of the returned Tags requested.</DESC>
+            </PARAM>
+            <PARAM name="keySerialNo" type="STRING">
+              <DESC>key Serial no</DESC>
+            </PARAM>
+			<PARAM name="pinBlock" type="STRING">
+              <DESC>pin block</DESC>
+            </PARAM>
+          </PARAMS>
+        </CALLBACK>
+      </METHOD>
+	  <METHOD name="removeCard" hasCallback="none" >
+        <DESC>Instruct the user to remove the EMV card inserted in the payment device. This call prompts the user to remove the inserted EMV chip card and also clears the EMV data saved by readCardData method. If the card is NOT inserted, it will give success.</DESC>
+		<PARAMS>
+            <PARAM name="message1" type="STRING">
+              <DESC>The message which gives the information of type of card.</DESC>
+            </PARAM>
+            <PARAM name="message2" type="STRING">
+              <DESC>The message which gives instructions to user for the removal of the card. 
+          </DESC>
+            </PARAM>
+			</PARAMS>
+			<RETURN type="HASH">
+            <DESC>The results describes the succesfulness of the operation.</DESC>
+            <PARAMS>
+                <PARAM name="status" type="STRING"/>
+						<DESC>Either SUCCESS or ERROR</DESC>
+				<PARAM name="errorName" type="STRING">
+						<DESC>If the status is error, this contains the ErrorName associated with that error.</DESC>
+				</PARAM>
+            </PARAMS>
+        </RETURN>
+        
+      </METHOD>
+      <METHOD name="getLowBatteryThreshold" hasCallback="none" >
+        <DESC>Gets the acceptable low battery level. If the battery drops below this value, the device will not execute any of the selected commands..</DESC>
+        <RETURN type="HASH">
+          <PARAMS>
+            
+			<PARAM name="status" type="STRING">
+              <DESC>success or error.
+          </DESC>
+            </PARAM>
+			<PARAM name="errorName" type="STRING">
+              <DESC>If the status is error, this contains the ErrorName associated with that error.
+			  </DESC>
+            </PARAM>
+			<PARAM name="lowBatteryThreshold" type="INTEGER">
+              <DESC>If the status is success, this contains the battery level. Value would be 1,2,3,4.
+			  </DESC>
+            </PARAM>
+			</PARAMS>
+        </RETURN>      
+      </METHOD>
+
+      <METHOD name="setLowBatteryThreshold" hasCallback="none" >
+        <DESC>Sets the acceptable low battery percent.  If the battery drops below this value, the device will not execute some of the commands.
+			and it will return the error code indicating the battery is low.
+		</DESC>
+        <PARAMS>
+			   <PARAM name="lowThreshold" type="INTEGER">
+				<DESC>Battery threshold value.  Below this value, some of the commands will not execute</DESC>
+			  </PARAM>
+			  <PARAM name="lowBatterMessage" type="STRING">
+				<DESC> The message to be displayed when the battery level goes below the low threshold.</DESC>
+			  </PARAM>
+		  
+        </PARAMS>
+        <RETURN type="HASH">
+            <DESC>The results object which contains the error code and the description if applicable.</DESC>
+            <PARAMS>
+                <PARAM name="status" type="STRING"/>
+						<DESC>Either SUCCESS or ERROR</DESC>
+				<PARAM name="errorName" type="STRING">
+						<DESC>If the status is error, this contains the ErrorName associated with that error.</DESC>
+				</PARAM>
+            </PARAMS>
+        </RETURN>
+        
+      </METHOD>
+
+      <!--<METHOD name="doTransaction" hasCallback="none" generateDoc="false">
+        <DESC>doTransaction will perform a meaningful set of commands such as displaying messages, obtaining credit card or debit card information, 
+		prompting for card read, prompting for PIN.  All these sets of APIs are done in one call in order to reduce the number of lines of code in customer apps.
+
+        Note.  The APIs and their orders and logic need to be determined.  Not a payment device command.</DESC>
+        <PARAMS>
+          <PARAM name="passCode" type="STRING">
+            <DESC>Passcode required to access the payment device.</DESC>
+          </PARAM>
+        </PARAMS>
+        <RETURN type="STRING"/>
+      </METHOD>-->
+    </METHODS>
+    		<REMARKS>
+            <REMARK title="ReadCardData">
+                <DESC>
+                    <![CDATA[
+In Android, while method readCardData is being executed, either we can provide "messageTitle","message1","message2" all NULL or all filled. When all null, it will invoke the corresponding method, without having the message. 
+                    ]]> 
+                </DESC>
+            </REMARK>
+			<REMARK title="General">
+                <DESC>
+                    <![CDATA[
+In Android, the behaviour of data returned by various APIS is totally dependent upon the version of binary installed in the PD40 device.
+                    ]]> 
+                </DESC>
+            </REMARK>
+			
+
+
+            
+
+				
+
+
+		</REMARKS>
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>Android</PLATFORM>
+  </MODULE>
+</API>    

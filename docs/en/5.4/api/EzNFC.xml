@@ -1,0 +1,272 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="EzNFC" parent="Rho">
+        <HELP_OVERVIEW>This API is used to enable/disable the NFC Adapter and read NFC Tags. **The EzNFC API is currently supported on Android only**.</HELP_OVERVIEW>
+        <MORE_HELP>
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+    extensions: ["eznfc"]
+        </MORE_HELP> 		
+	<MORE_HELP_EB>
+## Enabling the API
+There are two ways to enable Enterprise Browser APIs: 
+
+* Include all 'ebapi' modules
+* Include only the API modules you need
+
+Both methods are explained below. 
+
+Either way, the included files will be from: 
+`/Enterprise Browser/JavaScript Files/Enterprise Browser`,
+a directory on the computer that contains the Enterprise Browser installation.
+
+### Include all JS API modules
+To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location accessible by your app's files and include the JavaScript modules file in your app. For instance, to include the modules file in your `index.html`, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+&gt; This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
+
+### Include only the modules you need
+
+To include individual APIs, you must first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the EzNFC API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.eznfc.js"&gt;&lt;/script&gt;
+
+&gt; In the code lines above, notice that `ebapi.js` is included first, followed by `eb.eznfc.js`, which is the EzNFC API for Enterprise Browser. **This coding is required on each HTML page whenever an individual API will be called from that page**.
+
+        </MORE_HELP_EB>
+        <VER_INTRODUCED>1.4.0</VER_INTRODUCED>
+        <PLATFORM>Android</PLATFORM>
+        <TEMPLATES>
+        </TEMPLATES>
+
+        <PROPERTIES access="STATIC">
+            <PROPERTY name="isSupported" type="BOOLEAN" default="false" generateAccessors="true">
+                <PLATFORM>Android</PLATFORM>
+                <DESC>Determines whether NFC is supported on the device. Returns true if NFC is supported.</DESC>
+            	<PLATFORM>Android</PLATFORM>
+            </PROPERTY>
+			
+	    <PROPERTY name="isEnabled" type="BOOLEAN" default="false" generateAccessors="true">
+                <PLATFORM>Android</PLATFORM>
+                <DESC>Detects whether the NFC Adapter is enabled. Returns true if the NFC Adapter is enabled.</DESC>
+            	<PLATFORM>Android</PLATFORM>
+            </PROPERTY>
+        </PROPERTIES>
+
+        <METHODS access="STATIC">
+
+            <METHOD name="enableAdapter" hasCallback="none">
+				<DESC>Navigates to device NFC Adapter settings screen if device's NFC Adapter is not enabled.</DESC>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
+			
+			<METHOD name="enableRead" hasCallback="mandatory">
+				<DESC>Enables NFC read of the application if device supports NFC.</DESC>
+				<PLATFORM>Android</PLATFORM>
+                <CALLBACK type="HASH">
+                    <DESC>List of callback data after the NFC Tag is read</DESC>
+                    <PARAMS>
+						<PARAM name="Type" type="STRING">
+                            <DESC>The Type of NFC Tag that has been read</DESC>
+                        </PARAM>
+                        <PARAM name="ID" type="STRING">
+                            <DESC>The ID of the Tag that has been read</DESC>
+                        </PARAM>
+                        <PARAM name="Payload" type="STRING">
+                            <DESC>Payload is the data overall data of NFC Tag</DESC>
+                        </PARAM>
+                        <PARAM name="TNF" type="STRING">
+                            <DESC>TNF is last 3 bits of Payload</DESC>
+                        </PARAM>
+                        <PARAM name="EncodingFormat " type="STRING">
+                            <DESC>Text encoding format applied</DESC>
+                        </PARAM>
+                        <PARAM name="data" type="STRING">
+                            <DESC>The String data that is read from Tag</DESC>
+                        </PARAM>
+                        <PARAM name="TagIDHexa" type="STRING">
+                            <DESC>NFC Tag id in Hexacode</DESC>
+                        </PARAM>
+						<!--<PARAM name="TagIDDecimal" type="STRING">
+                            <DESC>NFC Tag id in Decimal.</DESC>
+                        </PARAM>
+						<PARAM name="TagIDReversed" type="STRING">
+                            <DESC>NFC Tag id in Reversed order.</DESC>
+                        </PARAM>-->
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+			
+			<METHOD name="disableRead" hasCallback="none">
+				<DESC>Disables NFC read of the application.</DESC>
+				<PLATFORM>Android</PLATFORM>
+            </METHOD>
+
+        </METHODS>
+        <REMARKS>
+			<REMARK title="General">
+                <DESC>
+                    <![CDATA[
+1. NFC reads are only possible when the application is in the foreground.
+2. It is mandatory to disable default NFC application of the device before using this API.
+3. The APIs are designed to read NON-Secure NFC Tags.
+4. The NFC APIs are designed to work in Reader Mode only.
+                    ]]>
+                </DESC>
+			</REMARK>
+			<REMARK title="Recommended order of API calls">
+                <DESC>
+                    <![CDATA[
+1.	EB.EzNFC.isSupported;
+2.	EB.EzNFC.isEnabled;
+3.	EB.EzNFC.enableAdapter();
+4.	EB.EzNFC.enableRead();
+5.	EB.EzNFC.disableRead();
+                    ]]>
+                </DESC>
+			</REMARK>
+	</REMARKS>
+        <USER_OVERVIEW>
+        </USER_OVERVIEW>
+        <EXAMPLES_EB>
+            <EXAMPLE title="Usage Guide">
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>This example shows how to use the EzNFC API:</DESC>
+                        <CODE>
+                            <JAVASCRIPT><![CDATA[
+<html>
+<head>
+  <title>Enterprise Browser NFC API Test</title>
+<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+<script type="text/javascript">
+/*
+EB.EzNFC.isSupported
+Property to check whether NFC is supported on the device.
+Return
+	true - if supported
+	false - if not supported
+*/
+function isNfcSupported()
+{
+	var x=EB.EzNFC.isSupported;
+	document.getElementById("demo1").innerHTML = x;
+}
+/*
+EB.EzNFC.isEnabled
+Property to check whether NFC Adapter is enabled on the device.
+Return
+	true - if enabled
+	false - if not enabled
+*/
+function isNfcEnabled()
+{
+	var x=EB.EzNFC.isEnabled;
+	document.getElementById("demo2").innerHTML = x;
+}
+/*
+EB.EzNFC.enableAdapter();
+Method to enable the NFC Adapter. Invoking this method brings up the Device settings Activity so user can manually enable the NFC Adapter.
+Calling this method has no effect if NFC Adapter is already enabled.
+*/
+function EnableNfcAdapter()
+{
+	EB.EzNFC.enableAdapter();
+}
+/*
+enableRead(enableNfcCallback1)
+Method to enable NFC Tag Reading.
+*/
+function EnableNfcRead()
+{
+	EB.EzNFC.enableRead(enableNfcCallback1);
+}
+/*
+disableRead();
+Method to disable NFC Tag Reading.
+*/
+function DisableNfcRead()
+{
+	EB.EzNFC.disableRead();
+	/* Clearing the div of previously read data*/
+	document.getElementById("demo5").innerHTML = "";
+}
+/*
+enableRead(enableNfcCallback1).
+User-defined callback with the enableRead() method.
+Gets fired when NFC Tag is Read.
+Returns Tag
+ID
+Type
+TNF
+Payload
+EncodingFormat
+Result
+*/
+function enableNfcCallback1(dat) {
+	var ID = dat.id;
+	var Type = dat.type;
+	var TNF = dat.tnf;
+	var Payload = dat.payload;
+	var EncodingFormat = dat.encodingformat;
+	var Result = dat.result;
+	var TagIDHexa = dat.tagidhexa;
+	var ShowData = "ID:" + ID + "<BR>Type:" + Type + "<BR>TNF:" + TNF + "<BR>Payload:" + Payload + "<BR>EncodingFormat:" + EncodingFormat + "<BR>Result:" + Result + "<BR>TagIDHexa: " + TagIDHexa ;
+	
+	document.getElementById("demo5").innerHTML = ShowData;
+}
+</script>
+</head>
+<body>
+<h2  align="center">Enterprise Browser NFC API Test</h2>
+<hr>
+<br>
+<DIV>
+<table border=1>
+	<tr>
+		<td>
+			<button onclick="isNfcSupported();">isSupported</button>:
+		</td>
+		<td><div id="demo1"></div></td>
+	</tr>
+	<tr>
+		<td>
+			<button onclick="isNfcEnabled();">isEnabled</button>:
+		</td>
+		<td><div id="demo2"></div></td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			<button onclick="EnableNfcAdapter();">enableAdapter</button>:
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			<button onclick="EnableNfcRead();">enableRead</button>:</td>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			<button onclick="DisableNfcRead();">disableRead</button>:</td>
+		</td>
+	</tr>
+</table>
+</DIV>
+<DIV id="demo5"></DIV>
+</body>
+</html>
+                                ]]>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+        </EXAMPLES_EB>
+    </MODULE>
+</API>    
