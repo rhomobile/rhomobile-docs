@@ -50,42 +50,25 @@ Sends an intent. The receiver of the intent can be another application that is l
 <ul><li>params : <span class='text-info'>HASH</span><p>A hash-map with intent parameters. </p></li><ul><li>intentType : <span class='text-info'>STRING</span><p>Type of Intent to send.  </p><p><strong>Possible Values</strong> :</p> <dl  ><dt>Constant: Intent.BROADCAST <br/> String:broadcast</dt><dd>Use the intent as broadcast intent.</dd><dt>Constant: Intent.START_ACTIVITY <br/> String:startActivity</dt><dd>Use the intent to start a UI activity. Platforms: 
 Android</dd><dt>Constant: Intent.START_SERVICE <br/> String:startService</dt><dd>Use the intent to start a background service. Platforms: 
 Android</dd></dl></li><li>permission : <span class='text-info'>STRING</span><p>Permission used to send a broadcast intent. Platforms:
-Android </p></li><li>action : <span class='text-info'>STRING</span><p>Intent action. See [Android docs](http://developer.android.com/reference/android/content/Intent.html#setAction(java.lang.String\)). for possible values.
-
-> NOTE: Use the Constant Value instead of the actual Constant Name. Ex: For the Constant [ACTION_PICK](http://developer.android.com/reference/android/content/Intent.html#ACTION_PICK) use 'android.intent.action.PICK'
+Android </p></li><li>action : <span class='text-info'>STRING</span><p>Intent action. See  <a href="http://developer.android.com/reference/android/content/Intent.html#setAction(java.lang.String))">Android docs</a> for possible values. Use the Constant Value instead of the actual Constant Name. For example, for the Constant <a href="http://developer.android.com/reference/android/content/Intent.html#ACTION_PICK)">ACTION_PICK</a> use 'android.intent.action.PICK' instead.
 
  Platforms:
-Android </p></li><li>categories : <span class='text-info'>ARRAY</span><p>List of intent categories. See [Android docs](http://developer.android.com/reference/android/content/Intent.html#addCategory(java.lang.String\)) for possible values.
-> NOTE: Use the Constant Value instead of the actual Constant Name. Ex: For the Constant [CATEGORY_HOME](http://developer.android.com/reference/android/content/Intent.html#CATEGORY_HOME) use 'android.intent.category.HOME'
+Android </p></li><li>categories : <span class='text-info'>ARRAY</span><p>List of intent categories. See  <a href="http://developer.android.com/reference/android/content/Intent.html#addCategory(java.lang.String\)"> Android docs</a>  for possible values. Use the Constant Value instead of the actual Constant Name. For example, for the Constant  <a href="http://developer.android.com/reference/android/content/Intent.html#CATEGORY_HOME)">CATEGORY_HOME</a>  use 'android.intent.category.HOME' instead. 
 
  Platforms:
-Android </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>appName : <span class='text-info'>STRING</span><p>Explicit name of the application on the device to run. The platform will determine what value to use.
+Android </p></li><ul><li><i>Object</i> : <span class='text-info'>STRING</span><p> </p></li></ul><li>appName : <span class='text-info'>STRING</span><p>Explicit name of the application to run on the device. The platform will determine the value to use.
 
-* Android it is application package name.
-* Windows it is the application/executable name. For shared runtime based applications, the application name is taken from the "Name" attribute from the Config.xml file. Hence use the application name which is mentioned in config.xml.
- </p></li><li>targetClass : <span class='text-info'>STRING</span><p>Explicit name of the class in the application which will receive the intent. Must be specified if and only if 'appName' is defined. Platforms:
-Android </p></li><li>uri : <span class='text-info'>STRING</span><p>Open the application associated with the URI. Behavior may be different on different platforms and depend on installed software. For example, open URL with http:// prefix usually executes the Web Browser installed on system and open URL in executed browser.
->NOTE: For Android, this is similar to [Intent.setData()](http://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri\)). For example, if you were sending a [Map Intent](http://developer.android.com/guide/components/intents-common.html#Maps) you would set this value to something like `geo:47.6,-122.3`
- </p></li><li>mimeType : <span class='text-info'>STRING</span><p>MIME type of data defined in the intent. For example, for Plain Text I would use `text/plain`
->NOTE: For Android, this is similar to [Intent.setType()](http://developer.android.com/reference/android/content/Intent.html#setType(java.lang.String\))
- </p></li><li>data : <span class='text-info'>HASH</span><p>Data which will be sent within the intent.
-
-For Android, this is similar to [Intent.putExtra()](http://developer.android.com/reference/android/content/Intent.html#putExtra(java.lang.String, java.lang.String\)). `data` should contain a HASH of Extra-String,Value pairs. The `Value` type of the `Extra` must be a string. Other object types are not supported at this time. For example:
-
-`Android:`
-    :::java
-    intent.putExtra(Intent.EXTRA_TEXT, 'Here is the text I am passing to the Intent');
-
-`JavaScript:`
-    :::javascript
-    var data = {"android.intent.extra.TEXT":"Here is the text I am passing to the Intent"}
-
-Notice the use of the full constant string "android.intent.extra.TEXT" in place of [Intent.EXTRA_TEXT](http://developer.android.com/reference/android/content/Intent.html#EXTRA_TEXT)
+ On Android, use the application package name. On Windows use the application/executable name. For shared runtime applications, the application name is taken from the 'Name' attribute in the Config.xml file. 
+ </p></li><li>targetClass : <span class='text-info'>STRING</span><p>Explicit name of the class in the application that will receive the intent. Must be specified if and only if 'appName' is defined. Platforms:
+Android </p></li><li>uri : <span class='text-info'>STRING</span><p>Open the application associated with the URI. Behavior may be different on different platforms and on software installed. For example, open URL with 'http://' prefix usually executes the Web Browser installed on system and opens the URL in that browser. On Android, this is similar to  <a href="http://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri\))">Intent.setData()</a>. For example, if sending a <![CDATA[ <a href="http://developer.android.com/guide/components/intents-common.html#Maps)">Map Intent</a>, you might set this value to something like 'geo:47.6,-122.3.'
+ </p></li><li>mimeType : <span class='text-info'>STRING</span><p>MIME type of data defined in the intent. For example, for Plain Text one would use 'text/plain.' On Android, this is similar to  <a href="http://developer.android.com/reference/android/content/Intent.html#setType(java.lang.String\))">Intent.setType</a>.
+ </p></li><li>data : <span class='text-info'>HASH</span><p>Data to be sent within the intent. On Android, this is similar to  <a href="http://developer.android.com/reference/android/content/Intent.html#putExtra(java.lang.String, java.lang.String\))">Intent.putExtra</a>, and 'data' should contain a HASH of Extra-String/Value pairs. The 'Value' type of the 'Extra' can be a String, Integer, Boolean or Double. Other object types are not supported at this time. For sample code, please refer to examples section, below. Use the full constant string 'android.intent.extra.TEXT' in place of <a href="http://developer.android.com/reference/android/content/Intent.html#EXTRA_TEXT">Intent.EXTRA_TEXT</a>.
 
  </p></li></ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
 
 ####Callback
-Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>responseCode : <span class='text-info'>INTEGER</span><p>Response code passed to Android Activity.setResult() method. [RESULT_OK](http://developer.android.com/reference/android/app/Activity.html#RESULT_OK) = -1. Check [Android Docs](http://developer.android.com/reference/android/app/Activity.html#setResult(int\)) for more information. Other attributes like `uri` may be returned depending on the Intent that was triggered. Possible parameters include the same params that are used in this `send(params)` method Platforms:
+Async Callback Returning Parameters: <span class='text-info'>HASH</span></p><ul><ul><li>responseCode : <span class='text-info'>INTEGER</span><p>Response code passed to Android Activity.setResult() method.  <a href="http://developer.android.com/reference/android/app/Activity.html#RESULT_OK)">RESULT_OK</a> = -1. Check <a href="http://developer.android.com/reference/android/app/Activity.html#setResult(int\))">Android Docs</a> for more information. Other attributes, such as 'uri' may be returned depending on the Intent that was triggered. Possible parameters include the same params that are used in this 'send(params)' method.
+                             Platforms:
 Android </p></li></ul></ul>
 
 ####Returns
@@ -161,3 +144,34 @@ Synchronous Return:
 For an Android app to receive intent data, the Intent receiver must be registered in the app's `Config.xml` file. Please refer to the <a href="#guide-configreference?Intent">Intent section of the EB Config Reference</a> for more information. 
                     
                 
+
+##Examples
+
+
+
+###Sending Data Within an Intent
+This example shows how to send data within an intent. On Android, this is similar to  <a href="http://developer.android.com/reference/android/content/Intent.html#putExtra(java.lang.String, java.lang.String\))">Intent.putExtra</a>. Data should contain a HASH of Extra-String/Value pairs. The 'Value' type of the 'Extra' can be a String, Integer, Boolean or Double. Notice the use of the full constant string 'android.intent.extra.TEXT' in place of <a href="http://developer.android.com/reference/android/content/Intent.html#EXTRA_TEXT">Intent.EXTRA_TEXT</a>.
+<pre><code>:::javascript
+
+
+Android (Java)
+
+    intent.putExtra("intent.extra.string", 'Here is the text I am passing to the Intent');
+    intent.putExtra("intent.extra.integer", 12);
+    intent.putExtra("intent.extra.boolean", true);
+    intent.putExtra("intent.extra.double", 14.28);
+
+JavaScript
+
+    var data: { 'intent.extra.string' : "Here is the text I am passing to the Intent" ,
+                'intent.extra.integer' : 12 ,
+                'intent.extra.boolean' : true ,
+                'intent.extra.double' : parseFloat("10.55")}
+              };
+
+
+
+
+                                
+                            
+</code></pre>

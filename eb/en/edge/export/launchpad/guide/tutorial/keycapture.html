@@ -20,11 +20,11 @@
 
 <p>Enterprise Browser includes an API for remapping key codes and assigning functions to hardware keys. The steps shown below are typical for code that uses this API. The following tutorial will walk through creating a working example application using these steps.</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_01.png" alt="img" /></p>
 
 <p>The resulting example application will look like this:</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_02.png" alt="img" /></p>
 
 <h2>Creating the App</h2>
 
@@ -281,14 +281,14 @@ to your application directory. The KeyCapture API requires this JavaScript file.
 </ul>
 
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_03.png" alt="img" /></p>
 
 <ul>
 <li><strong>Click on the cancel button</strong> in the upper right hand corner of the screen to dismiss the message and open the Key Capture app. If you turn the device sideways it should look like this:</li>
 </ul>
 
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_04.png" alt="img" /></p>
 
 <ul>
 <li><p><strong>Click the trigger button</strong> on the device to test the trigger function. Nothing should happen. If something happens at this point there may be something attached to the trigger via DataWedge. Find the DataWedge application, make sure that any profiles have been deactivated then return to the key capture app.</p></li>
@@ -297,7 +297,7 @@ to your application directory. The KeyCapture API requires this JavaScript file.
 </ul>
 
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_05.png" alt="img" /></p>
 
 <ul>
 <li><p><strong>Click the TrigCap Off button</strong>. The text indicator &ldquo;TrigCap is off&rdquo; should appear in black. Pressing the device&rsquo;s hardware trigger will no longer activate the callback function.</p></li>
@@ -307,18 +307,18 @@ to your application directory. The KeyCapture API requires this JavaScript file.
 
 <p>In the case shown below, we&rsquo;ve clicked on the volume-up key, which has an unmapped value of 24 on the TC55 device. The value on your device may be different.</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_06.png" alt="img" /></p>
 
 <ul>
 <li><strong>Now click the KeyMap On button</strong>. The text indicator &ldquo;KeyMap is on&rdquo; should appear in red. Try pressing the up volume key again. If the up volume value before was 24 it should now show as the remapped value of 64.</li>
 </ul>
 
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_07.png" alt="img" /></p>
 
 <p><strong>If the key values on your device differ</strong>, you will need to go back to the <code>fnKeyMapOn()</code> and modify the mappings. For each of the <code>remapKey()</code> methods, set the first parameter to match the actual unmapped value of one of the hardware keys on your device. Set the second parameter to be the value you want to map it to.</p>
 
-<p>!</p>
+<p><img src="http://ebzebra.github.io/docs/1.4/images/eb_tutorials/KeyCapture_API_tutorial_08.png" alt="img" /></p>
 
 <p>Sample JavaScript:</p>
 

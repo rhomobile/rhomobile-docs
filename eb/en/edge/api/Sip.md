@@ -2,33 +2,37 @@
 
 
 ## Overview
-The SIP API is used to show and hide the default software keyboard available in the respective Android Device.
+The SIP API controls whether the default software input panel (SIP) is displayed on the Android Device.
 ## Enabling the API
-There are two methods for SIP API:
+There are two ways to enable Enterprise Browser APIs: 
 
-* Include all ebapi modules or
+* Include all 'ebapi' modules
 * Include only the API modules you need
 
-For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+Both methods are explained below. 
+
+Either way, the included files will be from: 
+`/Enterprise Browser/JavaScript Files/Enterprise Browser`,
+a directory on the computer that contains the Enterprise Browser installation.
 
 ### Include all JS API modules
-To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the <head> section of your index.html:
+To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location accessible by your app's files and include the JavaScript modules file in your app. For instance, to include the modules file in your `index.html`, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:
 
     :::html
     <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
-> Note: that the pathing for this file is relative to the current page.
-
-This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+> This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
 
 ### Include only the modules you need
-To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the SIP API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+To include individual APIs, you must first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the SIP API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
 
     :::html
     <script type="text/javascript" charset="utf-8" src="ebapi.js"></script>
     <script type="text/javascript" charset="utf-8" src="eb.sip.js"></script>
 
-The ebapi.js file is necessary for all single API inclusions.
+> In the code lines above, notice that `ebapi.js` is included first, followed by `eb.sip.js`, which is the SIP API for Enterprise Browser. **This coding is required on each HTML page whenever an individual API will be called from that page**.
+
         
 
 
@@ -37,7 +41,7 @@ The ebapi.js file is necessary for all single API inclusions.
 
 
 ### hide()
-Hides the software keyboard which is available by default with the device.
+Hides the default software keyboard.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -58,7 +62,7 @@ Synchronous Return:
 
 
 ### show()
-Displays the software keyboard which is available by default with the device.
+Displays the default software keyboard on the device.
 
 ####Parameters
 <ul><li>callback : <span class='text-info'>CallBackHandler</span></li></ul>
@@ -92,6 +96,6 @@ Focus on input field will not be reflected automatically when show method of SIP
 ###Software keyboard behavior after hide method
 
                     
-The hide method will not permanently disable the software keyboard. For Ex: After calling hide method, if we focus again on any text area, then software keyboard will be shown again.
+The hide method does not permanently disable the SIP, but simply hides it until the focus returns to a text input field, which causes it to reappear. 
                     
                 

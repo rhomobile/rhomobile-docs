@@ -405,7 +405,7 @@ Path to file with the model list.
 ####Type
 <span class='text-info'>ARRAY</span> 
 ####Description
-Native Menu items.
+Native Menu items. To customise the native application menu and controller menu items in ruby follow [Application Menu API](http://docs.rhomobile.com/en/2.2.0/rhodesapi/menu-apis)
 ####Params
 <li><i>Object</i> : <span class='text-info'>HASH</span><p> </p></li><ul><li>label : <span class='text-info'>STRING</span><p>Visible label. </p></li><li>action : <span class='text-info'>STRING</span><p>URL to page which will be loaded. Or it can be a JavaScript method to call: 'javascript: methodOnTab();'. Or path to html page to load. </p></li></ul>
 ####Access
