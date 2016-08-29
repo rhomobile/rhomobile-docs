@@ -85,7 +85,11 @@ The WINS server address and dhcpStatic data are not available on the ET1. Also t
 ###Parameter Deprecation
 For users migrating their PocketBrowser apps to RhoElements please note that due to the difference in the signal indicator graphic, the GraphPosition and IconPosition parameters have been deprecated. Please use the Layout parameter instead.
 
+###Devices lacking support
+Due to platform limitations this API is not available on the following Zebra Technologies devices on specific platform:
 
+* VH10 CE 6.0
+* Omnii XT15 CE 6.0
 
 
 ##Requirements
