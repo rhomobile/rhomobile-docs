@@ -59,6 +59,8 @@ When the screen orientation changes, either using the ScreenOrientation tag or b
 Due to platform limitations this API is not available on the following Zebra Technologies devices:
 
 * Workabout Pro 4
+* VH10
+* Omnii XT15
 
 
 ##Requirements
