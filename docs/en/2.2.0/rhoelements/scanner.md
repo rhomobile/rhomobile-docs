@@ -333,7 +333,10 @@ RHOELEMENTS DATAWEDGE PROFILE
 	"Barcode input", "Keystroke output" and "Intent output".
 </pre>
 
+###Devices lacking support
+Due to platform limitations this API is not available on the following Zebra Technologies devices on specific platform. Note: However one can enable legacy scanner service and can scan the respective barcode.
 
+* VH10 CE 6.0
 
 
 ##Requirements
