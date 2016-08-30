@@ -144,7 +144,12 @@ Certain devices may map their function keys to apparently normal keys, for examp
 ###Use of Key Capture module on Localized Operating Systems
 Users of the key capture module with Chinese, Korean and Japanese operating systems should bear the following in mind: Internally the KeyCapture module stores key representations as VK codes, therefore the key event will always return VK_PROCESSKEY (229) and keys can not be individually specified. The JavaScript standard document.onkeyup can be used as an indication of which key has been pressed.
 
+###Behavior of function keys on Psion Devices
+The keycode value for some of the function keys on Psion devices doesnot return Microsoft keycode value. Instead, it returns the Psion proprietary keycode value. Please refer Psion product usage guide or contact Psion product team to remap the keycode value to Microsoft keycode value. The Psion device in which the behavior of function keys may return the different keycode value is mentioned below:
 
+* 1. Workabout Pro 4
+* 2. VH10
+* 3. Omnii XT15
 
 
 ##Requirements
