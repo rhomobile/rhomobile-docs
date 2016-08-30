@@ -147,9 +147,9 @@ Users of the key capture module with Chinese, Korean and Japanese operating syst
 ###Behavior of function keys on Psion Devices
 The keycode value for some of the function keys on Psion devices doesnot return Microsoft keycode value. Instead, it returns the Psion proprietary keycode value. Please refer Psion product usage guide or contact Psion product team to remap the keycode value to Microsoft keycode value. The Psion device in which the behavior of function keys may return the different keycode value is mentioned below:
 
-* 1. Workabout Pro 4
-* 2. VH10
-* 3. Omnii XT15
+* Workabout Pro 4
+* VH10
+* Omnii XT15
 
 
 ##Requirements
