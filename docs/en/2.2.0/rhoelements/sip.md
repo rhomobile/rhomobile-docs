@@ -2,7 +2,7 @@
 #Sip Module
 
 <b>
-The Sip Module is used to control attributes of the soft input panel. Note that these settings apply to both text boxes on the current page as well as the address bar
+The Sip Module is used to control attributes of the soft input panel. Note that these settings apply to both text boxes on the current page as well as the address bar.  This API is not supported on Android platform.
 </b>
 
 ##Syntax
@@ -47,8 +47,8 @@ Items listed in this section indicate methods or, in some cases, indicate parame
 
 Items listed in this section indicate parameters, or attributes which can be set.
 <table class="re-table"><col width="20%" /><col width="20%" /><col width="38%" /><col width="22%" /><tr><th class="tableHeading">Name</th><th class="tableHeading">Possible Values</th><th class="tableHeading">Description</th><th class="tableHeading">Default Value</th></tr><tr><td class="clsSyntaxCells clsOddRow"><b>left:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Horizontal position, in pixels</td><td class="clsSyntaxCells clsOddRow">Sets the horizontal position of the SIP in pixels. (Not supported on Enterprise Tablet.  Not compatible with Finger Scrolling on Windows devices)</td><td class="clsSyntaxCells clsOddRow">Center of the screen</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>top:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Vertical position, in pixels</td><td class="clsSyntaxCells clsEvenRow">Sets the vertical position of the SIP in pixels. (Not supported on Enterprise Tablet.  Not compatible with Finger Scrolling on Windows devices)</td><td class="clsSyntaxCells clsEvenRow">Bottom of the screen</td></tr></table>
+</b></td><td class="clsSyntaxCells clsOddRow">Horizontal position, in pixels</td><td class="clsSyntaxCells clsOddRow">Sets the horizontal position of the SIP in pixels. Not compatible with Finger Scrolling on Windows devices.</td><td class="clsSyntaxCells clsOddRow">Center of the screen</td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>top:[Value]
+</b></td><td class="clsSyntaxCells clsEvenRow">Vertical position, in pixels</td><td class="clsSyntaxCells clsEvenRow">Sets the vertical position of the SIP in pixels. Not compatible with Finger Scrolling on Windows devices</td><td class="clsSyntaxCells clsEvenRow">Bottom of the screen</td></tr></table>
 <table class="re-table"><col width="78%" /><col width="8%" /><col width="1%" /><col width="5%" /><col width="1%" /><col width="5%" /><col width="2%" /></table>
 
 
@@ -60,7 +60,7 @@ When multiple RhoElememts applications are running the following considerations 
 
 
 ###Disabling the SIP
-If you want to completely disable to the use of the SIP, set it to appear off the visible area of the screen (see example above). You can use a default meta tag to avoid pasting the tag on every page. Alternatively on the Enterprise Tablet, call the manual method.
+If you want to completely disable to the use of the SIP, set it to appear off the visible area of the screen (see example above).  You can use a default meta tag to avoid pasting the tag on every page.
 
 
 ###Interaction with Hardware Keyboard
@@ -80,7 +80,7 @@ The SIP methods 'Manual' and 'Automatic' have slightly different behaviour when 
 ##Requirements
 
 <table class="re-table"><tr><th class="tableHeading">RhoElements Version</th><td class="clsSyntaxCell clsEvenRow">1.0.0 or above
-</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">All supported devices. left and top are not supported by the Enterprise Tablet</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page. Moving the SIP may also persist after RhoElements has been shut down, dependent on Operating System.</td></tr></table>
+</td></tr><tr><th class="tableHeading">Supported Devices</th><td class="clsSyntaxCell clsOddRow">Windows Only. No support for Android</td></tr><tr><th class="tableHeading">Minimum Requirements</th><td class="clsSyntaxCell clsOddRow">None.</td></tr><tr><th class="tableHeading">Persistence</th><td class="clsSyntaxCell clsEvenRow">Persistent - Changes to this module will persist when navigating to a new page. Moving the SIP may also persist after RhoElements has been shut down, dependent on Operating System.</td></tr></table>
 
 
 ##HTML/JavaScript Examples
