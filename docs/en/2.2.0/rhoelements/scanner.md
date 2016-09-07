@@ -133,7 +133,7 @@ Items listed in this section indicate parameters, or attributes which can be set
   Laser barcode readers will show a slab for aiming.
 <br /><b>reticle:</b>
   Imager barcode readers will show a reticle for aiming</DESCDETAIL><i>Applicable scanner types: Laser and Imager / Camera</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>picklistMode:[Value]
-</b></td><td class="clsSyntaxCells clsEvenRow">Allows the imager to decode only the barcode that is directly under the cross-hair / center of the reticle.  This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode.  When enabled picklistMode will override aimMode if no aiming is chosen and use aimMode:reticle.  This mode will also interact with viewfinderMode, see the EMDK for C help file for more information.  Enabling picklist mode may adversely affect overall decoding performance.  
+</b></td><td class="clsSyntaxCells clsEvenRow">Allows the imager to decode only the barcode that is directly under the cross-hair on Android & center of the reticle on WM/CE.  This feature is most useful in applications where multiple barcodes may appear in the field of view during a decode session and only one of them is targeted for decode.  When enabled picklistMode will override aimMode if no aiming is chosen and use aimMode:reticle.  This mode will also interact with viewfinderMode, see the EMDK for C help file for more information.  Enabling picklist mode may adversely affect overall decoding performance.  
 <DESCDETAIL>
 <br /><b>Possible values:</b>
 <br /><b>disabled:</b>
@@ -144,7 +144,7 @@ Items listed in this section indicate parameters, or attributes which can be set
   behaviour is the same as softwareReticle.
 <br /><b>softwareReticle:</b>
   Enables picklist mode so that only the barcode in the center of the image is 
-  decoded.  This is most useful when used in conjunction with static and 
+  decoded on WM/CE & under the cross-hair on Android.  This is most useful when used in conjunction with static and 
   dynamic reticle viewfinder modes.</DESCDETAIL><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>viewfinderMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Configures the mode of the scanner viewfinder window.  This attribute is not supported on all Scanners and will interact with the picklistMode parameter, see the EMDK for C help file for more information.    
 <DESCDETAIL>
