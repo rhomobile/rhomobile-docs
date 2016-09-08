@@ -296,6 +296,12 @@ The following messages will be received from the Bluetooth Scanner in the blueto
 </pre>
 
 
+###Bluetooth Scanner Support On Android Devices
+On Android platform, Enterprise Browser doesnot support Bluetooth Scanner on TC70 GA1 device.
+
+On Android platform, Enterprise Browser supports Bluetooth Scanner from Android Kitkat version and above.
+
+
 ###ScannerArray attribute
 The ScannerArray attribute returned from Scanner tag with parameter "EnumScannerEvent" will enumerate each scanner present on the device in a 2D array, associating each scanner's device name with a user friendly name. The device ID can be passed as a parameter to "Scanner" "Enabled:&lt;deviceID&gt;", the friendly name is a user readable description of the scanner, e.g:
 
