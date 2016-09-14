@@ -369,7 +369,72 @@ The following example sets up the scanner on a page to submit the scanned data t
 
 	<META HTTP-Equiv="scanner" Content="enabled">
 	<META HTTP-Equiv="scanner" Content="DecodeEvent:url('mypage.asp?Data=%s&Source=%s&Type=%s&Time=%s&Length=%s')">
-	
+
+The following example demonstrates to how to set the connectionListenerEvent from html page:
+
+	<html>
+	<head>
+	<script type="text/javascript" src="../elements.js"></script>	
+	<script>
+		function doConnectionListener(object)
+		{
+			//connectionState, connectionType, decoderType, deviceType, friendlyName, isDefaultScanner
+			document.getElementById('myJsID').innerHTML = '<B><BR>1.Scanner-isScannerConnected:' + object.connectionState + '<BR>' +
+														  '2.Scanner-ConnectionType:' + object.connectionType + '<BR>' +
+														  '3.Scanner-DecoderType:' + object.decoderType + '<BR>' +
+														  '4.Scanner-DeviceType:' + object.deviceType + '<BR>' +
+														  '5.Scanner-FriendlyName:' + object.friendlyName + '<BR>' +
+														  '6.Scanner-isDefaultScanner:' + object.isDefaultScanner + '</B>';
+		}
+		function addConnectionListenerEvent()
+		{
+			scanner.connectionListenerEvent = 'doConnectionListener(%json)';
+		}
+		function removeConnectionListenerEvent()
+		{
+			scanner.connectionListenerEvent = "";
+		}
+		function enumerateScanners()
+		{	
+			scanner.enumScannerEvent = "EnumScanners(%s);";
+			scanner.enumerate();		
+		}
+		function EnumScanners(scannerArray)
+		{
+			var scannerInfo = "Scanners On Device: " + scannerArray.length + "<BR>ID  --  Name<BR>" 
+			var scannerButtons = "";
+			for (i=0; i < scannerArray.length; i++)
+			{
+				scannerInfo = scannerInfo + scannerArray[i][0] + ' -- ' + scannerArray[i][1] + '<BR>';
+				scannerButtons += '<br><br> <input type="button" onclick="enableSpecifiedScanner(' + '\'' + scannerArray[i][0] + '\'' + ')" value="Enable' + scannerArray[i][0] + '" />';
+			}
+			availableScanners.innerHTML = scannerInfo;
+			document.getElementById('setEnableButtons').innerHTML = scannerButtons;
+		}
+		function enableSpecifiedScanner(theScanner)
+		{
+			msg.innerHTML = "Enabling Specified Scanner: " + theScanner;
+			scanner.enabled = theScanner;
+		}  
+		function disableScanner()
+		{
+			msg.innerHTML = "Disabling Scanner";
+			scanner.disable();
+		}
+	</script>
+	</head>	
+	<body>
+		<br><br> <div id="availableScanners">EnumScanners goes Here</div>
+		<br><br> <div id=myJsID></div>
+		<br><>br> <div id="msg">Messages Go Here</div>
+		<br><br> <input type='button' onClick="addConnectionListenerEvent()" value="Add Connection Listener Event"/>
+		<br><br> <input type='button' onClick="removeConnectionListenerEvent()" value="Remove Connection Listener Event"/>
+		<br><br> <input type="button" onclick="enumerateScanners()" value="Enumerate Scanners">
+		<br><br> <div id="setEnableButtons"></div>
+		<br><br> <input type="button" onclick="disableScanner()" value="Disable Scanner" />
+	</body>
+	</html>	
+
 The following example sets up the scanner on a page to call a javascript function upon successful decoding:
 
 	<META HTTP-Equiv="scanner" Content="enable">
