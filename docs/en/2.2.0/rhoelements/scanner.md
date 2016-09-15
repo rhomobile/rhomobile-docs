@@ -186,15 +186,15 @@ Items listed in this section indicate parameters, or attributes which can be set
   Use fixed focus.
 <br /><b>auto:</b>
   Use auto focus.</DESCDETAIL><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>illuminationMode:[Value]
-</b></td><td class="clsSyntaxCells clsOddRow">Selects the illumination mode to use. This parameter is not supported on Android Platform.  
+</b></td><td class="clsSyntaxCells clsOddRow">Selects the illumination mode to use.
 <DESCDETAIL>
 <br /><b>Possible values:</b>
-<br /><b>auto:</b> Auto-exposure algorithms will decide whether illumination is required or not.
+<br /><b>auto:</b>(<i>not available on Android</i>) Auto-exposure algorithms will decide whether illumination is required or not.
 <br /><b>alwaysOn:</b>
   External illumination is always on.
 <br /><b>alwaysOff:</b>
   External illumination is always off.
-<br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
+<br /><b>Note:</b> On Android devices for Camera scanners this setting has to be enabled/disabled before starting the scanner. </DESCDETAIL><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Allows Direct Part Marking (DPM) barcodes to be read when true but may adversely affect overall decoding performance.  DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.<br /><br /><b>Possible Values:true / false</b><br /><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>inverse1dMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Allows the user to select inverse 1D barcodes for decoding.  
 <DESCDETAIL>
