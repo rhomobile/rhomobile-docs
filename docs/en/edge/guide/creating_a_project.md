@@ -159,8 +159,6 @@ where `<platform to be simulated>` can be:
 * wm (for Windows Mobile 6)
 * wp8 (for Windows Phone 8)
 
-NOTE: Due to memory limitations, RhoSimulator does not support Windows Mobile/CE apps.
-
 The application will start inside RhoSimulator with a different look depending on the selected platform. 
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/run-rhosimulator-iphone-4.0.png)
