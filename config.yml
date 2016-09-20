@@ -12,9 +12,9 @@ development:
   offline_eb: 'eb/en/edge/export/offline/'
   offline_eb_mapping: 'eb/en/edge/export/offline/offlineDocs/docs/docs.js'
 
-  index: 'rhodocs_edge'
-  pdfkithost: 'localhost:9393'
-  current_version: '4.1.0'
+  index: 'rhodocs'
+  pdfkithost: 'docs.tau-technologies.com'
+  current_version: '5.4'
 jenkins:
   api_sources: 
     - '../../rhodes/workspace/lib/commonAPI/'
@@ -28,9 +28,9 @@ jenkins:
   launchpad_eb_mapping: 'index.hash'
   offline_eb: 'eb/en/edge/export/offline/'
   offline_eb_mapping: 'index.json'
-  index: 'rhodocs_edge'
+  index: 'rhodocs'
   pdfkithost: 'localhost:9393'
-  current_version: '4.1.0'
+  current_version: '5.4'
 edge:
   api: 'docs/en/edge/api/'
   api_eb: 'eb/en/edge/api/'
@@ -39,9 +39,9 @@ edge:
   launchpad_eb_mapping: 'index.hash'
   offline_eb: 'eb/en/edge/export/offline/'
   offline_eb_mapping: 'index.json'
-  index: 'rhodocs_edge'
-  pdfkithost: 'edgedocs.rhomobile.com'
-  current_version: '4.1.0'
+  index: 'rhodocs'
+  pdfkithost: 'docs.tau-technologies.com'
+  current_version: '5.4'
 production:
   api: 'docs/en/edge/api/'
   api_eb: 'eb/en/edge/api/'
@@ -51,5 +51,5 @@ production:
   offline_eb: 'eb/en/edge/export/offline/'
   offline_eb_mapping: 'index.json'
   index: 'rhodocs'
-  pdfkithost: 'docs.rhomobile.com'
-  current_version: '4.1.0'
+  pdfkithost:  'docs.tau-technologies.com'
+  current_version: '5.4'

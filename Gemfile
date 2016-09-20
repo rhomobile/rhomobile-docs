@@ -15,7 +15,10 @@ gem 'indextank'
 gem 'shotgun'
 gem 'link-checker', '~>0.7.2' # Required for link check rake task
 gem 'heroku'
+gem 'unicorn'
+gem 'rack-timeout'
 
-group :development do
-  gem "rake", '~> 0.9.2.2'
-end
+
+#group :development do
+#  gem "rake", '~> 0.9.2.2'
+#end
