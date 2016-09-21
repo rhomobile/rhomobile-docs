@@ -193,7 +193,7 @@ Items listed in this section indicate parameters, or attributes which can be set
 <br /><b>alwaysOn:</b>
   External illumination is always on.
 <br /><b>alwaysOff:</b>
-  External illumination is always off.
+  External illumination is always off. With illumination off, barcodes will be decoded only under bright light.
 <br /><b>Note:</b> On Android devices for Camera scanners this setting has to be enabled/disabled before starting the scanner. </DESCDETAIL><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsEvenRow"><b>dpmMode:[Value]
 </b></td><td class="clsSyntaxCells clsEvenRow">Allows Direct Part Marking (DPM) barcodes to be read when true but may adversely affect overall decoding performance.  DPM is a way of stamping barcodes directly on physical objects and is only available on DPM terminals.<br /><br /><b>Possible Values:true / false</b><br /><i>Applicable scanner types: Imager / Camera Only</i><br /><i>Default: Device specific</i></td></tr><tr><td class="clsSyntaxCells clsOddRow"><b>inverse1dMode:[Value]
 </b></td><td class="clsSyntaxCells clsOddRow">Allows the user to select inverse 1D barcodes for decoding.  
