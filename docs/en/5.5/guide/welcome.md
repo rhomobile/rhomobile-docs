@@ -23,10 +23,3 @@ RhoElements is an additional API library set that is accessible to RhoMobile app
 
 ## RhoConnect
 RhoConnect is a server application that either can be hosted on our system or yours and acts as a seamless bridge for your enterprise data to exist both on your back-end and your mobile device. With RhoConnect, you can simultaneously connect your application to many data sources just as easily as you can connect to one data source — including enterprise back-end customer relationship management (CRM) and enterprise resource planning (ERP) systems, web services, databases and much more. 
-
-## Hosted Services
-### Remote Build
-Package apps for all platforms without installing SDKs locally, including iPhone apps from your Windows PC. RhoMobile's remote build, formerly known as RhoHub, is a cloud based platform that integrates with RhoStudio to provide seamless local coding and building in the cloud to quickly get you up and running.
-
-### App Management
-Zebra offers the latest in app management technology with [Zebra AppGallery](https://developer.motorolasolutions.com/docs/DOC-3035), a marketplace and deployment tool designed to help users find, purchase, distribute and maintain apps in an enterprise with one or many mobile devices. With AppGallery, developers and enterprises can distribute and maintain their own apps or those acquired from the AppGallery marketplace, simplifying app distribution and maintenance like never before. 
