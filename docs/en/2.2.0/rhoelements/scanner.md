@@ -264,6 +264,9 @@ When multiple RhoElememts applications are running the following considerations 
 If the Scanner Meta Tag is used without DecodeEvent, the data will be output as keystrokes. On unlicensed devices it is not recommended to enable the Scanner on the application's startup page, this can interfere with the the license screen.
 
 
+###Limitation of Scanner and Barcode API
+Scanner and Barcode API should not be used simultaneously in an Enterprise Browser application. Either one of the respective API should be used throughout the lifetime of an Enterprise Browser application.
+
 ###Use Meta Tags Instead of Scanner Object
 Prefer Meta Tags instead of Scanner Object, if an application is designed to perform continuos scanning on reload of the page with certain properties(exposed by scanner object).
 
