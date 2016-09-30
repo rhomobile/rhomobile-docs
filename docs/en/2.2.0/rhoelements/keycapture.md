@@ -85,6 +85,7 @@ It is not possible to capture the following types of keys, although on some devi
 *  Hot keys such as phone keys or 'soft' buttons, those whose 
    function changes based on the running application.
 *  The Home key on the ET1 device.
+*  On Android keypad devices, the ESC key behaves like a back button. User need to ensure to set the dispatch value to false or else the application will go into background and it will not perform the user defined action.
 </pre>
 
 
