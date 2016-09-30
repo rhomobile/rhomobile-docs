@@ -159,8 +159,8 @@ The imagerArray parameter in the imagerEnumEvent is defined as a 2D array:
 ###Platform differences
 On Android the height of the viewfinder cannot be set to any value less than 200.
 
-
-
+###Psion WM/CE devices lacking support
+The Imager API is not supported on any Psion devices from Enterprise Browser application.
 
 ##Requirements
 
