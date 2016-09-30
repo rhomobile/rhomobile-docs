@@ -2,7 +2,7 @@
 #Keylight Module
 
 <b>
-The Keylight Module is used to illuminate / extinguish the keyboard backlight as well as setting the intensity of the keylight.
+The Keylight Module is used to illuminate / extinguish the keyboard backlight as well as setting the intensity of the keylight. Keylight module is not supported on Android platform.
 </b>
 
 ##Syntax
