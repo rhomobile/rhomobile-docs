@@ -2,7 +2,7 @@
 #Rsm Module
 
 <b>
-The Rsm Module is used to configure or to retrieve attributes relating to a remote scanner either tethered to the device or connected via Bluetooth. The properties of the scanner which can be configured are detailed in the 'Remarks' section. When used for retrieval navigation to URL or call to JavaScript function happens immediately.
+The Rsm Module is used to configure or to retrieve attributes relating to a remote scanner either tethered to the device or connected via Bluetooth. The properties of the scanner which can be configured are detailed in the 'Remarks' section. When used for retrieval navigation to URL or call to JavaScript function happens immediately. RSM API is not supported on Android platform.
 </b>
 
 ##Syntax
