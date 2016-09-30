@@ -132,6 +132,8 @@ Video Capture is designed to be configured before any transfer is made to a remo
 The protocol, port number, username (optional) and password (optional) are all derived from the URL string and should be specified in the following manner: [protocol]://[username]:[password@]Server[:Port]FileNameAndPath. FTP Example: ftp://admin:root@192.168.1.1:2500/Folder/Cap.mov. HTTP Example: http://admin:root@192.168.1.1:8080/Folder/Upload.aspx. File Example: file://\path\Cap.mov. Remember to also wrap your URL with url('') when being used as part of a meta tag, as shown in the examples above.
 
 
+###Psion WM/CE devices lacking support
+The VideoCapture API is not supported on any Psion devices from Enterprise Browser application.
 
 
 ##Requirements
