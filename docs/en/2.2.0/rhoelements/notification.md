@@ -88,8 +88,8 @@ When multiple RhoElememts applications are running the following considerations 
 
 ##Remarks
 
-###Psion VH10 with Windows CE 6.0
-On the Psion VH10 with Windown CE 6, the LED, beeper, pager and other objects activated through the Notification API are not supported, despite being enumerated through the `notification.enumerate();` function call.
+###Zebra VH10 with Windows CE 6.0
+On VH10 with Windown CE 6.0, the LED, beeper, pager and other objects activated through the Notification API are not supported, despite being enumerated through the `notification.enumerate();` function call.
 
 ###No Notification Objects
 If the device has no notification objects the array returned by EnumNotificationsEvent will be empty
