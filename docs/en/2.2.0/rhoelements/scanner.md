@@ -372,7 +372,7 @@ The following example sets up the scanner on a page to submit the scanned data t
 	<META HTTP-Equiv="scanner" Content="enabled">
 	<META HTTP-Equiv="scanner" Content="DecodeEvent:url('mypage.asp?Data=%s&Source=%s&Type=%s&Time=%s&Length=%s')">
 
-The following example demonstrates to how to set the connectionListenerEvent from html page. **Note**: _This feature is supported from Android Lollipop platform only. It is not supported on TC70 GA1 device._:
+The following example demonstrates to how to set the connectionListenerEvent from html page. **Note**: _This feature is supported on Android Lollipop platform only. It is not supported on TC70 GA1 device._:
 
 	<html>
 	<head>
