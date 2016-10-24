@@ -193,9 +193,7 @@ The following are some non-default settings that you may add to the build.yml in
                 &nbsp;&nbsp;js: yes<br/>
                 &nbsp;&nbsp;css: yes<br/>
                 &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
-                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are provided already in obfuscated versions.
-                </td>
-                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are obfuscated  already.</td>
+                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are obfuscated already.</td>
         <td>If JavaScript or CSS code obfuscation is not required, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
         <td>
           obfuscate:<br/>
@@ -211,7 +209,7 @@ The following are some non-default settings that you may add to the build.yml in
                 &nbsp;&nbsp;js: true<br/>
                 &nbsp;&nbsp;css: true<br/>
                 &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
-                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are provided already in minimized versions.
+                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are minimized already.</td>
         </td>
         <td class="clsEvenRow">If JavaScript or CSS code minification is not wanted, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
         <td class="clsEvenRow">
