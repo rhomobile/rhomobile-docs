@@ -193,7 +193,10 @@ The following are some non-default settings that you may add to the build.yml in
                 &nbsp;&nbsp;js: yes<br/>
                 &nbsp;&nbsp;css: yes<br/>
                 &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
-                NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already.</td>
+                <!-- NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already. -->
+                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are provided already in obfuscated versions.
+                </td>
+                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are obfuscated  already.</td>
         <td>If JavaScript or CSS code obfuscation is not required, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
         <td>
           obfuscate:<br/>
@@ -209,14 +212,15 @@ The following are some non-default settings that you may add to the build.yml in
                 &nbsp;&nbsp;js: true<br/>
                 &nbsp;&nbsp;css: true<br/>
                 &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
-                NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when minification is enabled.
+                <!-- NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when minification is enabled. -->
+                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are provided already in minimized versions.
         </td>
         <td class="clsEvenRow">If JavaScript or CSS code minification is not wanted, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
         <td class="clsEvenRow">
           minify:<br/>
           &nbsp;&nbsp;js: false<br/>
           &nbsp;&nbsp;css: false<br/>
-          &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]
+          <!-- &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"] -->
         </td>
     </tr>
     <tr>
