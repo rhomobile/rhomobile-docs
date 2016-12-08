@@ -19,58 +19,25 @@ You may use layout.erb to define what CSS and JavaScript libraries are used by y
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
-
+    
     <head>
-
-        <title>Test</title>
-
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-
-        <% if System::get_property('platform') == 'WP7' %>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <% end %>
-
-        <% if System::get_property('platform') == 'APPLE' || System::get_property('platform') == 'ANDROID' || ( System::get_property('platform') == 'UNKNOWN' && System::get_property('webview_framework') =~ /^WEBKIT/) %>
-            <script src="/public/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
-
-            <link rel="stylesheet" href="/public/jqmobile/jquery.mobile-1.0b1.min.css">
-            <% if System::get_property('platform') == 'APPLE' %>
-                <link href="/public/jqmobile/jquery.mobile.iphone.css" type="text/css" rel="stylesheet"/>
-            <% end %>
-
-            <script type="text/javascript">
-                $(document).bind("mobileinit", function(){
-                    // jQuery-Mobile init options initialization goes here. For example, you may
-                    // enable automatically generated 'Back' buttons on headers this way:
-                    //$.mobile.page.prototype.options.addBackBtn = true;
-                    // Look for other init options here:
-                    // http://jquerymobile.com/demos/1.0b1/#/demos/1.0b1/docs/api/globalconfig.html
-                });
-            </script>
-            <script type="text/javascript" charset="utf-8" src="/public/jqmobile/jquery.mobile-1.0b1.min.js"></script>
-            <script type="text/javascript" charset="utf-8" src="/public/js/jqmobile-patch.js"></script>
-        <% end %>
-
-        <% if System::get_property('platform') == 'APPLE' %>
-            <link href="/public/css/iphone.css" type="text/css" rel="stylesheet"/>
-        <% elsif System::get_property('platform') == 'ANDROID' %>
-            <link href="/public/css/android.css" type="text/css" rel="stylesheet"/>
-        <% elsif System::get_property('platform') == 'WP7' %>
-            <link href="/public/css/windows_mobile.css" type="text/css" rel="stylesheet"/>
-        <% elsif System::get_property('platform') == 'WINDOWS' %>
-            <link href="/public/css/windows_mobile.css" type="text/css" rel="stylesheet"/>
-        <% elsif System::get_property('webview_framework') =~ /^WEBKIT/ %>
-            <link href="/public/css/android.css" type="text/css" rel="stylesheet"/>
-        <% end %>
+      <title>Test</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+      <link rel="stylesheet" href="/public/bootstrap-3.3.7/css/bootstrap.min.css">
+      <script src="/public/jquery/jquery-3.1.1.min.js" type="text/javascript"></script>
+      <script src="/public/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    
+      <% if Rho::System.getProperty('platform') == 'APPLE' || Rho::System.getProperty('platform') == 'ANDROID' ||
+      ( Rho::System.getProperty('platform') != 'WINDOWS' && Rho::System.getProperty('webviewFramework') =~ /^WEBKIT/) %>
+      <script src="/public/api/rhoapi-modules.js" type="text/javascript"></script>
+      <% end %>
+    
     </head>
-
-    <body
-        <% if System::get_property('platform') == 'WP7' %>
-            data-do-fix-forms="true"
-        <% end %> >
-        <%= @content %>
+    
+    <body data-platform="<%= Rho::System.getProperty('platform') %>">
+    <%= @content %>
     </body>
-
+    
     </html>
 
 ### Customizing Layouts

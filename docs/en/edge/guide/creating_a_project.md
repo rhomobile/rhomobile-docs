@@ -116,9 +116,6 @@ Holds the stylesheets for your app's pages.<br>
 `/public/images`<br>
 Image files for toolbars, lists, 'OK' and 'Back' buttons, etc.<br>
 
-`/public/jqmobile`<br>
-Files for [JQuery Mobile](http://jquerymobile.com), a JavaScript library that helps you build touch-optimized HTML applications for mobile devices.<br>
-
 `/public/jquery`<br>
 Files for [JQuery](http://jquery.com), a cross-browser JavaScript library for manipulating HTML with an easy-to-use syntax.<br>
 

@@ -1,0 +1,200 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Push" parent="Rho" productException='eb'>
+        <HELP_OVERVIEW>The Push API provides access to Push messaging functionality. Use this API to give your application the ability to receive server initiated messages.</HELP_OVERVIEW>
+        <MORE_HELP>
+## Enabling the API
+To use this API, you must include the following extension in your `build.yml`:
+
+For APNS or GCM:
+    :::ruby
+    capabilities: ["push"]
+
+For RhoConnect Push Service:
+    :::ruby
+    extensions: ["rhoconnect-push", "rhoconnect-client"]
+
+**NOTES**
+
+**For Win32(XPE)**, Microsoft Message Queue (MSMQ) and .Net Framework 3.5 also must be installed on the device.
+
+**GCM is no longer supported as a standalone jar file** since being moved to Google Play services. If you have trouble building an Android app with RhoElements 4.0.0 and Push capability, try these steps: 
+
+1. [Download the GCM r03 sip file](http://dl-ssl.google.com/android/repository/gcm_r03.zip) from Google's repository. 
+2. Copy it to sdk/extras and extract it.
+3. Rename the folder to 'gcm'
+
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
+
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+        </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the Push API:
+
+* Include all ebapi modules or
+* Include only the API modules you need
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Push API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.push.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+        </MORE_HELP_EB>
+        <PLATFORM>WM, CE, Android, iOS</PLATFORM>
+        <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+        <VER_INTRODUCED>4.0.0</VER_INTRODUCED>
+
+        <TEMPLATES>
+            <DEFAULT_INSTANCE/> <!-- object has default static property, all methods can be call by static way (called from default instance), produce default(), set_default() methods -->
+            <PROPERTY_BAG/>
+        </TEMPLATES>
+        <PROPERTIES access="INSTANCE">
+            <DESC>These properties are used to configure the Push API.</DESC>
+
+            <PROPERTY name="type" type="STRING" readOnly="true">
+               <DESC>Push engine type.</DESC>
+                <VALUES>
+                    <VALUE constName="PUSH_TYPE_RHOCONNECT" value="rhoconnect-push">
+                        <DESC>RhoConnect push engine.</DESC>
+                    </VALUE>
+                    <VALUE constName="PUSH_TYPE_NATIVE" value="native-push">
+                        <DESC>Native push engine (like GCM on Android).</DESC>
+                    </VALUE>
+                </VALUES>
+            </PROPERTY>
+
+            <PROPERTY name="userNotifyMode" type="STRING" default="backgroundNotifications" deprecated="true">
+                <DESC>UI notification mode. Use `Rho.Notification` instead.</DESC>
+                <DESC_EB>UI notification mode. Use `EB.Notification` instead.</DESC_EB>
+                <PLATFORM>Android</PLATFORM>
+                <APPLIES rubyOnly="true"/>
+                <VALUES>
+                    <VALUE constName="PUSH_NOTIFY_NONE" value="none">
+                        <DESC>Do not notify user about received push messages.</DESC>
+                    </VALUE>
+                    <VALUE constName="PUSH_NOTIFY_ALERTS" value="alert">
+                        <DESC>Notify user with alerts inside of application UI only.</DESC>
+                    </VALUE>
+                    <VALUE constName="PUSH_NOTIFY_NOTIFICATIONS" value="notification">
+                        <DESC>Notify user using notification bar.</DESC>
+                    </VALUE>
+                    <VALUE constName="PUSH_NOTIFY_NOTIFICATIONS_AND_ALERTS" value="backgroundNotifications">
+                        <DESC>Notify user using notification bar if in background and with alerts in foreground.</DESC>
+                    </VALUE>
+                </VALUES>
+            </PROPERTY>
+
+            <PROPERTY name="pushServer" type="STRING" readOnly="true">
+                <DESC>URL of RhoConnect Push server.</DESC>
+            </PROPERTY>
+
+            <PROPERTY name="pushAppName" type="STRING" readOnly="true">
+                <DESC>Application name used by RhoConnect Push server to identify application.</DESC>
+            </PROPERTY>
+        </PROPERTIES>
+
+        <METHODS>
+            <METHOD name="enumerate" access="STATIC" hasCallback="optional">
+                <DESC>Returns the push API objects configured within the application.</DESC>
+                <RETURN type="ARRAY">
+                    <DESC>Array of available push engines.</DESC>
+                    <PARAM type="SELF_INSTANCE"/>
+                </RETURN>
+            </METHOD>
+
+            <METHOD name="getDeviceId" access="INSTANCE" hasCallback="optional">
+                <DESC>Returns push token used to identify particular device.</DESC>
+                <RETURN type="STRING"/>
+            </METHOD>
+
+            <METHOD name="startNotifications" access="INSTANCE" hasCallback="mandatory" runInThread="none">
+                <DESC>Start listening for push messages, errors or other push related events.</DESC>
+                <CALLBACK type="HASH">
+                    <DESC>Hash map with push message payload.</DESC>
+                    <PARAMS>
+                        <PARAM name="doSync" type="STRING">
+                            <DESC>List of sources to sync separated by comma or 'all'.</DESC>
+                        </PARAM>
+                        <PARAM name="alertText" type="STRING">
+                            <DESC>Alert message to show to user.</DESC>
+                        </PARAM>
+                        <PARAM name="vibrateDuration" type="INTEGER">
+                            <DESC>Vibrate duration in milliseconds.</DESC>
+                        </PARAM>
+                        <PARAM name="alertSound" type="STRING">
+                            <DESC>Path to sound file to play when push message is received.</DESC>
+                        </PARAM>
+                    </PARAMS>
+                </CALLBACK>
+            </METHOD>
+
+            <METHOD name="stopNotifications" access="INSTANCE" hasCallback="none">
+                <DESC>Stop listening push events.</DESC>
+            </METHOD>
+        </METHODS>
+
+        <USER_OVERVIEW>
+            <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
+            <![CDATA[]]>
+        </USER_OVERVIEW>
+
+        <EXAMPLES >
+            <EXAMPLE title="Handle push message">
+                <SECTIONS>
+                    <SECTION>
+                        <DESC>Start Push Notifications service and define alert popup window in push callback method.</DESC>
+                        <CODE>
+                            <RUBY>
+                                <![CDATA[
+def setup_push
+  # Start listening for push messages. Parameter is an url to push_callback method
+  Rho::Push.startNotifications(url_for(:action=>:push_callback))
+end
+
+
+def push_callback
+  # Show 'alert' popup window with push message text
+  Rho::Notification.showPopup({'message' => @params['alert'], 'buttons' =>['OK']})
+end
+                                ]]>
+                            </RUBY>
+                            <JAVASCRIPT>
+                                <![CDATA[
+function setupPush() {
+  // Start listening for push messages. Parameter is an url to push_callback method
+  Rho.Push.startNotifications(pushCallback);
+}
+
+function pushCallback(params) {
+  // Show 'alert' popup window with push message text
+  var propertyMap = {message: params["alert"], buttons: [{id: 'OK', title: 'OK'}]};
+  Rho.Notification.showPopup(propertyMap);
+}
+                                ]]>
+                            </JAVASCRIPT>
+                        </CODE>
+                    </SECTION>
+                </SECTIONS>
+            </EXAMPLE>
+        </EXAMPLES>
+    </MODULE>
+</API>

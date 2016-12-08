@@ -1,0 +1,413 @@
+<?xml version = "1.0"?>
+<API>
+		<MODULE name="SimulScan" parent="Rho" productException="eb">
+				<HELP_OVERVIEW>The SimulScan Document Capture is a software solution that enables customers to extract and process various types of information from documents. A single document may contain barcodes, text, image data and forms, using SimulScan Document Capture this data can be extracted programmatically using OCR, barcode decoding and image capture. For example, a driver's license can be thought of as a template containing regions such as name and address, signature and photo, each of these regions are processed and returned to RhoElements separately by SimulScan Document Capture so Optical Character Recognition captures the owners name and address whilst their photo is captured separately. These regions are defined by a template which maps the various regions of the document to the data they contain and can be created on-line at [The SimulScan Document Capture template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan Document Capture.
+				</HELP_OVERVIEW>
+				<HELP_OVERVIEW_EB>The SimulScan Document Capture is a software solution that enables customers to extract and process various types of information from documents. A single document may contain barcodes, text, image data and forms, using SimulScan Document Capture this data can be extracted programmatically using OCR, barcode decoding and image capture. For example, a driver's license can be thought of as a template containing regions such as name and address, signature and photo, each of these regions are processed and returned to the app separately by SimulScan Document Capture so Optical Character Recognition captures the owners name and address whilst their photo is captured separately. These regions are defined by a template which maps the various regions of the document to the data they contain and can be created on-line at [The SimulScan Document Capture template builder](https://dpx-uat.motorolasolutions.com/). This API is available only on Symbol Android devices with firmware supporting SimulScan Document Capture.
+				</HELP_OVERVIEW_EB>
+				<MORE_HELP>
+## Enabling the API
+In order to use this API you must include the following extension in your `build.yml`.
+
+	:::ruby
+	extensions: ["simulscan"]
+
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript.
+
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby.
+				</MORE_HELP>
+
+				<MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the SimulScan Document Capture API:
+
+* Include all ebapi modules or
+* Include only the API modules you need
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+		:::html
+		&lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the SimulScan Document Capture API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+		:::html
+		&lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+		&lt;script type="text/javascript" charset="utf-8" src="eb.simulscan.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+				</MORE_HELP_EB>
+
+				<TEMPLATES>
+						<DEFAULT_INSTANCE/>
+						<PROPERTY_BAG/>
+				</TEMPLATES>
+
+		<PROPERTIES>
+			<DESC>These properties are used to configure how the SimulScan Document Capture works, for example how feedback is provided to the user</DESC>
+			<PROPERTY name="template" type="STRING">
+				<DESC>The template XML which defines the document to be processed. This should be file URI to the template on the device. You must provide this property to define the form being captured and what is contained in each region on that form. Templates are specific to each document format you intend on capturing and can be created on-line at https://dpx-uat.motorolasolutions.com/.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="audioFeedback" type="BOOLEAN" default="true">
+				<DESC>Whether or not to provide audio feedback to the user following document processing.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="debug" type="BOOLEAN" default="false">
+				<DESC>If enabled, allows a session to write form capture, region images, region values, and other data to storage.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="hapticFeedback" type="BOOLEAN" default="true">
+				<DESC>Whether or not to provide haptic feedback to the user following document processing.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="autoImageCapture" type="BOOLEAN" default="true">
+				<DESC>If true, form will be captured automatically when detected. If false, user must manually tap screen or press trigger to capture the form.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="frameThreshold" type="INTEGER" default="15">
+				<DESC>Only used if autoImageCapture is enabled. The number of correct frames that is needed to pass before SimulScan Document Capture will automatically start to process form. This should be between 5 and 30.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="negativeFrameThreshold" type="INTEGER" default="2">
+				<DESC>Only used if autoImageCapture is enabled. Number of incorrect frames that is allowed to pass before the frame counter is reset for automatic image capture. This should be between 0 and 20.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="delayResultDisplay" type="BOOLEAN" default="false">
+				<DESC>If true, the success event will be sent only after the SimulScan Document Capture dialog is dismissed. If false, the event will be sent immediately after the results are ready. A false value is recommended unless direct interaction with the underlying application is necessary (e.g. keystroke input).</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="ledFeedback" type="BOOLEAN" default="true">
+				<DESC>Whether or not to provide LED feedback to the user following document processing.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="flashMode" type="STRING" default="off">
+				<DESC>Flash mode (off, on, disabled).</DESC>
+				<VALUES>
+					<VALUE constName="FLASH_OFF" value="off"><DESC>Turn flash off.</DESC></VALUE>
+					<VALUE constName="FLASH_ON" value="on"><DESC>Turn flash on.</DESC></VALUE>
+					<VALUE constName="FLASH_DISABLED" value="disabled"><DESC>Disable flash.</DESC></VALUE>
+				</VALUES>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="identificationTimeout" type="INTEGER" default="15000">
+				<DESC>The length of time, in milliseconds that the processing engine has to recognize the image from the provided template. From 0 to 20000 in increments of 100.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="inputSource" type="STRING" default="camera">
+				<DESC>Defines where the document should be captured from. The only supported source is camera.</DESC>
+				<VALUES>
+					<VALUE constName="SOURCE_CAMERA" value="camera">
+						<DESC>The document will be captured from the device camera. After calling the captureDocument method the camera preview will be presented, the user should place the document to be captured in the preview frame and press the soft button to capture &amp; process the image.
+						</DESC>
+					</VALUE>
+				</VALUES>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="templateDirectory" type="STRING" default="/sdcard/templates">
+				<DESC>Specify where to store downloaded templates. See [fetchTemplates()](#mfetchTemplates)</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="decodeAudioFeedback" type="STRING" default="system/media/audio/notifications/decode.wav">
+				<DESC>Specifies the decode sound (beep) that is heard when a form is decoded.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="logDirectory" type="STRING" default="/sdcard/SimulScanLog">
+				<DESC>Specify which directory to search for logs in.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="processingTimeout" type="INTEGER" default="10000">
+				<DESC>Amount of time in milliseconds to wait before timing out processing.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="version" type="STRING" access="STATIC" readOnly="true" generateAccessors="true">
+					<DESC>Version of SimulScan Document Capture engine.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+			<PROPERTY name="uiResultConfirmation" type="BOOLEAN" default="true">
+				<DESC>If enabled, shows a UI confirmation with results in SimulScan Document Capture View before sending results back to application.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</PROPERTY>
+		</PROPERTIES>
+
+		<METHODS>
+			<METHOD name="captureDocument" hasCallback="mandatory">
+				<DESC>Capture a document by either taking a photo of it and process that image for fields defined in the template. You must specify the template associated with the capture either through the template property or as part of the propertyMap when calling this method. If the document processing does not succeed the returned callback will contain failure description. If the captured document is processed successfully a callback will contain document data.
+				</DESC>
+				<CALLBACK type="HASH">
+					<DESC>SimulScan Document Capture engine calls the callback on any significant event. Look at callbackType parameter.</DESC>
+					<PARAMS>
+						<PARAM name="callbackType" type="STRING">
+							<DESC>Indicates whether the document was decoded successfully or not.</DESC>
+							<VALUES>
+								<VALUE constName="SUCCESS" value="success">
+									<DESC>The document was decoded and processed successfully and this callback contains information about the processed form. Look at processedForm parameter.</DESC>
+								</VALUE>
+								<VALUE constName="FAILURE" value="failure">
+									<DESC>An error has occurred whilst processing the document. Look at failureReason parameter.</DESC>
+								</VALUE>
+								<VALUE constName="STOP" value="stop">
+									<DESC>The processing is over. No more notifications until next captureDocument.</DESC>
+								</VALUE>
+							</VALUES>
+						</PARAM>
+						<PARAM name="failureReason" type="STRING">
+							<DESC>Describes reason for failure.</DESC>
+							<VALUES>
+								<VALUE constName="FAILURE_ERROR" value="error">
+									<DESC>SimulScan Document Capture engine generic error.</DESC>
+								</VALUE>
+								<VALUE constName="FAILURE_IDENTIFICATION_TIMEOUT" value="identificationTimeout">
+									<DESC>Identification timeout. Refer to identificationTimeout property.</DESC>
+								</VALUE>
+								<VALUE constName="FAILURE_PROCESSING_TIMEOUT" value="processingTimeout">
+									<DESC>Processing timeout. Refer to processingTimeout property.</DESC>
+								</VALUE>
+							</VALUES>
+						</PARAM>
+						<PARAM name="processedForm" type="HASH">
+							<PARAM name="template" type="HASH">
+								<PARAM name="name" type="STRING">
+									<DESC>The name of the template was used for recognition.</DESC>
+								</PARAM>
+								<PARAM name="number" type="INTEGER">
+									<DESC>The number of the template was used for recognition.</DESC>
+								</PARAM>
+							</PARAM>
+							<PARAM name="formCapture" type="HASH">
+								<PARAM name="name" type="STRING">
+									<DESC>The name of the template was used for recognition.</DESC>
+								</PARAM>
+								<PARAM name="image" type="HASH">
+									<DESC>The image of whole scanned form.</DESC>
+									<PARAM name="width" type="INTEGER">
+										<DESC>Width of scanned form in pixels.</DESC>
+									</PARAM>
+									<PARAM name="height" type="INTEGER">
+										<DESC>Height of scanned form in pixels.</DESC>
+									</PARAM>
+									<PARAM name="id" type="INTEGER">
+										<DESC>Id of scanned form image. Use getDataUri method to retrieve image data. The id is valid until close method is called.</DESC>
+									</PARAM>
+								</PARAM>
+							</PARAM>
+							<PARAM name="regions" type="ARRAY">
+								<PARAM name="group" type="STRING">
+									<DESC>The name of the group this region is found in, as defined in the template associated with the recognized region. It's optional parameter.
+									</DESC>
+								</PARAM>
+								<PARAM name="name" type="STRING">
+									<DESC>The name of the region, as defined in the template associated with the document.</DESC>
+								</PARAM>
+								<PARAM name="number" type="INTEGER">
+									<DESC>The number of the region, as defined in the template section associated with the recognized region.</DESC>
+								</PARAM>
+								<PARAM name="processingMode" type="STRING">
+									<DESC>The type of region which has been decoded.</DESC>
+									<VALUES>
+										<VALUE constName="PM_OCR" value="ocr">
+											<DESC>Optical Character Recognition. The region is a text field. The processedData parameter contains array of lines.
+											</DESC>
+										</VALUE>
+										<VALUE constName="PM_OMR" value="omr">
+											<DESC>Optical Mark Recognition. The region is a check box or radio box. The processedData parameter of this callback will contain a boolean value.
+											</DESC>
+										</VALUE>
+										<VALUE constName="PM_PICTURE" value="picture">
+											<DESC>The defined region was captured as a picture. No processedData parameter. Use the `image` callback property with the [getDataUri()](#mgetDataUri) to get a DataURI of the image.</DESC>
+										</VALUE>
+										<VALUE constName="PM_BARCODE" value="barcode">
+											<DESC>The region is a barcode and the decoded barcode data is given in the processedData parameter.</DESC>
+										</VALUE>
+									</VALUES>
+								</PARAM>
+								<PARAM name="processedData">
+									<DESC>The processed data contained in the specified region, this will depend on the type of region being captured. See the values of the `processingMode` parameter.
+									</DESC>
+								</PARAM>
+								<PARAM name="image" type="STRING">
+									<DESC>The image of region.</DESC>
+									<PARAM name="width" type="INTEGER">
+										<DESC>Width of region in pixels.</DESC>
+									</PARAM>
+									<PARAM name="height" type="INTEGER">
+										<DESC>Height of region in pixels.</DESC>
+									</PARAM>
+									<PARAM name="id" type="INTEGER">
+										<DESC>Id of region image. Use [getDataUri method](#mgetDataUri) to retrieve image data. Id is valid until the close method is called.</DESC>
+									</PARAM>
+								</PARAM>
+								<PARAM name="relativeOcrConfidence" type="INTEGER">
+									<DESC>Relative OCR confidence for processed data if applicable.</DESC>
+								</PARAM>
+								<PARAM name="absoluteOcrConfidence" type="INTEGER">
+									<DESC>Absolute OCR confidence for processed data if applicable.</DESC>
+								</PARAM>
+							</PARAM>
+						</PARAM>
+					</PARAMS>
+				</CALLBACK>
+				<PLATFORM>Android</PLATFORM>
+			</METHOD>
+			<METHOD name="fetchTemplates">
+				<DESC>Fetch templates from dedicated SimulScan Document Capture server and place into template directory. See [templateDirectory property](#ptemplateDirectory). The device must have access to the network and can access the [SimulScan Document Capture Template Builder Website](http://dpx-uat.motorolasolutions.com)</DESC>
+				<PARAMS>
+					<PARAM name="userName" type="STRING"><DESC>Username of the user.</DESC></PARAM>
+					<PARAM name="password" type="STRING"><DESC>Password of the user.</DESC></PARAM>
+				</PARAMS>
+				<PLATFORM>Android</PLATFORM>
+			</METHOD>
+			<METHOD name="getDataUri">
+					<DESC>Return data URI encoding of the raw image associated with the region or captured form, this allows the operator to easily verify that the captured data is accurate and if necessary perform any post processing changes by hand. To show the image on the HTML page insert the data URI  string into the src attribute of the img tag:
+
+		:::html
+		&lt;img src="dataURI string;"&gt;
+				</DESC>
+				<PARAMS>
+					<PARAM name="imageId" type="INTEGER">
+						<DESC>Id of image to retrieve. Ids are valid until close method call.</DESC>
+					</PARAM>
+				</PARAMS>
+				<PLATFORM>Android</PLATFORM>
+			</METHOD>
+			<METHOD name="close" destructor="true">
+				<DESC>Close SimulScan Document Capture engine, and release allocated resources. When capturing images, this is especially important since they are made available temporarily.</DESC>
+				<PLATFORM>Android</PLATFORM>
+			</METHOD>
+		</METHODS>
+
+		<USER_OVERVIEW>
+		</USER_OVERVIEW>
+		<VER_INTRODUCED>4.1.0</VER_INTRODUCED>
+		<PLATFORM>Android</PLATFORM>
+
+		<EXAMPLES>
+			<EXAMPLE title="Download Templates">
+				<SECTIONS>
+					<SECTION>
+						<DESC>Before you are able to process any documents with the SimulScan Document Capture engine, you must have template files loaded on the device. These template files must be located in an area that is open to both the SimulScan Document Capture Engine as well as your application. To retrieve the templates from the server, you would use the `fetchTemplates` method. This method will communicate with the SimulScan Document Capture back-end and download the templates to the folder that is specified by the [templateDirectory property](#ptemplateDirectory)</DESC>
+						<CODE>
+							<JAVASCRIPT>
+			 <![CDATA[
+function downloadSimulScanTemplates(user,password){
+	// If you include your SimulScan Document Capture template files in the applications public folder
+	// the SimulScan Document Capture engine will not be able to access them due to Android
+	// security policies
+
+	Rho.SimulScan.templateDirectory = 'file:///sdcard/Templates';
+	Rho.SimulScan.fetchTemplates(user,password);
+	templates = Rho.RhoFile.listDir(Rho.SimulScan.templateDirectory);
+	for (var i = 0; i < templates.length; ++i) {
+		console.log(templates[i]);
+	}
+}
+					 ]]></JAVASCRIPT>
+						</CODE>
+					</SECTION>
+				</SECTIONS>
+			</EXAMPLE>
+
+			<EXAMPLE title="Capture Document">
+				<SECTIONS>
+					<SECTION>
+						<DESC>The only requirement for capturing a document is to have the SimulScan Document Capture template file location set using the `SimulScan.template` property. This must be an absolute URI to the locale file. The location must also be in a folder that is openly available to both your application and the SimulScan Document Capture engine (i.e. it cannot be in the applications `public` folder)</DESC>
+						<CODE>
+							<JAVASCRIPT>
+			 <![CDATA[
+// POSTAL.XML was exported from the SimulScan Document Capture Template Builder
+// In the Template Builder there were several fields defined
+
+Rho.SimulScan.template = 'file:///sdcard/Templates/POSTAL.XML';
+
+// Once the captureDocument method is launched,
+// the SimulScan Document Capture Engine dialog appears instructing the
+// user to hold the device steady over the printed label
+// The callback function will be triggered possibly for
+// many reasons
+
+Rho.SimulScan.captureDocument(function(params){
+	if(params.callbackType == Rho.SimulScan.SUCCESS ){
+		// process the returned object:
+		var returnedField = params.processedForm;
+		processSimulScanForm(returnedField);
+	}
+
+	if(params.callbackType == Rho.SimulScan.FAILURE ){
+		if(params.failureReason == Rho.SimulScan.FAILURE_IDENTIFICATION_TIMEOUT){
+			// This means it could not identify the label based on the template used
+			// Possible reasons
+			//    -label is the wrong label
+			//    -Template is poorly defined
+			//      maybe scanned in image for defining was not high enough resolution
+			//    -camera cannot focus
+
+			// This may trigger multiple times and may not warrant display information
+			// in your app - the SimulScan Document Capture engine will prompt the user in most cases
+		}
+		if(params.failureReason == Rho.SimulScan.FAILURE_PROCESSING_TIMEOUT){
+			// This means it identified the form but could not process it
+			// Possible reasons
+			//    -Template is poorly defined
+			//      maybe scanned in image for defining was not high enough resolution
+			//    -Camera cannot focus or poorly lit
+
+			// This will trigger once and return focus to your application
+		}
+	}
+});
+					]]></JAVASCRIPT>
+						</CODE>
+					</SECTION>
+
+					<SECTION>
+						<DESC>Now we can loop through the `processedForm` object returned by the `captureDocument` method. Depending on how the template was defined will determine the type of information in this object. Typically the template will contain several regions that may be OCR (Text), OMR (Check-boxes), Barcode, Picture. It will only return regions that it was able to be processed.</DESC>
+						<CODE>
+							<JAVASCRIPT>
+			 <![CDATA[
+function processSimulScanForm(SimulScanForm){
+	var regions = SimulScanForm.regions;
+	for(i=0; i< regions.length; ++i){
+		switch(regions[i].processingMode){
+		case Rho.SimulScan.PM_OCR:
+			// The text that OCR translated into an array of lines
+			regionTextArray = regions[i].processedData;
+
+			//maybe do something with returned confidence
+			// PDXform.absoluteOcrConfidence
+			// PDXform.relativeOcrConfidence
+			break;
+		case Rho.SimulScan.PM_OMR:
+			// Checkbox region either True or False
+			regionBooleanCheckbox = regions[i].processedData;
+			break;
+		case Rho.SimulScan.PM_PICTURE:
+			// nothing in processedData
+			// Image held temporarily until Rho.SimulScan.close()
+			// use the id and the Rho.SimulScan.getDataUri method
+			regionImageURI = Rho.SimulScan.getDataUri(regions[i].image.id);
+			break;
+		case Rho.SimulScan.PM_BARCODE:
+			// Barcode data will be in processedData field
+			regionBarCode = regions[i].processedData;
+			break;
+		}
+	}
+}
+					 ]]></JAVASCRIPT>
+						</CODE>
+					</SECTION>
+				</SECTIONS>
+			</EXAMPLE>
+		</EXAMPLES>
+	</MODULE>
+</API>
