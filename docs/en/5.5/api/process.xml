@@ -1,0 +1,132 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Process" parent="Rho.System" generateUnderscoreRubyNames="true">
+        <HELP_OVERVIEW>This API is used to either navigate to a URL or call a javascript function when an attached card reader decodes data. Only the foreground application is given access to the card reader hardware, when an application is sent to the background its state will be saved and it will automatically relinquish control of the card reader. When brought back to the foreground, an application previously using the card reader will have its previous configuration (eg. pinTimeout) reapplied to the card reader automatically.</HELP_OVERVIEW>
+        <MORE_HELP>
+
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
+
+## JavaScript Usage
+Be sure to review the [JavaScript API Usage](/guide/api_js) guide for important information about using this API in JavaScript
+
+## Ruby Usage
+Be sure to review the [Ruby API Usage](/guide/api_ruby) guide for important information about using this API in Ruby
+        </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the Process API:
+
+* Include all ebapi modules or
+* Include only the API modules you need
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Process API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.process.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+        </MORE_HELP_EB>
+
+        <TEMPLATES>
+        </TEMPLATES>
+
+        <METHODS>
+            <METHOD name="runApplication" access="STATIC" factory="true">
+                <DESC>Run an application.</DESC>
+                <PARAMS>
+                    <PARAM name="appName" type="STRING">
+                        <DESC>The name of the application on the device to run.</DESC>
+                    </PARAM>
+                    <PARAM name="params" type="STRING">
+                        <DESC>The name of the application on the device to run.</DESC>
+                        <CAN_BE_NIL/>
+                    </PARAM>
+                    <PARAM name="blockingCall" type="BOOLEAN">
+                        <DESC>The name of the application on the device to run.</DESC>
+                        <CAN_BE_NIL>
+                            <DESC>False by default.</DESC>
+                        </CAN_BE_NIL>
+                    </PARAM>
+                </PARAMS>
+                <RETURN type="SELF_INSTANCE">
+                    <DESC>Process object.</DESC>
+                </RETURN>
+            </METHOD>
+
+            <METHOD name="waitForApplication">
+                <DESC>WaitForApplication.</DESC>
+            </METHOD>
+
+            <METHOD name="closeHandle">
+                <DESC>Close process handle.</DESC>
+            </METHOD>
+
+            <METHOD name="getProcessExitCode">
+                <DESC>GetProcessExitCode.</DESC>
+                <RETURN type="INTEGER">
+                    <DESC>Process exit code.</DESC>
+                </RETURN>
+            </METHOD>
+        </METHODS>
+
+        <USER_OVERVIEW>
+            <!--  More conversational style with INLINE SAMPLES, written in MarkDown -->
+            <!-- Wtf is going on here? -->
+            <![CDATA[
+        The following example sets up the card reader to call a javascript function upon successful decoding. The javascript
+        function will be called 3 times, once with the raw card data, once with just the pan data extracted
+        from the raw card data, and once with the encrypted pan data if the pin has been supplied by the
+        user within 10s.:</DESC>
+    <html><head>
+
+    <script language="javascript" type="text/javascript">
+        function doTransaction(data, mode)
+        {
+            switch(mode) {
+            case 'CR':
+                alert('Card: '+data);
+                break;
+            case 'ENCDATA':
+                alert('Encoded data: '+data);
+                break;
+            case 'MESSAGE':
+                alert('Error: '+data);
+                break;
+            case 'PAN':
+                alert('PAN data: '+data);
+                alert('Please turn the unit over and enter the PIN');
+                break;
+            }
+        }
+    </script>
+    </head>
+    <body>
+    </body>
+    </html>
+
+    You must have the appropriate drivers installed on your device to use the CardReader. You will see which drivers are installed in the RhoElements log file after you attempt to use any of the card reader functions in RhoElements. All necessary drivers should be included as part of the platform for supported devices.
+    ]]>
+        </USER_OVERVIEW>
+        <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+        <PLATFORM>WM, CE, Win32, Android, iOS, WP8</PLATFORM>
+        <PLATFORM_EB>WM, CE, Win32, Android</PLATFORM_EB>
+    </MODULE>
+</API>

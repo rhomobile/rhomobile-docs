@@ -1,0 +1,116 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+    <MODULE name="Timer" parent="Rho" productException="">
+        <HELP_OVERVIEW>The Timer API is used to create, start, stop and check the existence of timers.</HELP_OVERVIEW>
+        <MORE_HELP>
+## Enabling the API
+This API is part of the `coreapi` extension that is included automatically.
+    :::ruby
+    extensions: ["coreapi"]
+        </MORE_HELP>
+         <MORE_HELP_EB>
+## Enabling the API
+
+There are two methods of enabling the Timer API:
+
+* Include all 'ebapi' modules
+* Include only the API modules you need
+
+Both methods are explained below. 
+
+Either way, the included files will be found in: 
+`/Enterprise Browser/JavaScript Files/Enterprise Browser`,
+a directory on the computer that contains the Enterprise Browser installation.
+
+### Include all JS API modules
+To include all JavaScript APIs, copy the `ebapi-modules.js` file to a location accessible by your app's files and include the JavaScript modules file in your app. For instance, to include the modules file in your `index.html`, copy the file to the same directory as your index.html and add the following line to the HEAD section of your index.html file:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+&gt; This will define the EB class within the page. **Note that the path for this file is relative to the current page** (index.html). Any page on which the modules are required will need to have the required .js file(s) included in this fashion.
+
+### Include only the modules you need
+To include individual APIs, you must first include the `ebapi.js` in your HTML, and then the additional required API file(s). For instance, to use the Timer API, add the following code to the HTML file(s). Again, this assumes that relevant API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.timer.js"&gt;&lt;/script&gt;
+
+&gt; In the code lines above, notice that `ebapi.js` is included first, followed by `eb.timer.js`, which is the Timer API for Enterprise Browser. **This coding is required on each HTML page whenever an individual API will be called from that page**.
+
+        </MORE_HELP_EB>
+        <PLATFORM>WM, CE, Android, WP8, iOS, Win32</PLATFORM>
+        <PLATFORM_EB>WM, CE, Android</PLATFORM_EB>
+        
+        <METHODS>
+            <METHOD name="create" access="STATIC">
+                <RETURN type="SELF_INSTANCE" />
+                <DESC>Create timer object(s).</DESC>
+            </METHOD>
+
+            <METHOD name="start" access="INSTANCE" hasCallback="mandatory">
+              <PARAMS>
+              	<PARAM name="interval" type="INTEGER">
+                  <DESC>timer interval in ms</DESC>
+                </PARAM>                               
+              </PARAMS>
+              <CALLBACK type="STRING">
+              </CALLBACK>
+              <DESC>Start timer with preset interval. Callback fired one time only.</DESC>
+            </METHOD>
+
+            <METHOD name="stop" access="INSTANCE">
+              <DESC>Stop the timer.</DESC>
+            </METHOD>
+
+            <METHOD name="isAlive" access="INSTANCE">
+              <DESC></DESC>
+              <RETURN type="BOOLEAN">
+                <DESC>Return alive state of a timer. If callback doesn't return true, returns false.</DESC>
+              </RETURN>
+            </METHOD>
+
+        </METHODS>
+
+        <USER_OVERVIEW>
+        </USER_OVERVIEW>
+
+        <VER_INTRODUCED>5.1.0</VER_INTRODUCED>
+        <PLATFORM>
+         </PLATFORM>
+           <EXAMPLES>
+            <EXAMPLE title="Examples">
+                <SECTIONS>
+                    <SECTION>
+                      <DESC>Implementation of the timer API.</DESC>
+                        <CODE>
+                        <JAVASCRIPT> 
+           // Create a timer and catch callback after the specified interval:
+           
+            var timerCallback = function() {
+                alert("callback called");
+            }                                              
+
+            var timer = Rho.Timer.create();
+            timer.start(5000, timerCallback);
+            
+            Create a timer, start and stop:
+            var timerCallback = function() {
+                alert("callback called");
+            }                                              
+
+            var timer = Rho.Timer.create();
+            timer.start(5000, timerCallback);
+            setTimeout(function() {
+                    timer.stop();
+                },3000);
+              </JAVASCRIPT>
+                        </CODE>
+                        </SECTION>
+                  </SECTIONS>
+                   </EXAMPLE>
+         </EXAMPLES>
+    </MODULE>
+</API>

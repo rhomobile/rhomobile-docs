@@ -1,0 +1,155 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+<API>
+  <MODULE name="Record" parent="Rho.NFC" productException='eb'>
+    <HELP_OVERVIEW>NFC Record</HELP_OVERVIEW>
+    <MORE_HELP>This class representative Record object
+# Enabling the API
+In order to use this API you must include the following extension in your `build.yml`
+    :::ruby
+    extensions: ["nfc"]
+
+NOTE: If you are building a Windows Mobile or Windows CE app with this API, you must set your app_type as "rhoelements" in your build.yml as shown [here](../guide/build_config#other-build-time-settings).
+    </MORE_HELP>
+        <MORE_HELP_EB>
+## Enabling the API
+There are two methods of enabling the Record API: 
+
+* Include all ebapi modules or 
+* Include only the API modules you need 
+
+For either of these methods, you'll need to include files from the `/Enterprise Browser/JavaScript Files/Enterprise Browser` directory on the computer that you installed the Enterprise Browser.
+
+### Include all JS API modules
+To include all JS APIs, you must copy the ebapi-modules.js file to a location accessible by your app's files and include the JavaScript file in your app. For instance, to include the modules file in your index.html, with the file in the same directory as your index.html, you would add the following line to the &lt;head&gt; section of your index.html:
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi-modules.js"&gt;&lt;/script&gt;
+
+> Note: that the pathing for this file is relative to the current page.
+
+This will define the EB class within the page. Any page you need to use the modules will need to have the .js file included in this fashion.
+
+### Include only the modules you need
+To include single APIs, you must first include the `ebapi.js` in your HTML as well as the API file you want to use. For instance, to use the Record API, I would add the following code to my HTML file(s), assuming the API files have been copied to the same directory as the HTML.
+
+    :::html
+    &lt;script type="text/javascript" charset="utf-8" src="ebapi.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8" src="eb.record.js"&gt;&lt;/script&gt;
+
+The ebapi.js file is necessary for all single API inclusions.
+
+        </MORE_HELP_EB>
+
+    <TEMPLATES>
+    </TEMPLATES>
+
+    <PROPERTIES access="INSTANCE" generateAccessors="true">
+      <DESC>List of properties supported by class.</DESC>
+
+      <PROPERTY name="ID" type="STRING" readOnly="true">
+        <DESC>Object ID.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="recordId" type="STRING">
+        <DESC>Optional field for NFC_NDEF_RTD_GENERAL record type.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+      
+      <PROPERTY name="type" type="INTEGER">
+        <DESC>Record type. This property will be ignored in read tag mode. If you create a record you should set this property firstly.</DESC>
+        <VALUES>
+          <VALUE constName="NDEF_RTD_TEXT" type="INTEGER" value = "1">
+            <DESC>A text type record.</DESC>
+          </VALUE>
+          <VALUE constName="NDEF_RTD_URI" type="INTEGER" value = "2">
+            <DESC>A URI type record.</DESC>
+          </VALUE>
+          <VALUE constName="NDEF_RTD_GENERAL" type="INTEGER" value = "3">
+            <DESC>A generic type record.</DESC>
+          </VALUE>
+        </VALUES>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="typeName" type="STRING">
+        <DESC>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically. For values see NFC Forum.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="tnf" type="INTEGER">
+        <DESC>When you create a new record then this field is needed for NFC_NDEF_RTD_GENERAL, for another types it will be set automatically.</DESC>
+        <VALUES>
+          <VALUE constName="NDEF_TNF_EMPTY" type="INTEGER" value = "1">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_WELL_KNOWN" type="INTEGER" value = "2">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_MEDIA" type="INTEGER" value = "3">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_ABSOLUTE_URI" type="INTEGER" value = "4">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_EXTERNAL" type="INTEGER" value = "5">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_UNKNOWN" type="INTEGER" value = "6">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_UNCHANGED" type="INTEGER" value = "7">
+            <DESC></DESC>
+          </VALUE>
+          <VALUE constName="NDEF_TNF_ANY_TYPE" type="INTEGER" value = "8">
+            <DESC></DESC>
+          </VALUE>
+        </VALUES>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="textLanguage" type="STRING">
+        <DESC>Use if record type is NFC_NDEF_RTD_TEXT. This property will be ignored in read tag mode. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="textCharEncoding" type="INTEGER">
+        <DESC>Use if record type is NFC_NDEF_RTD_TEXT. Values see NFC Forum. For example UTF-8 is 2 and it will be set by default. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="uriProtocol" type="INTEGER">
+        <DESC>Use if record type is NFC_NDEF_RTD_URI. For values please see NFC Forum. This property will be ignored in read tag mode, you should find it in a payload.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+
+      <PROPERTY name="payload" type="STRING">
+        <DESC>Record payload(data buffer).</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </PROPERTY>
+    </PROPERTIES>
+
+    <METHODS>
+      <METHOD name="create" access="STATIC">
+        <DESC>Creates record.</DESC>
+        <RETURN type="Rho.NFC.Record">
+          <DESC>Record object.</DESC>
+        </RETURN>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+
+      <METHOD name="close">
+        <DESC>Release resources.</DESC>
+        <PLATFORM>WM</PLATFORM>
+      </METHOD>
+    </METHODS>
+
+    <USER_OVERVIEW>
+    </USER_OVERVIEW>
+
+    <VER_INTRODUCED>1.0.0</VER_INTRODUCED>
+    <PLATFORM>
+    </PLATFORM>
+  </MODULE>
+</API>
