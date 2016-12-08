@@ -115,4 +115,4 @@ If your application requires local (on-device) database encryption, enable it by
 * Windows Mobile uses an RC4 algorithm from Windows Mobile SDK.
 
 
-**NOTE: [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is no longer available as of Rhodes 3.3.3 and higher. This feature is now supported only in Zebra RhoMobile Suite and requires the purchase of a [RhoElements license](licensing).**
+**NOTE: [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is no longer available as of Rhodes 3.3.3 and higher.**

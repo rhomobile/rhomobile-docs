@@ -4,7 +4,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.5, which are recomm
 ## 5.5 APIs
 <div class="alert alert-warning">
   <p>
-    <span class="icon-check icon-primary icon-inverse"  rel="tooltip" title="Supported and does NOT requires a license"></span>
+    <span class="icon-check icon-primary icon-inverse"  rel="tooltip" title="Supported"></span>
     - API/platform is supported
   </p>
   <p>
@@ -182,7 +182,7 @@ Below is a list of the new common APIs for RhoMobile Suite 5.5, which are recomm
         <a href="../api/cardreader">CardReader<img src="/img/zebra-logo.png" style="height: 16px;padding-top: 0px;padding-left:3px" rel="tooltip" title="Zebra Devices Only">
       </td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
-      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check-empty icon-primary"  rel="tooltip" title="Requires License"></span></td>
+      <td style="text-align:center;border-right:thin solid #cccccc;" class=" "><span class="icon-check-empty icon-primary"  rel="tooltip"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "><span class="icon-check icon-primary"></span></td>
       <td style="text-align:center" class=" "></td>

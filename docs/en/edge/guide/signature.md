@@ -11,7 +11,7 @@ Example:
 **NOTE: To take signature on Blackberry devices, press the Menu button, then select 'Capture'.**
 
 ### Inline Signature Capture
-**NOTE: As of Rhodes version 3.3.3, the Inline Signature API is removed from Rhodes. This feature is only supported in Zebra RhoMobile Suite. If you wish to use this feature, you will need to [upgrade to RhoMobile Suite](rhomobile-install). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](../../2.2.0/rhoelements/rhoelements2-native#enabling-motorola-device-capabilities). Additionally, a [RhoElements license](../../2.2.0/rhoelements/licensing) is required.**
+**NOTE: As of Rhodes version 3.3.3, the Inline Signature API is removed from Rhodes.**
 
 Windows Mobile and Windows CE devices support signature capture started in window, which you can show over the current page (scrolling is not supported in this case). 
 

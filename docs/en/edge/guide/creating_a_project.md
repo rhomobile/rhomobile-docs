@@ -164,9 +164,6 @@ The application will start inside RhoSimulator with a different look depending o
 
 ![img](http://s3.amazonaws.com/rhodocs/rhostudio-tutorial/rhosimulator-web-inspector-4.0.png)
 
-##Licensing
-When attempting your first build, a prompt will appear asking for rhomobile.com login credentials. All versions of RhoMobile Suite require registration at rhomobile.com. Licensees of Rhodes / RhoElements also must apply their license to the software before first time use. For more information, please refer to our [licensing guide](licensing).
-
 ## Related reading
 Now that your first application is ready to run, there are some other topics you should become familiar with:
 

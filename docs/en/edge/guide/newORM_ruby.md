@@ -691,7 +691,7 @@ If models are set, then reset only selected models:
 
 ## Database Encryption
 
-**NOTE: [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is no longer available as of Rhodes 3.3.3 and higher. This feature is now supported only in Zebra RhoMobile Suite and requires the purchase of a [RhoElements license](licensing). Your application's build.yml will also need to be modified to [indicate the application type is 'Rhoelements'](build_config#other-build-time-settings). Additionally, a [RhoElements license](licensing) is required. **
+**NOTE: [Rhom data encryption](../../2.2.0/rhodes/rhom#database-encryption) is no longer available as of Rhodes 3.3.3 and higher.**
 
 If the application requires local (on-device) database encryption, enable it by setting a flag in `build.yml`:
 

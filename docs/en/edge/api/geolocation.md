@@ -49,8 +49,6 @@ You must enable JavaScript by putting `rho-javascript` into extensions in your b
     :::yaml
     extensions: ["rho-javascript"]
 
-You must have a [RhoElements license](../guide/licensing) to use the JavaScript API.
-
 <a name="methods"></a>
 <h2><i class="icon-cog"></i>Methods</h2>
 <a name="accuracy"></a>
