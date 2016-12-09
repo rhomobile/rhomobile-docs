@@ -10,7 +10,7 @@ section 'getting-started',                'Introduction','Mobile Guides' do
   topic 'en/5.5/guide/apiusage',         '2.2 Migration Guide'
   topic 'en/5.5/guide/api_js',           'RhoMobile JavaScript Usage'
   topic 'en/5.5/guide/api_ruby',         'RhoMobile Ruby Usage'
-  topic 'en/5.5/guide/licensing',        'Licensing'
+  #topic 'en/5.5/guide/licensing',        'Licensing'
 end
 
 section 'rhodescommonapi-reference',                                'API Reference','Mobile API Docs' do
@@ -220,7 +220,7 @@ end
 section 'rhoconnect-administration',             'Administration','RhoConnect Guides' do
   topic 'en/5.5/rhoconnect/settings',           'RhoConnect Settings'
   topic 'en/5.5/rhoconnect/web-console',        'Admin Web Interface'
-topic 'en/hosted/guide/licensing-rhoconnect',    'Licensing your RhoConnect App'
+  #topic 'en/hosted/guide/licensing-rhoconnect',    'Licensing your RhoConnect App'
   topic 'en/5.5/rhoconnect/benchmarks',         'Rhoconnect Benchmarking'
   topic 'en/5.5/rhoconnect/benchmarks-running', 'Running Rhoconnect Benchmarks'
   topic 'en/5.5/rhoconnect/stats-middleware',   'Collecting Runtime Stats'

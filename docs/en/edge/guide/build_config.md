@@ -168,12 +168,6 @@ The following are some non-default settings that you may add to the build.yml in
         <th>Example</th>
     </tr>
     <tr>
-        <td class="clsEvenRow">App Type</td>
-        <td class="clsEvenRow">If you are building an app for Windows Mobile or Windows CE you must specify the app_type as "rhoelements" in your build.yml file. By default, this value does not exist in the build.yml and is only necessary to specify a RhoElements licensed app.</td>
-        <td class="clsEvenRow">"rhoelements"</td>
-        <td class="clsEvenRow">app_type: "rhoelements"</td>
-    </tr>
-    <tr>
         <td>Android Title</td>
         <td>If you want your app to hide the default Android title bar, you need to set <code>android_title</code> to '0' in your build.yml file.</td>
         <td>0 - Hidden</br>1 - Visible</td>
