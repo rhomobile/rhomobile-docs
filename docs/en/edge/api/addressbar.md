@@ -36,11 +36,6 @@
 	</ul>
 </div>
 
-<!-- Licensing Button -->
-<div class="btn-group">
-	<a href="#License" class="btn"><i class="icon-shopping-cart"></i> Licensing</a>
-</div>
-
 <div id="apibody" style="overflow:auto;padding-right: 5px;">
 
 	<p>The AddressBar Module is used to set the parameters of the address bar. The address bar should only be used for debugging Hybrid applications and is not designed to be used as a replacement for a web browser address bar. Press the 'Go' button or enter key to navigate to the typed URI.</p>
@@ -395,10 +390,4 @@ function addressBarWidth(percent){
 			</div>
 		</div>
 
-	<!-- Licensing -->
-	<a name='License'></a>
-	<h2><i class='icon-shopping-cart'></i>Licensing</h2>
-	<div class="accordion" id="accordion">
-		You can fully use all features of this API during evaluation, development or testing without obtaining a license. A message will be displayed on application startup and will also display a nag screen periodically. Before deploying an application to a production environment, you must obtain a license key. <a href='/guide/licensing'>Read more about licensing</a>.
-	</div>
 </div>

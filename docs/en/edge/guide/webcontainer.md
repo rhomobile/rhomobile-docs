@@ -37,28 +37,13 @@ By default the following APIs are included when building any application:
 
 These APIs are noted on their individual API reference pages under the extension: `coreapi`. You do not need to specify including this as it will automatically be included
 
-### Licensed APIs
-A group of APIs that are available under the `RhoElements` package require a license. [Read More](licensing) about licensing. 
-
-By including the following extension in the `build.yml` file you will enable the associated set(s) of APIs:
+### Other APIs
+The following APIs are not included by default and can be included by specifying the proper `extension` in the `build.yml`:
 
 * `extensions: ["barcode"]' - [Barcode](../api/barcode)
 * `extensions: ["cardreader"]' - [CardReader](../api/cardreader)
 * `extensions: ["hardwarekeys"]' - [KeyCapture](../api/keycapture)
 * `extensions: ["indicators"]' - [Battery](../api/battery), [KeyState](../api/keystate), [SignalIndicators](../api/signalindicators)
- 
-Alternatively, they can all be included by adding the following to your `build.yml` file:
-
-    :::yaml
-    app_type: "rhoelements"
-
-Or you can include specific groups by specifying a set of them:
-    :::yaml
-    extensions: ["barcode","indicators"]
-
-### Other APIs not requiring a license
-The following APIs are not included by default and can be included by specifying the proper `extension` in the `build.yml`:
-
 * [MediaPlayer](../api/mediaplayer): `extensions: ["mediaplayer"]`
 * [ScreenOrientation](../api/screenorientation): `extensions: ["screenorientation"]`
 * [Sensor](../api/sensor): `extensions: ["sensor"]`

@@ -168,12 +168,6 @@ The following are some non-default settings that you may add to the build.yml in
         <th>Example</th>
     </tr>
     <tr>
-        <td class="clsEvenRow">App Type</td>
-        <td class="clsEvenRow">If you are building an app for Windows Mobile or Windows CE you must specify the app_type as "rhoelements" in your build.yml file. By default, this value does not exist in the build.yml and is only necessary to specify a RhoElements licensed app.</td>
-        <td class="clsEvenRow">"rhoelements"</td>
-        <td class="clsEvenRow">app_type: "rhoelements"</td>
-    </tr>
-    <tr>
         <td>Android Title</td>
         <td>If you want your app to hide the default Android title bar, you need to set <code>android_title</code> to '0' in your build.yml file.</td>
         <td>0 - Hidden</br>1 - Visible</td>
@@ -193,7 +187,7 @@ The following are some non-default settings that you may add to the build.yml in
                 &nbsp;&nbsp;js: yes<br/>
                 &nbsp;&nbsp;css: yes<br/>
                 &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
-                NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when obfuscation is enabled, because the obfuscated versions of these libraries are there already.</td>
+                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are obfuscated already.</td>
         <td>If JavaScript or CSS code obfuscation is not required, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
         <td>
           obfuscate:<br/>
@@ -209,14 +203,13 @@ The following are some non-default settings that you may add to the build.yml in
                 &nbsp;&nbsp;js: true<br/>
                 &nbsp;&nbsp;css: true<br/>
                 &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]</code>
-                NOTE: The <code>jqmobile</code>, <code>jqtouch</code>, and <code>jquery</code> folders <b>must</b> be excluded when minification is enabled.
+                NOTE: Add to <code>exclude_dirs</code> all javascript libraries that are minimized already.</td>
         </td>
         <td class="clsEvenRow">If JavaScript or CSS code minification is not wanted, then just omit <code>js</code> or <code>css</code> line accordingly.</td>
         <td class="clsEvenRow">
           minify:<br/>
           &nbsp;&nbsp;js: false<br/>
           &nbsp;&nbsp;css: false<br/>
-          &nbsp;&nbsp;exclude_dirs: ["jqmobile", "jqtouch", "jquery"]
         </td>
     </tr>
     <tr>

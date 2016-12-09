@@ -37,10 +37,17 @@ After you install the gem and your desired SDKs, you need to run:
 This will prompt you for where you installed the SDKs for the various platforms.  The installation script will display its best guess as to where the SDK is. You can then enter a new location, or leave it blank to use the suggestion. If you are not building for a specific platform (for example, you can't build for the iPhone on Windows), you can leave that SDK location blank.
 
 ## Generating A Rhodes Application
-The first step is to generate the application and base files.  First we will generate an application called StoreManager with the following command:
+The first step is to generate the application and base files.  First we will generate an application called StoreManager.
+
+For generating the ruby-based application use the following syntax:
 
 	:::term
 	$ rhodes app storemanager http://localhost:9292/application
+	
+For generating the javascript-based application use the following syntax:
+
+	:::term
+	$ rhodes jsapp storemanager http://localhost:9292/application	
 
 This will generate an application directory called "storemanager" with several files.  Note also that the third argument above is the URL to the RhoConnect server data source (required if you want to do synchronized data as we describe in the next section).  Specifically it will set the rhoconfig.txt file to have the following option:
 
@@ -53,9 +60,12 @@ If you do not need synchronized offline data, you can leave the third argument o
 The default home screen of the app is defined in the storemanager/app/index.erb file.  You can edit the HTML there to create what your app displays.  You can link to other HTML files and ERB files from there with standard HTML techniques.
 
 ## Generating Models
-You can also use the command line to add models and controllers. When the model is generated, Rhodes will also create files for a standard UI for displaying and editing the model. This follows the standard model-view-controller paradigm.Get more details on [project structure](creating_a_project#project-structure).
+You can also use the command line to add models and controllers. When the model is generated, Rhodes will also create files for a sample UI for displaying and editing the model. For a ruby-based application this follows the standard model-view-controller paradigm. For a javascript-based application sample UI is built on pure javascript and jquery.  You can use any javascript frontend web application framework like Angular, Ember, Backbone etc. Get more details on [project structure](creating_a_project#project-structure).
 
 Let's generate a model called "product" and give it some attributes.
+
+
+Ruby-based models
 
 	:::term
 	$ cd storemanager
@@ -68,6 +78,19 @@ Let's generate a model called "product" and give it some attributes.
 		[ADDED]  app/Product/product_controller.rb
 		[ADDED]  app/Product/product.rb
 		[ADDED]  app/test/product_spec.rb
+		
+Javascript-based models
+
+	:::term
+	$ cd storemanager
+	$ rhodes jsmodel product brand,name,price,quantity,sku
+    Generating with jsmodel generator:
+        [ADDED]  app/Product/index.html
+        [ADDED]  app/Product/index.js
+        [ADDED]  app/Product/model.js
+        [ADDED]  app/Product/new.html
+        [ADDED]  app/Product/show.html
+        [ADDED]  app/Product/edit.html	
 
 > Note: Models created through the command-line-interface will use the [property bag data schema](rhom_ruby#property_bag) by default. To use Fixed Schema instead, have a look at the [fixed schema section](rhom_ruby#fixed_schema) of our [Rhom in Ruby guide](rhom_ruby).
 

@@ -1,0 +1,15 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="pb_help.xsl"?>
+
+<SINGLETON_INSTANCES>
+	<METHODS>
+	    <METHOD name="enumerate" access="STATIC" hasCallback="optional" factory="true">
+			<DESC>This is documentation</DESC>
+
+            <RETURN type="ARRAY" itemType="SELF_INSTANCE">
+                <DESC>Array of objects.</DESC>                
+                <PARAM type="SELF_INSTANCE"/>
+            </RETURN>
+        </METHOD>
+    </METHODS>
+</SINGLETON_INSTANCES>

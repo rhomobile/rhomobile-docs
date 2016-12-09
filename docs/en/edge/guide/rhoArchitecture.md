@@ -277,8 +277,6 @@ Memory constraints are important to consider, particularly when targeting the ol
 
 * Don't rely too heavily on performance tests for JavaScript and CSS found online unless they're written specifically for mobile devices
 
-* To maximize performance, JQueryMobile is not included in Windows Mobile/CE devices by default
-
 * An active [RhoMobile developer community](https://developer.motorolasolutions.com) offers forums, blogs, webinars and other useful resources to aid in your development efforts 
 
 
@@ -291,8 +289,6 @@ Memory constraints are important to consider, particularly when targeting the ol
 * **The MC3190-Z and MC9190-Z devices require an [RFID plugin](../../2.2.0/rhoelements/rfid) to be installed separately**. This plug-in was originally developed for RhoElements version 2.2 but is still supported.
 
 * **Only local deveopment is supported for Micro Kiosk (MK) devices**. Zebra development options for supported MK devices include [RhoMobile Suite](http://rhomobile.com/) and [Enterprise Browser](http://goo.gl/V9zMxD). The use of [RhoMobile.com](../../hosted/guide/remote-build-guide) is not supported for building apps for MK devices. 
-
-* **When using JQM transitions on Windows Mobile or Windows CE devices**, you may notice that the transition animations do not occur. This is due to insufficient processing resources on the device.
 
 <br>
 
